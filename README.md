@@ -1,14 +1,47 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-H21 | ESP32-H4 | ESP32-P4 | ESP32-S2 | ESP32-S3 | Linux |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | --------- | -------- | --------- | -------- | -------- | -------- | -------- | ----- |
+| Supported Targets | ESP32-P4 | ESP32-S3 |
+| ----------------- | -------- | -------- |
 
-# Hello World Example
+# Customizable ESP32 Bordcomputer
 
-Starts a FreeRTOS task to print "Hello World".
+The intention of this project is to build a customizable Bordcomputer for old vehicles like the BMW E36. Normaly this car could have a boardcomputer providing by BMW which shows something like the average gasoline consumption or broke light bulbs. Another option is a multifunctional clock which shows the date, time and temperature. There is no possibility to show the current oil temperature or pressure.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+The aim of this project is to replace the standard bordcomputer by an own build computer which shows the actual oil temperature, pressure, voltage and the clock/termperature.
 
-## How to use example
+The version for the E36 is build with four displays. Each shows an own gauge for the measurements. The number of gauges is adjustable. The amount or type of display can get adjusted. The design can get adjusted, too.
 
+# Overall Hardware:
+
+The project uses a fast ESP32P4 which is connected to all the periphers.
+The following elements are used for the E36 boardcomputer:
+- ESP32P4 - WT9932P4-TINY
+- 4x 1.28 Inch Round TFT LCD Display Module (240x240 RGB) with GC9A01 Driver (https://de.aliexpress.com/item/1005009364283361.html?spm=a2g0o.order_list.order_list_main.10.2d425c5foxNjLr&gatewayAdapt=glo2deu)
+- Customized PCB Board to connect the Displays and the other periphery with the ESP (Uploaded in hardware directory of this project)
+- 5V buzzer to idenicate the outdoor temperature under 3°C
+- 2x buttons for changing the current time
+- 12v to 5v converter
+- BMW oil temperature and pressure sensor using a pwm signal to send the sensor values (Hella 6PP 010 378-201) - connected to the engine
+
+The datasheets of the used elements are provided in the directory datasheet
+
+# Software
+
+- FreeRTOS tasks to schedule the different operations
+- LVGL designs for the gauges
+- PWM reading of the sensor
+
+## How to flash
+
+
+
+
+
+
+
+
+
+
+
+## ESP Help
 Follow detailed instructions provided specifically for this example.
 
 Select the instructions depending on Espressif chip installed on your development board:
