@@ -59,7 +59,7 @@ void create_screen_gauge() {
             // gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.gauge_image = obj;
-            lv_obj_set_pos(obj, 84, 66);
+            lv_obj_set_pos(obj, 85, 66);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_volt);
             lv_img_set_zoom(obj, 160);
@@ -128,7 +128,7 @@ void create_screen_gauge() {
             lv_obj_set_scroll_snap_x(obj, LV_SCROLL_SNAP_NONE);
             lv_obj_set_scroll_snap_y(obj, LV_SCROLL_SNAP_NONE);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xffff5a00), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_opa(obj, 20, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffff5a00), LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
@@ -196,6 +196,17 @@ void create_screen_gauge() {
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xfffe6600), LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
+        }
+        {
+            // gauge_unit_1
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.gauge_unit_1 = obj;
+            lv_obj_set_pos(obj, 95, 70);
+            lv_obj_set_size(obj, 50, LV_SIZE_CONTENT);
+            lv_obj_set_style_text_color(obj, lv_color_hex(0xffff5a00), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text(obj, "V");
         }
     }
     

@@ -15,7 +15,7 @@ extern "C" {
 // Flow global variables
 
 enum FlowGlobalVariables {
-    FLOW_GLOBAL_VARIABLE_LVGL_VALUE_OIL_PRESSURE = 0
+    FLOW_GLOBAL_VARIABLE_NONE
 };
 
 // Native global variables

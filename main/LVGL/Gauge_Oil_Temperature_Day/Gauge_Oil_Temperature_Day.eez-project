@@ -263,6 +263,8 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "locked": false,
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "gauge_image",
@@ -601,6 +603,7 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "gauge_value",
@@ -654,6 +657,7 @@
                 "conditionalStyles": [],
                 "childStyles": []
               },
+              "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
               "identifier": "gauge_unit",
@@ -764,6 +768,59 @@
               "bgEndAngle": 40,
               "mode": "NORMAL",
               "rotation": 0
+            },
+            {
+              "objID": "a20090bb-027b-4391-b50e-fa0a8da42527",
+              "type": "LVGLLabelWidget",
+              "left": 95,
+              "top": 70,
+              "width": 50,
+              "height": 26,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "eda11f45-f74c-4f2e-b320-43801daeff07",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": true,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "gauge_unit_1",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "CLICK_FOCUSABLE|GESTURE_BUBBLE|PRESS_LOCK|SCROLLABLE|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_WITH_ARROW|SNAPPABLE",
+              "hiddenFlagType": "literal",
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "",
+              "flagScrollDirection": "",
+              "scrollSnapX": "",
+              "scrollSnapY": "",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "959fc925-d823-4d6a-b9ff-a4e0e70267b2",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "text_color": "#ffffff",
+                      "text_font": "Oswald_22",
+                      "text_align": "CENTER"
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "text": "°C",
+              "textType": "literal",
+              "longMode": "WRAP",
+              "recolor": false
             }
           ],
           "widgetFlags": "CLICKABLE|PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER",
@@ -794,47 +851,7 @@
   "userWidgets": [],
   "lvglStyles": {
     "objID": "a31bd004-35c5-b3fb-5c8b-78ea5c7693b8",
-    "styles": [
-      {
-        "objID": "f6b5213e-7e9a-4dbd-c685-4c518d3f60fa",
-        "name": "Gauge_Day",
-        "forWidgetType": "LVGLMeterWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "21ab9a94-950c-4417-eabe-3076ed99e6ec",
-          "definition": {
-            "MAIN": {
-              "DEFAULT": {
-                "bg_color": "#000000"
-              }
-            },
-            "TICKS": {
-              "DEFAULT": {
-                "bg_color": "#ffffff"
-              }
-            }
-          }
-        }
-      },
-      {
-        "objID": "dcb159e9-7503-43a4-d830-3683c0cd8021",
-        "name": "Gauge_Night",
-        "forWidgetType": "LVGLMeterWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "db81ba64-8261-48c9-d544-24cead63b5c4"
-        }
-      },
-      {
-        "objID": "c7cf8400-8d38-4352-a758-4d4fb8da328f",
-        "name": "Digits",
-        "forWidgetType": "LVGLLabelWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "c4389acc-ef72-43d6-a249-4e022c65fed9"
-        }
-      }
-    ],
+    "styles": [],
     "defaultStyles": {}
   },
   "lvglGroups": {

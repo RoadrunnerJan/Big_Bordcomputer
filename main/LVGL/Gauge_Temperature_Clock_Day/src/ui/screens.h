@@ -19,6 +19,7 @@ typedef struct _objects_t {
     lv_obj_t *gauge_value;
     lv_obj_t *gauge_unit;
     lv_obj_t *needle_arc;
+    lv_obj_t *gauge_unit_1;
 } objects_t;
 
 extern objects_t objects;

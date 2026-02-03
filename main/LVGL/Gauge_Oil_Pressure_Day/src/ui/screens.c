@@ -197,6 +197,17 @@ void create_screen_gauge() {
             lv_obj_set_style_bg_color(obj, lv_color_hex(0xfffe6600), LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
         }
+        {
+            // gauge_unit_1
+            lv_obj_t *obj = lv_label_create(parent_obj);
+            objects.gauge_unit_1 = obj;
+            lv_obj_set_pos(obj, 95, 70);
+            lv_obj_set_size(obj, 50, LV_SIZE_CONTENT);
+            lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_label_set_text(obj, "bar");
+        }
     }
     
     tick_screen_gauge();
