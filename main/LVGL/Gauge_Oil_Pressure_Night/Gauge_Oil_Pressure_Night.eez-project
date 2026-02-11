@@ -96,7 +96,7 @@
       "imageExportMode": "source",
       "fontExportMode": "source",
       "fileSystemPath": "",
-      "lvglInclude": "lvgl/lvgl.h",
+      "lvglInclude": "../lvgl.h",
       "screensLifetimeSupport": false,
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
@@ -111,6 +111,14 @@
         "objID": "05080f3f-f751-4569-faaf-8cd1677d72ee",
         "name": "lvgl_value_oil_pressure",
         "type": "double",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
+      },
+      {
+        "objID": "e7ad5dba-aa7f-454f-d920-0bd4c2590913",
+        "name": "lvgl_value_oil_pressure_string",
+        "type": "string",
         "defaultValue": "0",
         "persistent": false,
         "native": false
@@ -634,7 +642,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_oil_pressure",
+              "text": "lvgl_value_oil_pressure_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,

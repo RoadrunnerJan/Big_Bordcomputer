@@ -96,7 +96,7 @@
       "imageExportMode": "source",
       "fontExportMode": "source",
       "fileSystemPath": "",
-      "lvglInclude": "lvgl/lvgl.h",
+      "lvglInclude": "../lvgl.h",
       "screensLifetimeSupport": false,
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
@@ -111,6 +111,14 @@
         "objID": "6e89e734-d307-4599-d0e8-f8a3ac6ffe1d",
         "name": "lvgl_value_oil_temperature",
         "type": "integer",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
+      },
+      {
+        "objID": "e3cee1a3-0710-45cb-e03b-659a2e396010",
+        "name": "lvgl_value_oil_temperature_string",
+        "type": "string",
         "defaultValue": "0",
         "persistent": false,
         "native": false
@@ -636,7 +644,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_oil_temperature",
+              "text": "lvgl_value_oil_temperature_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,

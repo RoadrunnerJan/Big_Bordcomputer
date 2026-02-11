@@ -1,6 +1,10 @@
 {
   "navigation": {
-    "subnavigationSelectedItems": {}
+    "selectedUserPageObject": "[Gauge_Temperature_Clock_Day.eez-project]:/userPages/0",
+    "selectedGlobalVariableObject": "[Gauge_Temperature_Clock_Day.eez-project]:/variables/globalVariables/-1",
+    "subnavigationSelectedItems": {
+      "variables-tab/sub-navigation/selected-item": "Global"
+    }
   },
   "layoutModel": {
     "rootEditor": {
@@ -67,6 +71,7 @@
           },
           {
             "type": "border",
+            "selected": 0,
             "location": "bottom",
             "children": [
               {
@@ -177,7 +182,8 @@
                       "enableClose": false,
                       "icon": "svg:variable"
                     }
-                  ]
+                  ],
+                  "active": true
                 }
               ]
             },
@@ -185,9 +191,22 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 65,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#4fb9d8e7-55da-4c11-8635-c1de644fc031",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_Temperature_Clock_Day.eez-project]:/settings",
+                    "subObjectPath": "[Gauge_Temperature_Clock_Day.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
                 {
                   "type": "tab",
                   "id": "#14ec2dd3-3e4f-4ab9-be58-572efaff242e",
@@ -195,12 +214,11 @@
                   "component": "editor",
                   "config": {
                     "objectPath": "[Gauge_Temperature_Clock_Day.eez-project]:/userPages/0",
-                    "permanent": false
+                    "permanent": true
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -756,7 +774,8 @@
                       "component": "styles",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -966,19 +985,36 @@
   "features": {},
   "objects": {
     "[Gauge_Temperature_Clock_Day.eez-project]:/userPages/0[flow-state]": {
-      "selection": {},
+      "selection": {
+        "0": {
+          "7": {
+            "$selected": true
+          }
+        }
+      },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -81.61458333333354,
+          "y": -229.02728174603163
         },
-        "scale": 1
+        "scale": 1.25
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      }
+    },
+    "[Gauge_Temperature_Clock_Day.eez-project]:/lvglStyles/styles[tree-state]": {
+      "0": {
+        "$selected": true
+      },
+      "1": {
+        "$selected": true
+      },
+      "2": {
+        "$selected": true
       }
     }
   },
@@ -998,6 +1034,6 @@
   "lvglExpandedPropertiesGroup": [],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1,
+  "flowZoom": 1.25,
   "implementationLanguage": "C"
 }

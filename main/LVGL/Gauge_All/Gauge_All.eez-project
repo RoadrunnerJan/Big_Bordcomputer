@@ -96,7 +96,7 @@
       "imageExportMode": "source",
       "fontExportMode": "source",
       "fileSystemPath": "",
-      "lvglInclude": "lvgl/lvgl.h",
+      "lvglInclude": "../lvgl.h",
       "screensLifetimeSupport": false,
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
@@ -146,6 +146,38 @@
         "defaultValue": "0",
         "persistent": false,
         "native": false
+      },
+      {
+        "objID": "09b816bf-6b04-4ad3-c61f-7c94c11cc2de",
+        "name": "lvgl_value_oil_pressure_string",
+        "type": "string",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": true
+      },
+      {
+        "objID": "c665bbc4-c858-48fd-8d60-1f64f47095f9",
+        "name": "lvgl_value_oil_temperature_string",
+        "type": "string",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
+      },
+      {
+        "objID": "c97d1097-9335-4f66-9e23-c37ed95b18f7",
+        "name": "lvgl_value_voltage_string",
+        "type": "string",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
+      },
+      {
+        "objID": "07acbe8d-2963-4c56-8c4a-5fcddd5359fd",
+        "name": "lvgl_value_temperature_string",
+        "type": "string",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
       }
     ],
     "structures": [],
@@ -188,7 +220,7 @@
           "heightUnit": "px",
           "children": [
             {
-              "objID": "8ab4b786-302d-4d24-ba44-4bab76112065",
+              "objID": "e4863ac8-cd95-4138-8253-3c3929b9d197",
               "type": "LVGLPanelWidget",
               "left": 0,
               "top": 0,
@@ -197,7 +229,7 @@
               "customInputs": [],
               "customOutputs": [],
               "style": {
-                "objID": "53eb4421-94e9-4a68-d521-dc1f7780d362",
+                "objID": "13e46927-6061-44ff-d78d-bddd440c4afe",
                 "useStyle": "default",
                 "conditionalStyles": [],
                 "childStyles": []
@@ -205,7 +237,7 @@
               "hiddenInEditor": false,
               "timeline": [],
               "eventHandlers": [],
-              "identifier": "pressure_black_background",
+              "identifier": "pressure_black_background_opa",
               "leftUnit": "px",
               "topUnit": "px",
               "widthUnit": "px",
@@ -223,11 +255,12 @@
               "disabledStateType": "literal",
               "states": "",
               "localStyles": {
-                "objID": "8a593e5b-6aea-40b3-9cf9-7a90b63a9f15",
+                "objID": "3c8a1774-be1b-46f7-c096-be05866b0019",
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#000000"
+                      "bg_color": "#ff5a00",
+                      "bg_opa": 0
                     }
                   }
                 }
@@ -477,20 +510,98 @@
                   "MAIN": {
                     "DEFAULT": {
                       "img_recolor": "#ff5a00",
-                      "img_recolor_opa": 999
+                      "img_recolor_opa": 255
                     }
                   }
                 }
               },
               "group": "",
               "groupIndex": 0,
-              "image": "OilCan",
+              "image": "OilCan_White",
               "setPivot": false,
               "pivotX": 0,
               "pivotY": 0,
               "zoom": 160,
               "angle": 0,
               "innerAlign": "CENTER"
+            },
+            {
+              "objID": "e13c38bc-eb5c-4af5-c6ed-0c934cdd4743",
+              "type": "LVGLMeterWidget",
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "153af73b-2a4a-45dd-e5bb-1e2252ba704a",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_scale_labels",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedState": false,
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "useStyle": "",
+              "localStyles": {
+                "objID": "7a6d88e9-31d7-4a65-9408-2b50362b97d3",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "bg_color": "#ff5a00",
+                      "bg_opa": 0,
+                      "border_color": "#000000"
+                    }
+                  },
+                  "TICKS": {
+                    "DEFAULT": {
+                      "text_color": "#ffffff",
+                      "text_font": "Oswald_22",
+                      "anim_time": 200
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "scales": [
+                {
+                  "indicators": [],
+                  "objID": "895a0a5a-76a7-4368-f166-0146496aac7f",
+                  "minorTickCount": 31,
+                  "minorTickLineWidth": 2,
+                  "minorTickLength": 10,
+                  "minorTickColor": "#ffffff",
+                  "nthMajor": 5,
+                  "majorTickWidth": 5,
+                  "majorTickLength": 18,
+                  "majorTickColor": "#ffffff",
+                  "labelGap": 15,
+                  "scaleMin": 0,
+                  "scaleMax": 6,
+                  "scaleAngleRange": 260,
+                  "scaleRotation": 140
+                }
+              ]
             },
             {
               "objID": "72da4e45-2126-4316-b44c-3ea330a86f90",
@@ -536,16 +647,25 @@
                     "DEFAULT": {
                       "bg_color": "#ff5a00",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "anim_time": 600
                     }
                   },
                   "TICKS": {
                     "DEFAULT": {
                       "text_color": "#ffffff",
-                      "text_font": "Oswald_22"
-                    },
-                    "CHECKED": {
-                      "text_color": "#ff5a00"
+                      "text_font": "Oswald_22",
+                      "text_opa": 0
+                    }
+                  },
+                  "INDICATOR": {
+                    "DEFAULT": {
+                      "anim_time": 600
+                    }
+                  },
+                  "ITEMS": {
+                    "DEFAULT": {
+                      "anim_time": 600
                     }
                   }
                 }
@@ -576,7 +696,7 @@
                   "majorTickColor": "#ffffff",
                   "labelGap": 15,
                   "scaleMin": 0,
-                  "scaleMax": 6,
+                  "scaleMax": 6000,
                   "scaleAngleRange": 260,
                   "scaleRotation": 140
                 }
@@ -641,9 +761,9 @@
             {
               "objID": "80102a8a-02b0-487f-c9b1-0c7006fae7ba",
               "type": "LVGLLabelWidget",
-              "left": 75,
+              "left": 99,
               "top": 183,
-              "width": 90,
+              "width": 75,
               "height": 42,
               "customInputs": [],
               "customOutputs": [],
@@ -680,14 +800,14 @@
                     "DEFAULT": {
                       "text_font": "Oswald_36",
                       "text_color": "#ff5a00",
-                      "text_align": "CENTER"
+                      "text_align": "LEFT"
                     }
                   }
                 }
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_oil_pressure",
+              "text": "lvgl_value_oil_pressure_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,
@@ -791,7 +911,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "arc_color": "#ff5a00",
-                      "arc_opa": 2,
+                      "arc_opa": 35,
                       "arc_rounded": false
                     }
                   },
@@ -816,7 +936,7 @@
               "groupIndex": 0,
               "rangeMin": 0,
               "rangeMinType": "literal",
-              "rangeMax": 6,
+              "rangeMax": 6000,
               "rangeMaxType": "literal",
               "value": "lvgl_value_oil_pressure",
               "valueType": "expression",
@@ -835,7 +955,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "8eb86917-c831-b762-5685-8d01972e8a22"
+            "objID": "8eb86917-c831-b762-5685-8d01972e8a22",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#000000"
+                }
+              }
+            }
           },
           "groupIndex": 0
         }
@@ -843,11 +970,796 @@
       "connectionLines": [],
       "localVariables": [],
       "userProperties": [],
-      "name": "Gauge_Oil_Pressure",
+      "name": "Gauge_Oil_Pressure_Day",
       "left": 0,
       "top": 0,
       "width": 240,
       "height": 240,
+      "createAtStart": true,
+      "deleteOnScreenUnload": false
+    },
+    {
+      "objID": "4e1bd5b8-eddd-489b-f736-c5a719d7f4ba",
+      "components": [
+        {
+          "objID": "c99f33e7-f7fd-4e06-d49a-910c8594f06d",
+          "type": "LVGLScreenWidget",
+          "left": 0,
+          "top": 0,
+          "width": 800,
+          "height": 480,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "3b26a798-e8de-48e2-bd11-cdf49054a0ad",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "px",
+          "heightUnit": "px",
+          "children": [
+            {
+              "objID": "643379bf-9a0c-41ec-e446-0856db088c55",
+              "type": "LVGLPanelWidget",
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "15a299b6-d47b-447e-8df6-2376edfd3066",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_black_background_opa_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "1d95c926-e703-4b56-c971-5a4989e116f8",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "bg_color": "#ff5a00",
+                      "bg_opa": 30
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0
+            },
+            {
+              "objID": "1a1c14df-bdb5-42a1-f61e-2548c2a60899",
+              "type": "LVGLImageWidget",
+              "left": 49,
+              "top": 49,
+              "width": 143,
+              "height": 143,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "b53f2fa8-7a78-41a5-fa89-a7218868f087",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_needle_knop_lightShadow_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "content",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "b977822d-b5b1-4e59-ad85-209c5514a044",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "img_recolor": "#ff5a00",
+                      "img_recolor_opa": 255,
+                      "img_opa": 60
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "image": "knob",
+              "setPivot": false,
+              "pivotX": 0,
+              "pivotY": 0,
+              "zoom": 80,
+              "angle": 0,
+              "innerAlign": "CENTER"
+            },
+            {
+              "objID": "f519dedb-6bce-4464-f399-be9f3b9d011e",
+              "type": "LVGLArcWidget",
+              "left": 14,
+              "top": 14,
+              "width": 212,
+              "height": 212,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "a438efe0-9e50-4d7f-cc78-c430340d3895",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_max_indicator_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "e383651c-76fb-456f-9e9d-b08f13b7e526",
+                "definition": {
+                  "KNOB": {
+                    "DEFAULT": {
+                      "bg_opa": 0
+                    }
+                  },
+                  "INDICATOR": {
+                    "DEFAULT": {
+                      "arc_rounded": false,
+                      "arc_opa": 0
+                    }
+                  },
+                  "MAIN": {
+                    "DEFAULT": {
+                      "arc_rounded": false,
+                      "arc_color": "#ff0000",
+                      "arc_opa": 150,
+                      "arc_width": 19
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "rangeMin": 0,
+              "rangeMinType": "literal",
+              "rangeMax": 100,
+              "rangeMaxType": "literal",
+              "value": 25,
+              "valueType": "literal",
+              "bgStartAngle": 14,
+              "bgEndAngle": 39,
+              "mode": "NORMAL",
+              "rotation": 0
+            },
+            {
+              "objID": "bbde8d8d-1541-431e-adc2-fb64e28bfe09",
+              "type": "LVGLArcWidget",
+              "left": 14,
+              "top": 14,
+              "width": 212,
+              "height": 212,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "8ddd3c2d-56d7-44a7-ae28-b994906ca941",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_min_indicator_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "0fff8038-f9b1-41ec-d4e7-e40ee2baa1f8",
+                "definition": {
+                  "KNOB": {
+                    "DEFAULT": {
+                      "bg_opa": 0
+                    }
+                  },
+                  "INDICATOR": {
+                    "DEFAULT": {
+                      "arc_rounded": false,
+                      "arc_opa": 0
+                    }
+                  },
+                  "MAIN": {
+                    "DEFAULT": {
+                      "arc_rounded": false,
+                      "arc_color": "#ff0000",
+                      "arc_opa": 150,
+                      "arc_width": 19
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "rangeMin": 0,
+              "rangeMinType": "literal",
+              "rangeMax": 100,
+              "rangeMaxType": "literal",
+              "value": 25,
+              "valueType": "literal",
+              "bgStartAngle": 141,
+              "bgEndAngle": 166,
+              "mode": "NORMAL",
+              "rotation": 0
+            },
+            {
+              "objID": "4028726b-6336-466f-df49-dc8846f865d1",
+              "type": "LVGLImageWidget",
+              "left": 89,
+              "top": 64,
+              "width": 73,
+              "height": 27,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "7e1f3e9e-cfbb-4452-df61-b56b6fd2e7a6",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_image_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "content",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "1275f3e1-34e2-4e6c-c1ea-b81ac4880a95",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "img_recolor": "#ff5a00",
+                      "img_recolor_opa": 255
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "image": "OilCan_White",
+              "setPivot": false,
+              "pivotX": 0,
+              "pivotY": 0,
+              "zoom": 160,
+              "angle": 0,
+              "innerAlign": "CENTER"
+            },
+            {
+              "objID": "2bc1688b-1d17-4a9b-96e5-e64243dbe3a9",
+              "type": "LVGLMeterWidget",
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "171ed501-fdc5-4c9b-e7e7-5757ab297ba8",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_scale_labels_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedState": false,
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "useStyle": "",
+              "localStyles": {
+                "objID": "b21cef95-a10e-4bbd-9016-1429af3c7d55",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "bg_color": "#ff5a00",
+                      "bg_opa": 0,
+                      "border_color": "#000000"
+                    }
+                  },
+                  "TICKS": {
+                    "DEFAULT": {
+                      "text_color": "#ff5a00",
+                      "text_font": "Oswald_22",
+                      "anim_time": 200
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "scales": [
+                {
+                  "indicators": [],
+                  "objID": "317db758-8ff4-459e-c5fc-f007d9bb7871",
+                  "minorTickCount": 31,
+                  "minorTickLineWidth": 2,
+                  "minorTickLength": 10,
+                  "minorTickColor": "#ff5a00",
+                  "nthMajor": 5,
+                  "majorTickWidth": 5,
+                  "majorTickLength": 18,
+                  "majorTickColor": "#ff5a00",
+                  "labelGap": 15,
+                  "scaleMin": 0,
+                  "scaleMax": 6,
+                  "scaleAngleRange": 260,
+                  "scaleRotation": 140
+                }
+              ]
+            },
+            {
+              "objID": "8510be4e-a7f3-463c-db69-50e44f44bffd",
+              "type": "LVGLMeterWidget",
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "5986331c-156b-43d1-b3a3-ff5ceb6d6933",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_scale_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedState": false,
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "useStyle": "",
+              "localStyles": {
+                "objID": "d0eb3d03-8059-4c73-fe6d-dbe906aeeaf4",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "bg_color": "#ff5a00",
+                      "bg_opa": 0,
+                      "border_color": "#000000",
+                      "anim_time": 600
+                    }
+                  },
+                  "TICKS": {
+                    "DEFAULT": {
+                      "text_color": "#ffffff",
+                      "text_font": "Oswald_22",
+                      "text_opa": 0
+                    }
+                  },
+                  "INDICATOR": {
+                    "DEFAULT": {
+                      "anim_time": 600
+                    }
+                  },
+                  "ITEMS": {
+                    "DEFAULT": {
+                      "anim_time": 600
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "scales": [
+                {
+                  "indicators": [
+                    {
+                      "objID": "3db6cbfa-8648-4719-f91c-375a0483560d",
+                      "type": "NEEDLE_LINE",
+                      "width": 5,
+                      "color": "#ff5a00",
+                      "radiusModifier": -15,
+                      "value": "lvgl_value_oil_pressure",
+                      "valueType": "expression"
+                    }
+                  ],
+                  "objID": "51d30775-fc98-4b2d-c9c7-f81c61b8dcfe",
+                  "minorTickCount": 31,
+                  "minorTickLineWidth": 2,
+                  "minorTickLength": 10,
+                  "minorTickColor": "#ff5a00",
+                  "nthMajor": 5,
+                  "majorTickWidth": 5,
+                  "majorTickLength": 18,
+                  "majorTickColor": "#ff5a00",
+                  "labelGap": 15,
+                  "scaleMin": 0,
+                  "scaleMax": 6000,
+                  "scaleAngleRange": 260,
+                  "scaleRotation": 140
+                }
+              ]
+            },
+            {
+              "objID": "705db2af-4d13-4ea4-b8a7-a6ec0c3d8215",
+              "type": "LVGLImageWidget",
+              "left": 49,
+              "top": 49,
+              "width": 143,
+              "height": 143,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "7e83d339-0eb9-47ed-fa37-93964bb4ab5f",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_needle_knob_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "content",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "ec45d4fc-146f-4d5c-cdd3-b3615cfe5143",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "img_recolor": "#000000",
+                      "img_recolor_opa": 155
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "image": "knob",
+              "setPivot": false,
+              "pivotX": 0,
+              "pivotY": 0,
+              "zoom": 70,
+              "angle": 0,
+              "innerAlign": "CENTER"
+            },
+            {
+              "objID": "7b9014f5-b0b8-429f-9086-b1315b2511fa",
+              "type": "LVGLLabelWidget",
+              "left": 99,
+              "top": 183,
+              "width": 75,
+              "height": 42,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "d75002f9-6abb-4f56-de03-0134290cb707",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_value_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "fc92cfce-5266-4eee-f2d3-b013d1b56f55",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "text_font": "Oswald_36",
+                      "text_color": "#ff5a00",
+                      "text_align": "LEFT"
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "text": "lvgl_value_oil_pressure_string",
+              "textType": "expression",
+              "longMode": "WRAP",
+              "recolor": false,
+              "previewValue": "6.0"
+            },
+            {
+              "objID": "aee47e2e-5a81-47ef-aa27-af7c7a2b4bca",
+              "type": "LVGLLabelWidget",
+              "left": 95,
+              "top": 150,
+              "width": 50,
+              "height": 26,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "32056fc1-7b70-45ca-c8f9-42dd11bce659",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_gauge_unit_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "content",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "8dfcae9c-aae1-4649-f387-b4736eb58b16",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "text_color": "#ff5a00",
+                      "text_font": "Oswald_22",
+                      "text_align": "CENTER"
+                    },
+                    "CHECKED": {
+                      "text_color": "#ff5a00"
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "text": "bar",
+              "textType": "literal",
+              "longMode": "WRAP",
+              "recolor": false
+            },
+            {
+              "objID": "359c1cb8-4cd0-4156-df47-7d759fe28183",
+              "type": "LVGLArcWidget",
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
+              "customInputs": [],
+              "customOutputs": [],
+              "style": {
+                "objID": "a0999c80-0639-4b04-84a6-029f21862813",
+                "useStyle": "default",
+                "conditionalStyles": [],
+                "childStyles": []
+              },
+              "hiddenInEditor": false,
+              "timeline": [],
+              "eventHandlers": [],
+              "identifier": "pressure_needle_arc_night",
+              "leftUnit": "px",
+              "topUnit": "px",
+              "widthUnit": "px",
+              "heightUnit": "px",
+              "children": [],
+              "widgetFlags": "",
+              "hiddenFlagType": "literal",
+              "clickableFlag": false,
+              "clickableFlagType": "literal",
+              "flagScrollbarMode": "off",
+              "flagScrollDirection": "none",
+              "scrollSnapX": "none",
+              "scrollSnapY": "none",
+              "checkedStateType": "literal",
+              "disabledStateType": "literal",
+              "states": "",
+              "localStyles": {
+                "objID": "9358d723-9ed0-4564-97cd-cf5f4121b025",
+                "definition": {
+                  "MAIN": {
+                    "DEFAULT": {
+                      "arc_color": "#ff5a00",
+                      "arc_opa": 35,
+                      "arc_rounded": false
+                    }
+                  },
+                  "INDICATOR": {
+                    "DEFAULT": {
+                      "arc_color": "#e65c00",
+                      "arc_opa": 40,
+                      "arc_rounded": false,
+                      "arc_width": 12
+                    }
+                  },
+                  "KNOB": {
+                    "DEFAULT": {
+                      "bg_opa": 0,
+                      "bg_color": "#fe6600",
+                      "border_opa": 0
+                    }
+                  }
+                }
+              },
+              "group": "",
+              "groupIndex": 0,
+              "rangeMin": 0,
+              "rangeMinType": "literal",
+              "rangeMax": 6000,
+              "rangeMaxType": "literal",
+              "value": "lvgl_value_oil_pressure",
+              "valueType": "expression",
+              "bgStartAngle": 140,
+              "bgEndAngle": 40,
+              "mode": "NORMAL",
+              "rotation": 0
+            }
+          ],
+          "widgetFlags": "CLICKABLE|PRESS_LOCK|CLICK_FOCUSABLE|GESTURE_BUBBLE|SNAPPABLE|SCROLLABLE|SCROLL_ELASTIC|SCROLL_MOMENTUM|SCROLL_CHAIN_HOR|SCROLL_CHAIN_VER",
+          "hiddenFlagType": "literal",
+          "clickableFlag": true,
+          "clickableFlagType": "literal",
+          "checkedState": false,
+          "checkedStateType": "literal",
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "bb263a60-ce30-44ab-cc07-fcf03a2d3ce2",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#000000"
+                }
+              }
+            }
+          },
+          "groupIndex": 0
+        }
+      ],
+      "connectionLines": [],
+      "localVariables": [],
+      "userProperties": [],
+      "name": "Gauge_Oil_Pressure_Night",
+      "left": 0,
+      "top": 0,
+      "width": 240,
+      "height": 240,
+      "isUsedAsUserWidget": false,
       "createAtStart": true,
       "deleteOnScreenUnload": false
     },
@@ -1366,7 +2278,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_oil_temperature",
+              "text": "lvgl_value_oil_temperature_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,
@@ -1508,7 +2420,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "d69d27b6-2205-41c4-a435-e5f970d7e74d"
+            "objID": "d69d27b6-2205-41c4-a435-e5f970d7e74d",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#000000"
+                }
+              }
+            }
           },
           "groupIndex": 0
         }
@@ -2038,7 +2957,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_voltage",
+              "text": "lvgl_value_voltage_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,
@@ -2180,7 +3099,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "aa17f5ad-520a-46f7-bcb7-4c6f2b0cbeeb"
+            "objID": "aa17f5ad-520a-46f7-bcb7-4c6f2b0cbeeb",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#000000"
+                }
+              }
+            }
           },
           "groupIndex": 0
         }
@@ -2780,7 +3706,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "9c71c2a7-fc5b-458d-8760-b85373adf9a7"
+            "objID": "9c71c2a7-fc5b-458d-8760-b85373adf9a7",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "bg_color": "#000000"
+                }
+              }
+            }
           },
           "groupIndex": 0
         }
@@ -3171,6 +4104,15 @@
       "name": "Temperature",
       "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAOwgAADsIBFShKgAAAAAd0SU1FB+oCAw4WMCOhxrsAAACaSURBVEjH7VQxDoAgEEPiwMjIyMgTGG/kGTyVn9XJRBMH9U5A9JJOJJQrbZV6yxARcs6ozYsVMUY0ITbGsIinG8Rb2XeHpZTp8Y2PkFJClY05981MBW5Lq1vFUkv9eQgBVeJ0BCL6zdWfuZpJLbrxFXOJudpai5pSf6+51NBxgmSJaA6pc+5MtlmvhXA6OjeX934cczVrru/NAiR9PUW/R0brAAAAAElFTkSuQmCC",
       "bpp": 41,
+      "alwaysBuild": false,
+      "lvglBinaryOutputFormat": 3,
+      "lvglDither": false
+    },
+    {
+      "objID": "b1a0c1f1-771e-4ec5-b502-d35f07b6d745",
+      "name": "OilCan_White",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAbCAYAAAAwNaIgAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAAAd0SU1FB+oCCwg6HOlxlasAAAExSURBVFjD7VhBDoQgDGwJd33F/v9ZHu0LupclMQiLlcJW2DkZE6GdTocKwgfMzHAAIiIIEa9Rwp09fgGfS+747inJNCVJopAZCfPSFpmRMP/NJ2o9RsPnLMCVkh5VLRxh3/esIDCnlhQ5UmVYVFKpO1Ix4pWWCh9K2+8OtIm8E3McA/ZIvCdRWvkcY3AWfUeSaOwttXsT0ZmwltXQVlRtXEQEy7KIT2GsqaqmAnsVJhdz2D9p3DWJWDDZHl7nLXkRIooOkitjikZBTZFUIko6l2kp3hxJ2tc00rVS3uRG+cXQJCh+dqMRFOacGoJOqrJ0uv1KQaW13OwtVho9mJnd7ARdgfsTNBhJuYux1t6IWr37xGuV4Y0bAGDbtldLssO7RyqJiGBd127jxyNJ6j2fvQFhsQJTNwgTwwAAAABJRU5ErkJggg==",
+      "bpp": 32,
       "alwaysBuild": false,
       "lvglBinaryOutputFormat": 3,
       "lvglDither": false

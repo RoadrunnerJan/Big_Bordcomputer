@@ -96,7 +96,7 @@
       "imageExportMode": "source",
       "fontExportMode": "source",
       "fileSystemPath": "",
-      "lvglInclude": "lvgl/lvgl.h",
+      "lvglInclude": "../lvgl.h",
       "screensLifetimeSupport": false,
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
@@ -111,6 +111,14 @@
         "objID": "4fda5fa3-d69a-488f-b979-a8dfa361b163",
         "name": "lvgl_value_voltage",
         "type": "double",
+        "defaultValue": "0",
+        "persistent": false,
+        "native": false
+      },
+      {
+        "objID": "f2d3ec73-d8cb-468c-8d2f-b402c0574709",
+        "name": "lvgl_value_voltage_string",
+        "type": "string",
         "defaultValue": "0",
         "persistent": false,
         "native": false
@@ -634,7 +642,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "lvgl_value_voltage",
+              "text": "lvgl_value_voltage_string",
               "textType": "expression",
               "longMode": "WRAP",
               "recolor": false,

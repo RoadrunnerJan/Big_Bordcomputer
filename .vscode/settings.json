@@ -5,7 +5,7 @@
   "idf.openOcdConfigs": [
     "board/esp32p4-builtin.cfg"
   ],
-  "idf.port": "detect",
+  "idf.port": "/dev/tty.usbmodem2101",
   "idf.toolsPath": "/Users/jan/.espressif",
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32p4"
@@ -16,5 +16,18 @@
     "--query-driver=**",
     "--compile-commands-dir=/Volumes/ServerHDD/Dateien/Projekte/Autodisplay/V3/Software/BC_Big_E36/build"
   ],
-  "idf.currentSetup": "/Users/jan/tools/esp/esp-idf"
+  "idf.currentSetup": "/Users/jan/tools/esp/esp-idf",
+  "idf.flashType": "UART",
+  "files.associations": {
+    ".env*": "dotenv",
+    "*.cfg": "ini",
+    "*.cnf": "ini",
+    "*.conf": "ini",
+    "*.config": "ini",
+    "esp_lcd_panel_dev.h": "c",
+    "esp_lcd_panel_interface.h": "c",
+    "esp_lcd_io_spi.h": "c",
+    "lvgl.h": "c",
+    "esp_lcd_panel_commands.h": "c"
+  }
 }
