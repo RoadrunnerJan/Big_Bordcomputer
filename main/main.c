@@ -7,6 +7,12 @@
 
 static double pressure_value = 0.0;
 static int pressure_test_switch = 0;
+static double temperature_value = 0.0;
+static int temperature_test_switch = 0;
+static double volt_value = 8.0;
+static int volt_test_switch = 0;
+static double tempClock_value = 0.0;
+static int tempClock_test_switch = 0;
 
 /*
 static bool notify_lvgl_flush_ready(esp_lcd_panel_io_handle_t io, esp_lcd_panel_io_event_data_t *edata, void *user_ctx) {
@@ -21,28 +27,37 @@ static void lv_tick_task(void *pv)
 {
     (void)pv;
     while (1) {
-        //lv_disp_set_default(lv_displays[0]);
-        lv_obj_invalidate(objects.gauge_oil_pressure);
-        ui_tick();
-        #ifdef NUMBER_OF_DISPLAYS > 1
-            //lv_disp_set_default(lv_displays[1]);
-            lv_obj_invalidate(objects.gauge_oil_temperature);
-            ui_tick();
+
+        if (lv_disp_get_scr_act(lv_displays[0]) != NULL) {
+            lv_disp_set_default(lv_displays[0]);
+            tick_screen_gauge_oil_pressure();
+            lv_timer_handler();
+        }
+        #if NUMBER_OF_DISPLAYS > 1
+            if (lv_disp_get_scr_act(lv_displays[1]) != NULL) {
+                lv_disp_set_default(lv_displays[1]);
+                tick_screen_gauge_oil_temperature();
+                lv_timer_handler();
+            }
         #endif
-        #ifdef NUMBER_OF_DISPLAYS > 2                
-            //lv_disp_set_default(lv_displays[2]);
-            lv_obj_invalidate(objects.gauge_voltage);
-            ui_tick();
+        #if NUMBER_OF_DISPLAYS > 2                
+            if (lv_disp_get_scr_act(lv_displays[2]) != NULL) {
+                lv_disp_set_default(lv_displays[2]);
+                tick_screen_gauge_voltage();
+                lv_timer_handler();
+            }
         #endif
-        #ifdef NUMBER_OF_DISPLAYS > 3
-            //lv_disp_set_default(lv_displays[3]);
-            lv_obj_invalidate(objects.gauge_temperature_clock);
-            ui_tick();
+        #if NUMBER_OF_DISPLAYS > 3
+            if (lv_disp_get_scr_act(lv_displays[3]) != NULL) {
+                lv_disp_set_default(lv_displays[3]);
+                tick_screen_gauge_temperature_clock();
+                lv_timer_handler(); 
+            }
         #endif
-        lv_timer_handler();
-        vTaskDelay(pdMS_TO_TICKS(10));
+        vTaskDelay(pdMS_TO_TICKS(200));
     }
 }
+
 
 
 static void lv_pressure_test(void *pv)
@@ -54,25 +69,25 @@ static void lv_pressure_test(void *pv)
     while (1) {
         switch (pressure_test_switch) {
             case 0:
-                pressure_value += 0.05;
-                if (pressure_value >= 3.5) {
+                pressure_value += 0.01;
+                if (pressure_value >= 4.5) {
                     pressure_test_switch = 1;
                 }
                 break;
             case 1:
-                pressure_value -= 0.05;
+                pressure_value -= 0.005;
                 if (pressure_value <= 2.5) {
                     pressure_test_switch = 2;
                 }
                 break;
             case 2:
-                pressure_value += 0.05;
+                pressure_value += 0.01;
                 if (pressure_value >= 5.5) {
                     pressure_test_switch = 3;
                 }
                 break;
             case 3:
-                pressure_value -= 0.05;
+                pressure_value -= 0.01;
                 if (pressure_value <= 0.04) {
                     pressure_test_switch = 0;
                 }
@@ -81,11 +96,11 @@ static void lv_pressure_test(void *pv)
 
         snprintf(ziel_string, sizeof(ziel_string), "%.1f", pressure_value);
 
-        set_var_lvgl_value_oil_pressure(pressure_value*1000);
+        set_var_lvgl_value_oil_pressure(pressure_value * EEZ_VALUE_FACTOR);
         set_var_lvgl_value_oil_pressure_string(ziel_string);
 
 
-        vTaskDelay(pdMS_TO_TICKS(10));
+        vTaskDelay(pdMS_TO_TICKS(20));
 
         /* WICHTIG!!!!
         
@@ -105,6 +120,139 @@ static void lv_pressure_test(void *pv)
         }
         
         */
+    }
+}
+
+
+static void lv_volt_test(void *pv)
+{
+    (void)pv;
+
+    char ziel_string[20];
+
+    while (1) {
+        switch (volt_test_switch) {
+            case 0:
+                volt_value += 0.005;
+                if (volt_value >= 15.5) {
+                    volt_test_switch = 1;
+                }
+                break;
+            case 1:
+                volt_value -= 0.005;
+                if (volt_value <= 11) {
+                    volt_test_switch = 2;
+                }
+                break;
+            case 2:
+                volt_value += 0.005;
+                if (volt_value >= 14) {
+                    volt_test_switch = 3;
+                }
+                break;
+            case 3:
+                volt_value -= 0.005;
+                if (volt_value <= 8.04) {
+                    volt_test_switch = 0;
+                }
+                break;
+        }
+
+        snprintf(ziel_string, sizeof(ziel_string), "%.1f", volt_value);
+
+        set_var_lvgl_value_voltage(volt_value * EEZ_VALUE_FACTOR);
+        set_var_lvgl_value_voltage_string(ziel_string);
+
+
+        vTaskDelay(pdMS_TO_TICKS(20));
+    }
+}
+
+static void lv_temperature_test(void *pv)
+{
+    (void)pv;
+
+    char ziel_string[20];
+
+    while (1) {
+        switch (temperature_test_switch) {
+            case 0:
+                temperature_value += 0.03;
+                if (temperature_value >= 100) {
+                    temperature_test_switch = 1;
+                }
+                break;
+            case 1:
+                temperature_value -= 0.03;
+                if (temperature_value <= 110) {
+                    temperature_test_switch = 2;
+                }
+                break;
+            case 2:
+                temperature_value += 0.03;
+                if (temperature_value >= 140) {
+                    temperature_test_switch = 3;
+                }
+                break;
+            case 3:
+                temperature_value -= 0.03;
+                if (temperature_value <= 0.06) {
+                    temperature_test_switch = 0;
+                }
+                break;
+        }
+
+        snprintf(ziel_string, sizeof(ziel_string), "%d", (int)temperature_value);
+
+        set_var_lvgl_value_oil_temperature(temperature_value * EEZ_VALUE_FACTOR);
+        set_var_lvgl_value_oil_temperature_string(ziel_string);
+
+
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+}
+
+static void lv_tempClock_test(void *pv)
+{
+    (void)pv;
+
+    char ziel_string[20];
+
+    while (1) {
+        switch (tempClock_test_switch) {
+            case 0:
+                tempClock_value += 0.03;
+                if (tempClock_value >= 33) {
+                    tempClock_test_switch = 1;
+                }
+                break;
+            case 1:
+                tempClock_value -= 0.03;
+                if (tempClock_value <= -15) {
+                    tempClock_test_switch = 2;
+                }
+                break;
+            case 2:
+                tempClock_value += 0.03;
+                if (tempClock_value >= 20) {
+                    tempClock_test_switch = 3;
+                }
+                break;
+            case 3:
+                tempClock_value -= 0.03;
+                if (tempClock_value <= 0.06) {
+                    tempClock_test_switch = 0;
+                }
+                break;
+        }
+
+        //snprintf(ziel_string, sizeof(ziel_string), "%d", (int)tempClock_value);
+
+        set_var_lvgl_value_temperature(tempClock_value * EEZ_VALUE_FACTOR);
+       // set_var_lvgl_value_oil_temperature_string(ziel_string);
+
+
+        vTaskDelay(pdMS_TO_TICKS(10));
     }
 }
 
@@ -167,6 +315,8 @@ static void set_NightMode(void *pv) {
 
 void app_main(void)
 {
+
+
     setUp_Variables();
 
     spi_init();
@@ -185,8 +335,8 @@ void app_main(void)
 
 
     // UI starten
-    ui_init();  
-
+    //ui_init();  
+    
     set_Displays();
 
     // für bildänderungen
@@ -198,10 +348,21 @@ void app_main(void)
 
     // Timer Handler Task starten
     //xTaskCreate(lv_pressure_test, "lv_pressure_test", 4096, NULL, 1, NULL);
-    //xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 9, NULL);
-    xTaskCreate(lv_tick_task, "lv_tick_task", 8192, NULL, 10, NULL);
+    //xTaskCreate(lv_temperature_test, "lv_temperature_test", 4096, NULL, 1, NULL);
+    //xTaskCreate(lv_volt_test, "lv_volt_test", 4096, NULL, 1, NULL);
 
-    vTaskDelay(pdMS_TO_TICKS(500));
+    //xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 9, NULL);
+
+    xTaskCreatePinnedToCore(lv_pressure_test, "lv_pressure_test", 4096, NULL, 1, NULL, 0);
+    xTaskCreatePinnedToCore(lv_temperature_test, "lv_temperature_test", 4096, NULL, 2, NULL, 0);
+    xTaskCreatePinnedToCore(lv_volt_test, "lv_volt_test", 4096, NULL, 3, NULL, 0);
+    xTaskCreatePinnedToCore(lv_tempClock_test, "lv_tempClock_test", 4096, NULL, 3, NULL, 0);
+
+
+    xTaskCreatePinnedToCore(lv_tick_task, "lv_tick_task", 16384, NULL, 10, NULL, 1);
+    //xTaskCreate(lv_tick_task, "lv_tick_task", 8192, NULL, 10, NULL);
+
+    vTaskDelay(pdMS_TO_TICKS(1000));
     set_lcd_brightness(100); 
     
 

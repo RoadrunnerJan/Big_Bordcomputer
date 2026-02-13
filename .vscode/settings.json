@@ -30,6 +30,14 @@
     "lvgl.h": "c",
     "esp_lcd_panel_commands.h": "c",
     "stdio.h": "c",
-    "individual_config.h": "c"
+    "individual_config.h": "c",
+    "lv_meter.h": "c",
+    "esp_lcd_gc9a01.h": "c",
+    "task.h": "c",
+    "cstdlib": "c",
+    "compare": "c",
+    "cstdint": "c",
+    "esp_system.h": "c",
+    "esp_task_wdt.h": "c"
   }
 }

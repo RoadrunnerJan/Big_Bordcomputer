@@ -22,36 +22,35 @@ typedef struct _objects_t {
     lv_obj_t *pressure_needle_knob;
     lv_obj_t *pressure_gauge_value;
     lv_obj_t *pressure_gauge_unit;
-    lv_obj_t *pressure_needle_arc;
-    lv_obj_t *temperature_black_background;
+    lv_obj_t *temperature_black_background_opa;
     lv_obj_t *temperature_needle_knop_light_shadow;
-    lv_obj_t *temperature_gauge_image;
     lv_obj_t *temperature_max_indicator;
     lv_obj_t *temperature_min_indicator;
+    lv_obj_t *temperature_gauge_image;
+    lv_obj_t *temperature_gauge_scale_labels;
     lv_obj_t *temperature_gauge_scale;
     lv_obj_t *temperature_needle_knob;
     lv_obj_t *temperature_gauge_value;
     lv_obj_t *temperature_gauge_unit;
-    lv_obj_t *temperature_needle_arc;
-    lv_obj_t *volt_black_background;
+    lv_obj_t *volt_black_background_opa;
     lv_obj_t *volt_needle_knop_light_shadow;
-    lv_obj_t *volt_gauge_image;
     lv_obj_t *volt_max_indicator;
     lv_obj_t *volt_min_indicator;
+    lv_obj_t *volt_gauge_image;
+    lv_obj_t *volt_gauge_scale_labels;
     lv_obj_t *volt_gauge_scale;
     lv_obj_t *volt_needle_knob;
     lv_obj_t *volt_gauge_value;
     lv_obj_t *volt_gauge_unit;
-    lv_obj_t *volt_needle_arc;
-    lv_obj_t *temp_clock_black_background;
+    lv_obj_t *temp_clock_black_background_opa;
     lv_obj_t *temp_clock_needle_knop_light_shadow;
-    lv_obj_t *temp_clock_gauge_image;
     lv_obj_t *temp_clock_min_indicator;
+    lv_obj_t *temp_clock_gauge_image;
+    lv_obj_t *temp_clock_gauge_scale_labels;
     lv_obj_t *temp_clock_gauge_scale;
     lv_obj_t *temp_clock_needle_knob;
     lv_obj_t *temp_clock_gauge_value;
     lv_obj_t *temp_clock_gauge_unit;
-    lv_obj_t *temp_clock_needle_arc;
 } objects_t;
 
 extern objects_t objects;
@@ -79,6 +78,10 @@ void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
 
 void create_screens();
+
+
+
+
 
 
 #ifdef __cplusplus

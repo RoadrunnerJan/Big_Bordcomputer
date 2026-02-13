@@ -12,7 +12,6 @@ extern const lv_img_dsc_t img_oil_can_temp;
 extern const lv_img_dsc_t img_volt;
 extern const lv_img_dsc_t img_knob;
 extern const lv_img_dsc_t img_temperature;
-extern const lv_img_dsc_t img_oil_can_white;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -22,7 +21,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[6];
+extern const ext_img_desc_t images[5];
 
 
 #ifdef __cplusplus

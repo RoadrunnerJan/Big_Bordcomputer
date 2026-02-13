@@ -8,7 +8,7 @@
 #include "esp_system.h"
 
 #include "esp_log.h"
-
+#include "esp_task_wdt.h"
 
 #include "esp_lcd_gc9a01.h"
 #include "esp_lcd_panel_commands.h"
@@ -38,6 +38,7 @@ extern esp_lcd_panel_io_handle_t io_handle[NUMBER_OF_DISPLAYS];
 extern esp_lcd_panel_handle_t panel_handle[NUMBER_OF_DISPLAYS];
 extern esp_timer_handle_t periodic_timer;
 extern lv_disp_t *lv_displays[NUMBER_OF_DISPLAYS];
+extern lv_obj_t *nadeln[NUMBER_OF_DISPLAYS];
 
 // defined in /lvgl/display_functions.c
 void setUp_Variables();
