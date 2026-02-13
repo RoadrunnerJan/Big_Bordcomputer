@@ -8,8 +8,7 @@ extern "C" {
 #endif
 
 typedef struct _objects_t {
-    lv_obj_t *gauge_oil_pressure_day;
-    lv_obj_t *gauge_oil_pressure_night;
+    lv_obj_t *gauge_oil_pressure;
     lv_obj_t *gauge_oil_temperature;
     lv_obj_t *gauge_voltage;
     lv_obj_t *gauge_temperature_clock;
@@ -24,17 +23,6 @@ typedef struct _objects_t {
     lv_obj_t *pressure_gauge_value;
     lv_obj_t *pressure_gauge_unit;
     lv_obj_t *pressure_needle_arc;
-    lv_obj_t *pressure_black_background_opa_night;
-    lv_obj_t *pressure_needle_knop_light_shadow_night;
-    lv_obj_t *pressure_max_indicator_night;
-    lv_obj_t *pressure_min_indicator_night;
-    lv_obj_t *pressure_gauge_image_night;
-    lv_obj_t *pressure_gauge_scale_labels_night;
-    lv_obj_t *pressure_gauge_scale_night;
-    lv_obj_t *pressure_needle_knob_night;
-    lv_obj_t *pressure_gauge_value_night;
-    lv_obj_t *pressure_gauge_unit_night;
-    lv_obj_t *pressure_needle_arc_night;
     lv_obj_t *temperature_black_background;
     lv_obj_t *temperature_needle_knop_light_shadow;
     lv_obj_t *temperature_gauge_image;
@@ -69,18 +57,14 @@ typedef struct _objects_t {
 extern objects_t objects;
 
 enum ScreensEnum {
-    SCREEN_ID_GAUGE_OIL_PRESSURE_DAY = 1,
-    SCREEN_ID_GAUGE_OIL_PRESSURE_NIGHT = 2,
-    SCREEN_ID_GAUGE_OIL_TEMPERATURE = 3,
-    SCREEN_ID_GAUGE_VOLTAGE = 4,
-    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 5,
+    SCREEN_ID_GAUGE_OIL_PRESSURE = 1,
+    SCREEN_ID_GAUGE_OIL_TEMPERATURE = 2,
+    SCREEN_ID_GAUGE_VOLTAGE = 3,
+    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 4,
 };
 
-void create_screen_gauge_oil_pressure_day();
-void tick_screen_gauge_oil_pressure_day();
-
-void create_screen_gauge_oil_pressure_night();
-void tick_screen_gauge_oil_pressure_night();
+void create_screen_gauge_oil_pressure();
+void tick_screen_gauge_oil_pressure();
 
 void create_screen_gauge_oil_temperature();
 void tick_screen_gauge_oil_temperature();

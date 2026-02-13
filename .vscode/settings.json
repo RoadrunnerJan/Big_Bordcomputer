@@ -28,6 +28,8 @@
     "esp_lcd_panel_interface.h": "c",
     "esp_lcd_io_spi.h": "c",
     "lvgl.h": "c",
-    "esp_lcd_panel_commands.h": "c"
+    "esp_lcd_panel_commands.h": "c",
+    "stdio.h": "c",
+    "individual_config.h": "c"
   }
 }

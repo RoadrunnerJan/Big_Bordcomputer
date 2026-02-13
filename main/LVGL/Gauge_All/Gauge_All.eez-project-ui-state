@@ -1,7 +1,8 @@
 {
   "navigation": {
     "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/0",
-    "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/0",
+    "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/5",
+    "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/5",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -117,7 +118,7 @@
             {
               "type": "row",
               "id": "#72ebb9ab-f8b8-4b5f-b092-1c71ecb72a7a",
-              "weight": 18.38846480067854,
+              "weight": 25.14232943166812,
               "children": [
                 {
                   "type": "tabset",
@@ -188,11 +189,33 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 30.86720574870429,
-              "selected": 1,
+              "weight": 44.58898552930139,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#34e0c3cf-13ba-42a8-b3ea-4d5381b5404e",
+                  "name": "Gauge_Oil_Temperature",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/2",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#395b8277-7e13-4744-a721-a6acb1c9afb4",
+                  "name": "Gauge_Voltage",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/3",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
                 {
                   "type": "tab",
                   "id": "#898eecbe-7929-4120-b7be-5cd0edafd632",
@@ -208,7 +231,7 @@
                 {
                   "type": "tab",
                   "id": "#34c02b61-ea9e-49b8-b66f-7753b041070f",
-                  "name": "Gauge_Oil_Pressure",
+                  "name": "Gauge_Oil_Pressure_Day",
                   "component": "editor",
                   "config": {
                     "objectPath": "[Gauge_All.eez-project]:/userPages/0",
@@ -216,13 +239,12 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
               "id": "#5cbeeee2-d01b-4d9d-9de8-85eb1ca9f79c",
-              "weight": 50.74432945061716,
+              "weight": 30.268685039030487,
               "children": [
                 {
                   "type": "tabset",
@@ -237,7 +259,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -546,7 +569,8 @@
                       "component": "bitmaps",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -773,7 +797,8 @@
                       "component": "styles",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -847,7 +872,8 @@
                       "component": "colors",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 }
               ]
             }
@@ -988,19 +1014,17 @@
           "0": {},
           "1": {},
           "2": {},
-          "5": {},
-          "7": {
-            "$selected": true
-          },
-          "9": {}
+          "3": {},
+          "8": {},
+          "10": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -170.9375,
+          "y": -253.875
         },
-        "scale": 1
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1012,9 +1036,7 @@
     "[Gauge_All.eez-project]:/userPages/1[flow-state]": {
       "selection": {
         "0": {
-          "7": {
-            "$selected": true
-          }
+          "7": {}
         }
       },
       "transform": {
@@ -1022,7 +1044,7 @@
           "x": -120,
           "y": -120
         },
-        "scale": 1
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1032,19 +1054,13 @@
       }
     },
     "[Gauge_All.eez-project]:/userPages/2[flow-state]": {
-      "selection": {
-        "0": {
-          "7": {
-            "$selected": true
-          }
-        }
-      },
+      "selection": {},
       "transform": {
         "translate": {
           "x": -120,
           "y": -120
         },
-        "scale": 1
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1060,13 +1076,34 @@
           "x": -120,
           "y": -120
         },
-        "scale": 1
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/4[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.5
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/lvglStyles/styles[tree-state]": {
+      "0": {
+        "$selected": true
       }
     }
   },
@@ -1081,15 +1118,19 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "MAIN",
+  "lvglPart": "TICKS",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "ARC",
     "TEXT",
-    "MISCELLANEOUS"
+    "MISCELLANEOUS",
+    "IMAGE",
+    "OUTLINE",
+    "LINE",
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1,
+  "flowZoom": 1.5,
   "implementationLanguage": "C"
 }

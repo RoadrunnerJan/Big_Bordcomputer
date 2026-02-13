@@ -46,7 +46,7 @@ void loadScreen(enum ScreensEnum screenId) {
 
 void ui_init() {
     create_screens();
-    loadScreen(SCREEN_ID_GAUGE_OIL_PRESSURE_DAY);
+    loadScreen(SCREEN_ID_GAUGE_OIL_PRESSURE);
 
 }
 
