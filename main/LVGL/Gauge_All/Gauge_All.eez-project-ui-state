@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/3",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/5",
     "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/4",
     "subnavigationSelectedItems": {
@@ -168,7 +168,8 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -192,7 +193,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 40.51679902927844,
-              "selected": 4,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -252,8 +253,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -1029,7 +1029,9 @@
           "3": {},
           "4": {},
           "5": {},
-          "6": {},
+          "6": {
+            "$selected": true
+          },
           "8": {}
         }
       },
@@ -1053,7 +1055,9 @@
           "1": {},
           "5": {},
           "6": {},
-          "7": {}
+          "7": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1075,6 +1079,9 @@
         "0": {
           "0": {},
           "4": {},
+          "6": {
+            "$selected": true
+          },
           "7": {}
         }
       },
@@ -1096,7 +1103,11 @@
       "selection": {
         "0": {
           "1": {},
-          "6": {}
+          "5": {},
+          "6": {},
+          "7": {
+            "$selected": true
+          }
         }
       },
       "transform": {

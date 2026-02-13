@@ -1,9 +1,39 @@
 /*
+    ToDos:
+        - Backlight PWM funktioniert nicht
+        - Screen Anzahl 3 funktioniert nicht, vier aber schon
+        - Goldene Regel Main-Loop vs. Timer beachten (siehe Kommentare)
+        - MAcros für Funktionen schreiben
+        - Screen Funktionen und Backlight so umarbeiten, dass die Screens auf beliebige Displays gesetzt werden können
+        - Kommentare in den Code schreiben
+        - Andere GUI für Temp/Uhr
+        - Nachtmodus geht noch nicht für alle Displays -> Umschreiben auf Nachtscreens für alle -> muss dann aber in den Tick funktionen berücksichtigt werden
+
+
+        Die goldene Regel: Main-Loop vs. Timer
+        Du darfst die GUI nicht aus einer Sensor-Task heraus aktualisieren, wenn diese gleichzeitig mit der lv_timer_handler Task läuft (Gefahr von Abstürzen). Nutze entweder einen Mutex oder aktualisiere die Werte direkt in deiner lv_tick_task:
+        c
+        static void lv_tick_task(void *pv) {
+            while (1) {
+                // Hier könntest du die Variable aktualisieren, bevor der Handler zeichnet
+                char buf[16];
+                snprintf(buf, sizeof(buf), "%.1f", mein_globaler_sensor_wert);
+                set_var_lvgl_value_temperature_string(buf);
+
+                lv_timer_handler(); // Verarbeitet die Änderung und zeichnet neu
+                vTaskDelay(pdMS_TO_TICKS(10));
+            }
+        }
+*/
+
+
+
+/*
 #################################################################################
     Presettings for Individual Configuration
 #################################################################################
 */
-#define NUMBER_OF_DISPLAYS                 4   // up to 4 Displays possible
+#define NUMBER_OF_DISPLAYS                 3   // up to 4 Displays possible
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 /*
@@ -103,4 +133,33 @@
     Diverse Settings
 #################################################################################
 */
-#define EEZ_VALUE_FACTOR                            100000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
+#define EEZ_VALUE_FACTOR                            1000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
+
+#define Task_StepDepth_Screen_1                     4096
+#define Task_Priority_Screen_1                      10
+#define Task_DelayTime_Screen_1                     20
+#define Task_Core_Screen_1                          0
+
+#define COLOR_NIGHT_MODE_HEX                       0xff5a00
+#define COLOR_DAY_MODE_HEX                         0xffffff
+#define OPACITY_NIGHT_MODE                         60
+#define OPACITY_DAY_MODE                           0
+
+#if NUMBER_OF_DISPLAYS > 1
+    #define Task_StepDepth_Screen_2                     Task_StepDepth_Screen_1
+    #define Task_Priority_Screen_2                      Task_Priority_Screen_1
+    #define Task_DelayTime_Screen_2                     100
+    #define Task_Core_Screen_2                          Task_Core_Screen_1
+#endif
+#if NUMBER_OF_DISPLAYS > 2
+    #define Task_StepDepth_Screen_3                     Task_StepDepth_Screen_1
+    #define Task_Priority_Screen_3                      Task_Priority_Screen_1
+    #define Task_DelayTime_Screen_3                     20
+    #define Task_Core_Screen_3                          Task_Core_Screen_1
+#endif
+#if NUMBER_OF_DISPLAYS > 3
+    #define Task_StepDepth_Screen_4                     Task_StepDepth_Screen_1
+    #define Task_Priority_Screen_4                      Task_Priority_Screen_1
+    #define Task_DelayTime_Screen_4                     100
+    #define Task_Core_Screen_4                          Task_Core_Screen_1
+#endif

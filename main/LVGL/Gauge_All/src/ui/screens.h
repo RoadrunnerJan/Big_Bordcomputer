@@ -12,6 +12,7 @@ typedef struct _objects_t {
     lv_obj_t *gauge_oil_temperature;
     lv_obj_t *gauge_voltage;
     lv_obj_t *gauge_temperature_clock;
+    lv_obj_t *gauge_clock_temperature;
     lv_obj_t *pressure_black_background_opa;
     lv_obj_t *pressure_needle_knop_light_shadow;
     lv_obj_t *pressure_max_indicator;
@@ -51,6 +52,17 @@ typedef struct _objects_t {
     lv_obj_t *temp_clock_needle_knob;
     lv_obj_t *temp_clock_gauge_value;
     lv_obj_t *temp_clock_gauge_unit;
+    lv_obj_t *clock_temp_black_background_opa;
+    lv_obj_t *clock_temp_needle_knop_light_shadow;
+    lv_obj_t *clock_temp_gauge_scale_hour_labels;
+    lv_obj_t *clock_temp_gauge_12;
+    lv_obj_t *clock_temp_gauge_image;
+    lv_obj_t *clock_temp_gauge_scale_hour;
+    lv_obj_t *clock_temp_gauge_scale_minute;
+    lv_obj_t *clock_temp_needle_knob;
+    lv_obj_t *clock_temp_six_blacking;
+    lv_obj_t *clock_temp_gauge_value;
+    lv_obj_t *clock_temp_gauge_unit;
 } objects_t;
 
 extern objects_t objects;
@@ -60,6 +72,7 @@ enum ScreensEnum {
     SCREEN_ID_GAUGE_OIL_TEMPERATURE = 2,
     SCREEN_ID_GAUGE_VOLTAGE = 3,
     SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 4,
+    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE = 5,
 };
 
 void create_screen_gauge_oil_pressure();
@@ -73,6 +86,9 @@ void tick_screen_gauge_voltage();
 
 void create_screen_gauge_temperature_clock();
 void tick_screen_gauge_temperature_clock();
+
+void create_screen_gauge_clock_temperature();
+void tick_screen_gauge_clock_temperature();
 
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);

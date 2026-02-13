@@ -21,7 +21,9 @@ enum FlowGlobalVariables {
     FLOW_GLOBAL_VARIABLE_LVGL_VALUE_TEMPERATURE = 3,
     FLOW_GLOBAL_VARIABLE_LVGL_VALUE_OIL_TEMPERATURE_STRING = 4,
     FLOW_GLOBAL_VARIABLE_LVGL_VALUE_VOLTAGE_STRING = 5,
-    FLOW_GLOBAL_VARIABLE_LVGL_VALUE_TEMPERATURE_STRING = 6
+    FLOW_GLOBAL_VARIABLE_LVGL_VALUE_TEMPERATURE_STRING = 6,
+    FLOW_GLOBAL_VARIABLE_LVGL_VALUE_CLOCK_HOUR = 7,
+    FLOW_GLOBAL_VARIABLE_LVGL_VALUE_CLOCK_MINUTE = 8
 };
 
 // Native global variables
@@ -44,6 +46,10 @@ extern const char *get_var_lvgl_value_voltage_string();
 extern void set_var_lvgl_value_voltage_string(const char *value);
 extern const char *get_var_lvgl_value_temperature_string();
 extern void set_var_lvgl_value_temperature_string(const char *value);
+extern int32_t get_var_lvgl_value_clock_hour();
+extern void set_var_lvgl_value_clock_hour(int32_t value);
+extern int32_t get_var_lvgl_value_clock_minute();
+extern void set_var_lvgl_value_clock_minute(int32_t value);
 
 
 #ifdef __cplusplus

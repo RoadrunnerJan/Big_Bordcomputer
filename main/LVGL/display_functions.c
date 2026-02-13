@@ -1,136 +1,47 @@
 #include "../includes.h"
 #include "../individual_config.h"
 
+//#include "Logos/Logo.c"
+
+esp_timer_handle_t periodic_timer;
 esp_lcd_panel_io_handle_t io_handle[NUMBER_OF_DISPLAYS];
 esp_lcd_panel_handle_t panel_handle[NUMBER_OF_DISPLAYS];
-esp_timer_handle_t periodic_timer;
 static lv_disp_drv_t disp_drv[NUMBER_OF_DISPLAYS];
 static lv_disp_draw_buf_t draw_buf[NUMBER_OF_DISPLAYS];
 static lv_color_t *buf[NUMBER_OF_DISPLAYS];
 lv_disp_t *lv_displays[NUMBER_OF_DISPLAYS];
 
-void setUp_Variables() {
-    /*
-    for (int i = 0; i < NUMBER_OF_DISPLAYS; i++) {
-        io_handle[i] = NULL;
-        panel_handle[i] = NULL;
-        disp_drv[i] = (lv_disp_drv_t){0};
-        draw_buf[i] = (lv_disp_draw_buf_t){0};
-        buf[i] = NULL;
-    }
-    periodic_timer = NULL;
-    */
-}
-void move_screen_to_display(lv_obj_t * screen, lv_disp_t * target_disp) {
-    if (!screen || !target_disp) return;
-    
-    // In LVGL 8.3 zieht man einen Screen um, indem man 
-    // das Standard-Display setzt und den Screen dort "befestigt"
-    lv_disp_t * old_disp = lv_obj_get_disp(screen);
-    if(old_disp == target_disp) return;
-
-    // Da man in v8.3 Screens nicht einfach umhängen kann,
-    // ist der sicherste Weg, das Display für den Screen-Wechsel vorzubereiten:
-    lv_disp_set_default(target_disp);
-    lv_scr_load(screen);
-}
-
 void set_Displays() {
 
     lv_disp_set_default(lv_displays[0]);
-    ui_init(); // Initialisiert alles auf Display 0
+    ui_init(); 
     create_screen_gauge_oil_pressure();
+    lv_scr_load(objects.gauge_oil_pressure);
+    vTaskDelay(pdMS_TO_TICKS(10));
     #if NUMBER_OF_DISPLAYS > 1
         lv_disp_set_default(lv_displays[1]);
         create_screen_gauge_oil_temperature();
-        //lv_disp_load_scr(objects.gauge_oil_temperature); 
+        lv_scr_load(objects.gauge_oil_temperature);
+        vTaskDelay(pdMS_TO_TICKS(10));
     #endif
     #if NUMBER_OF_DISPLAYS > 2
         lv_disp_set_default(lv_displays[2]);
         create_screen_gauge_voltage();
-    //lv_disp_load_scr(objects.gauge_voltage); 
-    #endif
-    #if NUMBER_OF_DISPLAYS > 3
-        lv_disp_set_default(lv_displays[3]);
-        create_screen_gauge_temperature_clock();
-        //nadeln[4] = objects.gauge_voltage;
-
-
-        //lv_disp_load_scr(objects.gauge_temperature_clock); 
-    #endif
-
-
-
-/*
-
-    //lv_disp_t *dispp = lv_disp_get_default();
-
-    create_screen_gauge_voltage();
-    create_screen_gauge_temperature_clock();
-    create_screen_gauge_oil_temperature();
-    create_screen_gauge_oil_pressure();
-    
-    lv_theme_t *theme_1 = lv_theme_default_init(lv_displays[0], lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
-    lv_disp_set_theme(lv_displays[0], theme_1);    
-    lv_theme_t *theme_2 = lv_theme_default_init(lv_displays[1], lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
-    lv_disp_set_theme(lv_displays[1], theme_2);    
-   
-
-
-    lv_disp_set_default(lv_displays[0]);
-    loadScreen(SCREEN_ID_GAUGE_OIL_PRESSURE);
-    lv_disp_set_default(lv_displays[1]);
-    loadScreen(SCREEN_ID_GAUGE_OIL_TEMPERATURE);
-
-    //theme = lv_theme_default_init(lv_displays[2], lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
-    //lv_disp_set_theme(lv_displays[2], theme);    
-    //loadScreen(SCREEN_ID_GAUGE_VOLTAGE);
-    
-    */
-
-
-/*
-    create_screen_gauge_oil_temperature();
-    create_screen_gauge_voltage();
-    create_screen_gauge_temperature_clock();
-
-    */
-
-
-
-
-
-
-
-    lv_disp_set_default(lv_displays[0]);
-    lv_scr_load(objects.gauge_oil_pressure);
-    vTaskDelay(pdMS_TO_TICKS(10));
-
-    #if NUMBER_OF_DISPLAYS > 1
-        lv_disp_set_default(lv_displays[1]);
-        //lv_scr_load_anim(objects.gauge_oil_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false); 
-        lv_scr_load(objects.gauge_oil_temperature);
-        vTaskDelay(pdMS_TO_TICKS(10));
-    #endif
-
-    #if NUMBER_OF_DISPLAYS > 2
-        lv_disp_set_default(lv_displays[2]);
         lv_scr_load(objects.gauge_voltage);
         vTaskDelay(pdMS_TO_TICKS(10));
     #endif
-
     #if NUMBER_OF_DISPLAYS > 3
         lv_disp_set_default(lv_displays[3]);
-        lv_scr_load(objects.gauge_temperature_clock);
+        //create_screen_gauge_temperature_clock();
+        //lv_scr_load(objects.gauge_temperature_clock);
+        create_screen_gauge_clock_temperature();
+        lv_scr_load(objects.gauge_clock_temperature);
         vTaskDelay(pdMS_TO_TICKS(10));
+
     #endif
-    
+
 }
 
-/*static void lvgl_flush_cb(esp_lcd_panel_handle_t *panel_handle, const lv_area_t *area, lv_color_t *color_map) {
-    // WICHTIG: Hier KEIN lv_disp_flush_ready aufrufen!
-    esp_lcd_panel_draw_bitmap(&panel_handle, area->x1, area->y1, area->x2 + 1, area->y2 + 1, color_map);
-}*/
 static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_map) {    
     esp_lcd_panel_handle_t panel = (esp_lcd_panel_handle_t)disp_drv->user_data;
 
@@ -321,9 +232,8 @@ void display_init(void)
         // Initialize the LCD panel
         int x_gap = 0; // Setze den horizontalen Gap auf 0
         int y_gap = 0; // Setze den vertikalen Gap auf 0
-        esp_lcd_panel_set_gap(panel_handle[i], x_gap, y_gap);
-        esp_lcd_panel_disp_on_off(panel_handle[i], false); 
-
+        ESP_ERROR_CHECK(esp_lcd_panel_set_gap(panel_handle[i], x_gap, y_gap));
+        ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle[i], false));
         ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle[i]));
         ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle[i], true)); // Optional: Invertiere die Farben für besseren Kontrast auf manchen Displays
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle[i], true));
@@ -343,7 +253,7 @@ void display_init(void)
     
    // esp_lcd_panel_draw_bitmap(panel_handle, 0, 0, 240, 240, Logo_map);
     //vTaskDelay(pdMS_TO_TICKS(500));
-    //esp_lcd_panel_draw_bitmap(panel_handle, 0, 0, 240, 240, jro_map);
+    //esp_lcd_panel_draw_bitmap(panel_handle[0], 0, 0, 240, 240, Logo_map);
     //vTaskDelay(pdMS_TO_TICKS(2000));
     
 
@@ -355,24 +265,24 @@ void buffer_init() {
     //buf = heap_caps_malloc(LCD_1_H_RES * LCD_1_V_RES * sizeof(lv_color_t), MALLOC_CAP_SPIRAM);
     int buff_factor = 2;
 
-    buf[0] = heap_caps_malloc(LCD_1_H_RES * (LCD_1_V_RES /buff_factor) * sizeof(lv_color_t), MALLOC_CAP_1);
-    memset(buf[0], 0, LCD_1_H_RES * (LCD_1_V_RES /buff_factor) * sizeof(lv_color_t));
-    lv_disp_draw_buf_init(&draw_buf[0], buf[0], NULL, LCD_1_H_RES * (LCD_1_V_RES /buff_factor));
+    buf[0] = heap_caps_malloc(LCD_1_H_RES * (LCD_1_V_RES / buff_factor) * sizeof(lv_color_t), MALLOC_CAP_1);
+    memset(buf[0], 0, LCD_1_H_RES * (LCD_1_V_RES / buff_factor) * sizeof(lv_color_t));
+    lv_disp_draw_buf_init(&draw_buf[0], buf[0], NULL, LCD_1_H_RES * (LCD_1_V_RES / buff_factor));
 
     #if NUMBER_OF_DISPLAYS > 1
-        buf[1] = heap_caps_malloc(LCD_2_H_RES * (LCD_2_V_RES /buff_factor) * sizeof(lv_color_t), MALLOC_CAP_2);
-        memset(buf[1], 0, LCD_2_H_RES * (LCD_2_V_RES /buff_factor) * sizeof(lv_color_t));
-        lv_disp_draw_buf_init(&draw_buf[1], buf[1], NULL, LCD_2_H_RES * (LCD_2_V_RES /buff_factor));
+        buf[1] = heap_caps_malloc(LCD_2_H_RES * (LCD_2_V_RES / buff_factor) * sizeof(lv_color_t), MALLOC_CAP_2);
+        memset(buf[1], 0, LCD_2_H_RES * (LCD_2_V_RES / buff_factor) * sizeof(lv_color_t));
+        lv_disp_draw_buf_init(&draw_buf[1], buf[1], NULL, LCD_2_H_RES * (LCD_2_V_RES / buff_factor));
     #endif
     #if NUMBER_OF_DISPLAYS > 2
-        buf[2] = heap_caps_malloc(LCD_3_H_RES * (LCD_3_V_RES /buff_factor) * sizeof(lv_color_t), MALLOC_CAP_3);
-        memset(buf[2], 0, LCD_3_H_RES * (LCD_3_V_RES /buff_factor) * sizeof(lv_color_t));
-        lv_disp_draw_buf_init(&draw_buf[2], buf[2], NULL, LCD_3_H_RES * (LCD_3_V_RES /buff_factor));
+        buf[2] = heap_caps_malloc(LCD_3_H_RES * (LCD_3_V_RES / buff_factor) * sizeof(lv_color_t), MALLOC_CAP_3);
+        memset(buf[2], 0, LCD_3_H_RES * (LCD_3_V_RES / buff_factor) * sizeof(lv_color_t));
+        lv_disp_draw_buf_init(&draw_buf[2], buf[2], NULL, LCD_3_H_RES * (LCD_3_V_RES / buff_factor));
     #endif
     #if NUMBER_OF_DISPLAYS > 3
-        buf[3] = heap_caps_malloc(LCD_4_H_RES * (LCD_4_V_RES /buff_factor) * sizeof(lv_color_t), MALLOC_CAP_4);
-        memset(buf[3], 0, LCD_4_H_RES * (LCD_4_V_RES /buff_factor) * sizeof(lv_color_t));
-        lv_disp_draw_buf_init(&draw_buf[3], buf[3], NULL, LCD_4_H_RES * (LCD_4_V_RES /buff_factor));
+        buf[3] = heap_caps_malloc(LCD_4_H_RES * (LCD_4_V_RES / buff_factor) * sizeof(lv_color_t), MALLOC_CAP_4);
+        memset(buf[3], 0, LCD_4_H_RES * (LCD_4_V_RES / buff_factor) * sizeof(lv_color_t));
+        lv_disp_draw_buf_init(&draw_buf[3], buf[3], NULL, LCD_4_H_RES * (LCD_4_V_RES / buff_factor));
     #endif
 
 }

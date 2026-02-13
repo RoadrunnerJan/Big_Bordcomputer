@@ -32,6 +32,8 @@
 #include <string.h>
 
 #include "individual_config.h"
+#include <time.h>
+
 
 
 extern esp_lcd_panel_io_handle_t io_handle[NUMBER_OF_DISPLAYS];
