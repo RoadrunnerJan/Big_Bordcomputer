@@ -162,7 +162,7 @@ static void tick_switch(int id)
             }
             
             set_var_lvgl_value_temperature_string(ziel_string);
-            if(night_mode)
+            if(!night_mode)
             {
                 if (lv_scr_act() != objects.gauge_clock_temperature) 
                 {
