@@ -73,6 +73,7 @@ struct display_settings
     int task_priority;
     int task_delay_time_ms;
     int tast_core;
+    bool night_Mode_Switched;
     
 
     esp_lcd_panel_io_handle_t io_handle;
@@ -83,6 +84,9 @@ struct display_settings
     lv_disp_draw_buf_t draw_buf;
     esp_lcd_panel_io_spi_config_t io_config;
     esp_lcd_panel_dev_config_t panel_config;
+
+    SemaphoreHandle_t lvgl_mux; 
+
 
 };
 
@@ -103,3 +107,6 @@ void display_init();
 void buffer_and_driver_init(); // Initialisiert die LVGL-Puffer für alle Displays
 void timer_start(); // Startet die Timer für alle Displays
 void set_Displays();
+
+
+

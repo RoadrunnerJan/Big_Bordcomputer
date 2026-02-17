@@ -39,6 +39,8 @@
     "cstdint": "c",
     "esp_system.h": "c",
     "esp_task_wdt.h": "c",
-    "screens.h": "c"
+    "screens.h": "c",
+    "text_encoding": "c",
+    "thread": "c"
   }
 }

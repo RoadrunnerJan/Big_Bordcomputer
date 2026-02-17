@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/4",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/9",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -194,6 +194,28 @@
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#29058f35-ca98-40ea-a772-a41f604668b9",
+                  "name": "Gauge_Clock_Temperature_Night",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/9",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#0d284c15-5e39-447f-a099-d5ba575404be",
+                  "name": "Gauge_Voltage_1",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/5",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
                 {
                   "type": "tab",
                   "id": "#c22cb68c-fb2a-44c0-8ea7-e5a098086d1f",
@@ -1035,8 +1057,8 @@
       },
       "transform": {
         "translate": {
-          "x": -208.21875,
-          "y": -68.8414306640625
+          "x": -201.21875,
+          "y": -223.8414306640625
         },
         "scale": 1.75
       },
@@ -1075,6 +1097,56 @@
     "[Gauge_All.eez-project]:/userPages/2[flow-state]": {
       "selection": {
         "0": {
+          "1": {},
+          "5": {},
+          "8": {
+            "$selected": true
+          },
+          "9": {}
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -200,
+          "y": -279.1793212890625
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/3[flow-state]": {
+      "selection": {
+        "0": {
+          "0": {},
+          "4": {},
+          "8": {
+            "$selected": true
+          },
+          "9": {}
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -196.49999999999994,
+          "y": -329.2500000000001
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/4[flow-state]": {
+      "selection": {
+        "0": {
           "0": {},
           "4": {},
           "8": {},
@@ -1097,12 +1169,41 @@
         "scrollLeft": 0
       }
     },
-    "[Gauge_All.eez-project]:/userPages/3[flow-state]": {
+    "[Gauge_All.eez-project]:/lvglStyles/styles[tree-state]": {
+      "0": {
+        "$selected": true
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/5[flow-state]": {
       "selection": {
         "0": {
           "1": {},
           "5": {},
-          "7": {},
+          "7": {}
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -179,
+          "y": -193
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/6[flow-state]": {
+      "selection": {
+        "0": {
+          "1": {},
+          "5": {},
+          "7": {
+            "$selected": true
+          },
           "8": {}
         }
       },
@@ -1120,7 +1221,31 @@
         "scrollLeft": 0
       }
     },
-    "[Gauge_All.eez-project]:/userPages/4[flow-state]": {
+    "[Gauge_All.eez-project]:/userPages/7[flow-state]": {
+      "selection": {
+        "0": {
+          "4": {},
+          "5": {},
+          "8": {
+            "$selected": true
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -187.97967171717158,
+          "y": -215.620075757576
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All.eez-project]:/userPages/8[flow-state]": {
       "selection": {
         "0": {
           "4": {},
@@ -1132,8 +1257,8 @@
       },
       "transform": {
         "translate": {
-          "x": -220.97967171717158,
-          "y": -176.620075757576
+          "x": -187.97967171717158,
+          "y": -215.620075757576
         },
         "scale": 1.75
       },
@@ -1144,9 +1269,27 @@
         "scrollLeft": 0
       }
     },
-    "[Gauge_All.eez-project]:/lvglStyles/styles[tree-state]": {
-      "0": {
-        "$selected": true
+    "[Gauge_All.eez-project]:/userPages/9[flow-state]": {
+      "selection": {
+        "0": {
+          "0": {},
+          "9": {
+            "$selected": true
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -198,
+          "y": -140
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
       }
     }
   },
@@ -1167,7 +1310,6 @@
     "ARC",
     "TEXT",
     "MISCELLANEOUS",
-    "IMAGE",
     "OUTLINE",
     "LINE",
     "PADDING",
@@ -1176,7 +1318,8 @@
     "POSITION AND SIZE",
     "MARGIN",
     "BACKGROUND",
-    "BORDER"
+    "BORDER",
+    "IMAGE"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,

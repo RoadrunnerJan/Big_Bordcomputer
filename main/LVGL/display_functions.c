@@ -11,44 +11,43 @@ ledc_channel_config_t ledc_channel;
 int reset_is_set = false;
 
 
-/*
-    SCREEN_ID_GAUGE_OIL_PRESSURE = 1,
-    SCREEN_ID_GAUGE_OIL_TEMPERATURE = 2,
-    SCREEN_ID_GAUGE_VOLTAGE = 3,
-    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 4,
-    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE = 5,
-    */
-
-
 void set_Displays() {
 
     lv_disp_set_default(DISPLAYS[0].lv_displays);
     ui_init(); 
-    create_screen_gauge_oil_pressure();
-    lv_scr_load(objects.gauge_oil_pressure);
-    vTaskDelay(pdMS_TO_TICKS(10));
-    #if NUMBER_OF_DISPLAYS > 1
-        lv_disp_set_default(DISPLAYS[1].lv_displays);
-        create_screen_gauge_oil_temperature();
-        lv_scr_load(objects.gauge_oil_temperature);
+    for (int i = 0; i < NUMBER_OF_DISPLAYS; i++)
+    {
+        lv_disp_set_default(DISPLAYS[i].lv_displays);
+        switch(DISPLAYS[i].screen_selection)
+        {
+            case SCREEN_ID_GAUGE_OIL_PRESSURE:
+                create_screen_gauge_oil_pressure_night();
+                create_screen_gauge_oil_pressure();
+                lv_scr_load(objects.gauge_oil_pressure);
+                break;
+            case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
+                create_screen_gauge_oil_temperature_night();
+                create_screen_gauge_oil_temperature();
+                lv_scr_load(objects.gauge_oil_temperature);
+                break;
+            case SCREEN_ID_GAUGE_VOLTAGE:
+                create_screen_gauge_voltage_night();
+                create_screen_gauge_voltage();
+                lv_scr_load(objects.gauge_voltage);
+                break;
+            case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
+                create_screen_gauge_temperature_clock_night();
+                create_screen_gauge_temperature_clock();
+                lv_scr_load(objects.gauge_temperature_clock);
+                break;
+            case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
+                create_screen_gauge_clock_temperature_night();
+                create_screen_gauge_clock_temperature();
+                lv_scr_load(objects.gauge_clock_temperature);
+                break;
+        }
         vTaskDelay(pdMS_TO_TICKS(10));
-    #endif
-    #if NUMBER_OF_DISPLAYS > 2
-        lv_disp_set_default(DISPLAYS[2].lv_displays);
-        create_screen_gauge_voltage();
-        lv_scr_load(objects.gauge_voltage);
-        vTaskDelay(pdMS_TO_TICKS(10));
-    #endif
-    #if NUMBER_OF_DISPLAYS > 3
-        lv_disp_set_default(DISPLAYS[3].lv_displays);
-        //create_screen_gauge_temperature_clock();
-        //lv_scr_load(objects.gauge_temperature_clock);
-        create_screen_gauge_clock_temperature();
-        lv_scr_load(objects.gauge_clock_temperature);
-        vTaskDelay(pdMS_TO_TICKS(10));
-
-    #endif
-
+    }
 }
 
 static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_map) {    
@@ -150,7 +149,7 @@ void display_init(void)
 {
     set_lcd_brightness(0); 
 
-    DISPLAYS[0].screen_selection =       SCREEN_ID_GAUGE_OIL_PRESSURE;
+    DISPLAYS[0].screen_selection =       LCD_1_SCREEN_ID;
     DISPLAYS[0].spi_host =               LCD_1_SPI_HOST;
     DISPLAYS[0].lcd_pin_dc =             PIN_LCD_1_DC;
     DISPLAYS[0].lcd_pin_cs =             PIN_LCD_1_CS;
@@ -169,61 +168,61 @@ void display_init(void)
     DISPLAYS[0].tast_core =              TASK_1_CORE_SCREEN;
     
     #if NUMBER_OF_DISPLAYS > 1
-        DISPLAYS[1].screen_selection =   SCREEN_ID_GAUGE_OIL_TEMPERATURE;
-        DISPLAYS[1].spi_host =           LCD_2_SPI_HOST;
-        DISPLAYS[1].lcd_pin_dc =         PIN_LCD_2_DC;
-        DISPLAYS[1].lcd_pin_cs =         PIN_LCD_2_CS;
-        DISPLAYS[1].lcd_pin_rst =        PIN_LCD_2_RST;
-        DISPLAYS[1].lcd_res_h =          LCD_2_H_RES;
-        DISPLAYS[1].lcd_res_v =          LCD_2_V_RES;
-        DISPLAYS[1].lcd_rgb_order =      LCD_2_RGB_ELEMENT_ORDER_BGR;
-        DISPLAYS[1].lcd_invert_color =   LCD_2_INVERT_COLOR;
-        DISPLAYS[1].lcd_mirror_x =       LCD_2_MIRROR_X;
-        DISPLAYS[1].lcd_mirror_y =       LCD_2_MIRROR_Y;
-        DISPLAYS[1].malloc_cap =         LCD_2_MALLOC_CAP;
-        DISPLAYS[1].buffer_factor =      LCD_2_BUFFER_FACTOR;
-        DISPLAYS[1].task_step_depth =    TASK_2_STEPDEPTH_SCREEN;
-        DISPLAYS[1].task_priority =      TASK_2_PRIORITY_SCREEN;
-        DISPLAYS[1].task_delay_time_ms = TASK_2_DELAYTIME_SCREEN;
-        DISPLAYS[1].tast_core =          TASK_2_CORE_SCREEN;
+        DISPLAYS[1].screen_selection =     LCD_2_SCREEN_ID;
+        DISPLAYS[1].spi_host =             LCD_2_SPI_HOST;
+        DISPLAYS[1].lcd_pin_dc =           PIN_LCD_2_DC;
+        DISPLAYS[1].lcd_pin_cs =           PIN_LCD_2_CS;
+        DISPLAYS[1].lcd_pin_rst =          PIN_LCD_2_RST;
+        DISPLAYS[1].lcd_res_h =            LCD_2_H_RES;
+        DISPLAYS[1].lcd_res_v =            LCD_2_V_RES;
+        DISPLAYS[1].lcd_rgb_order =        LCD_2_RGB_ELEMENT_ORDER_BGR;
+        DISPLAYS[1].lcd_invert_color =     LCD_2_INVERT_COLOR;
+        DISPLAYS[1].lcd_mirror_x =         LCD_2_MIRROR_X;
+        DISPLAYS[1].lcd_mirror_y =         LCD_2_MIRROR_Y;
+        DISPLAYS[1].malloc_cap =           LCD_2_MALLOC_CAP;
+        DISPLAYS[1].buffer_factor =        LCD_2_BUFFER_FACTOR;
+        DISPLAYS[1].task_step_depth =      TASK_2_STEPDEPTH_SCREEN;
+        DISPLAYS[1].task_priority =        TASK_2_PRIORITY_SCREEN;
+        DISPLAYS[1].task_delay_time_ms =   TASK_2_DELAYTIME_SCREEN;
+        DISPLAYS[1].tast_core =            TASK_2_CORE_SCREEN;
     #endif
     #if NUMBER_OF_DISPLAYS > 2 
-        DISPLAYS[2].screen_selection =   SCREEN_ID_GAUGE_VOLTAGE;
-        DISPLAYS[2].spi_host =           LCD_3_SPI_HOST;
-        DISPLAYS[2].lcd_pin_dc =         PIN_LCD_3_DC;
-        DISPLAYS[2].lcd_pin_cs =         PIN_LCD_3_CS;
-        DISPLAYS[2].lcd_pin_rst =        PIN_LCD_3_RST;
-        DISPLAYS[2].lcd_res_h =          LCD_3_H_RES;
-        DISPLAYS[2].lcd_res_v =          LCD_3_V_RES;
-        DISPLAYS[2].lcd_rgb_order =      LCD_3_RGB_ELEMENT_ORDER_BGR;
-        DISPLAYS[2].lcd_invert_color =   LCD_3_INVERT_COLOR;
-        DISPLAYS[2].lcd_mirror_x =       LCD_3_MIRROR_X;
-        DISPLAYS[2].lcd_mirror_y =       LCD_3_MIRROR_Y;
-        DISPLAYS[2].malloc_cap =         LCD_3_MALLOC_CAP;
-        DISPLAYS[2].buffer_factor =      LCD_3_BUFFER_FACTOR;
-        DISPLAYS[2].task_step_depth =    TASK_3_STEPDEPTH_SCREEN;
-        DISPLAYS[2].task_priority =      TASK_PRIORITY_SCREEN_3;
-        DISPLAYS[2].task_delay_time_ms = TASK_3_DELAYTIME_SCREEN;
-        DISPLAYS[2].tast_core =          TASK_3_CORE_SCREEN;
+        DISPLAYS[2].screen_selection =     LCD_3_SCREEN_ID;
+        DISPLAYS[2].spi_host =             LCD_3_SPI_HOST;
+        DISPLAYS[2].lcd_pin_dc =           PIN_LCD_3_DC;
+        DISPLAYS[2].lcd_pin_cs =           PIN_LCD_3_CS;
+        DISPLAYS[2].lcd_pin_rst =          PIN_LCD_3_RST;
+        DISPLAYS[2].lcd_res_h =            LCD_3_H_RES;
+        DISPLAYS[2].lcd_res_v =            LCD_3_V_RES;
+        DISPLAYS[2].lcd_rgb_order =        LCD_3_RGB_ELEMENT_ORDER_BGR;
+        DISPLAYS[2].lcd_invert_color =     LCD_3_INVERT_COLOR;
+        DISPLAYS[2].lcd_mirror_x =         LCD_3_MIRROR_X;
+        DISPLAYS[2].lcd_mirror_y =         LCD_3_MIRROR_Y;
+        DISPLAYS[2].malloc_cap =           LCD_3_MALLOC_CAP;
+        DISPLAYS[2].buffer_factor =        LCD_3_BUFFER_FACTOR;
+        DISPLAYS[2].task_step_depth =      TASK_3_STEPDEPTH_SCREEN;
+        DISPLAYS[2].task_priority =        TASK_PRIORITY_SCREEN_3;
+        DISPLAYS[2].task_delay_time_ms =   TASK_3_DELAYTIME_SCREEN;
+        DISPLAYS[2].tast_core =            TASK_3_CORE_SCREEN;
     #endif
     #if NUMBER_OF_DISPLAYS > 3
-        DISPLAYS[3].screen_selection =   SCREEN_ID_GAUGE_CLOCK_TEMPERATURE;
-        DISPLAYS[3].spi_host =           LCD_4_SPI_HOST;
-        DISPLAYS[3].lcd_pin_dc =         PIN_LCD_4_DC;
-        DISPLAYS[3].lcd_pin_cs =         PIN_LCD_4_CS;
-        DISPLAYS[3].lcd_pin_rst =        PIN_LCD_4_RST;
-        DISPLAYS[3].lcd_res_h =          LCD_4_H_RES;
-        DISPLAYS[3].lcd_res_v =          LCD_4_V_RES;
-        DISPLAYS[3].lcd_rgb_order =      LCD_4_RGB_ELEMENT_ORDER_BGR;
-        DISPLAYS[3].lcd_invert_color =   LCD_4_INVERT_COLOR;
-        DISPLAYS[3].lcd_mirror_x =       LCD_4_MIRROR_X;
-        DISPLAYS[3].lcd_mirror_y =       LCD_4_MIRROR_Y;
-        DISPLAYS[3].malloc_cap =         LCD_4_MALLOC_CAP;
-        DISPLAYS[3].buffer_factor =      LCD_4_BUFFER_FACTOR;
-        DISPLAYS[3].task_step_depth =    TASK_4_STEPDEPTH_SCREEN;
-        DISPLAYS[3].task_priority =      TASK_PRIORITY_SCREEN_4;
-        DISPLAYS[3].task_delay_time_ms = TASK_4_DELAYTIME_SCREEN;
-        DISPLAYS[3].tast_core =          TASK_4_CORE_SCREEN;
+        DISPLAYS[3].screen_selection =     LCD_4_SCREEN_ID;
+        DISPLAYS[3].spi_host =             LCD_4_SPI_HOST;
+        DISPLAYS[3].lcd_pin_dc =           PIN_LCD_4_DC;
+        DISPLAYS[3].lcd_pin_cs =           PIN_LCD_4_CS;
+        DISPLAYS[3].lcd_pin_rst =          PIN_LCD_4_RST;
+        DISPLAYS[3].lcd_res_h =            LCD_4_H_RES;
+        DISPLAYS[3].lcd_res_v =            LCD_4_V_RES;
+        DISPLAYS[3].lcd_rgb_order =        LCD_4_RGB_ELEMENT_ORDER_BGR;
+        DISPLAYS[3].lcd_invert_color =     LCD_4_INVERT_COLOR;
+        DISPLAYS[3].lcd_mirror_x =         LCD_4_MIRROR_X;
+        DISPLAYS[3].lcd_mirror_y =         LCD_4_MIRROR_Y;
+        DISPLAYS[3].malloc_cap =           LCD_4_MALLOC_CAP;
+        DISPLAYS[3].buffer_factor =        LCD_4_BUFFER_FACTOR;
+        DISPLAYS[3].task_step_depth =      TASK_4_STEPDEPTH_SCREEN;
+        DISPLAYS[3].task_priority =        TASK_PRIORITY_SCREEN_4;
+        DISPLAYS[3].task_delay_time_ms =   TASK_4_DELAYTIME_SCREEN;
+        DISPLAYS[3].tast_core =            TASK_4_CORE_SCREEN;
     #endif
 
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
@@ -262,6 +261,8 @@ void display_init(void)
         ESP_ERROR_CHECK(esp_lcd_panel_invert_color(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_invert_color)); // Optional: Invertiere die Farben für besseren Kontrast auf manchen Displays
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(DISPLAYS[i].panel_handle, true));
         ESP_ERROR_CHECK(esp_lcd_panel_mirror(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_mirror_x, DISPLAYS[i].lcd_mirror_y)); // Optional: Spiegeln des Displays horizontal
+    
+        DISPLAYS[i].lvgl_mux = xSemaphoreCreateMutex();
     }
 
     const esp_timer_create_args_t periodic_timer_args = {

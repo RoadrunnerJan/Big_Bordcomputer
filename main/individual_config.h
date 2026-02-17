@@ -1,12 +1,9 @@
 /*
     ToDos:
         - Backlight PWM funktioniert nicht
-        - Screen Anzahl 3 funktioniert nicht, vier aber schon
         - Goldene Regel Main-Loop vs. Timer beachten (siehe Kommentare)
-        - MAcros für Funktionen schreiben
         - Screen Funktionen und Backlight so umarbeiten, dass die Screens auf beliebige Displays gesetzt werden können
         - Kommentare in den Code schreiben
-        - Andere GUI für Temp/Uhr
         - Nachtmodus geht noch nicht für alle Displays -> Umschreiben auf Nachtscreens für alle -> muss dann aber in den Tick funktionen berücksichtigt werden
 
         Die goldene Regel: Main-Loop vs. Timer
@@ -81,6 +78,7 @@
 
     #define LCD_1_MALLOC_CAP                        MALLOC_CAP_SPIRAM//MALLOC_CAP_DMA //MALLOC_CAP_SPIRAM
     #define LCD_1_BUFFER_FACTOR                     2
+    #define LCD_1_SCREEN_ID                     SCREEN_ID_GAUGE_CLOCK_TEMPERATURE//SCREEN_ID_GAUGE_TEMPERATURE_CLOCK
 
 
     #define LCD_PIXEL_CLOCK_HZ                  40*1000*1000  // 40MHz
@@ -107,6 +105,7 @@
             #define LCD_2_MALLOC_CAP                        MALLOC_CAP_DMA
             #define LCD_2_BUFFER_FACTOR                     2
             #define LCD_2_SPI_HOST                      LCD_HOST_1
+            #define LCD_2_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_PRESSURE
 
         #endif
     #endif
@@ -131,6 +130,7 @@
             #else
                 #define LCD_3_SPI_HOST                      LCD_HOST_1
             #endif
+            #define LCD_3_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_TEMPERATURE
 
         #endif
     #endif
@@ -145,9 +145,9 @@
             #define LCD_4_H_RES                         LCD_3_H_RES
             #define LCD_4_V_RES                         LCD_3_V_RES
             #define LCD_4_RGB_ELEMENT_ORDER_BGR         LCD_RGB_ELEMENT_ORDER_BGR
-            #define LCD_4_MIRROR_X            true
-            #define LCD_4_MIRROR_Y            false
-            #define LCD_4_INVERT_COLOR        true
+            #define LCD_4_MIRROR_X                      true
+            #define LCD_4_MIRROR_Y                      false
+            #define LCD_4_INVERT_COLOR                  true
             #define LCD_4_MALLOC_CAP                        MALLOC_CAP_DMA
             #define LCD_4_BUFFER_FACTOR                     2
             #if NUMBER_OF_SPI > 1
@@ -155,6 +155,7 @@
             #else
                 #define LCD_4_SPI_HOST                      LCD_HOST_1
             #endif
+            #define LCD_4_SCREEN_ID                     SCREEN_ID_GAUGE_VOLTAGE
 
         #endif
     #endif
@@ -192,19 +193,19 @@
 
 #define TASK_1_STEPDEPTH_SCREEN                     4096
 #define TASK_1_PRIORITY_SCREEN                      10
-#define TASK_1_DELAYTIME_SCREEN                     20
+#define TASK_1_DELAYTIME_SCREEN                     200
 #define TASK_1_CORE_SCREEN                          0
 
 #if NUMBER_OF_DISPLAYS > 1
     #define TASK_2_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_2_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_2_DELAYTIME_SCREEN                     100
+    #define TASK_2_DELAYTIME_SCREEN                     50
     #define TASK_2_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 2
     #define TASK_3_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_PRIORITY_SCREEN_3                      TASK_1_PRIORITY_SCREEN
-    #define TASK_3_DELAYTIME_SCREEN                     20
+    #define TASK_3_DELAYTIME_SCREEN                     150
     #define TASK_3_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 3
