@@ -1,8 +1,7 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/3",
-    "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/5",
-    "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/4",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/4",
+    "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -157,7 +156,7 @@
                 {
                   "type": "tabset",
                   "id": "#67a00fd4-e9e8-4c4e-b922-f8d0d35e4301",
-                  "weight": 1.3775743707093822,
+                  "weight": 1.0905263157894738,
                   "enableClose": false,
                   "children": [
                     {
@@ -168,13 +167,12 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
                   "id": "#7405b2ce-5399-4749-8c51-cf1d2e39ff9a",
-                  "weight": 0.6224256292906178,
+                  "weight": 0.9094736842105263,
                   "enableClose": false,
                   "children": [
                     {
@@ -192,22 +190,20 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 40.51679902927844,
-              "selected": 3,
+              "weight": 37.530636286752056,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#f201bbab-77f0-4988-a32a-3d0031179f11",
-                  "name": "Settings",
+                  "id": "#c22cb68c-fb2a-44c0-8ea7-e5a098086d1f",
+                  "name": "Gauge_Clock_Temperature",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All.eez-project]:/settings",
-                    "subObjectPath": "[Gauge_All.eez-project]:/settings",
-                    "permanent": false
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/4",
+                    "permanent": true
                   },
-                  "icon": "material:settings"
+                  "icon": "svg:page"
                 },
                 {
                   "type": "tab",
@@ -253,12 +249,13 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
               "id": "#5cbeeee2-d01b-4d9d-9de8-85eb1ca9f79c",
-              "weight": 34.34087153905342,
+              "weight": 37.3270342815798,
               "children": [
                 {
                   "type": "tabset",
@@ -1029,18 +1026,19 @@
           "3": {},
           "4": {},
           "5": {},
-          "6": {
+          "6": {},
+          "7": {},
+          "8": {
             "$selected": true
-          },
-          "8": {}
+          }
         }
       },
       "transform": {
         "translate": {
-          "x": -170.9375,
-          "y": -253.875
+          "x": -208.21875,
+          "y": -68.8414306640625
         },
-        "scale": 1.5
+        "scale": 1.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1054,18 +1052,18 @@
         "0": {
           "1": {},
           "5": {},
-          "6": {},
-          "7": {
+          "8": {
             "$selected": true
-          }
+          },
+          "9": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -193,
-          "y": -158.1793212890625
+          "x": -200,
+          "y": -279.1793212890625
         },
-        "scale": 1.5
+        "scale": 1.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1079,18 +1077,18 @@
         "0": {
           "0": {},
           "4": {},
-          "6": {
+          "8": {},
+          "9": {
             "$selected": true
-          },
-          "7": {}
+          }
         }
       },
       "transform": {
         "translate": {
-          "x": -165,
-          "y": -142
+          "x": -196.49999999999994,
+          "y": -329.2500000000001
         },
-        "scale": 1.5
+        "scale": 1.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1104,10 +1102,8 @@
         "0": {
           "1": {},
           "5": {},
-          "6": {},
-          "7": {
-            "$selected": true
-          }
+          "7": {},
+          "8": {}
         }
       },
       "transform": {
@@ -1115,7 +1111,7 @@
           "x": -179,
           "y": -193
         },
-        "scale": 1.5
+        "scale": 1.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1125,13 +1121,21 @@
       }
     },
     "[Gauge_All.eez-project]:/userPages/4[flow-state]": {
-      "selection": {},
+      "selection": {
+        "0": {
+          "4": {},
+          "5": {},
+          "8": {},
+          "9": {},
+          "10": {}
+        }
+      },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -220.97967171717158,
+          "y": -176.620075757576
         },
-        "scale": 1.5
+        "scale": 1.75
       },
       "timeline": {
         "isEditorActive": false,
@@ -1157,7 +1161,7 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "MAIN",
+  "lvglPart": "TICKS",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "ARC",
@@ -1166,11 +1170,16 @@
     "IMAGE",
     "OUTLINE",
     "LINE",
+    "PADDING",
+    "SHADOW",
+    "LAYOUT",
+    "POSITION AND SIZE",
+    "MARGIN",
     "BACKGROUND",
     "BORDER"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1.5,
+  "flowZoom": 1.75,
   "implementationLanguage": "C"
 }
