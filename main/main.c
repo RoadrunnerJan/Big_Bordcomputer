@@ -18,26 +18,6 @@ static struct tm timeinfo;
 
 static bool night_mode = false;
 
-static void switch_screen_to_night(int id){
-    lv_obj_t *target_screen;
-
-    switch (id)
-    {
-        case SCREEN_ID_GAUGE_OIL_PRESSURE:
-        break;
-        case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-        break;
-        case SCREEN_ID_GAUGE_VOLTAGE: 
-        break;
-        case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-        break;
-        case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-        break;
-        
-    }
-    vTaskDelay(pdMS_TO_TICKS(10));
-}
-
 static void tick_switch(int id)
 {
     char ziel_string[20];
@@ -48,6 +28,7 @@ static void tick_switch(int id)
             snprintf(ziel_string, sizeof(ziel_string), "%.1f", pressure_value);
             set_var_lvgl_value_oil_pressure(pressure_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_pressure_string(ziel_string);
+
             if(!night_mode)
             {
                 if (lv_scr_act() != objects.gauge_oil_pressure) 
@@ -72,6 +53,7 @@ static void tick_switch(int id)
             snprintf(ziel_string, sizeof(ziel_string), "%d", (int)temperature_value);
             set_var_lvgl_value_oil_temperature(temperature_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_temperature_string(ziel_string); 
+
             if(!night_mode)
             {
                 if (lv_scr_act() != objects.gauge_oil_temperature) 
@@ -96,6 +78,7 @@ static void tick_switch(int id)
             snprintf(ziel_string, sizeof(ziel_string), "%.1f", volt_value);
             set_var_lvgl_value_voltage(volt_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_voltage_string(ziel_string);
+
             if(!night_mode)
             {
                 if (lv_scr_act() != objects.gauge_voltage) 
@@ -122,6 +105,7 @@ static void tick_switch(int id)
             snprintf(ziel_string, sizeof(ziel_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
             set_var_lvgl_value_temperature(Clocktemp_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_clock(ziel_string); 
+
             if(!night_mode)
             {
                 if (lv_scr_act() != objects.gauge_temperature_clock) 
@@ -191,7 +175,6 @@ static void lv_tick_task_screen_1(void *pv)
     while (1) {
         if (lv_disp_get_scr_act(DISPLAYS[0].lv_displays) != NULL) {
             lv_disp_set_default(DISPLAYS[0].lv_displays);
-            switch_screen_to_night(DISPLAYS[0].screen_selection);
             tick_switch(DISPLAYS[0].screen_selection);
         }
         vTaskDelay(pdMS_TO_TICKS(DISPLAYS[0].task_delay_time_ms));
@@ -205,7 +188,6 @@ static void lv_tick_task_screen_2(void *pv)
     while (1) {
         if (lv_disp_get_scr_act(DISPLAYS[1].lv_displays) != NULL) {
             lv_disp_set_default(DISPLAYS[1].lv_displays);
-            switch_screen_to_night(DISPLAYS[1].screen_selection);
             tick_switch(DISPLAYS[1].screen_selection);
         }       
         vTaskDelay(pdMS_TO_TICKS(DISPLAYS[1].task_delay_time_ms));
@@ -221,7 +203,6 @@ static void lv_tick_task_screen_3(void *pv)
         while (1) {
             if (lv_disp_get_scr_act(DISPLAYS[2].lv_displays) != NULL) {
                 lv_disp_set_default(DISPLAYS[2].lv_displays);
-                switch_screen_to_night(DISPLAYS[2].screen_selection);
                 tick_switch(DISPLAYS[2].screen_selection);
             }
             vTaskDelay(pdMS_TO_TICKS(DISPLAYS[2].task_delay_time_ms));
@@ -237,7 +218,6 @@ static void lv_tick_task_screen_4(void *pv)
         while (1) {
             if (lv_disp_get_scr_act(DISPLAYS[3].lv_displays) != NULL) {
                 lv_disp_set_default(DISPLAYS[3].lv_displays);
-                switch_screen_to_night(DISPLAYS[3].screen_selection);
                 tick_switch(DISPLAYS[3].screen_selection);
             }
             vTaskDelay(pdMS_TO_TICKS(DISPLAYS[3].task_delay_time_ms));
@@ -522,14 +502,14 @@ void app_main(void)
     timer_start(); // Startet die Timer für alle Displays 
     set_Displays();
 
-
+    // Test tasks
     xTaskCreatePinnedToCore(lv_pressure_test, "lv_pressure_test", 4096, NULL, 1, NULL, 0);
     xTaskCreatePinnedToCore(lv_temperature_test, "lv_temperature_test", 4096, NULL, 2, NULL, 0);
     xTaskCreatePinnedToCore(lv_volt_test, "lv_volt_test", 4096, NULL, 3, NULL, 0);
     xTaskCreatePinnedToCore(lv_Clocktemp_test, "lv_Clocktemp_test", 4096, NULL, 4, NULL, 0);
 
 
-    xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 5, NULL);
+    xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 12, NULL);
 
 
     xTaskCreatePinnedToCore(lv_tick_task_screen_1, "lv_tick_task_screen_1", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
