@@ -11,7 +11,6 @@
 #include "esp_system.h"
 
 #include "esp_log.h"
-#include "esp_task_wdt.h"
 
 #include "esp_lcd_gc9a01.h"
 #include "esp_lcd_panel_commands.h"

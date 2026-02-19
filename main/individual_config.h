@@ -1,10 +1,7 @@
 /*
     ToDos:
-        - Backlight PWM funktioniert nicht
         - Goldene Regel Main-Loop vs. Timer beachten (siehe Kommentare)
-        - Screen Funktionen und Backlight so umarbeiten, dass die Screens auf beliebige Displays gesetzt werden können
         - Kommentare in den Code schreiben
-        - Nachtmodus geht noch nicht für alle Displays -> Umschreiben auf Nachtscreens für alle -> muss dann aber in den Tick funktionen berücksichtigt werden
 
         Die goldene Regel: Main-Loop vs. Timer
         Du darfst die GUI nicht aus einer Sensor-Task heraus aktualisieren, wenn diese gleichzeitig mit der lv_timer_handler Task läuft (Gefahr von Abstürzen). Nutze entweder einen Mutex oder aktualisiere die Werte direkt in deiner lv_tick_task:
@@ -23,7 +20,7 @@
 */
 
 
-
+#pragma once
 /*
 #################################################################################
     Presettings for Individual Configuration
@@ -33,6 +30,7 @@
 #define NUMBER_OF_SPI                      2 // Number of SPI Devices used (for 4 Displays 2 are neccessary)
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
+#define TESTMODE
 /*
 #################################################################################
     define Pins
@@ -63,7 +61,7 @@
     #endif
 
     // Backlight on one common pin for all displays
-    #define PIN_LCD_BL                          54 // alle auf ein Backlight pin -> bei 4 Displays wäre eine Transistor lösung am bestne
+    #define PIN_LCD_BL                          47//54 // alle auf ein Backlight pin -> bei 4 Displays wäre eine Transistor lösung am bestne
 
     // LCD 1 Pins
     #define PIN_LCD_1_CS                        28
@@ -199,7 +197,7 @@
 #if NUMBER_OF_DISPLAYS > 1
     #define TASK_2_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_2_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_2_DELAYTIME_SCREEN                     50
+    #define TASK_2_DELAYTIME_SCREEN                     100
     #define TASK_2_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 2

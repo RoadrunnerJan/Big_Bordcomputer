@@ -1,7 +1,8 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/9",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/1",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
+    "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/5",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -24,6 +25,7 @@
           },
           {
             "type": "border",
+            "selected": 2,
             "size": 240,
             "location": "right",
             "children": [
@@ -191,6 +193,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -230,7 +233,7 @@
                 {
                   "type": "tab",
                   "id": "#0497ba5e-a084-49a5-9fdb-5e38b1acdc7c",
-                  "name": "Gauge_Oil_Temperature",
+                  "name": "Gauge_Oil_Pressure_Night",
                   "component": "editor",
                   "config": {
                     "objectPath": "[Gauge_All.eez-project]:/userPages/1",
@@ -241,7 +244,7 @@
                 {
                   "type": "tab",
                   "id": "#34e0c3cf-13ba-42a8-b3ea-4d5381b5404e",
-                  "name": "Gauge_Voltage",
+                  "name": "Gauge_Oil_Temperature",
                   "component": "editor",
                   "config": {
                     "objectPath": "[Gauge_All.eez-project]:/userPages/2",
@@ -252,7 +255,7 @@
                 {
                   "type": "tab",
                   "id": "#395b8277-7e13-4744-a721-a6acb1c9afb4",
-                  "name": "Gauge_Temperature_Clock",
+                  "name": "Gauge_Oil_Temperature_Night",
                   "component": "editor",
                   "config": {
                     "objectPath": "[Gauge_All.eez-project]:/userPages/3",
@@ -271,8 +274,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -292,7 +294,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -1060,7 +1063,7 @@
           "x": -201.21875,
           "y": -223.8414306640625
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1073,10 +1076,11 @@
       "selection": {
         "0": {
           "1": {},
-          "5": {},
-          "8": {
+          "4": {
             "$selected": true
           },
+          "5": {},
+          "8": {},
           "9": {}
         }
       },
@@ -1085,7 +1089,7 @@
           "x": -200,
           "y": -279.1793212890625
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1099,18 +1103,16 @@
         "0": {
           "1": {},
           "5": {},
-          "8": {
-            "$selected": true
-          },
+          "8": {},
           "9": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -200,
-          "y": -279.1793212890625
+          "x": -256.21428571428567,
+          "y": -214.50017671130945
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1135,7 +1137,7 @@
           "x": -196.49999999999994,
           "y": -329.2500000000001
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1160,7 +1162,7 @@
           "x": -196.49999999999994,
           "y": -329.2500000000001
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1187,7 +1189,7 @@
           "x": -179,
           "y": -193
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1283,7 +1285,7 @@
           "x": -198,
           "y": -140
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1323,6 +1325,6 @@
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1.75,
+  "flowZoom": 2,
   "implementationLanguage": "C"
 }

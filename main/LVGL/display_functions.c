@@ -6,8 +6,8 @@
 struct spi_settings SPI_SETUP[NUMBER_OF_SPI];
 struct display_settings DISPLAYS[NUMBER_OF_DISPLAYS];
 esp_timer_handle_t periodic_timer;
-ledc_timer_config_t ledc_timer;
-ledc_channel_config_t ledc_channel;
+ledc_timer_config_t ledc_timer = {0};
+ledc_channel_config_t ledc_channel = {0};
 int reset_is_set = false;
 
 
@@ -105,7 +105,7 @@ void set_lcd_brightness(uint8_t percentage) {
     if (percentage > 100) percentage = 100;
     uint32_t duty = (LED_DUTY_RES_VALUE * percentage) / 100;
     
-    ledc_set_duty(ledc_channel.speed_mode, ledc_channel.channel, ledc_channel.duty);
+    ledc_set_duty(ledc_channel.speed_mode, ledc_channel.channel, duty);
     ledc_update_duty(ledc_channel.speed_mode, ledc_channel.channel);
 }
 
