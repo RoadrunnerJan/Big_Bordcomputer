@@ -310,5 +310,6 @@ void timer_start() {
             .pull_down_en = 0
         };
         gpio_config(&beeper_conf); 
+        gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
     }
 #endif

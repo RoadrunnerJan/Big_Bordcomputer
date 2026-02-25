@@ -90,8 +90,6 @@ struct display_settings
     esp_lcd_panel_dev_config_t panel_config;
 
     SemaphoreHandle_t lvgl_mux; 
-
-
 };
 
 extern struct spi_settings SPI_SETUP[NUMBER_OF_SPI];
@@ -117,5 +115,10 @@ void set_Displays();
 void beeper_init();
 
 void pwm_sensor_init();
-void create_timer_pwm();
+#if TESTMODE == true
+    void create_timer_pwm();
+#endif
+inline double calc_filter(double new_value_us, double pre_value_us) { return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA)); };
+double get_value(int id);
+
 

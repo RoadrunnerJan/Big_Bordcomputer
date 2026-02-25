@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/9",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/0",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
     "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/5",
     "subnavigationSelectedItems": {
@@ -168,7 +168,8 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -192,16 +193,17 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
+              "selected": 6,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#29058f35-ca98-40ea-a772-a41f604668b9",
-                  "name": "Gauge_Clock_Temperature_Night",
+                  "name": "Gauge_Clock_Temperature",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All.eez-project]:/userPages/9",
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/8",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -272,8 +274,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -1051,9 +1052,7 @@
           "5": {},
           "6": {},
           "7": {},
-          "8": {
-            "$selected": true
-          }
+          "8": {}
         }
       },
       "transform": {
@@ -1074,9 +1073,7 @@
       "selection": {
         "0": {
           "1": {},
-          "4": {
-            "$selected": true
-          },
+          "4": {},
           "5": {},
           "8": {},
           "9": {}

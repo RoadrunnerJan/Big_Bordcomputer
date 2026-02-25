@@ -2,24 +2,28 @@
 #include "includes.h"
 #include "individual_config.h"
 
+#if TESTMODE == true
+    static int pressure_test_switch = 0;
+    static int temperature_test_switch = 0;
+    static int volt_test_switch = 0;
+    static int Clocktemp_test_switch = 0;
+    static int brightness_test_switch = 0;
+#else
+    static bool pres_value_set = false;
+    static bool temp_value_set = false;
+#endif
 
 static double oil_pressure_value = 0.0;
 static double oil_temperature_value = 0.0;
 static double volt_value = 8.0;
 static double Clocktemp_value = 0.0;
 
-static int pressure_test_switch = 0;
-static int temperature_test_switch = 0;
-static int volt_test_switch = 0;
-static int Clocktemp_test_switch = 0;
 
 static int brightness_value = 100;
-static int brightness_test_switch = 0;
+static bool night_mode = false;
 
 static time_t now;
 static struct tm timeinfo;
-
-static bool night_mode = false;
 
 #if USE_BEEP == true
     static bool beeped = false;
@@ -196,6 +200,16 @@ static bool night_mode = false;
             }
         }
     #endif
+
+    static void set_NightMode(void *pv) {
+        (void)pv;
+        
+        while(1)
+        {
+            vTaskDelay(pdMS_TO_TICKS(5000));
+            night_mode = !night_mode;
+        }
+    }
 #endif
 
 static void tick_switch(int id)
@@ -207,8 +221,15 @@ static void tick_switch(int id)
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
             #if TESTMODE == true
                 lv_pressure_test();
+            #else
+                if (!pres_value_set) {
+                    oil_pressure_value = get_value(PWM_SENSOR_PRES_PULSE_ID);
+                    pres_value_set = true;
+                }
+                else {
+                    oil_pressure_value = calc_filter(get_value(PWM_SENSOR_PRES_PULSE_ID), oil_pressure_value);
+                }
             #endif
-
             snprintf(ziel_string, sizeof(ziel_string), "%.1f", oil_pressure_value);
             set_var_lvgl_value_oil_pressure(oil_pressure_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_pressure_string(ziel_string);
@@ -236,10 +257,18 @@ static void tick_switch(int id)
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             #if TESTMODE == true
                 lv_temperature_test(); 
+            #else
+                if (!temp_value_set) {
+                    oil_temperature_value = get_value(PWM_SENSOR_TEMP_PULSE_ID);
+                    temp_value_set = true;
+                }
+                else {
+                    oil_temperature_value = calc_filter(get_value(PWM_SENSOR_TEMP_PULSE_ID), oil_temperature_value);
+                }
             #endif
 
             snprintf(ziel_string, sizeof(ziel_string), "%d", (int)oil_temperature_value);
-            set_var_lvgl_value_oil_temperature(oil_temperature_value * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_oil_temperature(oil_temperature_value < 0 ? 0 : oil_temperature_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_temperature_string(ziel_string); 
 
             if(!night_mode)
@@ -424,16 +453,6 @@ static void lv_tick_task_screen_4(void *pv)
         }
     #endif
 }
-
-static void set_NightMode(void *pv) {
-    (void)pv;
-    
-    while(1)
-    {
-        vTaskDelay(pdMS_TO_TICKS(5000));
-        night_mode = !night_mode;
-    }
-}
     
 
 static void brightness(void *pv) {
@@ -457,7 +476,14 @@ void app_main(void)
     timer_start(); // Startet die Timer für alle Displays 
     set_Displays();
 
+    vTaskDelay(pdMS_TO_TICKS(DISPLAY_SETUP_DELAY));
+    pwm_sensor_init();
+    #if TESTMODE == true
+        create_timer_pwm();
+    #endif
+
     #if USE_BEEP == true
+        beeped = false;
         beeper_init();
     #endif
 
@@ -477,18 +503,17 @@ void app_main(void)
         xTaskCreatePinnedToCore(lv_tick_task_screen_4, "lv_tick_task_screen_4", DISPLAYS[3].task_step_depth, NULL, DISPLAYS[3].task_priority, NULL, DISPLAYS[3].tast_core);
     #endif
 
+    vTaskDelay(pdMS_TO_TICKS(GAUGE_ON_DELAY));
+    xTaskCreatePinnedToCore(brightness, "brightness", 8192, NULL, 20, NULL, 0);
+
+    vTaskDelay(pdMS_TO_TICKS(BEEPER_ON_DELAY));
     #if USE_BEEP == true
         xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
     #endif
-    vTaskDelay(pdMS_TO_TICKS(GAUGE_ON_DELAY));
 
-    xTaskCreatePinnedToCore(brightness, "brightness", 8192, NULL, 20, NULL, 0);
 
-    //vTaskDelay(pdMS_TO_TICKS(BEEPER_ON_DELAY));
-
+    vTaskDelay(pdMS_TO_TICKS(MAIN_TASK_FINISHED_DELAY));
     
-    pwm_sensor_init();
-    create_timer_pwm();
 
     
 

@@ -136,7 +136,7 @@ void create_screen_gauge_oil_pressure() {
             // pressure_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.pressure_gauge_image = obj;
-            lv_obj_set_pos(obj, 88, 71);
+            lv_obj_set_pos(obj, 88, 68);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_oil_can);
             lv_img_set_zoom(obj, 160);

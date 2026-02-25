@@ -31,6 +31,7 @@
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 #define TESTMODE                          true
+#define USE_PWM_SENSOR                    true
 #define TESTBRIGHTNESS                    true
 #define USE_BEEP                          false
 /*
@@ -187,7 +188,9 @@
 #define EEZ_VALUE_FACTOR                            1000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
 
 #define GAUGE_ON_DELAY                              1000
-#define BEEPER_ON_DELAY                             3000
+#define DISPLAY_SETUP_DELAY                         500
+#define BEEPER_ON_DELAY                             5000
+#define MAIN_TASK_FINISHED_DELAY                    5000
 
 #define COLOR_NIGHT_MODE_HEX                       0xff5a00
 #define COLOR_DAY_MODE_HEX                         0xffffff
@@ -202,19 +205,19 @@
 #if NUMBER_OF_DISPLAYS > 1
     #define TASK_2_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_2_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_2_DELAYTIME_SCREEN                     100
+    #define TASK_2_DELAYTIME_SCREEN                     75
     #define TASK_2_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 2
     #define TASK_3_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_3_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_3_DELAYTIME_SCREEN                     150
+    #define TASK_3_DELAYTIME_SCREEN                     125
     #define TASK_3_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 3
     #define TASK_4_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_4_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_4_DELAYTIME_SCREEN                     100
+    #define TASK_4_DELAYTIME_SCREEN                     75
     #define TASK_4_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 
@@ -279,4 +282,4 @@
 #define PWM_SENSOR_TEMP_CALC_VALUE_2                                   19.2 // != 0
 #define PWM_SENSOR_PRES_CALC_VALUE_1                                   64.0
 #define PWM_SENSOR_PRES_CALC_VALUE_2                                   384 // != 0
-#define PWM_SENSOR_MAX_SENSOR_COUNT                                    50
+#define PWM_SENSOR_MAX_SENSOR_COUNT                                    100

@@ -22,9 +22,22 @@ static uint32_t width = 0;
 
 static bool first_init_done = false;
 
+inline int get_diag(int value_us) {
+    return value_us < 280 ? 0 : // OPS Funktionszustand
+           value_us < 440 ? 1 : // Druckausfall
+           value_us < 600 ? 2 : // Temperaturausfall
+           3;                   // Hardwareausfall
+}
+
 inline double calc_temperature(int value_us){ return ((double) value_us + PWM_SENSOR_TEMP_CALC_VALUE_1) / PWM_SENSOR_TEMP_CALC_VALUE_2; }
 inline double calc_pressure(int value_us){ return ((double) value_us + PWM_SENSOR_PRES_CALC_VALUE_1) / PWM_SENSOR_PRES_CALC_VALUE_2; }
-inline double calc_filter(double new_value_us, double pre_value_us) { return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA)); }
+
+double get_value(int id)
+{
+    return id == PWM_SENSOR_TEMP_PULSE_ID ? calc_temperature(latest_sensor_values.temp_us.value_us) : 
+           id == PWM_SENSOR_PRES_PULSE_ID ? calc_pressure(latest_sensor_values.press_us.value_us) :
+           (double) get_diag(latest_sensor_values.diag_us.value_us);
+}
 
 static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data) {
     if (edata->cap_edge == MCPWM_CAP_EDGE_POS) {
@@ -115,58 +128,58 @@ void pwm_sensor_init(void){
 
 }
 
-
-static void pwm_sensor_print(void *pv)
-{
-    (void)pv;   
-    uint32_t last_seen_count = 0;
-    float f_temp = 0, f_press = 0;
-    bool value_init_set = false;
-    
-    while (true) {
-        // Prüfen, ob seit dem letzten Print neue Daten reinkamen
-        if (latest_sensor_values.update_count != last_seen_count) {
-            last_seen_count = latest_sensor_values.update_count;
-            if (!value_init_set)
-            {
-                f_temp = latest_sensor_values.temp_us.value_us;
-                f_press = latest_sensor_values.press_us.value_us;
-                value_init_set = true;
+#if TESTMODE == true
+    static void pwm_sensor_print(void *pv)
+    {
+        (void)pv;   
+        uint32_t last_seen_count = 0;
+        float f_temp = 0, f_press = 0;
+        bool value_init_set = false;
+        
+        while (true) {
+            // Prüfen, ob seit dem letzten Print neue Daten reinkamen
+            if (latest_sensor_values.update_count != last_seen_count) {
+                last_seen_count = latest_sensor_values.update_count;
+                if (!value_init_set)
+                {
+                    f_temp = latest_sensor_values.temp_us.value_us;
+                    f_press = latest_sensor_values.press_us.value_us;
+                    value_init_set = true;
+                }
+                else {
+                    f_temp = calc_filter(latest_sensor_values.temp_us.value_us, f_temp);
+                    f_press = calc_filter(latest_sensor_values.press_us.value_us, f_press);
+                }
+                
+                
+                printf("AKTUELL -> Temp: %.0f°C | Temp f: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
+                        calc_temperature(latest_sensor_values.temp_us.value_us),
+                        calc_temperature(f_temp),
+                        latest_sensor_values.temp_us.value_us, 
+                        latest_sensor_values.temp_us.period_us, 
+                        last_seen_count);
+                printf("AKTUELL -> Druck %.1fbar | Druck f %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
+                        calc_pressure(latest_sensor_values.press_us.value_us),
+                        calc_pressure(f_press),
+                        latest_sensor_values.press_us.value_us, 
+                        latest_sensor_values.press_us.period_us, 
+                        last_seen_count);
+                printf("AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)\n", 
+                        latest_sensor_values.diag_us.value_us, 
+                        latest_sensor_values.diag_us.period_us, 
+                        last_seen_count);
             }
             else {
-                f_temp = calc_filter(latest_sensor_values.temp_us.value_us, f_temp);
-                f_press = calc_filter(latest_sensor_values.press_us.value_us, f_press);
+                printf("Warten auf Sensor-Signal...\n");
             }
             
-            
-            printf("AKTUELL -> Temp: %.0f°C | Temp f: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
-                    calc_temperature(latest_sensor_values.temp_us.value_us),
-                    calc_temperature(f_temp),
-                    latest_sensor_values.temp_us.value_us, 
-                    latest_sensor_values.temp_us.period_us, 
-                    last_seen_count);
-            printf("AKTUELL -> Druck %.1fbar | Druck f %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
-                    calc_pressure(latest_sensor_values.press_us.value_us),
-                    calc_pressure(f_press),
-                    latest_sensor_values.press_us.value_us, 
-                    latest_sensor_values.press_us.period_us, 
-                    last_seen_count);
-            printf("AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)\n", 
-                    latest_sensor_values.diag_us.value_us, 
-                    latest_sensor_values.diag_us.period_us, 
-                    last_seen_count);
+            vTaskDelay(pdMS_TO_TICKS(200)); 
         }
-        else {
-            printf("Warten auf Sensor-Signal...\n");
-        }
-        
-        vTaskDelay(pdMS_TO_TICKS(200)); 
     }
-}
 
-void create_timer_pwm(void)
-{
-    xTaskCreatePinnedToCore(pwm_sensor_print, "pwm_sensor_print", 8192, NULL, 15, NULL, 0);
- 
-}
-//#endif
+    void create_timer_pwm(void)
+    {
+        xTaskCreatePinnedToCore(pwm_sensor_print, "pwm_sensor_print", 8192, NULL, 15, NULL, 0);
+    
+    }
+#endif
