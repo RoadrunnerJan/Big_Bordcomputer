@@ -9,6 +9,9 @@
 #include "esp_chip_info.h"
 #include "esp_flash.h"
 #include "esp_system.h"
+#include "driver/gpio.h"
+#include "driver/mcpwm_cap.h"
+
 
 #include "esp_log.h"
 
@@ -21,6 +24,8 @@
 #include "esp_lcd_panel_vendor.h"
 #include "driver/ledc.h"
 #include "esp_timer.h"      // Für esp_timer_create_args_t
+
+#include "driver/mcpwm_cap.h"
 
 
 #include "lvgl.h"
@@ -97,6 +102,9 @@ extern esp_timer_handle_t periodic_timer;
 extern ledc_timer_config_t ledc_timer;
 extern ledc_channel_config_t ledc_channel;
 
+extern gpio_config_t beeper_conf;
+
+
 // defined in /lvgl/display_functions.c
 void setUp_Variables();
 void spi_init();
@@ -106,6 +114,8 @@ void display_init();
 void buffer_and_driver_init(); // Initialisiert die LVGL-Puffer für alle Displays
 void timer_start(); // Startet die Timer für alle Displays
 void set_Displays();
+void beeper_init();
 
-
+void pwm_sensor_init();
+void create_timer_pwm();
 

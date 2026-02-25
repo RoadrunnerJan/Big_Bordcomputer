@@ -9,7 +9,9 @@ esp_timer_handle_t periodic_timer;
 ledc_timer_config_t ledc_timer = {0};
 ledc_channel_config_t ledc_channel = {0};
 int reset_is_set = false;
-
+#if USE_BEEP ==true 
+    gpio_config_t beeper_conf;
+#endif
 
 void set_Displays() {
 
@@ -201,7 +203,7 @@ void display_init(void)
         DISPLAYS[2].malloc_cap =           LCD_3_MALLOC_CAP;
         DISPLAYS[2].buffer_factor =        LCD_3_BUFFER_FACTOR;
         DISPLAYS[2].task_step_depth =      TASK_3_STEPDEPTH_SCREEN;
-        DISPLAYS[2].task_priority =        TASK_PRIORITY_SCREEN_3;
+        DISPLAYS[2].task_priority =        TASK_3_PRIORITY_SCREEN;
         DISPLAYS[2].task_delay_time_ms =   TASK_3_DELAYTIME_SCREEN;
         DISPLAYS[2].tast_core =            TASK_3_CORE_SCREEN;
     #endif
@@ -220,7 +222,7 @@ void display_init(void)
         DISPLAYS[3].malloc_cap =           LCD_4_MALLOC_CAP;
         DISPLAYS[3].buffer_factor =        LCD_4_BUFFER_FACTOR;
         DISPLAYS[3].task_step_depth =      TASK_4_STEPDEPTH_SCREEN;
-        DISPLAYS[3].task_priority =        TASK_PRIORITY_SCREEN_4;
+        DISPLAYS[3].task_priority =        TASK_4_PRIORITY_SCREEN;
         DISPLAYS[3].task_delay_time_ms =   TASK_4_DELAYTIME_SCREEN;
         DISPLAYS[3].tast_core =            TASK_4_CORE_SCREEN;
     #endif
@@ -297,3 +299,16 @@ void buffer_and_driver_init()
 void timer_start() {    
     ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, 1000)); // 1ms Tick
 }
+
+
+#if USE_BEEP == true
+    void beeper_init(){    
+        gpio_config_t beeper_conf = {
+            .pin_bit_mask = (1ULL << BEEPER_PIN),
+            .mode = GPIO_MODE_OUTPUT,
+            .pull_up_en = 0,
+            .pull_down_en = 0
+        };
+        gpio_config(&beeper_conf); 
+    }
+#endif

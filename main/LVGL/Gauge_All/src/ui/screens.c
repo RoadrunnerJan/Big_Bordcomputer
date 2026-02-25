@@ -374,7 +374,7 @@ void create_screen_gauge_oil_pressure_night() {
             // pressure_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.pressure_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 88, 71);
+            lv_obj_set_pos(obj, 88, 68);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_oil_can);
             lv_img_set_zoom(obj, 160);
@@ -603,7 +603,7 @@ void create_screen_gauge_oil_temperature() {
             // temperature_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.temperature_gauge_image = obj;
-            lv_obj_set_pos(obj, 88, 64);
+            lv_obj_set_pos(obj, 88, 61);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_oil_can_temp);
             lv_img_set_zoom(obj, 160);
@@ -825,7 +825,7 @@ void create_screen_gauge_oil_temperature_night() {
             // temperature_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.temperature_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 88, 64);
+            lv_obj_set_pos(obj, 88, 61);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_oil_can_temp);
             lv_img_set_zoom(obj, 160);
@@ -1047,7 +1047,7 @@ void create_screen_gauge_voltage() {
             // volt_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.volt_gauge_image = obj;
-            lv_obj_set_pos(obj, 84, 67);
+            lv_obj_set_pos(obj, 84, 64);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_volt);
             lv_img_set_zoom(obj, 160);
@@ -1269,7 +1269,7 @@ void create_screen_gauge_voltage_night() {
             // volt_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.volt_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 84, 67);
+            lv_obj_set_pos(obj, 84, 64);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_volt);
             lv_img_set_zoom(obj, 160);
@@ -1474,7 +1474,7 @@ void create_screen_gauge_temperature_clock() {
             // TempClock_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.temp_clock_gauge_image = obj;
-            lv_obj_set_pos(obj, 106, 69);
+            lv_obj_set_pos(obj, 106, 66);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_temperature);
             lv_img_set_zoom(obj, 180);
@@ -1679,7 +1679,7 @@ void create_screen_gauge_temperature_clock_night() {
             // TempClock_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.temp_clock_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 106, 69);
+            lv_obj_set_pos(obj, 106, 66);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_temperature);
             lv_img_set_zoom(obj, 180);
@@ -1899,7 +1899,7 @@ void create_screen_gauge_clock_temperature() {
             // ClockTemp_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.clock_temp_gauge_image = obj;
-            lv_obj_set_pos(obj, 85, 49);
+            lv_obj_set_pos(obj, 85, 46);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_clock);
             lv_img_set_zoom(obj, 100);
@@ -2162,7 +2162,7 @@ void create_screen_gauge_clock_temperature_night() {
             // ClockTemp_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.clock_temp_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 85, 49);
+            lv_obj_set_pos(obj, 85, 46);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_clock);
             lv_img_set_zoom(obj, 100);
@@ -2243,7 +2243,7 @@ void create_screen_gauge_clock_temperature_night() {
             lv_obj_set_scroll_snap_y(obj, LV_SCROLL_SNAP_NONE);
             lv_obj_set_style_img_recolor(obj, lv_color_hex(0xffff5a00), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_img_recolor_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_img_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_img_opa(obj, 60, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             // ClockTemp_gauge_scale_hour_Night

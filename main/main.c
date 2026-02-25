@@ -13,131 +13,190 @@ static int temperature_test_switch = 0;
 static int volt_test_switch = 0;
 static int Clocktemp_test_switch = 0;
 
+static int brightness_value = 100;
+static int brightness_test_switch = 0;
+
 static time_t now;
 static struct tm timeinfo;
 
 static bool night_mode = false;
 
-
-static void lv_pressure_test()
-{
-    switch (pressure_test_switch) {
-        case 0:
-            oil_pressure_value += 0.06;
-            if (oil_pressure_value >= 4.5) {
-                pressure_test_switch = 1;
+#if USE_BEEP == true
+    static bool beeped = false;
+    static void temperature_beep()
+    {
+        while (!beeped)
+        {
+            if (Clocktemp_value < BEEPER_TEMP_MIN)
+            {
+                gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
+                vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
+                gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
+                vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_OFF_TIME));
+                gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
+                vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
+                gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
+                beeped = true;
             }
-        break;
-        case 1:
-            oil_pressure_value -= 0.02;
-            if (oil_pressure_value <= 2.5) {
-                pressure_test_switch = 2;
-            }
-        break;
-        case 2:
-            oil_pressure_value += 0.06;
-            if (oil_pressure_value >= 5.5) {
-                pressure_test_switch = 3;
-            }
-        break;
-        case 3:
-            oil_pressure_value -= 0.06;
-            if (oil_pressure_value <= 0.04) {
-                pressure_test_switch = 0;
-            }
-        break;
+            vTaskDelay(pdMS_TO_TICKS(BEEPER_TASK_DELAYTIME));
+        }
+        vTaskDelete(NULL); 
     }
-}
+#endif
 
-static void lv_volt_test()
-{
-    switch (volt_test_switch) {
-        case 0:
-            volt_value += 0.05;
-            if (volt_value >= 15.5) {
-                volt_test_switch = 1;
-            }
-        break;
-        case 1:
-            volt_value -= 0.05;
-            if (volt_value <= 11) {
-                volt_test_switch = 2;
-            }
-        break;
-        case 2:
-            volt_value += 0.05;
-            if (volt_value >= 14) {
-                volt_test_switch = 3;
-            }
-        break;
-        case 3:
-            volt_value -= 0.05;
-            if (volt_value <= 8.04) {
-                volt_test_switch = 0;
-            }
-        break;
+#if TESTMODE == true
+    static void lv_pressure_test()
+    {
+        switch (pressure_test_switch) {
+            case 0:
+                oil_pressure_value += 0.06;
+                if (oil_pressure_value >= 4.5) {
+                    pressure_test_switch = 1;
+                }
+            break;
+            case 1:
+                oil_pressure_value -= 0.02;
+                if (oil_pressure_value <= 2.5) {
+                    pressure_test_switch = 2;
+                }
+            break;
+            case 2:
+                oil_pressure_value += 0.06;
+                if (oil_pressure_value >= 5.5) {
+                    pressure_test_switch = 3;
+                }
+            break;
+            case 3:
+                oil_pressure_value -= 0.06;
+                if (oil_pressure_value <= 0.04) {
+                    pressure_test_switch = 0;
+                }
+            break;
+        }
     }
-}
 
-static void lv_temperature_test()
-{
-    switch (temperature_test_switch) {
-        case 0:
-            oil_temperature_value += 0.3;
-            if (oil_temperature_value >= 100) {
-                temperature_test_switch = 1;
-            }
-        break;
-        case 1:
-            oil_temperature_value -= 0.3;
-            if (oil_temperature_value <= 110) {
-                temperature_test_switch = 2;
-            }
-        break;
-        case 2:
-            oil_temperature_value += 0.3;
-            if (oil_temperature_value >= 140) {
-                temperature_test_switch = 3;
-            }
-        break;
-        case 3:
-            oil_temperature_value -= 0.3;
-            if (oil_temperature_value <= 0.06) {
-                temperature_test_switch = 0;
-            }
-        break;
+    static void lv_volt_test()
+    {
+        switch (volt_test_switch) {
+            case 0:
+                volt_value += 0.05;
+                if (volt_value >= 15.5) {
+                    volt_test_switch = 1;
+                }
+            break;
+            case 1:
+                volt_value -= 0.05;
+                if (volt_value <= 11) {
+                    volt_test_switch = 2;
+                }
+            break;
+            case 2:
+                volt_value += 0.05;
+                if (volt_value >= 14) {
+                    volt_test_switch = 3;
+                }
+            break;
+            case 3:
+                volt_value -= 0.05;
+                if (volt_value <= 8.04) {
+                    volt_test_switch = 0;
+                }
+            break;
+        }
     }
-}
 
-static void lv_Clocktemp_test()
-{
-    switch (Clocktemp_test_switch) {
-        case 0:
-            Clocktemp_value += 0.3;
-            if (Clocktemp_value >= 33) {
-                Clocktemp_test_switch = 1;
-            }
-        break;
-        case 1:
-            Clocktemp_value -= 0.3;
-            if (Clocktemp_value <= -15) {
-                Clocktemp_test_switch = 2;
-            }
-        break;
-        case 2:
-            Clocktemp_value += 0.3;
-            if (Clocktemp_value >= 20) {
-                Clocktemp_test_switch = 3;
-            }
-        break;
-        case 3:
-            Clocktemp_value -= 0.3;
-            if (Clocktemp_value <= 0.06) {
-                Clocktemp_test_switch = 0;
-            }
-        break;
+    static void lv_temperature_test()
+    {
+        switch (temperature_test_switch) {
+            case 0:
+                oil_temperature_value += 0.3;
+                if (oil_temperature_value >= 100) {
+                    temperature_test_switch = 1;
+                }
+            break;
+            case 1:
+                oil_temperature_value -= 0.3;
+                if (oil_temperature_value <= 110) {
+                    temperature_test_switch = 2;
+                }
+            break;
+            case 2:
+                oil_temperature_value += 0.3;
+                if (oil_temperature_value >= 140) {
+                    temperature_test_switch = 3;
+                }
+            break;
+            case 3:
+                oil_temperature_value -= 0.3;
+                if (oil_temperature_value <= 0.06) {
+                    temperature_test_switch = 0;
+                }
+            break;
+        }
     }
-}
+
+    static void lv_Clocktemp_test()
+    {
+        switch (Clocktemp_test_switch) {
+            case 0:
+                Clocktemp_value += 0.3;
+                if (Clocktemp_value >= 33) {
+                    Clocktemp_test_switch = 1;
+                }
+            break;
+            case 1:
+                Clocktemp_value -= 0.3;
+                if (Clocktemp_value <= -15) {
+                    Clocktemp_test_switch = 2;
+                }
+            break;
+            case 2:
+                Clocktemp_value += 0.3;
+                if (Clocktemp_value >= 20) {
+                    Clocktemp_test_switch = 3;
+                }
+            break;
+            case 3:
+                Clocktemp_value -= 0.3;
+                if (Clocktemp_value <= 0.06) {
+                    Clocktemp_test_switch = 0;
+                }
+            break;
+        }
+    }
+
+    #if TESTBRIGHTNESS == true
+        static void test_brightness() {
+            
+            switch (brightness_test_switch) {
+                case 0:
+                    brightness_value -= 1;
+                    if (brightness_value <= 15) {
+                        brightness_test_switch = 1;
+                    }
+                break;
+                case 1:
+                    brightness_value += 1;
+                    if (brightness_value >= 50) {
+                        brightness_test_switch = 2;
+                    }
+                break;
+                case 2:
+                    brightness_value -= 1;
+                    if (brightness_value <= 2) {
+                        brightness_test_switch = 3;
+                    }
+                break;
+                case 3:
+                    brightness_value += 1;
+                    if (brightness_value >= 100) {
+                        brightness_test_switch = 0;
+                    }
+                break;
+            }
+        }
+    #endif
+#endif
 
 static void tick_switch(int id)
 {
@@ -146,7 +205,7 @@ static void tick_switch(int id)
     switch (id)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
-            #ifdef TESTMODE
+            #if TESTMODE == true
                 lv_pressure_test();
             #endif
 
@@ -175,7 +234,7 @@ static void tick_switch(int id)
             lv_timer_handler();
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            #ifdef TESTMODE
+            #if TESTMODE == true
                 lv_temperature_test(); 
             #endif
 
@@ -204,7 +263,7 @@ static void tick_switch(int id)
             lv_timer_handler();
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            #ifdef TESTMODE
+            #if TESTMODE == true
                 lv_volt_test();
             #endif
 
@@ -233,7 +292,7 @@ static void tick_switch(int id)
             lv_timer_handler();
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-            #ifdef TESTMODE
+            #if TESTMODE == true
                 lv_Clocktemp_test();
             #endif
 
@@ -264,7 +323,7 @@ static void tick_switch(int id)
             lv_timer_handler();
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            #ifdef TESTMODE
+            #if TESTMODE == true
                 lv_Clocktemp_test();
             #endif
 
@@ -375,6 +434,18 @@ static void set_NightMode(void *pv) {
         night_mode = !night_mode;
     }
 }
+    
+
+static void brightness(void *pv) {
+    while(1)
+    {
+        #if TESTMODE == true && TESTBRIGHTNESS == true
+            test_brightness();
+        #endif
+        set_lcd_brightness(brightness_value); 
+        vTaskDelay(pdMS_TO_TICKS(BRIGHTNESS_DELAY));
+    }
+}
 
 void app_main(void)
 {
@@ -386,7 +457,11 @@ void app_main(void)
     timer_start(); // Startet die Timer für alle Displays 
     set_Displays();
 
-    #ifdef TESTMODE
+    #if USE_BEEP == true
+        beeper_init();
+    #endif
+
+    #if TESTMODE == true
         xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 12, NULL);
     #endif
 
@@ -402,10 +477,18 @@ void app_main(void)
         xTaskCreatePinnedToCore(lv_tick_task_screen_4, "lv_tick_task_screen_4", DISPLAYS[3].task_step_depth, NULL, DISPLAYS[3].task_priority, NULL, DISPLAYS[3].tast_core);
     #endif
 
+    #if USE_BEEP == true
+        xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
+    #endif
+    vTaskDelay(pdMS_TO_TICKS(GAUGE_ON_DELAY));
+
+    xTaskCreatePinnedToCore(brightness, "brightness", 8192, NULL, 20, NULL, 0);
+
+    //vTaskDelay(pdMS_TO_TICKS(BEEPER_ON_DELAY));
 
     
-    vTaskDelay(pdMS_TO_TICKS(1000));
-    set_lcd_brightness(100); 
+    pwm_sensor_init();
+    create_timer_pwm();
 
     
 

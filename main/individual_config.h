@@ -30,7 +30,9 @@
 #define NUMBER_OF_SPI                      2 // Number of SPI Devices used (for 4 Displays 2 are neccessary)
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
-#define TESTMODE
+#define TESTMODE                          true
+#define TESTBRIGHTNESS                    true
+#define USE_BEEP                          false
 /*
 #################################################################################
     define Pins
@@ -49,7 +51,7 @@
     #define SPI_1_INTR_FLAGS                        ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3  // Level 3 für hohe Priorität
     #define SPI_1_DMA                             SPI_DMA_CH_AUTO
 
-    #ifdef NUMBER_OF_SPI > 1
+    #if NUMBER_OF_SPI > 1
         #define PIN_SPI_2_SCLK                     11
         #define PIN_SPI_2_MOSI                     12
         #define PIN_SPI_2_MISO                     -1
@@ -184,6 +186,9 @@
 */
 #define EEZ_VALUE_FACTOR                            1000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
 
+#define GAUGE_ON_DELAY                              1000
+#define BEEPER_ON_DELAY                             3000
+
 #define COLOR_NIGHT_MODE_HEX                       0xff5a00
 #define COLOR_DAY_MODE_HEX                         0xffffff
 #define OPACITY_NIGHT_MODE                         60
@@ -202,16 +207,76 @@
 #endif
 #if NUMBER_OF_DISPLAYS > 2
     #define TASK_3_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
-    #define TASK_PRIORITY_SCREEN_3                      TASK_1_PRIORITY_SCREEN
+    #define TASK_3_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
     #define TASK_3_DELAYTIME_SCREEN                     150
     #define TASK_3_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 3
     #define TASK_4_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
-    #define TASK_PRIORITY_SCREEN_4                      TASK_1_PRIORITY_SCREEN
+    #define TASK_4_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
     #define TASK_4_DELAYTIME_SCREEN                     100
     #define TASK_4_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 
 
+/*
+#################################################################################
+    Beeper Settings
+#################################################################################
+*/
+#if USE_BEEP == true
+    #define BEEPER_TEMP_MIN                                 3 // Beept bei < 3 °C
+    #define BEEPER_PIN                                      15
+    #define BEEPER_BEEPING_VALUE                            0   
+    #define BEEPER_QUIET_VALUE                              1
+    #define BEEPER_TASK_STEPDEPTH                           8192
+    #define BEEPER_TASK_PRIORITY                            20
+    #define BEEPER_TASK_DELAYTIME                           1000
+    #define BEEPER_TASK_CORE                                0
+    #define BEEPER_BEEP_ON_TIME                             150
+    #define BEEPER_BEEP_OFF_TIME                            400
+#endif
 
+/*
+#################################################################################
+    Bright Settings
+#################################################################################
+*/
+#define BRIGHTNESS_DAY                                      100
+#define BRIGHTNESS_DELAY                                    100
+
+
+/*
+#################################################################################
+    Sensor Settings
+#################################################################################
+*/
+#define PWM_SENSOR_PIN                                      3
+#define PWM_SENSOR_FILTER_ALPHA                                        0.1f 
+#define PWM_SENSOR_RESOLUTION_MHZ                           10
+#define PWM_SENSOR_PRESCALE                                 1
+#define PWM_SENSOR_NEG_EDGE                                 1
+#define PWM_SENSOR_POS_EDGE                                 1
+#define PWM_SENSOR_PULL_UP                                  1
+
+// folgende Werte entnommen aus Datenblatt des Sensors Hella 6PP 010 378-201 
+#define PWM_SENSOR_DIAG_PULSE_ID                                       0   // zum enum ändern?
+#define PWM_SENSOR_DIAG_PERIOD_MIN                                     900
+#define PWM_SENSOR_DIAG_PERIOD_MAX                                     1100
+#define PWM_SENSOR_DIAG_VALUE_MIN                                      150
+#define PWM_SENSOR_DIAG_VALUE_MAX                                      800
+#define PWM_SENSOR_TEMP_PULSE_ID                                       1   
+#define PWM_SENSOR_TEMP_PERIOD_MIN                                     3900
+#define PWM_SENSOR_TEMP_PERIOD_MAX                                     4200
+#define PWM_SENSOR_TEMP_VALUE_MIN                                      50
+#define PWM_SENSOR_TEMP_VALUE_MAX                                      4050
+#define PWM_SENSOR_PRES_PULSE_ID                                       2   
+#define PWM_SENSOR_PRES_PERIOD_MIN                                     3900
+#define PWM_SENSOR_PRES_PERIOD_MAX                                     4200
+#define PWM_SENSOR_PRES_VALUE_MIN                                      50
+#define PWM_SENSOR_PRES_VALUE_MAX                                      4050
+#define PWM_SENSOR_TEMP_CALC_VALUE_1                                   -896.0
+#define PWM_SENSOR_TEMP_CALC_VALUE_2                                   19.2 // != 0
+#define PWM_SENSOR_PRES_CALC_VALUE_1                                   64.0
+#define PWM_SENSOR_PRES_CALC_VALUE_2                                   384 // != 0
+#define PWM_SENSOR_MAX_SENSOR_COUNT                                    50
