@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/9",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/1",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
     "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/5",
     "subnavigationSelectedItems": {
@@ -192,6 +192,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [

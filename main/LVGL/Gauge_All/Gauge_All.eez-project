@@ -275,7 +275,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0
                     }
                   }
@@ -324,7 +324,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff5a00",
+                      "img_recolor": "#ff4600",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -583,7 +583,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -718,7 +718,7 @@
                       "text_align": "CENTER"
                     },
                     "CHECKED": {
-                      "text_color": "#ff5a00"
+                      "text_color": "#ff4600"
                     }
                   }
                 }
@@ -772,7 +772,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000"
@@ -1291,7 +1291,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -1313,11 +1313,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff5a00",
+                  "minorTickColor": "#ff4600",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff5a00",
+                  "majorTickColor": "#ff4600",
                   "labelGap": 15,
                   "scaleMin": 0,
                   "scaleMax": 6,
@@ -1426,7 +1426,7 @@
                       "text_align": "CENTER"
                     },
                     "CHECKED": {
-                      "text_color": "#ff5a00"
+                      "text_color": "#ff4600"
                     }
                   }
                 }
@@ -1480,7 +1480,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000"
@@ -1692,7 +1692,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0
                     }
                   }
@@ -1741,7 +1741,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff5a00",
+                      "img_recolor": "#ff4600",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -1999,7 +1999,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -2182,7 +2182,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -2701,7 +2701,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -2884,7 +2884,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -3095,7 +3095,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0
                     }
                   }
@@ -3144,7 +3144,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff5a00",
+                      "img_recolor": "#ff4600",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -3401,7 +3401,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -3583,7 +3583,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -4101,7 +4101,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -4283,7 +4283,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -4495,7 +4495,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0
                     }
                   }
@@ -4544,7 +4544,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff5a00",
+                      "img_recolor": "#ff4600",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -4729,7 +4729,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -4911,7 +4911,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -5356,7 +5356,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000"
                     }
@@ -5538,7 +5538,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -5749,7 +5749,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0
                     }
                   }
@@ -5799,7 +5799,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -6171,7 +6171,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff5a00",
+                      "img_recolor": "#ff4600",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -6229,7 +6229,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -6328,7 +6328,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -6541,7 +6541,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -7020,7 +7020,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
@@ -7119,7 +7119,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff5a00",
+                      "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600
