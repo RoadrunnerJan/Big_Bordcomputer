@@ -150,13 +150,13 @@
 #define LED_SPEED               LEDC_LOW_SPEED_MODE
 #define LED_TIMER               LEDC_TIMER_0
 #define LED_DUTY_RESOLUTION     LEDC_TIMER_8_BIT   // 0 bis 8191
-    #define LED_DUTY_RES_VALUE  256 // basierend auf LEDC_TIMER_8_BIT // 8191 für 13 Bit, 255 für 8 Bit
+#define LED_DUTY_RES_VALUE      256 // basierend auf LEDC_TIMER_8_BIT // 8191 für 13 Bit, 255 für 8 Bit
 #define LED_FREQ                5000                // 5 kHz (flimmerfrei)
 #define LED_CLK                 LEDC_AUTO_CLK
 #define LED_CHANNEL             LEDC_CHANNEL_0
 #define LED_INTR                LEDC_INTR_DISABLE
 #define LED_GPIO                PIN_LCD_BL
-#define LED_START_BRIGHT        0//4095 // 50% -> 8191 / 2
+#define LED_START_BRIGHT        0
 #define LED_H_POINT             0
 
 /*
