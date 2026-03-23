@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All.eez-project]:/userPages/9",
     "selectedGlobalVariableObject": "[Gauge_All.eez-project]:/variables/globalVariables/9",
     "selectedBitmapObject": "[Gauge_All.eez-project]:/bitmaps/5",
     "subnavigationSelectedItems": {
@@ -168,8 +168,7 @@
                       "enableClose": false,
                       "icon": "svg:hierarchy"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -193,17 +192,16 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
-              "selected": 6,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#29058f35-ca98-40ea-a772-a41f604668b9",
-                  "name": "Gauge_Clock_Temperature",
+                  "name": "Gauge_Clock_Temperature_Night",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All.eez-project]:/userPages/8",
+                    "objectPath": "[Gauge_All.eez-project]:/userPages/9",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -274,7 +272,8 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -1048,7 +1047,9 @@
           "1": {},
           "2": {},
           "3": {},
-          "4": {},
+          "4": {
+            "$selected": true
+          },
           "5": {},
           "6": {},
           "7": {},
@@ -1057,8 +1058,8 @@
       },
       "transform": {
         "translate": {
-          "x": -201.21875,
-          "y": -223.8414306640625
+          "x": -263.21875,
+          "y": -243.8414306640625
         },
         "scale": 2
       },
@@ -1072,11 +1073,10 @@
     "[Gauge_All.eez-project]:/userPages/1[flow-state]": {
       "selection": {
         "0": {
-          "1": {},
-          "4": {},
-          "5": {},
-          "8": {},
-          "9": {}
+          "2": {},
+          "3": {},
+          "6": {},
+          "7": {}
         }
       },
       "transform": {
@@ -1097,9 +1097,7 @@
       "selection": {
         "0": {
           "1": {},
-          "4": {
-            "$selected": true
-          },
+          "4": {},
           "5": {},
           "8": {},
           "9": {}
@@ -1123,11 +1121,11 @@
       "selection": {
         "0": {
           "0": {},
-          "4": {
-            "$selected": true
-          },
+          "4": {},
           "8": {},
-          "9": {}
+          "9": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1148,9 +1146,7 @@
       "selection": {
         "0": {
           "0": {},
-          "4": {
-            "$selected": true
-          },
+          "4": {},
           "8": {},
           "9": {}
         }
@@ -1178,11 +1174,12 @@
       "selection": {
         "0": {
           "1": {},
-          "4": {
-            "$selected": true
-          },
+          "4": {},
           "5": {},
-          "7": {}
+          "7": {},
+          "9": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1203,9 +1200,7 @@
       "selection": {
         "0": {
           "1": {},
-          "3": {
-            "$selected": true
-          },
+          "3": {},
           "5": {},
           "7": {},
           "8": {}
@@ -1229,12 +1224,12 @@
       "selection": {
         "0": {
           "1": {},
-          "3": {
-            "$selected": true
-          },
+          "3": {},
           "4": {},
           "5": {},
-          "8": {}
+          "8": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1254,9 +1249,7 @@
     "[Gauge_All.eez-project]:/userPages/8[flow-state]": {
       "selection": {
         "0": {
-          "3": {
-            "$selected": true
-          },
+          "3": {},
           "4": {},
           "5": {},
           "8": {},
@@ -1282,9 +1275,7 @@
       "selection": {
         "0": {
           "0": {},
-          "2": {
-            "$selected": true
-          },
+          "2": {},
           "7": {},
           "9": {}
         }

@@ -33,13 +33,23 @@ static struct tm timeinfo;
         {
             if (Clocktemp_value < BEEPER_TEMP_MIN)
             {
-                gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
+                ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1, 30); // max 256
+                ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
+                //gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
                 vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
-                gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
+                ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1, 0);
+                ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
+                //gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
                 vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_OFF_TIME));
-                gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
+                ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1, 30);
+                ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
+
+                //gpio_set_level(BEEPER_PIN, BEEPER_BEEPING_VALUE);
                 vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
-                gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
+
+                ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1, 0);
+                ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
+                //gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
                 beeped = true;
             }
             vTaskDelay(pdMS_TO_TICKS(BEEPER_TASK_DELAYTIME));
@@ -358,7 +368,8 @@ static void tick_switch(int id)
 
             time(&now);
             localtime_r(&now, &timeinfo);
-            set_var_lvgl_value_clock_hour(timeinfo.tm_hour * 50 + ((timeinfo.tm_min*10)/12));
+            int hour = timeinfo.tm_hour >= 12 ? timeinfo.tm_hour - 12 : timeinfo.tm_hour;
+            set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
             set_var_lvgl_value_clock_minute(timeinfo.tm_min);
 
             // temperature Value
@@ -468,6 +479,14 @@ static void brightness(void *pv) {
 
 void app_main(void)
 {
+    // init rtc
+    init_i2c_ds3231();
+    //set_time();
+    //vTaskDelay(pdMS_TO_TICKS(500));
+    sync_rtc_to_system();
+
+    //init_time_buttons();
+
     spi_init();
     init_lcd_backlight_pwm();
     display_init(); 
@@ -478,7 +497,7 @@ void app_main(void)
 
     vTaskDelay(pdMS_TO_TICKS(DISPLAY_SETUP_DELAY));
     pwm_sensor_init();
-    #if TESTMODE == true
+    #if TESTMODE == true && USE_PWM_SENSOR == true
         create_timer_pwm();
     #endif
 

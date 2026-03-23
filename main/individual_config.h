@@ -1,25 +1,3 @@
-/*
-    ToDos:
-        - Goldene Regel Main-Loop vs. Timer beachten (siehe Kommentare)
-        - Kommentare in den Code schreiben
-
-        Die goldene Regel: Main-Loop vs. Timer
-        Du darfst die GUI nicht aus einer Sensor-Task heraus aktualisieren, wenn diese gleichzeitig mit der lv_timer_handler Task läuft (Gefahr von Abstürzen). Nutze entweder einen Mutex oder aktualisiere die Werte direkt in deiner lv_tick_task:
-        c
-        static void lv_tick_task(void *pv) {
-            while (1) {
-                // Hier könntest du die Variable aktualisieren, bevor der Handler zeichnet
-                char buf[16];
-                snprintf(buf, sizeof(buf), "%.1f", mein_globaler_sensor_wert);
-                set_var_lvgl_value_temperature_string(buf);
-
-                lv_timer_handler(); // Verarbeitet die Änderung und zeichnet neu
-                vTaskDelay(pdMS_TO_TICKS(10));
-            }
-        }
-*/
-
-
 #pragma once
 /*
 #################################################################################
@@ -31,9 +9,10 @@
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 #define TESTMODE                          true
-#define USE_PWM_SENSOR                    true
-#define TESTBRIGHTNESS                    true
+#define USE_PWM_SENSOR                    false
+#define TESTBRIGHTNESS                    false
 #define USE_BEEP                          false
+#define CHECK_I2C_DEVICES                 false
 /*
 #################################################################################
     define Pins
@@ -170,8 +149,8 @@
 */
 #define LED_SPEED               LEDC_LOW_SPEED_MODE
 #define LED_TIMER               LEDC_TIMER_0
-#define LED_DUTY_RESOLUTION     LEDC_TIMER_13_BIT   // 0 bis 8191
-    #define LED_DUTY_RES_VALUE  8191 // basierend auf LEDC_TIMER_13_BIT
+#define LED_DUTY_RESOLUTION     LEDC_TIMER_8_BIT   // 0 bis 8191
+    #define LED_DUTY_RES_VALUE  256 // basierend auf LEDC_TIMER_8_BIT // 8191 für 13 Bit, 255 für 8 Bit
 #define LED_FREQ                5000                // 5 kHz (flimmerfrei)
 #define LED_CLK                 LEDC_AUTO_CLK
 #define LED_CHANNEL             LEDC_CHANNEL_0
@@ -205,19 +184,19 @@
 #if NUMBER_OF_DISPLAYS > 1
     #define TASK_2_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_2_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_2_DELAYTIME_SCREEN                     75
+    #define TASK_2_DELAYTIME_SCREEN                     100
     #define TASK_2_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 2
     #define TASK_3_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_3_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_3_DELAYTIME_SCREEN                     125
+    #define TASK_3_DELAYTIME_SCREEN                     150
     #define TASK_3_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 #if NUMBER_OF_DISPLAYS > 3
     #define TASK_4_STEPDEPTH_SCREEN                     TASK_1_STEPDEPTH_SCREEN
     #define TASK_4_PRIORITY_SCREEN                      TASK_1_PRIORITY_SCREEN
-    #define TASK_4_DELAYTIME_SCREEN                     75
+    #define TASK_4_DELAYTIME_SCREEN                     100
     #define TASK_4_CORE_SCREEN                          TASK_1_CORE_SCREEN
 #endif
 
@@ -283,3 +262,25 @@
 #define PWM_SENSOR_PRES_CALC_VALUE_1                                   64.0
 #define PWM_SENSOR_PRES_CALC_VALUE_2                                   384 // != 0
 #define PWM_SENSOR_MAX_SENSOR_COUNT                                    100
+
+
+/*
+#################################################################################
+    Button Settings
+#################################################################################
+*/
+
+#define BUTTON_CLOCK_MINUTE_PIN                                         17 
+#define BUTTON_CLOCK_HOUR_PIN                                           18
+#define PWM_ADC_SWITCH_PIN                                                 16
+/*
+#################################################################################
+    I2C Settings
+#################################################################################
+*/
+#define RTC_I2C_SDA_PIN                                               9
+#define RTC_I2C_SCL_PIN                                                 6
+#define RTC_DS3231_ADDR                                                 0x68
+#define ADC_ADS1115_1_ADDR                                              0x48
+#define ADC_ADS1115_2_ADDR                                              0x49
+

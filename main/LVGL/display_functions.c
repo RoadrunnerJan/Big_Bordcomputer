@@ -302,14 +302,28 @@ void timer_start() {
 
 
 #if USE_BEEP == true
-    void beeper_init(){    
-        gpio_config_t beeper_conf = {
-            .pin_bit_mask = (1ULL << BEEPER_PIN),
-            .mode = GPIO_MODE_OUTPUT,
-            .pull_up_en = 0,
-            .pull_down_en = 0
-        };
-        gpio_config(&beeper_conf); 
-        gpio_set_level(BEEPER_PIN, BEEPER_QUIET_VALUE);
+    void beeper_init(){ 
+
+        // Timer von Backlight und Beeper passen nicht zusammen
+    ledc_timer_config_t timer = {
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .duty_resolution = LEDC_TIMER_13_BIT,
+        .timer_num = LEDC_TIMER_1,
+        .freq_hz = 2700,
+        .clk_cfg = LEDC_AUTO_CLK
+    };
+    ledc_timer_config(&timer);
+
+    ledc_channel_config_t channel = {
+        .gpio_num = BEEPER_PIN,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .channel = LEDC_CHANNEL_1,
+        .intr_type = LEDC_INTR_DISABLE,
+        .timer_sel = LEDC_TIMER_1,
+        .duty = 0,
+        .hpoint = 0
+    };
+    
+    ledc_channel_config(&channel);
     }
 #endif

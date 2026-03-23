@@ -25,13 +25,23 @@
 #include "driver/ledc.h"
 #include "esp_timer.h"      // Für esp_timer_create_args_t
 
+// PWM Sensor
 #include "driver/mcpwm_cap.h"
 
+// RTC
+#include "driver/i2c_master.h"
+#include "iot_button.h"
+#include <sys/time.h>
 
+// ADC
+#include "esp_adc/adc_oneshot.h"
+#include "esp_adc/adc_cali.h"
+#include "esp_adc/adc_cali_scheme.h"
+#include <math.h>
+
+//lvgl
 #include "lvgl.h"
 #include "esp_heap_caps.h"
-
-/* Include your generated UI header here - adjust the path to your UI */
 #include "lvgl/Gauge_All/src/ui/ui.h"
 #include "lvgl/Gauge_All/src/ui/screens.h"
 #include "lvgl/Gauge_All/src/ui/vars.h"
@@ -120,5 +130,13 @@ void pwm_sensor_init();
 #endif
 inline double calc_filter(double new_value_us, double pre_value_us) { return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA)); };
 double get_value(int id);
+
+
+
+void init_i2c_ds3231();
+void sync_rtc_to_system();
+void init_time_buttons();
+
+void set_time() ;
 
 
