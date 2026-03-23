@@ -156,7 +156,7 @@
 #define LED_CHANNEL             LEDC_CHANNEL_0
 #define LED_INTR                LEDC_INTR_DISABLE
 #define LED_GPIO                PIN_LCD_BL
-#define LED_START_BRIGHT        4095 // 50% -> 8191 / 2
+#define LED_START_BRIGHT        0//4095 // 50% -> 8191 / 2
 #define LED_H_POINT             0
 
 /*
