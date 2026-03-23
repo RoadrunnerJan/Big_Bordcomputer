@@ -344,10 +344,10 @@
             {
               "objID": "068b8fa0-d652-43ac-dbb8-31a0549ad666",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -395,7 +395,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -416,10 +420,10 @@
             {
               "objID": "907ef0b4-55ac-4a2d-8b62-668d7fce3526",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -467,7 +471,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -585,7 +593,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -775,7 +787,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "anim_time": 600,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -1052,10 +1068,10 @@
             {
               "objID": "3002b4f6-c088-48f4-98df-ff693ebb24bf",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -1103,7 +1119,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -1124,10 +1144,10 @@
             {
               "objID": "5da6b027-ac0d-4950-840c-78f03eb05778",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -1175,7 +1195,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -1293,7 +1317,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -1483,7 +1511,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "anim_time": 600,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -1761,10 +1793,10 @@
             {
               "objID": "6449fa55-fd05-453e-dc47-00d0e54985b2",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -1812,7 +1844,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -1833,10 +1869,10 @@
             {
               "objID": "cda4d525-7817-4b92-f5b5-0b9a6bade4a1",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -1884,7 +1920,11 @@
                       "arc_rounded": false,
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -2001,7 +2041,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -2018,11 +2062,11 @@
                 {
                   "indicators": [],
                   "objID": "f6cb83d9-db5d-496c-c337-efd9c003a30e",
-                  "minorTickCount": 26,
+                  "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
-                  "nthMajor": 5,
+                  "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ffffff",
@@ -2185,7 +2229,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -2223,11 +2271,11 @@
                     }
                   ],
                   "objID": "a2eff28d-4ea2-4275-8383-7eea7ed49ba2",
-                  "minorTickCount": 26,
+                  "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
-                  "nthMajor": 5,
+                  "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ffffff",
@@ -2463,10 +2511,10 @@
             {
               "objID": "a0be0152-a5aa-4aae-e1e3-3e26232f4399",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -2514,7 +2562,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -2535,10 +2587,10 @@
             {
               "objID": "6fa2ffe4-1010-489e-e23f-d02a7fa6f4c4",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -2586,7 +2638,11 @@
                       "arc_rounded": false,
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -2703,7 +2759,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -2720,11 +2780,11 @@
                 {
                   "indicators": [],
                   "objID": "633f0554-934c-439b-c851-ff7caf2805c9",
-                  "minorTickCount": 26,
+                  "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff4600",
-                  "nthMajor": 5,
+                  "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ff4600",
@@ -2887,7 +2947,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -2925,11 +2989,11 @@
                     }
                   ],
                   "objID": "d9dc1a97-3888-408a-d5a4-5c22e400aacc",
-                  "minorTickCount": 26,
+                  "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff4600",
-                  "nthMajor": 5,
+                  "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ff4600",
@@ -3164,10 +3228,10 @@
             {
               "objID": "6ba4cc2f-5438-4538-b549-e9f38d79fb30",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -3215,7 +3279,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -3228,7 +3296,7 @@
               "rangeMaxType": "literal",
               "value": 25,
               "valueType": "literal",
-              "bgStartAngle": 14,
+              "bgStartAngle": 7,
               "bgEndAngle": 39,
               "mode": "NORMAL",
               "rotation": 0
@@ -3236,10 +3304,10 @@
             {
               "objID": "1d6e7cc7-7927-400e-954e-2a9b3a1e49f6",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -3287,7 +3355,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -3300,8 +3372,8 @@
               "rangeMaxType": "literal",
               "value": 25,
               "valueType": "literal",
-              "bgStartAngle": 141,
-              "bgEndAngle": 244,
+              "bgStartAngle": 140,
+              "bgEndAngle": 237,
               "mode": "NORMAL",
               "rotation": 0
             },
@@ -3403,7 +3475,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -3420,11 +3496,11 @@
                 {
                   "indicators": [],
                   "objID": "1981dc58-171e-41b7-c975-fc0ae82569ae",
-                  "minorTickCount": 21,
+                  "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
-                  "nthMajor": 5,
+                  "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ffffff",
@@ -3586,7 +3662,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -3624,11 +3704,11 @@
                     }
                   ],
                   "objID": "26b905dd-4a9d-42a8-e2e4-895abbb66334",
-                  "minorTickCount": 21,
+                  "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
-                  "nthMajor": 5,
+                  "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ffffff",
@@ -3864,10 +3944,10 @@
             {
               "objID": "1029b6be-bde5-482b-ef62-f18a66cf53e4",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -3915,7 +3995,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -3928,7 +4012,7 @@
               "rangeMaxType": "literal",
               "value": 25,
               "valueType": "literal",
-              "bgStartAngle": 14,
+              "bgStartAngle": 7,
               "bgEndAngle": 39,
               "mode": "NORMAL",
               "rotation": 0
@@ -3936,10 +4020,10 @@
             {
               "objID": "1639cd3d-67b6-4b27-a564-b68fde0a6fab",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -3987,7 +4071,11 @@
                       "arc_rounded": false,
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -4000,8 +4088,8 @@
               "rangeMaxType": "literal",
               "value": 25,
               "valueType": "literal",
-              "bgStartAngle": 141,
-              "bgEndAngle": 244,
+              "bgStartAngle": 140,
+              "bgEndAngle": 237,
               "mode": "NORMAL",
               "rotation": 0
             },
@@ -4103,7 +4191,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -4120,11 +4212,11 @@
                 {
                   "indicators": [],
                   "objID": "af85be47-8b9b-491e-f753-230a851b6ca0",
-                  "minorTickCount": 21,
+                  "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff4600",
-                  "nthMajor": 5,
+                  "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ff4600",
@@ -4286,7 +4378,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -4324,11 +4420,11 @@
                     }
                   ],
                   "objID": "ffa209f9-c66b-404a-9bac-4366cb7b160b",
-                  "minorTickCount": 21,
+                  "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff4600",
-                  "nthMajor": 5,
+                  "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
                   "majorTickColor": "#ff4600",
@@ -4564,10 +4660,10 @@
             {
               "objID": "a1eed77e-c436-4d66-f577-6dcc63940a82",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -4615,7 +4711,11 @@
                       "arc_rounded": false,
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -4731,7 +4831,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -4914,7 +5018,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -5191,10 +5299,10 @@
             {
               "objID": "4fdb9d2e-d672-4d55-a922-ff02613032f9",
               "type": "LVGLArcWidget",
-              "left": 14,
-              "top": 14,
-              "width": 212,
-              "height": 212,
+              "left": 0,
+              "top": 0,
+              "width": 240,
+              "height": 240,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -5242,7 +5350,11 @@
                       "arc_rounded": false,
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
-                      "arc_width": 19
+                      "arc_width": 19,
+                      "pad_top": 9,
+                      "pad_bottom": 9,
+                      "pad_left": 9,
+                      "pad_right": 9
                     }
                   }
                 }
@@ -5358,7 +5470,11 @@
                     "DEFAULT": {
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
-                      "border_color": "#000000"
+                      "border_color": "#000000",
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -5541,7 +5657,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -5802,7 +5922,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -5849,7 +5973,7 @@
               "objID": "388cd5ec-beb9-403d-aba6-1bbedf46e0dd",
               "type": "LVGLTextareaWidget",
               "left": 99,
-              "top": 31,
+              "top": 26,
               "width": 43,
               "height": 44,
               "customInputs": [],
@@ -5891,8 +6015,7 @@
                       "border_color": "#000000",
                       "text_align": "CENTER",
                       "pad_top": 4,
-                      "pad_bottom": 2,
-                      "bg_opa": 255
+                      "pad_bottom": 2
                     }
                   },
                   "SCROLLBAR": {
@@ -5974,7 +6097,7 @@
               "left": 74,
               "top": 204,
               "width": 91,
-              "height": 21,
+              "height": 36,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -6232,7 +6355,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -6331,7 +6458,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -6544,7 +6675,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -6591,7 +6726,7 @@
               "objID": "17eba09e-f6c7-409d-dc6e-dc81eb45f121",
               "type": "LVGLTextareaWidget",
               "left": 99,
-              "top": 31,
+              "top": 26,
               "width": 43,
               "height": 44,
               "customInputs": [],
@@ -6716,7 +6851,7 @@
               "left": 74,
               "top": 204,
               "width": 91,
-              "height": 21,
+              "height": 36,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -7023,7 +7158,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
@@ -7122,7 +7261,11 @@
                       "bg_color": "#ff4600",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "anim_time": 600
+                      "anim_time": 600,
+                      "pad_top": 8,
+                      "pad_bottom": 8,
+                      "pad_left": 8,
+                      "pad_right": 8
                     }
                   },
                   "TICKS": {
