@@ -42,9 +42,9 @@
 //lvgl
 #include "lvgl.h"
 #include "esp_heap_caps.h"
-#include "lvgl/Gauge_All/src/ui/ui.h"
-#include "lvgl/Gauge_All/src/ui/screens.h"
-#include "lvgl/Gauge_All/src/ui/vars.h"
+#include "lvgl/src/ui/ui.h"
+#include "lvgl/src/ui/screens.h"
+#include "lvgl/src/ui/vars.h"
 #include "../managed_components/lvgl__lvgl/src/extra/widgets/meter/lv_meter.h"
 
 #include <string.h>

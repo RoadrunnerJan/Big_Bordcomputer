@@ -96,7 +96,7 @@
       "imageExportMode": "source",
       "fontExportMode": "source",
       "fileSystemPath": "",
-      "lvglInclude": "../lvgl.h",
+      "lvglInclude": "lvgl.h",
       "screensLifetimeSupport": false,
       "generateSourceCodeForEezFramework": false,
       "compressFlowDefinition": false,
@@ -1360,7 +1360,7 @@
               "left": 99,
               "top": 183,
               "width": 75,
-              "height": 41,
+              "height": 42,
               "customInputs": [],
               "customOutputs": [],
               "style": {
