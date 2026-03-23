@@ -7,17 +7,10 @@
 extern "C" {
 #endif
 
-extern const lv_font_t ui_font_oswald_18;
-extern const lv_font_t ui_font_oswald_26;
-extern const lv_font_t ui_font_oswald_28;
-extern const lv_font_t ui_font_oswald_30;
-extern const lv_font_t ui_font_oswald_32;
-extern const lv_font_t ui_font_oswald_34;
-extern const lv_font_t ui_font_oswald_20;
 extern const lv_font_t ui_font_oswald_22;
-extern const lv_font_t ui_font_oswald_24;
 extern const lv_font_t ui_font_oswald_36;
-extern const lv_font_t ui_font_oswald_38;
+extern const lv_font_t ui_font_damion_22;
+extern const lv_font_t ui_font_damion_36;
 
 
 #ifdef __cplusplus

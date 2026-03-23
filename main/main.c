@@ -479,6 +479,8 @@ static void brightness(void *pv) {
 
 void app_main(void)
 {
+    init_lcd_backlight_pwm();
+    
     // init rtc
     init_i2c_ds3231();
     //set_time();
@@ -488,7 +490,6 @@ void app_main(void)
     //init_time_buttons();
 
     spi_init();
-    init_lcd_backlight_pwm();
     display_init(); 
     lv_init();
     buffer_and_driver_init(); // Initialisiert die LVGL-Puffer und LVGL-Treiberfür alle Displays

@@ -101,6 +101,7 @@ void init_lcd_backlight_pwm() {
     
     ledc_timer_config(&ledc_timer);
     ledc_channel_config(&ledc_channel);
+    set_lcd_brightness(0); 
 }
 
 void set_lcd_brightness(uint8_t percentage) {
@@ -149,7 +150,6 @@ void spi_init(void) {
 
 void display_init(void)
 {
-    set_lcd_brightness(0); 
 
     DISPLAYS[0].screen_selection =       LCD_1_SCREEN_ID;
     DISPLAYS[0].spi_host =               LCD_1_SPI_HOST;
