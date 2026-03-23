@@ -103,6 +103,7 @@ void set_time(){
         .tm_mon = 3,    // Monat (0-11)
         .tm_year = 26     // Jahr (2000 + 25 = 2025)
     };
+    
 
     ds3231_set_time( &time);
 }
