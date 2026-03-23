@@ -166,8 +166,8 @@
 */
 #define EEZ_VALUE_FACTOR                            1000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
 
-#define GAUGE_ON_DELAY                              1000
-#define DISPLAY_SETUP_DELAY                         500
+#define GAUGE_ON_DELAY                              500
+#define DISPLAY_SETUP_DELAY                         100
 #define BEEPER_ON_DELAY                             5000
 #define MAIN_TASK_FINISHED_DELAY                    5000
 
