@@ -12,7 +12,14 @@ rtc modul
 i2c_master_bus_handle_t bus_handle;
 i2c_master_dev_handle_t ds3231_handle;
 
-void init_i2c_ds3231() {
+typedef struct {
+    int repeat_count;
+} button_state_t;
+
+static button_state_t hour_state = {0};
+static button_state_t min_state  = {0};
+
+void init_i2c() {
     i2c_master_bus_config_t bus_cfg = {
         .clk_source = I2C_CLK_SRC_DEFAULT,
         .i2c_port = I2C_NUM_0,
@@ -92,23 +99,6 @@ esp_err_t ds3231_set_time(struct tm *time) {
     return i2c_master_transmit(ds3231_handle, data, 8, -1);
 }
 
-void set_time(){
-
-    struct tm time = {
-        .tm_sec = 0,
-        .tm_min = 15,
-        .tm_hour = 12,
-        .tm_wday = 5,      // Wochentag (1-7)
-        .tm_mday = 20,     // Tag
-        .tm_mon = 3,    // Monat (0-11)
-        .tm_year = 26     // Jahr (2000 + 25 = 2025)
-    };
-    
-
-    ds3231_set_time( &time);
-}
-
-
 // Callback wenn ein Button gedrückt wurde
 static void button_event_cb(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
@@ -120,44 +110,86 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     localtime_r(&now, &timeinfo);
 
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
-        timeinfo.tm_hour = (timeinfo.tm_hour + 1) % 24;
+        timeinfo.tm_hour = (timeinfo.tm_hour + 1 + 24) % 24;
         printf("Stunde erhöht: %d\n", timeinfo.tm_hour);
     } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
-        timeinfo.tm_min = (timeinfo.tm_min + 1) % 60;
+        timeinfo.tm_min = (timeinfo.tm_min + 1 + 60) % 60;
+        if (timeinfo.tm_min == 0) { 
+            timeinfo.tm_hour = (timeinfo.tm_hour + 1) % 24;
+            printf("Stunde erhöht wegen Minute: %d\n", timeinfo.tm_hour);
+        }
         timeinfo.tm_sec = 0; // Sekunden nullen beim Stellen
         printf("Minute erhöht: %d\n", timeinfo.tm_min);
     }
 
-    // 1. Zur RTC schreiben
     ds3231_set_time(&timeinfo);
     
-    // 2. Systemzeit synchronisieren (damit der ESP es sofort weiß)
+    // Systemzeit synchronisieren (damit der ESP es sofort weiß)
+    struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
+    settimeofday(&tv, NULL);
+}
+
+static void button_event_cb_back(void *btn_handle, void *usr_data) {
+    int button_id = (int)usr_data;
+    time_t now;
+    struct tm timeinfo;
+    
+    // Aktuelle ESP-Systemzeit holen
+    time(&now);
+    localtime_r(&now, &timeinfo);
+
+    if (button_id == BUTTON_CLOCK_HOUR_PIN) {
+        timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
+        printf("Stunde verringert: %d\n", timeinfo.tm_hour);
+    } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
+        timeinfo.tm_min = (timeinfo.tm_min - 1 + 60) % 60;
+        if (timeinfo.tm_min == 59) { 
+            timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
+            printf("Stunde verringert wegen Minute: %d\n", timeinfo.tm_hour);
+        }
+        timeinfo.tm_sec = 0; // Sekunden nullen beim Stellen
+        printf("Minute verringert: %d\n", timeinfo.tm_min);
+    }
+
+    // Zur RTC schreiben
+    ds3231_set_time(&timeinfo);
+    
+    // Systemzeit synchronisieren (damit der ESP es sofort weiß)
     struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
     settimeofday(&tv, NULL);
 }
 
 void init_time_buttons() {
-    // 1. GPIO Konfiguration
     button_config_t cfg_hour = {
-        .long_press_time = 2000, // Beispielwert
-        .short_press_time = 50
+        .short_press_time = 50,
+        .long_press_time = 500,
     };
 
-    // ACHTUNG: Die API verlangt laut deiner Fehlermeldung 3 Argumente!
-    // esp_err_t iot_button_create(config, driver, ret_button);
-    
-    button_handle_t btn_hour;
-    iot_button_create(&cfg_hour, NULL, &btn_hour); // NULL für Standard-Treiber
-    
-    // Die Callback-Registrierung hat ebenfalls eine andere Signatur
+    button_gpio_config_t gpio_cfg_hour = 
+    {
+        .gpio_num = BUTTON_CLOCK_HOUR_PIN,
+        .active_level = 0,
+    };
+    button_handle_t btn_hour = NULL;
+    iot_button_new_gpio_device(&cfg_hour, &gpio_cfg_hour, &btn_hour);
+
     iot_button_register_cb(btn_hour, BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_HOUR_PIN);
+    iot_button_register_cb(btn_hour, BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_HOUR_PIN);
 
     button_config_t cfg_minute = {
-        .long_press_time = 2000, // Beispielwert
+        .long_press_time = 500, 
         .short_press_time = 50
     };
-    button_handle_t btn_min;
-    iot_button_create(&cfg_minute, NULL, &btn_min);
+    button_gpio_config_t gpio_cfg_minute = 
+    {
+        .gpio_num = BUTTON_CLOCK_MINUTE_PIN,
+        .active_level = 0,
+    };
+    button_handle_t btn_min = NULL;
+    iot_button_new_gpio_device(&cfg_minute, &gpio_cfg_minute, &btn_min);
     iot_button_register_cb(btn_min, BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_MINUTE_PIN);
+    iot_button_register_cb(btn_min, BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_MINUTE_PIN);
 }
+
+
 

@@ -2,6 +2,9 @@
 #include "includes.h"
 #include "individual_config.h"
 
+// . $HOME/tools/esp/esp-idf/export.sh
+// allgemein . $HOME/esp/esp-idf/export.sh
+
 #if TESTMODE == true
     static int pressure_test_switch = 0;
     static int temperature_test_switch = 0;
@@ -334,7 +337,7 @@ static void tick_switch(int id)
             #if TESTMODE == true
                 lv_Clocktemp_test();
             #endif
-
+ 
             time(&now);
             localtime_r(&now, &timeinfo);
             snprintf(ziel_string, sizeof(ziel_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
@@ -479,15 +482,14 @@ static void brightness(void *pv) {
 
 void app_main(void)
 {
+
     init_lcd_backlight_pwm();
     
     // init rtc
-    init_i2c_ds3231();
-    //set_time();
-    //vTaskDelay(pdMS_TO_TICKS(500));
+    init_i2c();
     sync_rtc_to_system();
 
-    //init_time_buttons();
+    init_time_buttons();
 
     spi_init();
     display_init(); 

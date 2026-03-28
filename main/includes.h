@@ -31,6 +31,7 @@
 // RTC
 #include "driver/i2c_master.h"
 #include "iot_button.h"
+#include "button_gpio.h"
 #include <sys/time.h>
 
 // ADC
@@ -102,6 +103,7 @@ struct display_settings
     SemaphoreHandle_t lvgl_mux; 
 };
 
+
 extern struct spi_settings SPI_SETUP[NUMBER_OF_SPI];
 extern struct display_settings DISPLAYS[NUMBER_OF_DISPLAYS];
 
@@ -133,10 +135,9 @@ double get_value(int id);
 
 
 
-void init_i2c_ds3231();
+void init_i2c();
 void sync_rtc_to_system();
 void init_time_buttons();
 
-void set_time() ;
 
 
