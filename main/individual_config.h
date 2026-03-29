@@ -52,8 +52,8 @@
     #define LCD_1_H_RES                         240
     #define LCD_1_V_RES                         240
     #define LCD_1_RGB_ELEMENT_ORDER_BGR         LCD_RGB_ELEMENT_ORDER_BGR
-    #define LCD_1_MIRROR_X            true
-    #define LCD_1_MIRROR_Y            false
+    #define LCD_1_MIRROR_X            false
+    #define LCD_1_MIRROR_Y            true
     #define LCD_1_INVERT_COLOR        true
 
     #define LCD_1_MALLOC_CAP                        MALLOC_CAP_SPIRAM//MALLOC_CAP_DMA //MALLOC_CAP_SPIRAM
@@ -79,13 +79,13 @@
             #define LCD_2_H_RES                         LCD_1_H_RES
             #define LCD_2_V_RES                         LCD_1_V_RES
             #define LCD_2_RGB_ELEMENT_ORDER_BGR         LCD_RGB_ELEMENT_ORDER_BGR
-            #define LCD_2_MIRROR_X            true
-            #define LCD_2_MIRROR_Y            false
+            #define LCD_2_MIRROR_X            false
+            #define LCD_2_MIRROR_Y            true
             #define LCD_2_INVERT_COLOR        true
             #define LCD_2_MALLOC_CAP                        MALLOC_CAP_DMA
             #define LCD_2_BUFFER_FACTOR                     2
             #define LCD_2_SPI_HOST                      LCD_HOST_1
-            #define LCD_2_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_PRESSURE
+            #define LCD_2_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_TEMPERATURE
 
         #endif
     #endif
@@ -100,8 +100,8 @@
             #define LCD_3_H_RES                         LCD_1_H_RES
             #define LCD_3_V_RES                         LCD_1_V_RES
             #define LCD_3_RGB_ELEMENT_ORDER_BGR         LCD_RGB_ELEMENT_ORDER_BGR
-            #define LCD_3_MIRROR_X            true
-            #define LCD_3_MIRROR_Y            false
+            #define LCD_3_MIRROR_X            false
+            #define LCD_3_MIRROR_Y            true
             #define LCD_3_INVERT_COLOR        true
             #define LCD_3_MALLOC_CAP                        MALLOC_CAP_DMA
             #define LCD_3_BUFFER_FACTOR                     2
@@ -110,7 +110,7 @@
             #else
                 #define LCD_3_SPI_HOST                      LCD_HOST_1
             #endif
-            #define LCD_3_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_TEMPERATURE
+            #define LCD_3_SCREEN_ID                     SCREEN_ID_GAUGE_OIL_PRESSURE 
 
         #endif
     #endif
@@ -125,8 +125,8 @@
             #define LCD_4_H_RES                         LCD_3_H_RES
             #define LCD_4_V_RES                         LCD_3_V_RES
             #define LCD_4_RGB_ELEMENT_ORDER_BGR         LCD_RGB_ELEMENT_ORDER_BGR
-            #define LCD_4_MIRROR_X                      true
-            #define LCD_4_MIRROR_Y                      false
+            #define LCD_4_MIRROR_X                      false
+            #define LCD_4_MIRROR_Y                      true
             #define LCD_4_INVERT_COLOR                  true
             #define LCD_4_MALLOC_CAP                        MALLOC_CAP_DMA
             #define LCD_4_BUFFER_FACTOR                     2

@@ -139,5 +139,5 @@ void init_i2c();
 void sync_rtc_to_system();
 void init_time_buttons();
 
-
+void start_adc_task();
 

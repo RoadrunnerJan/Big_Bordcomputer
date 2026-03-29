@@ -491,6 +491,9 @@ void app_main(void)
 
     init_time_buttons();
 
+
+start_adc_task();
+
     spi_init();
     display_init(); 
     lv_init();
@@ -532,7 +535,6 @@ void app_main(void)
     #if USE_BEEP == true
         xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
     #endif
-
 
     vTaskDelay(pdMS_TO_TICKS(MAIN_TASK_FINISHED_DELAY));
     
