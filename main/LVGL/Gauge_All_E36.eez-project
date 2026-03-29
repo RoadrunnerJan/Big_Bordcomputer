@@ -396,7 +396,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -472,7 +472,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -594,7 +594,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -788,7 +788,7 @@
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -1120,7 +1120,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -1196,7 +1196,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -1318,7 +1318,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -1512,7 +1512,7 @@
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -1845,7 +1845,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -1921,7 +1921,7 @@
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -2042,7 +2042,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -2230,7 +2230,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -2563,7 +2563,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -2639,7 +2639,7 @@
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -2760,7 +2760,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -2948,7 +2948,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -3280,7 +3280,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -3356,7 +3356,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -3476,7 +3476,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -3663,7 +3663,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -3996,7 +3996,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -4072,7 +4072,7 @@
                       "arc_color": "#ff0000",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -4192,7 +4192,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -4379,7 +4379,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -4712,7 +4712,7 @@
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -4832,7 +4832,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -5019,7 +5019,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -5351,7 +5351,7 @@
                       "arc_color": "#0000ff",
                       "arc_opa": 150,
                       "arc_width": 19,
-                      "pad_top": 9,
+                      "pad_top": 7,
                       "pad_bottom": 9,
                       "pad_left": 9,
                       "pad_right": 9
@@ -5471,7 +5471,7 @@
                       "bg_color": "#ff3c00",
                       "bg_opa": 0,
                       "border_color": "#000000",
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -5658,7 +5658,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -5923,7 +5923,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -6188,7 +6188,7 @@
                       "text_align": "CENTER",
                       "bg_color": "#000000",
                       "bg_opa": 255,
-                      "pad_top": 8
+                      "pad_top": 6
                     }
                   }
                 }
@@ -6356,7 +6356,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -6459,7 +6459,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -6676,7 +6676,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -6942,7 +6942,7 @@
                       "text_align": "CENTER",
                       "bg_color": "#000000",
                       "bg_opa": 255,
-                      "pad_top": 8
+                      "pad_top": 6
                     }
                   }
                 }
@@ -7159,7 +7159,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8
@@ -7262,7 +7262,7 @@
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
-                      "pad_top": 8,
+                      "pad_top": 6,
                       "pad_bottom": 8,
                       "pad_left": 8,
                       "pad_right": 8

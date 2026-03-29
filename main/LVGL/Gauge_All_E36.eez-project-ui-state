@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -190,10 +191,21 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
-              "selected": -1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
-              "children": [],
+              "children": [
+                {
+                  "type": "tab",
+                  "id": "#2c0b2107-26c5-4776-beb1-8904d1872e92",
+                  "name": "Gauge_Oil_Pressure",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/0",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                }
+              ],
               "active": true
             },
             {
@@ -1388,6 +1400,26 @@
     },
     "[../LVGL/Gauge_All/Gauge_All.eez-project]:/userPages/2[flow-state]": {
       "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/0[flow-state]": {
+      "selection": {
+        "0": {
+          "5": {}
+        }
+      },
       "transform": {
         "translate": {
           "x": -120,
