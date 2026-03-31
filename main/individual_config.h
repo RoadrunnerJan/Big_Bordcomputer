@@ -13,7 +13,7 @@
 #define USE_BUZZER                        false // Aktiviere den Buzzer für Warnungen (für zu niedrige Außentemperatur)
 #define CHECK_I2C_DEVICES                 false
 
-#define LOGGING_ENABLED                   true // Aktiviert die serielle Ausgabe von Log-Nachrichten für Debugging-Zwecke. Bei false werden diese Nachrichten nicht ausgegeben, um Ressourcen zu sparen.
+#define LOGGING_ENABLED                   false // Aktiviert die serielle Ausgabe von Log-Nachrichten für Debugging-Zwecke. Bei false werden diese Nachrichten nicht ausgegeben, um Ressourcen zu sparen.
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG"
 /*
 #################################################################################

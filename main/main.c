@@ -382,10 +382,14 @@ void init_system()
 
 void app_main(void)
 {
+    printLog("Starting Board Computer Application...");
     init_system();
+    printLog("Initialization complete. Entering main loop.");
 
+    printLog("Setting up LVGL tick task...");
     xTaskCreatePinnedToCore(lv_tick_task_screen, "lv_tick_task_screen", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
+    printLog("LVGL tick task created successfully.");
 
     vTaskDelay(pdMS_TO_TICKS(MAIN_TASK_FINISHED_DELAY));
-
+    printLog("Main task finished setup. Entering main loop idle state. Running tasks will handle the rest of the application logic.");
 }
