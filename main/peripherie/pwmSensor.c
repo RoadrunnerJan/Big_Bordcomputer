@@ -1,5 +1,12 @@
 #include "pwmSensor.h"
 
+
+mcpwm_cap_timer_handle_t cap_timer = NULL;
+mcpwm_capture_timer_config_t timer_config = {0};
+mcpwm_cap_channel_handle_t cap_chan = NULL;
+mcpwm_capture_channel_config_t chan_config = {0};
+mcpwm_capture_event_callbacks_t cbs = {0};
+
 volatile sensor_data_t latest_sensor_values = {0};
 uint32_t last_pos_edge = 0;
 int pulse_idx = 0;
@@ -72,46 +79,30 @@ static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, 
         
         last_pos_edge = edata->cap_value;
     } else {
-
         width = (edata->cap_value - last_pos_edge) / PWM_SENSOR_RESOLUTION_MHZ; // 10 wenn 10 MHz
-
     }
     return false;
 }
 
 void pwm_sensor_init(void){
-    mcpwm_cap_timer_handle_t cap_timer = NULL;
-    mcpwm_capture_timer_config_t timer_config = {
-        .group_id = 0,
-        .clk_src = MCPWM_CAPTURE_CLK_SRC_DEFAULT,
-        .resolution_hz = PWM_SENSOR_RESOLUTION_MHZ*1000000, // 10 MHz
-    };
+    timer_config.group_id = 0;
+    timer_config.clk_src = MCPWM_CAPTURE_CLK_SRC_DEFAULT;
+    timer_config.resolution_hz = PWM_SENSOR_RESOLUTION_MHZ*1000000; // 10 MHz
+    chan_config.gpio_num = PWM_SENSOR_PIN;
+    chan_config.prescale = PWM_SENSOR_PRESCALE;
+    chan_config.flags.neg_edge = PWM_SENSOR_NEG_EDGE;
+    chan_config.flags.pos_edge = PWM_SENSOR_POS_EDGE;
+    chan_config.flags.pull_up = PWM_SENSOR_PULL_UP;
+    //chan_config.glitch_filter_config.max_glitch_width = 800; // Filtert Spikes kürzer als 10us (bei 80MHz)
+    cbs.on_cap = pwm_capture_callback;
+
     mcpwm_new_capture_timer(&timer_config, &cap_timer);
-
-    // 2. Capture Channel erstellen
-    mcpwm_cap_channel_handle_t cap_chan = NULL;
-    mcpwm_capture_channel_config_t chan_config = {
-        .gpio_num = PWM_SENSOR_PIN,
-        .prescale = PWM_SENSOR_PRESCALE,
-        .flags.neg_edge = PWM_SENSOR_NEG_EDGE, // Wir brauchen beide Flanken
-        .flags.pos_edge = PWM_SENSOR_POS_EDGE,
-        .flags.pull_up = PWM_SENSOR_PULL_UP,  // Je nach Signalquelle
-        //.glitch_filter_config = {
-        //    .max_glitch_width = 800, // Filtert Spikes kürzer als 10us (bei 80MHz)
-        //},
-    };
     mcpwm_new_capture_channel(cap_timer, &chan_config, &cap_chan);
-
-    // 3. Callback registrieren (wird bei jeder Flanke aufgerufen)
-    mcpwm_capture_event_callbacks_t cbs = {
-        .on_cap = pwm_capture_callback,
-    };
     mcpwm_capture_channel_register_event_callbacks(cap_chan, &cbs, NULL);
 
     mcpwm_capture_timer_enable(cap_timer);
     mcpwm_capture_timer_start(cap_timer);
     mcpwm_capture_channel_enable(cap_chan);
-
 }
 
 #if TESTMODE == true
@@ -158,7 +149,6 @@ void pwm_sensor_init(void){
             else {
                 printf("Warten auf Sensor-Signal...\n");
             }
-            
             vTaskDelay(pdMS_TO_TICKS(200)); 
         }
     }
