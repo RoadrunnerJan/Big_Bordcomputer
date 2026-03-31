@@ -10,7 +10,7 @@
 
 #define TESTMODE                          true // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
 #define USE_PWM_SENSOR                    false // Rot = PWN Signal, Weiß = 5V
-#define USE_BEEP                          false
+#define USE_BUZZER                        false
 #define CHECK_I2C_DEVICES                 false
 /*
 #################################################################################
@@ -148,7 +148,7 @@
 */
 #define LED_SPEED               LEDC_LOW_SPEED_MODE
 #define LED_TIMER               LEDC_TIMER_0
-#define LED_DUTY_RESOLUTION     LEDC_TIMER_8_BIT   // 0 bis 8191
+#define LED_DUTY_RESOLUTION     LEDC_TIMER_8_BIT   // 0 bis 256
 #define LED_DUTY_RES_VALUE      256 // basierend auf LEDC_TIMER_8_BIT // 8191 für 13 Bit, 255 für 8 Bit
 #define LED_FREQ                5000                // 5 kHz (flimmerfrei)
 #define LED_CLK                 LEDC_AUTO_CLK
@@ -165,9 +165,9 @@
 */
 #define EEZ_VALUE_FACTOR                            1000 // Faktor zur Umrechnung von float-Werten in int32_t für die Kommunikation mit LVGL (z.B. 1.23 -> 1230)
 
-#define GAUGE_ON_DELAY                              500
+#define GAUGE_ON_DELAY_SEC                             1
 #define DISPLAY_SETUP_DELAY                         100
-#define BEEPER_ON_DELAY                             5000
+#define BEEPER_ON_DELAY_SEC                            5
 #define MAIN_TASK_FINISHED_DELAY                    5000
 
 #define COLOR_NIGHT_MODE_HEX                       0xff5a00
@@ -205,11 +205,11 @@
     Beeper Settings
 #################################################################################
 */
-#if USE_BEEP == true
+#if USE_BUZZER == true
     #define BEEPER_TEMP_MIN                                 3 // Beept bei < 3 °C
     #define BEEPER_PIN                                      15
-    #define BEEPER_BEEPING_VALUE                            0   
-    #define BEEPER_QUIET_VALUE                              1
+    #define BEEPER_BEEPING_VALUE                            50   
+    #define BEEPER_QUIET_VALUE                              0
     #define BEEPER_TASK_STEPDEPTH                           8192
     #define BEEPER_TASK_PRIORITY                            20
     #define BEEPER_TASK_DELAYTIME                           1000

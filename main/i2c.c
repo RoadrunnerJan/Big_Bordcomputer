@@ -1,13 +1,4 @@
 #include "includes.h"
-/*
-Für Buttons internen Pull Up Widerstand verwenden
-
-
-rtc modul
-7-Bit Adresse: 0x68 (Standard für fast alle DS3231-Varianten).
-8-Bit Adresse (Write): 0xD0 (0x68 linksgeschoben um 1 Bit mit LSB=0).
-8-Bit Adresse (Read): 0xD1 (0x68 linksgeschoben um 1 Bit mit LSB=1).
-*/
 
 i2c_master_bus_handle_t bus_handle;
 i2c_master_dev_handle_t ds3231_handle;

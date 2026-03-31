@@ -9,7 +9,7 @@ esp_timer_handle_t periodic_timer;
 ledc_timer_config_t ledc_timer = {0};
 ledc_channel_config_t ledc_channel = {0};
 int reset_is_set = false;
-#if USE_BEEP ==true 
+#if USE_BUZZER ==true 
     gpio_config_t beeper_conf;
 #endif
 
@@ -301,7 +301,7 @@ void timer_start() {
 }
 
 
-#if USE_BEEP == true
+#if USE_BUZZER == true
     void beeper_init(){ 
 
         // Timer von Backlight und Beeper passen nicht zusammen
