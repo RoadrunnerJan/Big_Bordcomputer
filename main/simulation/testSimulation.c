@@ -6,28 +6,37 @@ int volt_test_switch = 0;
 int Clocktemp_test_switch = 0;
 int brightness_test_switch = 0;
 
-float test_steps[5][4] = { // step changes for each test phase
-    {+0.06, -0.02, +0.06, -0.06}, // oil pressure
-    {+0.5, -0.05, +0.05, -0.5}, // volt
-    {+0.3, -0.3, +0.3, -0.3}, // oil temperature
-    {+0.3, -0.3, +0.3, -0.3}, // clock temperature
-    {-1, +1, -1, +1} // brightness
+double test_steps[5][4] = { // step changes for each test phase
+    /* oil pressure      */ {+0.06, -0.02, +0.06, -0.06},
+    /* volt              */ {+0.50, -0.05, +0.05, -0.50},
+    /* oil temperature   */ {+0.30, -0.30, +0.30, -0.30},
+    /* clock temperature */ {+0.30, -0.30, +0.30, -0.30},
+    /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
 };
 
-float test_thresholds[5][4] = { // thresholds for switching test steps
-    {4.5, 2.5, 5.5, 0.04}, // oil pressure, 1/3 Werte >=, 2/4 Werte <=
-    {15.5, 11, 14, 8.04}, // volt, 1/3 Werte >=, 2/4 Werte <=
-    {100, 110, 140, 0.06}, // oil temperature, 1/3 Werte >=, 2/4 Werte <=
-    {33, -15, 20, 0.06}, // clock temperature, 1/3 Werte >=, 2/4 Werte <=
-    {15, 50, 2, 100} // brightness, 2/4 Werte >=, 1/3 Werte <=
+double test_thresholds[5][4] = { // thresholds for switching test steps
+    //                        >=   <=   >=    <=
+    /* oil pressure      */ {4.5, 2.5, 5.5, 0.04},
+
+    //                        >=   <=   >=    <=
+    /* volt              */ {15.5, 11,  14, 8.04},
+
+    //                        >=   <=   >=    <=
+    /* oil temperature   */ {100, 110, 140, 0.06},
+
+    //                        >=   <=   >=    <=
+    /* clock temperature */ { 33, -15,  20, 0.06},
+
+    //                        <=   >=   <=    >=
+    /* brightness        */ { 15,  50,   2,  100} 
 };
 
 void reset_test_switches() {
-    pressure_test_switch = 0;
+    pressure_test_switch    = 0;
     temperature_test_switch = 0;
-    volt_test_switch = 0;
-    Clocktemp_test_switch = 0;
-    brightness_test_switch = 0;
+    volt_test_switch        = 0;
+    Clocktemp_test_switch   = 0;
+    brightness_test_switch  = 0;
 }
 
 void lv_pressure_test(double* oil_pressure_value)

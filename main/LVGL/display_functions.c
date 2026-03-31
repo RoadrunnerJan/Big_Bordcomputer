@@ -302,7 +302,7 @@ void timer_start() {
 
 
 #if USE_BUZZER == true
-    void beeper_init(){ 
+    void buzzer_init(){ 
 
         // Timer von Backlight und Beeper passen nicht zusammen
     ledc_timer_config_t timer = {

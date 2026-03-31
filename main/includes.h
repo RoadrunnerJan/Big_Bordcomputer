@@ -124,7 +124,7 @@ void display_init();
 void buffer_and_driver_init(); // Initialisiert die LVGL-Puffer für alle Displays
 void timer_start(); // Startet die Timer für alle Displays
 void set_Displays();
-void beeper_init();
+void buzzer_init();
 
 void pwm_sensor_init();
 #if TESTMODE == true

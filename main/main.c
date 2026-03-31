@@ -11,7 +11,6 @@
 
 #if TESTMODE == true
     #include "simulation/testSimulation.h"
-    
 #else
     static bool pres_value_set = false;
     static bool temp_value_set = false;
@@ -33,8 +32,7 @@ time_t checkTime = 0;
 bool time_checked[2] = {false, false}; // [0] = Gauge, [1] = Beeper
 
 #if USE_BUZZER == true
-    static int beeped = 0;
-
+    static int buzzed = 0;
     static void temperature_beep() {
         buzzer_beep(BEEPER_BEEPING_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
@@ -44,10 +42,8 @@ bool time_checked[2] = {false, false}; // [0] = Gauge, [1] = Beeper
         vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
         buzzer_beep(BEEPER_QUIET_VALUE);
         ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
-
-        printf("Beeped!\n");
-
-        vTaskDelete(NULL);         
+        printf("buzzed!\n");
+        vTaskDelete(NULL);     // Remove new created beeper task     
     }
 #endif
 
@@ -299,7 +295,7 @@ static void lv_tick_task_screen(void *pv)
         #endif
 
         if ((long)(checkTime - StartUpTime) > GAUGE_ON_DELAY_SEC)
-        {
+        { 
             if (!time_checked[0]) {
                 time_checked[0] = !time_checked[0];
             }
@@ -316,16 +312,16 @@ static void lv_tick_task_screen(void *pv)
         #if USE_BUZZER == true
             if !(time_checked[1]) {
                 time(&checkTime);
-            }
+            }// ToDo: beeper nach einer bestimmten Zeit wieder aktivieren?
             if ((long)(checkTime - StartUpTime) >= BEEPER_ON_DELAY_SEC)
             {
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
                 }
-                if (beeped == false && Clocktemp_value < BEEPER_TEMP_MIN)
+                if (buzzed == false && Clocktemp_value < BEEPER_TEMP_MIN)
                 {
                     xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
-                    beeped = true;
+                    buzzed = true;
                 }
             }
         #endif
@@ -334,19 +330,22 @@ static void lv_tick_task_screen(void *pv)
     }
 }
 
-void app_main(void)
+void init_system()
 {
+    // init display backlight
     init_lcd_backlight_pwm();
-    
     // init rtc
     init_i2c();
     sync_rtc_to_system();
     
+    // Startzeitpunkt des Systems merken
     time(&StartUpTime);
     printf("System started at: %ld\n", (long)StartUpTime);
 
+    // init buttons
     init_time_buttons();
 
+    // init displays
     spi_init();
     display_init(); 
     lv_init();
@@ -354,18 +353,24 @@ void app_main(void)
     timer_start(); // Startet die Timer für alle Displays 
     set_Displays();
 
-    //vTaskDelay(pdMS_TO_TICKS(DISPLAY_SETUP_DELAY));
-    pwm_sensor_init();
+    // init pwm sensor
     #if USE_PWM_SENSOR == true
+        pwm_sensor_init();
         create_timer_pwm();
     #endif
 
+    // init buzzer
     #if USE_BUZZER == true
-        beeped = false;
-        beeper_init();
+        buzzed = false;
+        buzzer_init();
     #endif
 
-    // Anfangs Licht aus! in Funktion beachten
+}
+
+void app_main(void)
+{
+    init_system();
+
     xTaskCreatePinnedToCore(lv_tick_task_screen, "lv_tick_task_screen", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
 
     vTaskDelay(pdMS_TO_TICKS(MAIN_TASK_FINISHED_DELAY));
