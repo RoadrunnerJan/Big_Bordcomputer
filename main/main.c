@@ -341,20 +341,24 @@ static void lv_tick_task_screen(void *pv)
 
 void init_system()
 {
+    printLog("Initializing system...");
+    #if TESTMODE == true
+        printWarningLog("Running in TEST MODE: Simulated sensor values, night mode, and brightness test enabled.");
+    #endif
     // init display backlight
     init_lcd_backlight_pwm();
-    //set_lcd_brightness(0);
+    printLog("Display backlight initialized.");
 
     // init rtc
     init_i2c();
     sync_rtc_to_system();
-    
-    // Startzeitpunkt des Systems merken
+    printLog("RTC initialized and synchronized to system time.");
     time(&StartUpTime);
-    printf("System started at: %ld\n", (long)StartUpTime);
+    printf("System started at: %s", ctime(&StartUpTime));
 
     // init buttons
     init_time_buttons();
+    printLog("Time Setting Buttons initialized.");
 
     // init displays
     spi_init();
@@ -363,6 +367,7 @@ void init_system()
     buffer_and_driver_init(); // Initialisiert die LVGL-Puffer und LVGL-Treiberfür alle Displays
     timer_start(); // Startet die Timer für alle Displays 
     set_Displays();
+    printLog("Displays initialized and screens set.");
 
     // init pwm sensor
     #if USE_PWM_SENSOR == true
@@ -370,23 +375,23 @@ void init_system()
         #if TESTMODE == true
             create_timer_pwm();
         #endif
+        printLog("PWM Sensor initialized.");
     #endif
 
     // init buzzer
     #if USE_BUZZER == true
         buzzed = false;
         buzzer_init();
+        printLog("Buzzer initialized.");
     #endif
-
+    printLog("Initialization complete. Entering main loop.");
 }
 
 void app_main(void)
 {
     printLog("Starting Board Computer Application...");
     init_system();
-    printLog("Initialization complete. Entering main loop.");
 
-    printLog("Setting up LVGL tick task...");
     xTaskCreatePinnedToCore(lv_tick_task_screen, "lv_tick_task_screen", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
     printLog("LVGL tick task created successfully.");
 
