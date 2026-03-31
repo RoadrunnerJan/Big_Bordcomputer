@@ -1,13 +1,18 @@
 #include "i2cFunctions.h"
 
+i2c_master_bus_config_t bus_cfg = {0};
 i2c_master_bus_handle_t bus_handle = NULL;
+// RTC
+i2c_device_config_t ds3231_cfg = {0};
 i2c_master_dev_handle_t ds3231_handle = NULL;
+// ADS1115
+i2c_device_config_t ads_cfg[NUMBER_OF_ADS1115_DEVICES] = {0};
+i2c_master_dev_handle_t ads_handle[NUMBER_OF_ADS1115_DEVICES];
 
-i2c_master_dev_handle_t ads1_handle = NULL;
-i2c_master_dev_handle_t ads2_handle = NULL;
-
-button_state_t hour_state = {0};
-button_state_t min_state  = {0};
+// Buttons 
+button_config_t cfg_time[2] = {0}; // 0 = Stunde, 1 = Minute
+button_gpio_config_t gpio_cfg_time[2] = {0};
+button_handle_t btn_time[2] = {0};
 
 const ntc_table_t oil_temp_table[] = {
     {0, 2500.0}, {10, 1500.0}, {20, 1000.0}, {30, 650.0}, {40, 430.0},
@@ -30,54 +35,34 @@ float filtered_oil_temp = 0;
 float filtered_oil_press = 0;
 float filtered_outside_temp = 0; // Startwert ca. Zimmertemperatur
 
-
-
 void init_i2c() {
-    i2c_master_bus_config_t bus_cfg = {
-        .clk_source = I2C_CLK_SRC_DEFAULT,
-        .i2c_port = I2C_NUM_0,
-        .scl_io_num = RTC_I2C_SCL_PIN,
-        .sda_io_num = RTC_I2C_SDA_PIN,
-        .glitch_ignore_cnt = 7,
-        .flags.enable_internal_pullup = false
-    };
+    // I2C
+    bus_cfg.clk_source = I2C_CLK_SRC_DEFAULT;
+    bus_cfg.i2c_port = I2C_NUM_0;
+    bus_cfg.scl_io_num = RTC_I2C_SCL_PIN;
+    bus_cfg.sda_io_num = RTC_I2C_SDA_PIN;
+    bus_cfg.glitch_ignore_cnt = 7;
+    bus_cfg.flags.enable_internal_pullup = false;
+
+    // RTC
+    ds3231_cfg.dev_addr_length = I2C_ADDR_BIT_LEN_7;
+    ds3231_cfg.device_address = RTC_DS3231_ADDR;
+    ds3231_cfg.scl_speed_hz = 100000;
+    for (int i = 0; i < NUMBER_OF_ADS1115_DEVICES; i++) {
+        ads_cfg[i].dev_addr_length = I2C_ADDR_BIT_LEN_7;
+        ads_cfg[i].scl_speed_hz = 400000; // ADS1115 schafft bis zu 400kHz
+    }
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &bus_handle));
-    #if CHECK_I2C_DEVICES == false
-        i2c_device_config_t dev_cfg = {
-            .dev_addr_length = I2C_ADDR_BIT_LEN_7,
-            .device_address = RTC_DS3231_ADDR,
-            .scl_speed_hz = 100000,
-        };
-        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &dev_cfg, &ds3231_handle));
+    ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ds3231_cfg, &ds3231_handle));
 
-        i2c_device_config_t ads_cfg = {
-        .dev_addr_length = I2C_ADDR_BIT_LEN_7,
-        .scl_speed_hz = 400000, // ADS1115 schafft bis zu 400kHz
-        };
+    // ADS1115
+    ads_cfg[0].device_address = ADC_ADS1115_1_ADDR;
+    ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ads_cfg[0], &ads_handle[0]));
 
-        ads_cfg.device_address = ADC_ADS1115_1_ADDR;
-        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ads_cfg, &ads1_handle));
-
-        ads_cfg.device_address = ADC_ADS1115_2_ADDR;
-        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ads_cfg, &ads2_handle));
-    #else
-        for (int addr = 1; addr < 127; addr++) {
-            i2c_device_config_t dev_cfg = {
-                .dev_addr_length = I2C_ADDR_BIT_LEN_7,
-                .device_address = addr,
-                .scl_speed_hz = 100000,
-            };
-
-            i2c_master_dev_handle_t tmp;
-            if (i2c_master_bus_add_device(bus_handle, &dev_cfg, &tmp) == ESP_OK) {
-                if (i2c_master_probe(bus_handle, addr, 100) == ESP_OK) {
-                    printf("Device at 0x%02X\n", addr);
-                }
-                i2c_master_bus_rm_device(tmp);
-            }
-        }
+    #if NUMBER_OF_ADS1115_DEVICES > 1
+        ads_cfg[1].device_address = ADC_ADS1115_2_ADDR;
+        ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ads_cfg[1], &ads_handle[1]));
     #endif
-
 }
 
 inline uint8_t bcd2dec(uint8_t val) { return ((val >> 4) * 10) + (val & 0x0F); }
@@ -184,35 +169,22 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
 }
 
 void init_time_buttons() {
-    button_config_t cfg_hour = {
-        .short_press_time = 50,
-        .long_press_time = 500,
-    };
 
-    button_gpio_config_t gpio_cfg_hour = 
-    {
-        .gpio_num = BUTTON_CLOCK_HOUR_PIN,
-        .active_level = 0,
-    };
-    button_handle_t btn_hour = NULL;
-    iot_button_new_gpio_device(&cfg_hour, &gpio_cfg_hour, &btn_hour);
+    cfg_time[0].short_press_time = 50;
+    cfg_time[0].long_press_time = 500;
+    gpio_cfg_time[0].gpio_num = BUTTON_CLOCK_HOUR_PIN;
+    gpio_cfg_time[0].active_level = 0;    
+    cfg_time[1].short_press_time = 50;
+    cfg_time[1].long_press_time = 500;
+    gpio_cfg_time[1].gpio_num = BUTTON_CLOCK_MINUTE_PIN;
+    gpio_cfg_time[1].active_level = 0;
 
-    iot_button_register_cb(btn_hour, BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_HOUR_PIN);
-    iot_button_register_cb(btn_hour, BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_HOUR_PIN);
-
-    button_config_t cfg_minute = {
-        .long_press_time = 500, 
-        .short_press_time = 50
-    };
-    button_gpio_config_t gpio_cfg_minute = 
-    {
-        .gpio_num = BUTTON_CLOCK_MINUTE_PIN,
-        .active_level = 0,
-    };
-    button_handle_t btn_min = NULL;
-    iot_button_new_gpio_device(&cfg_minute, &gpio_cfg_minute, &btn_min);
-    iot_button_register_cb(btn_min, BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_MINUTE_PIN);
-    iot_button_register_cb(btn_min, BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_MINUTE_PIN);
+    iot_button_new_gpio_device(&cfg_time[0], &gpio_cfg_time[0], &btn_time[0]);
+    iot_button_register_cb(btn_time[0], BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_HOUR_PIN);
+    iot_button_register_cb(btn_time[0], BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_HOUR_PIN);
+    iot_button_new_gpio_device(&cfg_time[1], &gpio_cfg_time[1], &btn_time[1]);
+    iot_button_register_cb(btn_time[1], BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_MINUTE_PIN);
+    iot_button_register_cb(btn_time[1], BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_MINUTE_PIN);
 }
 
 int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_setting) {
@@ -368,31 +340,31 @@ float get_outside_temp_safe(int16_t raw) {
 }
 
 float get_i2c_adc_volt() {
-    int16_t raw = read_ads1115(ads1_handle, 0, 0x02); // Board
+    int16_t raw = read_ads1115(ads_handle[0], 0, 0x02); // Board
     float v_board = get_v_board_safe(raw);
     printf("Board Voltage: %.2f V\n", v_board);
     return v_board;
 }
 float get_i2c_adc_volt_bel() {
-    int16_t raw = read_ads1115(ads1_handle, 1, 0x01); // Bel
+    int16_t raw = read_ads1115(ads_handle[0], 1, 0x01); // Bel
     float v_bel = get_v_bel_safe(raw);
     printf("Bel Voltage: %.2f V\n", v_bel);
     return v_bel;
 }
 float get_i2c_adc_oil_temp() {
-    int16_t raw = read_ads1115(ads1_handle, 2, 0x01); // Temp
+    int16_t raw = read_ads1115(ads_handle[0], 2, 0x01); // Temp
     float oil_t = get_oil_temp_filtered(raw);
     printf("Oil Temperature: %.1f °C\n", oil_t);
     return oil_t;
 }
 float get_i2c_adc_oil_press() {
-    int16_t raw = read_ads1115(ads1_handle, 3, 0x01); // Druck
+    int16_t raw = read_ads1115(ads_handle[0], 3, 0x01); // Druck
     float oil_p = get_oil_press_filtered(raw);
     printf("Oil Pressure: %.2f bar\n", oil_p);
     return oil_p;
 }
 float get_i2c_adc_outside_temp() {
-    int16_t raw = read_ads1115(ads2_handle, 0, 0x01); // Außentemperatur
+    int16_t raw = read_ads1115(ads_handle[1], 0, 0x01); // Außentemperatur
     float outside_t = get_outside_temp_safe(raw);
     printf("Outside Temperature: %.1f °C\n", outside_t);
     return outside_t;

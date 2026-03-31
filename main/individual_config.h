@@ -8,10 +8,9 @@
 #define NUMBER_OF_SPI                      2 // Number of SPI Devices used (for 4 Displays 2 are neccessary)
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
-#define TESTMODE                          true // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
+#define TESTMODE                          false // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
 #define USE_PWM_SENSOR                    false // Rot = PWN Signal, Weiß = 5V
 #define USE_BUZZER                        false // Aktiviere den Buzzer für Warnungen (für zu niedrige Außentemperatur)
-#define CHECK_I2C_DEVICES                 false
 
 #define LOGGING_ENABLED                   true // Aktiviert die serielle Ausgabe von Log-Nachrichten für Debugging-Zwecke. Bei false werden diese Nachrichten nicht ausgegeben, um Ressourcen zu sparen.
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG"
