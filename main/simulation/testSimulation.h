@@ -1,4 +1,5 @@
 #pragma once
+#include "esp_system.h"
 
 extern int pressure_test_switch;
 extern int temperature_test_switch;
@@ -14,4 +15,4 @@ void lv_pressure_test(double* oil_pressure_value);
 void lv_volt_test(double* volt_value);
 void lv_temperature_test(double* oil_temperature_value);
 void lv_Clocktemp_test(double* Clocktemp_value);
-void brightness_test(int* brightness_value, int* night_mode);
+void brightness_test(int* brightness_value, bool* night_mode_active);

@@ -1,26 +1,12 @@
-#include "includes.h"
+#include "pwmSensor.h"
 
+volatile sensor_data_t latest_sensor_values = {0};
+uint32_t last_pos_edge = 0;
+int pulse_idx = 0;
+uint32_t period_us = 0;
+uint32_t width = 0;
 
-//#if TESTMODE == false
-typedef struct {
-    uint32_t period_us;
-    uint32_t value_us;
-} value_pair_t;
-
-typedef struct {
-    value_pair_t temp_us;
-    value_pair_t press_us;
-    value_pair_t diag_us;
-    uint32_t update_count; 
-} sensor_data_t;
-
-static volatile sensor_data_t latest_sensor_values = {0};
-static uint32_t last_pos_edge = 0;
-static int pulse_idx = 0;
-static uint32_t period_us = 0;
-static uint32_t width = 0;
-
-static bool first_init_done = false;
+int first_init_done = 0;
 
 inline int get_diag(int value_us) {
     return value_us < 280 ? 0 : // OPS Funktionszustand
@@ -39,14 +25,15 @@ double get_value(int id)
            (double) get_diag(latest_sensor_values.diag_us.value_us);
 }
 
-static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data) {
+static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data)
+{
     if (edata->cap_edge == MCPWM_CAP_EDGE_POS) {
         period_us = (edata->cap_value - last_pos_edge) / PWM_SENSOR_RESOLUTION_MHZ; // 10 wenn 10 MHz
 
         if (period_us > PWM_SENSOR_DIAG_PERIOD_MIN && period_us < PWM_SENSOR_DIAG_PERIOD_MAX)
         {
             pulse_idx = PWM_SENSOR_DIAG_PULSE_ID;
-            first_init_done = true;
+            first_init_done = 1;
         }
         if (first_init_done)
         {
@@ -91,7 +78,6 @@ static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, 
     }
     return false;
 }
-
 
 void pwm_sensor_init(void){
     mcpwm_cap_timer_handle_t cap_timer = NULL;
@@ -180,6 +166,8 @@ void pwm_sensor_init(void){
     void create_timer_pwm(void)
     {
         xTaskCreatePinnedToCore(pwm_sensor_print, "pwm_sensor_print", 8192, NULL, 15, NULL, 0);
-    
     }
+
+#else
+    void create_timer_pwm(void) {} // Dummy-Funktion, damit der Aufruf in main.c nicht zu Kompilierungsfehlern führt
 #endif

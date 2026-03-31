@@ -1,6 +1,4 @@
-
-#include <inttypes.h>
-#include <string.h>
+#include "variableFunctions.h"
 
 
 double lvgl_value_temperature= 0.0;

@@ -159,7 +159,7 @@ void lv_Clocktemp_test(double* Clocktemp_value)
     }
 }
 
-void brightness_test(int* brightness_value, int* night_mode) {
+void brightness_test(int* brightness_value, bool* night_mode_active) {
     
     switch (brightness_test_switch) {
         case 0:
@@ -184,7 +184,7 @@ void brightness_test(int* brightness_value, int* night_mode) {
             *brightness_value += test_steps[4][3];
             if (*brightness_value >= test_thresholds[4][3]) {
                 brightness_test_switch = 0;
-                *night_mode = !(*night_mode);
+                *night_mode_active = !(*night_mode_active);
             }
         break;
     }

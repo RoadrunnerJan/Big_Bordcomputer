@@ -2,8 +2,13 @@
 // . $HOME/tools/esp/esp-idf/export.sh
 // allgemein . $HOME/esp/esp-idf/export.sh
 
-#include "includes.h"
 #include "individual_config.h"
+
+#include "peripherie/spiFunctions.h"
+#include "lvgl/variableFunctions.h"
+#include "peripherie/ledBacklight.h"
+#include "peripherie/i2cFunctions.h"
+#include "logging/logging.h"
 
 #if USE_BUZZER == true
     #include "peripherie/buzzer.h"
@@ -16,13 +21,17 @@
     static bool temp_value_set = false;
 #endif
 
-static double oil_pressure_value = 0.0;
-static double oil_temperature_value = 0.0;
-static double volt_value = 8.0;
-static double Clocktemp_value = 0.0;
+#if USE_PWM_SENSOR == true
+    #include "peripherie/pwmSensor.h"
+#endif
 
-static int brightness_value = 100;
-static int night_mode = 0;
+
+static double value_oil_pressure = 0.0;
+static double value_oil_temperature = 0.0;
+static double value_volt = 8.0;
+static double value_outside_temperature = 0.0;
+static int value_brightness = 100;
+static bool night_mode_active = false;
 
 static time_t now;
 static struct tm timeinfo;
@@ -55,29 +64,29 @@ static void tick_switch(int id)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
             #if TESTMODE == true
-                lv_pressure_test(&oil_pressure_value);
+                lv_pressure_test(&value_oil_pressure);
             #else
                 #if USE_PWM_SENSOR == true
                     if (!pres_value_set) {
-                        oil_pressure_value = get_value(PWM_SENSOR_PRES_PULSE_ID);
+                        value_oil_pressure = get_value(PWM_SENSOR_PRES_PULSE_ID);
                         pres_value_set = true;
                     }
                     else {
-                        oil_pressure_value = calc_filter(get_value(PWM_SENSOR_PRES_PULSE_ID), oil_pressure_value);
+                        value_oil_pressure = calc_filter(get_value(PWM_SENSOR_PRES_PULSE_ID), value_oil_pressure);
                     }
                 #else
-                    oil_pressure_value = get_i2c_adc_oil_press();
+                    value_oil_pressure = get_i2c_adc_oil_press();
                 #endif
-                if (oil_pressure_value < 0) {
-                    oil_pressure_value = 0;
+                if (value_oil_pressure < 0) {
+                    value_oil_pressure = 0;
                 }
 
             #endif
-            snprintf(ziel_string, sizeof(ziel_string), "%.1f", oil_pressure_value);
-            set_var_lvgl_value_oil_pressure(oil_pressure_value * EEZ_VALUE_FACTOR);
+            snprintf(ziel_string, sizeof(ziel_string), "%.1f", value_oil_pressure);
+            set_var_lvgl_value_oil_pressure(value_oil_pressure * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_pressure_string(ziel_string);
 
-            if(!night_mode)
+            if(!night_mode_active)
             {
                 if (lv_scr_act() != objects.gauge_oil_pressure) 
                 {
@@ -99,29 +108,29 @@ static void tick_switch(int id)
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             #if TESTMODE == true
-                lv_temperature_test(&oil_temperature_value);
+                lv_temperature_test(&value_oil_temperature);
             #else
                 #if USE_PWM_SENSOR == true
                     if (!temp_value_set) {
-                        oil_temperature_value = get_value(PWM_SENSOR_TEMP_PULSE_ID);
+                        value_oil_temperature = get_value(PWM_SENSOR_TEMP_PULSE_ID);
                         temp_value_set = true;
                     }
                     else {
-                        oil_temperature_value = calc_filter(get_value(PWM_SENSOR_TEMP_PULSE_ID), oil_temperature_value);
+                        value_oil_temperature = calc_filter(get_value(PWM_SENSOR_TEMP_PULSE_ID), value_oil_temperature);
                     }
                 #else
-                    oil_temperature_value = get_i2c_adc_oil_temp();
+                    value_oil_temperature = get_i2c_adc_oil_temp();
                 #endif
-                if (oil_temperature_value < 0) {
-                    oil_temperature_value = 0;
+                if (value_oil_temperature < 0) {
+                    value_oil_temperature = 0;
                 }
             #endif
 
-            snprintf(ziel_string, sizeof(ziel_string), "%d", (int)oil_temperature_value);
-            set_var_lvgl_value_oil_temperature(oil_temperature_value < 0 ? 0 : oil_temperature_value * EEZ_VALUE_FACTOR);
+            snprintf(ziel_string, sizeof(ziel_string), "%d", (int)value_oil_temperature);
+            set_var_lvgl_value_oil_temperature(value_oil_temperature < 0 ? 0 : value_oil_temperature * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_temperature_string(ziel_string); 
 
-            if(!night_mode)
+            if(!night_mode_active)
             {
                 if (lv_scr_act() != objects.gauge_oil_temperature) 
                 {
@@ -143,18 +152,18 @@ static void tick_switch(int id)
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             #if TESTMODE == true
-                lv_volt_test(&volt_value);
+                lv_volt_test(&value_volt);
             #else
-                volt_value = get_i2c_adc_volt();
-                if (volt_value < 8) {
-                    volt_value = 0;
+                value_volt = get_i2c_adc_volt();
+                if (value_volt < 8) {
+                    value_volt = 0;
                 }
             #endif
-            snprintf(ziel_string, sizeof(ziel_string), "%.1f", volt_value);
-            set_var_lvgl_value_voltage(volt_value * EEZ_VALUE_FACTOR);
+            snprintf(ziel_string, sizeof(ziel_string), "%.1f", value_volt);
+            set_var_lvgl_value_voltage(value_volt * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_voltage_string(ziel_string);
 
-            if(!night_mode)
+            if(!night_mode_active)
             {
                 if (lv_scr_act() != objects.gauge_voltage) 
                 {
@@ -176,24 +185,24 @@ static void tick_switch(int id)
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
             #if TESTMODE == true
-                lv_Clocktemp_test(&Clocktemp_value);
+                lv_Clocktemp_test(&value_outside_temperature);
             #else
-                Clocktemp_value = get_i2c_adc_outside_temp();
-                if (Clocktemp_value < -30) {
-                    Clocktemp_value = -30;
+                value_outside_temperature = get_i2c_adc_outside_temp();
+                if (value_outside_temperature < -30) {
+                    value_outside_temperature = -30;
                 }
-                if (Clocktemp_value > 70) {
-                    Clocktemp_value = 70;
+                if (value_outside_temperature > 70) {
+                    value_outside_temperature = 70;
                 }
             #endif
  
             time(&now);
             localtime_r(&now, &timeinfo);
             snprintf(ziel_string, sizeof(ziel_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
-            set_var_lvgl_value_temperature(Clocktemp_value * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_temperature(value_outside_temperature * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_clock(ziel_string); 
 
-            if(!night_mode)
+            if(!night_mode_active)
             {
                 if (lv_scr_act() != objects.gauge_temperature_clock) 
                 {
@@ -215,14 +224,14 @@ static void tick_switch(int id)
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             #if TESTMODE == true
-                lv_Clocktemp_test(&Clocktemp_value);
+                lv_Clocktemp_test(&value_outside_temperature);
             #else
-                Clocktemp_value = get_i2c_adc_outside_temp();
-                if (Clocktemp_value < -30) {
-                    Clocktemp_value = -30;
+                value_outside_temperature = get_i2c_adc_outside_temp();
+                if (value_outside_temperature < -30) {
+                    value_outside_temperature = -30;
                 }
-                if (Clocktemp_value > 70) {
-                    Clocktemp_value = 70;
+                if (value_outside_temperature > 70) {
+                    value_outside_temperature = 70;
                 }
             #endif
 
@@ -233,20 +242,20 @@ static void tick_switch(int id)
             set_var_lvgl_value_clock_minute(timeinfo.tm_min);
 
             // temperature Value
-            if (Clocktemp_value > -10 && Clocktemp_value < 10)
+            if (value_outside_temperature > -10 && value_outside_temperature < 10)
             {
-                if ((Clocktemp_value*10 - ((int)Clocktemp_value )*10) >= 5 )
-                    snprintf(ziel_string, sizeof(ziel_string), "%d.5", (int) Clocktemp_value);
+                if ((value_outside_temperature*10 - ((int)value_outside_temperature )*10) >= 5 )
+                    snprintf(ziel_string, sizeof(ziel_string), "%d.5", (int) value_outside_temperature);
                 else
-                    snprintf(ziel_string, sizeof(ziel_string), "%d.0", (int) Clocktemp_value);
+                    snprintf(ziel_string, sizeof(ziel_string), "%d.0", (int) value_outside_temperature);
             }
             else
             {
-                snprintf(ziel_string, sizeof(ziel_string), "%d", (int)Clocktemp_value);
+                snprintf(ziel_string, sizeof(ziel_string), "%d", (int)value_outside_temperature);
             }
             
             set_var_lvgl_value_temperature_string(ziel_string);
-            if(!night_mode)
+            if(!night_mode_active)
             {
                 if (lv_scr_act() != objects.gauge_clock_temperature) 
                 {
@@ -277,20 +286,20 @@ static void lv_tick_task_screen(void *pv)
             time(&checkTime);
         }
         #if TESTMODE == true 
-            brightness_test(&brightness_value, &night_mode);
+            brightness_test(&value_brightness, &night_mode_active);
         #else 
             float adc_brightness = get_i2c_adc_volt_bel(); // 1-10.74V entsprechen 0-80% Helligkeit, 0 entspricht 100%
             //adc_brightness = 10.74;
             if (adc_brightness < 1) 
             {
-                brightness_value = BRIGHTNESS_DAY;
-                night_mode = 0;
+                value_brightness = BRIGHTNESS_DAY;
+                night_mode_active = false;
             }
             else {
-                night_mode = 1;
-                brightness_value = (adc_brightness - BRIGHTNESS_NIGHT_MIN_V) / (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
-                if (brightness_value > BRIGHTNESS_NIGHT_MAX) brightness_value = BRIGHTNESS_NIGHT_MAX;
-                if (brightness_value < BRIGHTNESS_NIGHT_MIN) brightness_value = BRIGHTNESS_NIGHT_MIN;
+                night_mode_active = true;
+                value_brightness = (adc_brightness - BRIGHTNESS_NIGHT_MIN_V) / (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
+                if (value_brightness > BRIGHTNESS_NIGHT_MAX) value_brightness = BRIGHTNESS_NIGHT_MAX;
+                if (value_brightness < BRIGHTNESS_NIGHT_MIN) value_brightness = BRIGHTNESS_NIGHT_MIN;
             }
         #endif
 
@@ -299,7 +308,7 @@ static void lv_tick_task_screen(void *pv)
             if (!time_checked[0]) {
                 time_checked[0] = !time_checked[0];
             }
-            set_lcd_brightness(brightness_value); 
+            set_lcd_brightness(value_brightness); 
         }
 
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
@@ -310,7 +319,7 @@ static void lv_tick_task_screen(void *pv)
         }
 
         #if USE_BUZZER == true
-            if !(time_checked[1]) {
+            if (!time_checked[1]) {
                 time(&checkTime);
             }// ToDo: beeper nach einer bestimmten Zeit wieder aktivieren?
             if ((long)(checkTime - StartUpTime) >= BEEPER_ON_DELAY_SEC)
@@ -318,7 +327,7 @@ static void lv_tick_task_screen(void *pv)
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
                 }
-                if (buzzed == false && Clocktemp_value < BEEPER_TEMP_MIN)
+                if (buzzed == false && value_outside_temperature < BEEPER_TEMP_MIN)
                 {
                     xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
                     buzzed = true;
@@ -334,6 +343,8 @@ void init_system()
 {
     // init display backlight
     init_lcd_backlight_pwm();
+    //set_lcd_brightness(0);
+
     // init rtc
     init_i2c();
     sync_rtc_to_system();
@@ -356,7 +367,9 @@ void init_system()
     // init pwm sensor
     #if USE_PWM_SENSOR == true
         pwm_sensor_init();
-        create_timer_pwm();
+        #if TESTMODE == true
+            create_timer_pwm();
+        #endif
     #endif
 
     // init buzzer
