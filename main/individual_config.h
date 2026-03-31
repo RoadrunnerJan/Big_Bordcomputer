@@ -8,9 +8,8 @@
 #define NUMBER_OF_SPI                      2 // Number of SPI Devices used (for 4 Displays 2 are neccessary)
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
-#define TESTMODE                          true
-#define USE_PWM_SENSOR                    false
-#define TESTBRIGHTNESS                    false
+#define TESTMODE                          true // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
+#define USE_PWM_SENSOR                    false // Rot = PWN Signal, Weiß = 5V
 #define USE_BEEP                          false
 #define CHECK_I2C_DEVICES                 false
 /*
@@ -225,6 +224,10 @@
 #################################################################################
 */
 #define BRIGHTNESS_DAY                                      100
+#define BRIGHTNESS_NIGHT_MIN                                5
+#define BRIGHTNESS_NIGHT_MIN_V                              1.24
+#define BRIGHTNESS_NIGHT_MAX                                60
+#define BRIGHTNESS_NIGHT_MAX_V                              10.74
 #define BRIGHTNESS_DELAY                                    100
 
 

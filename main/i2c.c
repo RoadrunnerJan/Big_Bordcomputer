@@ -41,11 +41,11 @@ const ntc_table_t oil_temp_table[] = {
 
 #define FILTER_ALPHA 0.1f 
 
-#define VOLTAGE_MIN_THRESHOLD 3.0f 
-
 #define BEL_MAX_PLAUSIBLE 16.0f  // Alles darüber ist "Offener Pin / Rauschen"
 #define BEL_MIN_PLAUSIBLE 0.8f   // Mindestspannung für "Licht an" (Schutz gegen Kriechströme)
 #define BOARD_MIN_PLAUSIBLE 6.0f 
+
+bool value_set[6] = {false, false, false, false, false, false}; // Flags für die ersten 6 Sensoren
 
 
 typedef struct {
@@ -253,21 +253,28 @@ void init_time_buttons() {
 }
 
 int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_setting) {
-    // Config Register zusammenbauen:
-    // OS=1 (Start), MUX=Channel, PGA=pga_setting, MODE=Single-Shot, DR=128SPS, COMP_QUE=Disable
-    uint16_t config = 0x8003 | ((0x04 | channel) << 12) | (pga_setting << 9);
+    // Sicherstellen, dass der Channel nur 0-3 ist
+    uint16_t mux = (0x04 | (channel & 0x03)) << 12; // 0x4000, 0x5000, 0x6000 oder 0x7000
+    uint16_t pga = (pga_setting & 0x07) << 9;
+    
+    // Bit 15: OS = 1 (Start)
+    // Bit 8: Mode = 1 (Single Shot)
+    // Bits 7-5: Data Rate = 100 (128 SPS)
+    // Bits 4-0: Standard-Werte (0x03)
+    uint16_t config = 0x8000 | mux | pga | 0x0100 | 0x0080 | 0x0003;
+    
     uint8_t tx_buf[3] = { 0x01, (uint8_t)(config >> 8), (uint8_t)(config & 0xFF) };
 
-    // 1. Konfiguration senden
-    i2c_master_transmit(dev, tx_buf, 3, -1);
-    
-    // 2. Wandlungszeit abwarten (ca. 8-10ms bei 128 SPS)
-    vTaskDelay(pdMS_TO_TICKS(10));
+    // 1. Senden
+    ESP_ERROR_CHECK(i2c_master_transmit(dev, tx_buf, 3, -1));
 
-    // 3. Pointer auf Conversion Register (0x00) setzen und 2 Bytes lesen
+    // 2. Warten (128 SPS brauchen ca. 8ms, 20ms ist absolut sicher)
+    vTaskDelay(pdMS_TO_TICKS(15)); 
+
+    // 3. Conversion Register auslesen
     uint8_t reg_addr = 0x00;
     uint8_t rx_buf[2];
-    i2c_master_transmit_receive(dev, &reg_addr, 1, rx_buf, 2, -1);
+    ESP_ERROR_CHECK(i2c_master_transmit_receive(dev, &reg_addr, 1, rx_buf, 2, -1));
 
     return (int16_t)((rx_buf[0] << 8) | rx_buf[1]);
 }
@@ -287,6 +294,7 @@ float interpolate_temp(float r_measured) {
     }
     return 0;
 }
+
 float interpolate_bmw_temp(float r_measured) {
     if (r_measured >= bmw_outside_table[0].res) return bmw_outside_table[0].temp;
     if (r_measured <= bmw_outside_table[BMW_TABLE_SIZE-1].res) return bmw_outside_table[BMW_TABLE_SIZE-1].temp;
@@ -310,48 +318,34 @@ float raw_to_res_safe(int16_t raw, float r_pullup) {
     }
     return (v_adc * r_pullup) / (3.3f - v_adc);
 }
+
 float get_v_board_safe(int16_t raw) {
-    // 1. Hardware-Limit Check (Offener Pin am ADS1115 liefert oft 0x7FFF)
-    if (raw >= 0x7F00) { 
-        filtered_v_board = 0;
-        return 0.0f;
-    }
 
     float v_adc = (raw * LSB_2048) / 1000.0f;
     float real_v = v_adc * ((10.0f + 1.5f) / 1.5f);
-    
-    // 2. Rausch-Check
-    if (real_v < BOARD_MIN_PLAUSIBLE) {
-        filtered_v_board = 0;
-        return 0.0f;
-    }
 
-    // 3. Filter
-    if (filtered_v_board == 0) filtered_v_board = real_v;
+    if (value_set[0] == false) {
+        filtered_v_board = real_v; 
+        value_set[0] = true;
+    }
     filtered_v_board = (real_v * FILTER_ALPHA) + (filtered_v_board * (1.0f - FILTER_ALPHA));
     return filtered_v_board;
 }
+
 float get_v_bel_safe(int16_t raw) {
+    // dies muss anders gelöst werden!
+
+
     // WICHTIG: PGA muss im ads1115_read_raw Aufruf 0x01 sein!
     float v_adc = (raw * LSB_4096) / 1000.0f; 
     float real_v = v_adc * ((10.0f + 2.2f) / 2.2f); // Teiler 10k/2.2k
     
-    // 1. Rausch-Unterdrückung (Hysterese)
-    // Wenn der Pin offen ist, springt er auf ~18V -> wir setzen auf 0
-    if (real_v > BEL_MAX_PLAUSIBLE || real_v < BEL_MIN_PLAUSIBLE) {
-        filtered_v_bel = 0; 
-        return 0.0f;
-    }
-    
-    // 2. Filter-Start-Logik
-    // Verhindert, dass der Filter von 0 langsam hochkriecht, wenn du einschaltest
-    if (filtered_v_bel == 0) {
+    /*if ((real_v > BEL_MAX_PLAUSIBLE || real_v < BEL_MIN_PLAUSIBLE) && value_set[1] == false) {
         filtered_v_bel = real_v; 
-    } else {
-        // Glättung im Betrieb
-        filtered_v_bel = (real_v * FILTER_ALPHA) + (filtered_v_bel * (1.0f - FILTER_ALPHA));
-    }
-    
+        value_set[1] = true;
+    }*/
+    filtered_v_bel = real_v; 
+    //filtered_v_bel = (real_v * FILTER_ALPHA) + (filtered_v_bel * (1.0f - FILTER_ALPHA));
     return filtered_v_bel;
 }
 // --- Sensor Messungen mit Plausibilitäts-Check ---
@@ -361,6 +355,10 @@ float get_oil_temp_filtered(int16_t raw) {
     if (r < 0) return -99.0f; // Fehler (Offen)
     
     float temp = interpolate_temp(r);
+    if (value_set[2] == false) {
+        filtered_oil_temp = temp; 
+        value_set[2] = true;
+    }
     filtered_oil_temp = (temp * FILTER_ALPHA) + (filtered_oil_temp * (1.0f - FILTER_ALPHA));
     return filtered_oil_temp;
 }
@@ -372,78 +370,67 @@ float get_oil_press_filtered(int16_t raw) {
     float press = (r - 10.0f) * (10.0f / (184.0f - 10.0f));
     if (press < 0) press = 0;
     
+    if (value_set[3] == false) {
+        filtered_oil_press = press; 
+        value_set[3] = true;
+    }
     filtered_oil_press = (press * FILTER_ALPHA) + (filtered_oil_press * (1.0f - FILTER_ALPHA));
     return filtered_oil_press;
 }
 
 float get_outside_temp_safe(int16_t raw) {
-    // 1. Widerstand berechnen (PGA 0x01 = 4.096V)
     float r = raw_to_res_safe(raw, 4700.0f); 
-
-    // 2. Plausibilitäts-Check (Sensor abgesteckt oder Kurzschluss)
     if (r < 0 || r > 150000.0f) {
-        filtered_outside_temp = 20.0f; // Reset auf Standardwert für den nächsten Start
+        value_set[4] = false; 
         return -99.0f; // Fehlercode für LVGL
     }
 
     // 3. Temperatur aus Tabelle ermitteln
     float temp_c = interpolate_bmw_temp(r);
-
-    // 4. Filter anwenden
-    if (filtered_outside_temp == 20.0f && temp_c != -99.0f) {
-        filtered_outside_temp = temp_c; // Schneller Startwert
-    } else {
-        filtered_outside_temp = (temp_c * FILTER_ALPHA) + (filtered_outside_temp * (1.0f - FILTER_ALPHA));
+    if (temp_c < -30.0f) {
+        temp_c = -30.0f;
+    }
+    if (temp_c > 70.0f) {
+        temp_c = 70.0f;
     }
 
+    // 4. Filter anwenden
+    if (value_set[4] == false) {
+        filtered_outside_temp = temp_c; 
+        value_set[4] = true;
+    } 
+    filtered_outside_temp = (temp_c * FILTER_ALPHA) + (filtered_outside_temp * (1.0f - FILTER_ALPHA));
+    
     return filtered_outside_temp;
 }
 
-
-void adc_task(void *pvParameters) {
-    while(1) { // --- ADS1 (0x48) auslesen ---
-    
-    int16_t raw_0 = read_ads1115(ads1_handle, 0, 0x02); // Board
-    int16_t raw_1 = read_ads1115(ads1_handle, 1, 0x01); // Bel
-    int16_t raw_2 = read_ads1115(ads1_handle, 2, 0x01); // Temp
-    int16_t raw_3 = read_ads1115(ads1_handle, 3, 0x01); // Druck
-    int16_t raw_4 = read_ads1115(ads2_handle, 0, 0x01);
-
-    // 2. Berechnen mit Schutz und Filter
-    float v_board = get_v_board_safe(raw_0);
-    float v_bel   = get_v_bel_safe(raw_1);
-    float oil_t   = get_oil_temp_filtered(raw_2);
-    float oil_p   = get_oil_press_filtered(raw_3);
-    float outside_t = get_outside_temp_safe(raw_4);
-
-
-    // 3. Ausgabe/Logik
-    printf("--- SENSOR UPDATE ---\n");
-    
-    if (v_board > 0) printf("Board: %.2f V\n", v_board);
-    else printf("Board: NICHT ANGESCHLOSSEN\n");
-
-    if (v_bel > 0) printf("Bel.:  %.2f V\n", v_bel);
-    else printf("Bel.:  NICHT ANGESCHLOSSEN\n");
-
-    if (oil_t > -50.0f) printf("Temp:  %.1f °C\n", oil_t);
-    else printf("Temp:  FEHLER/OFFEN\n");
-
-    if (oil_p >= 0) printf("Druck: %.2f bar\n", oil_p);
-    else printf("Druck: FEHLER/OFFEN\n");   
-    
-    if (outside_t > -50.0f) printf("Außen: %.1f °C\n", outside_t);
-    else printf("Außen: SENSOR FEHLER / OFFEN\n");
-
-        // --- Ausgabe / LVGL Update ---
-        // Hier kannst du die float-Werte direkt an deine LVGL Labels senden
-        printf("BOARD: %.2fV | BEL: %.2fV | OIL: %.1fC / %.1fbar | OUT: %.1fC\n", 
-            v_board, v_bel, oil_t, oil_p, outside_t);
-    printf("---------------------\n");
-        vTaskDelay(pdMS_TO_TICKS(100)); 
-    }
+float get_i2c_adc_volt() {
+    int16_t raw = read_ads1115(ads1_handle, 0, 0x02); // Board
+    float v_board = get_v_board_safe(raw);
+    printf("Board Voltage: %.2f V\n", v_board);
+    return v_board;
 }
-
-void start_adc_task() {
-    xTaskCreate(adc_task, "adc_task", 4096, NULL, 5, NULL);
+float get_i2c_adc_volt_bel() {
+    int16_t raw = read_ads1115(ads1_handle, 1, 0x01); // Bel
+    float v_bel = get_v_bel_safe(raw);
+    printf("Bel Voltage: %.2f V\n", v_bel);
+    return v_bel;
+}
+float get_i2c_adc_oil_temp() {
+    int16_t raw = read_ads1115(ads1_handle, 2, 0x01); // Temp
+    float oil_t = get_oil_temp_filtered(raw);
+    printf("Oil Temperature: %.1f °C\n", oil_t);
+    return oil_t;
+}
+float get_i2c_adc_oil_press() {
+    int16_t raw = read_ads1115(ads1_handle, 3, 0x01); // Druck
+    float oil_p = get_oil_press_filtered(raw);
+    printf("Oil Pressure: %.2f bar\n", oil_p);
+    return oil_p;
+}
+float get_i2c_adc_outside_temp() {
+    int16_t raw = read_ads1115(ads2_handle, 0, 0x01); // Außentemperatur
+    float outside_t = get_outside_temp_safe(raw);
+    printf("Outside Temperature: %.1f °C\n", outside_t);
+    return outside_t;
 }

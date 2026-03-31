@@ -139,5 +139,9 @@ void init_i2c();
 void sync_rtc_to_system();
 void init_time_buttons();
 
-void start_adc_task();
 
+float get_i2c_adc_volt();
+float get_i2c_adc_volt_bel();
+float get_i2c_adc_oil_temp();
+float get_i2c_adc_oil_press();
+float get_i2c_adc_outside_temp();

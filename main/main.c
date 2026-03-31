@@ -182,45 +182,34 @@ static struct tm timeinfo;
         }
     }
 
-    #if TESTBRIGHTNESS == true
-        static void test_brightness() {
-            
-            switch (brightness_test_switch) {
-                case 0:
-                    brightness_value -= 1;
-                    if (brightness_value <= 15) {
-                        brightness_test_switch = 1;
-                    }
-                break;
-                case 1:
-                    brightness_value += 1;
-                    if (brightness_value >= 50) {
-                        brightness_test_switch = 2;
-                    }
-                break;
-                case 2:
-                    brightness_value -= 1;
-                    if (brightness_value <= 2) {
-                        brightness_test_switch = 3;
-                    }
-                break;
-                case 3:
-                    brightness_value += 1;
-                    if (brightness_value >= 100) {
-                        brightness_test_switch = 0;
-                    }
-                break;
-            }
-        }
-    #endif
-
-    static void set_NightMode(void *pv) {
-        (void)pv;
+    static void test_brightness() {
         
-        while(1)
-        {
-            vTaskDelay(pdMS_TO_TICKS(5000));
-            night_mode = !night_mode;
+        switch (brightness_test_switch) {
+            case 0:
+                brightness_value -= 1;
+                if (brightness_value <= 15) {
+                    brightness_test_switch = 1;
+                }
+            break;
+            case 1:
+                brightness_value += 1;
+                if (brightness_value >= 50) {
+                    brightness_test_switch = 2;
+                }
+            break;
+            case 2:
+                brightness_value -= 1;
+                if (brightness_value <= 2) {
+                    brightness_test_switch = 3;
+                }
+            break;
+            case 3:
+                brightness_value += 1;
+                if (brightness_value >= 100) {
+                    brightness_test_switch = 0;
+                    night_mode = !night_mode;
+                }
+            break;
         }
     }
 #endif
@@ -235,13 +224,21 @@ static void tick_switch(int id)
             #if TESTMODE == true
                 lv_pressure_test();
             #else
-                if (!pres_value_set) {
-                    oil_pressure_value = get_value(PWM_SENSOR_PRES_PULSE_ID);
-                    pres_value_set = true;
+                #if USE_PWM_SENSOR == true
+                    if (!pres_value_set) {
+                        oil_pressure_value = get_value(PWM_SENSOR_PRES_PULSE_ID);
+                        pres_value_set = true;
+                    }
+                    else {
+                        oil_pressure_value = calc_filter(get_value(PWM_SENSOR_PRES_PULSE_ID), oil_pressure_value);
+                    }
+                #else
+                    oil_pressure_value = get_i2c_adc_oil_press();
+                #endif
+                if (oil_pressure_value < 0) {
+                    oil_pressure_value = 0;
                 }
-                else {
-                    oil_pressure_value = calc_filter(get_value(PWM_SENSOR_PRES_PULSE_ID), oil_pressure_value);
-                }
+
             #endif
             snprintf(ziel_string, sizeof(ziel_string), "%.1f", oil_pressure_value);
             set_var_lvgl_value_oil_pressure(oil_pressure_value * EEZ_VALUE_FACTOR);
@@ -271,12 +268,19 @@ static void tick_switch(int id)
             #if TESTMODE == true
                 lv_temperature_test(); 
             #else
-                if (!temp_value_set) {
-                    oil_temperature_value = get_value(PWM_SENSOR_TEMP_PULSE_ID);
-                    temp_value_set = true;
-                }
-                else {
-                    oil_temperature_value = calc_filter(get_value(PWM_SENSOR_TEMP_PULSE_ID), oil_temperature_value);
+                #if USE_PWM_SENSOR == true
+                    if (!temp_value_set) {
+                        oil_temperature_value = get_value(PWM_SENSOR_TEMP_PULSE_ID);
+                        temp_value_set = true;
+                    }
+                    else {
+                        oil_temperature_value = calc_filter(get_value(PWM_SENSOR_TEMP_PULSE_ID), oil_temperature_value);
+                    }
+                #else
+                    oil_temperature_value = get_i2c_adc_oil_temp();
+                #endif
+                if (oil_temperature_value < 0) {
+                    oil_temperature_value = 0;
                 }
             #endif
 
@@ -307,8 +311,12 @@ static void tick_switch(int id)
         case SCREEN_ID_GAUGE_VOLTAGE:
             #if TESTMODE == true
                 lv_volt_test();
+            #else
+                volt_value = get_i2c_adc_volt();
+                if (volt_value < 8) {
+                    volt_value = 0;
+                }
             #endif
-
             snprintf(ziel_string, sizeof(ziel_string), "%.1f", volt_value);
             set_var_lvgl_value_voltage(volt_value * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_voltage_string(ziel_string);
@@ -336,6 +344,14 @@ static void tick_switch(int id)
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
             #if TESTMODE == true
                 lv_Clocktemp_test();
+            #else
+                Clocktemp_value = get_i2c_adc_outside_temp();
+                if (Clocktemp_value < -30) {
+                    Clocktemp_value = -30;
+                }
+                if (Clocktemp_value > 70) {
+                    Clocktemp_value = 70;
+                }
             #endif
  
             time(&now);
@@ -367,6 +383,14 @@ static void tick_switch(int id)
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             #if TESTMODE == true
                 lv_Clocktemp_test();
+            #else
+                Clocktemp_value = get_i2c_adc_outside_temp();
+                if (Clocktemp_value < -30) {
+                    Clocktemp_value = -30;
+                }
+                if (Clocktemp_value > 70) {
+                    Clocktemp_value = 70;
+                }
             #endif
 
             time(&now);
@@ -412,71 +436,38 @@ static void tick_switch(int id)
     }
 }
 
-static void lv_tick_task_screen_1(void *pv)
+static void lv_tick_task_screen(void *pv)
 {
     (void)pv;
     while (1) {
-        if (lv_disp_get_scr_act(DISPLAYS[0].lv_displays) != NULL) {
-            lv_disp_set_default(DISPLAYS[0].lv_displays);
-            tick_switch(DISPLAYS[0].screen_selection);
-        }
-        vTaskDelay(pdMS_TO_TICKS(DISPLAYS[0].task_delay_time_ms));
-    }
-}
-
-static void lv_tick_task_screen_2(void *pv)
-{
-    (void)pv;
-    #if NUMBER_OF_DISPLAYS > 1 
-    while (1) {
-        if (lv_disp_get_scr_act(DISPLAYS[1].lv_displays) != NULL) {
-            lv_disp_set_default(DISPLAYS[1].lv_displays);
-            tick_switch(DISPLAYS[1].screen_selection);
-        }       
-        vTaskDelay(pdMS_TO_TICKS(DISPLAYS[1].task_delay_time_ms));
-    }
-    #endif
-}
-
-static void lv_tick_task_screen_3(void *pv)
-{
-    (void)pv;
-
-    #if NUMBER_OF_DISPLAYS > 2
-        while (1) {
-            if (lv_disp_get_scr_act(DISPLAYS[2].lv_displays) != NULL) {
-                lv_disp_set_default(DISPLAYS[2].lv_displays);
-                tick_switch(DISPLAYS[2].screen_selection);
-            }
-            vTaskDelay(pdMS_TO_TICKS(DISPLAYS[2].task_delay_time_ms));
-        }
-    #endif
-}
-
-static void lv_tick_task_screen_4(void *pv)
-{
-    (void)pv;
-
-    #if NUMBER_OF_DISPLAYS > 3
-        while (1) {
-            if (lv_disp_get_scr_act(DISPLAYS[3].lv_displays) != NULL) {
-                lv_disp_set_default(DISPLAYS[3].lv_displays);
-                tick_switch(DISPLAYS[3].screen_selection);
-            }
-            vTaskDelay(pdMS_TO_TICKS(DISPLAYS[3].task_delay_time_ms));
-        }
-    #endif
-}
-    
-
-static void brightness(void *pv) {
-    while(1)
-    {
-        #if TESTMODE == true && TESTBRIGHTNESS == true
+        #if TESTMODE == true 
             test_brightness();
+        #else 
+            float adc_brightness = get_i2c_adc_volt_bel(); // 1-10.74V entsprechen 0-80% Helligkeit, 0 entspricht 100%
+            //adc_brightness = 10.74;
+            if (adc_brightness < 1) 
+            {
+                brightness_value = BRIGHTNESS_DAY;
+                night_mode = false;
+            }
+            else {
+                night_mode = true;
+                brightness_value = (adc_brightness - BRIGHTNESS_NIGHT_MIN_V) / (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
+                if (brightness_value > BRIGHTNESS_NIGHT_MAX) brightness_value = BRIGHTNESS_NIGHT_MAX;
+                if (brightness_value < BRIGHTNESS_NIGHT_MIN) brightness_value = BRIGHTNESS_NIGHT_MIN;
+            }
+  
         #endif
+
         set_lcd_brightness(brightness_value); 
-        vTaskDelay(pdMS_TO_TICKS(BRIGHTNESS_DELAY));
+
+        for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
+            if (lv_disp_get_scr_act(DISPLAYS[i].lv_displays) != NULL) {
+                lv_disp_set_default(DISPLAYS[i].lv_displays);
+                tick_switch(DISPLAYS[i].screen_selection);
+            }
+        }
+        vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
@@ -491,9 +482,6 @@ void app_main(void)
 
     init_time_buttons();
 
-
-start_adc_task();
-
     spi_init();
     display_init(); 
     lv_init();
@@ -503,7 +491,7 @@ start_adc_task();
 
     vTaskDelay(pdMS_TO_TICKS(DISPLAY_SETUP_DELAY));
     pwm_sensor_init();
-    #if TESTMODE == true && USE_PWM_SENSOR == true
+    #if USE_PWM_SENSOR == true
         create_timer_pwm();
     #endif
 
@@ -512,33 +500,19 @@ start_adc_task();
         beeper_init();
     #endif
 
-    #if TESTMODE == true
-        xTaskCreate(set_NightMode, "set_NightMode", 4096, NULL, 12, NULL);
-    #endif
-
-
-    xTaskCreatePinnedToCore(lv_tick_task_screen_1, "lv_tick_task_screen_1", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
-    #if NUMBER_OF_DISPLAYS > 1
-        xTaskCreatePinnedToCore(lv_tick_task_screen_2, "lv_tick_task_screen_2", DISPLAYS[1].task_step_depth, NULL, DISPLAYS[1].task_priority, NULL, DISPLAYS[1].tast_core);
-    #endif
-    #if NUMBER_OF_DISPLAYS > 2
-        xTaskCreatePinnedToCore(lv_tick_task_screen_3, "lv_tick_task_screen_3", DISPLAYS[2].task_step_depth, NULL, DISPLAYS[2].task_priority, NULL, DISPLAYS[2].tast_core);
-    #endif
-    #if NUMBER_OF_DISPLAYS > 3
-        xTaskCreatePinnedToCore(lv_tick_task_screen_4, "lv_tick_task_screen_4", DISPLAYS[3].task_step_depth, NULL, DISPLAYS[3].task_priority, NULL, DISPLAYS[3].tast_core);
-    #endif
+    // Anfangs Licht aus! in Funktion beachten
+    xTaskCreatePinnedToCore(lv_tick_task_screen, "lv_tick_task_screen", DISPLAYS[0].task_step_depth, NULL, DISPLAYS[0].task_priority, NULL, DISPLAYS[0].tast_core);
 
     vTaskDelay(pdMS_TO_TICKS(GAUGE_ON_DELAY));
-    xTaskCreatePinnedToCore(brightness, "brightness", 8192, NULL, 20, NULL, 0);
 
+    // Ab hier licht an
     vTaskDelay(pdMS_TO_TICKS(BEEPER_ON_DELAY));
+    // Beeper on delay gut, aber ich muss eigentlich überprüfen, ob er draußen ist, nicht einfach warten. Sonst piept er vielleicht, obwohl es nicht nötig wäre.
     #if USE_BEEP == true
         xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
     #endif
 
     vTaskDelay(pdMS_TO_TICKS(MAIN_TASK_FINISHED_DELAY));
-    
-
     
 
 }
