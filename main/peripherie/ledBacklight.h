@@ -1,3 +1,5 @@
+// Funktionen, um das Backlight der SPI Displays per PWM zu dimmen
+
 #pragma once
 #include "../individual_config.h"
 #include "driver/ledc.h"

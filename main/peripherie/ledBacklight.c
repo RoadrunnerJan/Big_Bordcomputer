@@ -3,11 +3,7 @@
 ledc_timer_config_t ledc_timer = {0};
 ledc_channel_config_t ledc_channel = {0};
 
-
-// Backlight per PWM dimmen
-
 void init_lcd_backlight_pwm() {
-    // 1. Timer Konfiguration
     ledc_timer.speed_mode =       LED_SPEED;
     ledc_timer.timer_num =        LED_TIMER;
     ledc_timer.duty_resolution =  LED_DUTY_RESOLUTION;
