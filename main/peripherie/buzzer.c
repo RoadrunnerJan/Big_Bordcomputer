@@ -4,18 +4,18 @@ ledc_timer_config_t buz_timer = {0};
 ledc_channel_config_t buz_channel = {0};
 
 void buzzer_init(){ 
-    buz_timer.speed_mode = LEDC_LOW_SPEED_MODE;
-    buz_timer.duty_resolution = LEDC_TIMER_13_BIT;
-    buz_timer.timer_num = LEDC_TIMER_1;
-    buz_timer.freq_hz = 2700;
-    buz_timer.clk_cfg = LEDC_AUTO_CLK;
-    buz_channel.gpio_num = BEEPER_PIN;
-    buz_channel.speed_mode = LEDC_LOW_SPEED_MODE;
-    buz_channel.channel = LEDC_CHANNEL_1;
-    buz_channel.intr_type = LEDC_INTR_DISABLE;
-    buz_channel.timer_sel = LEDC_TIMER_1;
-    buz_channel.duty = 0;
-    buz_channel.hpoint = 0;
+    buz_timer.speed_mode =      BUZZER_SETTING_SPEED_MODE;
+    buz_timer.duty_resolution = BUZZER_SETTING_DUTY_RES;
+    buz_timer.timer_num =       BUZZER_SETTING_TIMER;
+    buz_timer.freq_hz =         BUZZER_SETTING_FREQ_HZ;
+    buz_timer.clk_cfg =         BUZZER_SETTING_CLK_CFG;
+    buz_channel.gpio_num =      BUZZER_PIN;
+    buz_channel.speed_mode =    BUZZER_SETTING_SPEED_MODE;
+    buz_channel.channel =       BUZZER_SETTING_CHANNEL;
+    buz_channel.intr_type =     BUZZER_SETTING_INTR_TYPE;
+    buz_channel.timer_sel =     BUZZER_SETTING_TIMER_SEL;
+    buz_channel.duty =          BUZZER_SETTING_DUTY;
+    buz_channel.hpoint =        BUZZER_SETTING_HPOINT;
 
     ledc_timer_config(&buz_timer);
     ledc_channel_config(&buz_channel);

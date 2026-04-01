@@ -5,39 +5,39 @@ bool temp_value_set = false;
 bool volt_value_set = false;
 bool outside_temperature_set = false;
 
-double value_oil_pressure = 0.0;
-double value_oil_temperature = 0.0;
-double value_volt = 8.0;
-double value_outside_temperature = 0.0;
-int value_brightness = 0;
-bool night_mode_active = false;
+double value_oil_pressure = VALUE_DEFAULT_PRES;
+double value_oil_temperature = VALUE_DEFAULT_TEMP;
+double value_volt = VALUE_DEFAULT_VOLT;
+double value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
+int value_brightness = VALUE_DEFAULT_BRIGHT;
+bool night_mode_active = VALUE_DEFAULT_NIGHT_MODE;
 
 char output_string[20];
 
 void reset_values(int screenSelection) {
     switch (screenSelection) {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
-            value_oil_pressure = 0.0;
+            value_oil_pressure = VALUE_DEFAULT_PRES;
             pres_value_set = false;
             break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            value_oil_temperature = 0.0;
+            value_oil_temperature = VALUE_DEFAULT_TEMP;
             temp_value_set = false;
             break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            value_volt = 8.0;
+            value_volt = VALUE_DEFAULT_VOLT;
             volt_value_set = false;
             break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            value_outside_temperature = 0.0;
+            value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
             outside_temperature_set = false;
             break;
         default:
-            value_oil_pressure = 0.0;
-            value_oil_temperature = 0.0;
-            value_volt = 8.0;
-            value_outside_temperature = 0.0;
+            value_oil_pressure = VALUE_DEFAULT_PRES;
+            value_oil_temperature = VALUE_DEFAULT_TEMP;
+            value_volt = VALUE_DEFAULT_VOLT;
+            value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
             pres_value_set = false;
             temp_value_set = false;
             volt_value_set = false;
@@ -48,7 +48,7 @@ void reset_values(int screenSelection) {
 
 void reset_brightness(){
     value_brightness = BRIGHTNESS_DAY;
-    night_mode_active = false;
+    night_mode_active = VALUE_DEFAULT_NIGHT_MODE;
 }
 
 void calculate_value(int screenSelection, double value) {
@@ -60,22 +60,22 @@ void calculate_value(int screenSelection, double value) {
                 pres_value_set = true;
             }
             else if (value == ADC_FAIL_VALUE) {
-                value_oil_pressure = 0;
+                value_oil_pressure = VALUE_MIN_PRES;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
             else if (value != ADC_FAIL_VALUE) 
             {
-                if (value < 0) 
+                if (value < VALUE_MIN_PRES) 
                 {
-                    value = 0;
-                    snprintf(output_string, sizeof(output_string), "%s", "<0.0");
+                    value = VALUE_MIN_PRES;
+                    snprintf(output_string, sizeof(output_string), "%s%.1f", "<", VALUE_MIN_PRES);
                 }                
-                else if (value >= 0.0 && value <= 6.0) 
+                else if (value >= VALUE_MIN_PRES && value <= VALUE_MAX_PRES) 
                     snprintf(output_string, sizeof(output_string), "%.1f", value_oil_pressure);
-                else if (value > 6)
+                else if (value > VALUE_MAX_PRES)
                 {
-                    value = 6.0;
-                    snprintf(output_string, sizeof(output_string), "%s", ">6.0");
+                    value = VALUE_MAX_PRES;
+                    snprintf(output_string, sizeof(output_string), "%s%.1f", ">", VALUE_MAX_PRES);
                 }
                 value_oil_pressure = calc_filter(value, value_oil_pressure);
             }
@@ -87,22 +87,22 @@ void calculate_value(int screenSelection, double value) {
                 temp_value_set = true;
             }
             else if (value == ADC_FAIL_VALUE) {
-                value_oil_temperature = 0;
+                value_oil_temperature = VALUE_MIN_TEMP;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
             else if (value != ADC_FAIL_VALUE) 
             {                
-                if (value < 0) 
+                if (value < VALUE_MIN_TEMP) 
                 {
-                    value = 0;
-                    snprintf(output_string, sizeof(output_string), "%s", "<0");
+                    value = VALUE_MIN_TEMP;
+                    snprintf(output_string, sizeof(output_string), "%s%.1f", "<", VALUE_MIN_VOLT);
                 }         
-                else if (value >= 0 && value <= 150)
+                else if (value >= VALUE_MIN_TEMP && value <= VALUE_MAX_TEMP)
                     snprintf(output_string, sizeof(output_string), "%d", (int)value_oil_temperature);            
-                else if (value > 150) 
+                else if (value > VALUE_MAX_TEMP) 
                 {
-                    value = 150;
-                    snprintf(output_string, sizeof(output_string), "%s", ">150");
+                    value = VALUE_MAX_TEMP;
+                    snprintf(output_string, sizeof(output_string), "%s%d", ">", VALUE_MAX_TEMP);
                 }
                 value_oil_temperature = calc_filter(value, value_oil_temperature);
             }
@@ -114,22 +114,22 @@ void calculate_value(int screenSelection, double value) {
                 volt_value_set = true;
             }
             else if (value == ADC_FAIL_VALUE) {
-                value_volt = 8.0;
+                value_volt = VALUE_MIN_VOLT;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
             else if (value != ADC_FAIL_VALUE) 
             {                
-                if (value < 8.0) 
+                if (value < VALUE_MIN_VOLT) 
                 {
-                    value = 8.0;
-                    snprintf(output_string, sizeof(output_string), "%s", "<8.0");
+                    value = VALUE_MIN_VOLT;
+                    snprintf(output_string, sizeof(output_string), "%s%.1f", "<", VALUE_MIN_VOLT);
                 }
-                else if (value >= 8.0 && value <= 16.0)
+                else if (value >= VALUE_MIN_VOLT && value <= VALUE_MAX_VOLT)
                     snprintf(output_string, sizeof(output_string), "%.1f", value_volt);            
-                else if (value > 16.0)
+                else if (value > VALUE_MAX_VOLT)
                 {
-                    value = 16.0;
-                    snprintf(output_string, sizeof(output_string), "%s", ">16.0");
+                    value = VALUE_MAX_VOLT;
+                    snprintf(output_string, sizeof(output_string), "%s%.1f", ">", VALUE_MAX_VOLT);
                 }
                 value_volt = calc_filter(value, value_volt);
             }
@@ -148,24 +148,24 @@ void calculate_value(int screenSelection, double value) {
             else if (value != ADC_FAIL_VALUE) 
             {              
                 if (value == ADC_FAIL_VALUE) {
-                    value_outside_temperature = -30.0f;
+                    value_outside_temperature = VALUE_MIN_OUT_TEMP;
                 } 
-                else if (value >= -30.0f && value <= 70.0f)
+                else if (value >= VALUE_MIN_OUT_TEMP && value <= VALUE_MAX_OUT_TEMP)
                 {                    
-                    if (value_outside_temperature >= 10 || value_outside_temperature <= -10)
+                    if (value_outside_temperature >= 10 || value_outside_temperature <= -10) // Alle Werte zwischen -10 und 10 mit einer Nachkommastelle gerundet auf .5 darstellen
                         snprintf(output_string, sizeof(output_string), "%d", (int)value_outside_temperature);
                     else if ((fabs(value_outside_temperature*10) - (abs((int)value_outside_temperature )*10)) >= 5 )
                         snprintf(output_string, sizeof(output_string), "%d.5", (int) value_outside_temperature);
                     else
                         snprintf(output_string, sizeof(output_string), "%d.0", (int) value_outside_temperature);
                 } 
-                else if (value < -30.0f) {
-                    snprintf(output_string, sizeof(output_string), "%s", "<-30");
-                    value = -30.0f;
+                else if (value < VALUE_MIN_OUT_TEMP) {
+                    snprintf(output_string, sizeof(output_string), "%s%d", "<", VALUE_MIN_OUT_TEMP);
+                    value = VALUE_MIN_OUT_TEMP;
                 } 
-                else if (value > 70.0f) {
-                    snprintf(output_string, sizeof(output_string), "%s", ">70");
-                    value = 70.0f;
+                else if (value > VALUE_MAX_OUT_TEMP) {
+                    snprintf(output_string, sizeof(output_string), "%s%d", ">", VALUE_MAX_OUT_TEMP);
+                    value = VALUE_MAX_OUT_TEMP;
                 }  
                 value_outside_temperature = calc_filter(value, value_outside_temperature);
 

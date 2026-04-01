@@ -33,13 +33,13 @@ bool time_checked[2] = {false, false}; // [0] = Gauge, [1] = Beeper
 #if USE_BUZZER == true
     static int buzzed = 0;
     static void temperature_beep() {
-        buzzer_beep(BEEPER_BEEPING_VALUE);
-        vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
-        buzzer_beep(BEEPER_QUIET_VALUE);
-        vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_OFF_TIME));
-        buzzer_beep(BEEPER_BEEPING_VALUE);
-        vTaskDelay(pdMS_TO_TICKS(BEEPER_BEEP_ON_TIME));
-        buzzer_beep(BEEPER_QUIET_VALUE);
+        buzzer_beep(BUZZER_BEEPING_VALUE);
+        vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
+        buzzer_beep(BUZZER_QUIET_VALUE);
+        vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_OFF_TIME));
+        buzzer_beep(BUZZER_BEEPING_VALUE);
+        vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
+        buzzer_beep(BUZZER_QUIET_VALUE);
         ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
         printf("buzzed!\n");
         vTaskDelete(NULL);     // Remove new created beeper task     
@@ -258,14 +258,14 @@ static void lv_tick_task_screen(void *pv)
             if (!time_checked[1]) {
                 time(&checkTime);
             }// ToDo: beeper nach einer bestimmten Zeit wieder aktivieren?
-            if ((long)(checkTime - StartUpTime) >= BEEPER_ON_DELAY_SEC)
+            if ((long)(checkTime - StartUpTime) >= BUZZER_ON_DELAY_SEC)
             {
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
                 }
-                if (buzzed == false && value_outside_temperature < BEEPER_TEMP_MIN)
+                if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN)
                 {
-                    xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BEEPER_TASK_STEPDEPTH, NULL, BEEPER_TASK_PRIORITY, NULL, BEEPER_TASK_CORE);
+                    xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BUZZER_TASK_STEPDEPTH, NULL, BUZZER_TASK_PRIORITY, NULL, BUZZER_TASK_CORE);
                     buzzed = true;
                 }
             }

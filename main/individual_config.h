@@ -169,7 +169,7 @@
 
 #define GAUGE_ON_DELAY_SEC                             1
 #define DISPLAY_SETUP_DELAY                         100
-#define BEEPER_ON_DELAY_SEC                            5
+#define BUZZER_ON_DELAY_SEC                            5
 #define MAIN_TASK_FINISHED_DELAY                    5000
 
 #define COLOR_NIGHT_MODE_HEX                       0xff5a00
@@ -208,16 +208,27 @@
 #################################################################################
 */
 #if USE_BUZZER == true
-    #define BEEPER_TEMP_MIN                                 3 // Beept bei < 3 °C
-    #define BEEPER_PIN                                      15
-    #define BEEPER_BEEPING_VALUE                            50   
-    #define BEEPER_QUIET_VALUE                              0
-    #define BEEPER_TASK_STEPDEPTH                           8192
-    #define BEEPER_TASK_PRIORITY                            20
-    #define BEEPER_TASK_DELAYTIME                           1000
-    #define BEEPER_TASK_CORE                                0
-    #define BEEPER_BEEP_ON_TIME                             150
-    #define BEEPER_BEEP_OFF_TIME                            400
+    #define BUZZER_TEMP_MIN                                 3 // Beept bei < 3 °C
+    #define BUZZER_PIN                                      15
+    #define BUZZER_BEEPING_VALUE                            200 // max 255   
+    #define BUZZER_QUIET_VALUE                              0
+    #define BUZZER_TASK_STEPDEPTH                           8192
+    #define BUZZER_TASK_PRIORITY                            20
+    #define BUZZER_TASK_CORE                                0
+    #define BUZZER_BEEP_ON_TIME                             150
+    #define BUZZER_BEEP_OFF_TIME                            400
+
+    #define BUZZER_SETTING_SPEED_MODE   LEDC_LOW_SPEED_MODE
+    #define BUZZER_SETTING_DUTY_RES     LEDC_TIMER_13_BIT
+    #define BUZZER_SETTING_TIMER        LEDC_TIMER_1
+    #define BUZZER_SETTING_FREQ_HZ      2700
+    #define BUZZER_SETTING_CLK_CFG      LEDC_AUTO_CLK
+    #define BUZZER_SETTING_SPEED_MODE   LEDC_LOW_SPEED_MODE 
+    #define BUZZER_SETTING_CHANNEL      LEDC_CHANNEL_1
+    #define BUZZER_SETTING_INTR_TYPE    LEDC_INTR_DISABLE
+    #define BUZZER_SETTING_TIMER_SEL    LEDC_TIMER_1
+    #define BUZZER_SETTING_DUTY         0
+    #define BUZZER_SETTING_HPOINT       0
 #endif
 
 /*
@@ -277,6 +288,12 @@
 #################################################################################
 */
 #define PWM_ADC_SWITCH_PIN                                              16
+#define PWM_ADC_SWITCH_MODE                            GPIO_MODE_INPUT 
+#define PWM_ADC_SWITCH_PULL_UP_EN                      GPIO_PULLUP_DISABLE       
+#define PWM_ADC_SWITCH_PULL_DOWN_EN                    GPIO_PULLDOWN_DISABLE         
+#define PWM_ADC_SWITCH_INTR_TYPE                       GPIO_INTR_DISABLE    
+#define PWM_ADC_SWTICH_VALUE_PWM                        true  
+
 #define BUTTON_CLOCK_MINUTE_PIN                                         17 
 #define BUTTON_CLOCK_HOUR_PIN                                           18
 #define BUTTON_CLOCK_MINUTE_SHORT_MS            50
@@ -348,3 +365,26 @@
 
 #define ADC_PRES_ADS_VAL_MIN_R 10.0f
 #define ADC_PRES_ADS_VAL_MAX_R 184.0f
+
+
+/*
+#################################################################################
+    Value Settings
+#################################################################################
+*/
+#define VALUE_DEFAULT_PRES 0.0
+#define VALUE_DEFAULT_TEMP 0
+#define VALUE_DEFAULT_VOLT 8.0
+#define VALUE_DEFAULT_OUT_TEMP -30
+#define VALUE_DEFAULT_BRIGHT BRIGHTNESS_DAY
+#define VALUE_DEFAULT_NIGHT_MODE false
+
+#define VALUE_MIN_PRES VALUE_DEFAULT_PRES
+#define VALUE_MIN_TEMP VALUE_DEFAULT_TEMP
+#define VALUE_MIN_VOLT VALUE_DEFAULT_VOLT
+#define VALUE_MIN_OUT_TEMP VALUE_DEFAULT_OUT_TEMP
+
+#define VALUE_MAX_PRES 6.0
+#define VALUE_MAX_TEMP 150
+#define VALUE_MAX_VOLT 16.0
+#define VALUE_MAX_OUT_TEMP 70
