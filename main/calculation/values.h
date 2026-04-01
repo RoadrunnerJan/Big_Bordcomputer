@@ -21,7 +21,7 @@ extern bool night_mode_active;
 extern char output_string[20];
 
 inline double calc_filter(double new_value_us, double pre_value_us) {
-    return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA));
+    return (new_value_us * FILTER_ALPHA) + (pre_value_us * (1.0f - FILTER_ALPHA));
 };
 
 void reset_values(int screenSelection);

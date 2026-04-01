@@ -6,9 +6,10 @@
 */
 #define NUMBER_OF_DISPLAYS                 4   // up to 4 Displays possible
 #define NUMBER_OF_SPI                      2 // Number of SPI Devices used (for 4 Displays 2 are neccessary)
+#define NUMBER_OF_ADS1115_DEVICES          2
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
-#define TESTMODE                          true // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
+#define TESTMODE                          false // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
 #define USE_BUZZER                        false // Aktiviere den Buzzer für Warnungen (für zu niedrige Außentemperatur)
 
 #define LOGGING_ENABLED                   true // Aktiviert die serielle Ausgabe von Log-Nachrichten für Debugging-Zwecke. Bei false werden diese Nachrichten nicht ausgegeben, um Ressourcen zu sparen.
@@ -238,8 +239,9 @@
     Sensor Settings
 #################################################################################
 */
+#define FILTER_ALPHA                                        0.1f 
+// PWM Sensor
 #define PWM_SENSOR_PIN                                      3
-#define PWM_SENSOR_FILTER_ALPHA                                        0.1f 
 #define PWM_SENSOR_RESOLUTION_MHZ                           10
 #define PWM_SENSOR_PRESCALE                                 1
 #define PWM_SENSOR_NEG_EDGE                                 1
@@ -277,14 +279,72 @@
 #define PWM_ADC_SWITCH_PIN                                              16
 #define BUTTON_CLOCK_MINUTE_PIN                                         17 
 #define BUTTON_CLOCK_HOUR_PIN                                           18
+#define BUTTON_CLOCK_MINUTE_SHORT_MS            50
+#define BUTTON_CLOCK_MINUTE_LONG_MS             500
+#define BUTTON_CLOCK_MINUTE_ACTIVE_LEVEL    0
+#define BUTTON_CLOCK_HOUR_SHORT_MS            50
+#define BUTTON_CLOCK_HOUR_LONG_MS             500
+#define BUTTON_CLOCK_HOUR_ACTIVE_LEVEL    0
 
 /*
 #################################################################################
     I2C Settings
 #################################################################################
 */
-#define RTC_I2C_SDA_PIN                                               9
-#define RTC_I2C_SCL_PIN                                                 6
+#define I2C_SDA_PIN                                               9
+#define I2C_SCL_PIN                                                 6
+#define I2C_CLK_SRC                                                 I2C_CLK_SRC_DEFAULT
+#define I2C_PORT                                                 I2C_NUM_0
+#define I2C_GLITCH_IGNORE                                           7
+#define I2C_INT_PULLUP_ENB                                                 false
+#define RTC_ADDR_LENGTH                                             I2C_ADDR_BIT_LEN_7
+#define RTC_SCL_SPEED_HZ                            100000
+
 #define RTC_DS3231_ADDR                                                 0x68
 #define ADC_ADS1115_1_ADDR                                              0x48
 #define ADC_ADS1115_2_ADDR                                              0x49
+#define ADC_ADS1115_ADDR_LENGTH                                 RTC_ADDR_LENGTH
+#define ADC_ADS1115_SCL_SPEED_HZ                400000
+
+// ADS1115 Settings
+#define LSB_2048 0.0625f
+#define LSB_4096 0.125f
+#define ADC_MAX_V_VALID 3.25f 
+#define BEL_MAX_PLAUSIBLE 16.0f  // Alles darüber ist "Offener Pin / Rauschen"
+#define BEL_MIN_PLAUSIBLE 0.8f   // Mindestspannung für "Licht an" (Schutz gegen Kriechströme)
+#define BOARD_MIN_PLAUSIBLE 6.0f 
+
+// ADC Widerstände
+#define ADC_FAIL_VALUE  -99.0f
+#define ADC_ADS_REF_V 3.3f
+
+#define ADC_VOLT_ADS_CHANNEL 0
+#define ADC_VOLT_BEL_ADS_CHANNEL 1
+#define ADC_TEMP_ADS_CHANNEL 2
+#define ADC_PRES_ADS_CHANNEL 3
+#define ADC_OUT_TEMP_ADS_CHANNEL 4
+
+#define ADC_VOLT_ADS_PGA 0x02
+#define ADC_VOLT_BEL_ADS_PGA 0x01
+#define ADC_TEMP_ADS_PGA 0x01
+#define ADC_PRES_ADS_PGA 0x01
+#define ADC_OUT_TEMP_ADS_PGA 0x01
+
+
+#define ADC_VOLT_ADS_PULLUP 10000.0f
+#define ADC_VOLT_ADS_PULLDOWN 1500.0f
+#define ADC_VOLT_BEL_ADS_PULLUP 10000.0f
+#define ADC_VOLT_BEL_ADS_PULLDOWN 2200.0f
+#define ADC_TEMP_ADS_PULLUP 680.0f
+#define ADC_PRES_ADS_PULLUP 680.0f
+#define ADC_OUT_TEMP_ADS_PULLUP 4700.0f
+
+
+#define ADC_TEMP_ADS_VAL_TO_FAIL_MIN -50
+#define ADC_PRES_ADS_VAL_TO_FAIL_MIN 0
+#define ADC_PRES_ADS_VAL_TO_FAIL_MAX 250.0f
+#define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN 0
+#define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX 150000.0f
+
+#define ADC_PRES_ADS_VAL_MIN_R 10.0f
+#define ADC_PRES_ADS_VAL_MAX_R 184.0f

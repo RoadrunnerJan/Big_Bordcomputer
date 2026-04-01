@@ -15,42 +15,35 @@ button_gpio_config_t gpio_cfg_time[2] = {0};
 button_handle_t btn_time[2] = {0};
 
 const ntc_table_t oil_temp_table[] = {
+    // {°C, Ohm}
     {0, 2500.0}, {10, 1500.0}, {20, 1000.0}, {30, 650.0}, {40, 430.0},
     {50, 322.0}, {60, 225.0},  {70, 155.0},  {80, 112.0}, {90, 83.0},
     {100, 62.0}, {110, 47.0},  {120, 37.0},  {130, 29.0}, {140, 23.0}, {150, 19.0}
 };
-bool value_set[6] = {false, false, false, false, false, false}; // Flags für die ersten 6 Sensoren
 
-const outside_ntc_table_t outside_temperature_table[] = {
+const ntc_table_t outside_temperature_table[] = {
+    // {°C, Ohm}
     {-30, 88000.0}, {-20, 52000.0}, {-10, 31500.0}, {0, 19500.0},
     {10, 12500.0},  {20, 8200.0},   {25, 6700.0},   {30, 5500.0},
     {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}
 };
 
-
-// Globale Variablen für die gefilterten Werte (Initialisierung auf 0)
-float filtered_v_board = 8.0f; // Startwert, z.B. 8V
-float filtered_v_bel = 0;
-float filtered_oil_temp = 0;
-float filtered_oil_press = 0;
-float filtered_outside_temp = 0; // Startwert ca. Zimmertemperatur
-
 void init_i2c() {
     // I2C
-    bus_cfg.clk_source = I2C_CLK_SRC_DEFAULT;
-    bus_cfg.i2c_port = I2C_NUM_0;
-    bus_cfg.scl_io_num = RTC_I2C_SCL_PIN;
-    bus_cfg.sda_io_num = RTC_I2C_SDA_PIN;
-    bus_cfg.glitch_ignore_cnt = 7;
-    bus_cfg.flags.enable_internal_pullup = false;
+    bus_cfg.clk_source = I2C_CLK_SRC;
+    bus_cfg.i2c_port = I2C_PORT;
+    bus_cfg.scl_io_num = I2C_SCL_PIN;
+    bus_cfg.sda_io_num = I2C_SDA_PIN;
+    bus_cfg.glitch_ignore_cnt = I2C_GLITCH_IGNORE;
+    bus_cfg.flags.enable_internal_pullup = I2C_INT_PULLUP_ENB;
 
     // RTC
-    ds3231_cfg.dev_addr_length = I2C_ADDR_BIT_LEN_7;
+    ds3231_cfg.dev_addr_length = RTC_ADDR_LENGTH;
     ds3231_cfg.device_address = RTC_DS3231_ADDR;
-    ds3231_cfg.scl_speed_hz = 100000;
+    ds3231_cfg.scl_speed_hz = RTC_SCL_SPEED_HZ;
     for (int i = 0; i < NUMBER_OF_ADS1115_DEVICES; i++) {
-        ads_cfg[i].dev_addr_length = I2C_ADDR_BIT_LEN_7;
-        ads_cfg[i].scl_speed_hz = 400000; // ADS1115 schafft bis zu 400kHz
+        ads_cfg[i].dev_addr_length = ADC_ADS1115_ADDR_LENGTH;
+        ads_cfg[i].scl_speed_hz = ADC_ADS1115_SCL_SPEED_HZ; // ADS1115 schafft bis zu 400kHz
     }
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &bus_handle));
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ds3231_cfg, &ds3231_handle));
@@ -170,14 +163,14 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
 
 void init_time_buttons() {
 
-    cfg_time[0].short_press_time = 50;
-    cfg_time[0].long_press_time = 500;
+    cfg_time[0].short_press_time = BUTTON_CLOCK_MINUTE_SHORT_MS;
+    cfg_time[0].long_press_time = BUTTON_CLOCK_MINUTE_LONG_MS;
     gpio_cfg_time[0].gpio_num = BUTTON_CLOCK_HOUR_PIN;
-    gpio_cfg_time[0].active_level = 0;    
-    cfg_time[1].short_press_time = 50;
-    cfg_time[1].long_press_time = 500;
+    gpio_cfg_time[0].active_level = BUTTON_CLOCK_MINUTE_ACTIVE_LEVEL;    
+    cfg_time[1].short_press_time = BUTTON_CLOCK_HOUR_SHORT_MS;
+    cfg_time[1].long_press_time = BUTTON_CLOCK_HOUR_LONG_MS;
     gpio_cfg_time[1].gpio_num = BUTTON_CLOCK_MINUTE_PIN;
-    gpio_cfg_time[1].active_level = 0;
+    gpio_cfg_time[1].active_level = BUTTON_CLOCK_HOUR_ACTIVE_LEVEL;
 
     iot_button_new_gpio_device(&cfg_time[0], &gpio_cfg_time[0], &btn_time[0]);
     iot_button_register_cb(btn_time[0], BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_HOUR_PIN);
@@ -226,7 +219,7 @@ float interpolate_temp(float r_measured) {
             return oil_temp_table[i].temp + (r_measured - oil_temp_table[i].res) * (t_range / r_range);
         }
     }
-    return 0;
+    return ADC_FAIL_VALUE;
 }
 
 // Lineare Interpolation für die BMW Outside Temperature Tabelle
@@ -241,55 +234,59 @@ float interpolate_outside_temp(float r_measured) {
             return outside_temperature_table[i].temp + (r_measured - outside_temperature_table[i].res) * (t_range / r_range);
         }
     }
-    return -99.0f;
+    return ADC_FAIL_VALUE;
 }
 
 float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
     // Check: Wenn Spannung fast 3.3V -> Sensor offen oder Kabelbruch
-    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return -99.0f; // Signal für "Fehler"
-    return (v_adc * r_pullup) / (3.3f - v_adc);
+    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return ADC_FAIL_VALUE; // Signal für "Fehler"
+    return (v_adc * r_pullup) / (ADC_ADS_REF_V - v_adc);
 }
 
 float get_i2c_adc_volt() {
-    int16_t raw = read_ads1115(ads_handle[0], 0, 0x02); // Board
+    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_ADS_CHANNEL, ADC_VOLT_ADS_PGA); // Board
     float v_board = (raw * LSB_2048) / 1000.0f;
-    v_board = v_board * ((10.0f + 1.5f) / 1.5f);
+    v_board = v_board * ((ADC_VOLT_ADS_PULLUP + ADC_VOLT_ADS_PULLDOWN) / ADC_VOLT_ADS_PULLDOWN);
     //printf("Board unfiltered Voltage: %.2f V\n", v_board);
     return v_board;
 }
 
 float get_i2c_adc_volt_bel() {
-    int16_t raw = read_ads1115(ads_handle[0], 1, 0x01); // Bel
+    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_BEL_ADS_CHANNEL, ADC_VOLT_BEL_ADS_PGA); // Bel
     float v_bel = (raw * LSB_4096) / 1000.0f; 
-    v_bel = v_bel * ((10.0f + 2.2f) / 2.2f); // Teiler 10k/2.2k
+    v_bel = v_bel * ((ADC_VOLT_BEL_ADS_PULLUP + ADC_VOLT_BEL_ADS_PULLDOWN) / ADC_VOLT_BEL_ADS_PULLDOWN); // Teiler 10k/2.2k
     //printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
     return v_bel;
 }
 
 float get_i2c_adc_oil_temp() {
-    int16_t raw = read_ads1115(ads_handle[0], 2, 0x01); // Temp
-    float oil_t = raw_to_res_safe(raw, 680.0f);
-    if (oil_t < -50) oil_t = -99.0f; // Fehler (Offen)
+    int16_t raw = read_ads1115(ads_handle[0], ADC_TEMP_ADS_CHANNEL, ADC_TEMP_ADS_PGA); // Temp
+    float oil_t = raw_to_res_safe(raw, ADC_TEMP_ADS_PULLUP);
+    if (oil_t < ADC_TEMP_ADS_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Fehler (Offen)
     else oil_t = interpolate_temp(oil_t);
     //printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
     return oil_t;
 }
 
 float get_i2c_adc_oil_press() {
-    int16_t raw = read_ads1115(ads_handle[0], 3, 0x01); // Druck
-    float oil_p = raw_to_res_safe(raw, 680.0f);
-    if (oil_p < 0 || oil_p > 250.0f) oil_p = -99.0f; // Fehler oder unplausibel hoch
-    else oil_p = (oil_p - 10.0f) * (10.0f / (184.0f - 10.0f));
+    int16_t raw = read_ads1115(ads_handle[0], ADC_PRES_ADS_CHANNEL, ADC_PRES_ADS_PGA); // Druck
+    float oil_p = raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP);
+    if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Fehler oder unplausibel hoch
+    else oil_p = (oil_p - ADC_PRES_ADS_VAL_MIN_R) * (ADC_PRES_ADS_VAL_MIN_R / (ADC_PRES_ADS_VAL_MAX_R - ADC_PRES_ADS_VAL_MIN_R));
     //printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
     return oil_p;
 }
 
 float get_i2c_adc_outside_temp() {
-    int16_t raw = read_ads1115(ads_handle[1], 0, 0x01); // Außentemperatur
-    float outside_t = raw_to_res_safe(raw, 4700.0f); 
-    if (outside_t < 0 || outside_t > 150000.0f) outside_t = -99.0f; 
-    else outside_t = interpolate_outside_temp(outside_t);
-    //printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
-    return outside_t;
+    #if NUMBER_OF_ADS1115_DEVICES > 1
+        int16_t raw = read_ads1115(ads_handle[1], ADC_OUT_TEMP_ADS_CHANNEL, ADC_OUT_TEMP_ADS_PGA); // Außentemperatur
+        float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP); 
+        if (outside_t < ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; 
+        else outside_t = interpolate_outside_temp(outside_t);
+        //printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
+        return outside_t;
+    #else 
+        return ADC_FAIL_VALUE;
+    #endif
 }

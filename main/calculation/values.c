@@ -55,15 +55,15 @@ void calculate_value(int screenSelection, double value) {
     switch (screenSelection) {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
             if (!pres_value_set) {
-                if (value != -99.0f)      
+                if (value != ADC_FAIL_VALUE)      
                     value_oil_pressure = value;
                 pres_value_set = true;
             }
-            else if (value == -99.0f) {
+            else if (value == ADC_FAIL_VALUE) {
                 value_oil_pressure = 0;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
-            else if (value != -99.0f) 
+            else if (value != ADC_FAIL_VALUE) 
             {
                 if (value < 0) 
                 {
@@ -82,15 +82,15 @@ void calculate_value(int screenSelection, double value) {
             break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             if (!temp_value_set) {
-                if (value != -99.0f)      
+                if (value != ADC_FAIL_VALUE)      
                     value_oil_temperature = value;
                 temp_value_set = true;
             }
-            else if (value == -99.0f) {
+            else if (value == ADC_FAIL_VALUE) {
                 value_oil_temperature = 0;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
-            else if (value != -99.0f) 
+            else if (value != ADC_FAIL_VALUE) 
             {                
                 if (value < 0) 
                 {
@@ -109,15 +109,15 @@ void calculate_value(int screenSelection, double value) {
             break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             if (!volt_value_set) {
-                if (value != -99.0f)      
+                if (value != ADC_FAIL_VALUE)      
                     value_volt = value;
                 volt_value_set = true;
             }
-            else if (value == -99.0f) {
+            else if (value == ADC_FAIL_VALUE) {
                 value_volt = 8.0;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
-            else if (value != -99.0f) 
+            else if (value != ADC_FAIL_VALUE) 
             {                
                 if (value < 8.0) 
                 {
@@ -137,17 +137,17 @@ void calculate_value(int screenSelection, double value) {
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             if (!outside_temperature_set) {
-                if (value != -99.0f)      
+                if (value != ADC_FAIL_VALUE)      
                     value_outside_temperature = value;
                 outside_temperature_set = true;
             }
-            else if (value == -99.0f) {
+            else if (value == ADC_FAIL_VALUE) {
                 value_outside_temperature = 0;
                 snprintf(output_string, sizeof(output_string), "%s", "---");
             }
-            else if (value != -99.0f) 
+            else if (value != ADC_FAIL_VALUE) 
             {              
-                if (value == -99.0f) {
+                if (value == ADC_FAIL_VALUE) {
                     value_outside_temperature = -30.0f;
                 } 
                 else if (value >= -30.0f && value <= 70.0f)

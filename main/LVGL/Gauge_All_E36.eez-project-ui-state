@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/3",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -23,7 +23,7 @@
           },
           {
             "type": "border",
-            "selected": 1,
+            "selected": 0,
             "size": 240,
             "location": "right",
             "children": [
@@ -194,6 +194,28 @@
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#20b710fe-f23a-4313-b388-26175b3b2e72",
+                  "name": "Gauge_Oil_Temperature_Night",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/3",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#2400c91c-f0bd-4c83-811e-0ab4e615f66b",
+                  "name": "Gauge_Oil_Pressure_Night",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/1",
+                    "permanent": true
+                  },
+                  "icon": "svg:page"
+                },
                 {
                   "type": "tab",
                   "id": "#2c0b2107-26c5-4776-beb1-8904d1872e92",
@@ -1417,6 +1439,9 @@
     "[Gauge_All_E36.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
+          "0": {
+            "$selected": true
+          },
           "5": {}
         }
       },
@@ -1425,7 +1450,121 @@
           "x": -120,
           "y": -120
         },
+        "scale": 2
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/1[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 2
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/2[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
         "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/4[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/7[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/8[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/6[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1.25
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/3[flow-state]": {
+      "selection": {
+        "0": {}
+      },
+      "transform": {
+        "translate": {
+          "x": -249.00000000000006,
+          "y": -116.75000000000003
+        },
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1464,6 +1603,6 @@
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1.25,
+  "flowZoom": 2,
   "implementationLanguage": "C"
 }
