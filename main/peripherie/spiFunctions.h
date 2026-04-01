@@ -57,9 +57,7 @@ struct display_settings
     int task_step_depth;
     int task_priority;
     int task_delay_time_ms;
-    int tast_core;
-    bool night_Mode_Switched;
-    
+    int tast_core;    
 
     esp_lcd_panel_io_handle_t io_handle;
     esp_lcd_panel_handle_t panel_handle;
@@ -70,7 +68,6 @@ struct display_settings
     esp_lcd_panel_io_spi_config_t io_config;
     esp_lcd_panel_dev_config_t panel_config;
 
-    SemaphoreHandle_t lvgl_mux; 
 };
 
 

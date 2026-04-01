@@ -228,7 +228,6 @@ void display_init(void)
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(DISPLAYS[i].panel_handle, true));
         ESP_ERROR_CHECK(esp_lcd_panel_mirror(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_mirror_x, DISPLAYS[i].lcd_mirror_y)); // Optional: Spiegeln des Displays horizontal
     
-        DISPLAYS[i].lvgl_mux = xSemaphoreCreateMutex();
     }
 
     const esp_timer_create_args_t periodic_timer_args = {
