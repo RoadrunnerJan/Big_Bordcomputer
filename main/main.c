@@ -12,6 +12,7 @@
 
 #include "simulation/testSimulation.h"
 #include "peripherie/pwmSensor.h"
+#include "peripherie/pwmSwitch.h"
 
 #include "calculation/values.h"
 
@@ -54,11 +55,8 @@ static void tick_switch(int id)
             #if TESTMODE == true
                 value = lv_pressure_test();
             #else
-                #if USE_PWM_SENSOR == true
-                    value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
-                #else
-                    value = get_i2c_adc_oil_press();
-                #endif
+                if (isPWM()) value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
+                else value = get_i2c_adc_oil_press();
             #endif
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
             
@@ -89,11 +87,8 @@ static void tick_switch(int id)
             #if TESTMODE == true
                 value = lv_temperature_test();
             #else
-                #if USE_PWM_SENSOR == true
-                    value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
-                #else
-                    value = get_i2c_adc_oil_temp();
-                #endif
+                if (isPWM()) value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
+                else value = get_i2c_adc_oil_temp();
             #endif
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
 
@@ -276,6 +271,12 @@ static void lv_tick_task_screen(void *pv)
             }
         #endif
 
+        if (read_pwmSW())
+        {
+            reset_values(SCREEN_ID_GAUGE_OIL_PRESSURE);
+            reset_values(SCREEN_ID_GAUGE_OIL_TEMPERATURE);
+        }
+
         vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
@@ -311,13 +312,12 @@ void init_system()
     printLog("Displays initialized and screens set.");
 
     // init pwm sensor
-    #if USE_PWM_SENSOR == true
-        pwm_sensor_init();
-        #if TESTMODE == true
-            create_timer_pwm();
-        #endif
-        printLog("PWM Sensor initialized.");
+    init_pwmSW();
+    pwm_sensor_init();
+    #if TESTMODE == true
+        create_timer_pwm();
     #endif
+    printLog("PWM Sensor initialized.");
 
     // init buzzer
     #if USE_BUZZER == true

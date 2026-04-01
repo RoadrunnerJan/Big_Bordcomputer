@@ -47,7 +47,7 @@ void reset_values(int screenSelection) {
 }
 
 void reset_brightness(){
-    value_brightness = 0;
+    value_brightness = BRIGHTNESS_DAY;
     night_mode_active = false;
 }
 

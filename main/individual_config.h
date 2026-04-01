@@ -9,7 +9,6 @@
 #define CHIP_USED                          ESP32P4   // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 #define TESTMODE                          true // true = Simulierte Werte für alle Sensoren, Nachtmodus, Helligkeitstest
-#define USE_PWM_SENSOR                    false // Rot = PWN Signal, Weiß = 5V
 #define USE_BUZZER                        false // Aktiviere den Buzzer für Warnungen (für zu niedrige Außentemperatur)
 
 #define LOGGING_ENABLED                   true // Aktiviert die serielle Ausgabe von Log-Nachrichten für Debugging-Zwecke. Bei false werden diese Nachrichten nicht ausgegeben, um Ressourcen zu sparen.
@@ -275,10 +274,10 @@
     Button Settings
 #################################################################################
 */
-
+#define PWM_ADC_SWITCH_PIN                                              16
 #define BUTTON_CLOCK_MINUTE_PIN                                         17 
 #define BUTTON_CLOCK_HOUR_PIN                                           18
-#define PWM_ADC_SWITCH_PIN                                                 16
+
 /*
 #################################################################################
     I2C Settings
@@ -289,4 +288,3 @@
 #define RTC_DS3231_ADDR                                                 0x68
 #define ADC_ADS1115_1_ADDR                                              0x48
 #define ADC_ADS1115_2_ADDR                                              0x49
-

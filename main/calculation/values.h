@@ -24,7 +24,7 @@ inline double calc_filter(double new_value_us, double pre_value_us) {
     return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA));
 };
 
-void reset_values();
+void reset_values(int screenSelection);
 void reset_brightness();
 void calculate_value(int screenSelection, double new_value);
 double get_value_by_screen_id(int screenSelection);
