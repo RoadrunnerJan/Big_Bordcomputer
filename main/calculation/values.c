@@ -68,10 +68,16 @@ void calculate_value(int screenSelection, double value) {
                 if (value < 0) 
                 {
                     value = 0;
-                    snprintf(output_string, sizeof(output_string), "%s", "< 0");
+                    snprintf(output_string, sizeof(output_string), "%s", "<0.0");
+                }                
+                else if (value >= 0.0 && value <= 6.0) 
+                    snprintf(output_string, sizeof(output_string), "%.1f", value_oil_pressure);
+                else if (value > 6)
+                {
+                    value = 6.0;
+                    snprintf(output_string, sizeof(output_string), "%s", ">6.0");
                 }
                 value_oil_pressure = calc_filter(value, value_oil_pressure);
-                if (value >= 0) snprintf(output_string, sizeof(output_string), "%.1f", value_oil_pressure);
             }
             break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
@@ -89,10 +95,16 @@ void calculate_value(int screenSelection, double value) {
                 if (value < 0) 
                 {
                     value = 0;
-                    snprintf(output_string, sizeof(output_string), "%s", "< 0");
+                    snprintf(output_string, sizeof(output_string), "%s", "<0");
+                }         
+                else if (value >= 0 && value <= 150)
+                    snprintf(output_string, sizeof(output_string), "%d", (int)value_oil_temperature);            
+                else if (value > 150) 
+                {
+                    value = 150;
+                    snprintf(output_string, sizeof(output_string), "%s", ">150");
                 }
                 value_oil_temperature = calc_filter(value, value_oil_temperature);
-                if (value >= 0) snprintf(output_string, sizeof(output_string), "%d", (int)value_oil_temperature);            
             }
             break;
         case SCREEN_ID_GAUGE_VOLTAGE:
@@ -110,10 +122,16 @@ void calculate_value(int screenSelection, double value) {
                 if (value < 8.0) 
                 {
                     value = 8.0;
-                    snprintf(output_string, sizeof(output_string), "%s", "< 8.0");
+                    snprintf(output_string, sizeof(output_string), "%s", "<8.0");
+                }
+                else if (value >= 8.0 && value <= 16.0)
+                    snprintf(output_string, sizeof(output_string), "%.1f", value_volt);            
+                else if (value > 16.0)
+                {
+                    value = 16.0;
+                    snprintf(output_string, sizeof(output_string), "%s", ">16.0");
                 }
                 value_volt = calc_filter(value, value_volt);
-                if (value >= 8.0) snprintf(output_string, sizeof(output_string), "%.1f", value_volt);            
             }
             break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
@@ -131,15 +149,8 @@ void calculate_value(int screenSelection, double value) {
             {              
                 if (value == -99.0f) {
                     value_outside_temperature = -30.0f;
-                } else if (value < -30.0f) {
-                    snprintf(output_string, sizeof(output_string), "%s", "<-30");
-                    value = -30.0f;
-                } else if (value > 70.0f) {
-                    snprintf(output_string, sizeof(output_string), "%s", ">70");
-                    value = 70.0f;
-                }  
-                value_outside_temperature = calc_filter(value, value_outside_temperature);
-                if (value >= -30.0f && value <= 70.0f)
+                } 
+                else if (value >= -30.0f && value <= 70.0f)
                 {                    
                     if (value_outside_temperature >= 10 || value_outside_temperature <= -10)
                         snprintf(output_string, sizeof(output_string), "%d", (int)value_outside_temperature);
@@ -148,6 +159,16 @@ void calculate_value(int screenSelection, double value) {
                     else
                         snprintf(output_string, sizeof(output_string), "%d.0", (int) value_outside_temperature);
                 } 
+                else if (value < -30.0f) {
+                    snprintf(output_string, sizeof(output_string), "%s", "<-30");
+                    value = -30.0f;
+                } 
+                else if (value > 70.0f) {
+                    snprintf(output_string, sizeof(output_string), "%s", ">70");
+                    value = 70.0f;
+                }  
+                value_outside_temperature = calc_filter(value, value_outside_temperature);
+
             }
         break;
         default:
@@ -159,8 +180,7 @@ void calculate_value(int screenSelection, double value) {
 void calcBrightness(float value)
 {
     // 2.29-10.74V entsprechen 1-80% Helligkeit, 0 entspricht 100%
-    //value = 10.74;
-    if (value < 1) 
+    if (value < BRIGHTNESS_DAY_MIN_V ) 
     {
         value_brightness = BRIGHTNESS_DAY;
         night_mode_active = false;

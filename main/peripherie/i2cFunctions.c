@@ -255,7 +255,7 @@ float get_i2c_adc_volt() {
     int16_t raw = read_ads1115(ads_handle[0], 0, 0x02); // Board
     float v_board = (raw * LSB_2048) / 1000.0f;
     v_board = v_board * ((10.0f + 1.5f) / 1.5f);
-    printf("Board unfiltered Voltage: %.2f V\n", v_board);
+    //printf("Board unfiltered Voltage: %.2f V\n", v_board);
     return v_board;
 }
 
@@ -263,7 +263,7 @@ float get_i2c_adc_volt_bel() {
     int16_t raw = read_ads1115(ads_handle[0], 1, 0x01); // Bel
     float v_bel = (raw * LSB_4096) / 1000.0f; 
     v_bel = v_bel * ((10.0f + 2.2f) / 2.2f); // Teiler 10k/2.2k
-    printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
+    //printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
     return v_bel;
 }
 
@@ -272,7 +272,7 @@ float get_i2c_adc_oil_temp() {
     float oil_t = raw_to_res_safe(raw, 680.0f);
     if (oil_t < -50) oil_t = -99.0f; // Fehler (Offen)
     else oil_t = interpolate_temp(oil_t);
-    printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
+    //printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
     return oil_t;
 }
 
@@ -281,7 +281,7 @@ float get_i2c_adc_oil_press() {
     float oil_p = raw_to_res_safe(raw, 680.0f);
     if (oil_p < 0 || oil_p > 250.0f) oil_p = -99.0f; // Fehler oder unplausibel hoch
     else oil_p = (oil_p - 10.0f) * (10.0f / (184.0f - 10.0f));
-    printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
+    //printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
     return oil_p;
 }
 
@@ -290,6 +290,6 @@ float get_i2c_adc_outside_temp() {
     float outside_t = raw_to_res_safe(raw, 4700.0f); 
     if (outside_t < 0 || outside_t > 150000.0f) outside_t = -99.0f; 
     else outside_t = interpolate_outside_temp(outside_t);
-    printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
+    //printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
     return outside_t;
 }
