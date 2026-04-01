@@ -6,6 +6,7 @@ idf_component_register( SRCS
                         "lvgl/variableFunctions"
                         "logging/logging"
                         "simulation/testSimulation"
+                        "calculation/values"
                         ${PERIPHERIE_SRCS}
                         ${LVGL_UI_SRCS}
                        PRIV_REQUIRES spi_flash driver espressif__button lvgl

@@ -33,10 +33,11 @@ extern int pulse_idx;
 extern uint32_t period_us;
 extern uint32_t width;
 
+extern uint32_t last_seen_count;
+
 extern int first_init_done;
 
 void pwm_sensor_init();
 void create_timer_pwm();
 
-inline double calc_filter(double new_value_us, double pre_value_us) { return (new_value_us * PWM_SENSOR_FILTER_ALPHA) + (pre_value_us * (1.0f - PWM_SENSOR_FILTER_ALPHA)); };
-double get_value(int id);
+double get_pwm_value(int id);

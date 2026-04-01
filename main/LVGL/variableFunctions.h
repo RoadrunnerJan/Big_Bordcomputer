@@ -1,5 +1,7 @@
 #pragma once
 
+// lvgl variables and functions
+
 #include <inttypes.h>
 #include <string.h>
 

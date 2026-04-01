@@ -13,6 +13,8 @@ int pulse_idx = 0;
 uint32_t period_us = 0;
 uint32_t width = 0;
 
+uint32_t last_seen_count = 0;
+
 int first_init_done = 0;
 
 inline int get_diag(int value_us) {
@@ -25,11 +27,15 @@ inline int get_diag(int value_us) {
 inline double calc_temperature(int value_us){ return ((double) value_us + PWM_SENSOR_TEMP_CALC_VALUE_1) / PWM_SENSOR_TEMP_CALC_VALUE_2; }
 inline double calc_pressure(int value_us){ return ((double) value_us + PWM_SENSOR_PRES_CALC_VALUE_1) / PWM_SENSOR_PRES_CALC_VALUE_2; }
 
-double get_value(int id)
+double get_pwm_value(int id)
 {
-    return id == PWM_SENSOR_TEMP_PULSE_ID ? calc_temperature(latest_sensor_values.temp_us.value_us) : 
-           id == PWM_SENSOR_PRES_PULSE_ID ? calc_pressure(latest_sensor_values.press_us.value_us) :
-           (double) get_diag(latest_sensor_values.diag_us.value_us);
+    if (latest_sensor_values.update_count == last_seen_count) return -99;
+    else {
+        last_seen_count = latest_sensor_values.update_count;
+        return id == PWM_SENSOR_TEMP_PULSE_ID ? calc_temperature(latest_sensor_values.temp_us.value_us) : 
+            id == PWM_SENSOR_PRES_PULSE_ID ? calc_pressure(latest_sensor_values.press_us.value_us) :
+            (double) get_diag(latest_sensor_values.diag_us.value_us);
+    }
 }
 
 static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data)
@@ -109,11 +115,11 @@ void pwm_sensor_init(void){
     static void pwm_sensor_print(void *pv)
     {
         (void)pv;   
-        uint32_t last_seen_count = 0;
         float f_temp = 0, f_press = 0;
         bool value_init_set = false;
         
         while (true) {
+            /*
             // Prüfen, ob seit dem letzten Print neue Daten reinkamen
             if (latest_sensor_values.update_count != last_seen_count) {
                 last_seen_count = latest_sensor_values.update_count;
@@ -148,7 +154,7 @@ void pwm_sensor_init(void){
             }
             else {
                 printf("Warten auf Sensor-Signal...\n");
-            }
+            }*/
             vTaskDelay(pdMS_TO_TICKS(200)); 
         }
     }

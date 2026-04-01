@@ -19,7 +19,7 @@
 #define BEL_MAX_PLAUSIBLE 16.0f  // Alles darüber ist "Offener Pin / Rauschen"
 #define BEL_MIN_PLAUSIBLE 0.8f   // Mindestspannung für "Licht an" (Schutz gegen Kriechströme)
 #define BOARD_MIN_PLAUSIBLE 6.0f 
-#define BMW_TABLE_SIZE (sizeof(bmw_outside_table) / sizeof(bmw_ntc_table_t))
+#define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(outside_ntc_table_t))
 
 // i2C settings
 extern i2c_master_bus_config_t bus_cfg;
@@ -47,9 +47,9 @@ extern bool value_set[6]; // Flags für die ersten 6 Sensoren
 typedef struct {
     float temp;
     float res;
-} bmw_ntc_table_t;
+} outside_ntc_table_t;
 
-extern const bmw_ntc_table_t bmw_outside_table[];
+extern const outside_ntc_table_t outside_temperature_table[];
 
 
 // Globale Variablen für die gefilterten Werte (Initialisierung auf 0)

@@ -21,7 +21,7 @@ const ntc_table_t oil_temp_table[] = {
 };
 bool value_set[6] = {false, false, false, false, false, false}; // Flags für die ersten 6 Sensoren
 
-const bmw_ntc_table_t bmw_outside_table[] = {
+const outside_ntc_table_t outside_temperature_table[] = {
     {-30, 88000.0}, {-20, 52000.0}, {-10, 31500.0}, {0, 19500.0},
     {10, 12500.0},  {20, 8200.0},   {25, 6700.0},   {30, 5500.0},
     {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}
@@ -214,8 +214,7 @@ int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_
     return (int16_t)((rx_buf[0] << 8) | rx_buf[1]);
 }
 
-
-// Lineare Interpolation für die Tabelle
+// Lineare Interpolation für die Oil Temperature Tabelle
 float interpolate_temp(float r_measured) {
     if (r_measured >= oil_temp_table[0].res) return oil_temp_table[0].temp;
     if (r_measured <= oil_temp_table[OIL_TABLE_SIZE-1].res) return oil_temp_table[OIL_TABLE_SIZE-1].temp;
@@ -230,15 +229,16 @@ float interpolate_temp(float r_measured) {
     return 0;
 }
 
-float interpolate_bmw_temp(float r_measured) {
-    if (r_measured >= bmw_outside_table[0].res) return bmw_outside_table[0].temp;
-    if (r_measured <= bmw_outside_table[BMW_TABLE_SIZE-1].res) return bmw_outside_table[BMW_TABLE_SIZE-1].temp;
+// Lineare Interpolation für die BMW Outside Temperature Tabelle
+float interpolate_outside_temp(float r_measured) {
+    if (r_measured >= outside_temperature_table[0].res) return outside_temperature_table[0].temp;
+    if (r_measured <= outside_temperature_table[OUTSIDE_TABLE_SIZE-1].res) return outside_temperature_table[OUTSIDE_TABLE_SIZE-1].temp;
 
-    for (int i = 0; i < BMW_TABLE_SIZE - 1; i++) {
-        if (r_measured <= bmw_outside_table[i].res && r_measured > bmw_outside_table[i+1].res) {
-            float r_range = bmw_outside_table[i+1].res - bmw_outside_table[i].res;
-            float t_range = bmw_outside_table[i+1].temp - bmw_outside_table[i].temp;
-            return bmw_outside_table[i].temp + (r_measured - bmw_outside_table[i].res) * (t_range / r_range);
+    for (int i = 0; i < OUTSIDE_TABLE_SIZE - 1; i++) {
+        if (r_measured <= outside_temperature_table[i].res && r_measured > outside_temperature_table[i+1].res) {
+            float r_range = outside_temperature_table[i+1].res - outside_temperature_table[i].res;
+            float t_range = outside_temperature_table[i+1].temp - outside_temperature_table[i].temp;
+            return outside_temperature_table[i].temp + (r_measured - outside_temperature_table[i].res) * (t_range / r_range);
         }
     }
     return -99.0f;
@@ -246,126 +246,50 @@ float interpolate_bmw_temp(float r_measured) {
 
 float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
-    
     // Check: Wenn Spannung fast 3.3V -> Sensor offen oder Kabelbruch
-    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) {
-        return -1.0f; // Signal für "Fehler"
-    }
+    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return -99.0f; // Signal für "Fehler"
     return (v_adc * r_pullup) / (3.3f - v_adc);
-}
-
-float get_v_board_safe(int16_t raw) {
-
-    float v_adc = (raw * LSB_2048) / 1000.0f;
-    float real_v = v_adc * ((10.0f + 1.5f) / 1.5f);
-
-    if (value_set[0] == false) {
-        filtered_v_board = real_v; 
-        value_set[0] = true;
-    }
-    filtered_v_board = (real_v * FILTER_ALPHA) + (filtered_v_board * (1.0f - FILTER_ALPHA));
-    return filtered_v_board;
-}
-
-float get_v_bel_safe(int16_t raw) {
-    // dies muss anders gelöst werden!
-
-
-    // WICHTIG: PGA muss im ads1115_read_raw Aufruf 0x01 sein!
-    float v_adc = (raw * LSB_4096) / 1000.0f; 
-    float real_v = v_adc * ((10.0f + 2.2f) / 2.2f); // Teiler 10k/2.2k
-    
-    /*if ((real_v > BEL_MAX_PLAUSIBLE || real_v < BEL_MIN_PLAUSIBLE) && value_set[1] == false) {
-        filtered_v_bel = real_v; 
-        value_set[1] = true;
-    }*/
-    filtered_v_bel = real_v; 
-    //filtered_v_bel = (real_v * FILTER_ALPHA) + (filtered_v_bel * (1.0f - FILTER_ALPHA));
-    return filtered_v_bel;
-}
-// --- Sensor Messungen mit Plausibilitäts-Check ---
-
-float get_oil_temp_filtered(int16_t raw) {
-    float r = raw_to_res_safe(raw, 680.0f);
-    if (r < 0) return -99.0f; // Fehler (Offen)
-    
-    float temp = interpolate_temp(r);
-    if (value_set[2] == false) {
-        filtered_oil_temp = temp; 
-        value_set[2] = true;
-    }
-    filtered_oil_temp = (temp * FILTER_ALPHA) + (filtered_oil_temp * (1.0f - FILTER_ALPHA));
-    return filtered_oil_temp;
-}
-
-float get_oil_press_filtered(int16_t raw) {
-    float r = raw_to_res_safe(raw, 680.0f);
-    if (r < 0 || r > 250.0f) return -1.0f; // Fehler oder unplausibel hoch
-    
-    float press = (r - 10.0f) * (10.0f / (184.0f - 10.0f));
-    if (press < 0) press = 0;
-    
-    if (value_set[3] == false) {
-        filtered_oil_press = press; 
-        value_set[3] = true;
-    }
-    filtered_oil_press = (press * FILTER_ALPHA) + (filtered_oil_press * (1.0f - FILTER_ALPHA));
-    return filtered_oil_press;
-}
-
-float get_outside_temp_safe(int16_t raw) {
-    float r = raw_to_res_safe(raw, 4700.0f); 
-    if (r < 0 || r > 150000.0f) {
-        value_set[4] = false; 
-        return -99.0f; // Fehlercode für LVGL
-    }
-
-    // 3. Temperatur aus Tabelle ermitteln
-    float temp_c = interpolate_bmw_temp(r);
-    if (temp_c < -30.0f) {
-        temp_c = -30.0f;
-    }
-    if (temp_c > 70.0f) {
-        temp_c = 70.0f;
-    }
-
-    // 4. Filter anwenden
-    if (value_set[4] == false) {
-        filtered_outside_temp = temp_c; 
-        value_set[4] = true;
-    } 
-    filtered_outside_temp = (temp_c * FILTER_ALPHA) + (filtered_outside_temp * (1.0f - FILTER_ALPHA));
-    
-    return filtered_outside_temp;
 }
 
 float get_i2c_adc_volt() {
     int16_t raw = read_ads1115(ads_handle[0], 0, 0x02); // Board
-    float v_board = get_v_board_safe(raw);
-    printf("Board Voltage: %.2f V\n", v_board);
+    float v_board = (raw * LSB_2048) / 1000.0f;
+    v_board = v_board * ((10.0f + 1.5f) / 1.5f);
+    printf("Board unfiltered Voltage: %.2f V\n", v_board);
     return v_board;
 }
+
 float get_i2c_adc_volt_bel() {
     int16_t raw = read_ads1115(ads_handle[0], 1, 0x01); // Bel
-    float v_bel = get_v_bel_safe(raw);
-    printf("Bel Voltage: %.2f V\n", v_bel);
+    float v_bel = (raw * LSB_4096) / 1000.0f; 
+    v_bel = v_bel * ((10.0f + 2.2f) / 2.2f); // Teiler 10k/2.2k
+    printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
     return v_bel;
 }
+
 float get_i2c_adc_oil_temp() {
     int16_t raw = read_ads1115(ads_handle[0], 2, 0x01); // Temp
-    float oil_t = get_oil_temp_filtered(raw);
-    printf("Oil Temperature: %.1f °C\n", oil_t);
+    float oil_t = raw_to_res_safe(raw, 680.0f);
+    if (oil_t < -50) oil_t = -99.0f; // Fehler (Offen)
+    else oil_t = interpolate_temp(oil_t);
+    printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
     return oil_t;
 }
+
 float get_i2c_adc_oil_press() {
     int16_t raw = read_ads1115(ads_handle[0], 3, 0x01); // Druck
-    float oil_p = get_oil_press_filtered(raw);
-    printf("Oil Pressure: %.2f bar\n", oil_p);
+    float oil_p = raw_to_res_safe(raw, 680.0f);
+    if (oil_p < 0 || oil_p > 250.0f) oil_p = -99.0f; // Fehler oder unplausibel hoch
+    else oil_p = (oil_p - 10.0f) * (10.0f / (184.0f - 10.0f));
+    printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
     return oil_p;
 }
+
 float get_i2c_adc_outside_temp() {
     int16_t raw = read_ads1115(ads_handle[1], 0, 0x01); // Außentemperatur
-    float outside_t = get_outside_temp_safe(raw);
-    printf("Outside Temperature: %.1f °C\n", outside_t);
+    float outside_t = raw_to_res_safe(raw, 4700.0f); 
+    if (outside_t < 0 || outside_t > 150000.0f) outside_t = -99.0f; 
+    else outside_t = interpolate_outside_temp(outside_t);
+    printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
     return outside_t;
 }
