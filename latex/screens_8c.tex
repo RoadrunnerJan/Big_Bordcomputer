@@ -1,0 +1,274 @@
+\doxysection{main/\+lvgl/\+src/\+ui/\+screens.c File Reference}
+\hypertarget{screens_8c}{}\label{screens_8c}\index{main/lvgl/src/ui/screens.c@{main/lvgl/src/ui/screens.c}}
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include "{}screens.\+h"{}}\newline
+{\ttfamily \+\#include "{}images.\+h"{}}\newline
+{\ttfamily \+\#include "{}fonts.\+h"{}}\newline
+{\ttfamily \+\#include "{}actions.\+h"{}}\newline
+{\ttfamily \+\#include "{}vars.\+h"{}}\newline
+{\ttfamily \+\#include "{}styles.\+h"{}}\newline
+{\ttfamily \+\#include "{}ui.\+h"{}}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{screens_8c_ae9cbad4bfc2e426c28d543a8b76ccbdc}{tick\+\_\+screen\+\_\+func\+\_\+t}}) ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{screens_8c_aa30efa2f7a9f0657589ba25d75483185}{create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a40b9a814f9db4b8243c4a160a6fb3c23}{tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a9d1de0a6548544f5988c5e322ee207e3}{create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_aceebbbad5b40b04188a536b94a566e44}{tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_aced10697981092b022826666d0a1be79}{create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a43e4077a530f2b1f2fc98bd8de0f5dc1}{tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a6a89888a4b7c566154b0b0e0f7323a3a}{create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a7b23d0bb523df3323eb90b0040bf6577}{tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_af6626249f1da7beab4bdbf00eaff7d4a}{create\+\_\+screen\+\_\+gauge\+\_\+voltage}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_aaa7d4471f0a2de6dd1cdc7327d478098}{tick\+\_\+screen\+\_\+gauge\+\_\+voltage}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a1ca529deff8485b88606eed98b076037}{create\+\_\+screen\+\_\+gauge\+\_\+voltage\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a8453ca442062f43952efa06d4b3f0f61}{tick\+\_\+screen\+\_\+gauge\+\_\+voltage\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a2d8753d937ef23913b1ad32e5b3e022e}{create\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a60005803c6350142f225130155f8f0d0}{tick\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a4363d8de4d5e28032ad5fd4511a94528}{create\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_ac0b2a09cad414228ead59b1bba14a655}{tick\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_adf12cc5d64688d713d73e03c847d5a99}{create\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a23af1c1ac1df27f4357e8f389118a43c}{tick\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_af6ce5f2f8e64fb6e994759e0feedc07a}{create\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a32aba51f7aadb6df353e2dc211b105de}{tick\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature\+\_\+night}} ()
+\item 
+void \doxymbox{\hyperlink{screens_8c_a0f089dd77de77f17e5a759b546b909a7}{tick\+\_\+screen}} (int screen\+\_\+index)
+\item 
+void \doxymbox{\hyperlink{screens_8c_a37478d65ec0ef2912a850b348ac5108e}{tick\+\_\+screen\+\_\+by\+\_\+id}} (enum \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2c}{Screens\+Enum}} screen\+Id)
+\item 
+void \doxymbox{\hyperlink{screens_8c_a6073eeb5bfdddd93f2ac07e3cffb37ae}{create\+\_\+screens}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{screens_8h_aa4cbe4134a3fddd9bff15ee29492201e}{objects\+\_\+t}} \doxymbox{\hyperlink{screens_8c_aa4483f4b60afc6ac101298579efe3ec9}{objects}}
+\item 
+lv\+\_\+obj\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{screens_8c_abc9a84ce2f5837607abe6ac3237d9a0f}{tick\+\_\+value\+\_\+change\+\_\+obj}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{screens_8c_a332386e025d4a3fd668f862691cf086f}{active\+\_\+theme\+\_\+index}} = 0
+\item 
+\doxymbox{\hyperlink{screens_8c_ae9cbad4bfc2e426c28d543a8b76ccbdc}{tick\+\_\+screen\+\_\+func\+\_\+t}} \doxymbox{\hyperlink{screens_8c_a2e2cd20c5ac56f7474b82a1f6f78c165}{tick\+\_\+screen\+\_\+funcs}} \+[$\,$]\+
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{screens_8c_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{screens_8c_ae9cbad4bfc2e426c28d543a8b76ccbdc}\index{screens.c@{screens.c}!tick\_screen\_func\_t@{tick\_screen\_func\_t}}
+\index{tick\_screen\_func\_t@{tick\_screen\_func\_t}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_func\_t}{tick\_screen\_func\_t}}
+{\footnotesize\ttfamily \label{screens_8c_ae9cbad4bfc2e426c28d543a8b76ccbdc} 
+typedef void(\texorpdfstring{$\ast$}{*} tick\+\_\+screen\+\_\+func\+\_\+t) ()}
+
+
+
+\label{doc-func-members}
+\Hypertarget{screens_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{screens_8c_adf12cc5d64688d713d73e03c847d5a99}\index{screens.c@{screens.c}!create\_screen\_gauge\_clock\_temperature@{create\_screen\_gauge\_clock\_temperature}}
+\index{create\_screen\_gauge\_clock\_temperature@{create\_screen\_gauge\_clock\_temperature}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_clock\_temperature()}{create\_screen\_gauge\_clock\_temperature()}}
+{\footnotesize\ttfamily \label{screens_8c_adf12cc5d64688d713d73e03c847d5a99} 
+void create\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_af6ce5f2f8e64fb6e994759e0feedc07a}\index{screens.c@{screens.c}!create\_screen\_gauge\_clock\_temperature\_night@{create\_screen\_gauge\_clock\_temperature\_night}}
+\index{create\_screen\_gauge\_clock\_temperature\_night@{create\_screen\_gauge\_clock\_temperature\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_clock\_temperature\_night()}{create\_screen\_gauge\_clock\_temperature\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_af6ce5f2f8e64fb6e994759e0feedc07a} 
+void create\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_aa30efa2f7a9f0657589ba25d75483185}\index{screens.c@{screens.c}!create\_screen\_gauge\_oil\_pressure@{create\_screen\_gauge\_oil\_pressure}}
+\index{create\_screen\_gauge\_oil\_pressure@{create\_screen\_gauge\_oil\_pressure}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_oil\_pressure()}{create\_screen\_gauge\_oil\_pressure()}}
+{\footnotesize\ttfamily \label{screens_8c_aa30efa2f7a9f0657589ba25d75483185} 
+void create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a9d1de0a6548544f5988c5e322ee207e3}\index{screens.c@{screens.c}!create\_screen\_gauge\_oil\_pressure\_night@{create\_screen\_gauge\_oil\_pressure\_night}}
+\index{create\_screen\_gauge\_oil\_pressure\_night@{create\_screen\_gauge\_oil\_pressure\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_oil\_pressure\_night()}{create\_screen\_gauge\_oil\_pressure\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a9d1de0a6548544f5988c5e322ee207e3} 
+void create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_aced10697981092b022826666d0a1be79}\index{screens.c@{screens.c}!create\_screen\_gauge\_oil\_temperature@{create\_screen\_gauge\_oil\_temperature}}
+\index{create\_screen\_gauge\_oil\_temperature@{create\_screen\_gauge\_oil\_temperature}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_oil\_temperature()}{create\_screen\_gauge\_oil\_temperature()}}
+{\footnotesize\ttfamily \label{screens_8c_aced10697981092b022826666d0a1be79} 
+void create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a6a89888a4b7c566154b0b0e0f7323a3a}\index{screens.c@{screens.c}!create\_screen\_gauge\_oil\_temperature\_night@{create\_screen\_gauge\_oil\_temperature\_night}}
+\index{create\_screen\_gauge\_oil\_temperature\_night@{create\_screen\_gauge\_oil\_temperature\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_oil\_temperature\_night()}{create\_screen\_gauge\_oil\_temperature\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a6a89888a4b7c566154b0b0e0f7323a3a} 
+void create\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a2d8753d937ef23913b1ad32e5b3e022e}\index{screens.c@{screens.c}!create\_screen\_gauge\_temperature\_clock@{create\_screen\_gauge\_temperature\_clock}}
+\index{create\_screen\_gauge\_temperature\_clock@{create\_screen\_gauge\_temperature\_clock}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_temperature\_clock()}{create\_screen\_gauge\_temperature\_clock()}}
+{\footnotesize\ttfamily \label{screens_8c_a2d8753d937ef23913b1ad32e5b3e022e} 
+void create\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a4363d8de4d5e28032ad5fd4511a94528}\index{screens.c@{screens.c}!create\_screen\_gauge\_temperature\_clock\_night@{create\_screen\_gauge\_temperature\_clock\_night}}
+\index{create\_screen\_gauge\_temperature\_clock\_night@{create\_screen\_gauge\_temperature\_clock\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_temperature\_clock\_night()}{create\_screen\_gauge\_temperature\_clock\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a4363d8de4d5e28032ad5fd4511a94528} 
+void create\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_af6626249f1da7beab4bdbf00eaff7d4a}\index{screens.c@{screens.c}!create\_screen\_gauge\_voltage@{create\_screen\_gauge\_voltage}}
+\index{create\_screen\_gauge\_voltage@{create\_screen\_gauge\_voltage}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_voltage()}{create\_screen\_gauge\_voltage()}}
+{\footnotesize\ttfamily \label{screens_8c_af6626249f1da7beab4bdbf00eaff7d4a} 
+void create\+\_\+screen\+\_\+gauge\+\_\+voltage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a1ca529deff8485b88606eed98b076037}\index{screens.c@{screens.c}!create\_screen\_gauge\_voltage\_night@{create\_screen\_gauge\_voltage\_night}}
+\index{create\_screen\_gauge\_voltage\_night@{create\_screen\_gauge\_voltage\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screen\_gauge\_voltage\_night()}{create\_screen\_gauge\_voltage\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a1ca529deff8485b88606eed98b076037} 
+void create\+\_\+screen\+\_\+gauge\+\_\+voltage\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a6073eeb5bfdddd93f2ac07e3cffb37ae}\index{screens.c@{screens.c}!create\_screens@{create\_screens}}
+\index{create\_screens@{create\_screens}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{create\_screens()}{create\_screens()}}
+{\footnotesize\ttfamily \label{screens_8c_a6073eeb5bfdddd93f2ac07e3cffb37ae} 
+void create\+\_\+screens (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a0f089dd77de77f17e5a759b546b909a7}\index{screens.c@{screens.c}!tick\_screen@{tick\_screen}}
+\index{tick\_screen@{tick\_screen}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen()}{tick\_screen()}}
+{\footnotesize\ttfamily \label{screens_8c_a0f089dd77de77f17e5a759b546b909a7} 
+void tick\+\_\+screen (\begin{DoxyParamCaption}\item[{int}]{screen\+\_\+index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a37478d65ec0ef2912a850b348ac5108e}\index{screens.c@{screens.c}!tick\_screen\_by\_id@{tick\_screen\_by\_id}}
+\index{tick\_screen\_by\_id@{tick\_screen\_by\_id}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_by\_id()}{tick\_screen\_by\_id()}}
+{\footnotesize\ttfamily \label{screens_8c_a37478d65ec0ef2912a850b348ac5108e} 
+void tick\+\_\+screen\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{enum \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2c}{Screens\+Enum}}}]{screen\+Id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a23af1c1ac1df27f4357e8f389118a43c}\index{screens.c@{screens.c}!tick\_screen\_gauge\_clock\_temperature@{tick\_screen\_gauge\_clock\_temperature}}
+\index{tick\_screen\_gauge\_clock\_temperature@{tick\_screen\_gauge\_clock\_temperature}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_clock\_temperature()}{tick\_screen\_gauge\_clock\_temperature()}}
+{\footnotesize\ttfamily \label{screens_8c_a23af1c1ac1df27f4357e8f389118a43c} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a32aba51f7aadb6df353e2dc211b105de}\index{screens.c@{screens.c}!tick\_screen\_gauge\_clock\_temperature\_night@{tick\_screen\_gauge\_clock\_temperature\_night}}
+\index{tick\_screen\_gauge\_clock\_temperature\_night@{tick\_screen\_gauge\_clock\_temperature\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_clock\_temperature\_night()}{tick\_screen\_gauge\_clock\_temperature\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a32aba51f7aadb6df353e2dc211b105de} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+clock\+\_\+temperature\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a40b9a814f9db4b8243c4a160a6fb3c23}\index{screens.c@{screens.c}!tick\_screen\_gauge\_oil\_pressure@{tick\_screen\_gauge\_oil\_pressure}}
+\index{tick\_screen\_gauge\_oil\_pressure@{tick\_screen\_gauge\_oil\_pressure}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_oil\_pressure()}{tick\_screen\_gauge\_oil\_pressure()}}
+{\footnotesize\ttfamily \label{screens_8c_a40b9a814f9db4b8243c4a160a6fb3c23} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_aceebbbad5b40b04188a536b94a566e44}\index{screens.c@{screens.c}!tick\_screen\_gauge\_oil\_pressure\_night@{tick\_screen\_gauge\_oil\_pressure\_night}}
+\index{tick\_screen\_gauge\_oil\_pressure\_night@{tick\_screen\_gauge\_oil\_pressure\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_oil\_pressure\_night()}{tick\_screen\_gauge\_oil\_pressure\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_aceebbbad5b40b04188a536b94a566e44} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+pressure\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a43e4077a530f2b1f2fc98bd8de0f5dc1}\index{screens.c@{screens.c}!tick\_screen\_gauge\_oil\_temperature@{tick\_screen\_gauge\_oil\_temperature}}
+\index{tick\_screen\_gauge\_oil\_temperature@{tick\_screen\_gauge\_oil\_temperature}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_oil\_temperature()}{tick\_screen\_gauge\_oil\_temperature()}}
+{\footnotesize\ttfamily \label{screens_8c_a43e4077a530f2b1f2fc98bd8de0f5dc1} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a7b23d0bb523df3323eb90b0040bf6577}\index{screens.c@{screens.c}!tick\_screen\_gauge\_oil\_temperature\_night@{tick\_screen\_gauge\_oil\_temperature\_night}}
+\index{tick\_screen\_gauge\_oil\_temperature\_night@{tick\_screen\_gauge\_oil\_temperature\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_oil\_temperature\_night()}{tick\_screen\_gauge\_oil\_temperature\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a7b23d0bb523df3323eb90b0040bf6577} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+oil\+\_\+temperature\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a60005803c6350142f225130155f8f0d0}\index{screens.c@{screens.c}!tick\_screen\_gauge\_temperature\_clock@{tick\_screen\_gauge\_temperature\_clock}}
+\index{tick\_screen\_gauge\_temperature\_clock@{tick\_screen\_gauge\_temperature\_clock}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_temperature\_clock()}{tick\_screen\_gauge\_temperature\_clock()}}
+{\footnotesize\ttfamily \label{screens_8c_a60005803c6350142f225130155f8f0d0} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_ac0b2a09cad414228ead59b1bba14a655}\index{screens.c@{screens.c}!tick\_screen\_gauge\_temperature\_clock\_night@{tick\_screen\_gauge\_temperature\_clock\_night}}
+\index{tick\_screen\_gauge\_temperature\_clock\_night@{tick\_screen\_gauge\_temperature\_clock\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_temperature\_clock\_night()}{tick\_screen\_gauge\_temperature\_clock\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_ac0b2a09cad414228ead59b1bba14a655} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+temperature\+\_\+clock\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_aaa7d4471f0a2de6dd1cdc7327d478098}\index{screens.c@{screens.c}!tick\_screen\_gauge\_voltage@{tick\_screen\_gauge\_voltage}}
+\index{tick\_screen\_gauge\_voltage@{tick\_screen\_gauge\_voltage}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_voltage()}{tick\_screen\_gauge\_voltage()}}
+{\footnotesize\ttfamily \label{screens_8c_aaa7d4471f0a2de6dd1cdc7327d478098} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+voltage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{screens_8c_a8453ca442062f43952efa06d4b3f0f61}\index{screens.c@{screens.c}!tick\_screen\_gauge\_voltage\_night@{tick\_screen\_gauge\_voltage\_night}}
+\index{tick\_screen\_gauge\_voltage\_night@{tick\_screen\_gauge\_voltage\_night}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_gauge\_voltage\_night()}{tick\_screen\_gauge\_voltage\_night()}}
+{\footnotesize\ttfamily \label{screens_8c_a8453ca442062f43952efa06d4b3f0f61} 
+void tick\+\_\+screen\+\_\+gauge\+\_\+voltage\+\_\+night (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{screens_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{screens_8c_a332386e025d4a3fd668f862691cf086f}\index{screens.c@{screens.c}!active\_theme\_index@{active\_theme\_index}}
+\index{active\_theme\_index@{active\_theme\_index}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{active\_theme\_index}{active\_theme\_index}}
+{\footnotesize\ttfamily \label{screens_8c_a332386e025d4a3fd668f862691cf086f} 
+uint32\+\_\+t active\+\_\+theme\+\_\+index = 0}
+
+\Hypertarget{screens_8c_aa4483f4b60afc6ac101298579efe3ec9}\index{screens.c@{screens.c}!objects@{objects}}
+\index{objects@{objects}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{objects}{objects}}
+{\footnotesize\ttfamily \label{screens_8c_aa4483f4b60afc6ac101298579efe3ec9} 
+\doxymbox{\hyperlink{screens_8h_aa4cbe4134a3fddd9bff15ee29492201e}{objects\+\_\+t}} objects}
+
+\Hypertarget{screens_8c_a2e2cd20c5ac56f7474b82a1f6f78c165}\index{screens.c@{screens.c}!tick\_screen\_funcs@{tick\_screen\_funcs}}
+\index{tick\_screen\_funcs@{tick\_screen\_funcs}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_screen\_funcs}{tick\_screen\_funcs}}
+{\footnotesize\ttfamily \label{screens_8c_a2e2cd20c5ac56f7474b82a1f6f78c165} 
+\doxymbox{\hyperlink{screens_8c_ae9cbad4bfc2e426c28d543a8b76ccbdc}{tick\+\_\+screen\+\_\+func\+\_\+t}} tick\+\_\+screen\+\_\+funcs\+[$\,$]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a40b9a814f9db4b8243c4a160a6fb3c23}{tick\_screen\_gauge\_oil\_pressure}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_aceebbbad5b40b04188a536b94a566e44}{tick\_screen\_gauge\_oil\_pressure\_night}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a43e4077a530f2b1f2fc98bd8de0f5dc1}{tick\_screen\_gauge\_oil\_temperature}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a7b23d0bb523df3323eb90b0040bf6577}{tick\_screen\_gauge\_oil\_temperature\_night}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_aaa7d4471f0a2de6dd1cdc7327d478098}{tick\_screen\_gauge\_voltage}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a8453ca442062f43952efa06d4b3f0f61}{tick\_screen\_gauge\_voltage\_night}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a60005803c6350142f225130155f8f0d0}{tick\_screen\_gauge\_temperature\_clock}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_ac0b2a09cad414228ead59b1bba14a655}{tick\_screen\_gauge\_temperature\_clock\_night}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a23af1c1ac1df27f4357e8f389118a43c}{tick\_screen\_gauge\_clock\_temperature}},}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{screens_8c_a32aba51f7aadb6df353e2dc211b105de}{tick\_screen\_gauge\_clock\_temperature\_night}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{screens_8c_abc9a84ce2f5837607abe6ac3237d9a0f}\index{screens.c@{screens.c}!tick\_value\_change\_obj@{tick\_value\_change\_obj}}
+\index{tick\_value\_change\_obj@{tick\_value\_change\_obj}!screens.c@{screens.c}}
+\doxysubsubsection{\texorpdfstring{tick\_value\_change\_obj}{tick\_value\_change\_obj}}
+{\footnotesize\ttfamily \label{screens_8c_abc9a84ce2f5837607abe6ac3237d9a0f} 
+lv\+\_\+obj\+\_\+t\texorpdfstring{$\ast$}{*} tick\+\_\+value\+\_\+change\+\_\+obj}
+

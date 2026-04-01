@@ -1,0 +1,92 @@
+\doxysection{main/\+peripherie/\+spi\+Functions.c File Reference}
+\hypertarget{spi_functions_8c}{}\label{spi_functions_8c}\index{main/peripherie/spiFunctions.c@{main/peripherie/spiFunctions.c}}
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}spi\+Functions.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{spi_functions_8c_ae323ee5914dcc58d391f154dc5cd13a7}{set\+\_\+\+Displays}} ()
+\item 
+void \doxymbox{\hyperlink{spi_functions_8c_ae909944aa85ae98323073c628be541aa}{spi\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8c_a407d5033a6f0198221c8a9081d7e807e}{display\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8c_a6479b9628d9b1967d74f61f3bfccd536}{buffer\+\_\+and\+\_\+driver\+\_\+init}} ()
+\item 
+void \doxymbox{\hyperlink{spi_functions_8c_a161432848a326da3a1ea7765fc2bc023}{timer\+\_\+start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structspi__settings}{spi\+\_\+settings}} \doxymbox{\hyperlink{spi_functions_8c_aa23181a4e6a5e0d9b8b36802b97de619}{SPI\+\_\+\+SETUP}} \+[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}]\+
+\item 
+struct \doxymbox{\hyperlink{structdisplay__settings}{display\+\_\+settings}} \doxymbox{\hyperlink{spi_functions_8c_a53598c0ed36fe31997ca9e7f0f6f694a}{DISPLAYS}} \+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}]\+
+\item 
+esp\+\_\+timer\+\_\+handle\+\_\+t \doxymbox{\hyperlink{spi_functions_8c_a5297ef2d8c460fc39919e9bdd8f65395}{periodic\+\_\+timer}}
+\item 
+int \doxymbox{\hyperlink{spi_functions_8c_a7bcd43513f7ef323ca0151fc9c69e07a}{reset\+\_\+is\+\_\+set}} = false
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{spi_functions_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{spi_functions_8c_a6479b9628d9b1967d74f61f3bfccd536}\index{spiFunctions.c@{spiFunctions.c}!buffer\_and\_driver\_init@{buffer\_and\_driver\_init}}
+\index{buffer\_and\_driver\_init@{buffer\_and\_driver\_init}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{buffer\_and\_driver\_init()}{buffer\_and\_driver\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a6479b9628d9b1967d74f61f3bfccd536} 
+void buffer\+\_\+and\+\_\+driver\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize display buffers and LVGL drivers for all displays Allocates memory buffers and registers display drivers with LVGL \Hypertarget{spi_functions_8c_a407d5033a6f0198221c8a9081d7e807e}\index{spiFunctions.c@{spiFunctions.c}!display\_init@{display\_init}}
+\index{display\_init@{display\_init}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{display\_init()}{display\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a407d5033a6f0198221c8a9081d7e807e} 
+void display\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize display configuration for all connected displays Sets up display parameters, SPI hosts, and pin configurations \Hypertarget{spi_functions_8c_ae323ee5914dcc58d391f154dc5cd13a7}\index{spiFunctions.c@{spiFunctions.c}!set\_Displays@{set\_Displays}}
+\index{set\_Displays@{set\_Displays}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{set\_Displays()}{set\_Displays()}}
+{\footnotesize\ttfamily \label{spi_functions_8c_ae323ee5914dcc58d391f154dc5cd13a7} 
+void set\+\_\+\+Displays (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize and load all display screens Sets up LVGL displays and loads appropriate screens based on screen selection \Hypertarget{spi_functions_8c_ae909944aa85ae98323073c628be541aa}\index{spiFunctions.c@{spiFunctions.c}!spi\_init@{spi\_init}}
+\index{spi\_init@{spi\_init}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{spi\_init()}{spi\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8c_ae909944aa85ae98323073c628be541aa} 
+void spi\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize SPI bus configuration for all displays Sets up SPI host configurations and initializes bus with DMA \Hypertarget{spi_functions_8c_a161432848a326da3a1ea7765fc2bc023}\index{spiFunctions.c@{spiFunctions.c}!timer\_start@{timer\_start}}
+\index{timer\_start@{timer\_start}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{timer\_start()}{timer\_start()}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a161432848a326da3a1ea7765fc2bc023} 
+void timer\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Start the periodic LVGL timer for GUI updates 
+
+\label{doc-var-members}
+\Hypertarget{spi_functions_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{spi_functions_8c_a53598c0ed36fe31997ca9e7f0f6f694a}\index{spiFunctions.c@{spiFunctions.c}!DISPLAYS@{DISPLAYS}}
+\index{DISPLAYS@{DISPLAYS}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{DISPLAYS}{DISPLAYS}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a53598c0ed36fe31997ca9e7f0f6f694a} 
+struct \doxymbox{\hyperlink{structdisplay__settings}{display\+\_\+settings}} DISPLAYS\+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}]\+}
+
+\Hypertarget{spi_functions_8c_a5297ef2d8c460fc39919e9bdd8f65395}\index{spiFunctions.c@{spiFunctions.c}!periodic\_timer@{periodic\_timer}}
+\index{periodic\_timer@{periodic\_timer}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{periodic\_timer}{periodic\_timer}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a5297ef2d8c460fc39919e9bdd8f65395} 
+esp\+\_\+timer\+\_\+handle\+\_\+t periodic\+\_\+timer}
+
+\Hypertarget{spi_functions_8c_a7bcd43513f7ef323ca0151fc9c69e07a}\index{spiFunctions.c@{spiFunctions.c}!reset\_is\_set@{reset\_is\_set}}
+\index{reset\_is\_set@{reset\_is\_set}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{reset\_is\_set}{reset\_is\_set}}
+{\footnotesize\ttfamily \label{spi_functions_8c_a7bcd43513f7ef323ca0151fc9c69e07a} 
+int reset\+\_\+is\+\_\+set = false}
+
+\Hypertarget{spi_functions_8c_aa23181a4e6a5e0d9b8b36802b97de619}\index{spiFunctions.c@{spiFunctions.c}!SPI\_SETUP@{SPI\_SETUP}}
+\index{SPI\_SETUP@{SPI\_SETUP}!spiFunctions.c@{spiFunctions.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_SETUP}{SPI\_SETUP}}
+{\footnotesize\ttfamily \label{spi_functions_8c_aa23181a4e6a5e0d9b8b36802b97de619} 
+struct \doxymbox{\hyperlink{structspi__settings}{spi\+\_\+settings}} SPI\+\_\+\+SETUP\+[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}]\+}
+

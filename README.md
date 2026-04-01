@@ -3,80 +3,95 @@
 
 # Customizable ESP32 Bordcomputer
 
-The intention of this project is to build a customizable Bordcomputer for old vehicles like the BMW E36. Normaly this car could have a boardcomputer providing by BMW which shows something like the average gasoline consumption or broke light bulbs. Another option is a multifunctional clock which shows the date, time and temperature. There is no possibility to show the current oil temperature or pressure.
+Dieses Projekt implementiert einen maßgeschneiderten Bordcomputer für klassische Fahrzeuge wie den BMW E36. Anstatt der standardmäßigen BMW-Bordcomputer (die nur Durchschnittsverbrauch oder defekte Glühlampen anzeigen), oder multifunktionaler Uhren (Datum, Uhrzeit, Temperatur), bietet dieses System eine vollständige Anzeige der aktuellen Motorparameter.
 
-The aim of this project is to replace the standard bordcomputer by an own build computer which shows the actual oil temperature, pressure, voltage and the clock/termperature.
+**Hauptfunktionen:**
+- Anzeige von Öltemperatur, Öldruck, Bordspannung und Uhrzeit/Temperatur
+- Vier runde TFT-Displays für separate Messinstrumente
+- Anpassbare Anzahl und Typ der Displays
+- Vollständig anpassbares Design über LVGL
 
-The version for the E36 is build with four displays. Each shows an own gauge for the measurements. The number of gauges is adjustable. The amount or type of display can get adjusted. The design can get adjusted, too.
+Die E36-Version verwendet vier Displays, jedes mit einem eigenen Messinstrument. Alle Parameter sind konfigurierbar.
 
-# Overall Hardware:
+## Hardware-Übersicht
 
-The project uses a fast ESP32P4 which is connected to all the periphers.
-The following elements are used for the E36 boardcomputer:
-- ESP32P4 - WT9932P4-TINY
-- 4x 1.28 Inch Round TFT LCD Display Module (240x240 RGB) with GC9A01 Driver (https://de.aliexpress.com/item/1005009364283361.html?spm=a2g0o.order_list.order_list_main.10.2d425c5foxNjLr&gatewayAdapt=glo2deu)
-- Customized PCB Board to connect the Displays and the other periphery with the ESP (Uploaded in hardware directory of this project)
-- 5V buzzer to idenicate the outdoor temperature under 3°C
-- 2x buttons for changing the current time
-- 12v to 5v converter
-- BMW oil temperature and pressure sensor using a pwm signal to send the sensor values (Hella 6PP 010 378-201) - connected to the engine
+Das Projekt basiert auf einem leistungsstarken ESP32-P4, der alle Peripheriegeräte steuert.
 
-The datasheets of the used elements are provided in the directory datasheet
+**Verwendete Komponenten für den E36-Bordcomputer:**
+- **ESP32-P4 WT9932P4-TINY** - Hauptprozessor
+- **4x 1.28 Zoll Rundes TFT LCD Display (240x240 RGB) mit GC9A01 Treiber** ([Link zu AliExpress](https://de.aliexpress.com/item/1005009364283361.html))
+- **Angepasste PCB** zur Verbindung der Displays und Peripherie mit dem ESP (im `hardware/` Verzeichnis)
+- **5V Buzzer** zur Warnung bei Außentemperaturen unter 3°C
+- **2x Tasten** zur Zeiteinstellung
+- **12V zu 5V Wandler** für Stromversorgung
+- **BMW Öltemperatur- und Druck-Sensor (Hella 6PP 010 378-201)** - PWM-Signal vom Motor
 
-# Software
+Die Datenblätter der verwendeten Komponenten finden sich im `datasheets/` Verzeichnis.
 
-- FreeRTOS tasks to schedule the different operations
-- LVGL designs for the gauges
-- PWM reading of the sensor
+## Software
 
-## How to flash
+- **FreeRTOS Tasks** zur Planung der verschiedenen Operationen
+- **LVGL** für die Gestaltung der Messinstrumente
+- **PWM-Abtastung** der Sensoren
+- **Modulare Architektur** mit separaten Verzeichnissen für Berechnung, Logging, LVGL-UI und Peripherie
 
+## Wie man das Projekt flashen kann
 
+1. **Voraussetzungen:**
+   - ESP-IDF installiert (Version entsprechend der SDK-Konfiguration)
+   - USB-Kabel für den ESP32-P4
 
+2. **Projekt kompilieren:**
+   ```
+   idf.py build
+   ```
 
+3. **Flashen:**
+   ```
+   idf.py flash
+   ```
 
+4. **Monitor starten:**
+   ```
+   idf.py monitor
+   ```
 
+Für detaillierte Anleitungen siehe die offiziellen ESP-IDF Guides.
 
-
-
-
-
-## ESP Help
-Follow detailed instructions provided specifically for this example.
-
-Select the instructions depending on Espressif chip installed on your development board:
-
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
-
-
-## Example folder contents
-
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
-
-Below is short explanation of remaining files in the project folder.
+## Projektstruktur
 
 ```
-├── CMakeLists.txt
-├── pytest_hello_world.py      Python script used for automated testing
-├── main
+├── CMakeLists.txt              # Haupt-Build-Konfiguration
+├── sdkconfig                   # ESP-IDF Konfiguration
+├── main/                       # Hauptquellcode
 │   ├── CMakeLists.txt
-│   └── hello_world_main.c
-└── README.md                  This is the file you are currently reading
+│   ├── main.c                  # Haupteinstiegspunkt
+│   ├── individual_config.h     # Konfigurationsdefines
+│   ├── calculation/            # Berechnungsmodule
+│   ├── logging/                # Logging-Funktionen
+│   ├── lvgl/                   # LVGL-UI und Grafiken
+│   └── peripherie/             # Peripherie-Treiber (Buzzer, Buttons, etc.)
+├── hardware/                   # PCB-Design und Hardware-Dateien
+├── datasheets/                 # Datenblätter der Komponenten
+├── fonts/                      # Schriftarten
+├── png/                        # Bilder und Icons
+├── managed_components/         # ESP-IDF Komponenten
+└── README.md                   # Diese Datei
 ```
-
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
 
 ## Troubleshooting
 
-* Program upload failure
+* **Flash-Fehler:**
+  - Überprüfe die USB-Verbindung: `idf.py -p PORT monitor` ausführen und das Board neu starten, um Logs zu sehen.
+  - Baudrate zu hoch: In `menuconfig` die Baudrate reduzieren und erneut versuchen.
 
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
+* **Anzeigeprobleme:**
+  - SPI-Pins in `individual_config.h` überprüfen
+  - Stromversorgung sicherstellen (12V zu 5V Wandler)
 
-## Technical support and feedback
+## Technischer Support und Feedback
+
+Bei Fragen oder Problemen bitte ein Issue im Repository erstellen oder den Code kommentieren.
 
 Please use the following feedback channels:
 

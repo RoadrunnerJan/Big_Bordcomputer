@@ -1,0 +1,230 @@
+\doxysection{main/\+calculation/\+values.h File Reference}
+\hypertarget{values_8h}{}\label{values_8h}\index{main/calculation/values.h@{main/calculation/values.h}}
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}../\+lvgl/\+src/\+ui/\+screens.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+system.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{values_8h_a87038ca07bdb2939f1924e3149e5050e}{calc\+\_\+filter}} (double new\+\_\+value\+\_\+us, double pre\+\_\+value\+\_\+us)
+\item 
+void \doxymbox{\hyperlink{values_8h_a62b2188dbcd1b3b5b7952cfc549f0a86}{reset\+\_\+values}} (int screen\+Selection)
+\item 
+void \doxymbox{\hyperlink{values_8h_ac514d396b9082664b1f2faf7c1e2aa62}{reset\+\_\+brightness}} (void)
+\item 
+void \doxymbox{\hyperlink{values_8h_aae23d631c2c925d9510951ea93a2fdd1}{calculate\+\_\+value}} (int screen\+Selection, double new\+\_\+value)
+\item 
+double \doxymbox{\hyperlink{values_8h_a93bef038a8c357eadde3459f19a5949e}{get\+\_\+value\+\_\+by\+\_\+screen\+\_\+id}} (int screen\+Selection)
+\item 
+void \doxymbox{\hyperlink{values_8h_a6716fa7df23009066f0de8f2add1fe0b}{calc\+Brightness}} (float value)
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{values_8h_a9c8bf0a883b5730062a6c022340b6f50}{get\+\_\+output\+\_\+string}} (void)
+\item 
+int \doxymbox{\hyperlink{values_8h_a73221be1b1c78e4541912e7aa56cd73c}{get\+Brightness}} (void)
+\item 
+bool \doxymbox{\hyperlink{values_8h_ad865da0ea1b2c96cc9f9b079cdc83f93}{get\+Night\+Mode\+Active}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{values_8h_ac54cfe4d092f1d9cb9dc8c33fd981adc}{pres\+\_\+value\+\_\+set}}
+\item 
+bool \doxymbox{\hyperlink{values_8h_aa2ea020aec48763bdf4f49303bcb995d}{temp\+\_\+value\+\_\+set}}
+\item 
+bool \doxymbox{\hyperlink{values_8h_a85f57d7c98c97d9d2f77aac32a484037}{volt\+\_\+value\+\_\+set}}
+\item 
+bool \doxymbox{\hyperlink{values_8h_ae027f04461ce9c5e594429fa683e6531}{outside\+\_\+temperature\+\_\+set}}
+\item 
+double \doxymbox{\hyperlink{values_8h_a6e1f55e6b827434eafd7449a6f0e8e2c}{value\+\_\+oil\+\_\+pressure}}
+\item 
+double \doxymbox{\hyperlink{values_8h_a107f34b0fbb551d6fde5f94d347b7d22}{value\+\_\+oil\+\_\+temperature}}
+\item 
+double \doxymbox{\hyperlink{values_8h_a64cb441167d6932e541441209d31f040}{value\+\_\+volt}}
+\item 
+double \doxymbox{\hyperlink{values_8h_a10b3b64739e3de3e61a06ef5434447dc}{value\+\_\+outside\+\_\+temperature}}
+\item 
+int \doxymbox{\hyperlink{values_8h_a5417638ee52e124071a9c3d78a45e455}{value\+\_\+brightness}}
+\item 
+bool \doxymbox{\hyperlink{values_8h_a2e46e8efc3c52e68d70b01707d4edea6}{night\+\_\+mode\+\_\+active}}
+\item 
+char \doxymbox{\hyperlink{values_8h_a337ff90228def09e9868e067ef50f71c}{output\+\_\+string}} \+[20]\+
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{values_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{values_8h_a87038ca07bdb2939f1924e3149e5050e}\index{values.h@{values.h}!calc\_filter@{calc\_filter}}
+\index{calc\_filter@{calc\_filter}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{calc\_filter()}{calc\_filter()}}
+{\footnotesize\ttfamily \label{values_8h_a87038ca07bdb2939f1924e3149e5050e} 
+double calc\+\_\+filter (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+value\+\_\+us}{, }\item[{double}]{pre\+\_\+value\+\_\+us}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Low-\/pass filter for sensor value smoothing Uses exponential moving average to reduce noise 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+value\+\_\+us} & New sensor reading \\
+\hline
+{\em pre\+\_\+value\+\_\+us} & Previous filtered value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered value 
+\end{DoxyReturn}
+\Hypertarget{values_8h_a6716fa7df23009066f0de8f2add1fe0b}\index{values.h@{values.h}!calcBrightness@{calcBrightness}}
+\index{calcBrightness@{calcBrightness}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{calcBrightness()}{calcBrightness()}}
+{\footnotesize\ttfamily \label{values_8h_a6716fa7df23009066f0de8f2add1fe0b} 
+void calc\+Brightness (\begin{DoxyParamCaption}\item[{float}]{value}{}\end{DoxyParamCaption})}
+
+Calculate brightness level from voltage with automatic day/\+night mode detection Range:\+ 2.\+29-\/10.\+74V = 5-\/40\% brightness (night), \texorpdfstring{$<$}{<}1.\+0V = 80\% (day) 
+\begin{DoxyParams}{Parameters}
+{\em value} & Battery voltage reading\\
+\hline
+\end{DoxyParams}
+Calculate brightness level from voltage with automatic day/\+night mode detection Day mode (\texorpdfstring{$<$}{<} 1.\+0V):\+ 100\% brightness (BRIGHTNESS\+\_\+\+DAY constant) Night mode (2.\+29-\/10.\+74V):\+ 5-\/40\% brightness (linear interpolation) Uses voltage reference divider for battery voltage monitoring \Hypertarget{values_8h_aae23d631c2c925d9510951ea93a2fdd1}\index{values.h@{values.h}!calculate\_value@{calculate\_value}}
+\index{calculate\_value@{calculate\_value}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_value()}{calculate\_value()}}
+{\footnotesize\ttfamily \label{values_8h_aae23d631c2c925d9510951ea93a2fdd1} 
+void calculate\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{screen\+Selection}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+Calculate and validate sensor value with range checking and filtering Updates global sensor value variable and output\+\_\+string 
+\begin{DoxyParams}{Parameters}
+{\em screen\+Selection} & Screen ID corresponding to sensor type \\
+\hline
+{\em new\+\_\+value} & Raw sensor value to process\\
+\hline
+\end{DoxyParams}
+Calculate and validate sensor value with range checking and filtering Updates global sensor value variable and output\+\_\+string for LVGL display \Hypertarget{values_8h_a9c8bf0a883b5730062a6c022340b6f50}\index{values.h@{values.h}!get\_output\_string@{get\_output\_string}}
+\index{get\_output\_string@{get\_output\_string}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{get\_output\_string()}{get\_output\_string()}}
+{\footnotesize\ttfamily \label{values_8h_a9c8bf0a883b5730062a6c022340b6f50} 
+char \texorpdfstring{$\ast$}{*} get\+\_\+output\+\_\+string (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get formatted output string for current sensor value \begin{DoxyReturn}{Returns}
+Pointer to output\+\_\+string (valid for one sensor reading)
+\end{DoxyReturn}
+Get formatted output string for current sensor value Returns pointer to output\+\_\+string (must be read before next value update) \Hypertarget{values_8h_a93bef038a8c357eadde3459f19a5949e}\index{values.h@{values.h}!get\_value\_by\_screen\_id@{get\_value\_by\_screen\_id}}
+\index{get\_value\_by\_screen\_id@{get\_value\_by\_screen\_id}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{get\_value\_by\_screen\_id()}{get\_value\_by\_screen\_id()}}
+{\footnotesize\ttfamily \label{values_8h_a93bef038a8c357eadde3459f19a5949e} 
+double get\+\_\+value\+\_\+by\+\_\+screen\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{screen\+Selection}{}\end{DoxyParamCaption})}
+
+Get current sensor value by screen type 
+\begin{DoxyParams}{Parameters}
+{\em screen\+Selection} & Screen ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current value for the sensor
+\end{DoxyReturn}
+Get current sensor value by screen type \Hypertarget{values_8h_a73221be1b1c78e4541912e7aa56cd73c}\index{values.h@{values.h}!getBrightness@{getBrightness}}
+\index{getBrightness@{getBrightness}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{getBrightness()}{getBrightness()}}
+{\footnotesize\ttfamily \label{values_8h_a73221be1b1c78e4541912e7aa56cd73c} 
+int get\+Brightness (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get current brightness level percentage \begin{DoxyReturn}{Returns}
+Brightness (0-\/100)
+\end{DoxyReturn}
+Get current brightness level percentage \Hypertarget{values_8h_ad865da0ea1b2c96cc9f9b079cdc83f93}\index{values.h@{values.h}!getNightModeActive@{getNightModeActive}}
+\index{getNightModeActive@{getNightModeActive}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{getNightModeActive()}{getNightModeActive()}}
+{\footnotesize\ttfamily \label{values_8h_ad865da0ea1b2c96cc9f9b079cdc83f93} 
+bool get\+Night\+Mode\+Active (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get current day/\+night mode state \begin{DoxyReturn}{Returns}
+true if night mode active, false if day mode
+\end{DoxyReturn}
+Get current day/\+night mode state \Hypertarget{values_8h_ac514d396b9082664b1f2faf7c1e2aa62}\index{values.h@{values.h}!reset\_brightness@{reset\_brightness}}
+\index{reset\_brightness@{reset\_brightness}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{reset\_brightness()}{reset\_brightness()}}
+{\footnotesize\ttfamily \label{values_8h_ac514d396b9082664b1f2faf7c1e2aa62} 
+void reset\+\_\+brightness (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Reset brightness to default day mode value
+
+Reset brightness to default day mode value and disable night mode \Hypertarget{values_8h_a62b2188dbcd1b3b5b7952cfc549f0a86}\index{values.h@{values.h}!reset\_values@{reset\_values}}
+\index{reset\_values@{reset\_values}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{reset\_values()}{reset\_values()}}
+{\footnotesize\ttfamily \label{values_8h_a62b2188dbcd1b3b5b7952cfc549f0a86} 
+void reset\+\_\+values (\begin{DoxyParamCaption}\item[{int}]{screen\+Selection}{}\end{DoxyParamCaption})}
+
+Reset sensor values to defaults for specified screen 
+\begin{DoxyParams}{Parameters}
+{\em screen\+Selection} & Screen ID (from screens.\+h)\\
+\hline
+\end{DoxyParams}
+Reset sensor values to defaults for specified screen/\+gauge 
+
+\label{doc-var-members}
+\Hypertarget{values_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{values_8h_a2e46e8efc3c52e68d70b01707d4edea6}\index{values.h@{values.h}!night\_mode\_active@{night\_mode\_active}}
+\index{night\_mode\_active@{night\_mode\_active}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{night\_mode\_active}{night\_mode\_active}}
+{\footnotesize\ttfamily \label{values_8h_a2e46e8efc3c52e68d70b01707d4edea6} 
+bool night\+\_\+mode\+\_\+active\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a337ff90228def09e9868e067ef50f71c}\index{values.h@{values.h}!output\_string@{output\_string}}
+\index{output\_string@{output\_string}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{output\_string}{output\_string}}
+{\footnotesize\ttfamily \label{values_8h_a337ff90228def09e9868e067ef50f71c} 
+char output\+\_\+string\+[20]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_ae027f04461ce9c5e594429fa683e6531}\index{values.h@{values.h}!outside\_temperature\_set@{outside\_temperature\_set}}
+\index{outside\_temperature\_set@{outside\_temperature\_set}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{outside\_temperature\_set}{outside\_temperature\_set}}
+{\footnotesize\ttfamily \label{values_8h_ae027f04461ce9c5e594429fa683e6531} 
+bool outside\+\_\+temperature\+\_\+set\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_ac54cfe4d092f1d9cb9dc8c33fd981adc}\index{values.h@{values.h}!pres\_value\_set@{pres\_value\_set}}
+\index{pres\_value\_set@{pres\_value\_set}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{pres\_value\_set}{pres\_value\_set}}
+{\footnotesize\ttfamily \label{values_8h_ac54cfe4d092f1d9cb9dc8c33fd981adc} 
+bool pres\+\_\+value\+\_\+set\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_aa2ea020aec48763bdf4f49303bcb995d}\index{values.h@{values.h}!temp\_value\_set@{temp\_value\_set}}
+\index{temp\_value\_set@{temp\_value\_set}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{temp\_value\_set}{temp\_value\_set}}
+{\footnotesize\ttfamily \label{values_8h_aa2ea020aec48763bdf4f49303bcb995d} 
+bool temp\+\_\+value\+\_\+set\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a5417638ee52e124071a9c3d78a45e455}\index{values.h@{values.h}!value\_brightness@{value\_brightness}}
+\index{value\_brightness@{value\_brightness}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{value\_brightness}{value\_brightness}}
+{\footnotesize\ttfamily \label{values_8h_a5417638ee52e124071a9c3d78a45e455} 
+int value\+\_\+brightness\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a6e1f55e6b827434eafd7449a6f0e8e2c}\index{values.h@{values.h}!value\_oil\_pressure@{value\_oil\_pressure}}
+\index{value\_oil\_pressure@{value\_oil\_pressure}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{value\_oil\_pressure}{value\_oil\_pressure}}
+{\footnotesize\ttfamily \label{values_8h_a6e1f55e6b827434eafd7449a6f0e8e2c} 
+double value\+\_\+oil\+\_\+pressure\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a107f34b0fbb551d6fde5f94d347b7d22}\index{values.h@{values.h}!value\_oil\_temperature@{value\_oil\_temperature}}
+\index{value\_oil\_temperature@{value\_oil\_temperature}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{value\_oil\_temperature}{value\_oil\_temperature}}
+{\footnotesize\ttfamily \label{values_8h_a107f34b0fbb551d6fde5f94d347b7d22} 
+double value\+\_\+oil\+\_\+temperature\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a10b3b64739e3de3e61a06ef5434447dc}\index{values.h@{values.h}!value\_outside\_temperature@{value\_outside\_temperature}}
+\index{value\_outside\_temperature@{value\_outside\_temperature}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{value\_outside\_temperature}{value\_outside\_temperature}}
+{\footnotesize\ttfamily \label{values_8h_a10b3b64739e3de3e61a06ef5434447dc} 
+double value\+\_\+outside\+\_\+temperature\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a64cb441167d6932e541441209d31f040}\index{values.h@{values.h}!value\_volt@{value\_volt}}
+\index{value\_volt@{value\_volt}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{value\_volt}{value\_volt}}
+{\footnotesize\ttfamily \label{values_8h_a64cb441167d6932e541441209d31f040} 
+double value\+\_\+volt\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{values_8h_a85f57d7c98c97d9d2f77aac32a484037}\index{values.h@{values.h}!volt\_value\_set@{volt\_value\_set}}
+\index{volt\_value\_set@{volt\_value\_set}!values.h@{values.h}}
+\doxysubsubsection{\texorpdfstring{volt\_value\_set}{volt\_value\_set}}
+{\footnotesize\ttfamily \label{values_8h_a85f57d7c98c97d9d2f77aac32a484037} 
+bool volt\+\_\+value\+\_\+set\hspace{0.3cm}{\ttfamily [extern]}}
+

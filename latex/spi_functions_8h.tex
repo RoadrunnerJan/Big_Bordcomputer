@@ -1,0 +1,141 @@
+\doxysection{main/\+peripherie/\+spi\+Functions.h File Reference}
+\hypertarget{spi_functions_8h}{}\label{spi_functions_8h}\index{main/peripherie/spiFunctions.h@{main/peripherie/spiFunctions.h}}
+
+
+SPI display driver for multiple LCD panels.  
+
+
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+gc9a01.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+panel\+\_\+commands.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+panel\+\_\+dev.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+panel\+\_\+interface.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+io\+\_\+spi.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+panel\+\_\+ops.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+lcd\+\_\+panel\+\_\+vendor.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}lvgl.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+heap\+\_\+caps.\+h"{}}\newline
+{\ttfamily \+\#include "{}../\+lvgl/\+src/\+ui/\+ui.\+h"{}}\newline
+{\ttfamily \+\#include "{}../\+lvgl/\+src/\+ui/\+screens.\+h"{}}\newline
+{\ttfamily \+\#include "{}../\+lvgl/\+src/\+ui/\+vars.\+h"{}}\newline
+{\ttfamily \+\#include "{}../\+managed\+\_\+components/\+lvgl\+\_\+\+\_\+lvgl/\+src/\+extra/\+widgets/\+meter/\+lv\+\_\+meter.\+h"{}}\newline
+{\ttfamily \+\#include "{}freertos/\+\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \+\#include "{}freertos/\+task.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+log.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structspi__settings}{spi\+\_\+settings}}
+\item 
+struct \doxymbox{\hyperlink{structdisplay__settings}{display\+\_\+settings}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}{set\+Up\+\_\+\+Variables}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_ae909944aa85ae98323073c628be541aa}{spi\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_a407d5033a6f0198221c8a9081d7e807e}{display\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a}{buffer\+\_\+and\+\_\+driver\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0}{timer\+\_\+start}} (void)
+\item 
+void \doxymbox{\hyperlink{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a}{set\+\_\+\+Displays}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structspi__settings}{spi\+\_\+settings}} \doxymbox{\hyperlink{spi_functions_8h_aa23181a4e6a5e0d9b8b36802b97de619}{SPI\+\_\+\+SETUP}} \+[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}]\+
+\item 
+struct \doxymbox{\hyperlink{structdisplay__settings}{display\+\_\+settings}} \doxymbox{\hyperlink{spi_functions_8h_a53598c0ed36fe31997ca9e7f0f6f694a}{DISPLAYS}} \+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}]\+
+\item 
+esp\+\_\+timer\+\_\+handle\+\_\+t \doxymbox{\hyperlink{spi_functions_8h_a5297ef2d8c460fc39919e9bdd8f65395}{periodic\+\_\+timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SPI display driver for multiple LCD panels. 
+
+Manages SPI communication with multiple LCD displays using ESP-\/\+IDF and LVGL.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item Multi-\/display SPI initialization (up to 4 displays)
+\item LVGL integration for graphics rendering
+\item Display task scheduling and timing 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{spi_functions_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a}\index{spiFunctions.h@{spiFunctions.h}!buffer\_and\_driver\_init@{buffer\_and\_driver\_init}}
+\index{buffer\_and\_driver\_init@{buffer\_and\_driver\_init}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{buffer\_and\_driver\_init()}{buffer\_and\_driver\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a} 
+void buffer\+\_\+and\+\_\+driver\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize display buffers and LVGL drivers for all displays Allocates memory buffers and registers display drivers with LVGL \Hypertarget{spi_functions_8h_a407d5033a6f0198221c8a9081d7e807e}\index{spiFunctions.h@{spiFunctions.h}!display\_init@{display\_init}}
+\index{display\_init@{display\_init}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{display\_init()}{display\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_a407d5033a6f0198221c8a9081d7e807e} 
+void display\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize display configuration for all connected displays Sets up display parameters, SPI hosts, and pin configurations \Hypertarget{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a}\index{spiFunctions.h@{spiFunctions.h}!set\_Displays@{set\_Displays}}
+\index{set\_Displays@{set\_Displays}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{set\_Displays()}{set\_Displays()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a} 
+void set\+\_\+\+Displays (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize and load all display screens Sets up LVGL displays and loads appropriate screens based on screen selection \Hypertarget{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}\index{spiFunctions.h@{spiFunctions.h}!setUp\_Variables@{setUp\_Variables}}
+\index{setUp\_Variables@{setUp\_Variables}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{setUp\_Variables()}{setUp\_Variables()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091} 
+void set\+Up\+\_\+\+Variables (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{spi_functions_8h_ae909944aa85ae98323073c628be541aa}\index{spiFunctions.h@{spiFunctions.h}!spi\_init@{spi\_init}}
+\index{spi\_init@{spi\_init}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{spi\_init()}{spi\_init()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_ae909944aa85ae98323073c628be541aa} 
+void spi\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize SPI bus configuration for all displays Sets up SPI host configurations and initializes bus with DMA \Hypertarget{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0}\index{spiFunctions.h@{spiFunctions.h}!timer\_start@{timer\_start}}
+\index{timer\_start@{timer\_start}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{timer\_start()}{timer\_start()}}
+{\footnotesize\ttfamily \label{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0} 
+void timer\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Start the periodic LVGL timer for GUI updates 
+
+\label{doc-var-members}
+\Hypertarget{spi_functions_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{spi_functions_8h_a53598c0ed36fe31997ca9e7f0f6f694a}\index{spiFunctions.h@{spiFunctions.h}!DISPLAYS@{DISPLAYS}}
+\index{DISPLAYS@{DISPLAYS}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{DISPLAYS}{DISPLAYS}}
+{\footnotesize\ttfamily \label{spi_functions_8h_a53598c0ed36fe31997ca9e7f0f6f694a} 
+struct \doxymbox{\hyperlink{structdisplay__settings}{display\+\_\+settings}} DISPLAYS\+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{spi_functions_8h_a5297ef2d8c460fc39919e9bdd8f65395}\index{spiFunctions.h@{spiFunctions.h}!periodic\_timer@{periodic\_timer}}
+\index{periodic\_timer@{periodic\_timer}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{periodic\_timer}{periodic\_timer}}
+{\footnotesize\ttfamily \label{spi_functions_8h_a5297ef2d8c460fc39919e9bdd8f65395} 
+esp\+\_\+timer\+\_\+handle\+\_\+t periodic\+\_\+timer\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{spi_functions_8h_aa23181a4e6a5e0d9b8b36802b97de619}\index{spiFunctions.h@{spiFunctions.h}!SPI\_SETUP@{SPI\_SETUP}}
+\index{SPI\_SETUP@{SPI\_SETUP}!spiFunctions.h@{spiFunctions.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SETUP}{SPI\_SETUP}}
+{\footnotesize\ttfamily \label{spi_functions_8h_aa23181a4e6a5e0d9b8b36802b97de619} 
+struct \doxymbox{\hyperlink{structspi__settings}{spi\+\_\+settings}} SPI\+\_\+\+SETUP\+[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
+

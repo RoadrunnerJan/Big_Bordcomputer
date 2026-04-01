@@ -1,0 +1,25 @@
+var i2c_functions_8h =
+[
+    [ "ntc_table_t", "structntc__table__t.html", "structntc__table__t" ],
+    [ "OIL_TABLE_SIZE", "i2c_functions_8h.html#aa612694140b11242c12098971310d89a", null ],
+    [ "OUTSIDE_TABLE_SIZE", "i2c_functions_8h.html#a8bfd1527698a7d424696866246e7d6ad", null ],
+    [ "get_i2c_adc_oil_press", "i2c_functions_8h.html#a05b124606279b3e9d0dd924ae260801a", null ],
+    [ "get_i2c_adc_oil_temp", "i2c_functions_8h.html#aff35661486adfbe819f76fe6ad43d150", null ],
+    [ "get_i2c_adc_outside_temp", "i2c_functions_8h.html#ad8d1640b3b5cc5a310abfa729975e2bc", null ],
+    [ "get_i2c_adc_volt", "i2c_functions_8h.html#a3561a0a098f68a9e060d09286f75b0ca", null ],
+    [ "get_i2c_adc_volt_bel", "i2c_functions_8h.html#a67126ffb5167e564aa3217b6bf69d878", null ],
+    [ "init_i2c", "i2c_functions_8h.html#a44ff2fa430fff0f39b4bb6e017dc2f46", null ],
+    [ "init_time_buttons", "i2c_functions_8h.html#adefb1faa97f5dcd7f89a4327b3d4a893", null ],
+    [ "sync_rtc_to_system", "i2c_functions_8h.html#a6b780707272c87024478d0879e480195", null ],
+    [ "ads_cfg", "i2c_functions_8h.html#acb5ddf7923f8366395f68b86c77d6059", null ],
+    [ "ads_handle", "i2c_functions_8h.html#a7f84388a86187f1b6076f572802a2392", null ],
+    [ "btn_time", "i2c_functions_8h.html#ac817f20c65ad9af1ef7b4f85ab389df7", null ],
+    [ "bus_cfg", "i2c_functions_8h.html#aab28d6f688b1eaba1041d583ee4ce5f6", null ],
+    [ "bus_handle", "i2c_functions_8h.html#a457e9b0ccf6478fd7e45c0463abbd533", null ],
+    [ "cfg_time", "i2c_functions_8h.html#ad58bf4c44b9439565e32297d332f0b49", null ],
+    [ "ds3231_cfg", "i2c_functions_8h.html#ab267adc45de633391260efd03afa0ad6", null ],
+    [ "ds3231_handle", "i2c_functions_8h.html#a992ab7409747ebf3a31ff7643d9720f2", null ],
+    [ "gpio_cfg_time", "i2c_functions_8h.html#a50b1fe2759bea9706faf3ed4eb6e815c", null ],
+    [ "oil_temp_table", "i2c_functions_8h.html#a32a907f8cf265cd25cd40c6acf9b56d4", null ],
+    [ "outside_temperature_table", "i2c_functions_8h.html#a8e60f82a011434b87b9c2c9937914fc2", null ]
+];

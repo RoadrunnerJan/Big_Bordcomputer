@@ -1,0 +1,110 @@
+\chapter{Big\+\_\+\+Boardcomputer }
+\hypertarget{index}{}\label{index}\index{Big\_Boardcomputer@{Big\_Boardcomputer}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+ \texorpdfstring{$\vert$}{|} Supported Targets \texorpdfstring{$\vert$}{|} ESP32-\/\+P4 \texorpdfstring{$\vert$}{|} ESP32-\/\+S3 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|}\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Customizable ESP32 Bordcomputer}{Customizable ESP32 Bordcomputer}}\label{index_autotoc_md0}
+Dieses Projekt implementiert einen maßgeschneiderten Bordcomputer für klassische Fahrzeuge wie den BMW E36. Anstatt der standardmäßigen BMW-\/\+Bordcomputer (die nur Durchschnittsverbrauch oder defekte Glühlampen anzeigen), oder multifunktionaler Uhren (Datum, Uhrzeit, Temperatur), bietet dieses System eine vollständige Anzeige der aktuellen Motorparameter.
+
+{\bfseries{Hauptfunktionen:\+}}
+\begin{DoxyItemize}
+\item Anzeige von Öltemperatur, Öldruck, Bordspannung und Uhrzeit/\+\+Temperatur
+\item Vier runde TFT-\/\+Displays für separate Messinstrumente
+\item Anpassbare Anzahl und Typ der Displays
+\item Vollständig anpassbares Design über LVGL
+\end{DoxyItemize}
+
+Die E36-\/\+Version verwendet vier Displays, jedes mit einem eigenen Messinstrument. Alle Parameter sind konfigurierbar.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Hardware-\/Übersicht}{Hardware-\/Übersicht}}\label{index_autotoc_md1}
+Das Projekt basiert auf einem leistungsstarken ESP32-\/\+P4, der alle Peripheriegeräte steuert.
+
+{\bfseries{Verwendete Komponenten für den E36-\/\+Bordcomputer:\+}}
+\begin{DoxyItemize}
+\item {\bfseries{ESP32-\/\+P4 WT9932\+P4-\/\+TINY}} -\/ Hauptprozessor
+\item {\bfseries{4x 1.\+28 Zoll Rundes TFT LCD Display (240x240 RGB) mit GC9\+A01 Treiber}} (\href{https://de.aliexpress.com/item/1005009364283361.html}{\texttt{Link zu Ali\+Express}})
+\item {\bfseries{Angepasste PCB}} zur Verbindung der Displays und Peripherie mit dem ESP (im {\ttfamily hardware/\+} Verzeichnis)
+\item {\bfseries{5V Buzzer}} zur Warnung bei Außentemperaturen unter 3°C
+\item {\bfseries{2x Tasten}} zur Zeiteinstellung
+\item {\bfseries{12V zu 5V Wandler}} für Stromversorgung
+\item {\bfseries{BMW Öltemperatur-\/ und Druck-\/\+Sensor (Hella 6PP 010 378-\/201)}} -\/ PWM-\/\+Signal vom Motor
+\end{DoxyItemize}
+
+Die Datenblätter der verwendeten Komponenten finden sich im {\ttfamily datasheets/\+} Verzeichnis.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Software}{Software}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{Free\+RTOS Tasks}} zur Planung der verschiedenen Operationen
+\item {\bfseries{LVGL}} für die Gestaltung der Messinstrumente
+\item {\bfseries{PWM-\/\+Abtastung}} der Sensoren
+\item {\bfseries{Modulare Architektur}} mit separaten Verzeichnissen für Berechnung, Logging, LVGL-\/\+UI und Peripherie
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Wie man das Projekt flashen kann}{Wie man das Projekt flashen kann}}\label{index_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Voraussetzungen:\+}}
+\begin{DoxyItemize}
+\item ESP-\/\+IDF installiert (Version entsprechend der SDK-\/\+Konfiguration)
+\item USB-\/\+Kabel für den ESP32-\/\+P4
+\end{DoxyItemize}
+\item {\bfseries{Projekt kompilieren:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{idf.py\ build}
+
+\end{DoxyCode}
+
+\item {\bfseries{Flashen:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{idf.py\ flash}
+
+\end{DoxyCode}
+
+\item {\bfseries{Monitor starten:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{idf.py\ monitor}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+Für detaillierte Anleitungen siehe die offiziellen ESP-\/\+IDF Guides.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Projektstruktur}{Projektstruktur}}\label{index_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Haupt-\/Build-\/Konfiguration}
+\DoxyCodeLine{├──\ sdkconfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ ESP-\/IDF\ Konfiguration}
+\DoxyCodeLine{├──\ main/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Hauptquellcode}
+\DoxyCodeLine{│\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{│\ \ \ ├──\ main.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Haupteinstiegspunkt}
+\DoxyCodeLine{│\ \ \ ├──\ individual\_config.h\ \ \ \ \ \#\ Konfigurationsdefines}
+\DoxyCodeLine{│\ \ \ ├──\ calculation/\ \ \ \ \ \ \ \ \ \ \ \ \#\ Berechnungsmodule}
+\DoxyCodeLine{│\ \ \ ├──\ logging/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Logging-\/Funktionen}
+\DoxyCodeLine{│\ \ \ ├──\ lvgl/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ LVGL-\/UI\ und\ Grafiken}
+\DoxyCodeLine{│\ \ \ └──\ peripherie/\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Peripherie-\/Treiber\ (Buzzer,\ Buttons,\ etc.)}
+\DoxyCodeLine{├──\ hardware/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ PCB-\/Design\ und\ Hardware-\/Dateien}
+\DoxyCodeLine{├──\ datasheets/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Datenblätter\ der\ Komponenten}
+\DoxyCodeLine{├──\ fonts/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Schriftarten}
+\DoxyCodeLine{├──\ png/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Bilder\ und\ Icons}
+\DoxyCodeLine{├──\ managed\_components/\ \ \ \ \ \ \ \ \ \#\ ESP-\/IDF\ Komponenten}
+\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Diese\ Datei}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{Flash-\/\+Fehler:\+}}
+\begin{DoxyItemize}
+\item Überprüfe die USB-\/\+Verbindung:\+ {\ttfamily idf.\+py -\/p PORT monitor} ausführen und das Board neu starten, um Logs zu sehen.
+\item Baudrate zu hoch:\+ In {\ttfamily menuconfig} die Baudrate reduzieren und erneut versuchen.
+\end{DoxyItemize}
+\item {\bfseries{Anzeigeprobleme:\+}}
+\begin{DoxyItemize}
+\item SPI-\/\+Pins in {\ttfamily \doxylink{individual__config_8h}{individual\+\_\+config.\+h}} überprüfen
+\item Stromversorgung sicherstellen (12V zu 5V Wandler)
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Technischer Support und Feedback}{Technischer Support und Feedback}}\label{index_autotoc_md6}
+Bei Fragen oder Problemen bitte ein Issue im Repository erstellen oder den Code kommentieren.
+
+Please use the following feedback channels:\+
+
+
+\begin{DoxyItemize}
+\item For technical queries, go to the \href{https://esp32.com/}{\texttt{esp32.\+com}} forum
+\item For a feature request or bug report, create a \href{https://github.com/espressif/esp-idf/issues}{\texttt{Git\+Hub issue}}
+\end{DoxyItemize}
+
+We will get back to you as soon as possible. 

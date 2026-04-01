@@ -1,0 +1,28 @@
+var structdisplay__settings =
+[
+    [ "buf", "structdisplay__settings.html#a92e58a2ef9f62f9e1697459c46c6d8c1", null ],
+    [ "buffer_factor", "structdisplay__settings.html#aa45819c318a2ebe7f35c1f300983c889", null ],
+    [ "disp_drv", "structdisplay__settings.html#abfcfd0425e5e0ff371988d79ec788f7d", null ],
+    [ "draw_buf", "structdisplay__settings.html#a705dc03dd6364a74053ff2d7d281ea55", null ],
+    [ "io_config", "structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b", null ],
+    [ "io_handle", "structdisplay__settings.html#ac5ab4bdd9e312d7e1b0bc5d2a9a9007d", null ],
+    [ "lcd_invert_color", "structdisplay__settings.html#af0ce02ecd5c170700bab7d5a761a7e27", null ],
+    [ "lcd_mirror_x", "structdisplay__settings.html#a4f5818f66a17dc1fa9b01bfa95a111b4", null ],
+    [ "lcd_mirror_y", "structdisplay__settings.html#aa2fab614770996757b6d373244ca8c2b", null ],
+    [ "lcd_pin_cs", "structdisplay__settings.html#a9dd958524724ac528a0c9a7d80851f90", null ],
+    [ "lcd_pin_dc", "structdisplay__settings.html#a9e6638f2951c98706260d93c7cc27305", null ],
+    [ "lcd_pin_rst", "structdisplay__settings.html#a6bd8b42d12c891eeab0d25981bb08e18", null ],
+    [ "lcd_res_h", "structdisplay__settings.html#ae9803bb58f04f3548e2d265d41ef412f", null ],
+    [ "lcd_res_v", "structdisplay__settings.html#a72fceb2536cd0ab74fc0b74654828949", null ],
+    [ "lcd_rgb_order", "structdisplay__settings.html#aed007555751201c5942d78f6a4ec301e", null ],
+    [ "lv_displays", "structdisplay__settings.html#a84ee1776595c889bb88f8034a1db6dab", null ],
+    [ "malloc_cap", "structdisplay__settings.html#a78e9c101581787bcaf0b5045f664ea5f", null ],
+    [ "panel_config", "structdisplay__settings.html#a3111ab6ce399644b216533be9150820b", null ],
+    [ "panel_handle", "structdisplay__settings.html#a293eb5867c87ae23735cf2a1dedf4924", null ],
+    [ "screen_selection", "structdisplay__settings.html#a454d77aabcbf17881bfb833c29a94281", null ],
+    [ "spi_host", "structdisplay__settings.html#a34397efca41d54694258d31d65b5399d", null ],
+    [ "task_delay_time_ms", "structdisplay__settings.html#a44cf14f7d5a62d95231f9834cadad347", null ],
+    [ "task_priority", "structdisplay__settings.html#a412e3a2657100a656bdf1a532a90afd8", null ],
+    [ "task_step_depth", "structdisplay__settings.html#a3cb2e2cc7c3e587af208d30bcbf6c436", null ],
+    [ "tast_core", "structdisplay__settings.html#a93303013959d8ba4f8fcc4c2742945ca", null ]
+];

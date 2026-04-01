@@ -1,21 +1,18 @@
 #pragma once
 
-/*
- * ============================================================================
- * BUZZER CONTROL - Audio Alert Driver
- * ============================================================================
- * Generates audio alerts via PWM-controlled buzzer for temperature warnings
+/**
+ * @file buzzer.h
+ * @brief Buzzer control module for audio warnings via PWM.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * Generates audio alerts via PWM-controlled buzzer for temperature warnings.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - LEDC PWM configuration for audio output
  *      - Temperature alert beeping patterns
- *
  */
 
 /* ===== Project Configuration ===== */

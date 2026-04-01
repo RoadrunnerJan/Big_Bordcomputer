@@ -1,22 +1,19 @@
 #pragma once
 
-/*
- * ============================================================================
- * SPI DISPLAY DRIVER - Multi Display Control via SPI Interface
- * ============================================================================
- * Manages SPI communication with multiple LCD displays using ESP-IDF LCD driver
+/**
+ * @file spiFunctions.h
+ * @brief SPI display driver for multiple LCD panels.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * Manages SPI communication with multiple LCD displays using ESP-IDF and LVGL.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Multi-display SPI initialization (up to 4 displays)
  *      - LVGL integration for graphics rendering
  *      - Display task scheduling and timing
- *
  */
 
 /* ===== Project Configuration ===== */

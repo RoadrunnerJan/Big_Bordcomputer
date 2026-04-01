@@ -1,23 +1,20 @@
 #pragma once
 
-/*
- * ============================================================================
- * PWM SENSOR READER - Hella 6PP 010 378-201 Oil Sensor
- * ============================================================================
- * Decodes PWM pulse signals for oil pressure and temperature readings
+/**
+ * @file pwmSensor.h
+ * @brief PWM sensor reader for Hella 6PP 010 378-201 oil sensor.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * Decodes PWM pulse signals for oil pressure and temperature readings.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - MCPWM capture for PWM signal decoding
  *      - Multi-pulse sensor support (temperature, pressure, diagnostic)
  *      - Hella 6PP 010 378-201 sensor integration
  *      - Test mode with serial output
- *
  */
 
 /* ===== Project Configuration ===== */

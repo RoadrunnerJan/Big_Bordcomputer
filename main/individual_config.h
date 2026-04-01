@@ -5,15 +5,27 @@
     BASIC PROJECT CONFIGURATION
 #################################################################################
 */
-#define NUMBER_OF_DISPLAYS                 4      // up to 4 Displays possible
-#define NUMBER_OF_SPI                      2      // Number of SPI Devices used (for 4 Displays 2 are necessary)
-#define NUMBER_OF_ADS1115_DEVICES          2      // Number of ADC devices on I2C bus
-#define CHIP_USED                          ESP32P4 // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
+/**
+ * @brief Core project configuration values.
+ *
+ * NUMBER_OF_DISPLAYS: Number of independent LCD panels attached.
+ * NUMBER_OF_SPI: Number of SPI host controllers used for displays.
+ * NUMBER_OF_ADS1115_DEVICES: Number of ADS1115 ADC chips on I2C bus.
+ * CHIP_USED: Target ESP32 chip variant switch.
+ */
+#define NUMBER_OF_DISPLAYS                 4      // up to 4 displays possible
+#define NUMBER_OF_SPI                      2      // for four displays, two SPI hosts are required
+#define NUMBER_OF_ADS1115_DEVICES          2      // number of ADS1115 ADC devices on I2C
+#define CHIP_USED                          ESP32P4 // ESP32 variants: ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
-#define TESTMODE                           true  // true = Simulated values for all sensors, night mode, brightness test
-#define USE_BUZZER                         false  // Enable buzzer warnings (for low outdoor temperature)
-#define LOGGING_ENABLED                    true   // Enable serial output for debugging
-#define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG"
+/**
+ * @brief Feature flags - enable/disable optional modules.
+ */
+#define TESTMODE                           true   // true: run in simulation mode (no real sensors required)
+#define USE_BUZZER                         false  // true: enable buzzer alert functionality
+#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
+#define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
+
 
 /*
 #################################################################################
@@ -22,6 +34,12 @@
 */
 #if CHIP_USED == ESP32P4
 
+    /**
+     * @brief SPI bus configuration, used for SPI LCD panels.
+     *
+     * SPI_MODE: clock polarity/phase mode (mode 3 for GC9A01 displays).
+     * TRANS_QUEUE_DEPTH: transaction queue depth for spi bus commands.
+     */
     /* ===== SPI CONFIGURATION ===== */
     #define SPI_MODE                       3
     #define TRANS_QUEUE_DEPTH              1      // Number of simultaneous elements on bus
@@ -48,6 +66,14 @@
         #define SPI_2_DMA                  SPI_DMA_CH_AUTO
     #endif
 
+    /**
+     * @brief Common LCD panel configuration, shared by all displays.
+     *
+     * LCD_PIXEL_CLOCK_HZ: SPI clock for display pixel writes.
+     * LCD_CMD_BITS / LCD_PARAM_BITS: command parameter bit width for panel driver.
+     * LCD_HOST_n: SPI host mapping.
+     * PIN_LCD_BL: common backlight GPIO for all panels.
+     */
     /* ===== LCD COMMON CONFIGURATION ===== */
     #define LCD_PIXEL_CLOCK_HZ             (40 * 1000 * 1000)  // 40 MHz
     #define LCD_CMD_BITS                   8
@@ -140,6 +166,13 @@
     #define PWM_ADC_SWITCH_PULL_DOWN_EN    GPIO_PULLDOWN_DISABLE
     #define PWM_ADC_SWITCH_INTR_TYPE       GPIO_INTR_DISABLE
 
+    /**
+     * @brief Time adjustment button definition and debounce timing.
+     *
+     * BUTTON_CLOCK_*_PIN: GPIO pin for short/long press clock adjust.
+     * BUTTON_CLOCK_*_*_MS: Short/long press thresholds in milliseconds.
+     * BUTTON_CLOCK_*_ACTIVE_LEVEL: GPIO active level (0 = active low).
+     */
     /* ===== BUTTON PINS ===== */
     #define BUTTON_CLOCK_MINUTE_PIN        17
     #define BUTTON_CLOCK_HOUR_PIN          18
@@ -161,6 +194,16 @@
     BACKLIGHT (LED PWM) CONFIGURATION
 #################################################################################
 */
+/**
+ * @brief LEDC PWM settings for display backlight brightness control.
+ *
+ * LED_SPEED: LEDC speed mode (low or high) for timer/channel.
+ * LED_TIMER: LEDC timer index.
+ * LED_DUTY_RESOLUTION: PWM duty resolution (e.g., 8-bit gives 0-255 range).
+ * LED_DUTY_RES_VALUE: Duty scaling value.
+ * LED_FREQ: PWM frequency for LED backlight (flicker-free constant lighting).
+ * LED_GPIO: Neupin for PWM output to backlight.
+ */
 #define LED_SPEED                          LEDC_LOW_SPEED_MODE
 #define LED_TIMER                          LEDC_TIMER_0
 #define LED_DUTY_RESOLUTION                LEDC_TIMER_8_BIT     // 0-255
@@ -178,6 +221,14 @@
     BRIGHTNESS SETTINGS
 #################################################################################
 */
+/**
+ * @brief Auto-brightness thresholds and manual defaults.
+ *
+ * BRIGHTNESS_DAY: default daytime brightness percent.
+ * BRIGHTNESS_DAY_MIN_V: min battery voltage to treat as day mode.
+ * BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode.
+ * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
+ */
 #define BRIGHTNESS_DAY                     80
 #define BRIGHTNESS_DAY_MIN_V               1.0
 #define BRIGHTNESS_NIGHT_MIN               5

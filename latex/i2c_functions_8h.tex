@@ -1,0 +1,234 @@
+\doxysection{main/\+peripherie/\+i2c\+Functions.h File Reference}
+\hypertarget{i2c_functions_8h}{}\label{i2c_functions_8h}\index{main/peripherie/i2cFunctions.h@{main/peripherie/i2cFunctions.h}}
+
+
+I2C interface for DS3231 RTC and ADS1115 ADC.  
+
+
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}driver/\+i2c\+\_\+master.\+h"{}}\newline
+{\ttfamily \+\#include "{}iot\+\_\+button.\+h"{}}\newline
+{\ttfamily \+\#include "{}button\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \+\#include "{}freertos/\+\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \+\#include "{}freertos/\+task.\+h"{}}\newline
+{\ttfamily \+\#include $<$sys/\+time.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{i2c_functions_8h_aa612694140b11242c12098971310d89a}{OIL\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))
+\item 
+\+\#define \doxymbox{\hyperlink{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad}{OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46}{init\+\_\+i2c}} (void)
+\item 
+void \doxymbox{\hyperlink{i2c_functions_8h_a6b780707272c87024478d0879e480195}{sync\+\_\+rtc\+\_\+to\+\_\+system}} (void)
+\item 
+void \doxymbox{\hyperlink{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}{init\+\_\+time\+\_\+buttons}} (void)
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8h_a3561a0a098f68a9e060d09286f75b0ca}{get\+\_\+i2c\+\_\+adc\+\_\+volt}} (void)
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8h_a67126ffb5167e564aa3217b6bf69d878}{get\+\_\+i2c\+\_\+adc\+\_\+volt\+\_\+bel}} (void)
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+temp}} (void)
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press}} (void)
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc}{get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+i2c\+\_\+master\+\_\+bus\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_aab28d6f688b1eaba1041d583ee4ce5f6}{bus\+\_\+cfg}}
+\item 
+i2c\+\_\+master\+\_\+bus\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a457e9b0ccf6478fd7e45c0463abbd533}{bus\+\_\+handle}}
+\item 
+i2c\+\_\+device\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_ab267adc45de633391260efd03afa0ad6}{ds3231\+\_\+cfg}}
+\item 
+i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a992ab7409747ebf3a31ff7643d9720f2}{ds3231\+\_\+handle}}
+\item 
+i2c\+\_\+device\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_acb5ddf7923f8366395f68b86c77d6059}{ads\+\_\+cfg}} \+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+
+\item 
+i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a7f84388a86187f1b6076f572802a2392}{ads\+\_\+handle}} \+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+
+\item 
+button\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_ad58bf4c44b9439565e32297d332f0b49}{cfg\+\_\+time}} \+[2]\+
+\item 
+button\+\_\+gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a50b1fe2759bea9706faf3ed4eb6e815c}{gpio\+\_\+cfg\+\_\+time}} \+[2]\+
+\item 
+button\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\+\_\+time}} \+[2]\+
+\item 
+const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
+\item 
+const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C interface for DS3231 RTC and ADS1115 ADC. 
+
+Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item DS3231 real-\/time clock interface
+\item ADS1115 ADC for analog sensor readings
+\item NTC temperature table interpolation
+\item Button control for time adjustment
+\item Dual ADC support for enhanced sensor coverage 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{i2c_functions_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{i2c_functions_8h_aa612694140b11242c12098971310d89a}\index{i2cFunctions.h@{i2cFunctions.h}!OIL\_TABLE\_SIZE@{OIL\_TABLE\_SIZE}}
+\index{OIL\_TABLE\_SIZE@{OIL\_TABLE\_SIZE}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{OIL\_TABLE\_SIZE}{OIL\_TABLE\_SIZE}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_aa612694140b11242c12098971310d89a} 
+\+\#define OIL\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))}
+
+\Hypertarget{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad}\index{i2cFunctions.h@{i2cFunctions.h}!OUTSIDE\_TABLE\_SIZE@{OUTSIDE\_TABLE\_SIZE}}
+\index{OUTSIDE\_TABLE\_SIZE@{OUTSIDE\_TABLE\_SIZE}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{OUTSIDE\_TABLE\_SIZE}{OUTSIDE\_TABLE\_SIZE}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad} 
+\+\#define OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))}
+
+
+
+\label{doc-func-members}
+\Hypertarget{i2c_functions_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a}\index{i2cFunctions.h@{i2cFunctions.h}!get\_i2c\_adc\_oil\_press@{get\_i2c\_adc\_oil\_press}}
+\index{get\_i2c\_adc\_oil\_press@{get\_i2c\_adc\_oil\_press}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_oil\_press()}{get\_i2c\_adc\_oil\_press()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a} 
+float get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Read oil pressure from ADS1115 ADC with resistance-\/to-\/pressure conversion \Hypertarget{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150}\index{i2cFunctions.h@{i2cFunctions.h}!get\_i2c\_adc\_oil\_temp@{get\_i2c\_adc\_oil\_temp}}
+\index{get\_i2c\_adc\_oil\_temp@{get\_i2c\_adc\_oil\_temp}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_oil\_temp()}{get\_i2c\_adc\_oil\_temp()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150} 
+float get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Read oil temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc}\index{i2cFunctions.h@{i2cFunctions.h}!get\_i2c\_adc\_outside\_temp@{get\_i2c\_adc\_outside\_temp}}
+\index{get\_i2c\_adc\_outside\_temp@{get\_i2c\_adc\_outside\_temp}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_outside\_temp()}{get\_i2c\_adc\_outside\_temp()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc} 
+float get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Read outdoor temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8h_a3561a0a098f68a9e060d09286f75b0ca}\index{i2cFunctions.h@{i2cFunctions.h}!get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}}
+\index{get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_volt()}{get\_i2c\_adc\_volt()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a3561a0a098f68a9e060d09286f75b0ca} 
+float get\+\_\+i2c\+\_\+adc\+\_\+volt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Read battery voltage from ADS1115 ADC \Hypertarget{i2c_functions_8h_a67126ffb5167e564aa3217b6bf69d878}\index{i2cFunctions.h@{i2cFunctions.h}!get\_i2c\_adc\_volt\_bel@{get\_i2c\_adc\_volt\_bel}}
+\index{get\_i2c\_adc\_volt\_bel@{get\_i2c\_adc\_volt\_bel}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_volt\_bel()}{get\_i2c\_adc\_volt\_bel()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a67126ffb5167e564aa3217b6bf69d878} 
+float get\+\_\+i2c\+\_\+adc\+\_\+volt\+\_\+bel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Read brightness/\+light sensor voltage from ADS1115 ADC \Hypertarget{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46}\index{i2cFunctions.h@{i2cFunctions.h}!init\_i2c@{init\_i2c}}
+\index{init\_i2c@{init\_i2c}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{init\_i2c()}{init\_i2c()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46} 
+void init\+\_\+i2c (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}\index{i2cFunctions.h@{i2cFunctions.h}!init\_time\_buttons@{init\_time\_buttons}}
+\index{init\_time\_buttons@{init\_time\_buttons}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{init\_time\_buttons()}{init\_time\_buttons()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893} 
+void init\+\_\+time\+\_\+buttons (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i2c_functions_8h_a6b780707272c87024478d0879e480195}\index{i2cFunctions.h@{i2cFunctions.h}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
+\index{sync\_rtc\_to\_system@{sync\_rtc\_to\_system}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{sync\_rtc\_to\_system()}{sync\_rtc\_to\_system()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a6b780707272c87024478d0879e480195} 
+void sync\+\_\+rtc\+\_\+to\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{i2c_functions_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{i2c_functions_8h_acb5ddf7923f8366395f68b86c77d6059}\index{i2cFunctions.h@{i2cFunctions.h}!ads\_cfg@{ads\_cfg}}
+\index{ads\_cfg@{ads\_cfg}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ads\_cfg}{ads\_cfg}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_acb5ddf7923f8366395f68b86c77d6059} 
+i2c\+\_\+device\+\_\+config\+\_\+t ads\+\_\+cfg\+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a7f84388a86187f1b6076f572802a2392}\index{i2cFunctions.h@{i2cFunctions.h}!ads\_handle@{ads\_handle}}
+\index{ads\_handle@{ads\_handle}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ads\_handle}{ads\_handle}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a7f84388a86187f1b6076f572802a2392} 
+i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ads\+\_\+handle\+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_ac817f20c65ad9af1ef7b4f85ab389df7}\index{i2cFunctions.h@{i2cFunctions.h}!btn\_time@{btn\_time}}
+\index{btn\_time@{btn\_time}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{btn\_time}{btn\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_ac817f20c65ad9af1ef7b4f85ab389df7} 
+button\+\_\+handle\+\_\+t btn\+\_\+time\+[2]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_aab28d6f688b1eaba1041d583ee4ce5f6}\index{i2cFunctions.h@{i2cFunctions.h}!bus\_cfg@{bus\_cfg}}
+\index{bus\_cfg@{bus\_cfg}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{bus\_cfg}{bus\_cfg}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_aab28d6f688b1eaba1041d583ee4ce5f6} 
+i2c\+\_\+master\+\_\+bus\+\_\+config\+\_\+t bus\+\_\+cfg\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a457e9b0ccf6478fd7e45c0463abbd533}\index{i2cFunctions.h@{i2cFunctions.h}!bus\_handle@{bus\_handle}}
+\index{bus\_handle@{bus\_handle}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{bus\_handle}{bus\_handle}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a457e9b0ccf6478fd7e45c0463abbd533} 
+i2c\+\_\+master\+\_\+bus\+\_\+handle\+\_\+t bus\+\_\+handle\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_ad58bf4c44b9439565e32297d332f0b49}\index{i2cFunctions.h@{i2cFunctions.h}!cfg\_time@{cfg\_time}}
+\index{cfg\_time@{cfg\_time}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{cfg\_time}{cfg\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_ad58bf4c44b9439565e32297d332f0b49} 
+button\+\_\+config\+\_\+t cfg\+\_\+time\+[2]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_ab267adc45de633391260efd03afa0ad6}\index{i2cFunctions.h@{i2cFunctions.h}!ds3231\_cfg@{ds3231\_cfg}}
+\index{ds3231\_cfg@{ds3231\_cfg}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ds3231\_cfg}{ds3231\_cfg}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_ab267adc45de633391260efd03afa0ad6} 
+i2c\+\_\+device\+\_\+config\+\_\+t ds3231\+\_\+cfg\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a992ab7409747ebf3a31ff7643d9720f2}\index{i2cFunctions.h@{i2cFunctions.h}!ds3231\_handle@{ds3231\_handle}}
+\index{ds3231\_handle@{ds3231\_handle}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{ds3231\_handle}{ds3231\_handle}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a992ab7409747ebf3a31ff7643d9720f2} 
+i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ds3231\+\_\+handle\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a50b1fe2759bea9706faf3ed4eb6e815c}\index{i2cFunctions.h@{i2cFunctions.h}!gpio\_cfg\_time@{gpio\_cfg\_time}}
+\index{gpio\_cfg\_time@{gpio\_cfg\_time}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{gpio\_cfg\_time}{gpio\_cfg\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a50b1fe2759bea9706faf3ed4eb6e815c} 
+button\+\_\+gpio\+\_\+config\+\_\+t gpio\+\_\+cfg\+\_\+time\+[2]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}\index{i2cFunctions.h@{i2cFunctions.h}!oil\_temp\_table@{oil\_temp\_table}}
+\index{oil\_temp\_table@{oil\_temp\_table}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{oil\_temp\_table}{oil\_temp\_table}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4} 
+const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} oil\+\_\+temp\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}\index{i2cFunctions.h@{i2cFunctions.h}!outside\_temperature\_table@{outside\_temperature\_table}}
+\index{outside\_temperature\_table@{outside\_temperature\_table}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{outside\_temperature\_table}{outside\_temperature\_table}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2} 
+const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+

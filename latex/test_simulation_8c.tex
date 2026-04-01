@@ -1,0 +1,252 @@
+\doxysection{main/\+simulation/\+test\+Simulation.c File Reference}
+\hypertarget{test_simulation_8c}{}\label{test_simulation_8c}\index{main/simulation/testSimulation.c@{main/simulation/testSimulation.c}}
+{\ttfamily \+\#include "{}test\+Simulation.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{test_simulation_8c_ad3d993b1f3e8b2df475a31789117e047}{reset\+\_\+test\+\_\+values}} ()
+\item 
+void \doxymbox{\hyperlink{test_simulation_8c_a598334365af036bb6f17dc435d7d08c5}{reset\+\_\+test\+\_\+switches}} ()
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_ad8e9acc755f5e43bdc566e4b012fd1d5}{lv\+\_\+pressure\+\_\+test}} ()
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_add87703df2035698ea7ecd8f7204d470}{lv\+\_\+volt\+\_\+test}} ()
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632}{lv\+\_\+temperature\+\_\+test}} ()
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a26e4a7ae995e133e89b16eb92ab0b67e}{lv\+\_\+\+Clocktemp\+\_\+test}} ()
+\item 
+void \doxymbox{\hyperlink{test_simulation_8c_a96cd1c74872a3aee742b520f91401a6a}{brightness\+\_\+test}} ()
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_a645e9a3663505f86616abd888e387bee}{get\+Brightness\+Test\+Value}} ()
+\item 
+bool \doxymbox{\hyperlink{test_simulation_8c_a720ab94c941ab37325970e30ef833a73}{get\+Night\+Mode\+Active\+Test\+Value}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1}{test\+\_\+value\+\_\+oil\+\_\+pressure}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Simulated oil pressure in bar. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486}{test\+\_\+value\+\_\+oil\+\_\+temperature}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Simulated oil temperature in °C. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}{test\+\_\+value\+\_\+volt}} = 8.\+0
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd}{test\+\_\+value\+\_\+outside\+\_\+temperature}} = 0.\+0
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}{test\+\_\+value\+\_\+brightness}} = 0
+\item 
+bool \doxymbox{\hyperlink{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}{test\+\_\+night\+\_\+mode\+\_\+active}} = false
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}{pressure\+\_\+test\+\_\+switch}} = 0
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}{temperature\+\_\+test\+\_\+switch}} = 0
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}{volt\+\_\+test\+\_\+switch}} = 0
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}{Clocktemp\+\_\+test\+\_\+switch}} = 0
+\item 
+int \doxymbox{\hyperlink{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197}{brightness\+\_\+test\+\_\+switch}} = 0
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}{test\+\_\+steps}} \+[5]\+\+[4]\+
+\item 
+double \doxymbox{\hyperlink{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}{test\+\_\+thresholds}} \+[5]\+\+[4]\+
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{test_simulation_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test_simulation_8c_a96cd1c74872a3aee742b520f91401a6a}\index{testSimulation.c@{testSimulation.c}!brightness\_test@{brightness\_test}}
+\index{brightness\_test@{brightness\_test}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{brightness\_test()}{brightness\_test()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a96cd1c74872a3aee742b520f91401a6a} 
+void brightness\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Simulate brightness test cycle Cycles through 4 phases with night mode toggle at the end \Hypertarget{test_simulation_8c_a645e9a3663505f86616abd888e387bee}\index{testSimulation.c@{testSimulation.c}!getBrightnessTestValue@{getBrightnessTestValue}}
+\index{getBrightnessTestValue@{getBrightnessTestValue}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{getBrightnessTestValue()}{getBrightnessTestValue()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a645e9a3663505f86616abd888e387bee} 
+int get\+Brightness\+Test\+Value (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get current brightness test value \begin{DoxyReturn}{Returns}
+Current simulated brightness value 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_a720ab94c941ab37325970e30ef833a73}\index{testSimulation.c@{testSimulation.c}!getNightModeActiveTestValue@{getNightModeActiveTestValue}}
+\index{getNightModeActiveTestValue@{getNightModeActiveTestValue}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{getNightModeActiveTestValue()}{getNightModeActiveTestValue()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a720ab94c941ab37325970e30ef833a73} 
+bool get\+Night\+Mode\+Active\+Test\+Value (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get current night mode test state \begin{DoxyReturn}{Returns}
+True if night mode is active in test 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_a26e4a7ae995e133e89b16eb92ab0b67e}\index{testSimulation.c@{testSimulation.c}!lv\_Clocktemp\_test@{lv\_Clocktemp\_test}}
+\index{lv\_Clocktemp\_test@{lv\_Clocktemp\_test}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{lv\_Clocktemp\_test()}{lv\_Clocktemp\_test()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a26e4a7ae995e133e89b16eb92ab0b67e} 
+double lv\+\_\+\+Clocktemp\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Simulate outside temperature test cycle Cycles through 4 phases:\+ increase to 33, decrease to -\/15, increase to 20, decrease to 0.\+06 \begin{DoxyReturn}{Returns}
+Current simulated outside temperature value 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_ad8e9acc755f5e43bdc566e4b012fd1d5}\index{testSimulation.c@{testSimulation.c}!lv\_pressure\_test@{lv\_pressure\_test}}
+\index{lv\_pressure\_test@{lv\_pressure\_test}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{lv\_pressure\_test()}{lv\_pressure\_test()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_ad8e9acc755f5e43bdc566e4b012fd1d5} 
+double lv\+\_\+pressure\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Simulate oil pressure test cycle Cycles through 4 phases:\+ increase to 4.\+5, decrease to 2.\+5, increase to 5.\+5, decrease to 0.\+04 \begin{DoxyReturn}{Returns}
+Current simulated oil pressure value 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632}\index{testSimulation.c@{testSimulation.c}!lv\_temperature\_test@{lv\_temperature\_test}}
+\index{lv\_temperature\_test@{lv\_temperature\_test}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{lv\_temperature\_test()}{lv\_temperature\_test()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632} 
+double lv\+\_\+temperature\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Simulate oil temperature test cycle Cycles through 4 phases:\+ increase to 100, decrease to 110, increase to 140, decrease to 0.\+06 \begin{DoxyReturn}{Returns}
+Current simulated oil temperature value 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_add87703df2035698ea7ecd8f7204d470}\index{testSimulation.c@{testSimulation.c}!lv\_volt\_test@{lv\_volt\_test}}
+\index{lv\_volt\_test@{lv\_volt\_test}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{lv\_volt\_test()}{lv\_volt\_test()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_add87703df2035698ea7ecd8f7204d470} 
+double lv\+\_\+volt\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Simulate voltage test cycle Cycles through 4 phases:\+ increase to 15.\+5, decrease to 11, increase to 14, decrease to 8.\+04 \begin{DoxyReturn}{Returns}
+Current simulated voltage value 
+\end{DoxyReturn}
+\Hypertarget{test_simulation_8c_a598334365af036bb6f17dc435d7d08c5}\index{testSimulation.c@{testSimulation.c}!reset\_test\_switches@{reset\_test\_switches}}
+\index{reset\_test\_switches@{reset\_test\_switches}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{reset\_test\_switches()}{reset\_test\_switches()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a598334365af036bb6f17dc435d7d08c5} 
+void reset\+\_\+test\+\_\+switches (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Reset all test state switches to initial phase \Hypertarget{test_simulation_8c_ad3d993b1f3e8b2df475a31789117e047}\index{testSimulation.c@{testSimulation.c}!reset\_test\_values@{reset\_test\_values}}
+\index{reset\_test\_values@{reset\_test\_values}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{reset\_test\_values()}{reset\_test\_values()}}
+{\footnotesize\ttfamily \label{test_simulation_8c_ad3d993b1f3e8b2df475a31789117e047} 
+void reset\+\_\+test\+\_\+values (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Reset all test values to default state 
+
+\label{doc-var-members}
+\Hypertarget{test_simulation_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197}\index{testSimulation.c@{testSimulation.c}!brightness\_test\_switch@{brightness\_test\_switch}}
+\index{brightness\_test\_switch@{brightness\_test\_switch}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{brightness\_test\_switch}{brightness\_test\_switch}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197} 
+int brightness\+\_\+test\+\_\+switch = 0}
+
+\Hypertarget{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}\index{testSimulation.c@{testSimulation.c}!Clocktemp\_test\_switch@{Clocktemp\_test\_switch}}
+\index{Clocktemp\_test\_switch@{Clocktemp\_test\_switch}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{Clocktemp\_test\_switch}{Clocktemp\_test\_switch}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590} 
+int Clocktemp\+\_\+test\+\_\+switch = 0}
+
+\Hypertarget{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}\index{testSimulation.c@{testSimulation.c}!pressure\_test\_switch@{pressure\_test\_switch}}
+\index{pressure\_test\_switch@{pressure\_test\_switch}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{pressure\_test\_switch}{pressure\_test\_switch}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24} 
+int pressure\+\_\+test\+\_\+switch = 0}
+
+\Hypertarget{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}\index{testSimulation.c@{testSimulation.c}!temperature\_test\_switch@{temperature\_test\_switch}}
+\index{temperature\_test\_switch@{temperature\_test\_switch}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{temperature\_test\_switch}{temperature\_test\_switch}}
+{\footnotesize\ttfamily \label{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55} 
+int temperature\+\_\+test\+\_\+switch = 0}
+
+\Hypertarget{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}\index{testSimulation.c@{testSimulation.c}!test\_night\_mode\_active@{test\_night\_mode\_active}}
+\index{test\_night\_mode\_active@{test\_night\_mode\_active}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_night\_mode\_active}{test\_night\_mode\_active}}
+{\footnotesize\ttfamily \label{test_simulation_8c_af4ada18762294ede2ca24897d42a324c} 
+bool test\+\_\+night\+\_\+mode\+\_\+active = false}
+
+\Hypertarget{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}\index{testSimulation.c@{testSimulation.c}!test\_steps@{test\_steps}}
+\index{test\_steps@{test\_steps}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_steps}{test\_steps}}
+{\footnotesize\ttfamily \label{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3} 
+double test\+\_\+steps\+[5]\+\+[4]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \{+0.06,\ -\/0.02,\ +0.06,\ -\/0.06\},}
+\DoxyCodeLine{\ \ \ \ \ \{+0.50,\ -\/0.05,\ +0.05,\ -\/0.50\},}
+\DoxyCodeLine{\ \ \ \ \ \{+0.30,\ -\/0.30,\ +0.30,\ -\/0.30\},}
+\DoxyCodeLine{\ \ \ \ \ \{+0.30,\ -\/0.30,\ +0.30,\ -\/0.30\},}
+\DoxyCodeLine{\ \ \ \ \ \{-\/1.00,\ +1.00,\ -\/1.00,\ +1.00\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Test step changes for each sensor type Format:\+ \+[sensor\+\_\+type]\+\+[step\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}\index{testSimulation.c@{testSimulation.c}!test\_thresholds@{test\_thresholds}}
+\index{test\_thresholds@{test\_thresholds}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_thresholds}{test\_thresholds}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8} 
+double test\+\_\+thresholds\+[5]\+\+[4]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{4.5,\ 2.5,\ 5.5,\ 0.04\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{15.5,\ 11,\ \ 14,\ 8.04\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{100,\ 110,\ 140,\ 0.06\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{\ 33,\ -\/15,\ \ 20,\ 0.06\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \{\ \ 2,\ \ 40,\ \ \ 2,\ \ 80\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Test thresholds for switching between test phases Format:\+ \+[sensor\+\_\+type]\+\+[threshold\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}\index{testSimulation.c@{testSimulation.c}!test\_value\_brightness@{test\_value\_brightness}}
+\index{test\_value\_brightness@{test\_value\_brightness}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_value\_brightness}{test\_value\_brightness}}
+{\footnotesize\ttfamily \label{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3} 
+int test\+\_\+value\+\_\+brightness = 0}
+
+\Hypertarget{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1}\index{testSimulation.c@{testSimulation.c}!test\_value\_oil\_pressure@{test\_value\_oil\_pressure}}
+\index{test\_value\_oil\_pressure@{test\_value\_oil\_pressure}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_value\_oil\_pressure}{test\_value\_oil\_pressure}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1} 
+double test\+\_\+value\+\_\+oil\+\_\+pressure = 0.\+0}
+
+
+
+Simulated oil pressure in bar. 
+
+\Hypertarget{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486}\index{testSimulation.c@{testSimulation.c}!test\_value\_oil\_temperature@{test\_value\_oil\_temperature}}
+\index{test\_value\_oil\_temperature@{test\_value\_oil\_temperature}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_value\_oil\_temperature}{test\_value\_oil\_temperature}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486} 
+double test\+\_\+value\+\_\+oil\+\_\+temperature = 0.\+0}
+
+
+
+Simulated oil temperature in °C. 
+
+\Hypertarget{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd}\index{testSimulation.c@{testSimulation.c}!test\_value\_outside\_temperature@{test\_value\_outside\_temperature}}
+\index{test\_value\_outside\_temperature@{test\_value\_outside\_temperature}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_value\_outside\_temperature}{test\_value\_outside\_temperature}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd} 
+double test\+\_\+value\+\_\+outside\+\_\+temperature = 0.\+0}
+
+\Hypertarget{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}\index{testSimulation.c@{testSimulation.c}!test\_value\_volt@{test\_value\_volt}}
+\index{test\_value\_volt@{test\_value\_volt}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{test\_value\_volt}{test\_value\_volt}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9} 
+double test\+\_\+value\+\_\+volt = 8.\+0}
+
+\Hypertarget{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}\index{testSimulation.c@{testSimulation.c}!volt\_test\_switch@{volt\_test\_switch}}
+\index{volt\_test\_switch@{volt\_test\_switch}!testSimulation.c@{testSimulation.c}}
+\doxysubsubsection{\texorpdfstring{volt\_test\_switch}{volt\_test\_switch}}
+{\footnotesize\ttfamily \label{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219} 
+int volt\+\_\+test\+\_\+switch = 0}
+

@@ -1,0 +1,88 @@
+\doxysection{variable\+Functions.\+h}
+\hypertarget{variable_functions_8h_source}{}\label{variable_functions_8h_source}\index{main/lvgl/variableFunctions.h@{main/lvgl/variableFunctions.h}}
+\doxymbox{\hyperlink{variable_functions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ LVGL\ VARIABLE\ FUNCTIONS\ -\/\ Display\ Variable\ Management}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Manages\ LVGL\ variables\ for\ gauge\ display\ values\ and\ strings}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Author:\ Jan\ Niklas\ Rodewald\ (JRO)}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Date:\ 01.04.2026}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ CHANGELOG}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ v1.0\ (01.04.2026)\ -\/\ Initial\ implementation}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ LVGL\ variable\ declarations\ for\ sensor\ values}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ String\ formatting\ for\ display\ output}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*\ =====\ Standard\ Library\ Includes\ =====\ */}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <inttypes.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*\ =====\ External\ Variable\ Declarations\ =====\ */}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8c_a3f4a901ca120ef4288fc0e083545c02c}{lvgl\_value\_temperature}};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{variable_functions_8c_a16e89a1e465cbb69891e0740c10a30d1}{lvgl\_value\_clock}}[100];}
+\DoxyCodeLine{00028\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8c_acf64df251b518d1ef216fe47bcda4cf4}{lvgl\_value\_oil\_pressure}};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8c_a7de779a3d70782e65f0a02baeb300401}{lvgl\_value\_oil\_temperature}};}
+\DoxyCodeLine{00030\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8c_ae003ae1d51090ad3ac0d2d53402d98e2}{lvgl\_value\_voltage}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8c_ae7f0fad4946b6bcd0cd2df38055164ea}{lvgl\_value\_clock\_hour}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8c_ab307f5d66b00b6f777c258db316a690f}{lvgl\_value\_clock\_minute}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{variable_functions_8c_a1d3b40e70c9d92a52e355c36790f29cf}{lvgl\_value\_temperature\_string}}[100];}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{variable_functions_8c_ab8487a994c5c685f5296066bf8a167f2}{lvgl\_value\_voltage\_string}}[100];}
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{variable_functions_8c_afeae5d68d79f652dff0411b5f5497906}{lvgl\_value\_oil\_temperature\_string}}[100];}
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{variable_functions_8c_a7f3ef04b0f60f6a95dd1992ab7387ad4}{lvgl\_value\_oil\_pressure\_string}}[100];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{variable_functions_8h_af6b93cebb1988ed1201e5368b6c79f2e}{get\_var\_lvgl\_value\_oil\_pressure\_string}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a34553c7185fd121dbc1cdb123efd14c8}{set\_var\_lvgl\_value\_oil\_pressure\_string}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{variable_functions_8h_ab2f1240fa7e26852fde811722bd9b0a8}{get\_var\_lvgl\_value\_oil\_temperature\_string}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a14c6d7b1410407d34bfb7bc61db3550e}{set\_var\_lvgl\_value\_oil\_temperature\_string}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{variable_functions_8h_a70133d22c03f6443c7cc5ca534131dbd}{get\_var\_lvgl\_value\_voltage\_string}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_ac35f6a81b23f1a394cf119f2aebe1c35}{set\_var\_lvgl\_value\_voltage\_string}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{variable_functions_8h_a404e2c4c86bd3d50caa93e0baf05df38}{get\_var\_lvgl\_value\_temperature\_string}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a788e8c1c679d70e2c4e52308c932b1ea}{set\_var\_lvgl\_value\_temperature\_string}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8h_aba34325bed07e63c4c83735a7fc8bbb0}{get\_var\_lvgl\_value\_voltage}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a2056eea876fd72cb4ca19a69424090cb}{set\_var\_lvgl\_value\_voltage}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8h_ab2e6fbe423ce7a2dd039e8492b7e3286}{get\_var\_lvgl\_value\_oil\_temperature}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a9938a44355e15526b898f91ccd856ecf}{set\_var\_lvgl\_value\_oil\_temperature}}(int32\_t\ value);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8h_adba7ee4302571c45e316d31b8ef330d9}{get\_var\_lvgl\_value\_oil\_pressure}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a06bed709a192c2331790a8d19c7ce239}{set\_var\_lvgl\_value\_oil\_pressure}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{variable_functions_8h_aa935105776582e185412ba2f99fe1595}{get\_var\_lvgl\_value\_temperature}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a42ef07953a0a6786b81aaa53cc16e652}{set\_var\_lvgl\_value\_temperature}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{variable_functions_8h_ae0ddcc4ec800d59a57468185a4e492ba}{get\_var\_lvgl\_value\_clock}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_ad4b96fea2c83df6072c4533099d289c9}{set\_var\_lvgl\_value\_clock}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *value);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8h_a924354c3872afd6f17e9d41948ec4ae4}{get\_var\_lvgl\_value\_clock\_hour}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_a2473dbea721440e5c2c3f83059a42a8d}{set\_var\_lvgl\_value\_clock\_hour}}(int32\_t\ value);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{extern}\ int32\_t\ \doxymbox{\hyperlink{variable_functions_8h_a206a697950f2cf54f776e1d044b302bc}{get\_var\_lvgl\_value\_clock\_minute}}();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{variable_functions_8h_aa2f427e68887062f5599ce47a7a2ac46}{set\_var\_lvgl\_value\_clock\_minute}}(int32\_t\ value);}
+
+\end{DoxyCode}

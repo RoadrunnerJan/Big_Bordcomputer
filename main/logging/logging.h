@@ -24,11 +24,28 @@
 /* ===== Function Declarations ===== */
 
 /**
- * Print informational log message
- * Output only if LOGGING_ENABLED is true
- * @param message Log message string
+ * @brief Print informational log message.
+ *
+ * Output only if LOGGING_ENABLED is true in configuration.
+ * @param message Log message string.
  */
 void printLog(const char *message);
+
+/**
+ * @brief Print error log message.
+ *
+ * Output only if LOGGING_ENABLED is true in configuration.
+ * @param message Error message string.
+ */
+void printErrorLog(const char *message);
+
+/**
+ * @brief Print warning log message.
+ *
+ * Output only if LOGGING_ENABLED is true in configuration.
+ * @param message Warning message string.
+ */
+void printWarningLog(const char *message);
 
 /**
  * Print error log message

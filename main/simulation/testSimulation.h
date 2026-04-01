@@ -25,8 +25,17 @@
 
 
 /* ===== Test Value Storage ===== */
-extern double test_value_oil_pressure;     // Simulated oil pressure (bar)
-extern double test_value_oil_temperature;  // Simulated oil temperature (°C)
+
+/**
+ * @brief Simulated oil pressure in bar.
+ */
+extern double test_value_oil_pressure;
+
+/**
+ * @brief Simulated oil temperature in °C.
+ */
+extern double test_value_oil_temperature;
+
 extern double test_value_volt;             // Simulated battery voltage (V)
 extern double test_value_outside_temperature; // Simulated outdoor temperature (°C)
 extern int test_value_brightness;          // Simulated brightness (0-100)

@@ -1,0 +1,72 @@
+\chapter{README }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+\texorpdfstring{$\vert$}{|} Supported Targets \texorpdfstring{$\vert$}{|} ESP32-\/\+P4 \texorpdfstring{$\vert$}{|} ESP32-\/\+S3 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|}\hypertarget{md__r_e_a_d_m_e_autotoc_md0}{}\doxysection{\texorpdfstring{Customizable ESP32 Bordcomputer}{Customizable ESP32 Bordcomputer}}\label{md__r_e_a_d_m_e_autotoc_md0}
+The intention of this project is to build a customizable Bordcomputer for old vehicles like the BMW E36. Normaly this car could have a boardcomputer providing by BMW which shows something like the average gasoline consumption or broke light bulbs. Another option is a multifunctional clock which shows the date, time and temperature. There is no possibility to show the current oil temperature or pressure.
+
+The aim of this project is to replace the standard bordcomputer by an own build computer which shows the actual oil temperature, pressure, voltage and the clock/\+termperature.
+
+The version for the E36 is build with four displays. Each shows an own gauge for the measurements. The number of gauges is adjustable. The amount or type of display can get adjusted. The design can get adjusted, too.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{Overall Hardware:\+}{Overall Hardware:\+}}\label{md__r_e_a_d_m_e_autotoc_md1}
+The project uses a fast ESP32\+P4 which is connected to all the periphers. The following elements are used for the E36 boardcomputer:\+
+\begin{DoxyItemize}
+\item ESP32\+P4 -\/ WT9932\+P4-\/\+TINY
+\item 4x 1.\+28 Inch Round TFT LCD Display Module (240x240 RGB) with GC9\+A01 Driver (\href{https://de.aliexpress.com/item/1005009364283361.html?spm=a2g0o.order_list.order_list_main.10.2d425c5foxNjLr&gatewayAdapt=glo2deu}{\texttt{https:\+/\+/\+de.\+aliexpress.\+com/\+item/\+1005009364283361.\+html?spm=a2g0o.\+order\+\_\+list.\+order\+\_\+list\+\_\+main.\+10.\+2d425c5fox\+Nj\+Lr\&gateway\+Adapt=glo2deu}})
+\item Customized PCB Board to connect the Displays and the other periphery with the ESP (Uploaded in hardware directory of this project)
+\item 5V buzzer to idenicate the outdoor temperature under 3°C
+\item 2x buttons for changing the current time
+\item 12v to 5v converter
+\item BMW oil temperature and pressure sensor using a pwm signal to send the sensor values (Hella 6PP 010 378-\/201) -\/ connected to the engine
+\end{DoxyItemize}
+
+The datasheets of the used elements are provided in the directory datasheet\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Software}{Software}}\label{md__r_e_a_d_m_e_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Free\+RTOS tasks to schedule the different operations
+\item LVGL designs for the gauges
+\item PWM reading of the sensor
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{\texorpdfstring{How to flash}{How to flash}}\label{md__r_e_a_d_m_e_autotoc_md3}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{ESP Help}{ESP Help}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Follow detailed instructions provided specifically for this example.
+
+Select the instructions depending on Espressif chip installed on your development board:\+
+
+
+\begin{DoxyItemize}
+\item \href{https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html}{\texttt{ESP32 Getting Started Guide}}
+\item \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html}{\texttt{ESP32-\/\+S2 Getting Started Guide}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Example folder contents}{Example folder contents}}\label{md__r_e_a_d_m_e_autotoc_md5}
+The project {\bfseries{hello\+\_\+world}} contains one source file in C language \href{main/hello_world_main.c}{\texttt{hello\+\_\+world\+\_\+main.\+c}}. The file is located in folder \+[main]\+(main).
+
+ESP-\/\+IDF projects are built using CMake. The project build configuration is contained in {\ttfamily CMake\+Lists.\+txt} files that provide set of directives and instructions describing the project\textquotesingle{}s source files and targets (executable, library, or both).
+
+Below is short explanation of remaining files in the project folder.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├──\ CMakeLists.txt}
+\DoxyCodeLine{├──\ pytest\_hello\_world.py\ \ \ \ \ \ Python\ script\ used\ for\ automated\ testing}
+\DoxyCodeLine{├──\ main}
+\DoxyCodeLine{│\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{│\ \ \ └──\ hello\_world\_main.c}
+\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ is\ the\ file\ you\ are\ currently\ reading}
+
+\end{DoxyCode}
+
+
+For more information on structure and contents of ESP-\/\+IDF projects, please refer to Section \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html}{\texttt{Build System}} of the ESP-\/\+IDF Programming Guide.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Program upload failure
+\begin{DoxyItemize}
+\item Hardware connection is not correct:\+ run {\ttfamily idf.\+py -\/p PORT monitor}, and reboot your board to see if there are any output logs.
+\item The baud rate for downloading is too high:\+ lower your baud rate in the {\ttfamily menuconfig} menu, and try again.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Technical support and feedback}{Technical support and feedback}}\label{md__r_e_a_d_m_e_autotoc_md7}
+Please use the following feedback channels:\+
+
+
+\begin{DoxyItemize}
+\item For technical queries, go to the \href{https://esp32.com/}{\texttt{esp32.\+com}} forum
+\item For a feature request or bug report, create a \href{https://github.com/espressif/esp-idf/issues}{\texttt{Git\+Hub issue}}
+\end{DoxyItemize}
+
+We will get back to you as soon as possible. 

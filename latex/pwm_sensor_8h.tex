@@ -1,0 +1,184 @@
+\doxysection{main/\+peripherie/\+pwm\+Sensor.h File Reference}
+\hypertarget{pwm_sensor_8h}{}\label{pwm_sensor_8h}\index{main/peripherie/pwmSensor.h@{main/peripherie/pwmSensor.h}}
+
+
+PWM sensor reader for Hella 6PP 010 378-\/201 oil sensor.  
+
+
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}driver/\+mcpwm\+\_\+cap.\+h"{}}\newline
+{\ttfamily \+\#include "{}esp\+\_\+system.\+h"{}}\newline
+{\ttfamily \+\#include $<$inttypes.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structvalue__pair__t}{value\+\_\+pair\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structsensor__data__t}{sensor\+\_\+data\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{pwm_sensor_8h_af4221afe7e5ed42055dad84c45e67e05}{pwm\+\_\+sensor\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{pwm_sensor_8h_acfba7208623b9fc55b8d9a308978e656}{create\+\_\+timer\+\_\+pwm}} (void)
+\item 
+double \doxymbox{\hyperlink{pwm_sensor_8h_a5b0bb12e2a7bf9876ea3c788cb0557ec}{get\+\_\+pwm\+\_\+value}} (int id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+mcpwm\+\_\+cap\+\_\+timer\+\_\+handle\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_a5ed357c7a9126137678740c82e6a54c7}{cap\+\_\+timer}}
+\item 
+mcpwm\+\_\+capture\+\_\+timer\+\_\+config\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b}{timer\+\_\+config}}
+\item 
+mcpwm\+\_\+cap\+\_\+channel\+\_\+handle\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_a390a3b3b4d255b9b028df7470bdb5984}{cap\+\_\+chan}}
+\item 
+mcpwm\+\_\+capture\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_ae90bc56e5dac79721704756ffd8d3e68}{chan\+\_\+config}}
+\item 
+mcpwm\+\_\+capture\+\_\+event\+\_\+callbacks\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_aacf93a512496094d35a83945c8a6f3e1}{cbs}}
+\item 
+volatile \doxymbox{\hyperlink{structsensor__data__t}{sensor\+\_\+data\+\_\+t}} \doxymbox{\hyperlink{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d}{latest\+\_\+sensor\+\_\+values}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877}{last\+\_\+pos\+\_\+edge}}
+\item 
+int \doxymbox{\hyperlink{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392}{pulse\+\_\+idx}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_aa658256e07f4ffdbd13e4b9d1738742d}{period\+\_\+us}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_a325272ddd9a962f05deb905101d25cbd}{width}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5}{last\+\_\+seen\+\_\+count}}
+\item 
+int \doxymbox{\hyperlink{pwm_sensor_8h_aeac442504835d85f0a187589aa581e28}{first\+\_\+init\+\_\+done}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PWM sensor reader for Hella 6PP 010 378-\/201 oil sensor. 
+
+Decodes PWM pulse signals for oil pressure and temperature readings.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item MCPWM capture for PWM signal decoding
+\item Multi-\/pulse sensor support (temperature, pressure, diagnostic)
+\item Hella 6PP 010 378-\/201 sensor integration
+\item Test mode with serial output 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{pwm_sensor_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pwm_sensor_8h_acfba7208623b9fc55b8d9a308978e656}\index{pwmSensor.h@{pwmSensor.h}!create\_timer\_pwm@{create\_timer\_pwm}}
+\index{create\_timer\_pwm@{create\_timer\_pwm}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{create\_timer\_pwm()}{create\_timer\_pwm()}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_acfba7208623b9fc55b8d9a308978e656} 
+void create\+\_\+timer\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Create and configure MCPWM timer for pulse capture \Hypertarget{pwm_sensor_8h_a5b0bb12e2a7bf9876ea3c788cb0557ec}\index{pwmSensor.h@{pwmSensor.h}!get\_pwm\_value@{get\_pwm\_value}}
+\index{get\_pwm\_value@{get\_pwm\_value}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{get\_pwm\_value()}{get\_pwm\_value()}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a5b0bb12e2a7bf9876ea3c788cb0557ec} 
+double get\+\_\+pwm\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+Get decoded sensor value by pulse ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & Pulse ID (PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID, PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID, etc.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decoded value or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error 
+\end{DoxyReturn}
+\Hypertarget{pwm_sensor_8h_af4221afe7e5ed42055dad84c45e67e05}\index{pwmSensor.h@{pwmSensor.h}!pwm\_sensor\_init@{pwm\_sensor\_init}}
+\index{pwm\_sensor\_init@{pwm\_sensor\_init}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{pwm\_sensor\_init()}{pwm\_sensor\_init()}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_af4221afe7e5ed42055dad84c45e67e05} 
+void pwm\+\_\+sensor\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize PWM sensor MCPWM capture hardware 
+
+\label{doc-var-members}
+\Hypertarget{pwm_sensor_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{pwm_sensor_8h_a390a3b3b4d255b9b028df7470bdb5984}\index{pwmSensor.h@{pwmSensor.h}!cap\_chan@{cap\_chan}}
+\index{cap\_chan@{cap\_chan}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{cap\_chan}{cap\_chan}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a390a3b3b4d255b9b028df7470bdb5984} 
+mcpwm\+\_\+cap\+\_\+channel\+\_\+handle\+\_\+t cap\+\_\+chan\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_a5ed357c7a9126137678740c82e6a54c7}\index{pwmSensor.h@{pwmSensor.h}!cap\_timer@{cap\_timer}}
+\index{cap\_timer@{cap\_timer}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{cap\_timer}{cap\_timer}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a5ed357c7a9126137678740c82e6a54c7} 
+mcpwm\+\_\+cap\+\_\+timer\+\_\+handle\+\_\+t cap\+\_\+timer\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_aacf93a512496094d35a83945c8a6f3e1}\index{pwmSensor.h@{pwmSensor.h}!cbs@{cbs}}
+\index{cbs@{cbs}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{cbs}{cbs}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_aacf93a512496094d35a83945c8a6f3e1} 
+mcpwm\+\_\+capture\+\_\+event\+\_\+callbacks\+\_\+t cbs\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_ae90bc56e5dac79721704756ffd8d3e68}\index{pwmSensor.h@{pwmSensor.h}!chan\_config@{chan\_config}}
+\index{chan\_config@{chan\_config}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{chan\_config}{chan\_config}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_ae90bc56e5dac79721704756ffd8d3e68} 
+mcpwm\+\_\+capture\+\_\+channel\+\_\+config\+\_\+t chan\+\_\+config\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_aeac442504835d85f0a187589aa581e28}\index{pwmSensor.h@{pwmSensor.h}!first\_init\_done@{first\_init\_done}}
+\index{first\_init\_done@{first\_init\_done}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{first\_init\_done}{first\_init\_done}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_aeac442504835d85f0a187589aa581e28} 
+int first\+\_\+init\+\_\+done\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877}\index{pwmSensor.h@{pwmSensor.h}!last\_pos\_edge@{last\_pos\_edge}}
+\index{last\_pos\_edge@{last\_pos\_edge}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{last\_pos\_edge}{last\_pos\_edge}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877} 
+uint32\+\_\+t last\+\_\+pos\+\_\+edge\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5}\index{pwmSensor.h@{pwmSensor.h}!last\_seen\_count@{last\_seen\_count}}
+\index{last\_seen\_count@{last\_seen\_count}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{last\_seen\_count}{last\_seen\_count}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5} 
+uint32\+\_\+t last\+\_\+seen\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d}\index{pwmSensor.h@{pwmSensor.h}!latest\_sensor\_values@{latest\_sensor\_values}}
+\index{latest\_sensor\_values@{latest\_sensor\_values}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{latest\_sensor\_values}{latest\_sensor\_values}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d} 
+volatile \doxymbox{\hyperlink{structsensor__data__t}{sensor\+\_\+data\+\_\+t}} latest\+\_\+sensor\+\_\+values\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_aa658256e07f4ffdbd13e4b9d1738742d}\index{pwmSensor.h@{pwmSensor.h}!period\_us@{period\_us}}
+\index{period\_us@{period\_us}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{period\_us}{period\_us}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_aa658256e07f4ffdbd13e4b9d1738742d} 
+uint32\+\_\+t period\+\_\+us\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392}\index{pwmSensor.h@{pwmSensor.h}!pulse\_idx@{pulse\_idx}}
+\index{pulse\_idx@{pulse\_idx}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{pulse\_idx}{pulse\_idx}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392} 
+int pulse\+\_\+idx\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b}\index{pwmSensor.h@{pwmSensor.h}!timer\_config@{timer\_config}}
+\index{timer\_config@{timer\_config}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{timer\_config}{timer\_config}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b} 
+mcpwm\+\_\+capture\+\_\+timer\+\_\+config\+\_\+t timer\+\_\+config\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{pwm_sensor_8h_a325272ddd9a962f05deb905101d25cbd}\index{pwmSensor.h@{pwmSensor.h}!width@{width}}
+\index{width@{width}!pwmSensor.h@{pwmSensor.h}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{pwm_sensor_8h_a325272ddd9a962f05deb905101d25cbd} 
+uint32\+\_\+t width\hspace{0.3cm}{\ttfamily [extern]}}
+

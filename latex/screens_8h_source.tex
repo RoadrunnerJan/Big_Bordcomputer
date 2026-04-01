@@ -1,0 +1,188 @@
+\doxysection{screens.\+h}
+\hypertarget{screens_8h_source}{}\label{screens_8h_source}\index{main/lvgl/src/ui/screens.h@{main/lvgl/src/ui/screens.h}}
+\doxymbox{\hyperlink{screens_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EEZ\_LVGL\_UI\_SCREENS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EEZ\_LVGL\_UI\_SCREENS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{lvgl_8h}{lvgl.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__objects__t}{\_objects\_t}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac84e145a9dff32e60a45a1dd6dea288a}{gauge\_oil\_pressure}};}
+\DoxyCodeLine{00012\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a05239097b1bc4e577dda9346903f7b95}{gauge\_oil\_pressure\_night}};}
+\DoxyCodeLine{00013\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a70cdddde16b93b381b8ea8a2a3df28d5}{gauge\_oil\_temperature}};}
+\DoxyCodeLine{00014\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a7590f61ae0598b37d1d4c27437f9301a}{gauge\_oil\_temperature\_night}};}
+\DoxyCodeLine{00015\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a29c2d7470887a7e181276ac16eebd06e}{gauge\_voltage}};}
+\DoxyCodeLine{00016\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a77f91b78c9aa4be8bf14453e807fc5f9}{gauge\_voltage\_night}};}
+\DoxyCodeLine{00017\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_adc51df6e6075b49d0a506ddcfde637fe}{gauge\_temperature\_clock}};}
+\DoxyCodeLine{00018\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_abee104e9361735f327332ca5abe418ea}{gauge\_temperature\_clock\_night}};}
+\DoxyCodeLine{00019\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a55723a19c456dde2f5eb8bc0dae19fe4}{gauge\_clock\_temperature}};}
+\DoxyCodeLine{00020\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a85c83e0684e066331140a683c41dfd30}{gauge\_clock\_temperature\_night}};}
+\DoxyCodeLine{00021\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a8d598dbfa8ffac2b80024bc015b698d1}{pressure\_black\_background\_opa}};}
+\DoxyCodeLine{00022\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a2962b68b2a4839497b5b7a3e0c966319}{pressure\_needle\_knop\_light\_shadow}};}
+\DoxyCodeLine{00023\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a60040707f6531d7792a3d9a6d76363b8}{pressure\_max\_indicator}};}
+\DoxyCodeLine{00024\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae0cbdefdd2a4392ae353f718638a1581}{pressure\_min\_indicator}};}
+\DoxyCodeLine{00025\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab0920ee3dff7471a1d5d5f58c1fe15e5}{pressure\_gauge\_image}};}
+\DoxyCodeLine{00026\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4ba914ad3a3423051ee20f703a0f7cda}{pressure\_gauge\_scale\_labels}};}
+\DoxyCodeLine{00027\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a0b1a9c945afe766b582e130c23d6be08}{pressure\_gauge\_value}};}
+\DoxyCodeLine{00028\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4782dae9d203398f98e38783a9ee01b5}{pressure\_gauge\_unit}};}
+\DoxyCodeLine{00029\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a824c453209b79ae19204f308d5b4d177}{pressure\_gauge\_scale}};}
+\DoxyCodeLine{00030\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae07ae29fdae8100c9f560967947ff442}{pressure\_needle\_knob}};}
+\DoxyCodeLine{00031\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_aa0e799fc6aefce8ce9be9d2108b2f3eb}{pressure\_black\_background\_opa\_night}};}
+\DoxyCodeLine{00032\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a2defde8de1cbef4a601b3b67395174fe}{pressure\_needle\_knop\_light\_shadow\_night}};}
+\DoxyCodeLine{00033\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a75ea8b8cab921e4ca17a9a13dcba5729}{pressure\_max\_indicator\_night}};}
+\DoxyCodeLine{00034\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a87c5a76d4feb787d96fa660b335f0bae}{pressure\_min\_indicator\_night}};}
+\DoxyCodeLine{00035\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac5ddfdd466d107e5f338c7a6a38d05ec}{pressure\_gauge\_image\_night}};}
+\DoxyCodeLine{00036\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a9863a78ecad04f0951e5304a0de5f49e}{pressure\_gauge\_scale\_labels\_night}};}
+\DoxyCodeLine{00037\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a3d0c87933c88a3d7fe28a897d6bd6d4d}{pressure\_gauge\_value\_night}};}
+\DoxyCodeLine{00038\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1bce3a67c28b00a308f98181b4bcce6c}{pressure\_gauge\_unit\_night}};}
+\DoxyCodeLine{00039\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_abd1cb854ee2e2acbc1b823de08689b9f}{pressure\_gauge\_scale\_night}};}
+\DoxyCodeLine{00040\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab65c7f5acadccb3928f5bf7a6160dd8a}{pressure\_needle\_knob\_night}};}
+\DoxyCodeLine{00041\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1cd128be7f45b5762f5b55964016f0e7}{temperature\_black\_background\_opa}};}
+\DoxyCodeLine{00042\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a6c3e16497c8c115c37770ab1553408ec}{temperature\_needle\_knop\_light\_shadow}};}
+\DoxyCodeLine{00043\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a11552007020e366d9c5f718489bef5cf}{temperature\_max\_indicator}};}
+\DoxyCodeLine{00044\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a094a8d60dab3c64a0a683f693b1f7514}{temperature\_min\_indicator}};}
+\DoxyCodeLine{00045\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4cfaeeb7b72a4fac8c8b933fcd4a4888}{temperature\_gauge\_image}};}
+\DoxyCodeLine{00046\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac5dd97e012c2be9229ac198e7f587bee}{temperature\_gauge\_scale\_labels}};}
+\DoxyCodeLine{00047\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a2ab40a919f66ead049f7e30aa54e4603}{temperature\_gauge\_value}};}
+\DoxyCodeLine{00048\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a3dd6072ce55f152cb70f99e4b407fd39}{temperature\_gauge\_unit}};}
+\DoxyCodeLine{00049\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_af57cc3a6a259ea3e584dced48e11ca76}{temperature\_gauge\_scale}};}
+\DoxyCodeLine{00050\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a3c663a0d747f4467875871583663cb64}{temperature\_needle\_knob}};}
+\DoxyCodeLine{00051\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_af735cdb4c9f6d654cef2670863c52992}{temperature\_black\_background\_opa\_night}};}
+\DoxyCodeLine{00052\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a76460500d1878d2ae7169a4f716b24e0}{temperature\_needle\_knop\_light\_shadow\_night}};}
+\DoxyCodeLine{00053\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab9c18d60abaf4e0d1ed6078ac2f9a8d9}{temperature\_max\_indicator\_night}};}
+\DoxyCodeLine{00054\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4dc8b04b3452abab9c021263104dbb5e}{temperature\_min\_indicator\_night}};}
+\DoxyCodeLine{00055\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_acd033ced3e346428a13bcbdadc2c18c4}{temperature\_gauge\_image\_night}};}
+\DoxyCodeLine{00056\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ad7034e7a85fdd87e6e56bdbf00af482b}{temperature\_gauge\_scale\_labels\_night}};}
+\DoxyCodeLine{00057\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4198679d5ea9bcc77b7c08dde7e67ba8}{temperature\_gauge\_value\_night}};}
+\DoxyCodeLine{00058\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab7017bf4fefc1846af5b43e50e781925}{temperature\_gauge\_unit\_night}};}
+\DoxyCodeLine{00059\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a594bc6cf17534205d9737af2e0529b83}{temperature\_gauge\_scale\_night}};}
+\DoxyCodeLine{00060\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_af3208402e751d8fc33ccc7ee851c04c2}{temperature\_needle\_knob\_night}};}
+\DoxyCodeLine{00061\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae1a1c00509daaeb1063254f199a6160b}{volt\_black\_background\_opa}};}
+\DoxyCodeLine{00062\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a2b40a55202ca21c03814bc087cb6d5d4}{volt\_needle\_knop\_light\_shadow}};}
+\DoxyCodeLine{00063\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a8396c37ce9223b3104d2777798eb9a33}{volt\_max\_indicator}};}
+\DoxyCodeLine{00064\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab4af9058d241cc0975b37e479af4750b}{volt\_min\_indicator}};}
+\DoxyCodeLine{00065\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1805e44593ffbcc9f475a7eae77d6fbc}{volt\_gauge\_image}};}
+\DoxyCodeLine{00066\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4f2e4e65be2018599b35653b026e3a51}{volt\_gauge\_scale\_labels}};}
+\DoxyCodeLine{00067\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a0d180084978f7c40f3210f86e4ef4fe9}{volt\_gauge\_value}};}
+\DoxyCodeLine{00068\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_aba1be80e9fdb04c3f04194f7e8fb0e79}{volt\_gauge\_unit}};}
+\DoxyCodeLine{00069\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a0232489765124cf442a335c04ac82f71}{volt\_gauge\_scale}};}
+\DoxyCodeLine{00070\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_afb674097e0aa90647c1a75fbf9e27338}{volt\_needle\_knob}};}
+\DoxyCodeLine{00071\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a3725ada5cbc1ef89c4c864bc5698e93d}{volt\_black\_background\_opa\_night}};}
+\DoxyCodeLine{00072\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_abbd53637783d4e956dbc150b796ceb59}{volt\_needle\_knop\_light\_shadow\_night}};}
+\DoxyCodeLine{00073\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a8ea289f3e7120e734ae9eab08ab8d921}{volt\_max\_indicator\_night}};}
+\DoxyCodeLine{00074\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab171e6b540ad7ba73b04b76cb7d8da55}{volt\_min\_indicator\_night}};}
+\DoxyCodeLine{00075\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_af52ed6905aa12d595d6416c1290a5dd3}{volt\_gauge\_image\_night}};}
+\DoxyCodeLine{00076\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a12574d12e8c7465a03673ee717944fab}{volt\_gauge\_scale\_labels\_night}};}
+\DoxyCodeLine{00077\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1f7bc391a569a2c6a8d34db28c72029f}{volt\_gauge\_value\_night}};}
+\DoxyCodeLine{00078\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac1b6f39f0ca9772e84a4e3e50fb6fae3}{volt\_gauge\_unit\_night}};}
+\DoxyCodeLine{00079\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a07e8142bace38049d302e154bb2124e9}{volt\_gauge\_scale\_night}};}
+\DoxyCodeLine{00080\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_acd3742d31145915ad6ad8fe3f86d9b53}{volt\_needle\_knob\_night}};}
+\DoxyCodeLine{00081\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ad822780a5c70e8cbceb46b547a0f955f}{temp\_clock\_black\_background\_opa}};}
+\DoxyCodeLine{00082\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a8e0b1fdc25689a1587a3ea76035a8d7c}{temp\_clock\_needle\_knop\_light\_shadow}};}
+\DoxyCodeLine{00083\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a62eb2317b23998784a49e8512616f31d}{temp\_clock\_min\_indicator}};}
+\DoxyCodeLine{00084\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a195b1db39af8f85a0fd4485d8bc0fd09}{temp\_clock\_gauge\_image}};}
+\DoxyCodeLine{00085\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1fb8fa2911fd5f7323a61287bee18533}{temp\_clock\_gauge\_scale\_labels}};}
+\DoxyCodeLine{00086\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_afbad01068ccbdef418a3700b6e007cfc}{temp\_clock\_gauge\_value}};}
+\DoxyCodeLine{00087\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae2fdb9a777bf4ebc7411dac411631f7c}{temp\_clock\_gauge\_unit}};}
+\DoxyCodeLine{00088\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a9a90c507fa24bae2f67f16428cf6190c}{temp\_clock\_gauge\_scale}};}
+\DoxyCodeLine{00089\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a8be2b4bb29cbd2c7aa5e51fbf19a1b30}{temp\_clock\_needle\_knob}};}
+\DoxyCodeLine{00090\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a0041317bb482bbfa9099d063ae5a5537}{temp\_clock\_black\_background\_opa\_night}};}
+\DoxyCodeLine{00091\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a179c8a0b739745e69feea65b969355e5}{temp\_clock\_needle\_knop\_light\_shadow\_night}};}
+\DoxyCodeLine{00092\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac1d2e7ba1b3cf94bcf13c057fba4b8d2}{temp\_clock\_min\_indicator\_night}};}
+\DoxyCodeLine{00093\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a13795a4e3a255e51f5618743f9f270ca}{temp\_clock\_gauge\_image\_night}};}
+\DoxyCodeLine{00094\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_affb6b18ad3c0a6e30b9c2116ce198a39}{temp\_clock\_gauge\_scale\_labels\_night}};}
+\DoxyCodeLine{00095\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a16a346a4dc915c128cf348cf86ac38e0}{temp\_clock\_gauge\_value\_night}};}
+\DoxyCodeLine{00096\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a3b94a0b9a1f35bc3a8fb77cb32f51025}{temp\_clock\_gauge\_unit\_night}};}
+\DoxyCodeLine{00097\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ad6de446b75a00f75d44be2583dc43b4a}{temp\_clock\_gauge\_scale\_night}};}
+\DoxyCodeLine{00098\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_aab4a22d01048d225281346de3eec253f}{temp\_clock\_needle\_knob\_night}};}
+\DoxyCodeLine{00099\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a991b8219547380fcf18109359ade5d63}{clock\_temp\_black\_background\_opa}};}
+\DoxyCodeLine{00100\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a1fc7405d646499d2a60225af891561cb}{clock\_temp\_gauge\_scale\_hour\_labels}};}
+\DoxyCodeLine{00101\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ab7cec6b6af135869a700b1b9ff4d0f75}{clock\_temp\_gauge\_12}};}
+\DoxyCodeLine{00102\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a7de83af41df6698429e911f5bb8e3ffc}{clock\_temp\_gauge\_image}};}
+\DoxyCodeLine{00103\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_add9dc8bacf7f89bbb228b45a76d6b3ef}{clock\_temp\_six\_blacking}};}
+\DoxyCodeLine{00104\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac2a56537bb33e55d0611296a7c173e1e}{clock\_temp\_gauge\_value}};}
+\DoxyCodeLine{00105\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a33506ea8d16811577d87eaccfb820e4d}{clock\_temp\_gauge\_unit}};}
+\DoxyCodeLine{00106\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a5ff0e88aa75d67f238fdb07232fbaa5c}{clock\_temp\_needle\_knop\_light\_shadow}};}
+\DoxyCodeLine{00107\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_af7999e6072d44c636bbcb7849fd8606a}{clock\_temp\_gauge\_scale\_hour}};}
+\DoxyCodeLine{00108\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a58a3b79ebb2594a97cbb32b8c71436ff}{clock\_temp\_gauge\_scale\_minute}};}
+\DoxyCodeLine{00109\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae51e12a690194066f6bd90c10273a1a0}{clock\_temp\_needle\_knob}};}
+\DoxyCodeLine{00110\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a63796083660068997f71fb2e2e807d8d}{clock\_temp\_gauge\_scale\_hour\_labels\_night}};}
+\DoxyCodeLine{00111\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a868553e56e986a41b14f2934a08502da}{clock\_temp\_gauge\_12\_night}};}
+\DoxyCodeLine{00112\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae4ef40ce49b8f9d503e19ee68296e14f}{clock\_temp\_gauge\_image\_night}};}
+\DoxyCodeLine{00113\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a2f901a7b28e722691ddc2660d9cb166b}{clock\_temp\_six\_blacking\_night}};}
+\DoxyCodeLine{00114\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a9b5cdfc2111d34423841654f0ac3b7aa}{clock\_temp\_gauge\_value\_night}};}
+\DoxyCodeLine{00115\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae963d9954c32e6a7f3af67750837cdff}{clock\_temp\_black\_background\_opa\_night}};}
+\DoxyCodeLine{00116\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae7574c8cd0da8a19ad78cb1d83a81c41}{clock\_temp\_gauge\_unit\_night}};}
+\DoxyCodeLine{00117\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ae68850dbc28f316fb8247fb6bf169796}{clock\_temp\_needle\_knop\_light\_shadow\_night}};}
+\DoxyCodeLine{00118\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_ac526fac955dfc1c31420252f356c6903}{clock\_temp\_gauge\_scale\_hour\_night}};}
+\DoxyCodeLine{00119\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a4a4d36688bb0aa6015da11fd453b0022}{clock\_temp\_gauge\_scale\_minute\_night}};}
+\DoxyCodeLine{00120\ \ \ \ \ lv\_obj\_t\ *\doxymbox{\hyperlink{struct__objects__t_a696442e7f7eb0d3da79678509ad57356}{clock\_temp\_needle\_knob\_night}};}
+\DoxyCodeLine{00121\ \}\ \doxymbox{\hyperlink{screens_8h_aa4cbe4134a3fddd9bff15ee29492201e}{objects\_t}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{screens_8h_aa4cbe4134a3fddd9bff15ee29492201e}{objects\_t}}\ \doxymbox{\hyperlink{screens_8c_aa4483f4b60afc6ac101298579efe3ec9}{objects}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2c}{ScreensEnum}}\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2caaccda9b6a3eeb811dc3e1cdb8b51b935}{SCREEN\_ID\_GAUGE\_OIL\_PRESSURE}}\ =\ 1,}
+\DoxyCodeLine{00127\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2ca656956957b9db8638764d251eee04c0f}{SCREEN\_ID\_GAUGE\_OIL\_PRESSURE\_NIGHT}}\ =\ 2,}
+\DoxyCodeLine{00128\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2ca022e15b6454e109162dd3a5a38702276}{SCREEN\_ID\_GAUGE\_OIL\_TEMPERATURE}}\ =\ 3,}
+\DoxyCodeLine{00129\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2ca6420a7fc89d2effab05f3e88ea7aa07a}{SCREEN\_ID\_GAUGE\_OIL\_TEMPERATURE\_NIGHT}}\ =\ 4,}
+\DoxyCodeLine{00130\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2ca42a7487511f72236a320aff5d5adf0c9}{SCREEN\_ID\_GAUGE\_VOLTAGE}}\ =\ 5,}
+\DoxyCodeLine{00131\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2cac2a7818340bef8705e9f20bc5e0e3eb2}{SCREEN\_ID\_GAUGE\_VOLTAGE\_NIGHT}}\ =\ 6,}
+\DoxyCodeLine{00132\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2cabe7a9442239e96373f84339b19325906}{SCREEN\_ID\_GAUGE\_TEMPERATURE\_CLOCK}}\ =\ 7,}
+\DoxyCodeLine{00133\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2ca90500109cde75511f0ca9b44f71fe91e}{SCREEN\_ID\_GAUGE\_TEMPERATURE\_CLOCK\_NIGHT}}\ =\ 8,}
+\DoxyCodeLine{00134\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2caa07bc5a7c89dbd3b3476ebfee7ebfe1c}{SCREEN\_ID\_GAUGE\_CLOCK\_TEMPERATURE}}\ =\ 9,}
+\DoxyCodeLine{00135\ \ \ \ \ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2cae8e05259396f08858a19c2785640a68f}{SCREEN\_ID\_GAUGE\_CLOCK\_TEMPERATURE\_NIGHT}}\ =\ 10,}
+\DoxyCodeLine{00136\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_aa30efa2f7a9f0657589ba25d75483185}{create\_screen\_gauge\_oil\_pressure}}();}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a40b9a814f9db4b8243c4a160a6fb3c23}{tick\_screen\_gauge\_oil\_pressure}}();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a9d1de0a6548544f5988c5e322ee207e3}{create\_screen\_gauge\_oil\_pressure\_night}}();}
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_aceebbbad5b40b04188a536b94a566e44}{tick\_screen\_gauge\_oil\_pressure\_night}}();}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_aced10697981092b022826666d0a1be79}{create\_screen\_gauge\_oil\_temperature}}();}
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a43e4077a530f2b1f2fc98bd8de0f5dc1}{tick\_screen\_gauge\_oil\_temperature}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a6a89888a4b7c566154b0b0e0f7323a3a}{create\_screen\_gauge\_oil\_temperature\_night}}();}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a7b23d0bb523df3323eb90b0040bf6577}{tick\_screen\_gauge\_oil\_temperature\_night}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_af6626249f1da7beab4bdbf00eaff7d4a}{create\_screen\_gauge\_voltage}}();}
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_aaa7d4471f0a2de6dd1cdc7327d478098}{tick\_screen\_gauge\_voltage}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a1ca529deff8485b88606eed98b076037}{create\_screen\_gauge\_voltage\_night}}();}
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a8453ca442062f43952efa06d4b3f0f61}{tick\_screen\_gauge\_voltage\_night}}();}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a2d8753d937ef23913b1ad32e5b3e022e}{create\_screen\_gauge\_temperature\_clock}}();}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a60005803c6350142f225130155f8f0d0}{tick\_screen\_gauge\_temperature\_clock}}();}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a4363d8de4d5e28032ad5fd4511a94528}{create\_screen\_gauge\_temperature\_clock\_night}}();}
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_ac0b2a09cad414228ead59b1bba14a655}{tick\_screen\_gauge\_temperature\_clock\_night}}();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_adf12cc5d64688d713d73e03c847d5a99}{create\_screen\_gauge\_clock\_temperature}}();}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a23af1c1ac1df27f4357e8f389118a43c}{tick\_screen\_gauge\_clock\_temperature}}();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_af6ce5f2f8e64fb6e994759e0feedc07a}{create\_screen\_gauge\_clock\_temperature\_night}}();}
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a32aba51f7aadb6df353e2dc211b105de}{tick\_screen\_gauge\_clock\_temperature\_night}}();}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a37478d65ec0ef2912a850b348ac5108e}{tick\_screen\_by\_id}}(\textcolor{keyword}{enum}\ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2c}{ScreensEnum}}\ screenId);}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a0f089dd77de77f17e5a759b546b909a7}{tick\_screen}}(\textcolor{keywordtype}{int}\ screen\_index);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{screens_8h_a6073eeb5bfdddd93f2ac07e3cffb37ae}{create\_screens}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*EEZ\_LVGL\_UI\_SCREENS\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

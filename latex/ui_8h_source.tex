@@ -1,0 +1,39 @@
+\doxysection{ui.\+h}
+\hypertarget{ui_8h_source}{}\label{ui_8h_source}\index{main/lvgl/src/ui/ui.h@{main/lvgl/src/ui/ui.h}}
+\doxymbox{\hyperlink{ui_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EEZ\_LVGL\_UI\_GUI\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EEZ\_LVGL\_UI\_GUI\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{lvgl_8h}{lvgl.h}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#if\ defined(EEZ\_FOR\_LVGL)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <eez/flow/lvgl\_api.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#if\ !defined(EEZ\_FOR\_LVGL)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{screens_8h}{screens.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{ui_8h_aa6f50ea564e0ba7375ce590a5196f12f}{ui\_init}}();}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{ui_8h_a5158647f671064ca28f334268ac6be9d}{ui\_tick}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#if\ !defined(EEZ\_FOR\_LVGL)}}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{ui_8h_a65e51ed8328c24e9970912039c6b9c43}{loadScreen}}(\textcolor{keyword}{enum}\ \doxymbox{\hyperlink{screens_8h_a81710b09659b8693a5020dfe4fc8ea2c}{ScreensEnum}}\ screenId);}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EEZ\_LVGL\_UI\_GUI\_H}}
+
+\end{DoxyCode}

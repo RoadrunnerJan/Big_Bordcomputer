@@ -1,21 +1,18 @@
 #pragma once
 
-/*
- * ============================================================================
- * PWM/ADC SWITCH - Sensor Input Selection
- * ============================================================================
- * GPIO switch to toggle between PWM sensor and I2C ADC input modes
+/**
+ * @file pwmSwitch.h
+ * @brief PWM/ADC input mode selector.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * GPIO switch to toggle between PWM sensor and I2C ADC input modes.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - GPIO-based sensor mode selection
  *      - Mode change detection and logging
- *
  */
 
 /* ===== Project Configuration ===== */

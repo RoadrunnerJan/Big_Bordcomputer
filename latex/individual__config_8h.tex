@@ -1,0 +1,1782 @@
+\doxysection{main/\+individual\+\_\+config.h File Reference}
+\hypertarget{individual__config_8h}{}\label{individual__config_8h}\index{main/individual\_config.h@{main/individual\_config.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}~4
+\begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}{CHIP\+\_\+\+USED}}~ESP32\+P4
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad716bb76ce6c332187e14e0b0c7bfe67}{TESTMODE}}~true
+\begin{DoxyCompactList}\small\item\em Feature flags -\/ enable/\+disable optional modules. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}{LOGGING\+\_\+\+ENABLED}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a454deab6aeff0af2de8c334bec94dfe9}{LOGGING\+\_\+\+TAG}}~"{}JRO\+\_\+\+BOARD\+\_\+\+COMPUTER\+\_\+\+LOG"{}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21}{SPI\+\_\+\+MODE}}~3
+\begin{DoxyCompactList}\small\item\em SPI bus configuration, used for SPI LCD panels. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}{TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+SCLK}}~30
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a05d95ad303c4b8aec288506682171ea7}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MOSI}}~29
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5a45fed2ab6bfd3a2977111330088c61}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MISO}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a168a72d3438cf86470ad7235e623105e}{SPI\+\_\+1\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ}}~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7}{SPI\+\_\+1\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb}{SPI\+\_\+1\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6}{SPI\+\_\+1\+\_\+\+INTR\+\_\+\+FLAGS}}~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2626daf8b314d054a90f38997d8a3827}{SPI\+\_\+1\+\_\+\+DMA}}~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+SCLK}}~11
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MOSI}}~12
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MISO}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae80d06218a249684b89828193c330614}{SPI\+\_\+2\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ}}~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054}{SPI\+\_\+2\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514}{SPI\+\_\+2\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a99cb21495f82c01685873a833d719b25}{SPI\+\_\+2\+\_\+\+INTR\+\_\+\+FLAGS}}~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1}{SPI\+\_\+2\+\_\+\+DMA}}~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8046713c766c7fc1936d9ffd641e2441}{LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ}}~(40 \texorpdfstring{$\ast$}{*} 1000 \texorpdfstring{$\ast$}{*} 1000)
+\begin{DoxyCompactList}\small\item\em Common LCD panel configuration, shared by all displays. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a970dd1ec4cf86ef299ba32369eb49ce2}{LCD\+\_\+\+CMD\+\_\+\+BITS}}~8
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aeaa4b9f3aa7437180455e8da8e37c11f}{LCD\+\_\+\+PARAM\+\_\+\+BITS}}~8
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}{LCD\+\_\+\+HOST\+\_\+1}}~SPI2\+\_\+\+HOST
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afa5670980ac638b68a609f398feb241d}{LCD\+\_\+\+HOST\+\_\+2}}~SPI3\+\_\+\+HOST
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a003b63760ab42341e431d30aab57e679}{PIN\+\_\+\+LCD\+\_\+\+BL}}~47
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7c96eef09aba468e5ca40e36cd8822a3}{LCD\+\_\+1\+\_\+\+SPI\+\_\+\+HOST}}~\doxymbox{\hyperlink{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}{LCD\+\_\+\+HOST\+\_\+1}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a66236c50334c8e3d2c6062958b6b044c}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+CS}}~28
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab906b5c2acdab3031c4cf4c590b87118}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+DC}}~49
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6863c324b28e682d56bb691a8688524b}{LCD\+\_\+1\+\_\+\+H\+\_\+\+RES}}~240
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}{LCD\+\_\+1\+\_\+\+V\+\_\+\+RES}}~240
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a52cc4e31eabce7d7c3dd433bea3353f5}{LCD\+\_\+1\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}}~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae22c1202b2fdcc51bdec876086d003cc}{LCD\+\_\+1\+\_\+\+MIRROR\+\_\+X}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac3d27ad361dbd940e3fc2b780b81bf73}{LCD\+\_\+1\+\_\+\+MIRROR\+\_\+Y}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a91b84561e84cbe403efd9a1944fce68a}{LCD\+\_\+1\+\_\+\+INVERT\+\_\+\+COLOR}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad07ac31fa4b18190fb6c0b27b4d921b3}{LCD\+\_\+1\+\_\+\+MALLOC\+\_\+\+CAP}}~MALLOC\+\_\+\+CAP\+\_\+\+SPIRAM
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b}{LCD\+\_\+1\+\_\+\+BUFFER\+\_\+\+FACTOR}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad23e0d53fc7a6a11e0b6cd87097012dd}{LCD\+\_\+1\+\_\+\+SCREEN\+\_\+\+ID}}~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+CLOCK\+\_\+\+TEMPERATURE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a358f808b88951d1c35c3a535ff62d7ff}{LCD\+\_\+2\+\_\+\+SPI\+\_\+\+HOST}}~\doxymbox{\hyperlink{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}{LCD\+\_\+\+HOST\+\_\+1}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af4d65bdc8fbe648af100631ae3bb8b0e}{PIN\+\_\+\+LCD\+\_\+2\+\_\+\+CS}}~27
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a26c9cebf7d605457a5f46fae90681ad6}{PIN\+\_\+\+LCD\+\_\+2\+\_\+\+DC}}~\doxymbox{\hyperlink{individual__config_8h_ab906b5c2acdab3031c4cf4c590b87118}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+DC}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5f58c1a30526021a5bcf1ba75f0c4e25}{PIN\+\_\+\+LCD\+\_\+2\+\_\+\+RST}}~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a66839f1f3c54474147a6689ae1cbecf7}{LCD\+\_\+2\+\_\+\+H\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_a6863c324b28e682d56bb691a8688524b}{LCD\+\_\+1\+\_\+\+H\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4352ddf7a475af3928fffb961c670c51}{LCD\+\_\+2\+\_\+\+V\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}{LCD\+\_\+1\+\_\+\+V\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3de6e758e888bd73c07c321fd3fddd56}{LCD\+\_\+2\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}}~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2958645646967115784c0a28399f2376}{LCD\+\_\+2\+\_\+\+MIRROR\+\_\+X}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a540c2f1f8b30a7a4d69094bd77213547}{LCD\+\_\+2\+\_\+\+MIRROR\+\_\+Y}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a32d8a9f18a1695565b5091fe8e88b3af}{LCD\+\_\+2\+\_\+\+INVERT\+\_\+\+COLOR}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a1a2930ebbba50258729e21e52a55d070}{LCD\+\_\+2\+\_\+\+MALLOC\+\_\+\+CAP}}~MALLOC\+\_\+\+CAP\+\_\+\+DMA
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0d3e60a3bfbc4befc9fe0926d9b761bb}{LCD\+\_\+2\+\_\+\+BUFFER\+\_\+\+FACTOR}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aad08b454568c752a4d5a4d41d9444c21}{LCD\+\_\+2\+\_\+\+SCREEN\+\_\+\+ID}}~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+OIL\+\_\+\+TEMPERATURE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aec7642d9e6c78fc43e64cadd11700c0c}{PIN\+\_\+\+LCD\+\_\+3\+\_\+\+CS}}~21
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6407e011c51a07712d9447e8a07a6de3}{PIN\+\_\+\+LCD\+\_\+3\+\_\+\+DC}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a683581499ff16e0d963e511b0351ce7d}{PIN\+\_\+\+LCD\+\_\+3\+\_\+\+RST}}~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_adc821008fdeb7db656f123a0b657a3bc}{LCD\+\_\+3\+\_\+\+H\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_a6863c324b28e682d56bb691a8688524b}{LCD\+\_\+1\+\_\+\+H\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a886d7108ad436e56f2123c8c250dee1b}{LCD\+\_\+3\+\_\+\+V\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}{LCD\+\_\+1\+\_\+\+V\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae87a9dac27aa5a541af8343b90173b8e}{LCD\+\_\+3\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}}~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a9cc456b171995b833e0a82f0f7b27d36}{LCD\+\_\+3\+\_\+\+MIRROR\+\_\+X}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_acd7be69b0b5aa506bcee4ce0d1a66d75}{LCD\+\_\+3\+\_\+\+MIRROR\+\_\+Y}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a1627f687cd6c9023cd9114a9fa7a776f}{LCD\+\_\+3\+\_\+\+INVERT\+\_\+\+COLOR}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abfd4d66ccd5eb03b1249b6ec3316bf1b}{LCD\+\_\+3\+\_\+\+MALLOC\+\_\+\+CAP}}~MALLOC\+\_\+\+CAP\+\_\+\+DMA
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae9a690f19d55eebac9765279b3dd648d}{LCD\+\_\+3\+\_\+\+BUFFER\+\_\+\+FACTOR}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac7a3da59257353e9a1f0dfdd0db7ff0c}{LCD\+\_\+3\+\_\+\+SPI\+\_\+\+HOST}}~\doxymbox{\hyperlink{individual__config_8h_afa5670980ac638b68a609f398feb241d}{LCD\+\_\+\+HOST\+\_\+2}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a201ee47cb7aa9a99a1b776df005fe326}{LCD\+\_\+3\+\_\+\+SCREEN\+\_\+\+ID}}~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+OIL\+\_\+\+PRESSURE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7fb0be2ff4ebb13e61d0121fd121c16b}{PIN\+\_\+\+LCD\+\_\+4\+\_\+\+CS}}~20
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac553a9cdf4f1837c0bca49eb3fd8642c}{PIN\+\_\+\+LCD\+\_\+4\+\_\+\+DC}}~\doxymbox{\hyperlink{individual__config_8h_a6407e011c51a07712d9447e8a07a6de3}{PIN\+\_\+\+LCD\+\_\+3\+\_\+\+DC}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3b5213680564a2815c3ae9da225e1626}{PIN\+\_\+\+LCD\+\_\+4\+\_\+\+RST}}~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae0c9bc622b2e584fb0d9a4254fae9869}{LCD\+\_\+4\+\_\+\+H\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_adc821008fdeb7db656f123a0b657a3bc}{LCD\+\_\+3\+\_\+\+H\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a61766f400dc1ee00d4ced73122187ddd}{LCD\+\_\+4\+\_\+\+V\+\_\+\+RES}}~\doxymbox{\hyperlink{individual__config_8h_a886d7108ad436e56f2123c8c250dee1b}{LCD\+\_\+3\+\_\+\+V\+\_\+\+RES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae96dc76071083bd8fcfc21027838b807}{LCD\+\_\+4\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}}~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5a71ecf1743ecfd3ea2f60d0e15f0f8b}{LCD\+\_\+4\+\_\+\+MIRROR\+\_\+X}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7457d02e1f0b56392ffd5fad6f6e8296}{LCD\+\_\+4\+\_\+\+MIRROR\+\_\+Y}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abdb577f28f66c41e032f9b785e9dc964}{LCD\+\_\+4\+\_\+\+INVERT\+\_\+\+COLOR}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a94daf58c14d4bdaaa891c56d58c91bb6}{LCD\+\_\+4\+\_\+\+MALLOC\+\_\+\+CAP}}~MALLOC\+\_\+\+CAP\+\_\+\+DMA
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4a15aa748f5966df3a71488c0229b9b7}{LCD\+\_\+4\+\_\+\+BUFFER\+\_\+\+FACTOR}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2f248d73d46ad07ab6613492c6137c23}{LCD\+\_\+4\+\_\+\+SPI\+\_\+\+HOST}}~\doxymbox{\hyperlink{individual__config_8h_afa5670980ac638b68a609f398feb241d}{LCD\+\_\+\+HOST\+\_\+2}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a54efd3039e7cfc00d1b648be4546cccc}{LCD\+\_\+4\+\_\+\+SCREEN\+\_\+\+ID}}~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+VOLTAGE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914}{PWM\+\_\+\+SENSOR\+\_\+\+PIN}}~3
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7451847218b5826426548ebc4166c7c5}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PIN}}~16
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae351184dec4c5ec451f85768e04ae331}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+MODE}}~GPIO\+\_\+\+MODE\+\_\+\+INPUT
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+UP\+\_\+\+EN}}~GPIO\+\_\+\+PULLUP\+\_\+\+DISABLE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+DOWN\+\_\+\+EN}}~GPIO\+\_\+\+PULLDOWN\+\_\+\+DISABLE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+INTR\+\_\+\+TYPE}}~GPIO\+\_\+\+INTR\+\_\+\+DISABLE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}}~17
+\begin{DoxyCompactList}\small\item\em Time adjustment button definition and debounce timing. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}}~18
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+SHORT\+\_\+\+MS}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+LONG\+\_\+\+MS}}~500
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+ACTIVE\+\_\+\+LEVEL}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+SHORT\+\_\+\+MS}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+LONG\+\_\+\+MS}}~500
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_adf9d11b2fd42021a61786187b6447699}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+ACTIVE\+\_\+\+LEVEL}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae2786de7186520fab24837b2e9fd0392}{LED\+\_\+\+SPEED}}~LEDC\+\_\+\+LOW\+\_\+\+SPEED\+\_\+\+MODE
+\begin{DoxyCompactList}\small\item\em LEDC PWM settings for display backlight brightness control. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ade3a58ca3fc05681b689884e377a37d5}{LED\+\_\+\+TIMER}}~LEDC\+\_\+\+TIMER\+\_\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a369ea8fa8e3d35f4bc416fe00ac440b8}{LED\+\_\+\+DUTY\+\_\+\+RESOLUTION}}~LEDC\+\_\+\+TIMER\+\_\+8\+\_\+\+BIT
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5a9f4db8ac69f922872c1f6e189f3a75}{LED\+\_\+\+DUTY\+\_\+\+RES\+\_\+\+VALUE}}~256
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e}{LED\+\_\+\+FREQ}}~5000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a902e5796c5baac95edd152cde50002d2}{LED\+\_\+\+CLK}}~LEDC\+\_\+\+AUTO\+\_\+\+CLK
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a9e917f20402c4bc2dacf745cbdfdd14e}{LED\+\_\+\+CHANNEL}}~LEDC\+\_\+\+CHANNEL\+\_\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a02a8e9e41a85850dd2d93c21322c7a94}{LED\+\_\+\+INTR}}~LEDC\+\_\+\+INTR\+\_\+\+DISABLE
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a843b341668408e5656cf19cf3389bb5a}{LED\+\_\+\+GPIO}}~\doxymbox{\hyperlink{individual__config_8h_a003b63760ab42341e431d30aab57e679}{PIN\+\_\+\+LCD\+\_\+\+BL}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a19388170f732e4edf122aceab67fd83c}{LED\+\_\+\+START\+\_\+\+BRIGHT}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6f277d6a175e29641ab81cd6c305e7c4}{LED\+\_\+\+H\+\_\+\+POINT}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}~80
+\begin{DoxyCompactList}\small\item\em Auto-\/brightness thresholds and manual defaults. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a1af7791013896769504004ef23940090}{BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V}}~1.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN}}~5
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN\+\_\+V}}~2.\+29
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX}}~40
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX\+\_\+V}}~10.\+74
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR}}~1000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af7f4269bb7d36168ba4c83efb544d805}{GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+SEC}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2f52e52af4a24453d7ec3e5eb24afa91}{BUZZER\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+SEC}}~5
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6d7e836e81c91b823bc4d89f3fb4ba69}{MAIN\+\_\+\+TASK\+\_\+\+FINISHED\+\_\+\+DELAY}}~5000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~4096
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~10
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267}{TASK\+\_\+1\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~200
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae12057330aeebd4ab49540af10aa2f8a}{TASK\+\_\+2\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab1e1ace4209cf40e91bea91332665224}{TASK\+\_\+2\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad04b185b86d13a77ed9a8e9c298bce11}{TASK\+\_\+2\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~100
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164}{TASK\+\_\+2\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa68ea9ed040536567eb1a1f029c0de09}{TASK\+\_\+3\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0fd31553a1c949532a661bb84bf8bf82}{TASK\+\_\+3\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6761c997cd501205a16b88c0f152c646}{TASK\+\_\+3\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~150
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0a1c1d511d3f3f11316926b1c5f01018}{TASK\+\_\+3\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac00defb01b4b0a4dd498911178f033ab}{TASK\+\_\+4\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aea108020a51158de85a2558e2053b672}{TASK\+\_\+4\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab6b8904ea8f761781af33d049960e758}{TASK\+\_\+4\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~100
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a}{TASK\+\_\+4\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0}{FILTER\+\_\+\+ALPHA}}~0.\+1f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689}{PWM\+\_\+\+SENSOR\+\_\+\+RESOLUTION\+\_\+\+MHZ}}~10
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804}{PWM\+\_\+\+SENSOR\+\_\+\+PRESCALE}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5}{PWM\+\_\+\+SENSOR\+\_\+\+NEG\+\_\+\+EDGE}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0}{PWM\+\_\+\+SENSOR\+\_\+\+POS\+\_\+\+EDGE}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa}{PWM\+\_\+\+SENSOR\+\_\+\+PULL\+\_\+\+UP}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PULSE\+\_\+\+ID}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MIN}}~900
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a22849c04b94b03fff7321e9caa755582}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MAX}}~1100
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a473cb738d041aec6a7867f361e43c29e}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MIN}}~150
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MAX}}~800
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MIN}}~3900
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MAX}}~4200
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MIN}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MAX}}~4050
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1}}~-\/896.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2}}~19.\+2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MIN}}~3900
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MAX}}~4200
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abac0ce5b828908a277b01535226e4a80}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MIN}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afa703f909b055df7fc07f2241e708db9}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MAX}}~4050
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1}}~64.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2}}~384
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36}{PWM\+\_\+\+SENSOR\+\_\+\+MAX\+\_\+\+SENSOR\+\_\+\+COUNT}}~100
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aaea767524059ac76b32479e382c20381}{PWM\+\_\+\+ADC\+\_\+\+SWTICH\+\_\+\+VALUE\+\_\+\+PWM}}~true
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f}{I2\+C\+\_\+\+SDA\+\_\+\+PIN}}~9
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c}{I2\+C\+\_\+\+SCL\+\_\+\+PIN}}~6
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9}{I2\+C\+\_\+\+CLK\+\_\+\+SRC}}~I2\+C\+\_\+\+CLK\+\_\+\+SRC\+\_\+\+DEFAULT
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f}{I2\+C\+\_\+\+PORT}}~I2\+C\+\_\+\+NUM\+\_\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba}{I2\+C\+\_\+\+GLITCH\+\_\+\+IGNORE}}~7
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50}{I2\+C\+\_\+\+INT\+\_\+\+PULLUP\+\_\+\+ENB}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}{RTC\+\_\+\+ADDR\+\_\+\+LENGTH}}~I2\+C\+\_\+\+ADDR\+\_\+\+BIT\+\_\+\+LEN\+\_\+7
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a39b3f976a18466171902d0705c9a87f8}{RTC\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ}}~100000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee}{RTC\+\_\+\+DS3231\+\_\+\+ADDR}}~0x68
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa5db451cb5b85a4834a48b6760c8ce44}{ADC\+\_\+\+ADS1115\+\_\+1\+\_\+\+ADDR}}~0x48
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_acb20a18e9d0250cb7bbfe0894d3bf7f2}{ADC\+\_\+\+ADS1115\+\_\+2\+\_\+\+ADDR}}~0x49
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aee130f3f895222dc5f50463e67898608}{ADC\+\_\+\+ADS1115\+\_\+\+ADDR\+\_\+\+LENGTH}}~\doxymbox{\hyperlink{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}{RTC\+\_\+\+ADDR\+\_\+\+LENGTH}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5903397c323573894e91f47f93c38825}{ADC\+\_\+\+ADS1115\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ}}~400000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac83c49065dacf9828a6acdceefaa54f6}{LSB\+\_\+2048}}~0.\+0625f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abb231f31dd71babedb1a64b056d0a6d1}{LSB\+\_\+4096}}~0.\+125f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a285914aba5f748beb371823980bcd7a7}{ADC\+\_\+\+MAX\+\_\+\+V\+\_\+\+VALID}}~3.\+25f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}~3.\+3f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a242963742b7af57917f87d0f3a95edbf}{ADC\+\_\+\+FAIL\+\_\+\+VALUE}}~-\/99.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a77ab36cc749d868dadb134882810fb1a}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+CHANNEL}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2836552f41232e0aeff9de6fcf27eac6}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+CHANNEL}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a495c1dea404f6b9fd234a065709650b2}{ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af50005610971c3d6c13ed45b535ae2b2}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+CHANNEL}}~3
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL}}~4
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a96bbbba1c6864d3b2d442fe07817e31d}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PGA}}~0x02
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3a17ead65711d5ab7216cfd6811bc939}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PGA}}~0x01
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4c3d3133086b2cc0847838d9a5880a7c}{ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PGA}}~0x01
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8e13d9dc9dc0391cfdb7e5e5380df333}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+PGA}}~0x01
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af1e7eb0be8fd4c3b74e73c0b0c7b3608}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PGA}}~0x01
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac589861f4d61a9a50ea00d86d9ddef77}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PULLUP}}~10000.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a922f72fd6a5b9b04b7c06fca146d7155}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PULLDOWN}}~1500.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8bc5610280c6f585ee54a20f8f350032}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PULLUP}}~10000.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac1017bb1ff946ba7162e9efa1788fbad}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PULLDOWN}}~2200.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aadefa6e073398fb3e78e5fadf4240d72}{ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PULLUP}}~680.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a510756e4d57cdd71c61307ce70c74fb2}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+PULLUP}}~680.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af858230b1f6d0547be1f7d29fb0bb9c5}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PULLUP}}~4700.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a1e3bd148070c60261d732907f8f04ca7}{ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~-\/50
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a09fb7643873ece69eef47c4724070d9c}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a45f6c500b48700a0f8ba88628bc1c01f}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~250.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a207a48c716cd66693387a0ac34221c96}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a32f50b1e597b6e2e9e4af84d7b2ee1cc}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~150000.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab6e0dba9621cfd28982260b3a54d0443}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+MIN\+\_\+R}}~10.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6c30e5ff0d05039de65d9daa23a51fd3}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+MAX\+\_\+R}}~184.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}~0.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}~8.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}~-\/30
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531}{VALUE\+\_\+\+DEFAULT\+\_\+\+BRIGHT}}~\doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713}{VALUE\+\_\+\+DEFAULT\+\_\+\+NIGHT\+\_\+\+MODE}}~false
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a371c597eddcd4c669475093d169c082a}{VALUE\+\_\+\+MIN\+\_\+\+PRES}}~\doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8}{VALUE\+\_\+\+MIN\+\_\+\+TEMP}}~\doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c}{VALUE\+\_\+\+MIN\+\_\+\+VOLT}}~\doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}{VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP}}~\doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc}{VALUE\+\_\+\+MAX\+\_\+\+PRES}}~6.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d}{VALUE\+\_\+\+MAX\+\_\+\+TEMP}}~150
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b}{VALUE\+\_\+\+MAX\+\_\+\+VOLT}}~16.\+0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}{VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP}}~70
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{individual__config_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{individual__config_8h_aa5db451cb5b85a4834a48b6760c8ce44}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS1115\_1\_ADDR@{ADC\_ADS1115\_1\_ADDR}}
+\index{ADC\_ADS1115\_1\_ADDR@{ADC\_ADS1115\_1\_ADDR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS1115\_1\_ADDR}{ADC\_ADS1115\_1\_ADDR}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa5db451cb5b85a4834a48b6760c8ce44} 
+\+\#define ADC\+\_\+\+ADS1115\+\_\+1\+\_\+\+ADDR~0x48}
+
+\Hypertarget{individual__config_8h_acb20a18e9d0250cb7bbfe0894d3bf7f2}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS1115\_2\_ADDR@{ADC\_ADS1115\_2\_ADDR}}
+\index{ADC\_ADS1115\_2\_ADDR@{ADC\_ADS1115\_2\_ADDR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS1115\_2\_ADDR}{ADC\_ADS1115\_2\_ADDR}}
+{\footnotesize\ttfamily \label{individual__config_8h_acb20a18e9d0250cb7bbfe0894d3bf7f2} 
+\+\#define ADC\+\_\+\+ADS1115\+\_\+2\+\_\+\+ADDR~0x49}
+
+\Hypertarget{individual__config_8h_aee130f3f895222dc5f50463e67898608}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS1115\_ADDR\_LENGTH@{ADC\_ADS1115\_ADDR\_LENGTH}}
+\index{ADC\_ADS1115\_ADDR\_LENGTH@{ADC\_ADS1115\_ADDR\_LENGTH}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS1115\_ADDR\_LENGTH}{ADC\_ADS1115\_ADDR\_LENGTH}}
+{\footnotesize\ttfamily \label{individual__config_8h_aee130f3f895222dc5f50463e67898608} 
+\+\#define ADC\+\_\+\+ADS1115\+\_\+\+ADDR\+\_\+\+LENGTH~\doxymbox{\hyperlink{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}{RTC\+\_\+\+ADDR\+\_\+\+LENGTH}}}
+
+\Hypertarget{individual__config_8h_a5903397c323573894e91f47f93c38825}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS1115\_SCL\_SPEED\_HZ@{ADC\_ADS1115\_SCL\_SPEED\_HZ}}
+\index{ADC\_ADS1115\_SCL\_SPEED\_HZ@{ADC\_ADS1115\_SCL\_SPEED\_HZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS1115\_SCL\_SPEED\_HZ}{ADC\_ADS1115\_SCL\_SPEED\_HZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5903397c323573894e91f47f93c38825} 
+\+\#define ADC\+\_\+\+ADS1115\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ~400000}
+
+\Hypertarget{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS\_REF\_V@{ADC\_ADS\_REF\_V}}
+\index{ADC\_ADS\_REF\_V@{ADC\_ADS\_REF\_V}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS\_REF\_V}{ADC\_ADS\_REF\_V}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d} 
+\+\#define ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V~3.\+3f}
+
+\Hypertarget{individual__config_8h_a242963742b7af57917f87d0f3a95edbf}\index{individual\_config.h@{individual\_config.h}!ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}}
+\index{ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_FAIL\_VALUE}{ADC\_FAIL\_VALUE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a242963742b7af57917f87d0f3a95edbf} 
+\+\#define ADC\+\_\+\+FAIL\+\_\+\+VALUE~-\/99.\+0f}
+
+\Hypertarget{individual__config_8h_a285914aba5f748beb371823980bcd7a7}\index{individual\_config.h@{individual\_config.h}!ADC\_MAX\_V\_VALID@{ADC\_MAX\_V\_VALID}}
+\index{ADC\_MAX\_V\_VALID@{ADC\_MAX\_V\_VALID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_MAX\_V\_VALID}{ADC\_MAX\_V\_VALID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a285914aba5f748beb371823980bcd7a7} 
+\+\#define ADC\+\_\+\+MAX\+\_\+\+V\+\_\+\+VALID~3.\+25f}
+
+\Hypertarget{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_CHANNEL@{ADC\_OUT\_TEMP\_ADS\_CHANNEL}}
+\index{ADC\_OUT\_TEMP\_ADS\_CHANNEL@{ADC\_OUT\_TEMP\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_CHANNEL}{ADC\_OUT\_TEMP\_ADS\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9} 
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL~4}
+
+\Hypertarget{individual__config_8h_af1e7eb0be8fd4c3b74e73c0b0c7b3608}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_PGA@{ADC\_OUT\_TEMP\_ADS\_PGA}}
+\index{ADC\_OUT\_TEMP\_ADS\_PGA@{ADC\_OUT\_TEMP\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_PGA}{ADC\_OUT\_TEMP\_ADS\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_af1e7eb0be8fd4c3b74e73c0b0c7b3608} 
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PGA~0x01}
+
+\Hypertarget{individual__config_8h_af858230b1f6d0547be1f7d29fb0bb9c5}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_PULLUP@{ADC\_OUT\_TEMP\_ADS\_PULLUP}}
+\index{ADC\_OUT\_TEMP\_ADS\_PULLUP@{ADC\_OUT\_TEMP\_ADS\_PULLUP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_PULLUP}{ADC\_OUT\_TEMP\_ADS\_PULLUP}}
+{\footnotesize\ttfamily \label{individual__config_8h_af858230b1f6d0547be1f7d29fb0bb9c5} 
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PULLUP~4700.\+0f}
+
+\Hypertarget{individual__config_8h_a32f50b1e597b6e2e9e4af84d7b2ee1cc}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX@{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX}}
+\index{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX@{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX}{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_a32f50b1e597b6e2e9e4af84d7b2ee1cc} 
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX~150000.\+0f}
+
+\Hypertarget{individual__config_8h_a207a48c716cd66693387a0ac34221c96}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}}
+\index{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}{ADC\_OUT\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a207a48c716cd66693387a0ac34221c96} 
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~0}
+
+\Hypertarget{individual__config_8h_af50005610971c3d6c13ed45b535ae2b2}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_CHANNEL@{ADC\_PRES\_ADS\_CHANNEL}}
+\index{ADC\_PRES\_ADS\_CHANNEL@{ADC\_PRES\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_CHANNEL}{ADC\_PRES\_ADS\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_af50005610971c3d6c13ed45b535ae2b2} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+CHANNEL~3}
+
+\Hypertarget{individual__config_8h_a8e13d9dc9dc0391cfdb7e5e5380df333}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_PGA@{ADC\_PRES\_ADS\_PGA}}
+\index{ADC\_PRES\_ADS\_PGA@{ADC\_PRES\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_PGA}{ADC\_PRES\_ADS\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8e13d9dc9dc0391cfdb7e5e5380df333} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+PGA~0x01}
+
+\Hypertarget{individual__config_8h_a510756e4d57cdd71c61307ce70c74fb2}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_PULLUP@{ADC\_PRES\_ADS\_PULLUP}}
+\index{ADC\_PRES\_ADS\_PULLUP@{ADC\_PRES\_ADS\_PULLUP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_PULLUP}{ADC\_PRES\_ADS\_PULLUP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a510756e4d57cdd71c61307ce70c74fb2} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+PULLUP~680.\+0f}
+
+\Hypertarget{individual__config_8h_a6c30e5ff0d05039de65d9daa23a51fd3}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_VAL\_MAX\_R@{ADC\_PRES\_ADS\_VAL\_MAX\_R}}
+\index{ADC\_PRES\_ADS\_VAL\_MAX\_R@{ADC\_PRES\_ADS\_VAL\_MAX\_R}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_VAL\_MAX\_R}{ADC\_PRES\_ADS\_VAL\_MAX\_R}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6c30e5ff0d05039de65d9daa23a51fd3} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+MAX\+\_\+R~184.\+0f}
+
+\Hypertarget{individual__config_8h_ab6e0dba9621cfd28982260b3a54d0443}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_VAL\_MIN\_R@{ADC\_PRES\_ADS\_VAL\_MIN\_R}}
+\index{ADC\_PRES\_ADS\_VAL\_MIN\_R@{ADC\_PRES\_ADS\_VAL\_MIN\_R}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_VAL\_MIN\_R}{ADC\_PRES\_ADS\_VAL\_MIN\_R}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab6e0dba9621cfd28982260b3a54d0443} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+MIN\+\_\+R~10.\+0f}
+
+\Hypertarget{individual__config_8h_a45f6c500b48700a0f8ba88628bc1c01f}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX@{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX}}
+\index{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX@{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX}{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_a45f6c500b48700a0f8ba88628bc1c01f} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX~250.\+0f}
+
+\Hypertarget{individual__config_8h_a09fb7643873ece69eef47c4724070d9c}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN}}
+\index{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN}{ADC\_PRES\_ADS\_VAL\_TO\_FAIL\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a09fb7643873ece69eef47c4724070d9c} 
+\+\#define ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~0}
+
+\Hypertarget{individual__config_8h_a495c1dea404f6b9fd234a065709650b2}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_ADS\_CHANNEL@{ADC\_TEMP\_ADS\_CHANNEL}}
+\index{ADC\_TEMP\_ADS\_CHANNEL@{ADC\_TEMP\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_TEMP\_ADS\_CHANNEL}{ADC\_TEMP\_ADS\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a495c1dea404f6b9fd234a065709650b2} 
+\+\#define ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL~2}
+
+\Hypertarget{individual__config_8h_a4c3d3133086b2cc0847838d9a5880a7c}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_ADS\_PGA@{ADC\_TEMP\_ADS\_PGA}}
+\index{ADC\_TEMP\_ADS\_PGA@{ADC\_TEMP\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_TEMP\_ADS\_PGA}{ADC\_TEMP\_ADS\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4c3d3133086b2cc0847838d9a5880a7c} 
+\+\#define ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PGA~0x01}
+
+\Hypertarget{individual__config_8h_aadefa6e073398fb3e78e5fadf4240d72}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_ADS\_PULLUP@{ADC\_TEMP\_ADS\_PULLUP}}
+\index{ADC\_TEMP\_ADS\_PULLUP@{ADC\_TEMP\_ADS\_PULLUP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_TEMP\_ADS\_PULLUP}{ADC\_TEMP\_ADS\_PULLUP}}
+{\footnotesize\ttfamily \label{individual__config_8h_aadefa6e073398fb3e78e5fadf4240d72} 
+\+\#define ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PULLUP~680.\+0f}
+
+\Hypertarget{individual__config_8h_a1e3bd148070c60261d732907f8f04ca7}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}}
+\index{ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN@{ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}{ADC\_TEMP\_ADS\_VAL\_TO\_FAIL\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a1e3bd148070c60261d732907f8f04ca7} 
+\+\#define ADC\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~-\/50}
+
+\Hypertarget{individual__config_8h_a77ab36cc749d868dadb134882810fb1a}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_ADS\_CHANNEL@{ADC\_VOLT\_ADS\_CHANNEL}}
+\index{ADC\_VOLT\_ADS\_CHANNEL@{ADC\_VOLT\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_ADS\_CHANNEL}{ADC\_VOLT\_ADS\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a77ab36cc749d868dadb134882810fb1a} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+CHANNEL~0}
+
+\Hypertarget{individual__config_8h_a96bbbba1c6864d3b2d442fe07817e31d}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_ADS\_PGA@{ADC\_VOLT\_ADS\_PGA}}
+\index{ADC\_VOLT\_ADS\_PGA@{ADC\_VOLT\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_ADS\_PGA}{ADC\_VOLT\_ADS\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a96bbbba1c6864d3b2d442fe07817e31d} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PGA~0x02}
+
+\Hypertarget{individual__config_8h_a922f72fd6a5b9b04b7c06fca146d7155}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_ADS\_PULLDOWN@{ADC\_VOLT\_ADS\_PULLDOWN}}
+\index{ADC\_VOLT\_ADS\_PULLDOWN@{ADC\_VOLT\_ADS\_PULLDOWN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_ADS\_PULLDOWN}{ADC\_VOLT\_ADS\_PULLDOWN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a922f72fd6a5b9b04b7c06fca146d7155} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PULLDOWN~1500.\+0f}
+
+\Hypertarget{individual__config_8h_ac589861f4d61a9a50ea00d86d9ddef77}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_ADS\_PULLUP@{ADC\_VOLT\_ADS\_PULLUP}}
+\index{ADC\_VOLT\_ADS\_PULLUP@{ADC\_VOLT\_ADS\_PULLUP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_ADS\_PULLUP}{ADC\_VOLT\_ADS\_PULLUP}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac589861f4d61a9a50ea00d86d9ddef77} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PULLUP~10000.\+0f}
+
+\Hypertarget{individual__config_8h_a2836552f41232e0aeff9de6fcf27eac6}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_ADS\_CHANNEL@{ADC\_VOLT\_BEL\_ADS\_CHANNEL}}
+\index{ADC\_VOLT\_BEL\_ADS\_CHANNEL@{ADC\_VOLT\_BEL\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_ADS\_CHANNEL}{ADC\_VOLT\_BEL\_ADS\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2836552f41232e0aeff9de6fcf27eac6} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+CHANNEL~1}
+
+\Hypertarget{individual__config_8h_a3a17ead65711d5ab7216cfd6811bc939}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_ADS\_PGA@{ADC\_VOLT\_BEL\_ADS\_PGA}}
+\index{ADC\_VOLT\_BEL\_ADS\_PGA@{ADC\_VOLT\_BEL\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_ADS\_PGA}{ADC\_VOLT\_BEL\_ADS\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3a17ead65711d5ab7216cfd6811bc939} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PGA~0x01}
+
+\Hypertarget{individual__config_8h_ac1017bb1ff946ba7162e9efa1788fbad}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_ADS\_PULLDOWN@{ADC\_VOLT\_BEL\_ADS\_PULLDOWN}}
+\index{ADC\_VOLT\_BEL\_ADS\_PULLDOWN@{ADC\_VOLT\_BEL\_ADS\_PULLDOWN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_ADS\_PULLDOWN}{ADC\_VOLT\_BEL\_ADS\_PULLDOWN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac1017bb1ff946ba7162e9efa1788fbad} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PULLDOWN~2200.\+0f}
+
+\Hypertarget{individual__config_8h_a8bc5610280c6f585ee54a20f8f350032}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_ADS\_PULLUP@{ADC\_VOLT\_BEL\_ADS\_PULLUP}}
+\index{ADC\_VOLT\_BEL\_ADS\_PULLUP@{ADC\_VOLT\_BEL\_ADS\_PULLUP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_ADS\_PULLUP}{ADC\_VOLT\_BEL\_ADS\_PULLUP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8bc5610280c6f585ee54a20f8f350032} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PULLUP~10000.\+0f}
+
+\Hypertarget{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}}
+\index{BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_DAY}{BRIGHTNESS\_DAY}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3} 
+\+\#define BRIGHTNESS\+\_\+\+DAY~80}
+
+
+
+Auto-\/brightness thresholds and manual defaults. 
+
+BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V:\+ min battery voltage to treat as day mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX:\+ brightness range in night mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX\+\_\+V:\+ battery voltage range mapping for night mode. \Hypertarget{individual__config_8h_a1af7791013896769504004ef23940090}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY\_MIN\_V@{BRIGHTNESS\_DAY\_MIN\_V}}
+\index{BRIGHTNESS\_DAY\_MIN\_V@{BRIGHTNESS\_DAY\_MIN\_V}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_DAY\_MIN\_V}{BRIGHTNESS\_DAY\_MIN\_V}}
+{\footnotesize\ttfamily \label{individual__config_8h_a1af7791013896769504004ef23940090} 
+\+\#define BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V~1.\+0}
+
+\Hypertarget{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}}
+\index{BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MAX}{BRIGHTNESS\_NIGHT\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781} 
+\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX~40}
+
+\Hypertarget{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MAX\_V@{BRIGHTNESS\_NIGHT\_MAX\_V}}
+\index{BRIGHTNESS\_NIGHT\_MAX\_V@{BRIGHTNESS\_NIGHT\_MAX\_V}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MAX\_V}{BRIGHTNESS\_NIGHT\_MAX\_V}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9} 
+\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX\+\_\+V~10.\+74}
+
+\Hypertarget{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MIN@{BRIGHTNESS\_NIGHT\_MIN}}
+\index{BRIGHTNESS\_NIGHT\_MIN@{BRIGHTNESS\_NIGHT\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MIN}{BRIGHTNESS\_NIGHT\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2} 
+\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN~5}
+
+\Hypertarget{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}}
+\index{BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MIN\_V}{BRIGHTNESS\_NIGHT\_MIN\_V}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668} 
+\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN\+\_\+V~2.\+29}
+
+\Hypertarget{individual__config_8h_adf9d11b2fd42021a61786187b6447699}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}}
+\index{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_adf9d11b2fd42021a61786187b6447699} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+ACTIVE\+\_\+\+LEVEL~0}
+
+\Hypertarget{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_LONG\_MS@{BUTTON\_CLOCK\_HOUR\_LONG\_MS}}
+\index{BUTTON\_CLOCK\_HOUR\_LONG\_MS@{BUTTON\_CLOCK\_HOUR\_LONG\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_LONG\_MS}{BUTTON\_CLOCK\_HOUR\_LONG\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+LONG\+\_\+\+MS~500}
+
+\Hypertarget{individual__config_8h_a56e3524f658a913c549c9da612eb6678}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_PIN@{BUTTON\_CLOCK\_HOUR\_PIN}}
+\index{BUTTON\_CLOCK\_HOUR\_PIN@{BUTTON\_CLOCK\_HOUR\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_PIN}{BUTTON\_CLOCK\_HOUR\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a56e3524f658a913c549c9da612eb6678} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN~18}
+
+\Hypertarget{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_SHORT\_MS@{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}}
+\index{BUTTON\_CLOCK\_HOUR\_SHORT\_MS@{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+SHORT\+\_\+\+MS~50}
+
+\Hypertarget{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}}
+\index{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+ACTIVE\+\_\+\+LEVEL~0}
+
+\Hypertarget{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_LONG\_MS@{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}}
+\index{BUTTON\_CLOCK\_MINUTE\_LONG\_MS@{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+LONG\+\_\+\+MS~500}
+
+\Hypertarget{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_PIN@{BUTTON\_CLOCK\_MINUTE\_PIN}}
+\index{BUTTON\_CLOCK\_MINUTE\_PIN@{BUTTON\_CLOCK\_MINUTE\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_PIN}{BUTTON\_CLOCK\_MINUTE\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN~17}
+
+
+
+Time adjustment button definition and debounce timing. 
+
+BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+PIN:\+ GPIO pin for short/\+long press clock adjust. BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+MS:\+ Short/\+long press thresholds in milliseconds. BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+ACTIVE\+\_\+\+LEVEL:\+ GPIO active level (0 = active low). \Hypertarget{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_SHORT\_MS@{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}}
+\index{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS@{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78} 
+\+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+SHORT\+\_\+\+MS~50}
+
+\Hypertarget{individual__config_8h_a2f52e52af4a24453d7ec3e5eb24afa91}\index{individual\_config.h@{individual\_config.h}!BUZZER\_ON\_DELAY\_SEC@{BUZZER\_ON\_DELAY\_SEC}}
+\index{BUZZER\_ON\_DELAY\_SEC@{BUZZER\_ON\_DELAY\_SEC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{BUZZER\_ON\_DELAY\_SEC}{BUZZER\_ON\_DELAY\_SEC}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2f52e52af4a24453d7ec3e5eb24afa91} 
+\+\#define BUZZER\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+SEC~5}
+
+\Hypertarget{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}\index{individual\_config.h@{individual\_config.h}!CHIP\_USED@{CHIP\_USED}}
+\index{CHIP\_USED@{CHIP\_USED}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{CHIP\_USED}{CHIP\_USED}}
+{\footnotesize\ttfamily \label{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21} 
+\+\#define CHIP\+\_\+\+USED~ESP32\+P4}
+
+\Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
+\index{EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR}{EEZ\_VALUE\_FACTOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2} 
+\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR~1000}
+
+\Hypertarget{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA@{FILTER\_ALPHA}}
+\index{FILTER\_ALPHA@{FILTER\_ALPHA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{FILTER\_ALPHA}{FILTER\_ALPHA}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0} 
+\+\#define FILTER\+\_\+\+ALPHA~0.\+1f}
+
+\Hypertarget{individual__config_8h_af7f4269bb7d36168ba4c83efb544d805}\index{individual\_config.h@{individual\_config.h}!GAUGE\_ON\_DELAY\_SEC@{GAUGE\_ON\_DELAY\_SEC}}
+\index{GAUGE\_ON\_DELAY\_SEC@{GAUGE\_ON\_DELAY\_SEC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{GAUGE\_ON\_DELAY\_SEC}{GAUGE\_ON\_DELAY\_SEC}}
+{\footnotesize\ttfamily \label{individual__config_8h_af7f4269bb7d36168ba4c83efb544d805} 
+\+\#define GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+SEC~1}
+
+\Hypertarget{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9}\index{individual\_config.h@{individual\_config.h}!I2C\_CLK\_SRC@{I2C\_CLK\_SRC}}
+\index{I2C\_CLK\_SRC@{I2C\_CLK\_SRC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_CLK\_SRC}{I2C\_CLK\_SRC}}
+{\footnotesize\ttfamily \label{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9} 
+\+\#define I2\+C\+\_\+\+CLK\+\_\+\+SRC~I2\+C\+\_\+\+CLK\+\_\+\+SRC\+\_\+\+DEFAULT}
+
+\Hypertarget{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba}\index{individual\_config.h@{individual\_config.h}!I2C\_GLITCH\_IGNORE@{I2C\_GLITCH\_IGNORE}}
+\index{I2C\_GLITCH\_IGNORE@{I2C\_GLITCH\_IGNORE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_GLITCH\_IGNORE}{I2C\_GLITCH\_IGNORE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba} 
+\+\#define I2\+C\+\_\+\+GLITCH\+\_\+\+IGNORE~7}
+
+\Hypertarget{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50}\index{individual\_config.h@{individual\_config.h}!I2C\_INT\_PULLUP\_ENB@{I2C\_INT\_PULLUP\_ENB}}
+\index{I2C\_INT\_PULLUP\_ENB@{I2C\_INT\_PULLUP\_ENB}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_INT\_PULLUP\_ENB}{I2C\_INT\_PULLUP\_ENB}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50} 
+\+\#define I2\+C\+\_\+\+INT\+\_\+\+PULLUP\+\_\+\+ENB~false}
+
+\Hypertarget{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f}\index{individual\_config.h@{individual\_config.h}!I2C\_PORT@{I2C\_PORT}}
+\index{I2C\_PORT@{I2C\_PORT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_PORT}{I2C\_PORT}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f} 
+\+\#define I2\+C\+\_\+\+PORT~I2\+C\+\_\+\+NUM\+\_\+0}
+
+\Hypertarget{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c}\index{individual\_config.h@{individual\_config.h}!I2C\_SCL\_PIN@{I2C\_SCL\_PIN}}
+\index{I2C\_SCL\_PIN@{I2C\_SCL\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL\_PIN}{I2C\_SCL\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c} 
+\+\#define I2\+C\+\_\+\+SCL\+\_\+\+PIN~6}
+
+\Hypertarget{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f}\index{individual\_config.h@{individual\_config.h}!I2C\_SDA\_PIN@{I2C\_SDA\_PIN}}
+\index{I2C\_SDA\_PIN@{I2C\_SDA\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA\_PIN}{I2C\_SDA\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f} 
+\+\#define I2\+C\+\_\+\+SDA\+\_\+\+PIN~9}
+
+\Hypertarget{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_BUFFER\_FACTOR@{LCD\_1\_BUFFER\_FACTOR}}
+\index{LCD\_1\_BUFFER\_FACTOR@{LCD\_1\_BUFFER\_FACTOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_BUFFER\_FACTOR}{LCD\_1\_BUFFER\_FACTOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b} 
+\+\#define LCD\+\_\+1\+\_\+\+BUFFER\+\_\+\+FACTOR~2}
+
+\Hypertarget{individual__config_8h_a6863c324b28e682d56bb691a8688524b}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_H\_RES@{LCD\_1\_H\_RES}}
+\index{LCD\_1\_H\_RES@{LCD\_1\_H\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_H\_RES}{LCD\_1\_H\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6863c324b28e682d56bb691a8688524b} 
+\+\#define LCD\+\_\+1\+\_\+\+H\+\_\+\+RES~240}
+
+\Hypertarget{individual__config_8h_a91b84561e84cbe403efd9a1944fce68a}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_INVERT\_COLOR@{LCD\_1\_INVERT\_COLOR}}
+\index{LCD\_1\_INVERT\_COLOR@{LCD\_1\_INVERT\_COLOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_INVERT\_COLOR}{LCD\_1\_INVERT\_COLOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a91b84561e84cbe403efd9a1944fce68a} 
+\+\#define LCD\+\_\+1\+\_\+\+INVERT\+\_\+\+COLOR~true}
+
+\Hypertarget{individual__config_8h_ad07ac31fa4b18190fb6c0b27b4d921b3}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_MALLOC\_CAP@{LCD\_1\_MALLOC\_CAP}}
+\index{LCD\_1\_MALLOC\_CAP@{LCD\_1\_MALLOC\_CAP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_MALLOC\_CAP}{LCD\_1\_MALLOC\_CAP}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad07ac31fa4b18190fb6c0b27b4d921b3} 
+\+\#define LCD\+\_\+1\+\_\+\+MALLOC\+\_\+\+CAP~MALLOC\+\_\+\+CAP\+\_\+\+SPIRAM}
+
+\Hypertarget{individual__config_8h_ae22c1202b2fdcc51bdec876086d003cc}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_MIRROR\_X@{LCD\_1\_MIRROR\_X}}
+\index{LCD\_1\_MIRROR\_X@{LCD\_1\_MIRROR\_X}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_MIRROR\_X}{LCD\_1\_MIRROR\_X}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae22c1202b2fdcc51bdec876086d003cc} 
+\+\#define LCD\+\_\+1\+\_\+\+MIRROR\+\_\+X~false}
+
+\Hypertarget{individual__config_8h_ac3d27ad361dbd940e3fc2b780b81bf73}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_MIRROR\_Y@{LCD\_1\_MIRROR\_Y}}
+\index{LCD\_1\_MIRROR\_Y@{LCD\_1\_MIRROR\_Y}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_MIRROR\_Y}{LCD\_1\_MIRROR\_Y}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac3d27ad361dbd940e3fc2b780b81bf73} 
+\+\#define LCD\+\_\+1\+\_\+\+MIRROR\+\_\+Y~true}
+
+\Hypertarget{individual__config_8h_a52cc4e31eabce7d7c3dd433bea3353f5}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR}}
+\index{LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR}{LCD\_1\_RGB\_ELEMENT\_ORDER\_BGR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a52cc4e31eabce7d7c3dd433bea3353f5} 
+\+\#define LCD\+\_\+1\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}
+
+\Hypertarget{individual__config_8h_ad23e0d53fc7a6a11e0b6cd87097012dd}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_SCREEN\_ID@{LCD\_1\_SCREEN\_ID}}
+\index{LCD\_1\_SCREEN\_ID@{LCD\_1\_SCREEN\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_SCREEN\_ID}{LCD\_1\_SCREEN\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad23e0d53fc7a6a11e0b6cd87097012dd} 
+\+\#define LCD\+\_\+1\+\_\+\+SCREEN\+\_\+\+ID~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+CLOCK\+\_\+\+TEMPERATURE}
+
+\Hypertarget{individual__config_8h_a7c96eef09aba468e5ca40e36cd8822a3}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_SPI\_HOST@{LCD\_1\_SPI\_HOST}}
+\index{LCD\_1\_SPI\_HOST@{LCD\_1\_SPI\_HOST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_SPI\_HOST}{LCD\_1\_SPI\_HOST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7c96eef09aba468e5ca40e36cd8822a3} 
+\+\#define LCD\+\_\+1\+\_\+\+SPI\+\_\+\+HOST~\doxymbox{\hyperlink{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}{LCD\+\_\+\+HOST\+\_\+1}}}
+
+\Hypertarget{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_V\_RES@{LCD\_1\_V\_RES}}
+\index{LCD\_1\_V\_RES@{LCD\_1\_V\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_1\_V\_RES}{LCD\_1\_V\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc} 
+\+\#define LCD\+\_\+1\+\_\+\+V\+\_\+\+RES~240}
+
+\Hypertarget{individual__config_8h_a0d3e60a3bfbc4befc9fe0926d9b761bb}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_BUFFER\_FACTOR@{LCD\_2\_BUFFER\_FACTOR}}
+\index{LCD\_2\_BUFFER\_FACTOR@{LCD\_2\_BUFFER\_FACTOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_BUFFER\_FACTOR}{LCD\_2\_BUFFER\_FACTOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0d3e60a3bfbc4befc9fe0926d9b761bb} 
+\+\#define LCD\+\_\+2\+\_\+\+BUFFER\+\_\+\+FACTOR~2}
+
+\Hypertarget{individual__config_8h_a66839f1f3c54474147a6689ae1cbecf7}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_H\_RES@{LCD\_2\_H\_RES}}
+\index{LCD\_2\_H\_RES@{LCD\_2\_H\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_H\_RES}{LCD\_2\_H\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a66839f1f3c54474147a6689ae1cbecf7} 
+\+\#define LCD\+\_\+2\+\_\+\+H\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_a6863c324b28e682d56bb691a8688524b}{LCD\+\_\+1\+\_\+\+H\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_a32d8a9f18a1695565b5091fe8e88b3af}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_INVERT\_COLOR@{LCD\_2\_INVERT\_COLOR}}
+\index{LCD\_2\_INVERT\_COLOR@{LCD\_2\_INVERT\_COLOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_INVERT\_COLOR}{LCD\_2\_INVERT\_COLOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a32d8a9f18a1695565b5091fe8e88b3af} 
+\+\#define LCD\+\_\+2\+\_\+\+INVERT\+\_\+\+COLOR~true}
+
+\Hypertarget{individual__config_8h_a1a2930ebbba50258729e21e52a55d070}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_MALLOC\_CAP@{LCD\_2\_MALLOC\_CAP}}
+\index{LCD\_2\_MALLOC\_CAP@{LCD\_2\_MALLOC\_CAP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_MALLOC\_CAP}{LCD\_2\_MALLOC\_CAP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a1a2930ebbba50258729e21e52a55d070} 
+\+\#define LCD\+\_\+2\+\_\+\+MALLOC\+\_\+\+CAP~MALLOC\+\_\+\+CAP\+\_\+\+DMA}
+
+\Hypertarget{individual__config_8h_a2958645646967115784c0a28399f2376}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_MIRROR\_X@{LCD\_2\_MIRROR\_X}}
+\index{LCD\_2\_MIRROR\_X@{LCD\_2\_MIRROR\_X}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_MIRROR\_X}{LCD\_2\_MIRROR\_X}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2958645646967115784c0a28399f2376} 
+\+\#define LCD\+\_\+2\+\_\+\+MIRROR\+\_\+X~false}
+
+\Hypertarget{individual__config_8h_a540c2f1f8b30a7a4d69094bd77213547}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_MIRROR\_Y@{LCD\_2\_MIRROR\_Y}}
+\index{LCD\_2\_MIRROR\_Y@{LCD\_2\_MIRROR\_Y}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_MIRROR\_Y}{LCD\_2\_MIRROR\_Y}}
+{\footnotesize\ttfamily \label{individual__config_8h_a540c2f1f8b30a7a4d69094bd77213547} 
+\+\#define LCD\+\_\+2\+\_\+\+MIRROR\+\_\+Y~true}
+
+\Hypertarget{individual__config_8h_a3de6e758e888bd73c07c321fd3fddd56}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR}}
+\index{LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR}{LCD\_2\_RGB\_ELEMENT\_ORDER\_BGR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3de6e758e888bd73c07c321fd3fddd56} 
+\+\#define LCD\+\_\+2\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}
+
+\Hypertarget{individual__config_8h_aad08b454568c752a4d5a4d41d9444c21}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_SCREEN\_ID@{LCD\_2\_SCREEN\_ID}}
+\index{LCD\_2\_SCREEN\_ID@{LCD\_2\_SCREEN\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_SCREEN\_ID}{LCD\_2\_SCREEN\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_aad08b454568c752a4d5a4d41d9444c21} 
+\+\#define LCD\+\_\+2\+\_\+\+SCREEN\+\_\+\+ID~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+OIL\+\_\+\+TEMPERATURE}
+
+\Hypertarget{individual__config_8h_a358f808b88951d1c35c3a535ff62d7ff}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_SPI\_HOST@{LCD\_2\_SPI\_HOST}}
+\index{LCD\_2\_SPI\_HOST@{LCD\_2\_SPI\_HOST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_SPI\_HOST}{LCD\_2\_SPI\_HOST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a358f808b88951d1c35c3a535ff62d7ff} 
+\+\#define LCD\+\_\+2\+\_\+\+SPI\+\_\+\+HOST~\doxymbox{\hyperlink{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}{LCD\+\_\+\+HOST\+\_\+1}}}
+
+\Hypertarget{individual__config_8h_a4352ddf7a475af3928fffb961c670c51}\index{individual\_config.h@{individual\_config.h}!LCD\_2\_V\_RES@{LCD\_2\_V\_RES}}
+\index{LCD\_2\_V\_RES@{LCD\_2\_V\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_2\_V\_RES}{LCD\_2\_V\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4352ddf7a475af3928fffb961c670c51} 
+\+\#define LCD\+\_\+2\+\_\+\+V\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}{LCD\+\_\+1\+\_\+\+V\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_ae9a690f19d55eebac9765279b3dd648d}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_BUFFER\_FACTOR@{LCD\_3\_BUFFER\_FACTOR}}
+\index{LCD\_3\_BUFFER\_FACTOR@{LCD\_3\_BUFFER\_FACTOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_BUFFER\_FACTOR}{LCD\_3\_BUFFER\_FACTOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae9a690f19d55eebac9765279b3dd648d} 
+\+\#define LCD\+\_\+3\+\_\+\+BUFFER\+\_\+\+FACTOR~2}
+
+\Hypertarget{individual__config_8h_adc821008fdeb7db656f123a0b657a3bc}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_H\_RES@{LCD\_3\_H\_RES}}
+\index{LCD\_3\_H\_RES@{LCD\_3\_H\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_H\_RES}{LCD\_3\_H\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_adc821008fdeb7db656f123a0b657a3bc} 
+\+\#define LCD\+\_\+3\+\_\+\+H\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_a6863c324b28e682d56bb691a8688524b}{LCD\+\_\+1\+\_\+\+H\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_a1627f687cd6c9023cd9114a9fa7a776f}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_INVERT\_COLOR@{LCD\_3\_INVERT\_COLOR}}
+\index{LCD\_3\_INVERT\_COLOR@{LCD\_3\_INVERT\_COLOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_INVERT\_COLOR}{LCD\_3\_INVERT\_COLOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a1627f687cd6c9023cd9114a9fa7a776f} 
+\+\#define LCD\+\_\+3\+\_\+\+INVERT\+\_\+\+COLOR~true}
+
+\Hypertarget{individual__config_8h_abfd4d66ccd5eb03b1249b6ec3316bf1b}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_MALLOC\_CAP@{LCD\_3\_MALLOC\_CAP}}
+\index{LCD\_3\_MALLOC\_CAP@{LCD\_3\_MALLOC\_CAP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_MALLOC\_CAP}{LCD\_3\_MALLOC\_CAP}}
+{\footnotesize\ttfamily \label{individual__config_8h_abfd4d66ccd5eb03b1249b6ec3316bf1b} 
+\+\#define LCD\+\_\+3\+\_\+\+MALLOC\+\_\+\+CAP~MALLOC\+\_\+\+CAP\+\_\+\+DMA}
+
+\Hypertarget{individual__config_8h_a9cc456b171995b833e0a82f0f7b27d36}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_MIRROR\_X@{LCD\_3\_MIRROR\_X}}
+\index{LCD\_3\_MIRROR\_X@{LCD\_3\_MIRROR\_X}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_MIRROR\_X}{LCD\_3\_MIRROR\_X}}
+{\footnotesize\ttfamily \label{individual__config_8h_a9cc456b171995b833e0a82f0f7b27d36} 
+\+\#define LCD\+\_\+3\+\_\+\+MIRROR\+\_\+X~false}
+
+\Hypertarget{individual__config_8h_acd7be69b0b5aa506bcee4ce0d1a66d75}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_MIRROR\_Y@{LCD\_3\_MIRROR\_Y}}
+\index{LCD\_3\_MIRROR\_Y@{LCD\_3\_MIRROR\_Y}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_MIRROR\_Y}{LCD\_3\_MIRROR\_Y}}
+{\footnotesize\ttfamily \label{individual__config_8h_acd7be69b0b5aa506bcee4ce0d1a66d75} 
+\+\#define LCD\+\_\+3\+\_\+\+MIRROR\+\_\+Y~true}
+
+\Hypertarget{individual__config_8h_ae87a9dac27aa5a541af8343b90173b8e}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR}}
+\index{LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR}{LCD\_3\_RGB\_ELEMENT\_ORDER\_BGR}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae87a9dac27aa5a541af8343b90173b8e} 
+\+\#define LCD\+\_\+3\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}
+
+\Hypertarget{individual__config_8h_a201ee47cb7aa9a99a1b776df005fe326}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_SCREEN\_ID@{LCD\_3\_SCREEN\_ID}}
+\index{LCD\_3\_SCREEN\_ID@{LCD\_3\_SCREEN\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_SCREEN\_ID}{LCD\_3\_SCREEN\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a201ee47cb7aa9a99a1b776df005fe326} 
+\+\#define LCD\+\_\+3\+\_\+\+SCREEN\+\_\+\+ID~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+OIL\+\_\+\+PRESSURE}
+
+\Hypertarget{individual__config_8h_ac7a3da59257353e9a1f0dfdd0db7ff0c}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_SPI\_HOST@{LCD\_3\_SPI\_HOST}}
+\index{LCD\_3\_SPI\_HOST@{LCD\_3\_SPI\_HOST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_SPI\_HOST}{LCD\_3\_SPI\_HOST}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac7a3da59257353e9a1f0dfdd0db7ff0c} 
+\+\#define LCD\+\_\+3\+\_\+\+SPI\+\_\+\+HOST~\doxymbox{\hyperlink{individual__config_8h_afa5670980ac638b68a609f398feb241d}{LCD\+\_\+\+HOST\+\_\+2}}}
+
+\Hypertarget{individual__config_8h_a886d7108ad436e56f2123c8c250dee1b}\index{individual\_config.h@{individual\_config.h}!LCD\_3\_V\_RES@{LCD\_3\_V\_RES}}
+\index{LCD\_3\_V\_RES@{LCD\_3\_V\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_3\_V\_RES}{LCD\_3\_V\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a886d7108ad436e56f2123c8c250dee1b} 
+\+\#define LCD\+\_\+3\+\_\+\+V\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_af40b6f0311435e4335c61ecc6cba79fc}{LCD\+\_\+1\+\_\+\+V\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_a4a15aa748f5966df3a71488c0229b9b7}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_BUFFER\_FACTOR@{LCD\_4\_BUFFER\_FACTOR}}
+\index{LCD\_4\_BUFFER\_FACTOR@{LCD\_4\_BUFFER\_FACTOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_BUFFER\_FACTOR}{LCD\_4\_BUFFER\_FACTOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4a15aa748f5966df3a71488c0229b9b7} 
+\+\#define LCD\+\_\+4\+\_\+\+BUFFER\+\_\+\+FACTOR~2}
+
+\Hypertarget{individual__config_8h_ae0c9bc622b2e584fb0d9a4254fae9869}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_H\_RES@{LCD\_4\_H\_RES}}
+\index{LCD\_4\_H\_RES@{LCD\_4\_H\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_H\_RES}{LCD\_4\_H\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae0c9bc622b2e584fb0d9a4254fae9869} 
+\+\#define LCD\+\_\+4\+\_\+\+H\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_adc821008fdeb7db656f123a0b657a3bc}{LCD\+\_\+3\+\_\+\+H\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_abdb577f28f66c41e032f9b785e9dc964}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_INVERT\_COLOR@{LCD\_4\_INVERT\_COLOR}}
+\index{LCD\_4\_INVERT\_COLOR@{LCD\_4\_INVERT\_COLOR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_INVERT\_COLOR}{LCD\_4\_INVERT\_COLOR}}
+{\footnotesize\ttfamily \label{individual__config_8h_abdb577f28f66c41e032f9b785e9dc964} 
+\+\#define LCD\+\_\+4\+\_\+\+INVERT\+\_\+\+COLOR~true}
+
+\Hypertarget{individual__config_8h_a94daf58c14d4bdaaa891c56d58c91bb6}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_MALLOC\_CAP@{LCD\_4\_MALLOC\_CAP}}
+\index{LCD\_4\_MALLOC\_CAP@{LCD\_4\_MALLOC\_CAP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_MALLOC\_CAP}{LCD\_4\_MALLOC\_CAP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a94daf58c14d4bdaaa891c56d58c91bb6} 
+\+\#define LCD\+\_\+4\+\_\+\+MALLOC\+\_\+\+CAP~MALLOC\+\_\+\+CAP\+\_\+\+DMA}
+
+\Hypertarget{individual__config_8h_a5a71ecf1743ecfd3ea2f60d0e15f0f8b}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_MIRROR\_X@{LCD\_4\_MIRROR\_X}}
+\index{LCD\_4\_MIRROR\_X@{LCD\_4\_MIRROR\_X}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_MIRROR\_X}{LCD\_4\_MIRROR\_X}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5a71ecf1743ecfd3ea2f60d0e15f0f8b} 
+\+\#define LCD\+\_\+4\+\_\+\+MIRROR\+\_\+X~false}
+
+\Hypertarget{individual__config_8h_a7457d02e1f0b56392ffd5fad6f6e8296}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_MIRROR\_Y@{LCD\_4\_MIRROR\_Y}}
+\index{LCD\_4\_MIRROR\_Y@{LCD\_4\_MIRROR\_Y}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_MIRROR\_Y}{LCD\_4\_MIRROR\_Y}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7457d02e1f0b56392ffd5fad6f6e8296} 
+\+\#define LCD\+\_\+4\+\_\+\+MIRROR\+\_\+Y~true}
+
+\Hypertarget{individual__config_8h_ae96dc76071083bd8fcfc21027838b807}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR}}
+\index{LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR@{LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR}{LCD\_4\_RGB\_ELEMENT\_ORDER\_BGR}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae96dc76071083bd8fcfc21027838b807} 
+\+\#define LCD\+\_\+4\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR~LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR}
+
+\Hypertarget{individual__config_8h_a54efd3039e7cfc00d1b648be4546cccc}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_SCREEN\_ID@{LCD\_4\_SCREEN\_ID}}
+\index{LCD\_4\_SCREEN\_ID@{LCD\_4\_SCREEN\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_SCREEN\_ID}{LCD\_4\_SCREEN\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a54efd3039e7cfc00d1b648be4546cccc} 
+\+\#define LCD\+\_\+4\+\_\+\+SCREEN\+\_\+\+ID~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+VOLTAGE}
+
+\Hypertarget{individual__config_8h_a2f248d73d46ad07ab6613492c6137c23}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_SPI\_HOST@{LCD\_4\_SPI\_HOST}}
+\index{LCD\_4\_SPI\_HOST@{LCD\_4\_SPI\_HOST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_SPI\_HOST}{LCD\_4\_SPI\_HOST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2f248d73d46ad07ab6613492c6137c23} 
+\+\#define LCD\+\_\+4\+\_\+\+SPI\+\_\+\+HOST~\doxymbox{\hyperlink{individual__config_8h_afa5670980ac638b68a609f398feb241d}{LCD\+\_\+\+HOST\+\_\+2}}}
+
+\Hypertarget{individual__config_8h_a61766f400dc1ee00d4ced73122187ddd}\index{individual\_config.h@{individual\_config.h}!LCD\_4\_V\_RES@{LCD\_4\_V\_RES}}
+\index{LCD\_4\_V\_RES@{LCD\_4\_V\_RES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_V\_RES}{LCD\_4\_V\_RES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a61766f400dc1ee00d4ced73122187ddd} 
+\+\#define LCD\+\_\+4\+\_\+\+V\+\_\+\+RES~\doxymbox{\hyperlink{individual__config_8h_a886d7108ad436e56f2123c8c250dee1b}{LCD\+\_\+3\+\_\+\+V\+\_\+\+RES}}}
+
+\Hypertarget{individual__config_8h_a970dd1ec4cf86ef299ba32369eb49ce2}\index{individual\_config.h@{individual\_config.h}!LCD\_CMD\_BITS@{LCD\_CMD\_BITS}}
+\index{LCD\_CMD\_BITS@{LCD\_CMD\_BITS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CMD\_BITS}{LCD\_CMD\_BITS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a970dd1ec4cf86ef299ba32369eb49ce2} 
+\+\#define LCD\+\_\+\+CMD\+\_\+\+BITS~8}
+
+\Hypertarget{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1}\index{individual\_config.h@{individual\_config.h}!LCD\_HOST\_1@{LCD\_HOST\_1}}
+\index{LCD\_HOST\_1@{LCD\_HOST\_1}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_HOST\_1}{LCD\_HOST\_1}}
+{\footnotesize\ttfamily \label{individual__config_8h_addb1be64dea07189523b7b7f84d9b0f1} 
+\+\#define LCD\+\_\+\+HOST\+\_\+1~SPI2\+\_\+\+HOST}
+
+\Hypertarget{individual__config_8h_afa5670980ac638b68a609f398feb241d}\index{individual\_config.h@{individual\_config.h}!LCD\_HOST\_2@{LCD\_HOST\_2}}
+\index{LCD\_HOST\_2@{LCD\_HOST\_2}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_HOST\_2}{LCD\_HOST\_2}}
+{\footnotesize\ttfamily \label{individual__config_8h_afa5670980ac638b68a609f398feb241d} 
+\+\#define LCD\+\_\+\+HOST\+\_\+2~SPI3\+\_\+\+HOST}
+
+\Hypertarget{individual__config_8h_aeaa4b9f3aa7437180455e8da8e37c11f}\index{individual\_config.h@{individual\_config.h}!LCD\_PARAM\_BITS@{LCD\_PARAM\_BITS}}
+\index{LCD\_PARAM\_BITS@{LCD\_PARAM\_BITS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_PARAM\_BITS}{LCD\_PARAM\_BITS}}
+{\footnotesize\ttfamily \label{individual__config_8h_aeaa4b9f3aa7437180455e8da8e37c11f} 
+\+\#define LCD\+\_\+\+PARAM\+\_\+\+BITS~8}
+
+\Hypertarget{individual__config_8h_a8046713c766c7fc1936d9ffd641e2441}\index{individual\_config.h@{individual\_config.h}!LCD\_PIXEL\_CLOCK\_HZ@{LCD\_PIXEL\_CLOCK\_HZ}}
+\index{LCD\_PIXEL\_CLOCK\_HZ@{LCD\_PIXEL\_CLOCK\_HZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_PIXEL\_CLOCK\_HZ}{LCD\_PIXEL\_CLOCK\_HZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8046713c766c7fc1936d9ffd641e2441} 
+\+\#define LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ~(40 \texorpdfstring{$\ast$}{*} 1000 \texorpdfstring{$\ast$}{*} 1000)}
+
+
+
+Common LCD panel configuration, shared by all displays. 
+
+LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ:\+ SPI clock for display pixel writes. LCD\+\_\+\+CMD\+\_\+\+BITS /\+ LCD\+\_\+\+PARAM\+\_\+\+BITS:\+ command parameter bit width for panel driver. LCD\+\_\+\+HOST\+\_\+n:\+ SPI host mapping. PIN\+\_\+\+LCD\+\_\+\+BL:\+ common backlight GPIO for all panels. \Hypertarget{individual__config_8h_a9e917f20402c4bc2dacf745cbdfdd14e}\index{individual\_config.h@{individual\_config.h}!LED\_CHANNEL@{LED\_CHANNEL}}
+\index{LED\_CHANNEL@{LED\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_CHANNEL}{LED\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a9e917f20402c4bc2dacf745cbdfdd14e} 
+\+\#define LED\+\_\+\+CHANNEL~LEDC\+\_\+\+CHANNEL\+\_\+0}
+
+\Hypertarget{individual__config_8h_a902e5796c5baac95edd152cde50002d2}\index{individual\_config.h@{individual\_config.h}!LED\_CLK@{LED\_CLK}}
+\index{LED\_CLK@{LED\_CLK}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_CLK}{LED\_CLK}}
+{\footnotesize\ttfamily \label{individual__config_8h_a902e5796c5baac95edd152cde50002d2} 
+\+\#define LED\+\_\+\+CLK~LEDC\+\_\+\+AUTO\+\_\+\+CLK}
+
+\Hypertarget{individual__config_8h_a5a9f4db8ac69f922872c1f6e189f3a75}\index{individual\_config.h@{individual\_config.h}!LED\_DUTY\_RES\_VALUE@{LED\_DUTY\_RES\_VALUE}}
+\index{LED\_DUTY\_RES\_VALUE@{LED\_DUTY\_RES\_VALUE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_DUTY\_RES\_VALUE}{LED\_DUTY\_RES\_VALUE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5a9f4db8ac69f922872c1f6e189f3a75} 
+\+\#define LED\+\_\+\+DUTY\+\_\+\+RES\+\_\+\+VALUE~256}
+
+\Hypertarget{individual__config_8h_a369ea8fa8e3d35f4bc416fe00ac440b8}\index{individual\_config.h@{individual\_config.h}!LED\_DUTY\_RESOLUTION@{LED\_DUTY\_RESOLUTION}}
+\index{LED\_DUTY\_RESOLUTION@{LED\_DUTY\_RESOLUTION}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_DUTY\_RESOLUTION}{LED\_DUTY\_RESOLUTION}}
+{\footnotesize\ttfamily \label{individual__config_8h_a369ea8fa8e3d35f4bc416fe00ac440b8} 
+\+\#define LED\+\_\+\+DUTY\+\_\+\+RESOLUTION~LEDC\+\_\+\+TIMER\+\_\+8\+\_\+\+BIT}
+
+\Hypertarget{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e}\index{individual\_config.h@{individual\_config.h}!LED\_FREQ@{LED\_FREQ}}
+\index{LED\_FREQ@{LED\_FREQ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_FREQ}{LED\_FREQ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e} 
+\+\#define LED\+\_\+\+FREQ~5000}
+
+\Hypertarget{individual__config_8h_a843b341668408e5656cf19cf3389bb5a}\index{individual\_config.h@{individual\_config.h}!LED\_GPIO@{LED\_GPIO}}
+\index{LED\_GPIO@{LED\_GPIO}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_GPIO}{LED\_GPIO}}
+{\footnotesize\ttfamily \label{individual__config_8h_a843b341668408e5656cf19cf3389bb5a} 
+\+\#define LED\+\_\+\+GPIO~\doxymbox{\hyperlink{individual__config_8h_a003b63760ab42341e431d30aab57e679}{PIN\+\_\+\+LCD\+\_\+\+BL}}}
+
+\Hypertarget{individual__config_8h_a6f277d6a175e29641ab81cd6c305e7c4}\index{individual\_config.h@{individual\_config.h}!LED\_H\_POINT@{LED\_H\_POINT}}
+\index{LED\_H\_POINT@{LED\_H\_POINT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_H\_POINT}{LED\_H\_POINT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6f277d6a175e29641ab81cd6c305e7c4} 
+\+\#define LED\+\_\+\+H\+\_\+\+POINT~0}
+
+\Hypertarget{individual__config_8h_a02a8e9e41a85850dd2d93c21322c7a94}\index{individual\_config.h@{individual\_config.h}!LED\_INTR@{LED\_INTR}}
+\index{LED\_INTR@{LED\_INTR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_INTR}{LED\_INTR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a02a8e9e41a85850dd2d93c21322c7a94} 
+\+\#define LED\+\_\+\+INTR~LEDC\+\_\+\+INTR\+\_\+\+DISABLE}
+
+\Hypertarget{individual__config_8h_ae2786de7186520fab24837b2e9fd0392}\index{individual\_config.h@{individual\_config.h}!LED\_SPEED@{LED\_SPEED}}
+\index{LED\_SPEED@{LED\_SPEED}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_SPEED}{LED\_SPEED}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae2786de7186520fab24837b2e9fd0392} 
+\+\#define LED\+\_\+\+SPEED~LEDC\+\_\+\+LOW\+\_\+\+SPEED\+\_\+\+MODE}
+
+
+
+LEDC PWM settings for display backlight brightness control. 
+
+LED\+\_\+\+SPEED:\+ LEDC speed mode (low or high) for timer/\+channel. LED\+\_\+\+TIMER:\+ LEDC timer index. LED\+\_\+\+DUTY\+\_\+\+RESOLUTION:\+ PWM duty resolution (e.\+g., 8-\/bit gives 0-\/255 range). LED\+\_\+\+DUTY\+\_\+\+RES\+\_\+\+VALUE:\+ Duty scaling value. LED\+\_\+\+FREQ:\+ PWM frequency for LED backlight (flicker-\/free constant lighting). LED\+\_\+\+GPIO:\+ Neupin for PWM output to backlight. \Hypertarget{individual__config_8h_a19388170f732e4edf122aceab67fd83c}\index{individual\_config.h@{individual\_config.h}!LED\_START\_BRIGHT@{LED\_START\_BRIGHT}}
+\index{LED\_START\_BRIGHT@{LED\_START\_BRIGHT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_START\_BRIGHT}{LED\_START\_BRIGHT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a19388170f732e4edf122aceab67fd83c} 
+\+\#define LED\+\_\+\+START\+\_\+\+BRIGHT~0}
+
+\Hypertarget{individual__config_8h_ade3a58ca3fc05681b689884e377a37d5}\index{individual\_config.h@{individual\_config.h}!LED\_TIMER@{LED\_TIMER}}
+\index{LED\_TIMER@{LED\_TIMER}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LED\_TIMER}{LED\_TIMER}}
+{\footnotesize\ttfamily \label{individual__config_8h_ade3a58ca3fc05681b689884e377a37d5} 
+\+\#define LED\+\_\+\+TIMER~LEDC\+\_\+\+TIMER\+\_\+0}
+
+\Hypertarget{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}\index{individual\_config.h@{individual\_config.h}!LOGGING\_ENABLED@{LOGGING\_ENABLED}}
+\index{LOGGING\_ENABLED@{LOGGING\_ENABLED}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOGGING\_ENABLED}{LOGGING\_ENABLED}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a} 
+\+\#define LOGGING\+\_\+\+ENABLED~true}
+
+\Hypertarget{individual__config_8h_a454deab6aeff0af2de8c334bec94dfe9}\index{individual\_config.h@{individual\_config.h}!LOGGING\_TAG@{LOGGING\_TAG}}
+\index{LOGGING\_TAG@{LOGGING\_TAG}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LOGGING\_TAG}{LOGGING\_TAG}}
+{\footnotesize\ttfamily \label{individual__config_8h_a454deab6aeff0af2de8c334bec94dfe9} 
+\+\#define LOGGING\+\_\+\+TAG~"{}JRO\+\_\+\+BOARD\+\_\+\+COMPUTER\+\_\+\+LOG"{}}
+
+\Hypertarget{individual__config_8h_ac83c49065dacf9828a6acdceefaa54f6}\index{individual\_config.h@{individual\_config.h}!LSB\_2048@{LSB\_2048}}
+\index{LSB\_2048@{LSB\_2048}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LSB\_2048}{LSB\_2048}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac83c49065dacf9828a6acdceefaa54f6} 
+\+\#define LSB\+\_\+2048~0.\+0625f}
+
+\Hypertarget{individual__config_8h_abb231f31dd71babedb1a64b056d0a6d1}\index{individual\_config.h@{individual\_config.h}!LSB\_4096@{LSB\_4096}}
+\index{LSB\_4096@{LSB\_4096}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{LSB\_4096}{LSB\_4096}}
+{\footnotesize\ttfamily \label{individual__config_8h_abb231f31dd71babedb1a64b056d0a6d1} 
+\+\#define LSB\+\_\+4096~0.\+125f}
+
+\Hypertarget{individual__config_8h_a6d7e836e81c91b823bc4d89f3fb4ba69}\index{individual\_config.h@{individual\_config.h}!MAIN\_TASK\_FINISHED\_DELAY@{MAIN\_TASK\_FINISHED\_DELAY}}
+\index{MAIN\_TASK\_FINISHED\_DELAY@{MAIN\_TASK\_FINISHED\_DELAY}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MAIN\_TASK\_FINISHED\_DELAY}{MAIN\_TASK\_FINISHED\_DELAY}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6d7e836e81c91b823bc4d89f3fb4ba69} 
+\+\#define MAIN\+\_\+\+TASK\+\_\+\+FINISHED\+\_\+\+DELAY~5000}
+
+\Hypertarget{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_ADS1115\_DEVICES@{NUMBER\_OF\_ADS1115\_DEVICES}}
+\index{NUMBER\_OF\_ADS1115\_DEVICES@{NUMBER\_OF\_ADS1115\_DEVICES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_ADS1115\_DEVICES}{NUMBER\_OF\_ADS1115\_DEVICES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5} 
+\+\#define NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES~2}
+
+\Hypertarget{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_DISPLAYS@{NUMBER\_OF\_DISPLAYS}}
+\index{NUMBER\_OF\_DISPLAYS@{NUMBER\_OF\_DISPLAYS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_DISPLAYS}{NUMBER\_OF\_DISPLAYS}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9} 
+\+\#define NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS~4}
+
+
+
+Core project configuration values. 
+
+NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. NUMBER\+\_\+\+OF\+\_\+\+SPI:\+ Number of SPI host controllers used for displays. NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES:\+ Number of ADS1115 ADC chips on I2C bus. CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. \Hypertarget{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_SPI@{NUMBER\_OF\_SPI}}
+\index{NUMBER\_OF\_SPI@{NUMBER\_OF\_SPI}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_SPI}{NUMBER\_OF\_SPI}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad} 
+\+\#define NUMBER\+\_\+\+OF\+\_\+\+SPI~2}
+
+\Hypertarget{individual__config_8h_a66236c50334c8e3d2c6062958b6b044c}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_1\_CS@{PIN\_LCD\_1\_CS}}
+\index{PIN\_LCD\_1\_CS@{PIN\_LCD\_1\_CS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_1\_CS}{PIN\_LCD\_1\_CS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a66236c50334c8e3d2c6062958b6b044c} 
+\+\#define PIN\+\_\+\+LCD\+\_\+1\+\_\+\+CS~28}
+
+\Hypertarget{individual__config_8h_ab906b5c2acdab3031c4cf4c590b87118}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_1\_DC@{PIN\_LCD\_1\_DC}}
+\index{PIN\_LCD\_1\_DC@{PIN\_LCD\_1\_DC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_1\_DC}{PIN\_LCD\_1\_DC}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab906b5c2acdab3031c4cf4c590b87118} 
+\+\#define PIN\+\_\+\+LCD\+\_\+1\+\_\+\+DC~49}
+
+\Hypertarget{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_1\_RST@{PIN\_LCD\_1\_RST}}
+\index{PIN\_LCD\_1\_RST@{PIN\_LCD\_1\_RST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_1\_RST}{PIN\_LCD\_1\_RST}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed} 
+\+\#define PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST~50}
+
+\Hypertarget{individual__config_8h_af4d65bdc8fbe648af100631ae3bb8b0e}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_2\_CS@{PIN\_LCD\_2\_CS}}
+\index{PIN\_LCD\_2\_CS@{PIN\_LCD\_2\_CS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_2\_CS}{PIN\_LCD\_2\_CS}}
+{\footnotesize\ttfamily \label{individual__config_8h_af4d65bdc8fbe648af100631ae3bb8b0e} 
+\+\#define PIN\+\_\+\+LCD\+\_\+2\+\_\+\+CS~27}
+
+\Hypertarget{individual__config_8h_a26c9cebf7d605457a5f46fae90681ad6}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_2\_DC@{PIN\_LCD\_2\_DC}}
+\index{PIN\_LCD\_2\_DC@{PIN\_LCD\_2\_DC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_2\_DC}{PIN\_LCD\_2\_DC}}
+{\footnotesize\ttfamily \label{individual__config_8h_a26c9cebf7d605457a5f46fae90681ad6} 
+\+\#define PIN\+\_\+\+LCD\+\_\+2\+\_\+\+DC~\doxymbox{\hyperlink{individual__config_8h_ab906b5c2acdab3031c4cf4c590b87118}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+DC}}}
+
+\Hypertarget{individual__config_8h_a5f58c1a30526021a5bcf1ba75f0c4e25}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_2\_RST@{PIN\_LCD\_2\_RST}}
+\index{PIN\_LCD\_2\_RST@{PIN\_LCD\_2\_RST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_2\_RST}{PIN\_LCD\_2\_RST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5f58c1a30526021a5bcf1ba75f0c4e25} 
+\+\#define PIN\+\_\+\+LCD\+\_\+2\+\_\+\+RST~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}}
+
+\Hypertarget{individual__config_8h_aec7642d9e6c78fc43e64cadd11700c0c}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_3\_CS@{PIN\_LCD\_3\_CS}}
+\index{PIN\_LCD\_3\_CS@{PIN\_LCD\_3\_CS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_3\_CS}{PIN\_LCD\_3\_CS}}
+{\footnotesize\ttfamily \label{individual__config_8h_aec7642d9e6c78fc43e64cadd11700c0c} 
+\+\#define PIN\+\_\+\+LCD\+\_\+3\+\_\+\+CS~21}
+
+\Hypertarget{individual__config_8h_a6407e011c51a07712d9447e8a07a6de3}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_3\_DC@{PIN\_LCD\_3\_DC}}
+\index{PIN\_LCD\_3\_DC@{PIN\_LCD\_3\_DC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_3\_DC}{PIN\_LCD\_3\_DC}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6407e011c51a07712d9447e8a07a6de3} 
+\+\#define PIN\+\_\+\+LCD\+\_\+3\+\_\+\+DC~13}
+
+\Hypertarget{individual__config_8h_a683581499ff16e0d963e511b0351ce7d}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_3\_RST@{PIN\_LCD\_3\_RST}}
+\index{PIN\_LCD\_3\_RST@{PIN\_LCD\_3\_RST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_3\_RST}{PIN\_LCD\_3\_RST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a683581499ff16e0d963e511b0351ce7d} 
+\+\#define PIN\+\_\+\+LCD\+\_\+3\+\_\+\+RST~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}}
+
+\Hypertarget{individual__config_8h_a7fb0be2ff4ebb13e61d0121fd121c16b}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_4\_CS@{PIN\_LCD\_4\_CS}}
+\index{PIN\_LCD\_4\_CS@{PIN\_LCD\_4\_CS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_4\_CS}{PIN\_LCD\_4\_CS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7fb0be2ff4ebb13e61d0121fd121c16b} 
+\+\#define PIN\+\_\+\+LCD\+\_\+4\+\_\+\+CS~20}
+
+\Hypertarget{individual__config_8h_ac553a9cdf4f1837c0bca49eb3fd8642c}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_4\_DC@{PIN\_LCD\_4\_DC}}
+\index{PIN\_LCD\_4\_DC@{PIN\_LCD\_4\_DC}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_4\_DC}{PIN\_LCD\_4\_DC}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac553a9cdf4f1837c0bca49eb3fd8642c} 
+\+\#define PIN\+\_\+\+LCD\+\_\+4\+\_\+\+DC~\doxymbox{\hyperlink{individual__config_8h_a6407e011c51a07712d9447e8a07a6de3}{PIN\+\_\+\+LCD\+\_\+3\+\_\+\+DC}}}
+
+\Hypertarget{individual__config_8h_a3b5213680564a2815c3ae9da225e1626}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_4\_RST@{PIN\_LCD\_4\_RST}}
+\index{PIN\_LCD\_4\_RST@{PIN\_LCD\_4\_RST}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_4\_RST}{PIN\_LCD\_4\_RST}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3b5213680564a2815c3ae9da225e1626} 
+\+\#define PIN\+\_\+\+LCD\+\_\+4\+\_\+\+RST~\doxymbox{\hyperlink{individual__config_8h_aa4f61b446a5e8028785753e35c3d43ed}{PIN\+\_\+\+LCD\+\_\+1\+\_\+\+RST}}}
+
+\Hypertarget{individual__config_8h_a003b63760ab42341e431d30aab57e679}\index{individual\_config.h@{individual\_config.h}!PIN\_LCD\_BL@{PIN\_LCD\_BL}}
+\index{PIN\_LCD\_BL@{PIN\_LCD\_BL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LCD\_BL}{PIN\_LCD\_BL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a003b63760ab42341e431d30aab57e679} 
+\+\#define PIN\+\_\+\+LCD\+\_\+\+BL~47}
+
+\Hypertarget{individual__config_8h_a5a45fed2ab6bfd3a2977111330088c61}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_1\_MISO@{PIN\_SPI\_1\_MISO}}
+\index{PIN\_SPI\_1\_MISO@{PIN\_SPI\_1\_MISO}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_1\_MISO}{PIN\_SPI\_1\_MISO}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5a45fed2ab6bfd3a2977111330088c61} 
+\+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MISO~-\/1}
+
+\Hypertarget{individual__config_8h_a05d95ad303c4b8aec288506682171ea7}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_1\_MOSI@{PIN\_SPI\_1\_MOSI}}
+\index{PIN\_SPI\_1\_MOSI@{PIN\_SPI\_1\_MOSI}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_1\_MOSI}{PIN\_SPI\_1\_MOSI}}
+{\footnotesize\ttfamily \label{individual__config_8h_a05d95ad303c4b8aec288506682171ea7} 
+\+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MOSI~29}
+
+\Hypertarget{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_1\_SCLK@{PIN\_SPI\_1\_SCLK}}
+\index{PIN\_SPI\_1\_SCLK@{PIN\_SPI\_1\_SCLK}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_1\_SCLK}{PIN\_SPI\_1\_SCLK}}
+{\footnotesize\ttfamily \label{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3} 
+\+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+SCLK~30}
+
+\Hypertarget{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_MISO@{PIN\_SPI\_2\_MISO}}
+\index{PIN\_SPI\_2\_MISO@{PIN\_SPI\_2\_MISO}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_2\_MISO}{PIN\_SPI\_2\_MISO}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b} 
+\+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MISO~-\/1}
+
+\Hypertarget{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_MOSI@{PIN\_SPI\_2\_MOSI}}
+\index{PIN\_SPI\_2\_MOSI@{PIN\_SPI\_2\_MOSI}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_2\_MOSI}{PIN\_SPI\_2\_MOSI}}
+{\footnotesize\ttfamily \label{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d} 
+\+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MOSI~12}
+
+\Hypertarget{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_SCLK@{PIN\_SPI\_2\_SCLK}}
+\index{PIN\_SPI\_2\_SCLK@{PIN\_SPI\_2\_SCLK}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SPI\_2\_SCLK}{PIN\_SPI\_2\_SCLK}}
+{\footnotesize\ttfamily \label{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e} 
+\+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+SCLK~11}
+
+\Hypertarget{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_INTR\_TYPE@{PWM\_ADC\_SWITCH\_INTR\_TYPE}}
+\index{PWM\_ADC\_SWITCH\_INTR\_TYPE@{PWM\_ADC\_SWITCH\_INTR\_TYPE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_INTR\_TYPE}{PWM\_ADC\_SWITCH\_INTR\_TYPE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+INTR\+\_\+\+TYPE~GPIO\+\_\+\+INTR\+\_\+\+DISABLE}
+
+\Hypertarget{individual__config_8h_ae351184dec4c5ec451f85768e04ae331}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_MODE@{PWM\_ADC\_SWITCH\_MODE}}
+\index{PWM\_ADC\_SWITCH\_MODE@{PWM\_ADC\_SWITCH\_MODE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_MODE}{PWM\_ADC\_SWITCH\_MODE}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae351184dec4c5ec451f85768e04ae331} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+MODE~GPIO\+\_\+\+MODE\+\_\+\+INPUT}
+
+\Hypertarget{individual__config_8h_a7451847218b5826426548ebc4166c7c5}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PIN@{PWM\_ADC\_SWITCH\_PIN}}
+\index{PWM\_ADC\_SWITCH\_PIN@{PWM\_ADC\_SWITCH\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_PIN}{PWM\_ADC\_SWITCH\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7451847218b5826426548ebc4166c7c5} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PIN~16}
+
+\Hypertarget{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN@{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}}
+\index{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN@{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+DOWN\+\_\+\+EN~GPIO\+\_\+\+PULLDOWN\+\_\+\+DISABLE}
+
+\Hypertarget{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PULL\_UP\_EN@{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}}
+\index{PWM\_ADC\_SWITCH\_PULL\_UP\_EN@{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+UP\+\_\+\+EN~GPIO\+\_\+\+PULLUP\+\_\+\+DISABLE}
+
+\Hypertarget{individual__config_8h_aaea767524059ac76b32479e382c20381}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWTICH\_VALUE\_PWM@{PWM\_ADC\_SWTICH\_VALUE\_PWM}}
+\index{PWM\_ADC\_SWTICH\_VALUE\_PWM@{PWM\_ADC\_SWTICH\_VALUE\_PWM}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWTICH\_VALUE\_PWM}{PWM\_ADC\_SWTICH\_VALUE\_PWM}}
+{\footnotesize\ttfamily \label{individual__config_8h_aaea767524059ac76b32479e382c20381} 
+\+\#define PWM\+\_\+\+ADC\+\_\+\+SWTICH\+\_\+\+VALUE\+\_\+\+PWM~true}
+
+\Hypertarget{individual__config_8h_a22849c04b94b03fff7321e9caa755582}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PERIOD\_MAX@{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}}
+\index{PWM\_SENSOR\_DIAG\_PERIOD\_MAX@{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_a22849c04b94b03fff7321e9caa755582} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MAX~1100}
+
+\Hypertarget{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PERIOD\_MIN@{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}}
+\index{PWM\_SENSOR\_DIAG\_PERIOD\_MIN@{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MIN~900}
+
+\Hypertarget{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PULSE\_ID@{PWM\_SENSOR\_DIAG\_PULSE\_ID}}
+\index{PWM\_SENSOR\_DIAG\_PULSE\_ID@{PWM\_SENSOR\_DIAG\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_PULSE\_ID}{PWM\_SENSOR\_DIAG\_PULSE\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PULSE\+\_\+\+ID~0}
+
+\Hypertarget{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_VALUE\_MAX@{PWM\_SENSOR\_DIAG\_VALUE\_MAX}}
+\index{PWM\_SENSOR\_DIAG\_VALUE\_MAX@{PWM\_SENSOR\_DIAG\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_VALUE\_MAX}{PWM\_SENSOR\_DIAG\_VALUE\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MAX~800}
+
+\Hypertarget{individual__config_8h_a473cb738d041aec6a7867f361e43c29e}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_VALUE\_MIN@{PWM\_SENSOR\_DIAG\_VALUE\_MIN}}
+\index{PWM\_SENSOR\_DIAG\_VALUE\_MIN@{PWM\_SENSOR\_DIAG\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_VALUE\_MIN}{PWM\_SENSOR\_DIAG\_VALUE\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a473cb738d041aec6a7867f361e43c29e} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MIN~150}
+
+\Hypertarget{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_MAX\_SENSOR\_COUNT@{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}}
+\index{PWM\_SENSOR\_MAX\_SENSOR\_COUNT@{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+MAX\+\_\+\+SENSOR\+\_\+\+COUNT~100}
+
+\Hypertarget{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_NEG\_EDGE@{PWM\_SENSOR\_NEG\_EDGE}}
+\index{PWM\_SENSOR\_NEG\_EDGE@{PWM\_SENSOR\_NEG\_EDGE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_NEG\_EDGE}{PWM\_SENSOR\_NEG\_EDGE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+NEG\+\_\+\+EDGE~1}
+
+\Hypertarget{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PIN@{PWM\_SENSOR\_PIN}}
+\index{PWM\_SENSOR\_PIN@{PWM\_SENSOR\_PIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PIN}{PWM\_SENSOR\_PIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PIN~3}
+
+\Hypertarget{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_POS\_EDGE@{PWM\_SENSOR\_POS\_EDGE}}
+\index{PWM\_SENSOR\_POS\_EDGE@{PWM\_SENSOR\_POS\_EDGE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_POS\_EDGE}{PWM\_SENSOR\_POS\_EDGE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+POS\+\_\+\+EDGE~1}
+
+\Hypertarget{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_CALC\_VALUE\_1@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}}
+\index{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}}
+{\footnotesize\ttfamily \label{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1~64.\+0}
+
+\Hypertarget{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_CALC\_VALUE\_2@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}}
+\index{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}}
+{\footnotesize\ttfamily \label{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2~384}
+
+\Hypertarget{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PERIOD\_MAX@{PWM\_SENSOR\_PRES\_PERIOD\_MAX}}
+\index{PWM\_SENSOR\_PRES\_PERIOD\_MAX@{PWM\_SENSOR\_PRES\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_PERIOD\_MAX}{PWM\_SENSOR\_PRES\_PERIOD\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MAX~4200}
+
+\Hypertarget{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PERIOD\_MIN@{PWM\_SENSOR\_PRES\_PERIOD\_MIN}}
+\index{PWM\_SENSOR\_PRES\_PERIOD\_MIN@{PWM\_SENSOR\_PRES\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_PERIOD\_MIN}{PWM\_SENSOR\_PRES\_PERIOD\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MIN~3900}
+
+\Hypertarget{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PULSE\_ID@{PWM\_SENSOR\_PRES\_PULSE\_ID}}
+\index{PWM\_SENSOR\_PRES\_PULSE\_ID@{PWM\_SENSOR\_PRES\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_PULSE\_ID}{PWM\_SENSOR\_PRES\_PULSE\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID~2}
+
+\Hypertarget{individual__config_8h_afa703f909b055df7fc07f2241e708db9}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_VALUE\_MAX@{PWM\_SENSOR\_PRES\_VALUE\_MAX}}
+\index{PWM\_SENSOR\_PRES\_VALUE\_MAX@{PWM\_SENSOR\_PRES\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_VALUE\_MAX}{PWM\_SENSOR\_PRES\_VALUE\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_afa703f909b055df7fc07f2241e708db9} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MAX~4050}
+
+\Hypertarget{individual__config_8h_abac0ce5b828908a277b01535226e4a80}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_VALUE\_MIN@{PWM\_SENSOR\_PRES\_VALUE\_MIN}}
+\index{PWM\_SENSOR\_PRES\_VALUE\_MIN@{PWM\_SENSOR\_PRES\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_VALUE\_MIN}{PWM\_SENSOR\_PRES\_VALUE\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_abac0ce5b828908a277b01535226e4a80} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MIN~50}
+
+\Hypertarget{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRESCALE@{PWM\_SENSOR\_PRESCALE}}
+\index{PWM\_SENSOR\_PRESCALE@{PWM\_SENSOR\_PRESCALE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRESCALE}{PWM\_SENSOR\_PRESCALE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRESCALE~1}
+
+\Hypertarget{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PULL\_UP@{PWM\_SENSOR\_PULL\_UP}}
+\index{PWM\_SENSOR\_PULL\_UP@{PWM\_SENSOR\_PULL\_UP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PULL\_UP}{PWM\_SENSOR\_PULL\_UP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+PULL\+\_\+\+UP~1}
+
+\Hypertarget{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_RESOLUTION\_MHZ@{PWM\_SENSOR\_RESOLUTION\_MHZ}}
+\index{PWM\_SENSOR\_RESOLUTION\_MHZ@{PWM\_SENSOR\_RESOLUTION\_MHZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_RESOLUTION\_MHZ}{PWM\_SENSOR\_RESOLUTION\_MHZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+RESOLUTION\+\_\+\+MHZ~10}
+
+\Hypertarget{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}}
+\index{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}}
+{\footnotesize\ttfamily \label{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1~-\/896.\+0}
+
+\Hypertarget{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}}
+\index{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}}
+{\footnotesize\ttfamily \label{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2~19.\+2}
+
+\Hypertarget{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PERIOD\_MAX@{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}}
+\index{PWM\_SENSOR\_TEMP\_PERIOD\_MAX@{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MAX~4200}
+
+\Hypertarget{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PERIOD\_MIN@{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}}
+\index{PWM\_SENSOR\_TEMP\_PERIOD\_MIN@{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MIN~3900}
+
+\Hypertarget{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PULSE\_ID@{PWM\_SENSOR\_TEMP\_PULSE\_ID}}
+\index{PWM\_SENSOR\_TEMP\_PULSE\_ID@{PWM\_SENSOR\_TEMP\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_PULSE\_ID}{PWM\_SENSOR\_TEMP\_PULSE\_ID}}
+{\footnotesize\ttfamily \label{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID~1}
+
+\Hypertarget{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_VALUE\_MAX@{PWM\_SENSOR\_TEMP\_VALUE\_MAX}}
+\index{PWM\_SENSOR\_TEMP\_VALUE\_MAX@{PWM\_SENSOR\_TEMP\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_VALUE\_MAX}{PWM\_SENSOR\_TEMP\_VALUE\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MAX~4050}
+
+\Hypertarget{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_VALUE\_MIN@{PWM\_SENSOR\_TEMP\_VALUE\_MIN}}
+\index{PWM\_SENSOR\_TEMP\_VALUE\_MIN@{PWM\_SENSOR\_TEMP\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_VALUE\_MIN}{PWM\_SENSOR\_TEMP\_VALUE\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c} 
+\+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MIN~50}
+
+\Hypertarget{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}\index{individual\_config.h@{individual\_config.h}!RTC\_ADDR\_LENGTH@{RTC\_ADDR\_LENGTH}}
+\index{RTC\_ADDR\_LENGTH@{RTC\_ADDR\_LENGTH}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_ADDR\_LENGTH}{RTC\_ADDR\_LENGTH}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c} 
+\+\#define RTC\+\_\+\+ADDR\+\_\+\+LENGTH~I2\+C\+\_\+\+ADDR\+\_\+\+BIT\+\_\+\+LEN\+\_\+7}
+
+\Hypertarget{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee}\index{individual\_config.h@{individual\_config.h}!RTC\_DS3231\_ADDR@{RTC\_DS3231\_ADDR}}
+\index{RTC\_DS3231\_ADDR@{RTC\_DS3231\_ADDR}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_DS3231\_ADDR}{RTC\_DS3231\_ADDR}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee} 
+\+\#define RTC\+\_\+\+DS3231\+\_\+\+ADDR~0x68}
+
+\Hypertarget{individual__config_8h_a39b3f976a18466171902d0705c9a87f8}\index{individual\_config.h@{individual\_config.h}!RTC\_SCL\_SPEED\_HZ@{RTC\_SCL\_SPEED\_HZ}}
+\index{RTC\_SCL\_SPEED\_HZ@{RTC\_SCL\_SPEED\_HZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_SCL\_SPEED\_HZ}{RTC\_SCL\_SPEED\_HZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a39b3f976a18466171902d0705c9a87f8} 
+\+\#define RTC\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ~100000}
+
+\Hypertarget{individual__config_8h_a2626daf8b314d054a90f38997d8a3827}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_DMA@{SPI\_1\_DMA}}
+\index{SPI\_1\_DMA@{SPI\_1\_DMA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_1\_DMA}{SPI\_1\_DMA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2626daf8b314d054a90f38997d8a3827} 
+\+\#define SPI\+\_\+1\+\_\+\+DMA~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO}
+
+\Hypertarget{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_INTR\_FLAGS@{SPI\_1\_INTR\_FLAGS}}
+\index{SPI\_1\_INTR\_FLAGS@{SPI\_1\_INTR\_FLAGS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_1\_INTR\_FLAGS}{SPI\_1\_INTR\_FLAGS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6} 
+\+\#define SPI\+\_\+1\+\_\+\+INTR\+\_\+\+FLAGS~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)}
+
+\Hypertarget{individual__config_8h_a168a72d3438cf86470ad7235e623105e}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_MAX\_TRANSFER\_SZ@{SPI\_1\_MAX\_TRANSFER\_SZ}}
+\index{SPI\_1\_MAX\_TRANSFER\_SZ@{SPI\_1\_MAX\_TRANSFER\_SZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_1\_MAX\_TRANSFER\_SZ}{SPI\_1\_MAX\_TRANSFER\_SZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_a168a72d3438cf86470ad7235e623105e} 
+\+\#define SPI\+\_\+1\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))}
+
+\Hypertarget{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_QUADHD\_IO\_NUM@{SPI\_1\_QUADHD\_IO\_NUM}}
+\index{SPI\_1\_QUADHD\_IO\_NUM@{SPI\_1\_QUADHD\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_1\_QUADHD\_IO\_NUM}{SPI\_1\_QUADHD\_IO\_NUM}}
+{\footnotesize\ttfamily \label{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb} 
+\+\#define SPI\+\_\+1\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+\Hypertarget{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_QUADWP\_IO\_NUM@{SPI\_1\_QUADWP\_IO\_NUM}}
+\index{SPI\_1\_QUADWP\_IO\_NUM@{SPI\_1\_QUADWP\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_1\_QUADWP\_IO\_NUM}{SPI\_1\_QUADWP\_IO\_NUM}}
+{\footnotesize\ttfamily \label{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7} 
+\+\#define SPI\+\_\+1\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+\Hypertarget{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_DMA@{SPI\_2\_DMA}}
+\index{SPI\_2\_DMA@{SPI\_2\_DMA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2\_DMA}{SPI\_2\_DMA}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1} 
+\+\#define SPI\+\_\+2\+\_\+\+DMA~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO}
+
+\Hypertarget{individual__config_8h_a99cb21495f82c01685873a833d719b25}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_INTR\_FLAGS@{SPI\_2\_INTR\_FLAGS}}
+\index{SPI\_2\_INTR\_FLAGS@{SPI\_2\_INTR\_FLAGS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2\_INTR\_FLAGS}{SPI\_2\_INTR\_FLAGS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a99cb21495f82c01685873a833d719b25} 
+\+\#define SPI\+\_\+2\+\_\+\+INTR\+\_\+\+FLAGS~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)}
+
+\Hypertarget{individual__config_8h_ae80d06218a249684b89828193c330614}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_MAX\_TRANSFER\_SZ@{SPI\_2\_MAX\_TRANSFER\_SZ}}
+\index{SPI\_2\_MAX\_TRANSFER\_SZ@{SPI\_2\_MAX\_TRANSFER\_SZ}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2\_MAX\_TRANSFER\_SZ}{SPI\_2\_MAX\_TRANSFER\_SZ}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae80d06218a249684b89828193c330614} 
+\+\#define SPI\+\_\+2\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))}
+
+\Hypertarget{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_QUADHD\_IO\_NUM@{SPI\_2\_QUADHD\_IO\_NUM}}
+\index{SPI\_2\_QUADHD\_IO\_NUM@{SPI\_2\_QUADHD\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2\_QUADHD\_IO\_NUM}{SPI\_2\_QUADHD\_IO\_NUM}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514} 
+\+\#define SPI\+\_\+2\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+\Hypertarget{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_QUADWP\_IO\_NUM@{SPI\_2\_QUADWP\_IO\_NUM}}
+\index{SPI\_2\_QUADWP\_IO\_NUM@{SPI\_2\_QUADWP\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_2\_QUADWP\_IO\_NUM}{SPI\_2\_QUADWP\_IO\_NUM}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054} 
+\+\#define SPI\+\_\+2\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+\Hypertarget{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21}\index{individual\_config.h@{individual\_config.h}!SPI\_MODE@{SPI\_MODE}}
+\index{SPI\_MODE@{SPI\_MODE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_MODE}{SPI\_MODE}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21} 
+\+\#define SPI\+\_\+\+MODE~3}
+
+
+
+SPI bus configuration, used for SPI LCD panels. 
+
+SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH:\+ transaction queue depth for spi bus commands. \Hypertarget{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_CORE\_SCREEN@{TASK\_1\_CORE\_SCREEN}}
+\index{TASK\_1\_CORE\_SCREEN@{TASK\_1\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_1\_CORE\_SCREEN}{TASK\_1\_CORE\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3} 
+\+\#define TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN~0}
+
+\Hypertarget{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_DELAYTIME\_SCREEN@{TASK\_1\_DELAYTIME\_SCREEN}}
+\index{TASK\_1\_DELAYTIME\_SCREEN@{TASK\_1\_DELAYTIME\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_1\_DELAYTIME\_SCREEN}{TASK\_1\_DELAYTIME\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267} 
+\+\#define TASK\+\_\+1\+\_\+\+DELAYTIME\+\_\+\+SCREEN~200}
+
+\Hypertarget{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_PRIORITY\_SCREEN@{TASK\_1\_PRIORITY\_SCREEN}}
+\index{TASK\_1\_PRIORITY\_SCREEN@{TASK\_1\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_1\_PRIORITY\_SCREEN}{TASK\_1\_PRIORITY\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9} 
+\+\#define TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN~10}
+
+\Hypertarget{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_STEPDEPTH\_SCREEN@{TASK\_1\_STEPDEPTH\_SCREEN}}
+\index{TASK\_1\_STEPDEPTH\_SCREEN@{TASK\_1\_STEPDEPTH\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_1\_STEPDEPTH\_SCREEN}{TASK\_1\_STEPDEPTH\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c} 
+\+\#define TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~4096}
+
+\Hypertarget{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_CORE\_SCREEN@{TASK\_2\_CORE\_SCREEN}}
+\index{TASK\_2\_CORE\_SCREEN@{TASK\_2\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_2\_CORE\_SCREEN}{TASK\_2\_CORE\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164} 
+\+\#define TASK\+\_\+2\+\_\+\+CORE\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_ad04b185b86d13a77ed9a8e9c298bce11}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_DELAYTIME\_SCREEN@{TASK\_2\_DELAYTIME\_SCREEN}}
+\index{TASK\_2\_DELAYTIME\_SCREEN@{TASK\_2\_DELAYTIME\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_2\_DELAYTIME\_SCREEN}{TASK\_2\_DELAYTIME\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad04b185b86d13a77ed9a8e9c298bce11} 
+\+\#define TASK\+\_\+2\+\_\+\+DELAYTIME\+\_\+\+SCREEN~100}
+
+\Hypertarget{individual__config_8h_ab1e1ace4209cf40e91bea91332665224}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_PRIORITY\_SCREEN@{TASK\_2\_PRIORITY\_SCREEN}}
+\index{TASK\_2\_PRIORITY\_SCREEN@{TASK\_2\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_2\_PRIORITY\_SCREEN}{TASK\_2\_PRIORITY\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab1e1ace4209cf40e91bea91332665224} 
+\+\#define TASK\+\_\+2\+\_\+\+PRIORITY\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_ae12057330aeebd4ab49540af10aa2f8a}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_STEPDEPTH\_SCREEN@{TASK\_2\_STEPDEPTH\_SCREEN}}
+\index{TASK\_2\_STEPDEPTH\_SCREEN@{TASK\_2\_STEPDEPTH\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_2\_STEPDEPTH\_SCREEN}{TASK\_2\_STEPDEPTH\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ae12057330aeebd4ab49540af10aa2f8a} 
+\+\#define TASK\+\_\+2\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_a0a1c1d511d3f3f11316926b1c5f01018}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_CORE\_SCREEN@{TASK\_3\_CORE\_SCREEN}}
+\index{TASK\_3\_CORE\_SCREEN@{TASK\_3\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_3\_CORE\_SCREEN}{TASK\_3\_CORE\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0a1c1d511d3f3f11316926b1c5f01018} 
+\+\#define TASK\+\_\+3\+\_\+\+CORE\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_a6761c997cd501205a16b88c0f152c646}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_DELAYTIME\_SCREEN@{TASK\_3\_DELAYTIME\_SCREEN}}
+\index{TASK\_3\_DELAYTIME\_SCREEN@{TASK\_3\_DELAYTIME\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_3\_DELAYTIME\_SCREEN}{TASK\_3\_DELAYTIME\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6761c997cd501205a16b88c0f152c646} 
+\+\#define TASK\+\_\+3\+\_\+\+DELAYTIME\+\_\+\+SCREEN~150}
+
+\Hypertarget{individual__config_8h_a0fd31553a1c949532a661bb84bf8bf82}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_PRIORITY\_SCREEN@{TASK\_3\_PRIORITY\_SCREEN}}
+\index{TASK\_3\_PRIORITY\_SCREEN@{TASK\_3\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_3\_PRIORITY\_SCREEN}{TASK\_3\_PRIORITY\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0fd31553a1c949532a661bb84bf8bf82} 
+\+\#define TASK\+\_\+3\+\_\+\+PRIORITY\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_aa68ea9ed040536567eb1a1f029c0de09}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_STEPDEPTH\_SCREEN@{TASK\_3\_STEPDEPTH\_SCREEN}}
+\index{TASK\_3\_STEPDEPTH\_SCREEN@{TASK\_3\_STEPDEPTH\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_3\_STEPDEPTH\_SCREEN}{TASK\_3\_STEPDEPTH\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa68ea9ed040536567eb1a1f029c0de09} 
+\+\#define TASK\+\_\+3\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_CORE\_SCREEN@{TASK\_4\_CORE\_SCREEN}}
+\index{TASK\_4\_CORE\_SCREEN@{TASK\_4\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_4\_CORE\_SCREEN}{TASK\_4\_CORE\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a} 
+\+\#define TASK\+\_\+4\+\_\+\+CORE\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_ab6b8904ea8f761781af33d049960e758}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_DELAYTIME\_SCREEN@{TASK\_4\_DELAYTIME\_SCREEN}}
+\index{TASK\_4\_DELAYTIME\_SCREEN@{TASK\_4\_DELAYTIME\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_4\_DELAYTIME\_SCREEN}{TASK\_4\_DELAYTIME\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab6b8904ea8f761781af33d049960e758} 
+\+\#define TASK\+\_\+4\+\_\+\+DELAYTIME\+\_\+\+SCREEN~100}
+
+\Hypertarget{individual__config_8h_aea108020a51158de85a2558e2053b672}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_PRIORITY\_SCREEN@{TASK\_4\_PRIORITY\_SCREEN}}
+\index{TASK\_4\_PRIORITY\_SCREEN@{TASK\_4\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_4\_PRIORITY\_SCREEN}{TASK\_4\_PRIORITY\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_aea108020a51158de85a2558e2053b672} 
+\+\#define TASK\+\_\+4\+\_\+\+PRIORITY\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_ac00defb01b4b0a4dd498911178f033ab}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_STEPDEPTH\_SCREEN@{TASK\_4\_STEPDEPTH\_SCREEN}}
+\index{TASK\_4\_STEPDEPTH\_SCREEN@{TASK\_4\_STEPDEPTH\_SCREEN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TASK\_4\_STEPDEPTH\_SCREEN}{TASK\_4\_STEPDEPTH\_SCREEN}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac00defb01b4b0a4dd498911178f033ab} 
+\+\#define TASK\+\_\+4\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
+
+\Hypertarget{individual__config_8h_ad716bb76ce6c332187e14e0b0c7bfe67}\index{individual\_config.h@{individual\_config.h}!TESTMODE@{TESTMODE}}
+\index{TESTMODE@{TESTMODE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE}{TESTMODE}}
+{\footnotesize\ttfamily \label{individual__config_8h_ad716bb76ce6c332187e14e0b0c7bfe67} 
+\+\#define TESTMODE~true}
+
+
+
+Feature flags -\/ enable/\+disable optional modules. 
+
+\Hypertarget{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}\index{individual\_config.h@{individual\_config.h}!TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}}
+\index{TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TRANS\_QUEUE\_DEPTH}{TRANS\_QUEUE\_DEPTH}}
+{\footnotesize\ttfamily \label{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b} 
+\+\#define TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH~1}
+
+\Hypertarget{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}\index{individual\_config.h@{individual\_config.h}!USE\_BUZZER@{USE\_BUZZER}}
+\index{USE\_BUZZER@{USE\_BUZZER}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{USE\_BUZZER}{USE\_BUZZER}}
+{\footnotesize\ttfamily \label{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445} 
+\+\#define USE\+\_\+\+BUZZER~false}
+
+\Hypertarget{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_BRIGHT@{VALUE\_DEFAULT\_BRIGHT}}
+\index{VALUE\_DEFAULT\_BRIGHT@{VALUE\_DEFAULT\_BRIGHT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_BRIGHT}{VALUE\_DEFAULT\_BRIGHT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+BRIGHT~\doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}}
+
+\Hypertarget{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_NIGHT\_MODE@{VALUE\_DEFAULT\_NIGHT\_MODE}}
+\index{VALUE\_DEFAULT\_NIGHT\_MODE@{VALUE\_DEFAULT\_NIGHT\_MODE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_NIGHT\_MODE}{VALUE\_DEFAULT\_NIGHT\_MODE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+NIGHT\+\_\+\+MODE~false}
+
+\Hypertarget{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_OUT\_TEMP@{VALUE\_DEFAULT\_OUT\_TEMP}}
+\index{VALUE\_DEFAULT\_OUT\_TEMP@{VALUE\_DEFAULT\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_OUT\_TEMP}{VALUE\_DEFAULT\_OUT\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP~-\/30}
+
+\Hypertarget{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}}
+\index{VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_PRES}{VALUE\_DEFAULT\_PRES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+PRES~0.\+0}
+
+\Hypertarget{individual__config_8h_a51292f041e82c58f1768774ded54d178}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_TEMP@{VALUE\_DEFAULT\_TEMP}}
+\index{VALUE\_DEFAULT\_TEMP@{VALUE\_DEFAULT\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_TEMP}{VALUE\_DEFAULT\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a51292f041e82c58f1768774ded54d178} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP~0}
+
+\Hypertarget{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_VOLT@{VALUE\_DEFAULT\_VOLT}}
+\index{VALUE\_DEFAULT\_VOLT@{VALUE\_DEFAULT\_VOLT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_VOLT}{VALUE\_DEFAULT\_VOLT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c} 
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT~8.\+0}
+
+\Hypertarget{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_OUT\_TEMP@{VALUE\_MAX\_OUT\_TEMP}}
+\index{VALUE\_MAX\_OUT\_TEMP@{VALUE\_MAX\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MAX\_OUT\_TEMP}{VALUE\_MAX\_OUT\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab83d8677103a7081d5a8496188025b0b} 
+\+\#define VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP~70}
+
+\Hypertarget{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_PRES@{VALUE\_MAX\_PRES}}
+\index{VALUE\_MAX\_PRES@{VALUE\_MAX\_PRES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MAX\_PRES}{VALUE\_MAX\_PRES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc} 
+\+\#define VALUE\+\_\+\+MAX\+\_\+\+PRES~6.\+0}
+
+\Hypertarget{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_TEMP@{VALUE\_MAX\_TEMP}}
+\index{VALUE\_MAX\_TEMP@{VALUE\_MAX\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MAX\_TEMP}{VALUE\_MAX\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d} 
+\+\#define VALUE\+\_\+\+MAX\+\_\+\+TEMP~150}
+
+\Hypertarget{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_VOLT@{VALUE\_MAX\_VOLT}}
+\index{VALUE\_MAX\_VOLT@{VALUE\_MAX\_VOLT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MAX\_VOLT}{VALUE\_MAX\_VOLT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b} 
+\+\#define VALUE\+\_\+\+MAX\+\_\+\+VOLT~16.\+0}
+
+\Hypertarget{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_OUT\_TEMP@{VALUE\_MIN\_OUT\_TEMP}}
+\index{VALUE\_MIN\_OUT\_TEMP@{VALUE\_MIN\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MIN\_OUT\_TEMP}{VALUE\_MIN\_OUT\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342} 
+\+\#define VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP~\doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}}
+
+\Hypertarget{individual__config_8h_a371c597eddcd4c669475093d169c082a}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}}
+\index{VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MIN\_PRES}{VALUE\_MIN\_PRES}}
+{\footnotesize\ttfamily \label{individual__config_8h_a371c597eddcd4c669475093d169c082a} 
+\+\#define VALUE\+\_\+\+MIN\+\_\+\+PRES~\doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}}
+
+\Hypertarget{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_TEMP@{VALUE\_MIN\_TEMP}}
+\index{VALUE\_MIN\_TEMP@{VALUE\_MIN\_TEMP}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MIN\_TEMP}{VALUE\_MIN\_TEMP}}
+{\footnotesize\ttfamily \label{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8} 
+\+\#define VALUE\+\_\+\+MIN\+\_\+\+TEMP~\doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}}
+
+\Hypertarget{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_VOLT@{VALUE\_MIN\_VOLT}}
+\index{VALUE\_MIN\_VOLT@{VALUE\_MIN\_VOLT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{VALUE\_MIN\_VOLT}{VALUE\_MIN\_VOLT}}
+{\footnotesize\ttfamily \label{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c} 
+\+\#define VALUE\+\_\+\+MIN\+\_\+\+VOLT~\doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}}
+

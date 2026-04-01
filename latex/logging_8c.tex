@@ -1,0 +1,61 @@
+\doxysection{main/\+logging/\+logging.c File Reference}
+\hypertarget{logging_8c}{}\label{logging_8c}\index{main/logging/logging.c@{main/logging/logging.c}}
+{\ttfamily \+\#include "{}logging.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{logging_8c_a1cfb49f712b475f025b4ca451f63327f}{print\+Log}} (const char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Print informational log message. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{logging_8c_a8d463dcc2620a67b82a8be00e31ae3c0}{print\+Error\+Log}} (const char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Print error log message. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{logging_8c_a7148712d78e8164f230be2b1e6e91160}{print\+Warning\+Log}} (const char \texorpdfstring{$\ast$}{*}message)
+\begin{DoxyCompactList}\small\item\em Print warning log message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{logging_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{logging_8c_a8d463dcc2620a67b82a8be00e31ae3c0}\index{logging.c@{logging.c}!printErrorLog@{printErrorLog}}
+\index{printErrorLog@{printErrorLog}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{printErrorLog()}{printErrorLog()}}
+{\footnotesize\ttfamily \label{logging_8c_a8d463dcc2620a67b82a8be00e31ae3c0} 
+void print\+Error\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Print error log message. 
+
+Print error log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+
+Print error log message Output only if LOGGING\+\_\+\+ENABLED is true 
+\begin{DoxyParams}{Parameters}
+{\em message} & Error message string \\
+\hline
+\end{DoxyParams}
+\Hypertarget{logging_8c_a1cfb49f712b475f025b4ca451f63327f}\index{logging.c@{logging.c}!printLog@{printLog}}
+\index{printLog@{printLog}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{printLog()}{printLog()}}
+{\footnotesize\ttfamily \label{logging_8c_a1cfb49f712b475f025b4ca451f63327f} 
+void print\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Print informational log message. 
+
+Print informational log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h} \Hypertarget{logging_8c_a7148712d78e8164f230be2b1e6e91160}\index{logging.c@{logging.c}!printWarningLog@{printWarningLog}}
+\index{printWarningLog@{printWarningLog}!logging.c@{logging.c}}
+\doxysubsubsection{\texorpdfstring{printWarningLog()}{printWarningLog()}}
+{\footnotesize\ttfamily \label{logging_8c_a7148712d78e8164f230be2b1e6e91160} 
+void print\+Warning\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Print warning log message. 
+
+Print warning log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+
+Print warning log message Output only if LOGGING\+\_\+\+ENABLED is true 
+\begin{DoxyParams}{Parameters}
+{\em message} & Warning message string \\
+\hline
+\end{DoxyParams}

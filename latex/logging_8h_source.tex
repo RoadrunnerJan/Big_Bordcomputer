@@ -1,0 +1,40 @@
+\doxysection{logging.\+h}
+\hypertarget{logging_8h_source}{}\label{logging_8h_source}\index{main/logging/logging.h@{main/logging/logging.h}}
+\doxymbox{\hyperlink{logging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ LOGGING\ MODULE\ -\/\ Debug\ Output\ Control}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Provides\ logging\ functions\ with\ compile-\/time\ enable/disable\ via\ LOGGING\_ENABLED}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Author:\ Jan\ Niklas\ Rodewald\ (JRO)}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Date:\ 01.04.2026}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ CHANGELOG}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ ============================================================================}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ v1.0\ (01.04.2026)\ -\/\ Initial\ implementation}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Info,\ error,\ and\ warning\ log\ functions}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Compile-\/time\ enable/disable\ support}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}esp\_log.h"{}}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{logging_8h_a1cfb49f712b475f025b4ca451f63327f}{printLog}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{logging_8h_a8d463dcc2620a67b82a8be00e31ae3c0}{printErrorLog}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{logging_8h_a7148712d78e8164f230be2b1e6e91160}{printWarningLog}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{logging_8h_a8d463dcc2620a67b82a8be00e31ae3c0}{printErrorLog}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{logging_8h_a7148712d78e8164f230be2b1e6e91160}{printWarningLog}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+
+\end{DoxyCode}

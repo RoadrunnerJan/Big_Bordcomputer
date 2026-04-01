@@ -1,24 +1,21 @@
 #pragma once
 
-/*
- * ============================================================================
- * I2C INTERFACE - RTC & ADC Device Communication
- * ============================================================================
- * Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors
+/**
+ * @file i2cFunctions.h
+ * @brief I2C interface for DS3231 RTC and ADS1115 ADC.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - DS3231 real-time clock interface
  *      - ADS1115 ADC for analog sensor readings
  *      - NTC temperature table interpolation
  *      - Button control for time adjustment
  *      - Dual ADC support for enhanced sensor coverage
- *
  */
 
 /* ===== Project Configuration ===== */

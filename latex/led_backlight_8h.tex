@@ -1,0 +1,59 @@
+\doxysection{main/\+peripherie/\+led\+Backlight.h File Reference}
+\hypertarget{led_backlight_8h}{}\label{led_backlight_8h}\index{main/peripherie/ledBacklight.h@{main/peripherie/ledBacklight.h}}
+{\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}driver/\+ledc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3}{init\+\_\+lcd\+\_\+backlight\+\_\+pwm}} (void)
+\item 
+void \doxymbox{\hyperlink{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}{set\+\_\+lcd\+\_\+brightness}} (uint8\+\_\+t percentage)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ledc\+\_\+timer\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8h_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03}{ledc\+\_\+timer}}
+\item 
+ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8h_aec3e29ef86275172b97d9fd16dbc861f}{ledc\+\_\+channel}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{led_backlight_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3}\index{ledBacklight.h@{ledBacklight.h}!init\_lcd\_backlight\_pwm@{init\_lcd\_backlight\_pwm}}
+\index{init\_lcd\_backlight\_pwm@{init\_lcd\_backlight\_pwm}!ledBacklight.h@{ledBacklight.h}}
+\doxysubsubsection{\texorpdfstring{init\_lcd\_backlight\_pwm()}{init\_lcd\_backlight\_pwm()}}
+{\footnotesize\ttfamily \label{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3} 
+void init\+\_\+lcd\+\_\+backlight\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize LED backlight PWM configuration Sets up LEDC timer and channel based on \doxylink{individual__config_8h}{individual\+\_\+config.\+h} settings
+
+Initialize LED backlight PWM configuration Configures LEDC timer and channel for LCD brightness control \Hypertarget{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}\index{ledBacklight.h@{ledBacklight.h}!set\_lcd\_brightness@{set\_lcd\_brightness}}
+\index{set\_lcd\_brightness@{set\_lcd\_brightness}!ledBacklight.h@{ledBacklight.h}}
+\doxysubsubsection{\texorpdfstring{set\_lcd\_brightness()}{set\_lcd\_brightness()}}
+{\footnotesize\ttfamily \label{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555} 
+void set\+\_\+lcd\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{percentage}{}\end{DoxyParamCaption})}
+
+Set LCD brightness level 
+\begin{DoxyParams}{Parameters}
+{\em percentage} & Brightness level (0-\/100\%)\\
+\hline
+\end{DoxyParams}
+Set LCD brightness level (0-\/100\%) Converts percentage to duty cycle value 
+
+\label{doc-var-members}
+\Hypertarget{led_backlight_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{led_backlight_8h_aec3e29ef86275172b97d9fd16dbc861f}\index{ledBacklight.h@{ledBacklight.h}!ledc\_channel@{ledc\_channel}}
+\index{ledc\_channel@{ledc\_channel}!ledBacklight.h@{ledBacklight.h}}
+\doxysubsubsection{\texorpdfstring{ledc\_channel}{ledc\_channel}}
+{\footnotesize\ttfamily \label{led_backlight_8h_aec3e29ef86275172b97d9fd16dbc861f} 
+ledc\+\_\+channel\+\_\+config\+\_\+t ledc\+\_\+channel\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{led_backlight_8h_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03}\index{ledBacklight.h@{ledBacklight.h}!ledc\_timer@{ledc\_timer}}
+\index{ledc\_timer@{ledc\_timer}!ledBacklight.h@{ledBacklight.h}}
+\doxysubsubsection{\texorpdfstring{ledc\_timer}{ledc\_timer}}
+{\footnotesize\ttfamily \label{led_backlight_8h_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03} 
+ledc\+\_\+timer\+\_\+config\+\_\+t ledc\+\_\+timer\hspace{0.3cm}{\ttfamily [extern]}}
+

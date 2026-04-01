@@ -1,0 +1,76 @@
+\doxysection{main/\+main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main/main.c@{main/main.c}}
+{\ttfamily \+\#include "{}individual\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+spi\+Functions.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+led\+Backlight.\+h"{}}\newline
+{\ttfamily \+\#include "{}lvgl/\+variable\+Functions.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+i2c\+Functions.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+pwm\+Sensor.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+pwm\+Switch.\+h"{}}\newline
+{\ttfamily \+\#include "{}logging/\+logging.\+h"{}}\newline
+{\ttfamily \+\#include "{}calculation/\+values.\+h"{}}\newline
+{\ttfamily \+\#include "{}simulation/\+test\+Simulation.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{main_8c_afceb890a6ab9be73cc5481369538c705}{init\+\_\+system}} ()
+\item 
+void \doxymbox{\hyperlink{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+time\+\_\+t \doxymbox{\hyperlink{main_8c_a6e518afa23f4d64bf5cadee75e8af186}{Start\+Up\+Time}} = 0
+\item 
+time\+\_\+t \doxymbox{\hyperlink{main_8c_a6ed0b29f7880e47087b6696327cef962}{check\+Time}} = 0
+\item 
+bool \doxymbox{\hyperlink{main_8c_a9415d6967ea31a1d71a6364878d31189}{night\+\_\+mode}} = false
+\item 
+bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+checked}} \+[2]\+ = \{false, false\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\index{main.c@{main.c}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily \label{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
+void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
+\index{init\_system@{init\_system}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{init\_system()}{init\_system()}}
+{\footnotesize\ttfamily \label{main_8c_afceb890a6ab9be73cc5481369538c705} 
+void init\+\_\+system (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{main_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a6ed0b29f7880e47087b6696327cef962}\index{main.c@{main.c}!checkTime@{checkTime}}
+\index{checkTime@{checkTime}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{checkTime}{checkTime}}
+{\footnotesize\ttfamily \label{main_8c_a6ed0b29f7880e47087b6696327cef962} 
+time\+\_\+t check\+Time = 0}
+
+\Hypertarget{main_8c_a9415d6967ea31a1d71a6364878d31189}\index{main.c@{main.c}!night\_mode@{night\_mode}}
+\index{night\_mode@{night\_mode}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{night\_mode}{night\_mode}}
+{\footnotesize\ttfamily \label{main_8c_a9415d6967ea31a1d71a6364878d31189} 
+bool night\+\_\+mode = false}
+
+\Hypertarget{main_8c_a6e518afa23f4d64bf5cadee75e8af186}\index{main.c@{main.c}!StartUpTime@{StartUpTime}}
+\index{StartUpTime@{StartUpTime}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{StartUpTime}{StartUpTime}}
+{\footnotesize\ttfamily \label{main_8c_a6e518afa23f4d64bf5cadee75e8af186} 
+time\+\_\+t Start\+Up\+Time = 0}
+
+\Hypertarget{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}\index{main.c@{main.c}!time\_checked@{time\_checked}}
+\index{time\_checked@{time\_checked}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{time\_checked}{time\_checked}}
+{\footnotesize\ttfamily \label{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9} 
+bool time\+\_\+checked\+[2]\+ = \{false, false\}}
+

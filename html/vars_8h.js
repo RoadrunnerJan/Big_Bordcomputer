@@ -1,0 +1,36 @@
+var vars_8h =
+[
+    [ "FlowGlobalVariables", "vars_8h.html#a8c94e815d345f136c2c62958408da178", [
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_OIL_TEMPERATURE", "vars_8h.html#a8c94e815d345f136c2c62958408da178ad33a5d8291722cb820e7bc39233fe3e3", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_VOLTAGE", "vars_8h.html#a8c94e815d345f136c2c62958408da178acab8cd540dc33cfa92d870b8ac58ddd4", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_CLOCK", "vars_8h.html#a8c94e815d345f136c2c62958408da178a29e73c4f800b11a2ec75e33d038495d4", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_TEMPERATURE", "vars_8h.html#a8c94e815d345f136c2c62958408da178a587c84971125a945761608bd51d99316", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_OIL_TEMPERATURE_STRING", "vars_8h.html#a8c94e815d345f136c2c62958408da178aa608bba28b517934bb7f83881588764b", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_VOLTAGE_STRING", "vars_8h.html#a8c94e815d345f136c2c62958408da178a6c61d2cda40fdbc39bba6e5a61896f0b", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_TEMPERATURE_STRING", "vars_8h.html#a8c94e815d345f136c2c62958408da178a546440e9228c1111516502aa610316ff", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_CLOCK_HOUR", "vars_8h.html#a8c94e815d345f136c2c62958408da178a0e98d12b1e07a642d1b3e178ffab3d00", null ],
+      [ "FLOW_GLOBAL_VARIABLE_LVGL_VALUE_CLOCK_MINUTE", "vars_8h.html#a8c94e815d345f136c2c62958408da178a1b22c83e5dca7a25b91b29a6d78bb14b", null ]
+    ] ],
+    [ "get_var_lvgl_value_clock", "vars_8h.html#ae0ddcc4ec800d59a57468185a4e492ba", null ],
+    [ "get_var_lvgl_value_clock_hour", "vars_8h.html#a924354c3872afd6f17e9d41948ec4ae4", null ],
+    [ "get_var_lvgl_value_clock_minute", "vars_8h.html#a206a697950f2cf54f776e1d044b302bc", null ],
+    [ "get_var_lvgl_value_oil_pressure", "vars_8h.html#adba7ee4302571c45e316d31b8ef330d9", null ],
+    [ "get_var_lvgl_value_oil_pressure_string", "vars_8h.html#af6b93cebb1988ed1201e5368b6c79f2e", null ],
+    [ "get_var_lvgl_value_oil_temperature", "vars_8h.html#ab2e6fbe423ce7a2dd039e8492b7e3286", null ],
+    [ "get_var_lvgl_value_oil_temperature_string", "vars_8h.html#ab2f1240fa7e26852fde811722bd9b0a8", null ],
+    [ "get_var_lvgl_value_temperature", "vars_8h.html#aa935105776582e185412ba2f99fe1595", null ],
+    [ "get_var_lvgl_value_temperature_string", "vars_8h.html#a404e2c4c86bd3d50caa93e0baf05df38", null ],
+    [ "get_var_lvgl_value_voltage", "vars_8h.html#aba34325bed07e63c4c83735a7fc8bbb0", null ],
+    [ "get_var_lvgl_value_voltage_string", "vars_8h.html#a70133d22c03f6443c7cc5ca534131dbd", null ],
+    [ "set_var_lvgl_value_clock", "vars_8h.html#ad4b96fea2c83df6072c4533099d289c9", null ],
+    [ "set_var_lvgl_value_clock_hour", "vars_8h.html#a2473dbea721440e5c2c3f83059a42a8d", null ],
+    [ "set_var_lvgl_value_clock_minute", "vars_8h.html#aa2f427e68887062f5599ce47a7a2ac46", null ],
+    [ "set_var_lvgl_value_oil_pressure", "vars_8h.html#a06bed709a192c2331790a8d19c7ce239", null ],
+    [ "set_var_lvgl_value_oil_pressure_string", "vars_8h.html#a34553c7185fd121dbc1cdb123efd14c8", null ],
+    [ "set_var_lvgl_value_oil_temperature", "vars_8h.html#a9938a44355e15526b898f91ccd856ecf", null ],
+    [ "set_var_lvgl_value_oil_temperature_string", "vars_8h.html#a14c6d7b1410407d34bfb7bc61db3550e", null ],
+    [ "set_var_lvgl_value_temperature", "vars_8h.html#a42ef07953a0a6786b81aaa53cc16e652", null ],
+    [ "set_var_lvgl_value_temperature_string", "vars_8h.html#a788e8c1c679d70e2c4e52308c932b1ea", null ],
+    [ "set_var_lvgl_value_voltage", "vars_8h.html#a2056eea876fd72cb4ca19a69424090cb", null ],
+    [ "set_var_lvgl_value_voltage_string", "vars_8h.html#ac35f6a81b23f1a394cf119f2aebe1c35", null ]
+];
