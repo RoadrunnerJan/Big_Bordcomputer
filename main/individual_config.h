@@ -11,7 +11,7 @@
 #define CHIP_USED                          ESP32P4 // ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 #define TESTMODE                           true  // true = Simulated values for all sensors, night mode, brightness test
-#define USE_BUZZER                         true  // Enable buzzer warnings (for low outdoor temperature)
+#define USE_BUZZER                         false  // Enable buzzer warnings (for low outdoor temperature)
 #define LOGGING_ENABLED                    true   // Enable serial output for debugging
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG"
 
@@ -233,7 +233,7 @@
 */
 #if USE_BUZZER == true
     #define BUZZER_TEMP_MIN                3       // Alert when temperature < 3°C
-    #define BUZZER_BEEPING_VALUE           200     // max 255
+    #define BUZZER_BEEPING_VALUE           255     // max 255
     #define BUZZER_QUIET_VALUE             0
     #define BUZZER_TASK_STEPDEPTH          8192
     #define BUZZER_TASK_PRIORITY           20
