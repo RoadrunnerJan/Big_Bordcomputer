@@ -35,7 +35,7 @@ double test_thresholds[5][4] = { // thresholds for switching test steps
     /* clock temperature */ { 33, -15,  20, 0.06},
 
     //                        <=   >=   <=    >=
-    /* brightness        */ { 15,  50,   2,  100} 
+    /* brightness        */ {  2,  40,   2,  80} 
 };
 
 void reset_test_values() {

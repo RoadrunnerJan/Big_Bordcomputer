@@ -275,7 +275,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0
                     }
                   }
@@ -324,7 +324,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -533,7 +533,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255
                     }
                   }
@@ -591,7 +591,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -671,7 +671,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "LEFT"
                     }
                   }
@@ -730,7 +730,7 @@
                       "text_align": "CENTER"
                     },
                     "CHECKED": {
-                      "text_color": "#ff3c00"
+                      "text_color": "#ff2800"
                     }
                   }
                 }
@@ -784,7 +784,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000",
@@ -999,7 +999,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 30
                     }
                   }
@@ -1048,7 +1048,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 60
                     }
@@ -1257,7 +1257,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255
                     }
                   }
@@ -1315,7 +1315,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -1326,7 +1326,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22"
                     }
                   }
@@ -1341,11 +1341,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 15,
                   "scaleMin": 0,
                   "scaleMax": 6,
@@ -1395,7 +1395,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "LEFT"
                     }
                   }
@@ -1449,12 +1449,12 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_align": "CENTER"
                     },
                     "CHECKED": {
-                      "text_color": "#ff3c00"
+                      "text_color": "#ff2800"
                     }
                   }
                 }
@@ -1508,7 +1508,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "anim_time": 600,
                       "border_color": "#000000",
@@ -1520,7 +1520,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_opa": 0
                     }
@@ -1546,7 +1546,7 @@
                       "objID": "bf04f823-0be8-4deb-aae2-3108cf439705",
                       "type": "NEEDLE_LINE",
                       "width": 5,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -15,
                       "value": "lvgl_value_oil_pressure",
                       "valueType": "expression"
@@ -1556,11 +1556,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 15,
                   "scaleMin": 0,
                   "scaleMax": 6000,
@@ -1724,7 +1724,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0
                     }
                   }
@@ -1773,7 +1773,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -1983,7 +1983,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "img_recolor_opa": 255,
-                      "img_recolor": "#ff3c00"
+                      "img_recolor": "#ff2800"
                     }
                   }
                 }
@@ -2039,7 +2039,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -2118,7 +2118,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER"
                     }
                   }
@@ -2226,7 +2226,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -2442,7 +2442,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 30
                     }
                   }
@@ -2491,7 +2491,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 60
                     }
@@ -2700,7 +2700,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -2757,7 +2757,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -2768,7 +2768,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22"
                     }
                   }
@@ -2783,11 +2783,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 20,
                   "scaleMin": 0,
                   "scaleMax": 150,
@@ -2836,7 +2836,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER"
                     }
                   }
@@ -2889,7 +2889,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_align": "CENTER"
                     }
@@ -2944,7 +2944,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -2956,7 +2956,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_opa": 0
                     }
@@ -2982,7 +2982,7 @@
                       "objID": "069b7eab-c058-4dcc-9657-3c52f5f4c2f1",
                       "type": "NEEDLE_LINE",
                       "width": 5,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -15,
                       "value": "lvgl_value_oil_temperature",
                       "valueType": "expression"
@@ -2992,11 +2992,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 6,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 0,
                   "scaleMax": 150000,
@@ -3159,7 +3159,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0
                     }
                   }
@@ -3208,7 +3208,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -3416,7 +3416,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -3473,7 +3473,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -3551,7 +3551,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "LEFT"
                     }
                   }
@@ -3659,7 +3659,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -3875,7 +3875,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 30
                     }
                   }
@@ -3924,7 +3924,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 60
                     }
@@ -4132,7 +4132,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -4189,7 +4189,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -4200,7 +4200,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22"
                     }
                   }
@@ -4215,11 +4215,11 @@
                   "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 8,
                   "scaleMax": 16,
@@ -4267,7 +4267,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "LEFT"
                     }
                   }
@@ -4320,7 +4320,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_align": "CENTER"
                     }
@@ -4375,7 +4375,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -4387,7 +4387,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_opa": 0
                     }
@@ -4413,7 +4413,7 @@
                       "objID": "dd9d3ebb-920d-474d-d0ac-08df1966d581",
                       "type": "NEEDLE_LINE",
                       "width": 5,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -15,
                       "value": "lvgl_value_voltage",
                       "valueType": "expression"
@@ -4423,11 +4423,11 @@
                   "minorTickCount": 17,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 4,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 8000,
                   "scaleMax": 16000,
@@ -4591,7 +4591,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0
                     }
                   }
@@ -4640,7 +4640,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -4772,7 +4772,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -4829,7 +4829,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -4907,7 +4907,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER"
                     }
                   }
@@ -5015,7 +5015,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -5230,7 +5230,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 30
                     }
                   }
@@ -5279,7 +5279,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 60
                     }
@@ -5411,7 +5411,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -5468,7 +5468,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "pad_top": 6,
@@ -5479,7 +5479,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22"
                     }
                   }
@@ -5494,11 +5494,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": -20,
                   "scaleMax": 40,
@@ -5546,7 +5546,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER"
                     }
                   }
@@ -5599,7 +5599,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_align": "CENTER"
                     }
@@ -5654,7 +5654,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -5666,7 +5666,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_opa": 0
                     }
@@ -5692,7 +5692,7 @@
                       "objID": "d9cc5933-918b-4da7-ced7-94f95c9ba290",
                       "type": "NEEDLE_LINE",
                       "width": 5,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -15,
                       "value": "lvgl_value_temperature",
                       "valueType": "expression"
@@ -5702,11 +5702,11 @@
                   "minorTickCount": 31,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": -20000,
                   "scaleMax": 40000,
@@ -5869,7 +5869,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0
                     }
                   }
@@ -5919,7 +5919,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -6075,7 +6075,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -6184,7 +6184,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER",
                       "bg_color": "#000000",
                       "bg_opa": 255,
@@ -6294,7 +6294,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 0
                     }
@@ -6352,7 +6352,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -6455,7 +6455,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -6672,7 +6672,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -6684,7 +6684,7 @@
                   },
                   "TICKS": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22"
                     }
                   },
@@ -6709,11 +6709,11 @@
                   "minorTickCount": 61,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 0,
                   "scaleMax": 12,
@@ -6763,7 +6763,7 @@
                     "DEFAULT": {
                       "bg_color": "#000000",
                       "text_font": "Oswald_22",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "border_opa": 255,
                       "border_color": "#000000",
                       "text_align": "CENTER",
@@ -6829,7 +6829,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 999
                     }
                   }
@@ -6938,7 +6938,7 @@
                   "MAIN": {
                     "DEFAULT": {
                       "text_font": "Oswald_36",
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_align": "CENTER",
                       "bg_color": "#000000",
                       "bg_opa": 255,
@@ -6995,7 +6995,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 30
                     }
                   }
@@ -7043,7 +7043,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "text_color": "#ff3c00",
+                      "text_color": "#ff2800",
                       "text_font": "Oswald_22",
                       "text_align": "CENTER"
                     }
@@ -7097,7 +7097,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "img_recolor": "#ff3c00",
+                      "img_recolor": "#ff2800",
                       "img_recolor_opa": 255,
                       "img_opa": 60
                     }
@@ -7155,7 +7155,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -7194,7 +7194,7 @@
                       "objID": "51bd6fe2-752f-4a66-878c-bc1aa56a6c41",
                       "type": "NEEDLE_LINE",
                       "width": 8,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -45,
                       "value": "lvgl_value_clock_hour",
                       "valueType": "expression"
@@ -7204,11 +7204,11 @@
                   "minorTickCount": 61,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 0,
                   "scaleMax": 600,
@@ -7258,7 +7258,7 @@
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
-                      "bg_color": "#ff3c00",
+                      "bg_color": "#ff2800",
                       "bg_opa": 0,
                       "border_color": "#000000",
                       "anim_time": 600,
@@ -7297,7 +7297,7 @@
                       "objID": "ff3267d8-005f-4774-a8cd-034c8e197a78",
                       "type": "NEEDLE_LINE",
                       "width": 5,
-                      "color": "#ff3c00",
+                      "color": "#ff2800",
                       "radiusModifier": -15,
                       "value": "lvgl_value_clock_minute",
                       "valueType": "expression"
@@ -7307,11 +7307,11 @@
                   "minorTickCount": 61,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
-                  "minorTickColor": "#ff3c00",
+                  "minorTickColor": "#ff2800",
                   "nthMajor": 5,
                   "majorTickWidth": 5,
                   "majorTickLength": 18,
-                  "majorTickColor": "#ff3c00",
+                  "majorTickColor": "#ff2800",
                   "labelGap": 17,
                   "scaleMin": 0,
                   "scaleMax": 60,
