@@ -115,35 +115,20 @@ void pwm_sensor_init(void){
     static void pwm_sensor_print(void *pv)
     {
         (void)pv;   
-        float f_temp = 0, f_press = 0;
-        bool value_init_set = false;
         
         while (true) {
-            /*
+            
             // Prüfen, ob seit dem letzten Print neue Daten reinkamen
             if (latest_sensor_values.update_count != last_seen_count) {
                 last_seen_count = latest_sensor_values.update_count;
-                if (!value_init_set)
-                {
-                    f_temp = latest_sensor_values.temp_us.value_us;
-                    f_press = latest_sensor_values.press_us.value_us;
-                    value_init_set = true;
-                }
-                else {
-                    f_temp = calc_filter(latest_sensor_values.temp_us.value_us, f_temp);
-                    f_press = calc_filter(latest_sensor_values.press_us.value_us, f_press);
-                }
                 
-                
-                printf("AKTUELL -> Temp: %.0f°C | Temp f: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
+                printf("AKTUELL -> Temp: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
                         calc_temperature(latest_sensor_values.temp_us.value_us),
-                        calc_temperature(f_temp),
                         latest_sensor_values.temp_us.value_us, 
                         latest_sensor_values.temp_us.period_us, 
                         last_seen_count);
-                printf("AKTUELL -> Druck %.1fbar | Druck f %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
+                printf("AKTUELL -> Druck %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
                         calc_pressure(latest_sensor_values.press_us.value_us),
-                        calc_pressure(f_press),
                         latest_sensor_values.press_us.value_us, 
                         latest_sensor_values.press_us.period_us, 
                         last_seen_count);
@@ -154,7 +139,7 @@ void pwm_sensor_init(void){
             }
             else {
                 printf("Warten auf Sensor-Signal...\n");
-            }*/
+            }
             vTaskDelay(pdMS_TO_TICKS(200)); 
         }
     }
