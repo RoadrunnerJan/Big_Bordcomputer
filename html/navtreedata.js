@@ -25,13 +25,12 @@
 var NAVTREE =
 [
   [ "Big_Boardcomputer", "index.html", [
-    [ "Customizable ESP32 Bordcomputer", "index.html#autotoc_md0", [
-      [ "Hardware-Übersicht", "index.html#autotoc_md1", null ],
+    [ "Customizable ESP32 Boardcomputer", "index.html#autotoc_md0", [
+      [ "Hardware Overview", "index.html#autotoc_md1", null ],
       [ "Software", "index.html#autotoc_md2", null ],
-      [ "Wie man das Projekt flashen kann", "index.html#autotoc_md3", null ],
-      [ "Projektstruktur", "index.html#autotoc_md4", null ],
-      [ "Troubleshooting", "index.html#autotoc_md5", null ],
-      [ "Technischer Support und Feedback", "index.html#autotoc_md6", null ]
+      [ "How to Flash the Project", "index.html#autotoc_md3", null ],
+      [ "Project Structure", "index.html#autotoc_md4", null ],
+      [ "Troubleshooting", "index.html#autotoc_md5", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -56,8 +55,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"individual__config_8h.html#a94daf58c14d4bdaaa891c56d58c91bb6",
-"test_simulation_8c.html#ac57426501c15d07507e82ac9126c1d55"
+"individual__config_8h.html#a962b50e1e4c01928d2326ebe463ceb5b",
+"test_simulation_8c.html#ad3d993b1f3e8b2df475a31789117e047"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

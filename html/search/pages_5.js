@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardware_20übersicht_0',['Hardware-Übersicht',['../index.html#autotoc_md1',1,'']]]
+  ['overview_0',['Hardware Overview',['../index.html#autotoc_md1',1,'']]]
 ];

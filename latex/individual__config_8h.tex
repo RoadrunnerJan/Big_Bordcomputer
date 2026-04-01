@@ -3,14 +3,8 @@
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}~4
-\begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}~2
-\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}~2
-\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}{CHIP\+\_\+\+USED}}~ESP32\+P4
-\item 
+\begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad716bb76ce6c332187e14e0b0c7bfe67}{TESTMODE}}~true
 \begin{DoxyCompactList}\small\item\em Feature flags -\/ enable/\+disable optional modules. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~false
@@ -18,6 +12,12 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}{LOGGING\+\_\+\+ENABLED}}~true
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a454deab6aeff0af2de8c334bec94dfe9}{LOGGING\+\_\+\+TAG}}~"{}JRO\+\_\+\+BOARD\+\_\+\+COMPUTER\+\_\+\+LOG"{}
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}~4
+\begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}~2
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21}{SPI\+\_\+\+MODE}}~3
 \begin{DoxyCompactList}\small\item\em SPI bus configuration, used for SPI LCD panels. \end{DoxyCompactList}\item 
@@ -734,7 +734,11 @@ BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+PIN:\+ GPIO pin for s
 {\footnotesize\ttfamily \label{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21} 
 \+\#define CHIP\+\_\+\+USED~ESP32\+P4}
 
-\Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
+
+
+Core project configuration values. 
+
+CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please add a new section after \+\#if CHIP\+\_\+\+USED == ESP32\+P4 for this new chip and add its corresponding pins and settings \Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
 \index{EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR}{EEZ\_VALUE\_FACTOR}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2} 
@@ -1178,7 +1182,7 @@ LED\+\_\+\+SPEED:\+ LEDC speed mode (low or high) for timer/\+channel. LED\+\_\+
 
 Core project configuration values. 
 
-NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. NUMBER\+\_\+\+OF\+\_\+\+SPI:\+ Number of SPI host controllers used for displays. NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES:\+ Number of ADS1115 ADC chips on I2C bus. CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. \Hypertarget{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_SPI@{NUMBER\_OF\_SPI}}
+NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. NUMBER\+\_\+\+OF\+\_\+\+SPI:\+ Number of SPI host controllers used for displays. NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES:\+ Number of ADS1115 ADC chips on I2C bus. \Hypertarget{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_SPI@{NUMBER\_OF\_SPI}}
 \index{NUMBER\_OF\_SPI@{NUMBER\_OF\_SPI}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{NUMBER\_OF\_SPI}{NUMBER\_OF\_SPI}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad} 

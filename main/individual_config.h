@@ -8,14 +8,9 @@
 /**
  * @brief Core project configuration values.
  *
- * NUMBER_OF_DISPLAYS: Number of independent LCD panels attached.
- * NUMBER_OF_SPI: Number of SPI host controllers used for displays.
- * NUMBER_OF_ADS1115_DEVICES: Number of ADS1115 ADC chips on I2C bus.
- * CHIP_USED: Target ESP32 chip variant switch.
+ * CHIP_USED: Target ESP32 chip variant switch. By changing this please add a new section after #if CHIP_USED == ESP32P4
+ * for this new chip and add its corresponding pins and settings 
  */
-#define NUMBER_OF_DISPLAYS                 4      // up to 4 displays possible
-#define NUMBER_OF_SPI                      2      // for four displays, two SPI hosts are required
-#define NUMBER_OF_ADS1115_DEVICES          2      // number of ADS1115 ADC devices on I2C
 #define CHIP_USED                          ESP32P4 // ESP32 variants: ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 /**
@@ -33,7 +28,16 @@
 #################################################################################
 */
 #if CHIP_USED == ESP32P4
-
+    /**
+     * @brief Core project configuration values.
+     *
+     * NUMBER_OF_DISPLAYS: Number of independent LCD panels attached.
+     * NUMBER_OF_SPI: Number of SPI host controllers used for displays.
+     * NUMBER_OF_ADS1115_DEVICES: Number of ADS1115 ADC chips on I2C bus.
+     */
+    #define NUMBER_OF_DISPLAYS                 4      // up to 4 displays possible
+    #define NUMBER_OF_SPI                      2      // for four displays, two SPI hosts are required
+    #define NUMBER_OF_ADS1115_DEVICES          2      // number of ADS1115 ADC devices on I2C
     /**
      * @brief SPI bus configuration, used for SPI LCD panels.
      *

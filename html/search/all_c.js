@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['night_5fmode_0',['night_mode',['../main_8c.html#a9415d6967ea31a1d71a6364878d31189',1,'main.c']]],
-  ['night_5fmode_5factive_1',['night_mode_active',['../values_8c.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c'],['../values_8h.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c']]],
-  ['ntc_5ftable_5ft_2',['ntc_table_t',['../structntc__table__t.html',1,'']]],
-  ['number_5fof_5fads1115_5fdevices_3',['NUMBER_OF_ADS1115_DEVICES',['../individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5',1,'individual_config.h']]],
-  ['number_5fof_5fdisplays_4',['NUMBER_OF_DISPLAYS',['../individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9',1,'individual_config.h']]],
-  ['number_5fof_5fspi_5',['NUMBER_OF_SPI',['../individual__config_8h.html#a7a80df8b2fd93814ce229e8b2a1c04ad',1,'individual_config.h']]]
+  ['oil_5ftable_5fsize_0',['OIL_TABLE_SIZE',['../i2c_functions_8h.html#aa612694140b11242c12098971310d89a',1,'i2cFunctions.h']]],
+  ['oil_5ftemp_5ftable_1',['oil_temp_table',['../i2c_functions_8c.html#a32a907f8cf265cd25cd40c6acf9b56d4',1,'oil_temp_table:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a32a907f8cf265cd25cd40c6acf9b56d4',1,'oil_temp_table:&#160;i2cFunctions.c']]],
+  ['output_5fstring_2',['output_string',['../values_8c.html#a337ff90228def09e9868e067ef50f71c',1,'output_string:&#160;values.c'],['../values_8h.html#a337ff90228def09e9868e067ef50f71c',1,'output_string:&#160;values.c']]],
+  ['outside_5ftable_5fsize_3',['OUTSIDE_TABLE_SIZE',['../i2c_functions_8h.html#a8bfd1527698a7d424696866246e7d6ad',1,'i2cFunctions.h']]],
+  ['outside_5ftemperature_5fset_4',['outside_temperature_set',['../values_8c.html#ae027f04461ce9c5e594429fa683e6531',1,'outside_temperature_set:&#160;values.c'],['../values_8h.html#ae027f04461ce9c5e594429fa683e6531',1,'outside_temperature_set:&#160;values.c']]],
+  ['outside_5ftemperature_5ftable_5',['outside_temperature_table',['../i2c_functions_8c.html#a8e60f82a011434b87b9c2c9937914fc2',1,'outside_temperature_table:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a8e60f82a011434b87b9c2c9937914fc2',1,'outside_temperature_table:&#160;i2cFunctions.c']]],
+  ['overview_6',['Hardware Overview',['../index.html#autotoc_md1',1,'']]]
 ];

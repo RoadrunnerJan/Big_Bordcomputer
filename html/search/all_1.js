@@ -2,7 +2,7 @@ var searchData=
 [
   ['bcd2dec_0',['bcd2dec',['../i2c_functions_8c.html#a0f7a9fea6e3ea1106a9b5485f7f8df61',1,'i2cFunctions.c']]],
   ['big_5fboardcomputer_1',['Big_Boardcomputer',['../index.html',1,'']]],
-  ['bordcomputer_2',['Customizable ESP32 Bordcomputer',['../index.html#autotoc_md0',1,'']]],
+  ['boardcomputer_2',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]],
   ['brightness_5fday_3',['BRIGHTNESS_DAY',['../individual__config_8h.html#a5755272baaeeb1a610b6f88e7afeb2d3',1,'individual_config.h']]],
   ['brightness_5fday_5fmin_5fv_4',['BRIGHTNESS_DAY_MIN_V',['../individual__config_8h.html#a1af7791013896769504004ef23940090',1,'individual_config.h']]],
   ['brightness_5fnight_5fmax_5',['BRIGHTNESS_NIGHT_MAX',['../individual__config_8h.html#add3c629e9878a9bbd7bfed7baf2d0781',1,'individual_config.h']]],

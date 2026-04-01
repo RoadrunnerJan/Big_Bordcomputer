@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['esp32_20bordcomputer_0',['Customizable ESP32 Bordcomputer',['../index.html#autotoc_md0',1,'']]]
+  ['flash_20the_20project_0',['How to Flash the Project',['../index.html#autotoc_md3',1,'']]]
 ];

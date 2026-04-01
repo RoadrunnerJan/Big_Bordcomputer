@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['das_20projekt_20flashen_20kann_0',['Wie man das Projekt flashen kann',['../index.html#autotoc_md3',1,'']]]
+  ['esp32_20boardcomputer_0',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]]
 ];

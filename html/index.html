@@ -93,93 +93,85 @@ $(function(){initNavTree('index.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> | Supported Targets | ESP32-P4 | ESP32-S3 | | --------------&mdash; | -----&mdash; | -----&mdash; |</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
-Customizable ESP32 Bordcomputer</h1>
-<p>Dieses Projekt implementiert einen maßgeschneiderten Bordcomputer für klassische Fahrzeuge wie den BMW E36. Anstatt der standardmäßigen BMW-Bordcomputer (die nur Durchschnittsverbrauch oder defekte Glühlampen anzeigen), oder multifunktionaler Uhren (Datum, Uhrzeit, Temperatur), bietet dieses System eine vollständige Anzeige der aktuellen Motorparameter.</p>
-<p><b>Hauptfunktionen:</b></p><ul>
-<li>Anzeige von Öltemperatur, Öldruck, Bordspannung und Uhrzeit/Temperatur</li>
-<li>Vier runde TFT-Displays für separate Messinstrumente</li>
-<li>Anpassbare Anzahl und Typ der Displays</li>
-<li>Vollständig anpassbares Design über LVGL</li>
+Customizable ESP32 Boardcomputer</h1>
+<p>This project implements a custom-built boardcomputer for classic vehicles like the BMW E36. Instead of the standard BMW boardcomputer (which only displays average fuel consumption or broken light bulbs), or multifunctional clocks (date, time, temperature), this system provides a complete display of current engine parameters.</p>
+<p><b>Main Features:</b></p><ul>
+<li>Display of oil temperature, oil pressure, battery voltage, and time/temperature</li>
+<li>Four round TFT displays for separate gauges</li>
+<li>Adjustable number and type of displays</li>
+<li>Fully customizable design via LVGL</li>
 </ul>
-<p>Die E36-Version verwendet vier Displays, jedes mit einem eigenen Messinstrument. Alle Parameter sind konfigurierbar.</p>
+<p>The E36 version uses four displays, each with its own gauge. All parameters are configurable.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Hardware-Übersicht</h2>
-<p>Das Projekt basiert auf einem leistungsstarken ESP32-P4, der alle Peripheriegeräte steuert.</p>
-<p><b>Verwendete Komponenten für den E36-Bordcomputer:</b></p><ul>
-<li><b>ESP32-P4 WT9932P4-TINY</b> - Hauptprozessor</li>
-<li><b>4x 1.28 Zoll Rundes TFT LCD Display (240x240 RGB) mit GC9A01 Treiber</b> (<a href="https://de.aliexpress.com/item/1005009364283361.html">Link zu AliExpress</a>)</li>
-<li><b>Angepasste PCB</b> zur Verbindung der Displays und Peripherie mit dem ESP (im <span class="tt">hardware/</span> Verzeichnis)</li>
-<li><b>5V Buzzer</b> zur Warnung bei Außentemperaturen unter 3°C</li>
-<li><b>2x Tasten</b> zur Zeiteinstellung</li>
-<li><b>12V zu 5V Wandler</b> für Stromversorgung</li>
-<li><b>BMW Öltemperatur- und Druck-Sensor (Hella 6PP 010 378-201)</b> - PWM-Signal vom Motor</li>
+Hardware Overview</h2>
+<p>The project is based on a powerful ESP32-P4 that controls all peripherals.</p>
+<p><b>Components used for the E36 boardcomputer:</b></p><ul>
+<li><b>ESP32-P4 WT9932P4-TINY</b> - Main processor</li>
+<li><b>4x 1.28 Inch Round TFT LCD Display (240x240 RGB) with GC9A01 Driver</b> (<a href="https://de.aliexpress.com/item/1005009364283361.html">Link to AliExpress</a>)</li>
+<li><b>Custom PCB</b> to connect the displays and peripherals with the ESP (in the <span class="tt">hardware/</span> directory)</li>
+<li><b>5V Buzzer</b> for warnings when outside temperature is below 3°C</li>
+<li><b>2x Buttons</b> for time adjustment</li>
+<li><b>12V to 5V Converter</b> for power supply</li>
+<li><b>BMW Oil Temperature and Pressure Sensor (Hella 6PP 010 378-201)</b> - PWM signal from engine</li>
+<li>or using analog <b>VDO sensors</b> for oil pressure and temperature</li>
 </ul>
-<p>Die Datenblätter der verwendeten Komponenten finden sich im <span class="tt">datasheets/</span> Verzeichnis.</p>
+<p>The datasheets for the used components can be found in the <span class="tt">datasheets/</span> directory.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Software</h2>
 <ul>
-<li><b>FreeRTOS Tasks</b> zur Planung der verschiedenen Operationen</li>
-<li><b>LVGL</b> für die Gestaltung der Messinstrumente</li>
-<li><b>PWM-Abtastung</b> der Sensoren</li>
-<li><b>Modulare Architektur</b> mit separaten Verzeichnissen für Berechnung, Logging, LVGL-UI und Peripherie</li>
+<li><b>FreeRTOS Tasks</b> for scheduling different operations</li>
+<li><b>LVGL</b> for designing the gauges</li>
+<li><b>ADC Sampling</b> of sensor values or alternatively <b>PWM Sampling</b> of oil pressure and oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201</li>
+<li><b>Modular Architecture</b> with separate directories for calculation, logging, LVGL-UI, and peripherals</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Wie man das Projekt flashen kann</h2>
+How to Flash the Project</h2>
 <ol type="1">
-<li><b>Voraussetzungen:</b><ul>
-<li>ESP-IDF installiert (Version entsprechend der SDK-Konfiguration)</li>
-<li>USB-Kabel für den ESP32-P4</li>
+<li><b>Requirements:</b><ul>
+<li>ESP-IDF installed (version according to SDK configuration)</li>
+<li>USB cable for the ESP32-P4</li>
 </ul>
 </li>
-<li><b>Projekt kompilieren:</b> <div class="fragment"><div class="line">idf.py build</div>
+<li><b>Compile the project:</b> <div class="fragment"><div class="line">idf.py build</div>
 </div><!-- fragment --></li>
-<li><b>Flashen:</b> <div class="fragment"><div class="line">idf.py flash</div>
+<li><b>Flash:</b> <div class="fragment"><div class="line">idf.py flash</div>
 </div><!-- fragment --></li>
-<li><b>Monitor starten:</b> <div class="fragment"><div class="line">idf.py monitor</div>
+<li><b>Start monitor:</b> <div class="fragment"><div class="line">idf.py monitor</div>
 </div><!-- fragment --></li>
 </ol>
-<p>Für detaillierte Anleitungen siehe die offiziellen ESP-IDF Guides.</p>
+<p>For detailed instructions see the official ESP-IDF guides.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Projektstruktur</h2>
-<div class="fragment"><div class="line">├── CMakeLists.txt              # Haupt-Build-Konfiguration</div>
-<div class="line">├── sdkconfig                   # ESP-IDF Konfiguration</div>
-<div class="line">├── main/                       # Hauptquellcode</div>
+Project Structure</h2>
+<div class="fragment"><div class="line">├── CMakeLists.txt              # Main build configuration</div>
+<div class="line">├── sdkconfig                   # ESP-IDF configuration</div>
+<div class="line">├── main/                       # Main source code</div>
 <div class="line">│   ├── CMakeLists.txt</div>
-<div class="line">│   ├── main.c                  # Haupteinstiegspunkt</div>
-<div class="line">│   ├── individual_config.h     # Konfigurationsdefines</div>
-<div class="line">│   ├── calculation/            # Berechnungsmodule</div>
-<div class="line">│   ├── logging/                # Logging-Funktionen</div>
-<div class="line">│   ├── lvgl/                   # LVGL-UI und Grafiken</div>
-<div class="line">│   └── peripherie/             # Peripherie-Treiber (Buzzer, Buttons, etc.)</div>
-<div class="line">├── hardware/                   # PCB-Design und Hardware-Dateien</div>
-<div class="line">├── datasheets/                 # Datenblätter der Komponenten</div>
-<div class="line">├── fonts/                      # Schriftarten</div>
-<div class="line">├── png/                        # Bilder und Icons</div>
-<div class="line">├── managed_components/         # ESP-IDF Komponenten</div>
-<div class="line">└── README.md                   # Diese Datei</div>
+<div class="line">│   ├── main.c                  # Main entry point</div>
+<div class="line">│   ├── individual_config.h     # Configuration defines</div>
+<div class="line">│   ├── calculation/            # Calculation modules</div>
+<div class="line">│   ├── logging/                # Logging functions</div>
+<div class="line">│   ├── lvgl/                   # LVGL-UI and graphics</div>
+<div class="line">│   └── peripherie/             # Peripheral drivers (buzzer, buttons, etc.)</div>
+<div class="line">├── hardware/                   # PCB design and hardware files</div>
+<div class="line">├── datasheets/                 # Datasheets of components</div>
+<div class="line">├── fonts/                      # Fonts</div>
+<div class="line">├── png/                        # Images and icons</div>
+<div class="line">├── managed_components/         # ESP-IDF components</div>
+<div class="line">└── README.md                   # This file</div>
 </div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Troubleshooting</h2>
 <ul>
-<li><b>Flash-Fehler:</b><ul>
-<li>Überprüfe die USB-Verbindung: <span class="tt">idf.py -p PORT monitor</span> ausführen und das Board neu starten, um Logs zu sehen.</li>
-<li>Baudrate zu hoch: In <span class="tt">menuconfig</span> die Baudrate reduzieren und erneut versuchen.</li>
+<li><b>Flashing errors:</b><ul>
+<li>Check the USB connection: run <span class="tt">idf.py -p PORT monitor</span> and restart the board to see logs.</li>
+<li>Baud rate too high: reduce the baud rate in <span class="tt">menuconfig</span> and try again.</li>
 </ul>
 </li>
-<li><b>Anzeigeprobleme:</b><ul>
-<li>SPI-Pins in <span class="tt"><a class="el" href="individual__config_8h.html">individual_config.h</a></span> überprüfen</li>
-<li>Stromversorgung sicherstellen (12V zu 5V Wandler)</li>
+<li><b>Display problems:</b><ul>
+<li>Check SPI pins in <span class="tt"><a class="el" href="individual__config_8h.html">individual_config.h</a></span></li>
+<li>Ensure power supply (12V to 5V converter) </li>
 </ul>
 </li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-Technischer Support und Feedback</h2>
-<p>Bei Fragen oder Problemen bitte ein Issue im Repository erstellen oder den Code kommentieren.</p>
-<p>Please use the following feedback channels:</p>
-<ul>
-<li>For technical queries, go to the <a href="https://esp32.com/">esp32.com</a> forum</li>
-<li>For a feature request or bug report, create a <a href="https://github.com/espressif/esp-idf/issues">GitHub issue</a></li>
-</ul>
-<p>We will get back to you as soon as possible. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
