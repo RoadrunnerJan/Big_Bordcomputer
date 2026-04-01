@@ -1,40 +1,100 @@
 #pragma once
+
+/*
+ * ============================================================================
+ * I2C INTERFACE - RTC & ADC Device Communication
+ * ============================================================================
+ * Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - DS3231 real-time clock interface
+ *      - ADS1115 ADC for analog sensor readings
+ *      - NTC temperature table interpolation
+ *      - Button control for time adjustment
+ *      - Dual ADC support for enhanced sensor coverage
+ *
+ */
+
+/* ===== Project Configuration ===== */
 #include "../individual_config.h"
+
+/* ===== ESP-IDF I2C Driver ===== */
 #include "driver/i2c_master.h"
+
+/* ===== Button Library ===== */
 #include "iot_button.h"
 #include "button_gpio.h"
+
+/* ===== RTOS & System ===== */
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include <sys/time.h>
 
+
+/* ===== NTC Temperature Lookup Table Structure ===== */
 typedef struct {
-    float temp;
-    float res;
+    float temp;  // Temperature in °C
+    float res;   // Resistance in Ohms
 } ntc_table_t;
 
-// i2C settings
+
+/* ===== I2C Bus Configuration ===== */
 extern i2c_master_bus_config_t bus_cfg;
 extern i2c_master_bus_handle_t bus_handle;
+
+/* ===== RTC (DS3231) Configuration ===== */
 extern i2c_device_config_t ds3231_cfg;
 extern i2c_master_dev_handle_t ds3231_handle;
+
+/* ===== ADC (ADS1115) Configuration ===== */
 extern i2c_device_config_t ads_cfg[NUMBER_OF_ADS1115_DEVICES];
 extern i2c_master_dev_handle_t ads_handle[NUMBER_OF_ADS1115_DEVICES];
 
-// time button settings
-extern button_config_t cfg_time[2]; // 0 = Stunde, 1 = Minute
+/* ===== Time Adjustment Buttons ===== */
+extern button_config_t cfg_time[2];           // [0] = Hour, [1] = Minute
 extern button_gpio_config_t gpio_cfg_time[2];
 extern button_handle_t btn_time[2];
 
+/* ===== Temperature Lookup Tables ===== */
 extern const ntc_table_t oil_temp_table[];
 extern const ntc_table_t outside_temperature_table[];
 #define OIL_TABLE_SIZE (sizeof(oil_temp_table) / sizeof(ntc_table_t))
 #define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(ntc_table_t))
 
-void init_i2c();
-void sync_rtc_to_system();
-void init_time_buttons();
-float get_i2c_adc_volt();
-float get_i2c_adc_volt_bel();
-float get_i2c_adc_oil_temp();
-float get_i2c_adc_oil_press();
-float get_i2c_adc_outside_temp();
+
+/* ===== Function Declarations ===== */
+
+void init_i2c(void);
+void sync_rtc_to_system(void);
+void init_time_buttons(void);
+
+/**
+ * Read battery voltage from ADS1115 ADC
+ */
+float get_i2c_adc_volt(void);
+
+/**
+ * Read brightness/light sensor voltage from ADS1115 ADC
+ */
+float get_i2c_adc_volt_bel(void);
+
+/**
+ * Read oil temperature from ADS1115 ADC with NTC lookup table
+ */
+float get_i2c_adc_oil_temp(void);
+
+/**
+ * Read oil pressure from ADS1115 ADC with resistance-to-pressure conversion
+ */
+float get_i2c_adc_oil_press(void);
+
+/**
+ * Read outdoor temperature from ADS1115 ADC with NTC lookup table
+ */
+float get_i2c_adc_outside_temp(void);

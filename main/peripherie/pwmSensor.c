@@ -1,3 +1,22 @@
+/*
+ * ============================================================================
+ * PWM SENSOR READER - Hella 6PP 010 378-201 Oil Sensor Implementation
+ * ============================================================================
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - MCPWM capture for PWM signal decoding
+ *      - Multi-pulse sensor support (temperature, pressure, diagnostic)
+ *      - Hella 6PP 010 378-201 sensor integration
+ *      - Test mode with serial output
+ *
+ */
+
 #include "pwmSensor.h"
 
 
@@ -18,10 +37,10 @@ uint32_t last_seen_count = 0;
 int first_init_done = 0;
 
 inline int get_diag(int value_us) {
-    return value_us < 280 ? 0 : // OPS Funktionszustand
-           value_us < 440 ? 1 : // Druckausfall
-           value_us < 600 ? 2 : // Temperaturausfall
-           3;                   // Hardwareausfall
+    return value_us < 280 ? 0 : // OPS functional state
+           value_us < 440 ? 1 : // Pressure failure
+           value_us < 600 ? 2 : // Temperature failure
+           3;                   // Hardware failure
 }
 
 inline double calc_temperature(int value_us){ return ((double) value_us + PWM_SENSOR_TEMP_CALC_VALUE_1) / PWM_SENSOR_TEMP_CALC_VALUE_2; }
@@ -118,7 +137,7 @@ void pwm_sensor_init(void){
         
         while (true) {
             
-            // Prüfen, ob seit dem letzten Print neue Daten reinkamen
+            // Check if new data has arrived since last print
             if (latest_sensor_values.update_count != last_seen_count) {
                 last_seen_count = latest_sensor_values.update_count;
                 
@@ -138,7 +157,7 @@ void pwm_sensor_init(void){
                         last_seen_count);
             }
             else {
-                printf("Warten auf Sensor-Signal...\n");
+                printf("Waiting for sensor signal...\n");
             }
             vTaskDelay(pdMS_TO_TICKS(200)); 
         }
@@ -150,5 +169,5 @@ void pwm_sensor_init(void){
     }
 
 #else
-    void create_timer_pwm(void) {} // Dummy-Funktion, damit der Aufruf in main.c nicht zu Kompilierungsfehlern führt
+    void create_timer_pwm(void) {} // Dummy function to avoid compilation errors in main.c
 #endif

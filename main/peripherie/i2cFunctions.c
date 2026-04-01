@@ -1,35 +1,57 @@
+/*
+ * ============================================================================
+ * I2C INTERFACE - RTC & ADC Device Communication Implementation
+ * ============================================================================
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - DS3231 real-time clock interface
+ *      - ADS1115 ADC for analog sensor readings
+ *      - NTC temperature table interpolation
+ *      - Button control for time adjustment
+ *      - Dual ADC support for enhanced sensor coverage
+ *
+ */
+
 #include "i2cFunctions.h"
 
 i2c_master_bus_config_t bus_cfg = {0};
 i2c_master_bus_handle_t bus_handle = NULL;
-// RTC
+
+/* RTC (DS3231) Configuration */
 i2c_device_config_t ds3231_cfg = {0};
 i2c_master_dev_handle_t ds3231_handle = NULL;
-// ADS1115
+
+/* ADC (ADS1115) Configuration */
 i2c_device_config_t ads_cfg[NUMBER_OF_ADS1115_DEVICES] = {0};
 i2c_master_dev_handle_t ads_handle[NUMBER_OF_ADS1115_DEVICES];
 
-// Buttons 
-button_config_t cfg_time[2] = {0}; // 0 = Stunde, 1 = Minute
+/* Time adjustment buttons: [0] = Hour, [1] = Minute */
+button_config_t cfg_time[2] = {0};
 button_gpio_config_t gpio_cfg_time[2] = {0};
 button_handle_t btn_time[2] = {0};
 
 const ntc_table_t oil_temp_table[] = {
-    // {°C, Ohm}
+    // {Temperature in °C, Resistance in Ohms}
     {0, 2500.0}, {10, 1500.0}, {20, 1000.0}, {30, 650.0}, {40, 430.0},
     {50, 322.0}, {60, 225.0},  {70, 155.0},  {80, 112.0}, {90, 83.0},
     {100, 62.0}, {110, 47.0},  {120, 37.0},  {130, 29.0}, {140, 23.0}, {150, 19.0}
 };
 
 const ntc_table_t outside_temperature_table[] = {
-    // {°C, Ohm}
+    // {Temperature in °C, Resistance in Ohms}
     {-30, 88000.0}, {-20, 52000.0}, {-10, 31500.0}, {0, 19500.0},
     {10, 12500.0},  {20, 8200.0},   {25, 6700.0},   {30, 5500.0},
     {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}
 };
 
 void init_i2c() {
-    // I2C
+    // Configure I2C bus
     bus_cfg.clk_source = I2C_CLK_SRC;
     bus_cfg.i2c_port = I2C_PORT;
     bus_cfg.scl_io_num = I2C_SCL_PIN;
@@ -37,13 +59,15 @@ void init_i2c() {
     bus_cfg.glitch_ignore_cnt = I2C_GLITCH_IGNORE;
     bus_cfg.flags.enable_internal_pullup = I2C_INT_PULLUP_ENB;
 
-    // RTC
+    // Configure RTC (DS3231)
     ds3231_cfg.dev_addr_length = RTC_ADDR_LENGTH;
     ds3231_cfg.device_address = RTC_DS3231_ADDR;
     ds3231_cfg.scl_speed_hz = RTC_SCL_SPEED_HZ;
+    
+    // Configure ADC (ADS1115) devices
     for (int i = 0; i < NUMBER_OF_ADS1115_DEVICES; i++) {
         ads_cfg[i].dev_addr_length = ADC_ADS1115_ADDR_LENGTH;
-        ads_cfg[i].scl_speed_hz = ADC_ADS1115_SCL_SPEED_HZ; // ADS1115 schafft bis zu 400kHz
+        ads_cfg[i].scl_speed_hz = ADC_ADS1115_SCL_SPEED_HZ; // ADS1115 supports up to 400kHz
     }
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &bus_handle));
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ds3231_cfg, &ds3231_handle));
@@ -63,70 +87,70 @@ inline uint8_t dec2bcd(uint8_t val) { return ((val / 10) << 4) | (val % 10); }
 
 void sync_rtc_to_system() {
     uint8_t data[7];
-    uint8_t reg = 0x00; // Startregister (Sekunden)
+    uint8_t reg = 0x00;  // RTC start register (Seconds)
 
-    // 7 Bytes Zeitdaten lesen
-    i2c_master_transmit_receive(ds3231_handle, &reg, 1, data, 7, 1000); // 1000 = Timeout
+    // Read 7 bytes of time data
+    i2c_master_transmit_receive(ds3231_handle, &reg, 1, data, 7, 1000);
 
     struct tm tm = {
         .tm_sec  = bcd2dec(data[0] & 0x7F),
         .tm_min  = bcd2dec(data[1]),
-        .tm_hour = bcd2dec(data[2] & 0x3F), // 24h Modus
+        .tm_hour = bcd2dec(data[2] & 0x3F), // 24-hour format
         .tm_mday = bcd2dec(data[4]),
-        .tm_mon  = bcd2dec(data[5] & 0x1F) - 1, // tm_mon ist 0-11
-        .tm_year = bcd2dec(data[6]) + 100,      // tm_year ist seit 1900
+        .tm_mon  = bcd2dec(data[5] & 0x1F) - 1, // tm_mon is 0-11
+        .tm_year = bcd2dec(data[6]) + 100,      // tm_year is years since 1900
     };
 
-    // In Unix-Timestamp umwandeln
+    // Convert to Unix timestamp
     time_t t = mktime(&tm);
     
-    // Systemzeit des ESP32 setzen
+    // Set ESP32 system time
     struct timeval now = { .tv_sec = t, .tv_usec = 0 };
     settimeofday(&now, NULL);
 }
 
 esp_err_t ds3231_set_time(struct tm *time) {
     uint8_t data[8];
-    data[0] = 0x00; // Startregister Adresse (Sekunden)
+    data[0] = 0x00;  // RTC register address (Seconds)
     
     data[1] = dec2bcd(time->tm_sec);
     data[2] = dec2bcd(time->tm_min);
-    data[3] = dec2bcd(time->tm_hour); // Bit 6 muss 0 sein für 24h Modus
-    data[4] = dec2bcd(time->tm_wday + 1); // Wochentag (1-7)
+    data[3] = dec2bcd(time->tm_hour); // Bit 6 must be 0 for 24-hour format
+    data[4] = dec2bcd(time->tm_wday + 1); // Day of week (1-7)
     data[5] = dec2bcd(time->tm_mday);
-    data[6] = dec2bcd(time->tm_mon + 1); // DS3231 nutzt 1-12
-    data[7] = dec2bcd(time->tm_year % 100); // Nur die letzten zwei Stellen (z.B. 26 für 2026)
+    data[6] = dec2bcd(time->tm_mon + 1); // DS3231 uses 1-12
+    data[7] = dec2bcd(time->tm_year % 100); // Only last two digits (e.g., 26 for 2026)
 
-    // Sende 8 Bytes (Register-Adresse + 7 Byte Zeitdaten)
+    // Send 8 bytes (register address + 7 bytes of time data)
     return i2c_master_transmit(ds3231_handle, data, 8, -1);
 }
 
-// Callback wenn ein Button gedrückt wurde
+// Callback function when a button is pressed
 static void button_event_cb(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
     time_t now;
     struct tm timeinfo;
     
-    // Aktuelle ESP-Systemzeit holen
+    // Get current ESP system time
     time(&now);
     localtime_r(&now, &timeinfo);
 
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour + 1 + 24) % 24;
-        printf("Stunde erhöht: %d\n", timeinfo.tm_hour);
+        printf("Hour incremented: %d\n", timeinfo.tm_hour);
     } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
         timeinfo.tm_min = (timeinfo.tm_min + 1 + 60) % 60;
         if (timeinfo.tm_min == 0) { 
             timeinfo.tm_hour = (timeinfo.tm_hour + 1) % 24;
-            printf("Stunde erhöht wegen Minute: %d\n", timeinfo.tm_hour);
+            printf("Hour incremented due to minute: %d\n", timeinfo.tm_hour);
         }
-        timeinfo.tm_sec = 0; // Sekunden nullen beim Stellen
-        printf("Minute erhöht: %d\n", timeinfo.tm_min);
+        timeinfo.tm_sec = 0; // Reset seconds when setting time
+        printf("Minute incremented: %d\n", timeinfo.tm_min);
     }
 
     ds3231_set_time(&timeinfo);
     
-    // Systemzeit synchronisieren (damit der ESP es sofort weiß)
+    // Synchronize system time (so ESP32 knows immediately)
     struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
     settimeofday(&tv, NULL);
 }
@@ -136,27 +160,27 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
     time_t now;
     struct tm timeinfo;
     
-    // Aktuelle ESP-Systemzeit holen
+    // Get current ESP system time
     time(&now);
     localtime_r(&now, &timeinfo);
 
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
-        printf("Stunde verringert: %d\n", timeinfo.tm_hour);
+        printf("Hour decremented: %d\n", timeinfo.tm_hour);
     } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
         timeinfo.tm_min = (timeinfo.tm_min - 1 + 60) % 60;
         if (timeinfo.tm_min == 59) { 
             timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
-            printf("Stunde verringert wegen Minute: %d\n", timeinfo.tm_hour);
+            printf("Hour decremented due to minute: %d\n", timeinfo.tm_hour);
         }
-        timeinfo.tm_sec = 0; // Sekunden nullen beim Stellen
-        printf("Minute verringert: %d\n", timeinfo.tm_min);
+        timeinfo.tm_sec = 0; // Reset seconds when setting time
+        printf("Minute decremented: %d\n", timeinfo.tm_min);
     }
 
-    // Zur RTC schreiben
+    // Write to RTC
     ds3231_set_time(&timeinfo);
     
-    // Systemzeit synchronisieren (damit der ESP es sofort weiß)
+    // Synchronize system time (so ESP32 knows immediately)
     struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
     settimeofday(&tv, NULL);
 }
@@ -181,25 +205,25 @@ void init_time_buttons() {
 }
 
 int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_setting) {
-    // Sicherstellen, dass der Channel nur 0-3 ist
-    uint16_t mux = (0x04 | (channel & 0x03)) << 12; // 0x4000, 0x5000, 0x6000 oder 0x7000
+    // Ensure channel is only 0-3
+    uint16_t mux = (0x04 | (channel & 0x03)) << 12; // 0x4000, 0x5000, 0x6000 or 0x7000
     uint16_t pga = (pga_setting & 0x07) << 9;
     
-    // Bit 15: OS = 1 (Start)
-    // Bit 8: Mode = 1 (Single Shot)
+    // Bit 15: OS = 1 (Start conversion)
+    // Bit 8: Mode = 1 (Single-shot mode)
     // Bits 7-5: Data Rate = 100 (128 SPS)
-    // Bits 4-0: Standard-Werte (0x03)
+    // Bits 4-0: Default values (0x03)
     uint16_t config = 0x8000 | mux | pga | 0x0100 | 0x0080 | 0x0003;
     
     uint8_t tx_buf[3] = { 0x01, (uint8_t)(config >> 8), (uint8_t)(config & 0xFF) };
 
-    // 1. Senden
+    // 1. Send configuration
     ESP_ERROR_CHECK(i2c_master_transmit(dev, tx_buf, 3, -1));
 
-    // 2. Warten (128 SPS brauchen ca. 8ms, 20ms ist absolut sicher)
+    // 2. Wait (128 SPS requires ~8ms, 15ms is absolutely safe)
     vTaskDelay(pdMS_TO_TICKS(15)); 
 
-    // 3. Conversion Register auslesen
+    // 3. Read conversion result register
     uint8_t reg_addr = 0x00;
     uint8_t rx_buf[2];
     ESP_ERROR_CHECK(i2c_master_transmit_receive(dev, &reg_addr, 1, rx_buf, 2, -1));
@@ -207,7 +231,7 @@ int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_
     return (int16_t)((rx_buf[0] << 8) | rx_buf[1]);
 }
 
-// Lineare Interpolation für die Oil Temperature Tabelle
+// Linear interpolation for oil temperature table
 float interpolate_temp(float r_measured) {
     if (r_measured >= oil_temp_table[0].res) return oil_temp_table[0].temp;
     if (r_measured <= oil_temp_table[OIL_TABLE_SIZE-1].res) return oil_temp_table[OIL_TABLE_SIZE-1].temp;
@@ -222,7 +246,7 @@ float interpolate_temp(float r_measured) {
     return ADC_FAIL_VALUE;
 }
 
-// Lineare Interpolation für die BMW Outside Temperature Tabelle
+// Linear interpolation for outdoor temperature table
 float interpolate_outside_temp(float r_measured) {
     if (r_measured >= outside_temperature_table[0].res) return outside_temperature_table[0].temp;
     if (r_measured <= outside_temperature_table[OUTSIDE_TABLE_SIZE-1].res) return outside_temperature_table[OUTSIDE_TABLE_SIZE-1].temp;
@@ -239,13 +263,14 @@ float interpolate_outside_temp(float r_measured) {
 
 float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
-    // Check: Wenn Spannung fast 3.3V -> Sensor offen oder Kabelbruch
-    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return ADC_FAIL_VALUE; // Signal für "Fehler"
+    // Check: If voltage approaches 3.3V -> sensor open or broken cable
+    if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return ADC_FAIL_VALUE; // Error signal
     return (v_adc * r_pullup) / (ADC_ADS_REF_V - v_adc);
 }
 
 float get_i2c_adc_volt() {
-    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_ADS_CHANNEL, ADC_VOLT_ADS_PGA); // Board
+    // Read battery voltage (board voltage with divider)
+    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_ADS_CHANNEL, ADC_VOLT_ADS_PGA);
     float v_board = (raw * LSB_2048) / 1000.0f;
     v_board = v_board * ((ADC_VOLT_ADS_PULLUP + ADC_VOLT_ADS_PULLDOWN) / ADC_VOLT_ADS_PULLDOWN);
     //printf("Board unfiltered Voltage: %.2f V\n", v_board);
@@ -253,7 +278,8 @@ float get_i2c_adc_volt() {
 }
 
 float get_i2c_adc_volt_bel() {
-    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_BEL_ADS_CHANNEL, ADC_VOLT_BEL_ADS_PGA); // Bel
+    // Read brightness/light sensor voltage
+    int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_BEL_ADS_CHANNEL, ADC_VOLT_BEL_ADS_PGA);
     float v_bel = (raw * LSB_4096) / 1000.0f; 
     v_bel = v_bel * ((ADC_VOLT_BEL_ADS_PULLUP + ADC_VOLT_BEL_ADS_PULLDOWN) / ADC_VOLT_BEL_ADS_PULLDOWN); // Teiler 10k/2.2k
     //printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
@@ -261,18 +287,20 @@ float get_i2c_adc_volt_bel() {
 }
 
 float get_i2c_adc_oil_temp() {
-    int16_t raw = read_ads1115(ads_handle[0], ADC_TEMP_ADS_CHANNEL, ADC_TEMP_ADS_PGA); // Temp
+    // Read oil temperature
+    int16_t raw = read_ads1115(ads_handle[0], ADC_TEMP_ADS_CHANNEL, ADC_TEMP_ADS_PGA);
     float oil_t = raw_to_res_safe(raw, ADC_TEMP_ADS_PULLUP);
-    if (oil_t < ADC_TEMP_ADS_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Fehler (Offen)
+    if (oil_t < ADC_TEMP_ADS_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Error (open circuit)
     else oil_t = interpolate_temp(oil_t);
     //printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
     return oil_t;
 }
 
 float get_i2c_adc_oil_press() {
-    int16_t raw = read_ads1115(ads_handle[0], ADC_PRES_ADS_CHANNEL, ADC_PRES_ADS_PGA); // Druck
+    // Read oil pressure
+    int16_t raw = read_ads1115(ads_handle[0], ADC_PRES_ADS_CHANNEL, ADC_PRES_ADS_PGA);
     float oil_p = raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP);
-    if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Fehler oder unplausibel hoch
+    if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
     else oil_p = (oil_p - ADC_PRES_ADS_VAL_MIN_R) * (ADC_PRES_ADS_VAL_MIN_R / (ADC_PRES_ADS_VAL_MAX_R - ADC_PRES_ADS_VAL_MIN_R));
     //printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
     return oil_p;
@@ -280,7 +308,8 @@ float get_i2c_adc_oil_press() {
 
 float get_i2c_adc_outside_temp() {
     #if NUMBER_OF_ADS1115_DEVICES > 1
-        int16_t raw = read_ads1115(ads_handle[1], ADC_OUT_TEMP_ADS_CHANNEL, ADC_OUT_TEMP_ADS_PGA); // Außentemperatur
+        // Read outdoor temperature
+        int16_t raw = read_ads1115(ads_handle[1], ADC_OUT_TEMP_ADS_CHANNEL, ADC_OUT_TEMP_ADS_PGA);
         float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP); 
         if (outside_t < ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; 
         else outside_t = interpolate_outside_temp(outside_t);

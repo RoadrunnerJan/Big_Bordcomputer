@@ -1,25 +1,50 @@
 
-// . $HOME/tools/esp/esp-idf/export.sh
-// allgemein . $HOME/esp/esp-idf/export.sh
+/*
+ * ============================================================================
+ * MAIN APPLICATION - E36 Board Computer
+ * ============================================================================
+ * FreeRTOS-based multi-display gauge system with sensor processing
+ * Main entry point and board initialization
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - Multi-display support with FreeRTOS tasks
+ *      - PWM sensor and I2C ADC interface
+ *      - LVGL gauge system
+ *      - Buzzer alert system
+ *
+ */
 
+/* ===== Project Configuration ===== */
 #include "individual_config.h"
 
+/* ===== Display & UI ===== */
 #include "peripherie/spiFunctions.h"
-#include "lvgl/variableFunctions.h"
 #include "peripherie/ledBacklight.h"
-#include "peripherie/i2cFunctions.h"
-#include "logging/logging.h"
+#include "lvgl/variableFunctions.h"
 
-#include "simulation/testSimulation.h"
+/* ===== Communication Interfaces ===== */
+#include "peripherie/i2cFunctions.h"
 #include "peripherie/pwmSensor.h"
 #include "peripherie/pwmSwitch.h"
 
+/* ===== Utilities ===== */
+#include "logging/logging.h"
 #include "calculation/values.h"
+#include "simulation/testSimulation.h"
 
+/* ===== Buzzer (Optional) ===== */
 #if USE_BUZZER == true
     #include "peripherie/buzzer.h"
 #endif
 
+
+/* ===== Global Variables ===== */
 static time_t now;
 static struct tm timeinfo;
 
@@ -27,25 +52,41 @@ time_t StartUpTime = 0;
 time_t checkTime = 0;
 
 bool night_mode = false;
+bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
 
-bool time_checked[2] = {false, false}; // [0] = Gauge, [1] = Beeper
 
+/* ===== Buzzer Task (only if enabled) ===== */
 #if USE_BUZZER == true
     static int buzzed = 0;
-    static void temperature_beep() {
+    
+    /**
+     * Temperature alert beep pattern
+     * Generates double beep pattern when outdoor temperature < 3°C
+     */
+    static void temperature_beep(void)
+    {
         buzzer_beep(BUZZER_BEEPING_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
+        
         buzzer_beep(BUZZER_QUIET_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_OFF_TIME));
+        
         buzzer_beep(BUZZER_BEEPING_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
+        
         buzzer_beep(BUZZER_QUIET_VALUE);
         ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_1);
-        printf("buzzed!\n");
-        vTaskDelete(NULL);     // Remove new created beeper task     
+        
+        vTaskDelete(NULL);     // Remove buzzer task after completion
     }
 #endif
 
+
+/* ===== Display Update Tasks ===== */
+
+/**
+ * Handle display updates and sensor reading for given screen ID
+ */
 static void tick_switch(int id)
 {
     double value = 0.0;

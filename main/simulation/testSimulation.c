@@ -1,19 +1,47 @@
+/*
+ * ============================================================================
+ * TEST SIMULATION MODULE - Debug Mode Value Generation Implementation
+ * ============================================================================
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - Test value generation for all sensor types
+ *      - Brightness and night mode simulation
+ *      - Compile-time enable/disable support
+ *
+ */
+
+/* ===== Includes ===== */
 #include "testSimulation.h"
 
-double test_value_oil_pressure = 0.0;
-double test_value_oil_temperature = 0.0;
-double test_value_volt = 8.0;
-double test_value_outside_temperature = 0.0;
-int test_value_brightness = 0;
-bool test_night_mode_active = false;
+/* ===== Global Test Value Variables ===== */
+double test_value_oil_pressure         = 0.0;
+double test_value_oil_temperature      = 0.0;
+double test_value_volt                 = 8.0;
+double test_value_outside_temperature  = 0.0;
+int test_value_brightness              = 0;
+bool test_night_mode_active            = false;
 
-int pressure_test_switch = 0;
+/* ===== Test State Variables ===== */
+int pressure_test_switch    = 0;
 int temperature_test_switch = 0;
-int volt_test_switch = 0;
-int Clocktemp_test_switch = 0;
-int brightness_test_switch = 0;
+int volt_test_switch        = 0;
+int Clocktemp_test_switch   = 0;
+int brightness_test_switch  = 0;
 
-double test_steps[5][4] = { // step changes for each test phase
+/* ===== Test Configuration Arrays ===== */
+
+/**
+ * Test step changes for each sensor type
+ * Format: [sensor_type][step_index]
+ * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
+ */
+double test_steps[5][4] = {
     /* oil pressure      */ {+0.06, -0.02, +0.06, -0.06},
     /* volt              */ {+0.50, -0.05, +0.05, -0.50},
     /* oil temperature   */ {+0.30, -0.30, +0.30, -0.30},
@@ -21,7 +49,12 @@ double test_steps[5][4] = { // step changes for each test phase
     /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
 };
 
-double test_thresholds[5][4] = { // thresholds for switching test steps
+/**
+ * Test thresholds for switching between test phases
+ * Format: [sensor_type][threshold_index]
+ * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
+ */
+double test_thresholds[5][4] = {
     //                        >=   <=   >=    <=
     /* oil pressure      */ {4.5, 2.5, 5.5, 0.04},
 
@@ -35,18 +68,26 @@ double test_thresholds[5][4] = { // thresholds for switching test steps
     /* clock temperature */ { 33, -15,  20, 0.06},
 
     //                        <=   >=   <=    >=
-    /* brightness        */ {  2,  40,   2,  80} 
+    /* brightness        */ {  2,  40,   2,  80}
 };
 
+/* ===== Function Implementations ===== */
+
+/**
+ * Reset all test values to default state
+ */
 void reset_test_values() {
-    test_value_oil_pressure = 0.0;
-    test_value_oil_temperature = 0.0;
-    test_value_volt = 8.0;
-    test_value_outside_temperature = 0.0;
-    test_value_brightness = 0;
-    test_night_mode_active = false;
+    test_value_oil_pressure         = 0.0;
+    test_value_oil_temperature      = 0.0;
+    test_value_volt                 = 8.0;
+    test_value_outside_temperature  = 0.0;
+    test_value_brightness           = 0;
+    test_night_mode_active          = false;
 }
 
+/**
+ * Reset all test state switches to initial phase
+ */
 void reset_test_switches() {
     pressure_test_switch    = 0;
     temperature_test_switch = 0;
@@ -55,6 +96,11 @@ void reset_test_switches() {
     brightness_test_switch  = 0;
 }
 
+/**
+ * Simulate oil pressure test cycle
+ * Cycles through 4 phases: increase to 4.5, decrease to 2.5, increase to 5.5, decrease to 0.04
+ * @return Current simulated oil pressure value
+ */
 double lv_pressure_test()
 {
     switch (pressure_test_switch) {
@@ -86,6 +132,11 @@ double lv_pressure_test()
     return test_value_oil_pressure;
 }
 
+/**
+ * Simulate voltage test cycle
+ * Cycles through 4 phases: increase to 15.5, decrease to 11, increase to 14, decrease to 8.04
+ * @return Current simulated voltage value
+ */
 double lv_volt_test()
 {
     switch (volt_test_switch) {
@@ -117,6 +168,11 @@ double lv_volt_test()
     return test_value_volt;
 }
 
+/**
+ * Simulate oil temperature test cycle
+ * Cycles through 4 phases: increase to 100, decrease to 110, increase to 140, decrease to 0.06
+ * @return Current simulated oil temperature value
+ */
 double lv_temperature_test()
 {
     switch (temperature_test_switch) {
@@ -148,6 +204,11 @@ double lv_temperature_test()
     return test_value_oil_temperature;
 }
 
+/**
+ * Simulate outside temperature test cycle
+ * Cycles through 4 phases: increase to 33, decrease to -15, increase to 20, decrease to 0.06
+ * @return Current simulated outside temperature value
+ */
 double lv_Clocktemp_test()
 {
     switch (Clocktemp_test_switch) {
@@ -179,8 +240,12 @@ double lv_Clocktemp_test()
     return test_value_outside_temperature;
 }
 
+/**
+ * Simulate brightness test cycle
+ * Cycles through 4 phases with night mode toggle at the end
+ */
 void brightness_test() {
-    
+
     switch (brightness_test_switch) {
         case 0:
             test_value_brightness += test_steps[4][0];
@@ -210,5 +275,14 @@ void brightness_test() {
     }
 }
 
+/**
+ * Get current brightness test value
+ * @return Current simulated brightness value
+ */
 int getBrightnessTestValue() {return test_value_brightness;}
+
+/**
+ * Get current night mode test state
+ * @return True if night mode is active in test
+ */
 bool getNightModeActiveTestValue() {return test_night_mode_active;}

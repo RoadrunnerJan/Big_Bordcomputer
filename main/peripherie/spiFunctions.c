@@ -1,16 +1,46 @@
 
+/*
+ * ============================================================================
+ * SPI DISPLAY DRIVER - Multi Display Control Implementation
+ * ============================================================================
+ *
+ * Author: Jan Niklas Rodewald (JRO)
+ * Date: 01.04.2026
+ *
+ * ============================================================================
+ * CHANGELOG
+ * ============================================================================
+ * v1.0 (01.04.2026) - Initial implementation
+ *      - Multi-display SPI initialization (up to 4 displays)
+ *      - LVGL integration for graphics rendering
+ *      - Display task scheduling and timing
+ *
+ */
+
+/* ===== Includes ===== */
 #include "../individual_config.h"
 #include "spiFunctions.h"
 
+/* ===== Global Variables ===== */
+
+/* ===== SPI Configuration Arrays ===== */
 struct spi_settings SPI_SETUP[NUMBER_OF_SPI];
 struct display_settings DISPLAYS[NUMBER_OF_DISPLAYS];
+
+/* ===== Timer and State Variables ===== */
 esp_timer_handle_t periodic_timer;
 int reset_is_set = false;
 
+/* ===== Function Implementations ===== */
+
+/**
+ * Initialize and load all display screens
+ * Sets up LVGL displays and loads appropriate screens based on screen selection
+ */
 void set_Displays() {
 
     lv_disp_set_default(DISPLAYS[0].lv_displays);
-    ui_init(); 
+    ui_init();
     for (int i = 0; i < NUMBER_OF_DISPLAYS; i++)
     {
         lv_disp_set_default(DISPLAYS[i].lv_displays);
@@ -46,25 +76,39 @@ void set_Displays() {
     }
 }
 
-static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_map) {    
+/**
+ * LVGL flush callback - handles display buffer transfer to LCD
+ * Implements retry logic for SPI bus timeout handling
+ * @param disp_drv LVGL display driver
+ * @param area Area to flush
+ * @param color_map Color data buffer
+ */
+static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_map) {
     esp_lcd_panel_handle_t panel = (esp_lcd_panel_handle_t)disp_drv->user_data;
 
-    // Versuche zu senden. Falls die Queue voll ist, kurz warten statt crashen.
+    // Try to send. If queue is full, wait briefly instead of crashing.
     esp_err_t ret;
     int retry = 5;
     do {
         ret = esp_lcd_panel_draw_bitmap(panel, area->x1, area->y1, area->x2 + 1, area->y2 + 1, color_map);
         if (ret != ESP_OK) {
-            vTaskDelay(pdMS_TO_TICKS(1)); // 1ms Pause für den Bus
+            vTaskDelay(pdMS_TO_TICKS(1)); // 1ms pause for the bus
             retry--;
         }
     } while (ret != ESP_OK && retry > 0);
 
     if (ret != ESP_OK) {
-        ESP_LOGE("LCD", "SPI Bus Timeout auf Display %p", panel);
+        ESP_LOGE("LCD", "SPI Bus Timeout on Display %p", panel);
     }
 }
 
+/**
+ * LCD panel IO event callback - notifies LVGL when flush is ready
+ * @param io LCD panel IO handle
+ * @param edata Event data
+ * @param user_ctx User context (LVGL display driver)
+ * @return false (continue processing)
+ */
 static bool notify_lvgl_flush_ready(esp_lcd_panel_io_handle_t io, esp_lcd_panel_io_event_data_t *edata, void *user_ctx)
 {
     lv_disp_drv_t *disp_driver = (lv_disp_drv_t *)user_ctx;
@@ -72,10 +116,18 @@ static bool notify_lvgl_flush_ready(esp_lcd_panel_io_handle_t io, esp_lcd_panel_
     return false;
 }
 
+/**
+ * LVGL tick increment callback - updates LVGL internal timer
+ * @param arg Callback argument (unused)
+ */
 static void lv_tick_inc_cb(void *arg) {
     lv_tick_inc(1);
 }
 
+/**
+ * Initialize SPI bus configuration for all displays
+ * Sets up SPI host configurations and initializes bus with DMA
+ */
 void spi_init(void) {
     SPI_SETUP[0].pin_sclk =             PIN_SPI_1_SCLK;
     SPI_SETUP[0].pin_mosi =             PIN_SPI_1_MOSI;
@@ -106,12 +158,16 @@ void spi_init(void) {
         SPI_SETUP[i].buscfg.miso_io_num =     SPI_SETUP[i].pin_miso;
         SPI_SETUP[i].buscfg.quadwp_io_num =   SPI_SETUP[i].quadwp_io_num;
         SPI_SETUP[i].buscfg.quadhd_io_num =   SPI_SETUP[i].quadhd_io_num;
-        SPI_SETUP[i].buscfg.max_transfer_sz = SPI_SETUP[i].max_transfer_sz; 
+        SPI_SETUP[i].buscfg.max_transfer_sz = SPI_SETUP[i].max_transfer_sz;
         SPI_SETUP[i].buscfg.intr_flags =      SPI_SETUP[i].intr_flags;
         ESP_ERROR_CHECK(spi_bus_initialize(SPI_SETUP[i].spi_host, &(SPI_SETUP[i].buscfg), SPI_SETUP[i].spi_dma)); // Enable the DMA feature
     }
 }
 
+/**
+ * Initialize display configuration for all connected displays
+ * Sets up display parameters, SPI hosts, and pin configurations
+ */
 void display_init(void)
 {
 
@@ -132,7 +188,7 @@ void display_init(void)
     DISPLAYS[0].task_priority =          TASK_1_PRIORITY_SCREEN;
     DISPLAYS[0].task_delay_time_ms =     TASK_1_DELAYTIME_SCREEN;
     DISPLAYS[0].tast_core =              TASK_1_CORE_SCREEN;
-    
+
     #if NUMBER_OF_DISPLAYS > 1
         DISPLAYS[1].screen_selection =     LCD_2_SCREEN_ID;
         DISPLAYS[1].spi_host =             LCD_2_SPI_HOST;
@@ -152,7 +208,7 @@ void display_init(void)
         DISPLAYS[1].task_delay_time_ms =   TASK_2_DELAYTIME_SCREEN;
         DISPLAYS[1].tast_core =            TASK_2_CORE_SCREEN;
     #endif
-    #if NUMBER_OF_DISPLAYS > 2 
+    #if NUMBER_OF_DISPLAYS > 2
         DISPLAYS[2].screen_selection =     LCD_3_SCREEN_ID;
         DISPLAYS[2].spi_host =             LCD_3_SPI_HOST;
         DISPLAYS[2].lcd_pin_dc =           PIN_LCD_3_DC;
@@ -193,51 +249,55 @@ void display_init(void)
 
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
     {
-        
+
         DISPLAYS[i].io_config.dc_gpio_num =         DISPLAYS[i].lcd_pin_dc;
         DISPLAYS[i].io_config.cs_gpio_num =         DISPLAYS[i].lcd_pin_cs;
         DISPLAYS[i].io_config.pclk_hz =             LCD_PIXEL_CLOCK_HZ;
-        DISPLAYS[i].io_config.lcd_cmd_bits =        LCD_CMD_BITS; // muss angepasst werden
-        DISPLAYS[i].io_config.lcd_param_bits =      LCD_PARAM_BITS; // muss angepasst werden
+        DISPLAYS[i].io_config.lcd_cmd_bits =        LCD_CMD_BITS; // must be adjusted
+        DISPLAYS[i].io_config.lcd_param_bits =      LCD_PARAM_BITS; // must be adjusted
         DISPLAYS[i].io_config.spi_mode =            SPI_MODE; //0
         DISPLAYS[i].io_config.trans_queue_depth =   TRANS_QUEUE_DEPTH; //10
-        DISPLAYS[i].io_config.on_color_trans_done = notify_lvgl_flush_ready; // Callback für LVGL
-        DISPLAYS[i].io_config.user_ctx =            &(DISPLAYS[i].disp_drv);      // LVGL Display-Treiber Kontext
-        
+        DISPLAYS[i].io_config.on_color_trans_done = notify_lvgl_flush_ready; // Callback for LVGL
+        DISPLAYS[i].io_config.user_ctx =            &(DISPLAYS[i].disp_drv);      // LVGL Display driver context
+
         // Attach the LCD to the SPI bus
         ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t)(DISPLAYS[i].spi_host), &(DISPLAYS[i].io_config), &(DISPLAYS[i].io_handle)));
 
         DISPLAYS[i].panel_config.reset_gpio_num =   DISPLAYS[i].lcd_pin_rst;
-        DISPLAYS[i].panel_config.rgb_ele_order =    DISPLAYS[i].lcd_rgb_order; // muss angepasst werden
+        DISPLAYS[i].panel_config.rgb_ele_order =    DISPLAYS[i].lcd_rgb_order; // must be adjusted
         DISPLAYS[i].panel_config.bits_per_pixel =   16;
-        
+
         // Create LCD panel handle for ST7789, with the SPI IO device handle
         ESP_ERROR_CHECK(esp_lcd_new_panel_gc9a01(DISPLAYS[i].io_handle, &(DISPLAYS[i].panel_config), &(DISPLAYS[i].panel_handle)));
         if (!reset_is_set)
         {
-            // Bei gemeinsamen Ressets nur einaml Reset aufrufen
+            // For shared resets, only call reset once
             ESP_ERROR_CHECK(esp_lcd_panel_reset(DISPLAYS[i].panel_handle));
             reset_is_set = true;
         }
-    
+
         // Initialize the LCD panel
         ESP_ERROR_CHECK(esp_lcd_panel_set_gap(DISPLAYS[i].panel_handle, 0, 0));
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(DISPLAYS[i].panel_handle, false));
         ESP_ERROR_CHECK(esp_lcd_panel_init(DISPLAYS[i].panel_handle));
-        ESP_ERROR_CHECK(esp_lcd_panel_invert_color(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_invert_color)); // Optional: Invertiere die Farben für besseren Kontrast auf manchen Displays
+        ESP_ERROR_CHECK(esp_lcd_panel_invert_color(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_invert_color)); // Optional: Invert colors for better contrast on some displays
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(DISPLAYS[i].panel_handle, true));
-        ESP_ERROR_CHECK(esp_lcd_panel_mirror(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_mirror_x, DISPLAYS[i].lcd_mirror_y)); // Optional: Spiegeln des Displays horizontal
-    
+        ESP_ERROR_CHECK(esp_lcd_panel_mirror(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_mirror_x, DISPLAYS[i].lcd_mirror_y)); // Optional: Mirror display horizontally
+
     }
 
     const esp_timer_create_args_t periodic_timer_args = {
         .callback = &lv_tick_inc_cb,
         .name = "periodic_gui"
     };
-    ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));  
+    ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));
 
 }
 
+/**
+ * Initialize display buffers and LVGL drivers for all displays
+ * Allocates memory buffers and registers display drivers with LVGL
+ */
 void buffer_and_driver_init()
 {
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
@@ -246,7 +306,7 @@ void buffer_and_driver_init()
         DISPLAYS[i].buf = heap_caps_malloc(DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor) * sizeof(lv_color_t), DISPLAYS[i].malloc_cap);
         memset(DISPLAYS[i].buf, 0, DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor) * sizeof(lv_color_t));
         lv_disp_draw_buf_init(&(DISPLAYS[i].draw_buf), DISPLAYS[i].buf, NULL, DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor));
-        
+
         // driver_init
         lv_disp_drv_init(&(DISPLAYS[i].disp_drv));
         DISPLAYS[i].disp_drv.hor_res =      DISPLAYS[i].lcd_res_h;
@@ -254,12 +314,15 @@ void buffer_and_driver_init()
         DISPLAYS[i].disp_drv.flush_cb =     lvgl_flush_cb;
         DISPLAYS[i].disp_drv.draw_buf =     &(DISPLAYS[i].draw_buf);
         DISPLAYS[i].disp_drv.user_data =    DISPLAYS[i].panel_handle;
-        DISPLAYS[i].disp_drv.full_refresh = 1; 
+        DISPLAYS[i].disp_drv.full_refresh = 1;
         DISPLAYS[i].lv_displays =           lv_disp_drv_register(&(DISPLAYS[i].disp_drv));
     }
 }
 
-void timer_start() {    
+/**
+ * Start the periodic LVGL timer for GUI updates
+ */
+void timer_start() {
     ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, 1000)); // 1ms Tick
 }
 
