@@ -1028,6 +1028,9 @@ WARN_LOGFILE           =
 
 INPUT                  = main README.md
 
+INPUT                 += main/lvgl/variableFunctions.h \
+                         main/lvgl/variableFunctions.c
+
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses
 # libiconv (or the iconv built into libc) for the transcoding. See the libiconv
