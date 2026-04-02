@@ -85,7 +85,16 @@ bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
 /* ===== Display Update Tasks ===== */
 
 /**
- * Hanlde value updates for for given screen ID
+ * Update sensor values and LVGL variables for a given display
+ * 
+ * Reads sensor data (PWM or I2C ADC) based on the current screen selection,
+ * calculates the values, and updates the LVGL display variables.
+ * This function handles:
+ * - Sensor reading (test mode or actual sensor data)
+ * - Value calculation and calibration
+ * - LVGL variable updates for display rendering
+ * 
+ * @param displayID Index of the display to update values for
  */
 static void update_values(int displayID)
 {
@@ -161,7 +170,14 @@ static void update_values(int displayID)
 }
 
 /**
- * Handle display updates and sensor reading for given screen ID
+ * Handle display screen updates and rendering for a given display
+ * 
+ * Manages screen switching between day and night modes based on brightness settings.
+ * Performs screen load animation without delays (removed for performance optimization)
+ * and calls the appropriate screen-specific tick function to render updated values.
+ * The screen is only reloaded if it differs from the currently active screen.
+ * 
+ * @param displayID Index of the display to update
  */
 static void tick_switch(int displayID)
 {
@@ -174,7 +190,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_oil_pressure) 
                 {
                     lv_scr_load_anim(objects.gauge_oil_pressure, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_oil_pressure();
             }
@@ -183,7 +198,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_oil_pressure_night) 
                 {
                     lv_scr_load_anim(objects.gauge_oil_pressure_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_oil_pressure_night();
             }
@@ -194,7 +208,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_oil_temperature) 
                 {
                     lv_scr_load_anim(objects.gauge_oil_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_oil_temperature();
             }
@@ -203,7 +216,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_oil_temperature_night) 
                 {
                     lv_scr_load_anim(objects.gauge_oil_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_oil_temperature_night();
             }
@@ -214,7 +226,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_voltage) 
                 {
                     lv_scr_load_anim(objects.gauge_voltage, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_voltage();
             }
@@ -223,7 +234,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_voltage_night) 
                 {
                     lv_scr_load_anim(objects.gauge_voltage_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_voltage_night();
             }
@@ -234,7 +244,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_temperature_clock) 
                 {
                     lv_scr_load_anim(objects.gauge_temperature_clock, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_temperature_clock();
             }
@@ -243,7 +252,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_temperature_clock_night) 
                 {
                     lv_scr_load_anim(objects.gauge_temperature_clock_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_temperature_clock_night();
             }
@@ -254,7 +262,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_clock_temperature) 
                 {
                     lv_scr_load_anim(objects.gauge_clock_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_clock_temperature();
             }
@@ -263,7 +270,6 @@ static void tick_switch(int displayID)
                 if (lv_scr_act() != objects.gauge_clock_temperature_night) 
                 {
                     lv_scr_load_anim(objects.gauge_clock_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
-                    //vTaskDelay(pdMS_TO_TICKS(10));
                 }
                 tick_screen_gauge_clock_temperature_night();
             }
@@ -299,12 +305,12 @@ static void lv_tick_task_screen(void *pv)
             #endif
         }
 
-        // update values
+        // Phase 1: Update all sensor values and LVGL variables for all displays
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
             update_values(i);
         }
 
-        // change screens
+        // Phase 2: Update and render screen displays with current values
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
             tick_switch(i);
         }
