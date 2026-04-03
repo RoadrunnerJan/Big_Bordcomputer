@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['overview_0',['Hardware Overview',['../index.html#autotoc_md1',1,'']]]
+  ['mode_20activation_0',['Test mode activation',['../index.html#autotoc_md3',1,'']]]
 ];

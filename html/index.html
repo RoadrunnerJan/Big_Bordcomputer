@@ -125,18 +125,18 @@ Software</h2>
 <li><b>Modular Architecture</b> mit separate directories für calculation, logging, LVGL-UI, und peripherals</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Testmodus aktivieren</h2>
-<p>Im Testmodus werden sensorkritische Werte simuliert und die UI-Anzeige automatisch durchlaufen. Der Modus wird durch eine spezielle Tastenkombination innerhalb von <span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (7 Sekunden) aktiviert:</p>
+Test mode activation</h2>
+<p>In test mode, sensor-critical values are simulated and the UI loop runs in a deterministic cycle. Activate test mode with the following button sequence within <span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (7 seconds):</p>
 <ol type="1">
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> (Minute) kurz drücken x2 (Minute reduzieren)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> (Stunde) kurz drücken x1 (Stunde reduzieren)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> kurz drücken x2 (Minute erhöhen)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> kurz drücken x1 (Stunde erhöhen und Testmodus umschalten)</li>
+<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> (minute button) twice to decrease minute</li>
+<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> (hour button) once to decrease hour</li>
+<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> twice to increase minute</li>
+<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> once to increase hour and toggle test mode</li>
 </ol>
-<p>Wenn erfolgreich, erscheint im Log:</p><ul>
-<li><span class="tt">"Test mode ACTIVATED!"</span> oder <span class="tt">"Test mode DEACTIVATED!"</span></li>
+<p>On success, logs show:</p><ul>
+<li><span class="tt">"Test mode ACTIVATED!"</span> or <span class="tt">"Test mode DEACTIVATED!"</span></li>
 </ul>
-<p>Die Aktivierungsparameter sind definiert in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>:</p><ul>
+<p>Activation parameters are defined in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>:</p><ul>
 <li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (=7000)</li>
 <li><span class="tt"><a class="el" href="individual__config_8h.html#aa62bc4c38f6dc5dafe8b054c52a598bc">TESTMODE_ACTIVATE_BUTTON_1_COUNT</a></span> (=2)</li>
 <li><span class="tt"><a class="el" href="individual__config_8h.html#a27cc0d7ece37bb64ea7c541981677807">TESTMODE_ACTIVATE_BUTTON_2_COUNT</a></span> (=1)</li>

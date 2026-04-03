@@ -36,20 +36,20 @@ The datasheets for the used components can be found in the `datasheets/` directo
 - **ADC Sampling** of sensor values oder alternativ **PWM Sampling** of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201
 - **Modular Architecture** mit separate directories für calculation, logging, LVGL-UI, und peripherals
 
-## Testmodus aktivieren
+## Test mode activation
 
-Im Testmodus werden sensorkritische Werte simuliert und die UI-Anzeige automatisch durchlaufen.
-Der Modus wird durch eine spezielle Tastenkombination innerhalb von `TESTMODE_ACTIVATE_TIMEOUT_MS` (7 Sekunden) aktiviert:
+In test mode, sensor-critical values are simulated and the UI loop runs in a deterministic cycle.
+Activate test mode with the following button sequence within `TESTMODE_ACTIVATE_TIMEOUT_MS` (7 seconds):
 
-1. `BUTTON_CLOCK_MINUTE_PIN` (Minute) kurz drücken x2 (Minute reduzieren)
-2. `BUTTON_CLOCK_HOUR_PIN` (Stunde) kurz drücken x1 (Stunde reduzieren)
-3. `BUTTON_CLOCK_MINUTE_PIN` kurz drücken x2 (Minute erhöhen)
-4. `BUTTON_CLOCK_HOUR_PIN` kurz drücken x1 (Stunde erhöhen und Testmodus umschalten)
+1. Press `BUTTON_CLOCK_MINUTE_PIN` (minute button) twice to decrease minute
+2. Press `BUTTON_CLOCK_HOUR_PIN` (hour button) once to decrease hour
+3. Press `BUTTON_CLOCK_MINUTE_PIN` twice to increase minute
+4. Press `BUTTON_CLOCK_HOUR_PIN` once to increase hour and toggle test mode
 
-Wenn erfolgreich, erscheint im Log:
-- `"Test mode ACTIVATED!"` oder `"Test mode DEACTIVATED!"`
+On success, logs show:
+- `"Test mode ACTIVATED!"` or `"Test mode DEACTIVATED!"`
 
-Die Aktivierungsparameter sind definiert in `main/individual_config.h`:
+Activation parameters are defined in `main/individual_config.h`:
 - `TESTMODE_ACTIVATE_TIMEOUT_MS` (=7000)
 - `TESTMODE_ACTIVATE_BUTTON_1_COUNT` (=2)
 - `TESTMODE_ACTIVATE_BUTTON_2_COUNT` (=1)

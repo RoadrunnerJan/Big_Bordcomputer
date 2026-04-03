@@ -327,7 +327,7 @@ static void lv_tick_task_screen(void *pv)
         #if USE_BUZZER == true
             if (!time_checked[1]) {
                 time(&checkTime);
-            }// ToDo: beeper nach einer bestimmten Zeit wieder aktivieren?
+            }// TODO: re-enable beeper after a specific timeout?
             if ((long)(checkTime - StartUpTime) >= BUZZER_ON_DELAY_SEC)
             {
                 if (!time_checked[1]) {
@@ -398,8 +398,8 @@ void init_system()
     spi_init();
     display_init(); 
     lv_init();
-    buffer_and_driver_init(); // Initialisiert die LVGL-Puffer und LVGL-Treiberfür alle Displays
-    timer_start(); // Startet die Timer für alle Displays 
+    buffer_and_driver_init(); // Initialize LVGL buffers and drivers for all displays
+    timer_start(); // Start timers for all displays
     set_Displays();
     printLog("Displays initialized and screens set.");
 
