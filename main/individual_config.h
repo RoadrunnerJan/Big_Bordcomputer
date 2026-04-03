@@ -233,7 +233,7 @@
  * BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode.
  * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
  */
-#define BRIGHTNESS_DAY                     80
+#define BRIGHTNESS_DAY                     100
 #define BRIGHTNESS_DAY_MIN_V               1.0
 #define BRIGHTNESS_NIGHT_MIN               5
 #define BRIGHTNESS_NIGHT_MIN_V             2.29
