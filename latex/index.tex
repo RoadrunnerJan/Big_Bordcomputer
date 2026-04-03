@@ -33,9 +33,32 @@ The datasheets for the used components can be found in the {\ttfamily datasheets
 \begin{DoxyItemize}
 \item {\bfseries{Free\+RTOS Tasks}} for scheduling different operations
 \item {\bfseries{LVGL}} for designing the gauges
-\item {\bfseries{ADC Sampling}} of sensor values or alternatively {\bfseries{PWM Sampling}} of oil pressure and oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-\/201
-\item {\bfseries{Modular Architecture}} with separate directories for calculation, logging, LVGL-\/\+UI, and peripherals
-\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{How to Flash the Project}{How to Flash the Project}}\label{index_autotoc_md3}
+\item {\bfseries{ADC Sampling}} of sensor values oder alternativ {\bfseries{PWM Sampling}} of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-\/201
+\item {\bfseries{Modular Architecture}} mit separate directories für calculation, logging, LVGL-\/\+UI, und peripherals
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Testmodus aktivieren}{Testmodus aktivieren}}\label{index_autotoc_md3}
+Im Testmodus werden sensorkritische Werte simuliert und die UI-\/\+Anzeige automatisch durchlaufen. Der Modus wird durch eine spezielle Tastenkombination innerhalb von {\ttfamily \doxylink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}} (7 Sekunden) aktiviert:\+
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily \doxylink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}} (Minute) kurz drücken x2 (Minute reduzieren)
+\item {\ttfamily \doxylink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}} (Stunde) kurz drücken x1 (Stunde reduzieren)
+\item {\ttfamily \doxylink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}} kurz drücken x2 (Minute erhöhen)
+\item {\ttfamily \doxylink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}} kurz drücken x1 (Stunde erhöhen und Testmodus umschalten)
+\end{DoxyEnumerate}
+
+Wenn erfolgreich, erscheint im Log:\+
+\begin{DoxyItemize}
+\item {\ttfamily "{}Test mode ACTIVATED!"{}} oder {\ttfamily "{}Test mode DEACTIVATED!"{}}
+\end{DoxyItemize}
+
+Die Aktivierungsparameter sind definiert in {\ttfamily \doxylink{individual__config_8h}{main/\+individual\+\_\+config.\+h}}:\+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}} (=7000)
+\item {\ttfamily \doxylink{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT}} (=2)
+\item {\ttfamily \doxylink{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT}} (=1)
+\item {\ttfamily \doxylink{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT}} (=2)
+\item {\ttfamily \doxylink{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT}} (=1)
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{How to Flash the Project}{How to Flash the Project}}\label{index_autotoc_md4}
 
 \begin{DoxyEnumerate}
 \item {\bfseries{Requirements:\+}}
@@ -63,7 +86,7 @@ The datasheets for the used components can be found in the {\ttfamily datasheets
 
 \end{DoxyEnumerate}
 
-For detailed instructions see the official ESP-\/\+IDF guides.\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md4}
+For detailed instructions see the official ESP-\/\+IDF guides.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md5}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Main\ build\ configuration}
@@ -84,7 +107,7 @@ For detailed instructions see the official ESP-\/\+IDF guides.\hypertarget{index
 \DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ This\ file}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md6}
 
 \begin{DoxyItemize}
 \item {\bfseries{Flashing errors:\+}}

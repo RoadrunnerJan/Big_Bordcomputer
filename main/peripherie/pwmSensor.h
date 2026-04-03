@@ -27,11 +27,6 @@
 /* ===== Includes ===== */
 #include <inttypes.h>
 
-#if TESTMODE == true
-    #include "freertos/FreeRTOS.h"
-    #include "freertos/task.h"
-#endif
-
 
 /* ===== PWM Sensor Data Structures ===== */
 
@@ -85,13 +80,10 @@ extern int first_init_done;         // Initialization flag
 void pwm_sensor_init(void);
 
 /**
- * Create and configure MCPWM timer for pulse capture
- */
-void create_timer_pwm(void);
-
-/**
  * Get decoded sensor value by pulse ID
  * @param id Pulse ID (PWM_SENSOR_TEMP_PULSE_ID, PWM_SENSOR_PRES_PULSE_ID, etc.)
  * @return Decoded value or ADC_FAIL_VALUE on error
  */
 double get_pwm_value(int id);
+
+void pwm_sensor_print(void);

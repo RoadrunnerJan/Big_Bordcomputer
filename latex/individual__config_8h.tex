@@ -221,7 +221,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6f277d6a175e29641ab81cd6c305e7c4}{LED\+\_\+\+H\+\_\+\+POINT}}~0
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}~80
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}~100
 \begin{DoxyCompactList}\small\item\em Auto-\/brightness thresholds and manual defaults. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a1af7791013896769504004ef23940090}{BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V}}~1.\+0
 \item 
@@ -417,7 +417,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}~8.\+0
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}~-\/30
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}~0
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531}{VALUE\+\_\+\+DEFAULT\+\_\+\+BRIGHT}}~\doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}
 \item 
@@ -429,7 +429,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c}{VALUE\+\_\+\+MIN\+\_\+\+VOLT}}~\doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}{VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP}}~\doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}{VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP}}~-\/30
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc}{VALUE\+\_\+\+MAX\+\_\+\+PRES}}~6.\+0
 \item 
@@ -438,6 +438,16 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b}{VALUE\+\_\+\+MAX\+\_\+\+VOLT}}~16.\+0
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}{VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP}}~70
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}}~7000
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT}}~2
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT}}~1
 \end{DoxyCompactItemize}
 
 
@@ -634,7 +644,7 @@
 \index{BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_DAY}{BRIGHTNESS\_DAY}}
 {\footnotesize\ttfamily \label{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3} 
-\+\#define BRIGHTNESS\+\_\+\+DAY~80}
+\+\#define BRIGHTNESS\+\_\+\+DAY~100}
 
 
 
@@ -1688,6 +1698,36 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 
 Feature flags -\/ enable/\+disable optional modules. 
 
+\Hypertarget{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}}
+\index{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}}
+{\footnotesize\ttfamily \label{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc} 
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT~2}
+
+\Hypertarget{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}}
+\index{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807} 
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT~1}
+
+\Hypertarget{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}}
+\index{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9} 
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT~2}
+
+\Hypertarget{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}}
+\index{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9} 
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT~1}
+
+\Hypertarget{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_TIMEOUT\_MS@{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}}
+\index{TESTMODE\_ACTIVATE\_TIMEOUT\_MS@{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7} 
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS~7000}
+
 \Hypertarget{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}\index{individual\_config.h@{individual\_config.h}!TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}}
 \index{TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TRANS\_QUEUE\_DEPTH}{TRANS\_QUEUE\_DEPTH}}
@@ -1716,7 +1756,7 @@ Feature flags -\/ enable/\+disable optional modules.
 \index{VALUE\_DEFAULT\_OUT\_TEMP@{VALUE\_DEFAULT\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_OUT\_TEMP}{VALUE\_DEFAULT\_OUT\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680} 
-\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP~-\/30}
+\+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP~0}
 
 \Hypertarget{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}}
 \index{VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}!individual\_config.h@{individual\_config.h}}
@@ -1764,7 +1804,7 @@ Feature flags -\/ enable/\+disable optional modules.
 \index{VALUE\_MIN\_OUT\_TEMP@{VALUE\_MIN\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_MIN\_OUT\_TEMP}{VALUE\_MIN\_OUT\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342} 
-\+\#define VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP~\doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}}
+\+\#define VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP~-\/30}
 
 \Hypertarget{individual__config_8h_a371c597eddcd4c669475093d169c082a}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}}
 \index{VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}!individual\_config.h@{individual\_config.h}}

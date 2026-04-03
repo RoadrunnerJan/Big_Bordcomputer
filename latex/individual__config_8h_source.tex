@@ -182,7 +182,7 @@
 \DoxyCodeLine{00225\ \textcolor{comment}{\ \ \ \ BRIGHTNESS\ SETTINGS}}
 \DoxyCodeLine{00226\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
 \DoxyCodeLine{00227\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ BRIGHTNESS\_DAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 80}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ BRIGHTNESS\_DAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
 \DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ BRIGHTNESS\_DAY\_MIN\_V\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.0}}
 \DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ BRIGHTNESS\_NIGHT\_MIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5}}
 \DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ BRIGHTNESS\_NIGHT\_MIN\_V\ \ \ \ \ \ \ \ \ \ \ \ \ 2.29}}
@@ -376,18 +376,29 @@
 \DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0}}
 \DoxyCodeLine{00428\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
 \DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.0}}
-\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ -\/30}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
 \DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_BRIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BRIGHTNESS\_DAY}}
 \DoxyCodeLine{00432\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_NIGHT\_MODE\ \ \ \ \ \ \ \ \ \ \ false}}
 \DoxyCodeLine{00433\ }
 \DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_PRES}}
 \DoxyCodeLine{00435\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_TEMP}}
 \DoxyCodeLine{00436\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_VOLT}}
-\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_OUT\_TEMP}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/30}}
 \DoxyCodeLine{00438\ }
 \DoxyCodeLine{00439\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6.0}}
 \DoxyCodeLine{00440\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 150}}
 \DoxyCodeLine{00441\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 16.0}}
 \DoxyCodeLine{00442\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 70}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00445\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00446\ \textcolor{comment}{\ \ \ \ Enable\ Testmode\ Settings}}
+\DoxyCodeLine{00447\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00448\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_TIMEOUT\_MS\ \ \ \ \ \ 7000}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT\ \ 2\ }\textcolor{comment}{//\ Press\ minute\ button\ 2\ times\ within\ timeout\ to\ decrease\ minute}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT\ \ 1\ }\textcolor{comment}{//\ Press\ hour\ button\ 1\ times\ within\ timeout\ to\ decrease\ hour}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT\ \ 2\ }\textcolor{comment}{//\ Press\ minute\ button\ 2\ times\ within\ timeout\ to\ increase\ minute}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT\ \ 1\ }\textcolor{comment}{//\ Press\ hour\ button\ 1\ times\ within\ timeout\ to\ increase\ hour\ and\ (de-\/)activate\ test\ mode}}
 
 \end{DoxyCode}

@@ -8,6 +8,7 @@ var test_simulation_8h =
     [ "lv_temperature_test", "test_simulation_8h.html#aa629bf8b616356a294651226b156ebef", null ],
     [ "lv_volt_test", "test_simulation_8h.html#a77ec812ad1b3b3ccac3d8f226b020789", null ],
     [ "reset_test_switches", "test_simulation_8h.html#aa9b1abc587f0cf43e9d97fedfaa2cb13", null ],
+    [ "reset_test_values", "test_simulation_8h.html#a818c29dea25b52df8e5748e115b4e833", null ],
     [ "brightness_test_switch", "test_simulation_8h.html#a6347ffd479374ec1af0b9f455c051197", null ],
     [ "Clocktemp_test_switch", "test_simulation_8h.html#a781e0aae99d7dfe899c7ab1b2cb9e590", null ],
     [ "pressure_test_switch", "test_simulation_8h.html#a27b1d1f91fab51a18531eb2926295b24", null ],

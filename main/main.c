@@ -50,6 +50,7 @@ static struct tm timeinfo;
 
 time_t StartUpTime = 0;
 time_t checkTime = 0;
+int testmodeActivated = false;
 
 bool night_mode = false;
 bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
@@ -102,46 +103,51 @@ static void update_values(int displayID)
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
-            #if TESTMODE == true
+            if(is_testmode_activated()) {
                 value = lv_pressure_test();
-            #else
+            }
+            else 
+            {
                 if (isPWM()) value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
                 else value = get_i2c_adc_oil_press();
-            #endif
+            }
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
             
             set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_pressure_string(get_output_string());
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            #if TESTMODE == true
+            if(is_testmode_activated()) {
                 value = lv_temperature_test();
-            #else
+            }
+            else {
                 if (isPWM()) value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
                 else value = get_i2c_adc_oil_temp();
-            #endif
+            }
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
 
             set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_oil_temperature_string(get_output_string());
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            #if TESTMODE == true
+            if(is_testmode_activated()) {
                 value = lv_volt_test();
-            #else
+            }
+            else {
                 value = get_i2c_adc_volt();
-            #endif
+            }
             calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
 
             set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_voltage_string(get_output_string());
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-            #if TESTMODE == true
+            if(is_testmode_activated()) {
                 value = lv_Clocktemp_test();
-            #else
+            }
+            else {
                 value = get_i2c_adc_outside_temp();
-            #endif
+            }
             calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
 
             time(&now);
@@ -152,11 +158,12 @@ static void update_values(int displayID)
             set_var_lvgl_value_clock(output_string); 
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            #if TESTMODE == true
+            if(is_testmode_activated()) {
                 value = lv_Clocktemp_test();
-            #else
+            }
+            else {
                 value = get_i2c_adc_outside_temp();
-            #endif
+            }
             calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
 
             time(&now);
@@ -285,24 +292,26 @@ static void lv_tick_task_screen(void *pv)
         if (!time_checked[0]) {
             time(&checkTime);
         }
-        #if TESTMODE == true 
+        if(is_testmode_activated()) {
             brightness_test();
             night_mode = getNightModeActiveTestValue();
-        #else 
+        }
+        else {
             calcBrightness(get_i2c_adc_volt_bel());
             night_mode = getNightModeActive();
-        #endif
+        }
 
         if ((long)(checkTime - StartUpTime) > GAUGE_ON_DELAY_SEC)
         { 
             if (!time_checked[0]) {
                 time_checked[0] = !time_checked[0];
             }
-            #if TESTMODE == true 
+            if(is_testmode_activated()) {
                 set_lcd_brightness(getBrightnessTestValue());
-            #else
+            }
+            else {
                 set_lcd_brightness(getBrightness());
-            #endif
+            }
         }
 
         // Phase 1: Update all sensor values and LVGL variables for all displays
@@ -338,16 +347,38 @@ static void lv_tick_task_screen(void *pv)
             reset_values(SCREEN_ID_GAUGE_OIL_TEMPERATURE);
         }
 
+        if(is_testmode_activated() && !testmodeActivated)
+        {
+            testmodeActivated = true;
+            reset_test_values();
+            reset_test_switches();
+            reset_values(-1);
+
+        }
+        else if (!is_testmode_activated() && testmodeActivated)
+        {
+            testmodeActivated = false;
+            reset_values(-1);
+        }
+        
+        if (isPWM() && is_testmode_activated()){
+            pwm_sensor_print();
+        }
+
         vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
+/**
+ * Initialize all hardware and system components.
+ *
+ * Sets up backlight PWM, RTC, buttons, SPI display layers, LVGL and sensors.
+ * Also starts timers and optional buzzer component.
+ */
 void init_system()
 {
     printLog("Initializing system...");
-    #if TESTMODE == true
-        printWarningLog("Running in TEST MODE: Simulated sensor values, night mode, and brightness test enabled.");
-    #endif
+
     // init display backlight
     init_lcd_backlight_pwm();
     printLog("Display backlight initialized.");
@@ -375,9 +406,6 @@ void init_system()
     // init pwm sensor
     init_pwmSW();
     pwm_sensor_init();
-    #if TESTMODE == true
-        create_timer_pwm();
-    #endif
     printLog("PWM Sensor initialized.");
 
     // init buzzer
@@ -389,6 +417,12 @@ void init_system()
     printLog("Initialization complete. Entering main loop.");
 }
 
+/**
+ * ESP-IDF main entry point.
+ *
+ * Initializes system resources and creates the LVGL tick task.
+ * The main function then enters idle mode while tasks run in the background.
+ */
 void app_main(void)
 {
     printLog("Starting Board Computer Application...");

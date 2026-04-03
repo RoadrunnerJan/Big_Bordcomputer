@@ -2,10 +2,10 @@ var pwm_sensor_8c =
 [
     [ "calc_pressure", "pwm_sensor_8c.html#a45d51bbab54a418961641b5fc9293bb8", null ],
     [ "calc_temperature", "pwm_sensor_8c.html#a4fca20117a4d3091181ab8c17531ad06", null ],
-    [ "create_timer_pwm", "pwm_sensor_8c.html#acfba7208623b9fc55b8d9a308978e656", null ],
     [ "get_diag", "pwm_sensor_8c.html#a9611459e5cb91b8c3553496303bbab4b", null ],
     [ "get_pwm_value", "pwm_sensor_8c.html#a5b0bb12e2a7bf9876ea3c788cb0557ec", null ],
     [ "pwm_sensor_init", "pwm_sensor_8c.html#af4221afe7e5ed42055dad84c45e67e05", null ],
+    [ "pwm_sensor_print", "pwm_sensor_8c.html#aa31dd9471c53c6a3067184376203c6c0", null ],
     [ "cap_chan", "pwm_sensor_8c.html#a390a3b3b4d255b9b028df7470bdb5984", null ],
     [ "cap_timer", "pwm_sensor_8c.html#a5ed357c7a9126137678740c82e6a54c7", null ],
     [ "cbs", "pwm_sensor_8c.html#aacf93a512496094d35a83945c8a6f3e1", null ],

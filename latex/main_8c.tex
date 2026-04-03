@@ -24,6 +24,8 @@ time\+\_\+t \doxymbox{\hyperlink{main_8c_a6e518afa23f4d64bf5cadee75e8af186}{Star
 \item 
 time\+\_\+t \doxymbox{\hyperlink{main_8c_a6ed0b29f7880e47087b6696327cef962}{check\+Time}} = 0
 \item 
+int \doxymbox{\hyperlink{main_8c_ac8e5c5d7af5d734614837b48dc709d91}{testmode\+Activated}} = false
+\item 
 bool \doxymbox{\hyperlink{main_8c_a9415d6967ea31a1d71a6364878d31189}{night\+\_\+mode}} = false
 \item 
 bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+checked}} \+[2]\+ = \{false, false\}
@@ -39,13 +41,17 @@ bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+c
 {\footnotesize\ttfamily \label{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
 void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
+ESP-\/\+IDF main entry point.
+
+Initializes system resources and creates the LVGL tick task. The main function then enters idle mode while tasks run in the background. \Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
 \index{init\_system@{init\_system}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{init\_system()}{init\_system()}}
 {\footnotesize\ttfamily \label{main_8c_afceb890a6ab9be73cc5481369538c705} 
 void init\+\_\+system (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+Initialize all hardware and system components.
 
+Sets up backlight PWM, RTC, buttons, SPI display layers, LVGL and sensors. Also starts timers and optional buzzer component. 
 
 \label{doc-var-members}
 \Hypertarget{main_8c_doc-var-members}
@@ -67,6 +73,12 @@ bool night\+\_\+mode = false}
 \doxysubsubsection{\texorpdfstring{StartUpTime}{StartUpTime}}
 {\footnotesize\ttfamily \label{main_8c_a6e518afa23f4d64bf5cadee75e8af186} 
 time\+\_\+t Start\+Up\+Time = 0}
+
+\Hypertarget{main_8c_ac8e5c5d7af5d734614837b48dc709d91}\index{main.c@{main.c}!testmodeActivated@{testmodeActivated}}
+\index{testmodeActivated@{testmodeActivated}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{testmodeActivated}{testmodeActivated}}
+{\footnotesize\ttfamily \label{main_8c_ac8e5c5d7af5d734614837b48dc709d91} 
+int testmode\+Activated = false}
 
 \Hypertarget{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}\index{main.c@{main.c}!time\_checked@{time\_checked}}
 \index{time\_checked@{time\_checked}!main.c@{main.c}}

@@ -13,6 +13,5 @@ var searchData=
   ['checktime_10',['checkTime',['../main_8c.html#a6ed0b29f7880e47087b6696327cef962',1,'main.c']]],
   ['chip_5fused_11',['CHIP_USED',['../individual__config_8h.html#abc5772bb8f4980f3c762ed695dde4c21',1,'individual_config.h']]],
   ['clocktemp_5ftest_5fswitch_12',['Clocktemp_test_switch',['../test_simulation_8c.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c']]],
-  ['create_5ftimer_5fpwm_13',['create_timer_pwm',['../pwm_sensor_8c.html#acfba7208623b9fc55b8d9a308978e656',1,'create_timer_pwm(void):&#160;pwmSensor.c'],['../pwm_sensor_8h.html#acfba7208623b9fc55b8d9a308978e656',1,'create_timer_pwm(void):&#160;pwmSensor.c']]],
-  ['customizable_20esp32_20boardcomputer_14',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]]
+  ['customizable_20esp32_20boardcomputer_13',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]]
 ];

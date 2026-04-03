@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['the_20project_0',['How to Flash the Project',['../index.html#autotoc_md3',1,'']]],
-  ['to_20flash_20the_20project_1',['How to Flash the Project',['../index.html#autotoc_md3',1,'']]],
-  ['troubleshooting_2',['Troubleshooting',['../index.html#autotoc_md5',1,'']]]
+  ['software_0',['Software',['../index.html#autotoc_md2',1,'']]],
+  ['structure_1',['Project Structure',['../index.html#autotoc_md5',1,'']]]
 ];

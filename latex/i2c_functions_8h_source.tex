@@ -20,52 +20,66 @@
 \DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}freertos/task.h"{}}}
 \DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{comment}{/*\ =====\ NTC\ Temperature\ Lookup\ Table\ Structure\ =====\ */}}
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structntc__table__t_a3794ab63a4b74b8e2cf3320d282d8802}{temp}};\ \ \textcolor{comment}{//\ Temperature\ in\ °C}}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structntc__table__t_a1dbe754c063c862256251ced61d49003}{res}};\ \ \ \textcolor{comment}{//\ Resistance\ in\ Ohms}}
-\DoxyCodeLine{00041\ \}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{comment}{/*\ =====\ I2C\ Bus\ Configuration\ =====\ */}}
-\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ i2c\_master\_bus\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6}{bus\_cfg}};}
-\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ i2c\_master\_bus\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a457e9b0ccf6478fd7e45c0463abbd533}{bus\_handle}};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{comment}{/*\ =====\ RTC\ (DS3231)\ Configuration\ =====\ */}}
-\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ i2c\_device\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6}{ds3231\_cfg}};}
-\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ i2c\_master\_dev\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2}{ds3231\_handle}};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{comment}{/*\ =====\ ADC\ (ADS1115)\ Configuration\ =====\ */}}
-\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ i2c\_device\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_acb5ddf7923f8366395f68b86c77d6059}{ads\_cfg}}[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\_OF\_ADS1115\_DEVICES}}];}
-\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ i2c\_master\_dev\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a7f84388a86187f1b6076f572802a2392}{ads\_handle}}[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\_OF\_ADS1115\_DEVICES}}];}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{/*\ =====\ Time\ Adjustment\ Buttons\ =====\ */}}
-\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ button\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49}{cfg\_time}}[2];\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [0]\ =\ Hour,\ [1]\ =\ Minute}}
-\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ button\_gpio\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c}{gpio\_cfg\_time}}[2];}
-\DoxyCodeLine{00059\ \textcolor{keyword}{extern}\ button\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\_time}}[2];}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{/*\ =====\ Temperature\ Lookup\ Tables\ =====\ */}}
-\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}}\ \doxymbox{\hyperlink{i2c_functions_8c_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\_temp\_table}}[];}
-\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}}\ \doxymbox{\hyperlink{i2c_functions_8c_a8e60f82a011434b87b9c2c9937914fc2}{outside\_temperature\_table}}[];}
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ OIL\_TABLE\_SIZE\ (sizeof(oil\_temp\_table)\ /\ sizeof(ntc\_table\_t))}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ OUTSIDE\_TABLE\_SIZE\ (sizeof(outside\_temperature\_table)\ /\ sizeof(ntc\_table\_t))}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00036\ \textcolor{comment}{/*\ =====\ RTOS\ \&\ System\ =====\ */}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{logging_8h}{../logging/logging.h}}"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*\ =====\ NTC\ Temperature\ Lookup\ Table\ Structure\ =====\ */}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structntc__table__t_a3794ab63a4b74b8e2cf3320d282d8802}{temp}};\ \ \textcolor{comment}{//\ Temperature\ in\ °C}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structntc__table__t_a1dbe754c063c862256251ced61d49003}{res}};\ \ \ \textcolor{comment}{//\ Resistance\ in\ Ohms}}
+\DoxyCodeLine{00044\ \}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*\ =====\ I2C\ Bus\ Configuration\ =====\ */}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ i2c\_master\_bus\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6}{bus\_cfg}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ i2c\_master\_bus\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a457e9b0ccf6478fd7e45c0463abbd533}{bus\_handle}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{/*\ =====\ RTC\ (DS3231)\ Configuration\ =====\ */}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ i2c\_device\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6}{ds3231\_cfg}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ i2c\_master\_dev\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2}{ds3231\_handle}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ =====\ ADC\ (ADS1115)\ Configuration\ =====\ */}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ i2c\_device\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_acb5ddf7923f8366395f68b86c77d6059}{ads\_cfg}}[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\_OF\_ADS1115\_DEVICES}}];}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ i2c\_master\_dev\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a7f84388a86187f1b6076f572802a2392}{ads\_handle}}[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\_OF\_ADS1115\_DEVICES}}];}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/*\ =====\ Time\ Adjustment\ Buttons\ =====\ */}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{extern}\ button\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49}{cfg\_time}}[2];\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [0]\ =\ Hour,\ [1]\ =\ Minute}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ button\_gpio\_config\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c}{gpio\_cfg\_time}}[2];}
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ button\_handle\_t\ \doxymbox{\hyperlink{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\_time}}[2];}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/*\ =====\ Temperature\ Lookup\ Tables\ =====\ */}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}}\ \doxymbox{\hyperlink{i2c_functions_8c_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\_temp\_table}}[];}
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structntc__table__t}{ntc\_table\_t}}\ \doxymbox{\hyperlink{i2c_functions_8c_a8e60f82a011434b87b9c2c9937914fc2}{outside\_temperature\_table}}[];}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ OIL\_TABLE\_SIZE\ (sizeof(oil\_temp\_table)\ /\ sizeof(ntc\_table\_t))}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ OUTSIDE\_TABLE\_SIZE\ (sizeof(outside\_temperature\_table)\ /\ sizeof(ntc\_table\_t))}}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46}{init\_i2c}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_a6b780707272c87024478d0879e480195}{sync\_rtc\_to\_system}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}{init\_time\_buttons}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a3561a0a098f68a9e060d09286f75b0ca}{get\_i2c\_adc\_volt}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00082\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a67126ffb5167e564aa3217b6bf69d878}{get\_i2c\_adc\_volt\_bel}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150}{get\_i2c\_adc\_oil\_temp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00092\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a}{get\_i2c\_adc\_oil\_press}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00097\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc}{get\_i2c\_adc\_outside\_temp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00070\ \textcolor{comment}{/*\ =====\ Testmode\ Activation\ Values\ =====\ */}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}{testmode\_activated}};}
+\DoxyCodeLine{00072\ \textcolor{keyword}{extern}\ TickType\_t\ \doxymbox{\hyperlink{i2c_functions_8c_a63b736710f6e0f87dce37e12e89993ff}{testmode\_activation\_time}};}
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2}{testmode\_activation\_count}};}
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f}{testmode\_activation\_state}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46}{init\_i2c}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_a6b780707272c87024478d0879e480195}{sync\_rtc\_to\_system}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}{init\_time\_buttons}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a3561a0a098f68a9e060d09286f75b0ca}{get\_i2c\_adc\_volt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a67126ffb5167e564aa3217b6bf69d878}{get\_i2c\_adc\_volt\_bel}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150}{get\_i2c\_adc\_oil\_temp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a}{get\_i2c\_adc\_oil\_press}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc}{get\_i2c\_adc\_outside\_temp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{i2c_functions_8h_ad1e08059bfd9523c7db8c2a021dd00e0}{is\_testmode\_activated}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}{testmode\_activated}};}
+\DoxyCodeLine{00123\ \}}
 
 \end{DoxyCode}

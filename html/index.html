@@ -121,10 +121,29 @@ Software</h2>
 <ul>
 <li><b>FreeRTOS Tasks</b> for scheduling different operations</li>
 <li><b>LVGL</b> for designing the gauges</li>
-<li><b>ADC Sampling</b> of sensor values or alternatively <b>PWM Sampling</b> of oil pressure and oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201</li>
-<li><b>Modular Architecture</b> with separate directories for calculation, logging, LVGL-UI, and peripherals</li>
+<li><b>ADC Sampling</b> of sensor values oder alternativ <b>PWM Sampling</b> of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201</li>
+<li><b>Modular Architecture</b> mit separate directories für calculation, logging, LVGL-UI, und peripherals</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Testmodus aktivieren</h2>
+<p>Im Testmodus werden sensorkritische Werte simuliert und die UI-Anzeige automatisch durchlaufen. Der Modus wird durch eine spezielle Tastenkombination innerhalb von <span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (7 Sekunden) aktiviert:</p>
+<ol type="1">
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> (Minute) kurz drücken x2 (Minute reduzieren)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> (Stunde) kurz drücken x1 (Stunde reduzieren)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> kurz drücken x2 (Minute erhöhen)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> kurz drücken x1 (Stunde erhöhen und Testmodus umschalten)</li>
+</ol>
+<p>Wenn erfolgreich, erscheint im Log:</p><ul>
+<li><span class="tt">"Test mode ACTIVATED!"</span> oder <span class="tt">"Test mode DEACTIVATED!"</span></li>
+</ul>
+<p>Die Aktivierungsparameter sind definiert in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>:</p><ul>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (=7000)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#aa62bc4c38f6dc5dafe8b054c52a598bc">TESTMODE_ACTIVATE_BUTTON_1_COUNT</a></span> (=2)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a27cc0d7ece37bb64ea7c541981677807">TESTMODE_ACTIVATE_BUTTON_2_COUNT</a></span> (=1)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#ab95db9b37e9121be348e6ea15f86c5a9">TESTMODE_ACTIVATE_BUTTON_3_COUNT</a></span> (=2)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a7df5799ea0565ee0f7371b27d5c723b9">TESTMODE_ACTIVATE_BUTTON_4_COUNT</a></span> (=1)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 How to Flash the Project</h2>
 <ol type="1">
 <li><b>Requirements:</b><ul>
@@ -140,7 +159,7 @@ How to Flash the Project</h2>
 </div><!-- fragment --></li>
 </ol>
 <p>For detailed instructions see the official ESP-IDF guides.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 Project Structure</h2>
 <div class="fragment"><div class="line">├── CMakeLists.txt              # Main build configuration</div>
 <div class="line">├── sdkconfig                   # ESP-IDF configuration</div>
@@ -158,7 +177,7 @@ Project Structure</h2>
 <div class="line">├── png/                        # Images and icons</div>
 <div class="line">├── managed_components/         # ESP-IDF components</div>
 <div class="line">└── README.md                   # This file</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Troubleshooting</h2>
 <ul>
 <li><b>Flashing errors:</b><ul>

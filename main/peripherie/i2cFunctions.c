@@ -50,6 +50,16 @@ const ntc_table_t outside_temperature_table[] = {
     {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}
 };
 
+bool testmode_activated = false;
+TickType_t testmode_activation_time = 0;
+int testmode_activation_count = 0;
+int testmode_activation_state = 0;
+
+/**
+ * Initialize I2C bus and attach RTC and ADC devices.
+ *
+ * Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-device support.
+ */
 void init_i2c() {
     // Configure I2C bus
     bus_cfg.clk_source = I2C_CLK_SRC;
@@ -109,6 +119,12 @@ void sync_rtc_to_system() {
     settimeofday(&now, NULL);
 }
 
+/**
+ * Write the given time struct into the DS3231 RTC.
+ *
+ * @param time Pointer to struct tm containing the desired time to set.
+ * @return ESP_OK on success, error code otherwise.
+ */
 esp_err_t ds3231_set_time(struct tm *time) {
     uint8_t data[8];
     data[0] = 0x00;  // RTC register address (Seconds)
@@ -125,7 +141,16 @@ esp_err_t ds3231_set_time(struct tm *time) {
     return i2c_master_transmit(ds3231_handle, data, 8, -1);
 }
 
-// Callback function when a button is pressed
+/**
+ * Button callback for single-click forward adjustments.
+ *
+ * Implements the activation sequence for test mode:
+ * 1) minute minus twice
+ * 2) hour minus once
+ * 3) minute plus twice
+ * 4) hour plus once -> toggle test mode
+ * All within TESTMODE_ACTIVATE_TIMEOUT_MS (7 seconds).
+ */
 static void button_event_cb(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
     time_t now;
@@ -138,6 +163,28 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour + 1 + 24) % 24;
         printf("Hour incremented: %d\n", timeinfo.tm_hour);
+
+        if (testmode_activation_state == 4) {
+            if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
+                testmode_activation_count++;
+                if (testmode_activation_count >= TESTMODE_ACTIVATE_BUTTON_4_COUNT) {
+                    testmode_activation_state = -1;
+                    testmode_activation_count = 0;
+                    testmode_activated = !testmode_activated; // Toggle test mode
+                    printWarningLog(testmode_activated == true ? "Test mode ACTIVATED!" : "Test mode DEACTIVATED!");
+                }
+            }
+            else {
+                testmode_activation_time = 0;
+                testmode_activation_count = 0;
+                testmode_activation_state = -1;
+            }
+        }
+        else {
+            testmode_activation_time = 0;
+            testmode_activation_count = 0;
+            testmode_activation_state = -1;
+        }
     } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
         timeinfo.tm_min = (timeinfo.tm_min + 1 + 60) % 60;
         if (timeinfo.tm_min == 0) { 
@@ -146,6 +193,26 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
         }
         timeinfo.tm_sec = 0; // Reset seconds when setting time
         printf("Minute incremented: %d\n", timeinfo.tm_min);
+
+        if (testmode_activation_state == 3) {
+            if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
+                testmode_activation_count++;
+                if (testmode_activation_count >= TESTMODE_ACTIVATE_BUTTON_3_COUNT) {
+                    testmode_activation_state = 4;
+                    testmode_activation_count = 0;
+                }
+            } 
+            else {
+                testmode_activation_time = 0;
+                testmode_activation_count = 0;
+                testmode_activation_state = -1;
+            }
+        }
+        else {
+            testmode_activation_time = 0;
+            testmode_activation_count = 0;
+            testmode_activation_state = -1;
+        }
     }
 
     ds3231_set_time(&timeinfo);
@@ -155,6 +222,11 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     settimeofday(&tv, NULL);
 }
 
+/**
+ * Button callback for single-click backward adjustments.
+ *
+ * Handles the reverse time-decrement path as part of the testmode activation sequence.
+ */
 static void button_event_cb_back(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
     time_t now;
@@ -167,6 +239,26 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
         printf("Hour decremented: %d\n", timeinfo.tm_hour);
+
+        if (testmode_activation_state == 2) {
+            if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
+                testmode_activation_count++;
+                if (testmode_activation_count >= TESTMODE_ACTIVATE_BUTTON_2_COUNT) {
+                    testmode_activation_state = 3;
+                    testmode_activation_count = 0;
+                }
+            } 
+            else {
+                testmode_activation_time = 0;
+                testmode_activation_count = 0;
+                testmode_activation_state = -1;
+            }
+        }
+        else {
+            testmode_activation_time = 0;
+            testmode_activation_count = 0;
+            testmode_activation_state = -1;
+        }
     } else if (button_id == BUTTON_CLOCK_MINUTE_PIN) {
         timeinfo.tm_min = (timeinfo.tm_min - 1 + 60) % 60;
         if (timeinfo.tm_min == 59) { 
@@ -175,6 +267,31 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
         }
         timeinfo.tm_sec = 0; // Reset seconds when setting time
         printf("Minute decremented: %d\n", timeinfo.tm_min);
+
+        if (testmode_activation_state == -1) {
+            testmode_activation_state = 0;
+            testmode_activation_time = xTaskGetTickCount();
+            testmode_activation_count = 1;
+        }
+        else if (testmode_activation_state == 0) {
+            if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
+                testmode_activation_count++;
+                if (testmode_activation_count >= TESTMODE_ACTIVATE_BUTTON_1_COUNT) {
+                    testmode_activation_state = 2;
+                    testmode_activation_count = 0;
+                }
+            } 
+            else {
+                testmode_activation_time = 0;
+                testmode_activation_count = 0;
+                testmode_activation_state = -1;
+            }
+        }
+        else {
+            testmode_activation_time = 0;
+            testmode_activation_count = 0;
+            testmode_activation_state = -1;
+        }
     }
 
     // Write to RTC
@@ -204,6 +321,14 @@ void init_time_buttons() {
     iot_button_register_cb(btn_time[1], BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_MINUTE_PIN);
 }
 
+/**
+ * Read raw ADC data from ADS1115 on a specific channel.
+ *
+ * @param dev ADS1115 device handle.
+ * @param channel ADC channel index (0..3).
+ * @param pga_setting PGA configuration bits.
+ * @return Signed 16-bit ADC conversion value.
+ */
 int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_setting) {
     // Ensure channel is only 0-3
     uint16_t mux = (0x04 | (channel & 0x03)) << 12; // 0x4000, 0x5000, 0x6000 or 0x7000
@@ -247,6 +372,12 @@ float interpolate_temp(float r_measured) {
 }
 
 // Linear interpolation for outdoor temperature table
+/**
+ * Interpolate temperature from outside NTC table.
+ *
+ * @param r_measured Measured resistance in Ohm.
+ * @return Interpolated temperature in °C or ADC_FAIL_VALUE for invalid.
+ */
 float interpolate_outside_temp(float r_measured) {
     if (r_measured >= outside_temperature_table[0].res) return outside_temperature_table[0].temp;
     if (r_measured <= outside_temperature_table[OUTSIDE_TABLE_SIZE-1].res) return outside_temperature_table[OUTSIDE_TABLE_SIZE-1].temp;
@@ -261,6 +392,13 @@ float interpolate_outside_temp(float r_measured) {
     return ADC_FAIL_VALUE;
 }
 
+/**
+ * Convert raw ADS1115 value to resistance, with validation.
+ *
+ * @param raw Raw ADC sample from ADS1115.
+ * @param r_pullup Pull-up resistance value in Ohms.
+ * @return Calculated resistance in Ohms or ADC_FAIL_VALUE on error.
+ */
 float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
     // Check: If voltage approaches 3.3V -> sensor open or broken cable

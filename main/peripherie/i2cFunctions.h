@@ -33,6 +33,9 @@
 #include "freertos/task.h"
 #include <sys/time.h>
 
+/* ===== RTOS & System ===== */
+#include "../logging/logging.h"
+
 
 /* ===== NTC Temperature Lookup Table Structure ===== */
 typedef struct {
@@ -64,11 +67,27 @@ extern const ntc_table_t outside_temperature_table[];
 #define OIL_TABLE_SIZE (sizeof(oil_temp_table) / sizeof(ntc_table_t))
 #define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(ntc_table_t))
 
+/* ===== Testmode Activation Values ===== */
+extern bool testmode_activated;
+extern TickType_t testmode_activation_time;
+extern int testmode_activation_count;
+extern int testmode_activation_state;
 
 /* ===== Function Declarations ===== */
 
+/**
+ * Initialize I2C bus and attach connected sensors (RTC and ADC).
+ */
 void init_i2c(void);
+
+/**
+ * Sync system time with RTC DS3231 time.
+ */
 void sync_rtc_to_system(void);
+
+/**
+ * Initialize the time adjustment buttons and callbacks.
+ */
 void init_time_buttons(void);
 
 /**
@@ -95,3 +114,10 @@ float get_i2c_adc_oil_press(void);
  * Read outdoor temperature from ADS1115 ADC with NTC lookup table
  */
 float get_i2c_adc_outside_temp(void);
+
+/**
+ * Return the state of the testmode_activation
+ */
+inline bool is_testmode_activated(void) {
+    return testmode_activated;
+}

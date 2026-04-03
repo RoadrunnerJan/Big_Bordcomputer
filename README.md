@@ -33,8 +33,28 @@ The datasheets for the used components can be found in the `datasheets/` directo
 
 - **FreeRTOS Tasks** for scheduling different operations
 - **LVGL** for designing the gauges
-- **ADC Sampling** of sensor values or alternatively **PWM Sampling** of oil pressure and oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201
-- **Modular Architecture** with separate directories for calculation, logging, LVGL-UI, and peripherals
+- **ADC Sampling** of sensor values oder alternativ **PWM Sampling** of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201
+- **Modular Architecture** mit separate directories für calculation, logging, LVGL-UI, und peripherals
+
+## Testmodus aktivieren
+
+Im Testmodus werden sensorkritische Werte simuliert und die UI-Anzeige automatisch durchlaufen.
+Der Modus wird durch eine spezielle Tastenkombination innerhalb von `TESTMODE_ACTIVATE_TIMEOUT_MS` (7 Sekunden) aktiviert:
+
+1. `BUTTON_CLOCK_MINUTE_PIN` (Minute) kurz drücken x2 (Minute reduzieren)
+2. `BUTTON_CLOCK_HOUR_PIN` (Stunde) kurz drücken x1 (Stunde reduzieren)
+3. `BUTTON_CLOCK_MINUTE_PIN` kurz drücken x2 (Minute erhöhen)
+4. `BUTTON_CLOCK_HOUR_PIN` kurz drücken x1 (Stunde erhöhen und Testmodus umschalten)
+
+Wenn erfolgreich, erscheint im Log:
+- `"Test mode ACTIVATED!"` oder `"Test mode DEACTIVATED!"`
+
+Die Aktivierungsparameter sind definiert in `main/individual_config.h`:
+- `TESTMODE_ACTIVATE_TIMEOUT_MS` (=7000)
+- `TESTMODE_ACTIVATE_BUTTON_1_COUNT` (=2)
+- `TESTMODE_ACTIVATE_BUTTON_2_COUNT` (=1)
+- `TESTMODE_ACTIVATE_BUTTON_3_COUNT` (=2)
+- `TESTMODE_ACTIVATE_BUTTON_4_COUNT` (=1)
 
 ## How to Flash the Project
 

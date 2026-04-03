@@ -25,5 +25,9 @@ var i2c_functions_8c =
     [ "ds3231_handle", "i2c_functions_8c.html#a992ab7409747ebf3a31ff7643d9720f2", null ],
     [ "gpio_cfg_time", "i2c_functions_8c.html#a50b1fe2759bea9706faf3ed4eb6e815c", null ],
     [ "oil_temp_table", "i2c_functions_8c.html#a32a907f8cf265cd25cd40c6acf9b56d4", null ],
-    [ "outside_temperature_table", "i2c_functions_8c.html#a8e60f82a011434b87b9c2c9937914fc2", null ]
+    [ "outside_temperature_table", "i2c_functions_8c.html#a8e60f82a011434b87b9c2c9937914fc2", null ],
+    [ "testmode_activated", "i2c_functions_8c.html#afa9e8129f0495e4719121defad0fa0d6", null ],
+    [ "testmode_activation_count", "i2c_functions_8c.html#a6291b474d126cd2545e39479ac119bd2", null ],
+    [ "testmode_activation_state", "i2c_functions_8c.html#adaf37611e9f0c039d25b49384b649b5f", null ],
+    [ "testmode_activation_time", "i2c_functions_8c.html#a63b736710f6e0f87dce37e12e89993ff", null ]
 ];

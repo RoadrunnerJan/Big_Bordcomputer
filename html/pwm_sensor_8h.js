@@ -2,9 +2,9 @@ var pwm_sensor_8h =
 [
     [ "value_pair_t", "structvalue__pair__t.html", "structvalue__pair__t" ],
     [ "sensor_data_t", "structsensor__data__t.html", "structsensor__data__t" ],
-    [ "create_timer_pwm", "pwm_sensor_8h.html#acfba7208623b9fc55b8d9a308978e656", null ],
     [ "get_pwm_value", "pwm_sensor_8h.html#a5b0bb12e2a7bf9876ea3c788cb0557ec", null ],
     [ "pwm_sensor_init", "pwm_sensor_8h.html#af4221afe7e5ed42055dad84c45e67e05", null ],
+    [ "pwm_sensor_print", "pwm_sensor_8h.html#aa31dd9471c53c6a3067184376203c6c0", null ],
     [ "cap_chan", "pwm_sensor_8h.html#a390a3b3b4d255b9b028df7470bdb5984", null ],
     [ "cap_timer", "pwm_sensor_8h.html#a5ed357c7a9126137678740c82e6a54c7", null ],
     [ "cbs", "pwm_sensor_8h.html#aacf93a512496094d35a83945c8a6f3e1", null ],

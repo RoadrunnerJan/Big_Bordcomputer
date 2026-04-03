@@ -33,5 +33,6 @@ var searchData=
   ['adc_5fvolt_5fbel_5fads_5fpullup_30',['ADC_VOLT_BEL_ADS_PULLUP',['../individual__config_8h.html#a8bc5610280c6f585ee54a20f8f350032',1,'individual_config.h']]],
   ['ads_5fcfg_31',['ads_cfg',['../i2c_functions_8c.html#acb5ddf7923f8366395f68b86c77d6059',1,'ads_cfg:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#acb5ddf7923f8366395f68b86c77d6059',1,'ads_cfg:&#160;i2cFunctions.c']]],
   ['ads_5fhandle_32',['ads_handle',['../i2c_functions_8c.html#a7f84388a86187f1b6076f572802a2392',1,'ads_handle:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a7f84388a86187f1b6076f572802a2392',1,'ads_handle:&#160;i2cFunctions.c']]],
-  ['app_5fmain_33',['app_main',['../main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70',1,'main.c']]]
+  ['aktivieren_33',['Testmodus aktivieren',['../index.html#autotoc_md3',1,'']]],
+  ['app_5fmain_34',['app_main',['../main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70',1,'main.c']]]
 ];

@@ -16,7 +16,6 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define TESTMODE                           true   // true: run in simulation mode (no real sensors required)
 #define USE_BUZZER                         false  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
@@ -427,16 +426,27 @@
 #define VALUE_DEFAULT_PRES                 0.0
 #define VALUE_DEFAULT_TEMP                 0
 #define VALUE_DEFAULT_VOLT                 8.0
-#define VALUE_DEFAULT_OUT_TEMP             -30
+#define VALUE_DEFAULT_OUT_TEMP             0
 #define VALUE_DEFAULT_BRIGHT               BRIGHTNESS_DAY
 #define VALUE_DEFAULT_NIGHT_MODE           false
 
 #define VALUE_MIN_PRES                     VALUE_DEFAULT_PRES
 #define VALUE_MIN_TEMP                     VALUE_DEFAULT_TEMP
 #define VALUE_MIN_VOLT                     VALUE_DEFAULT_VOLT
-#define VALUE_MIN_OUT_TEMP                 VALUE_DEFAULT_OUT_TEMP
+#define VALUE_MIN_OUT_TEMP                 -30
 
 #define VALUE_MAX_PRES                     6.0
 #define VALUE_MAX_TEMP                     150
 #define VALUE_MAX_VOLT                     16.0
 #define VALUE_MAX_OUT_TEMP                 70
+
+/*
+#################################################################################
+    Enable Testmode Settings
+#################################################################################
+*/
+#define TESTMODE_ACTIVATE_TIMEOUT_MS      7000
+#define TESTMODE_ACTIVATE_BUTTON_1_COUNT  2 // Press minute button 2 times within timeout to decrease minute
+#define TESTMODE_ACTIVATE_BUTTON_2_COUNT  1 // Press hour button 1 times within timeout to decrease hour
+#define TESTMODE_ACTIVATE_BUTTON_3_COUNT  2 // Press minute button 2 times within timeout to increase minute
+#define TESTMODE_ACTIVATE_BUTTON_4_COUNT  1 // Press hour button 1 times within timeout to increase hour and (de-)activate test mode

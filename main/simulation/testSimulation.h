@@ -23,6 +23,8 @@
 /* ===== System Includes ===== */
 #include "esp_system.h"
 
+#include "../individual_config.h"
+
 
 /* ===== Test Value Storage ===== */
 
@@ -94,3 +96,5 @@ int getBrightnessTestValue(void);
  * Get current night mode test state
  */
 bool getNightModeActiveTestValue(void);
+
+void reset_test_values(void);

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['customizable_20esp32_20boardcomputer_0',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]]
+  ['big_5fboardcomputer_0',['Big_Boardcomputer',['../index.html',1,'']]],
+  ['boardcomputer_1',['Customizable ESP32 Boardcomputer',['../index.html#autotoc_md0',1,'']]]
 ];

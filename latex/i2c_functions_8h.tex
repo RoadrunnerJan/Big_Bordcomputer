@@ -12,6 +12,7 @@ I2C interface for DS3231 RTC and ADS1115 ADC.
 {\ttfamily \+\#include "{}freertos/\+\+Free\+RTOS.\+h"{}}\newline
 {\ttfamily \+\#include "{}freertos/\+task.\+h"{}}\newline
 {\ttfamily \+\#include $<$sys/\+time.\+h$>$}\newline
+{\ttfamily \+\#include "{}../\+logging/\+logging.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,6 +43,8 @@ float \doxymbox{\hyperlink{i2c_functions_8h_aff35661486adfbe819f76fe6ad43d150}{g
 float \doxymbox{\hyperlink{i2c_functions_8h_a05b124606279b3e9d0dd924ae260801a}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press}} (void)
 \item 
 float \doxymbox{\hyperlink{i2c_functions_8h_ad8d1640b3b5cc5a310abfa729975e2bc}{get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp}} (void)
+\item 
+bool \doxymbox{\hyperlink{i2c_functions_8h_ad1e08059bfd9523c7db8c2a021dd00e0}{is\+\_\+testmode\+\_\+activated}} (void)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -67,6 +70,14 @@ button\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_ac817f20c65ad9af
 const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
 \item 
 const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
+\item 
+bool \doxymbox{\hyperlink{i2c_functions_8h_afa9e8129f0495e4719121defad0fa0d6}{testmode\+\_\+activated}}
+\item 
+Tick\+Type\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a63b736710f6e0f87dce37e12e89993ff}{testmode\+\_\+activation\+\_\+time}}
+\item 
+int \doxymbox{\hyperlink{i2c_functions_8h_a6291b474d126cd2545e39479ac119bd2}{testmode\+\_\+activation\+\_\+count}}
+\item 
+int \doxymbox{\hyperlink{i2c_functions_8h_adaf37611e9f0c039d25b49384b649b5f}{testmode\+\_\+activation\+\_\+state}}
 \end{DoxyCompactItemize}
 
 
@@ -149,19 +160,29 @@ Read brightness/\+light sensor voltage from ADS1115 ADC \Hypertarget{i2c_functio
 {\footnotesize\ttfamily \label{i2c_functions_8h_a44ff2fa430fff0f39b4bb6e017dc2f46} 
 void init\+\_\+i2c (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}\index{i2cFunctions.h@{i2cFunctions.h}!init\_time\_buttons@{init\_time\_buttons}}
+Initialize I2C bus and attach connected sensors (RTC and ADC).
+
+Initialize I2C bus and attach RTC and ADC devices.
+
+Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-\/device support. \Hypertarget{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893}\index{i2cFunctions.h@{i2cFunctions.h}!init\_time\_buttons@{init\_time\_buttons}}
 \index{init\_time\_buttons@{init\_time\_buttons}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{init\_time\_buttons()}{init\_time\_buttons()}}
 {\footnotesize\ttfamily \label{i2c_functions_8h_adefb1faa97f5dcd7f89a4327b3d4a893} 
 void init\+\_\+time\+\_\+buttons (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{i2c_functions_8h_a6b780707272c87024478d0879e480195}\index{i2cFunctions.h@{i2cFunctions.h}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
+Initialize the time adjustment buttons and callbacks. \Hypertarget{i2c_functions_8h_ad1e08059bfd9523c7db8c2a021dd00e0}\index{i2cFunctions.h@{i2cFunctions.h}!is\_testmode\_activated@{is\_testmode\_activated}}
+\index{is\_testmode\_activated@{is\_testmode\_activated}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{is\_testmode\_activated()}{is\_testmode\_activated()}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_ad1e08059bfd9523c7db8c2a021dd00e0} 
+bool is\+\_\+testmode\+\_\+activated (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the state of the testmode\+\_\+activation \Hypertarget{i2c_functions_8h_a6b780707272c87024478d0879e480195}\index{i2cFunctions.h@{i2cFunctions.h}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
 \index{sync\_rtc\_to\_system@{sync\_rtc\_to\_system}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{sync\_rtc\_to\_system()}{sync\_rtc\_to\_system()}}
 {\footnotesize\ttfamily \label{i2c_functions_8h_a6b780707272c87024478d0879e480195} 
 void sync\+\_\+rtc\+\_\+to\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-
+Sync system time with RTC DS3231 time. 
 
 \label{doc-var-members}
 \Hypertarget{i2c_functions_8h_doc-var-members}
@@ -231,4 +252,28 @@ const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} oil\+\_\
 \doxysubsubsection{\texorpdfstring{outside\_temperature\_table}{outside\_temperature\_table}}
 {\footnotesize\ttfamily \label{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2} 
 const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.h@{i2cFunctions.h}!testmode\_activated@{testmode\_activated}}
+\index{testmode\_activated@{testmode\_activated}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{testmode\_activated}{testmode\_activated}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_afa9e8129f0495e4719121defad0fa0d6} 
+bool testmode\+\_\+activated\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a6291b474d126cd2545e39479ac119bd2}\index{i2cFunctions.h@{i2cFunctions.h}!testmode\_activation\_count@{testmode\_activation\_count}}
+\index{testmode\_activation\_count@{testmode\_activation\_count}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{testmode\_activation\_count}{testmode\_activation\_count}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a6291b474d126cd2545e39479ac119bd2} 
+int testmode\+\_\+activation\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_adaf37611e9f0c039d25b49384b649b5f}\index{i2cFunctions.h@{i2cFunctions.h}!testmode\_activation\_state@{testmode\_activation\_state}}
+\index{testmode\_activation\_state@{testmode\_activation\_state}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{testmode\_activation\_state}{testmode\_activation\_state}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_adaf37611e9f0c039d25b49384b649b5f} 
+int testmode\+\_\+activation\+\_\+state\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{i2c_functions_8h_a63b736710f6e0f87dce37e12e89993ff}\index{i2cFunctions.h@{i2cFunctions.h}!testmode\_activation\_time@{testmode\_activation\_time}}
+\index{testmode\_activation\_time@{testmode\_activation\_time}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{testmode\_activation\_time}{testmode\_activation\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a63b736710f6e0f87dce37e12e89993ff} 
+Tick\+Type\+\_\+t testmode\+\_\+activation\+\_\+time\hspace{0.3cm}{\ttfamily [extern]}}
 

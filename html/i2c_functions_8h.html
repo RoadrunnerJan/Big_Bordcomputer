@@ -101,6 +101,7 @@ $(function(){initNavTree('i2c_functions_8h.html','',''); });
 <code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
 <code>#include &quot;freertos/task.h&quot;</code><br />
 <code>#include &lt;sys/time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="logging_8h_source.html">../logging/logging.h</a>&quot;</code><br />
 </div>
 <p><a href="i2c_functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -123,6 +124,7 @@ Functions</h2></td></tr>
 <tr class="memitem:aff35661486adfbe819f76fe6ad43d150" id="r_aff35661486adfbe819f76fe6ad43d150"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aff35661486adfbe819f76fe6ad43d150">get_i2c_adc_oil_temp</a> (void)</td></tr>
 <tr class="memitem:a05b124606279b3e9d0dd924ae260801a" id="r_a05b124606279b3e9d0dd924ae260801a"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a05b124606279b3e9d0dd924ae260801a">get_i2c_adc_oil_press</a> (void)</td></tr>
 <tr class="memitem:ad8d1640b3b5cc5a310abfa729975e2bc" id="r_ad8d1640b3b5cc5a310abfa729975e2bc"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ad8d1640b3b5cc5a310abfa729975e2bc">get_i2c_adc_outside_temp</a> (void)</td></tr>
+<tr class="memitem:ad1e08059bfd9523c7db8c2a021dd00e0" id="r_ad1e08059bfd9523c7db8c2a021dd00e0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad1e08059bfd9523c7db8c2a021dd00e0">is_testmode_activated</a> (void)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -137,6 +139,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ac817f20c65ad9af1ef7b4f85ab389df7" id="r_ac817f20c65ad9af1ef7b4f85ab389df7"><td class="memItemLeft">button_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ac817f20c65ad9af1ef7b4f85ab389df7">btn_time</a> [2]</td></tr>
 <tr class="memitem:a32a907f8cf265cd25cd40c6acf9b56d4" id="r_a32a907f8cf265cd25cd40c6acf9b56d4"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a32a907f8cf265cd25cd40c6acf9b56d4">oil_temp_table</a> []</td></tr>
 <tr class="memitem:a8e60f82a011434b87b9c2c9937914fc2" id="r_a8e60f82a011434b87b9c2c9937914fc2"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8e60f82a011434b87b9c2c9937914fc2">outside_temperature_table</a> []</td></tr>
+<tr class="memitem:afa9e8129f0495e4719121defad0fa0d6" id="r_afa9e8129f0495e4719121defad0fa0d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa9e8129f0495e4719121defad0fa0d6">testmode_activated</a></td></tr>
+<tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a></td></tr>
+<tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a></td></tr>
+<tr class="memitem:adaf37611e9f0c039d25b49384b649b5f" id="r_adaf37611e9f0c039d25b49384b649b5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#adaf37611e9f0c039d25b49384b649b5f">testmode_activation_state</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>I2C interface for DS3231 RTC and ADS1115 ADC. </p>
@@ -285,6 +291,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize I2C bus and attach connected sensors (RTC and ADC).</p>
+<p>Initialize I2C bus and attach RTC and ADC devices.</p>
+<p>Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-device support. </p>
 
 </div>
 </div>
@@ -302,6 +311,33 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize the time adjustment buttons and callbacks. </p>
+
+</div>
+</div>
+<a id="ad1e08059bfd9523c7db8c2a021dd00e0" name="ad1e08059bfd9523c7db8c2a021dd00e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e08059bfd9523c7db8c2a021dd00e0">&#9670;&#160;</a></span>is_testmode_activated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_testmode_activated </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return the state of the testmode_activation </p>
 
 </div>
 </div>
@@ -319,6 +355,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sync system time with RTC DS3231 time. </p>
 
 </div>
 </div>
@@ -554,6 +591,94 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="structntc__table__t.html">ntc_table_t</a> outside_temperature_table[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa9e8129f0495e4719121defad0fa0d6" name="afa9e8129f0495e4719121defad0fa0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9e8129f0495e4719121defad0fa0d6">&#9670;&#160;</a></span>testmode_activated</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool testmode_activated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6291b474d126cd2545e39479ac119bd2" name="a6291b474d126cd2545e39479ac119bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6291b474d126cd2545e39479ac119bd2">&#9670;&#160;</a></span>testmode_activation_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int testmode_activation_count</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaf37611e9f0c039d25b49384b649b5f" name="adaf37611e9f0c039d25b49384b649b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf37611e9f0c039d25b49384b649b5f">&#9670;&#160;</a></span>testmode_activation_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int testmode_activation_state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63b736710f6e0f87dce37e12e89993ff" name="a63b736710f6e0f87dce37e12e89993ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b736710f6e0f87dce37e12e89993ff">&#9670;&#160;</a></span>testmode_activation_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TickType_t testmode_activation_time</td>
         </tr>
       </table>
   </td>

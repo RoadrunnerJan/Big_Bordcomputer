@@ -14,7 +14,7 @@ double \doxymbox{\hyperlink{pwm_sensor_8c_a5b0bb12e2a7bf9876ea3c788cb0557ec}{get
 \item 
 void \doxymbox{\hyperlink{pwm_sensor_8c_af4221afe7e5ed42055dad84c45e67e05}{pwm\+\_\+sensor\+\_\+init}} (void)
 \item 
-void \doxymbox{\hyperlink{pwm_sensor_8c_acfba7208623b9fc55b8d9a308978e656}{create\+\_\+timer\+\_\+pwm}} (void)
+void \doxymbox{\hyperlink{pwm_sensor_8c_aa31dd9471c53c6a3067184376203c6c0}{pwm\+\_\+sensor\+\_\+print}} (void)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -60,13 +60,7 @@ double calc\+\_\+pressure (\begin{DoxyParamCaption}\item[{int}]{value\+\_\+us}{}
 {\footnotesize\ttfamily \label{pwm_sensor_8c_a4fca20117a4d3091181ab8c17531ad06} 
 double calc\+\_\+temperature (\begin{DoxyParamCaption}\item[{int}]{value\+\_\+us}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{pwm_sensor_8c_acfba7208623b9fc55b8d9a308978e656}\index{pwmSensor.c@{pwmSensor.c}!create\_timer\_pwm@{create\_timer\_pwm}}
-\index{create\_timer\_pwm@{create\_timer\_pwm}!pwmSensor.c@{pwmSensor.c}}
-\doxysubsubsection{\texorpdfstring{create\_timer\_pwm()}{create\_timer\_pwm()}}
-{\footnotesize\ttfamily \label{pwm_sensor_8c_acfba7208623b9fc55b8d9a308978e656} 
-void create\+\_\+timer\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Create and configure MCPWM timer for pulse capture \Hypertarget{pwm_sensor_8c_a9611459e5cb91b8c3553496303bbab4b}\index{pwmSensor.c@{pwmSensor.c}!get\_diag@{get\_diag}}
+\Hypertarget{pwm_sensor_8c_a9611459e5cb91b8c3553496303bbab4b}\index{pwmSensor.c@{pwmSensor.c}!get\_diag@{get\_diag}}
 \index{get\_diag@{get\_diag}!pwmSensor.c@{pwmSensor.c}}
 \doxysubsubsection{\texorpdfstring{get\_diag()}{get\_diag()}}
 {\footnotesize\ttfamily \label{pwm_sensor_8c_a9611459e5cb91b8c3553496303bbab4b} 
@@ -78,13 +72,15 @@ int get\+\_\+diag (\begin{DoxyParamCaption}\item[{int}]{value\+\_\+us}{}\end{Dox
 {\footnotesize\ttfamily \label{pwm_sensor_8c_a5b0bb12e2a7bf9876ea3c788cb0557ec} 
 double get\+\_\+pwm\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
 
-Get decoded sensor value by pulse ID 
+Get the last decoded PWM value for a sensor by ID.
+
+
 \begin{DoxyParams}{Parameters}
-{\em id} & Pulse ID (PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID, PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID, etc.) \\
+{\em id} & PWM sensor ID (temperature, pressure, diagnostic) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Decoded value or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error 
+Calculated sensor value, or -\/99 if value not updated. 
 \end{DoxyReturn}
 \Hypertarget{pwm_sensor_8c_af4221afe7e5ed42055dad84c45e67e05}\index{pwmSensor.c@{pwmSensor.c}!pwm\_sensor\_init@{pwm\_sensor\_init}}
 \index{pwm\_sensor\_init@{pwm\_sensor\_init}!pwmSensor.c@{pwmSensor.c}}
@@ -92,7 +88,15 @@ Decoded value or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error
 {\footnotesize\ttfamily \label{pwm_sensor_8c_af4221afe7e5ed42055dad84c45e67e05} 
 void pwm\+\_\+sensor\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize PWM sensor MCPWM capture hardware 
+Initialize PWM sensor capture on configured GPIO pin.
+
+Sets up MCPWM capture timer/\+channel with edge callbacks and starts capture. \Hypertarget{pwm_sensor_8c_aa31dd9471c53c6a3067184376203c6c0}\index{pwmSensor.c@{pwmSensor.c}!pwm\_sensor\_print@{pwm\_sensor\_print}}
+\index{pwm\_sensor\_print@{pwm\_sensor\_print}!pwmSensor.c@{pwmSensor.c}}
+\doxysubsubsection{\texorpdfstring{pwm\_sensor\_print()}{pwm\_sensor\_print()}}
+{\footnotesize\ttfamily \label{pwm_sensor_8c_aa31dd9471c53c6a3067184376203c6c0} 
+void pwm\+\_\+sensor\+\_\+print (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Print last read PWM sensor values for debugging. 
 
 \label{doc-var-members}
 \Hypertarget{pwm_sensor_8c_doc-var-members}

@@ -46,6 +46,12 @@ inline int get_diag(int value_us) {
 inline double calc_temperature(int value_us){ return ((double) value_us + PWM_SENSOR_TEMP_CALC_VALUE_1) / PWM_SENSOR_TEMP_CALC_VALUE_2; }
 inline double calc_pressure(int value_us){ return ((double) value_us + PWM_SENSOR_PRES_CALC_VALUE_1) / PWM_SENSOR_PRES_CALC_VALUE_2; }
 
+/**
+ * Get the last decoded PWM value for a sensor by ID.
+ *
+ * @param id PWM sensor ID (temperature, pressure, diagnostic)
+ * @return Calculated sensor value, or -99 if value not updated.
+ */
 double get_pwm_value(int id)
 {
     if (latest_sensor_values.update_count == last_seen_count) return -99;
@@ -57,6 +63,11 @@ double get_pwm_value(int id)
     }
 }
 
+/**
+ * MCPWM capture callback reacting on rising/falling edges.
+ *
+ * Parses pulse width and period into sensor data buckets and tracks sequence state.
+ */
 static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data)
 {
     if (edata->cap_edge == MCPWM_CAP_EDGE_POS) {
@@ -109,6 +120,11 @@ static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, 
     return false;
 }
 
+/**
+ * Initialize PWM sensor capture on configured GPIO pin.
+ *
+ * Sets up MCPWM capture timer/channel with edge callbacks and starts capture.
+ */
 void pwm_sensor_init(void){
     timer_config.group_id = 0;
     timer_config.clk_src = MCPWM_CAPTURE_CLK_SRC_DEFAULT;
@@ -130,44 +146,31 @@ void pwm_sensor_init(void){
     mcpwm_capture_channel_enable(cap_chan);
 }
 
-#if TESTMODE == true
-    static void pwm_sensor_print(void *pv)
-    {
-        (void)pv;   
+/**
+ * Print last read PWM sensor values for debugging.
+ */
+void pwm_sensor_print(void)
+{
+    // Check if new data has arrived since last print
+    if (latest_sensor_values.update_count != last_seen_count) {
+        last_seen_count = latest_sensor_values.update_count;
         
-        while (true) {
-            
-            // Check if new data has arrived since last print
-            if (latest_sensor_values.update_count != last_seen_count) {
-                last_seen_count = latest_sensor_values.update_count;
-                
-                printf("AKTUELL -> Temp: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
-                        calc_temperature(latest_sensor_values.temp_us.value_us),
-                        latest_sensor_values.temp_us.value_us, 
-                        latest_sensor_values.temp_us.period_us, 
-                        last_seen_count);
-                printf("AKTUELL -> Druck %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
-                        calc_pressure(latest_sensor_values.press_us.value_us),
-                        latest_sensor_values.press_us.value_us, 
-                        latest_sensor_values.press_us.period_us, 
-                        last_seen_count);
-                printf("AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)\n", 
-                        latest_sensor_values.diag_us.value_us, 
-                        latest_sensor_values.diag_us.period_us, 
-                        last_seen_count);
-            }
-            else {
-                printf("Waiting for sensor signal...\n");
-            }
-            vTaskDelay(pdMS_TO_TICKS(200)); 
-        }
+        printf("AKTUELL -> Temp: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
+                calc_temperature(latest_sensor_values.temp_us.value_us),
+                latest_sensor_values.temp_us.value_us, 
+                latest_sensor_values.temp_us.period_us, 
+                last_seen_count);
+        printf("AKTUELL -> Druck %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
+                calc_pressure(latest_sensor_values.press_us.value_us),
+                latest_sensor_values.press_us.value_us, 
+                latest_sensor_values.press_us.period_us, 
+                last_seen_count);
+        printf("AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)\n", 
+                latest_sensor_values.diag_us.value_us, 
+                latest_sensor_values.diag_us.period_us, 
+                last_seen_count);
     }
-
-    void create_timer_pwm(void)
-    {
-        xTaskCreatePinnedToCore(pwm_sensor_print, "pwm_sensor_print", 8192, NULL, 15, NULL, 0);
+    else {
+        printf("Waiting for sensor signal...\n");
     }
-
-#else
-    void create_timer_pwm(void) {} // Dummy function to avoid compilation errors in main.c
-#endif
+}

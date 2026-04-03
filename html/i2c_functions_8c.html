@@ -124,6 +124,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ac817f20c65ad9af1ef7b4f85ab389df7" id="r_ac817f20c65ad9af1ef7b4f85ab389df7"><td class="memItemLeft">button_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ac817f20c65ad9af1ef7b4f85ab389df7">btn_time</a> [2] = {0}</td></tr>
 <tr class="memitem:a32a907f8cf265cd25cd40c6acf9b56d4" id="r_a32a907f8cf265cd25cd40c6acf9b56d4"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a32a907f8cf265cd25cd40c6acf9b56d4">oil_temp_table</a> []</td></tr>
 <tr class="memitem:a8e60f82a011434b87b9c2c9937914fc2" id="r_a8e60f82a011434b87b9c2c9937914fc2"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8e60f82a011434b87b9c2c9937914fc2">outside_temperature_table</a> []</td></tr>
+<tr class="memitem:afa9e8129f0495e4719121defad0fa0d6" id="r_afa9e8129f0495e4719121defad0fa0d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa9e8129f0495e4719121defad0fa0d6">testmode_activated</a> = false</td></tr>
+<tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a> = 0</td></tr>
+<tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a> = 0</td></tr>
+<tr class="memitem:adaf37611e9f0c039d25b49384b649b5f" id="r_adaf37611e9f0c039d25b49384b649b5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#adaf37611e9f0c039d25b49384b649b5f">testmode_activation_state</a> = 0</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a0f7a9fea6e3ea1106a9b5485f7f8df61" name="a0f7a9fea6e3ea1106a9b5485f7f8df61"></a>
@@ -190,6 +194,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Write the given time struct into the DS3231 RTC.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Pointer to struct tm containing the desired time to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ESP_OK on success, error code otherwise. </dd></dl>
 
 </div>
 </div>
@@ -297,6 +309,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize I2C bus and attach RTC and ADC devices.</p>
+<p>Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-device support. </p>
 
 </div>
 </div>
@@ -314,6 +328,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialize the time adjustment buttons and callbacks. </p>
 
 </div>
 </div>
@@ -331,6 +346,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Interpolate temperature from outside NTC table.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r_measured</td><td>Measured resistance in Ohm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Interpolated temperature in °C or ADC_FAIL_VALUE for invalid. </dd></dl>
 
 </div>
 </div>
@@ -369,6 +392,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Convert raw ADS1115 value to resistance, with validation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">raw</td><td>Raw ADC sample from ADS1115. </td></tr>
+    <tr><td class="paramname">r_pullup</td><td>Pull-up resistance value in Ohms. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Calculated resistance in Ohms or ADC_FAIL_VALUE on error. </dd></dl>
 
 </div>
 </div>
@@ -395,6 +427,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Read raw ADC data from ADS1115 on a specific channel.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dev</td><td>ADS1115 device handle. </td></tr>
+    <tr><td class="paramname">channel</td><td>ADC channel index (0..3). </td></tr>
+    <tr><td class="paramname">pga_setting</td><td>PGA configuration bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Signed 16-bit ADC conversion value. </dd></dl>
 
 </div>
 </div>
@@ -412,6 +454,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sync system time with RTC DS3231 time. </p>
 
 </div>
 </div>
@@ -580,6 +623,62 @@ Variables</h2></td></tr>
 <div class="line">    {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="afa9e8129f0495e4719121defad0fa0d6" name="afa9e8129f0495e4719121defad0fa0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9e8129f0495e4719121defad0fa0d6">&#9670;&#160;</a></span>testmode_activated</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool testmode_activated = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6291b474d126cd2545e39479ac119bd2" name="a6291b474d126cd2545e39479ac119bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6291b474d126cd2545e39479ac119bd2">&#9670;&#160;</a></span>testmode_activation_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int testmode_activation_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adaf37611e9f0c039d25b49384b649b5f" name="adaf37611e9f0c039d25b49384b649b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf37611e9f0c039d25b49384b649b5f">&#9670;&#160;</a></span>testmode_activation_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int testmode_activation_state = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63b736710f6e0f87dce37e12e89993ff" name="a63b736710f6e0f87dce37e12e89993ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b736710f6e0f87dce37e12e89993ff">&#9670;&#160;</a></span>testmode_activation_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TickType_t testmode_activation_time = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 </div><!-- contents -->

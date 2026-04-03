@@ -10,6 +10,7 @@ var i2c_functions_8h =
     [ "get_i2c_adc_volt_bel", "i2c_functions_8h.html#a67126ffb5167e564aa3217b6bf69d878", null ],
     [ "init_i2c", "i2c_functions_8h.html#a44ff2fa430fff0f39b4bb6e017dc2f46", null ],
     [ "init_time_buttons", "i2c_functions_8h.html#adefb1faa97f5dcd7f89a4327b3d4a893", null ],
+    [ "is_testmode_activated", "i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0", null ],
     [ "sync_rtc_to_system", "i2c_functions_8h.html#a6b780707272c87024478d0879e480195", null ],
     [ "ads_cfg", "i2c_functions_8h.html#acb5ddf7923f8366395f68b86c77d6059", null ],
     [ "ads_handle", "i2c_functions_8h.html#a7f84388a86187f1b6076f572802a2392", null ],
@@ -21,5 +22,9 @@ var i2c_functions_8h =
     [ "ds3231_handle", "i2c_functions_8h.html#a992ab7409747ebf3a31ff7643d9720f2", null ],
     [ "gpio_cfg_time", "i2c_functions_8h.html#a50b1fe2759bea9706faf3ed4eb6e815c", null ],
     [ "oil_temp_table", "i2c_functions_8h.html#a32a907f8cf265cd25cd40c6acf9b56d4", null ],
-    [ "outside_temperature_table", "i2c_functions_8h.html#a8e60f82a011434b87b9c2c9937914fc2", null ]
+    [ "outside_temperature_table", "i2c_functions_8h.html#a8e60f82a011434b87b9c2c9937914fc2", null ],
+    [ "testmode_activated", "i2c_functions_8h.html#afa9e8129f0495e4719121defad0fa0d6", null ],
+    [ "testmode_activation_count", "i2c_functions_8h.html#a6291b474d126cd2545e39479ac119bd2", null ],
+    [ "testmode_activation_state", "i2c_functions_8h.html#adaf37611e9f0c039d25b49384b649b5f", null ],
+    [ "testmode_activation_time", "i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff", null ]
 ];

@@ -25,6 +25,6 @@ var searchData=
   ['spifunctions_2ec_22',['spiFunctions.c',['../spi_functions_8c.html',1,'']]],
   ['spifunctions_2eh_23',['spiFunctions.h',['../spi_functions_8h.html',1,'']]],
   ['startuptime_24',['StartUpTime',['../main_8c.html#a6e518afa23f4d64bf5cadee75e8af186',1,'main.c']]],
-  ['structure_25',['Project Structure',['../index.html#autotoc_md4',1,'']]],
+  ['structure_25',['Project Structure',['../index.html#autotoc_md5',1,'']]],
   ['sync_5frtc_5fto_5fsystem_26',['sync_rtc_to_system',['../i2c_functions_8c.html#a5aff81bc1133144c01eff1b172944ba9',1,'sync_rtc_to_system():&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a6b780707272c87024478d0879e480195',1,'sync_rtc_to_system(void):&#160;i2cFunctions.c']]]
 ];
