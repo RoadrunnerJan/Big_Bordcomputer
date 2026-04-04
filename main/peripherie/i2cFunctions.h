@@ -73,6 +73,9 @@ extern TickType_t testmode_activation_time;
 extern int testmode_activation_count;
 extern int testmode_activation_state;
 
+/* ===== Reference Voltage ===== */
+extern float reference_voltage;
+
 /* ===== Function Declarations ===== */
 
 /**
@@ -114,6 +117,11 @@ float get_i2c_adc_oil_press(void);
  * Read outdoor temperature from ADS1115 ADC with NTC lookup table
  */
 float get_i2c_adc_outside_temp(void);
+
+/**
+ * Read reference voltage from ADS1115 ADC (Version 4.2 feature)
+ */
+void get_i2c_adc_reference_voltage(void);
 
 /**
  * Return the state of the testmode_activation

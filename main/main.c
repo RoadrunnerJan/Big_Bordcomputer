@@ -314,6 +314,11 @@ static void lv_tick_task_screen(void *pv)
             }
         }
 
+        // Read reference voltage for ADC calculations (Version 4.2 feature)
+        if(!is_testmode_activated()) {
+            get_i2c_adc_reference_voltage();
+        }
+
         // Phase 1: Update all sensor values and LVGL variables for all displays
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
             update_values(i);

@@ -389,7 +389,8 @@
 #define ADC_VOLT_BEL_ADS_CHANNEL           1       // Brightness/Light sensor
 #define ADC_TEMP_ADS_CHANNEL               2       // oil temperature
 #define ADC_PRES_ADS_CHANNEL               3       // Oil pressure
-#define ADC_OUT_TEMP_ADS_CHANNEL           4       // Outdoor temperature
+#define ADC_OUT_TEMP_ADS_CHANNEL           0       // Outdoor temperature
+#define ADC_VOLT_REF_CHANNEL               1       // Reference voltage reading (only in Version 4.2)
 
 // Programmable Gain Amplifier (PGA) Settings
 #define ADC_VOLT_ADS_PGA                   0x02
@@ -397,6 +398,7 @@
 #define ADC_TEMP_ADS_PGA                   0x01
 #define ADC_PRES_ADS_PGA                   0x01
 #define ADC_OUT_TEMP_ADS_PGA               0x01
+#define ADC_VOLT_REF_PGA                   0x01
 
 // Pull-up Resistor Values
 #define ADC_VOLT_ADS_PULLUP                10000.0f
@@ -413,6 +415,8 @@
 #define ADC_PRES_ADS_VAL_TO_FAIL_MAX       250.0f
 #define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN   0
 #define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX   150000.0f
+#define ADC_ADS_REF_V_TO_FAIL_MIN          ADC_ADS_REF_V - 0.5f
+#define ADC_ADS_REF_V_TO_FAIL_MAX          ADC_ADS_REF_V + 0.5f
 
 // Pressure Resistance Range Values
 #define ADC_PRES_ADS_VAL_MIN_R             10.0f

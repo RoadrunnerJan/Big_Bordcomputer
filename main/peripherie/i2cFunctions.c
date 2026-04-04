@@ -54,6 +54,7 @@ bool testmode_activated = false;
 TickType_t testmode_activation_time = 0;
 int testmode_activation_count = 0;
 int testmode_activation_state = 0;
+float reference_voltage = ADC_ADS_REF_V; // Default reference voltage for ADC calculations
 
 /**
  * Initialize I2C bus and attach RTC and ADC devices.
@@ -403,7 +404,7 @@ float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
     // Check: If voltage approaches 3.3V -> sensor open or broken cable
     if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return ADC_FAIL_VALUE; // Error signal
-    return (v_adc * r_pullup) / (ADC_ADS_REF_V - v_adc);
+    return (v_adc * r_pullup) / (reference_voltage - v_adc);
 }
 
 float get_i2c_adc_volt() {
@@ -455,5 +456,20 @@ float get_i2c_adc_outside_temp() {
         return outside_t;
     #else 
         return ADC_FAIL_VALUE;
+    #endif
+}
+
+void get_i2c_adc_reference_voltage(){
+    #if NUMBER_OF_ADS1115_DEVICES > 1
+        int16_t raw = read_ads1115(ads_handle[1], ADC_VOLT_REF_CHANNEL, ADC_VOLT_REF_PGA);
+        float v_ref = (raw * LSB_4096) / 1000.0f;
+        if (v_ref <= ADC_ADS_REF_V_TO_FAIL_MIN || v_ref >= ADC_ADS_REF_V_TO_FAIL_MAX) {
+            reference_voltage = ADC_ADS_REF_V; // Invalid reading
+        }
+        else {
+            reference_voltage = v_ref; // Valid reading
+        }
+    #else
+        reference_voltage ADC_ADS_REF_V; // Return default reference voltage if second ADS1115 is not present
     #endif
 }

@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/3",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -191,16 +191,17 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
+              "selected": 2,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#20b710fe-f23a-4313-b388-26175b3b2e72",
-                  "name": "Gauge_Oil_Temperature_Night",
+                  "name": "Gauge_Oil_Temperature",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/3",
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/2",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -227,8 +228,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -248,7 +248,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -1439,16 +1440,17 @@
     "[Gauge_All_E36.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "0": {
+          "0": {},
+          "5": {},
+          "8": {
             "$selected": true
-          },
-          "5": {}
+          }
         }
       },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -247,
+          "y": -303
         },
         "scale": 2
       },
@@ -1482,7 +1484,7 @@
           "x": -120,
           "y": -120
         },
-        "scale": 1.25
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1557,12 +1559,16 @@
     },
     "[Gauge_All_E36.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "8": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
-          "x": -249.00000000000006,
-          "y": -116.75000000000003
+          "x": -228.00000000000006,
+          "y": -252.75000000000003
         },
         "scale": 2
       },
