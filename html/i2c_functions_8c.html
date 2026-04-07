@@ -110,6 +110,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a3f7d5fe4dd5e5530888a288b417417cd" id="r_a3f7d5fe4dd5e5530888a288b417417cd"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3f7d5fe4dd5e5530888a288b417417cd">get_i2c_adc_oil_temp</a> ()</td></tr>
 <tr class="memitem:a9a4ff1f57ce9ff4990f4d77a1be56191" id="r_a9a4ff1f57ce9ff4990f4d77a1be56191"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a9a4ff1f57ce9ff4990f4d77a1be56191">get_i2c_adc_oil_press</a> ()</td></tr>
 <tr class="memitem:a9673141d092ff9b9f4b89d4a0f1590c4" id="r_a9673141d092ff9b9f4b89d4a0f1590c4"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a9673141d092ff9b9f4b89d4a0f1590c4">get_i2c_adc_outside_temp</a> ()</td></tr>
+<tr class="memitem:a9cee2a253f1fd4bafb685724fdd73dad" id="r_a9cee2a253f1fd4bafb685724fdd73dad"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9cee2a253f1fd4bafb685724fdd73dad">get_i2c_adc_reference_voltage</a> (void)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -128,6 +129,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a> = 0</td></tr>
 <tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a> = 0</td></tr>
 <tr class="memitem:adaf37611e9f0c039d25b49384b649b5f" id="r_adaf37611e9f0c039d25b49384b649b5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#adaf37611e9f0c039d25b49384b649b5f">testmode_activation_state</a> = 0</td></tr>
+<tr class="memitem:a55ced10a5ef8304b6466cb0566d2b2f9" id="r_a55ced10a5ef8304b6466cb0566d2b2f9"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a55ced10a5ef8304b6466cb0566d2b2f9">reference_voltage</a> = <a class="el" href="individual__config_8h.html#a8b0ba4b1769c2968e594c5a5642dac0d">ADC_ADS_REF_V</a></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a0f7a9fea6e3ea1106a9b5485f7f8df61" name="a0f7a9fea6e3ea1106a9b5485f7f8df61"></a>
@@ -256,6 +258,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Read outdoor temperature from ADS1115 ADC with NTC lookup table </p>
+
+</div>
+</div>
+<a id="a9cee2a253f1fd4bafb685724fdd73dad" name="a9cee2a253f1fd4bafb685724fdd73dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cee2a253f1fd4bafb685724fdd73dad">&#9670;&#160;</a></span>get_i2c_adc_reference_voltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_i2c_adc_reference_voltage </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Measure and update the ADC reference voltage dynamically.</p>
+<p>Reads the reference voltage from the second ADS1115 device (if available) and updates the global reference_voltage variable for use in <a class="el" href="#a5524d0e119c73860a14f8a581bbb1c85">raw_to_res_safe()</a>. If the measurement is out of valid range, defaults to ADC_ADS_REF_V.</p>
+<p>Read reference voltage from ADS1115 ADC (Version 4.2 feature) </p>
 
 </div>
 </div>
@@ -623,6 +645,21 @@ Variables</h2></td></tr>
 <div class="line">    {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="a55ced10a5ef8304b6466cb0566d2b2f9" name="a55ced10a5ef8304b6466cb0566d2b2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ced10a5ef8304b6466cb0566d2b2f9">&#9670;&#160;</a></span>reference_voltage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float reference_voltage = <a class="el" href="individual__config_8h.html#a8b0ba4b1769c2968e594c5a5642dac0d">ADC_ADS_REF_V</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ADC reference voltage for resistance calculations. Defaults to ADC_ADS_REF_V, but can be updated dynamically via <a class="el" href="#a9cee2a253f1fd4bafb685724fdd73dad">get_i2c_adc_reference_voltage()</a>. </p>
+
 </div>
 </div>
 <a id="afa9e8129f0495e4719121defad0fa0d6" name="afa9e8129f0495e4719121defad0fa0d6"></a>

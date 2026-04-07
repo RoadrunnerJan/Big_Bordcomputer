@@ -56,6 +56,11 @@ extern i2c_master_dev_handle_t ds3231_handle;
 extern i2c_device_config_t ads_cfg[NUMBER_OF_ADS1115_DEVICES];
 extern i2c_master_dev_handle_t ads_handle[NUMBER_OF_ADS1115_DEVICES];
 
+/**
+ * ADC reference voltage for resistance calculations (dynamically adjustable).
+ */
+extern float reference_voltage;
+
 /* ===== Time Adjustment Buttons ===== */
 extern button_config_t cfg_time[2];           // [0] = Hour, [1] = Minute
 extern button_gpio_config_t gpio_cfg_time[2];
@@ -117,6 +122,13 @@ float get_i2c_adc_oil_press(void);
  * Read outdoor temperature from ADS1115 ADC with NTC lookup table
  */
 float get_i2c_adc_outside_temp(void);
+
+/**
+ * Measure and update the ADC reference voltage dynamically.
+ *
+ * Reads from the second ADS1115 ADC device and updates the global reference_voltage.
+ */
+void get_i2c_adc_reference_voltage(void);
 
 /**
  * Read reference voltage from ADS1115 ADC (Version 4.2 feature)

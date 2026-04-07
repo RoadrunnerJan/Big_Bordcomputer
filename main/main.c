@@ -393,7 +393,9 @@ void init_system()
     sync_rtc_to_system();
     printLog("RTC initialized and synchronized to system time.");
     time(&StartUpTime);
-    printf("System started at: %s", ctime(&StartUpTime));
+    char log_msg[50];
+    snprintf(log_msg, sizeof(log_msg), "System started at: %s", ctime(&StartUpTime));
+    printLog(log_msg);
 
     // init buttons
     init_time_buttons();

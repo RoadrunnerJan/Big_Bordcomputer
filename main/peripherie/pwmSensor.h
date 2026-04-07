@@ -27,6 +27,9 @@
 /* ===== Includes ===== */
 #include <inttypes.h>
 
+/* ===== Logging ===== */
+#include "../logging/logging.h"
+
 
 /* ===== PWM Sensor Data Structures ===== */
 

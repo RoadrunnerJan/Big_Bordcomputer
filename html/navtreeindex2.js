@@ -1,5 +1,13 @@
 var NAVTREEINDEX2 =
 {
+"structspi__settings.html#a855b69b94963fd1573535dd338c837e2":[1,0,3,7],
+"structspi__settings.html#aa304a3c7649835fa1f531caa305176f7":[1,0,3,2],
+"structspi__settings.html#ad9971f6ff9373530279ecf6ac81524f7":[1,0,3,9],
+"structvalue__pair__t.html":[1,0,4],
+"structvalue__pair__t.html#a453241182b4d149dc5c579d274f6daa9":[1,0,4,0],
+"structvalue__pair__t.html#a9a82a71b9a9ec6e6189964b6c0b7a510":[1,0,4,1],
+"test_simulation_8c.html":[2,0,0,3,0],
+"test_simulation_8c.html#a26e4a7ae995e133e89b16eb92ab0b67e":[2,0,0,3,0,3],
 "test_simulation_8c.html#a27b1d1f91fab51a18531eb2926295b24":[2,0,0,3,0,11],
 "test_simulation_8c.html#a2fc4081524c0c7d655d7af9562d9f219":[2,0,0,3,0,21],
 "test_simulation_8c.html#a598334365af036bb6f17dc435d7d08c5":[2,0,0,3,0,7],

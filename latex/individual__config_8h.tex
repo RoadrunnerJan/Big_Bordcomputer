@@ -369,7 +369,9 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af50005610971c3d6c13ed45b535ae2b2}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+CHANNEL}}~3
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL}}~4
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a801d1ce041eb806f86e62e9d267fee2b}{ADC\+\_\+\+VOLT\+\_\+\+REF\+\_\+\+CHANNEL}}~1
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a96bbbba1c6864d3b2d442fe07817e31d}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PGA}}~0x02
 \item 
@@ -380,6 +382,8 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a8e13d9dc9dc0391cfdb7e5e5380df333}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+PGA}}~0x01
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af1e7eb0be8fd4c3b74e73c0b0c7b3608}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+PGA}}~0x01
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a5834aff2c850e995ae24a209a84fb4ef}{ADC\+\_\+\+VOLT\+\_\+\+REF\+\_\+\+PGA}}~0x01
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac589861f4d61a9a50ea00d86d9ddef77}{ADC\+\_\+\+VOLT\+\_\+\+ADS\+\_\+\+PULLUP}}~10000.\+0f
 \item 
@@ -404,6 +408,10 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a207a48c716cd66693387a0ac34221c96}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~0
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a32f50b1e597b6e2e9e4af84d7b2ee1cc}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~150000.\+0f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a93c4006fb83fccb636ba9b0750cb8be4}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+\+V\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~\doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}} -\/ 0.\+5f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_ab6f80bc311b18a5d79b0302c695cde43}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+\+V\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~\doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}} + 0.\+5f
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab6e0dba9621cfd28982260b3a54d0443}{ADC\+\_\+\+PRES\+\_\+\+ADS\+\_\+\+VAL\+\_\+\+MIN\+\_\+R}}~10.\+0f
 \item 
@@ -482,6 +490,18 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d} 
 \+\#define ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V~3.\+3f}
 
+\Hypertarget{individual__config_8h_ab6f80bc311b18a5d79b0302c695cde43}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX@{ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX}}
+\index{ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX@{ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX}{ADC\_ADS\_REF\_V\_TO\_FAIL\_MAX}}
+{\footnotesize\ttfamily \label{individual__config_8h_ab6f80bc311b18a5d79b0302c695cde43} 
+\+\#define ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+\+V\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX~\doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}} + 0.\+5f}
+
+\Hypertarget{individual__config_8h_a93c4006fb83fccb636ba9b0750cb8be4}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN@{ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN}}
+\index{ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN@{ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN}{ADC\_ADS\_REF\_V\_TO\_FAIL\_MIN}}
+{\footnotesize\ttfamily \label{individual__config_8h_a93c4006fb83fccb636ba9b0750cb8be4} 
+\+\#define ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+\+V\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~\doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}} -\/ 0.\+5f}
+
 \Hypertarget{individual__config_8h_a242963742b7af57917f87d0f3a95edbf}\index{individual\_config.h@{individual\_config.h}!ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}}
 \index{ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_FAIL\_VALUE}{ADC\_FAIL\_VALUE}}
@@ -498,7 +518,7 @@
 \index{ADC\_OUT\_TEMP\_ADS\_CHANNEL@{ADC\_OUT\_TEMP\_ADS\_CHANNEL}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_ADS\_CHANNEL}{ADC\_OUT\_TEMP\_ADS\_CHANNEL}}
 {\footnotesize\ttfamily \label{individual__config_8h_a3709c79cf2bf86329cb0d386e89a54d9} 
-\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL~4}
+\+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+ADS\+\_\+\+CHANNEL~0}
 
 \Hypertarget{individual__config_8h_af1e7eb0be8fd4c3b74e73c0b0c7b3608}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_ADS\_PGA@{ADC\_OUT\_TEMP\_ADS\_PGA}}
 \index{ADC\_OUT\_TEMP\_ADS\_PGA@{ADC\_OUT\_TEMP\_ADS\_PGA}!individual\_config.h@{individual\_config.h}}
@@ -637,6 +657,18 @@
 \doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_ADS\_PULLUP}{ADC\_VOLT\_BEL\_ADS\_PULLUP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a8bc5610280c6f585ee54a20f8f350032} 
 \+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+ADS\+\_\+\+PULLUP~10000.\+0f}
+
+\Hypertarget{individual__config_8h_a801d1ce041eb806f86e62e9d267fee2b}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_REF\_CHANNEL@{ADC\_VOLT\_REF\_CHANNEL}}
+\index{ADC\_VOLT\_REF\_CHANNEL@{ADC\_VOLT\_REF\_CHANNEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_REF\_CHANNEL}{ADC\_VOLT\_REF\_CHANNEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a801d1ce041eb806f86e62e9d267fee2b} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+REF\+\_\+\+CHANNEL~1}
+
+\Hypertarget{individual__config_8h_a5834aff2c850e995ae24a209a84fb4ef}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_REF\_PGA@{ADC\_VOLT\_REF\_PGA}}
+\index{ADC\_VOLT\_REF\_PGA@{ADC\_VOLT\_REF\_PGA}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_VOLT\_REF\_PGA}{ADC\_VOLT\_REF\_PGA}}
+{\footnotesize\ttfamily \label{individual__config_8h_a5834aff2c850e995ae24a209a84fb4ef} 
+\+\#define ADC\+\_\+\+VOLT\+\_\+\+REF\+\_\+\+PGA~0x01}
 
 \Hypertarget{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}}
 \index{BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}!individual\_config.h@{individual\_config.h}}

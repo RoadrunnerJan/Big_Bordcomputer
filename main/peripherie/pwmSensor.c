@@ -154,23 +154,27 @@ void pwm_sensor_print(void)
     // Check if new data has arrived since last print
     if (latest_sensor_values.update_count != last_seen_count) {
         last_seen_count = latest_sensor_values.update_count;
+        char log_msg[100];
         
-        printf("AKTUELL -> Temp: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)\n", 
+        snprintf(log_msg, sizeof(log_msg), "AKTUELL -> Temp: %.0f°C | Temp: %luµs | Period: %luµs (Paket #%lu)", 
                 calc_temperature(latest_sensor_values.temp_us.value_us),
                 latest_sensor_values.temp_us.value_us, 
                 latest_sensor_values.temp_us.period_us, 
                 last_seen_count);
-        printf("AKTUELL -> Druck %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)\n", 
+        printLog(log_msg);
+        snprintf(log_msg, sizeof(log_msg), "AKTUELL -> Druck %.1fbar | Druck: %luµs | Period: %luµs (Paket #%lu)", 
                 calc_pressure(latest_sensor_values.press_us.value_us),
                 latest_sensor_values.press_us.value_us, 
                 latest_sensor_values.press_us.period_us, 
                 last_seen_count);
-        printf("AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)\n", 
+        printLog(log_msg);
+        snprintf(log_msg, sizeof(log_msg), "AKTUELL -> Diag: %luµs | Period: %luµs (Paket #%lu)", 
                 latest_sensor_values.diag_us.value_us, 
                 latest_sensor_values.diag_us.period_us, 
                 last_seen_count);
+        printLog(log_msg);
     }
     else {
-        printf("Waiting for sensor signal...\n");
+        printLog("Waiting for sensor signal...");
     }
 }

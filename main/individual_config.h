@@ -449,7 +449,7 @@
     Enable Testmode Settings
 #################################################################################
 */
-#define TESTMODE_ACTIVATE_TIMEOUT_MS      7000
+#define TESTMODE_ACTIVATE_TIMEOUT_MS      10000
 #define TESTMODE_ACTIVATE_BUTTON_1_COUNT  2 // Press minute button 2 times within timeout to decrease minute
 #define TESTMODE_ACTIVATE_BUTTON_2_COUNT  1 // Press hour button 1 times within timeout to decrease hour
 #define TESTMODE_ACTIVATE_BUTTON_3_COUNT  2 // Press minute button 2 times within timeout to increase minute

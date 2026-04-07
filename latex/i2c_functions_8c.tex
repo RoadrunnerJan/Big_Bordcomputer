@@ -33,6 +33,8 @@ float \doxymbox{\hyperlink{i2c_functions_8c_a3f7d5fe4dd5e5530888a288b417417cd}{g
 float \doxymbox{\hyperlink{i2c_functions_8c_a9a4ff1f57ce9ff4990f4d77a1be56191}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press}} ()
 \item 
 float \doxymbox{\hyperlink{i2c_functions_8c_a9673141d092ff9b9f4b89d4a0f1590c4}{get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp}} ()
+\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}{get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage}} (void)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -66,6 +68,8 @@ Tick\+Type\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a63b736710f6e0f87dce37e1
 int \doxymbox{\hyperlink{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2}{testmode\+\_\+activation\+\_\+count}} = 0
 \item 
 int \doxymbox{\hyperlink{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f}{testmode\+\_\+activation\+\_\+state}} = 0
+\item 
+float \doxymbox{\hyperlink{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9}{reference\+\_\+voltage}} = \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}
 \end{DoxyCompactItemize}
 
 
@@ -118,7 +122,17 @@ Read oil temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_fun
 {\footnotesize\ttfamily \label{i2c_functions_8c_a9673141d092ff9b9f4b89d4a0f1590c4} 
 float get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Read outdoor temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}}
+Read outdoor temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_reference\_voltage@{get\_i2c\_adc\_reference\_voltage}}
+\index{get\_i2c\_adc\_reference\_voltage@{get\_i2c\_adc\_reference\_voltage}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_reference\_voltage()}{get\_i2c\_adc\_reference\_voltage()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad} 
+void get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Measure and update the ADC reference voltage dynamically.
+
+Reads the reference voltage from the second ADS1115 device (if available) and updates the global reference\+\_\+voltage variable for use in \doxylink{i2c_functions_8c_a5524d0e119c73860a14f8a581bbb1c85}{raw\+\_\+to\+\_\+res\+\_\+safe()}. If the measurement is out of valid range, defaults to ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V.
+
+Read reference voltage from ADS1115 ADC (Version 4.\+2 feature) \Hypertarget{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}}
 \index{get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_volt()}{get\_i2c\_adc\_volt()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88} 
@@ -301,7 +315,13 @@ const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} outside\
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\Hypertarget{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activated@{testmode\_activated}}
+\Hypertarget{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9}\index{i2cFunctions.c@{i2cFunctions.c}!reference\_voltage@{reference\_voltage}}
+\index{reference\_voltage@{reference\_voltage}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{reference\_voltage}{reference\_voltage}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9} 
+float reference\+\_\+voltage = \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}}
+
+ADC reference voltage for resistance calculations. Defaults to ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V, but can be updated dynamically via \doxylink{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}{get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage()}. \Hypertarget{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activated@{testmode\_activated}}
 \index{testmode\_activated@{testmode\_activated}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{testmode\_activated}{testmode\_activated}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6} 

@@ -54,7 +54,12 @@ bool testmode_activated = false;
 TickType_t testmode_activation_time = 0;
 int testmode_activation_count = 0;
 int testmode_activation_state = 0;
-float reference_voltage = ADC_ADS_REF_V; // Default reference voltage for ADC calculations
+
+/**
+ * ADC reference voltage for resistance calculations.
+ * Defaults to ADC_ADS_REF_V, but can be updated dynamically via get_i2c_adc_reference_voltage().
+ */
+float reference_voltage = ADC_ADS_REF_V;
 
 /**
  * Initialize I2C bus and attach RTC and ADC devices.
@@ -156,6 +161,7 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
     time_t now;
     struct tm timeinfo;
+    char log_msg[50];
     
     // Get current ESP system time
     time(&now);
@@ -163,7 +169,8 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
 
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour + 1 + 24) % 24;
-        printf("Hour incremented: %d\n", timeinfo.tm_hour);
+        snprintf(log_msg, sizeof(log_msg), "Hour incremented: %d", timeinfo.tm_hour);
+        printLog(log_msg);
 
         if (testmode_activation_state == 4) {
             if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
@@ -190,10 +197,12 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
         timeinfo.tm_min = (timeinfo.tm_min + 1 + 60) % 60;
         if (timeinfo.tm_min == 0) { 
             timeinfo.tm_hour = (timeinfo.tm_hour + 1) % 24;
-            printf("Hour incremented due to minute: %d\n", timeinfo.tm_hour);
+            snprintf(log_msg, sizeof(log_msg), "Hour incremented due to minute: %d", timeinfo.tm_hour);
+            printLog(log_msg);
         }
         timeinfo.tm_sec = 0; // Reset seconds when setting time
-        printf("Minute incremented: %d\n", timeinfo.tm_min);
+        snprintf(log_msg, sizeof(log_msg), "Minute incremented: %d", timeinfo.tm_min);
+        printLog(log_msg);
 
         if (testmode_activation_state == 3) {
             if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
@@ -232,6 +241,7 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
     int button_id = (int)usr_data;
     time_t now;
     struct tm timeinfo;
+    char log_msg[50];
     
     // Get current ESP system time
     time(&now);
@@ -239,7 +249,8 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
 
     if (button_id == BUTTON_CLOCK_HOUR_PIN) {
         timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
-        printf("Hour decremented: %d\n", timeinfo.tm_hour);
+        snprintf(log_msg, sizeof(log_msg), "Hour decremented: %d", timeinfo.tm_hour);
+        printLog(log_msg);
 
         if (testmode_activation_state == 2) {
             if (xTaskGetTickCount() - testmode_activation_time < pdMS_TO_TICKS(TESTMODE_ACTIVATE_TIMEOUT_MS)) {
@@ -264,10 +275,12 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
         timeinfo.tm_min = (timeinfo.tm_min - 1 + 60) % 60;
         if (timeinfo.tm_min == 59) { 
             timeinfo.tm_hour = (timeinfo.tm_hour - 1 + 24) % 24;
-            printf("Hour decremented due to minute: %d\n", timeinfo.tm_hour);
+            snprintf(log_msg, sizeof(log_msg), "Hour decremented due to minute: %d", timeinfo.tm_hour);
+            printLog(log_msg);
         }
         timeinfo.tm_sec = 0; // Reset seconds when setting time
-        printf("Minute decremented: %d\n", timeinfo.tm_min);
+        snprintf(log_msg, sizeof(log_msg), "Minute decremented: %d", timeinfo.tm_min);
+        printLog(log_msg);
 
         if (testmode_activation_state == -1) {
             testmode_activation_state = 0;
@@ -412,7 +425,9 @@ float get_i2c_adc_volt() {
     int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_ADS_CHANNEL, ADC_VOLT_ADS_PGA);
     float v_board = (raw * LSB_2048) / 1000.0f;
     v_board = v_board * ((ADC_VOLT_ADS_PULLUP + ADC_VOLT_ADS_PULLDOWN) / ADC_VOLT_ADS_PULLDOWN);
-    //printf("Board unfiltered Voltage: %.2f V\n", v_board);
+    char log_msg[50];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V", v_board);
+    printLog(log_msg);
     return v_board;
 }
 
@@ -421,7 +436,9 @@ float get_i2c_adc_volt_bel() {
     int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_BEL_ADS_CHANNEL, ADC_VOLT_BEL_ADS_PGA);
     float v_bel = (raw * LSB_4096) / 1000.0f; 
     v_bel = v_bel * ((ADC_VOLT_BEL_ADS_PULLUP + ADC_VOLT_BEL_ADS_PULLDOWN) / ADC_VOLT_BEL_ADS_PULLDOWN); // Teiler 10k/2.2k
-    //printf("Bel unfiltered Voltage: %.2f V\n", v_bel);
+    char log_msg[50];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f lux", v_bel);
+    printLog(log_msg);
     return v_bel;
 }
 
@@ -431,7 +448,9 @@ float get_i2c_adc_oil_temp() {
     float oil_t = raw_to_res_safe(raw, ADC_TEMP_ADS_PULLUP);
     if (oil_t < ADC_TEMP_ADS_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Error (open circuit)
     else oil_t = interpolate_temp(oil_t);
-    //printf("Oil unfiltered Temperature: %.1f °C\n", oil_t);
+    char log_msg[50];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C", oil_t);
+    printLog(log_msg);
     return oil_t;
 }
 
@@ -441,7 +460,9 @@ float get_i2c_adc_oil_press() {
     float oil_p = raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP);
     if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
     else oil_p = (oil_p - ADC_PRES_ADS_VAL_MIN_R) * (ADC_PRES_ADS_VAL_MIN_R / (ADC_PRES_ADS_VAL_MAX_R - ADC_PRES_ADS_VAL_MIN_R));
-    //printf("Oil unfiltered Pressure: %.2f bar\n", oil_p);
+    char log_msg[50];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.2f bar", oil_p);
+    printLog(log_msg);
     return oil_p;
 }
 
@@ -452,14 +473,23 @@ float get_i2c_adc_outside_temp() {
         float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP); 
         if (outside_t < ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; 
         else outside_t = interpolate_outside_temp(outside_t);
-        //printf("Outside unfiltered Temperature: %.1f °C\n", outside_t);
+        char log_msg[50];
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C", outside_t);
+        printLog(log_msg);
         return outside_t;
     #else 
         return ADC_FAIL_VALUE;
     #endif
 }
 
-void get_i2c_adc_reference_voltage(){
+/**
+ * Measure and update the ADC reference voltage dynamically.
+ *
+ * Reads the reference voltage from the second ADS1115 device (if available)
+ * and updates the global reference_voltage variable for use in raw_to_res_safe().
+ * If the measurement is out of valid range, defaults to ADC_ADS_REF_V.
+ */
+void get_i2c_adc_reference_voltage(void) {
     #if NUMBER_OF_ADS1115_DEVICES > 1
         int16_t raw = read_ads1115(ads_handle[1], ADC_VOLT_REF_CHANNEL, ADC_VOLT_REF_PGA);
         float v_ref = (raw * LSB_4096) / 1000.0f;
@@ -469,7 +499,10 @@ void get_i2c_adc_reference_voltage(){
         else {
             reference_voltage = v_ref; // Valid reading
         }
+        char log_msg[50];
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC reference voltage: %.2f V", v_ref);
+        printLog(log_msg);
     #else
-        reference_voltage ADC_ADS_REF_V; // Return default reference voltage if second ADS1115 is not present
+        reference_voltage = ADC_ADS_REF_V; // Return default reference voltage if second ADS1115 is not present
     #endif
 }
