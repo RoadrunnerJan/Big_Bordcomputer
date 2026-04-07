@@ -18,6 +18,7 @@
  */
 
 #include "values.h"
+#include "../logging/logging.h"
 
 
 /* ===== Global Sensor Value State Flags ===== */
@@ -32,6 +33,8 @@ double value_oil_temperature   = VALUE_DEFAULT_TEMP;
 double value_volt              = VALUE_DEFAULT_VOLT;
 double value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
 int value_brightness           = VALUE_DEFAULT_BRIGHT;
+float value_brightness_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
+int value_brightness_array_idx = 0;
 bool night_mode_active         = VALUE_DEFAULT_NIGHT_MODE;
 
 /* ===== Display Output ===== */
@@ -82,6 +85,10 @@ void reset_values(int screenSelection) {
 void reset_brightness(void) {
     value_brightness = BRIGHTNESS_DAY;
     night_mode_active = VALUE_DEFAULT_NIGHT_MODE;
+    for (int i = 0; i < sizeof_brightness_array; i++) {
+        value_brightness_array[i] = 0;
+    }
+    value_brightness_array_idx = 0;
 }
 
 
@@ -115,7 +122,7 @@ void calculate_value(int screenSelection, double value) {
                     value = VALUE_MAX_PRES;
                     snprintf(output_string, sizeof(output_string), "%s%.1f", ">", VALUE_MAX_PRES);
                 }
-                value_oil_pressure = calc_filter(value, value_oil_pressure);
+                value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA);
             }
             break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
@@ -133,7 +140,7 @@ void calculate_value(int screenSelection, double value) {
                 if (value < VALUE_MIN_TEMP) 
                 {
                     value = VALUE_MIN_TEMP;
-                    snprintf(output_string, sizeof(output_string), "%s%.1f", "<", VALUE_MIN_VOLT);
+                    snprintf(output_string, sizeof(output_string), "%s%d", "<", VALUE_MIN_TEMP);
                 }         
                 else if (value >= VALUE_MIN_TEMP && value <= VALUE_MAX_TEMP)
                     snprintf(output_string, sizeof(output_string), "%d", (int)value_oil_temperature);            
@@ -142,7 +149,7 @@ void calculate_value(int screenSelection, double value) {
                     value = VALUE_MAX_TEMP;
                     snprintf(output_string, sizeof(output_string), "%s%d", ">", VALUE_MAX_TEMP);
                 }
-                value_oil_temperature = calc_filter(value, value_oil_temperature);
+                value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA);
             }
             break;
         case SCREEN_ID_GAUGE_VOLTAGE:
@@ -169,7 +176,7 @@ void calculate_value(int screenSelection, double value) {
                     value = VALUE_MAX_VOLT;
                     snprintf(output_string, sizeof(output_string), "%s%.1f", ">", VALUE_MAX_VOLT);
                 }
-                value_volt = calc_filter(value, value_volt);
+                value_volt = calc_filter(value, value_volt, FILTER_ALPHA);
             }
             break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
@@ -205,7 +212,7 @@ void calculate_value(int screenSelection, double value) {
                     snprintf(output_string, sizeof(output_string), "%s%d", ">", VALUE_MAX_OUT_TEMP);
                     value = VALUE_MAX_OUT_TEMP;
                 }  
-                value_outside_temperature = calc_filter(value, value_outside_temperature);
+                value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA);
 
             }
         break;
@@ -215,32 +222,45 @@ void calculate_value(int screenSelection, double value) {
     }
 }
 
-
+float filtered_v = 0;
 /**
  * Calculate brightness level from voltage with automatic day/night mode detection
- * Day mode    (< 1.0V):      100% brightness (BRIGHTNESS_DAY constant)
- * Night mode  (2.29-10.74V): 5-40% brightness (linear interpolation)
+ * Day mode    (< 0.05V):      100% brightness (BRIGHTNESS_DAY constant)
+ * Night mode  (2.29-10.74V): 5-25% brightness (linear interpolation)
  * Uses voltage reference divider for battery voltage monitoring
  */
 void calcBrightness(float value)
 {
     // Range check and day/night mode selection
-    // 2.29-10.74V = Night mode (5-40%), < 1.0V = Day mode (100%)
-    if (value < BRIGHTNESS_DAY_MIN_V) {
-        value_brightness = BRIGHTNESS_DAY;
-        night_mode_active = false;
-    } else {
-        night_mode_active = true;
-        // Linear interpolation for night brightness
-        value_brightness = (value - BRIGHTNESS_NIGHT_MIN_V) / 
-                          (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
-        
-        // Clamp to valid range
-        if (value_brightness > BRIGHTNESS_NIGHT_MAX) {
-            value_brightness = BRIGHTNESS_NIGHT_MAX;
+    // 2.29-10.74V = Night mode (5-25%), < 0.05V = Day mode (100%)
+    value_brightness_array[value_brightness_array_idx] = value; // Store as cents for precision
+    value_brightness_array_idx = (value_brightness_array_idx + 1);
+    if (value_brightness_array_idx >= sizeof_brightness_array) { // sizeof_brightness_array = 5
+        value_brightness_array_idx = 0;
+        float sum = 0.0f;
+        for (int i = 0; i < sizeof_brightness_array; i++) {
+            sum += value_brightness_array[i];
         }
-        if (value_brightness < BRIGHTNESS_NIGHT_MIN) {
-            value_brightness = BRIGHTNESS_NIGHT_MIN;
+        value = sum / (float)sizeof_brightness_array;
+        if (value < BRIGHTNESS_DAY_MIN_V) {
+            value_brightness = BRIGHTNESS_DAY;
+            night_mode_active = false;
+        }
+        else {
+            value_brightness = calc_filter(value, value_brightness, FILTER_ALPHA_BEL); // FILTER_ALPHA_BEL = 0.05f for very smooth brightness changes
+            if (filtered_v == 0.0f) filtered_v = value;
+            else filtered_v = calc_filter(value, filtered_v, FILTER_ALPHA_BEL);
+            night_mode_active = true;
+            float night_val = (filtered_v - BRIGHTNESS_NIGHT_MIN_V) / 
+                            (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
+            
+            if (night_val > BRIGHTNESS_NIGHT_MAX) night_val = BRIGHTNESS_NIGHT_MAX;
+            if (night_val < BRIGHTNESS_NIGHT_MIN) night_val = BRIGHTNESS_NIGHT_MIN;
+            
+            value_brightness = (int)night_val;
+            char log_msg[50];
+            snprintf(log_msg, sizeof(log_msg), "Set Brightness: %d %%", value_brightness);
+            printLog(log_msg);
         }
     }
 }

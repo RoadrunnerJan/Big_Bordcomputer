@@ -36,18 +36,32 @@ button_config_t cfg_time[2] = {0};
 button_gpio_config_t gpio_cfg_time[2] = {0};
 button_handle_t btn_time[2] = {0};
 
-const ntc_table_t oil_temp_table[] = {
+const lookup_values_t oil_temp_table[] = {
     // {Temperature in °C, Resistance in Ohms}
-    {0, 2500.0}, {10, 1500.0}, {20, 1000.0}, {30, 650.0}, {40, 430.0},
-    {50, 322.0}, {60, 225.0},  {70, 155.0},  {80, 112.0}, {90, 83.0},
-    {100, 62.0}, {110, 47.0},  {120, 37.0},  {130, 29.0}, {140, 23.0}, {150, 19.0}
+    {-15, 7721.35}, {-10, 5720.88}, {-5, 4284.03}, {0, 3240.18}, {5, 2473.6}, 
+    {10, 1905.87}, {15, 1404.44}, {20, 1168.64}, {25, 926.71}, {30, 739.98}, 
+    {35, 594.9}, {40, 481.52}, {45, 392.57}, {50, 322.17}, {55, 266.19}, 
+    {60, 221.17}, {65, 184.72}, {70, 155.29}, {75, 131.38}, {80, 112.08}, 
+    {85, 96.4}, {90, 82.96}, {95, 71.44}, {100, 61.92}, {105, 54.01}, 
+    {110, 47.24}, {115, 41.42}, {120, 36.51}, {125, 32.38}, {130, 28.81}, 
+    {135, 25.7}, {140, 23.0}, {145, 20.66}, {150, 18.59}
 };
 
-const ntc_table_t outside_temperature_table[] = {
+const lookup_values_t outside_temperature_table[] = {
     // {Temperature in °C, Resistance in Ohms}
-    {-30, 88000.0}, {-20, 52000.0}, {-10, 31500.0}, {0, 19500.0},
-    {10, 12500.0},  {20, 8200.0},   {25, 6700.0},   {30, 5500.0},
-    {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}
+    {-15, 36475.0}, {-10, 27665.0}, {-5, 21166.0}, {0, 16330.0}, {5, 12695.0}, 
+    {10, 9950.0}, {15, 7855.0}, {20, 6245.0}, {25, 5000.0}, {30, 4028.0}, 
+    {35, 3266.0}, {40, 2663.0}, {45, 2185.0}, {50, 1803.0}, {55, 1495.0}, 
+    {60, 1247.0}, {65, 1045.0}, {70, 880.0}, {75, 745.0}, {80, 633.0}, 
+    {85, 541.0}, {90, 464.0}, {95, 400.0}, {100, 346.0}, {105, 301.0}, 
+    {110, 262.0}, {115, 229.0}, {120, 201.0}, {125, 177.0}, {130, 156.0}, 
+    {135, 138.0}, {140, 122.0}, {145, 109.0}, {150, 97.0}
+};
+
+const lookup_values_t pressure_table[] = {
+    // {Pressure/Value 1, Value 2}
+    {0.0, 11.0}, {0.5, 29.0}, {1.0, 47.0}, {1.5, 65.0}, {2.0, 82.0}, 
+    {2.5, 100.0}, {3.0, 117.0}, {3.5, 134.0}, {4.0, 151.0}, {4.5, 167.0}, {5.0, 184.0}
 };
 
 bool testmode_activated = false;
@@ -371,6 +385,12 @@ int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_
 }
 
 // Linear interpolation for oil temperature table
+/**
+ * Interpolate temperature from oil NTC table.
+ *
+ * @param r_measured Measured resistance in Ohm.
+ * @return Interpolated temperature in °C or ADC_FAIL_VALUE for invalid.
+ */
 float interpolate_temp(float r_measured) {
     if (r_measured >= oil_temp_table[0].res) return oil_temp_table[0].temp;
     if (r_measured <= oil_temp_table[OIL_TABLE_SIZE-1].res) return oil_temp_table[OIL_TABLE_SIZE-1].temp;
@@ -406,6 +426,33 @@ float interpolate_outside_temp(float r_measured) {
     return ADC_FAIL_VALUE;
 }
 
+// Linear interpolation for pressure table
+/**
+ * Interpolate pressure from outside NTC table.
+ *
+ * @param r_measured Measured resistance in Ohm.
+ * @return Interpolated pressure in bar or ADC_FAIL_VALUE for invalid.
+ */
+float interpolate_pressure(float r_measured) {
+    if (r_measured <= pressure_table[0].res) return pressure_table[0].temp;
+    if (r_measured >= pressure_table[PRESSURE_TABLE_SIZE-1].res) return pressure_table[PRESSURE_TABLE_SIZE-1].temp;
+
+    if(r_measured >= pressure_table[PRESSURE_TABLE_SIZE - 1].res){
+        float r_range = pressure_table[PRESSURE_TABLE_SIZE - 1].res - pressure_table[PRESSURE_TABLE_SIZE - 2].res;
+        float t_range = pressure_table[PRESSURE_TABLE_SIZE - 1].temp - pressure_table[PRESSURE_TABLE_SIZE - 2].temp;
+        return pressure_table[PRESSURE_TABLE_SIZE - 1].temp + (r_measured - pressure_table[PRESSURE_TABLE_SIZE - 1].res) * (t_range / r_range);
+    }
+
+    for (int i = 0; i < PRESSURE_TABLE_SIZE - 1; i++) {
+        if (r_measured >= pressure_table[i].res && r_measured < pressure_table[i+1].res) {
+            float r_range = pressure_table[i+1].res - pressure_table[i].res;
+            float t_range = pressure_table[i+1].temp - pressure_table[i].temp;
+            return pressure_table[i].temp + (r_measured - pressure_table[i].res) * (t_range / r_range);
+        }
+    }
+    return ADC_FAIL_VALUE;
+}
+
 /**
  * Convert raw ADS1115 value to resistance, with validation.
  *
@@ -417,7 +464,7 @@ float raw_to_res_safe(int16_t raw, float r_pullup) {
     float v_adc = (raw * LSB_4096) / 1000.0f;
     // Check: If voltage approaches 3.3V -> sensor open or broken cable
     if (v_adc >= ADC_MAX_V_VALID || v_adc <= 0.01f) return ADC_FAIL_VALUE; // Error signal
-    return (v_adc * r_pullup) / (reference_voltage - v_adc);
+    return ((v_adc * r_pullup) / (reference_voltage - v_adc) ) - 100.0;  // -100 Ohm becuse a resistor with 100 ohm is in row with the sensor to protect against short circuit
 }
 
 float get_i2c_adc_volt() {
@@ -437,7 +484,7 @@ float get_i2c_adc_volt_bel() {
     float v_bel = (raw * LSB_4096) / 1000.0f; 
     v_bel = v_bel * ((ADC_VOLT_BEL_ADS_PULLUP + ADC_VOLT_BEL_ADS_PULLDOWN) / ADC_VOLT_BEL_ADS_PULLDOWN); // Teiler 10k/2.2k
     char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f lux", v_bel);
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V", v_bel);
     printLog(log_msg);
     return v_bel;
 }
@@ -459,9 +506,9 @@ float get_i2c_adc_oil_press() {
     int16_t raw = read_ads1115(ads_handle[0], ADC_PRES_ADS_CHANNEL, ADC_PRES_ADS_PGA);
     float oil_p = raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP);
     if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
-    else oil_p = (oil_p - ADC_PRES_ADS_VAL_MIN_R) * (ADC_PRES_ADS_VAL_MIN_R / (ADC_PRES_ADS_VAL_MAX_R - ADC_PRES_ADS_VAL_MIN_R));
+    else oil_p = interpolate_pressure(oil_p);
     char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.2f bar", oil_p);
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar", oil_p);
     printLog(log_msg);
     return oil_p;
 }
@@ -469,7 +516,7 @@ float get_i2c_adc_oil_press() {
 float get_i2c_adc_outside_temp() {
     #if NUMBER_OF_ADS1115_DEVICES > 1
         // Read outdoor temperature
-        int16_t raw = read_ads1115(ads_handle[1], ADC_OUT_TEMP_ADS_CHANNEL, ADC_OUT_TEMP_ADS_PGA);
+        int16_t raw = read_ads1115(ads_handle[1], ADC_OUT_TEMP_ADS_CHANNEL, ADC_OUT_TEMP_ADS_PGA); 
         float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP); 
         if (outside_t < ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; 
         else outside_t = interpolate_outside_temp(outside_t);
@@ -501,7 +548,7 @@ void get_i2c_adc_reference_voltage(void) {
         }
         char log_msg[50];
         snprintf(log_msg, sizeof(log_msg), "Measured ADC reference voltage: %.2f V", v_ref);
-        printLog(log_msg);
+        //printLog(log_msg);
     #else
         reference_voltage = ADC_ADS_REF_V; // Return default reference voltage if second ADS1115 is not present
     #endif

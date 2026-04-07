@@ -41,6 +41,9 @@ extern double value_volt;                // Current battery voltage (V)
 extern double value_outside_temperature; // Current outdoor temperature (°C)
 extern int value_brightness;             // Current display brightness (0-100)
 extern bool night_mode_active;           // Day/night mode flag
+extern float value_brightness_array[5]; // Array for brightness value filtering
+#define sizeof_brightness_array (sizeof(value_brightness_array) / sizeof(value_brightness_array[0]))
+extern int value_brightness_array_idx;   // Index for brightness value array
 
 /* ===== Display Output ===== */
 extern char output_string[20];           // Formatted value string for LVGL display
@@ -54,8 +57,8 @@ extern char output_string[20];           // Formatted value string for LVGL disp
  * @param pre_value_us Previous filtered value
  * @return Filtered value
  */
-inline double calc_filter(double new_value_us, double pre_value_us) {
-    return (new_value_us * FILTER_ALPHA) + (pre_value_us * (1.0f - FILTER_ALPHA));
+inline double calc_filter(double new_value_us, double pre_value_us, double alpha) {
+    return (new_value_us * alpha) + (pre_value_us * (1.0f - alpha));
 }
 
 /* ===== Function Declarations ===== */

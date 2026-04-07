@@ -41,7 +41,7 @@
 typedef struct {
     float temp;  // Temperature in °C
     float res;   // Resistance in Ohms
-} ntc_table_t;
+} lookup_values_t;
 
 
 /* ===== I2C Bus Configuration ===== */
@@ -67,10 +67,11 @@ extern button_gpio_config_t gpio_cfg_time[2];
 extern button_handle_t btn_time[2];
 
 /* ===== Temperature Lookup Tables ===== */
-extern const ntc_table_t oil_temp_table[];
-extern const ntc_table_t outside_temperature_table[];
-#define OIL_TABLE_SIZE (sizeof(oil_temp_table) / sizeof(ntc_table_t))
-#define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(ntc_table_t))
+extern const lookup_values_t oil_temp_table[];
+extern const lookup_values_t outside_temperature_table[];
+#define OIL_TABLE_SIZE (sizeof(oil_temp_table) / sizeof(lookup_values_t))
+#define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(lookup_values_t))
+#define PRESSURE_TABLE_SIZE (sizeof(pressure_table) / sizeof(pressure_table[0]))
 
 /* ===== Testmode Activation Values ===== */
 extern bool testmode_activated;

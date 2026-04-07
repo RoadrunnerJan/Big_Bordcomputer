@@ -233,10 +233,10 @@
  * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
  */
 #define BRIGHTNESS_DAY                     100
-#define BRIGHTNESS_DAY_MIN_V               1.0
+#define BRIGHTNESS_DAY_MIN_V               0.05
 #define BRIGHTNESS_NIGHT_MIN               5
 #define BRIGHTNESS_NIGHT_MIN_V             2.29
-#define BRIGHTNESS_NIGHT_MAX               40
+#define BRIGHTNESS_NIGHT_MAX               25
 #define BRIGHTNESS_NIGHT_MAX_V             10.74
 
 /*
@@ -245,7 +245,7 @@
 #################################################################################
 */
 #define EEZ_VALUE_FACTOR                   1000  // Factor for float-to-int conversion for LVGL
-#define GAUGE_ON_DELAY_SEC                1
+#define GAUGE_ON_DELAY_SEC                 1
 #define BUZZER_ON_DELAY_SEC                5
 #define MAIN_TASK_FINISHED_DELAY           5000
 
@@ -313,6 +313,7 @@
 #################################################################################
 */
 #define FILTER_ALPHA                       0.1f
+#define FILTER_ALPHA_BEL                   0.3f
 
 // PWM Sensor General Settings
 #define PWM_SENSOR_RESOLUTION_MHZ          10
