@@ -211,7 +211,7 @@
 #define LED_TIMER                          LEDC_TIMER_0
 #define LED_DUTY_RESOLUTION                LEDC_TIMER_8_BIT     // 0-255
 #define LED_DUTY_RES_VALUE                 256
-#define LED_FREQ                           5000                  // 5 kHz (flicker-free)
+#define LED_FREQ                           25000                // 25 kHz
 #define LED_CLK                            LEDC_AUTO_CLK
 #define LED_CHANNEL                        LEDC_CHANNEL_0
 #define LED_INTR                           LEDC_INTR_DISABLE
@@ -234,9 +234,9 @@
  */
 #define BRIGHTNESS_DAY                     100
 #define BRIGHTNESS_DAY_MIN_V               0.05
-#define BRIGHTNESS_NIGHT_MIN               5
+#define BRIGHTNESS_NIGHT_MIN               15
 #define BRIGHTNESS_NIGHT_MIN_V             2.29
-#define BRIGHTNESS_NIGHT_MAX               25
+#define BRIGHTNESS_NIGHT_MAX               40
 #define BRIGHTNESS_NIGHT_MAX_V             10.74
 
 /*

@@ -248,10 +248,10 @@ void calcBrightness(float value)
         }
         else {
             value_brightness = calc_filter(value, value_brightness, FILTER_ALPHA_BEL); // FILTER_ALPHA_BEL = 0.05f for very smooth brightness changes
-            if (filtered_v == 0.0f) filtered_v = value;
-            else filtered_v = calc_filter(value, filtered_v, FILTER_ALPHA_BEL);
+            if (brightness_filtered == 0.0f) brightness_filtered = value;
+            else brightness_filtered = calc_filter(value, brightness_filtered, FILTER_ALPHA_BEL);
             night_mode_active = true;
-            float night_val = (filtered_v - BRIGHTNESS_NIGHT_MIN_V) / 
+            float night_val = (brightness_filtered - BRIGHTNESS_NIGHT_MIN_V) / 
                             (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
             
             if (night_val > BRIGHTNESS_NIGHT_MAX) night_val = BRIGHTNESS_NIGHT_MAX;
