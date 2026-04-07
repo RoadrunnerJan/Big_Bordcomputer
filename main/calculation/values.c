@@ -33,6 +33,7 @@ double value_oil_temperature   = VALUE_DEFAULT_TEMP;
 double value_volt              = VALUE_DEFAULT_VOLT;
 double value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
 int value_brightness           = VALUE_DEFAULT_BRIGHT;
+float brightness_filtered      = 0;
 float value_brightness_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
 int value_brightness_array_idx = 0;
 bool night_mode_active         = VALUE_DEFAULT_NIGHT_MODE;
@@ -222,7 +223,6 @@ void calculate_value(int screenSelection, double value) {
     }
 }
 
-float filtered_v = 0;
 /**
  * Calculate brightness level from voltage with automatic day/night mode detection
  * Day mode    (< 0.05V):      100% brightness (BRIGHTNESS_DAY constant)

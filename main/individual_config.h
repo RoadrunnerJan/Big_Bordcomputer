@@ -313,7 +313,7 @@
 #################################################################################
 */
 #define FILTER_ALPHA                       0.1f
-#define FILTER_ALPHA_BEL                   0.3f
+#define FILTER_ALPHA_BEL                   0.1f
 
 // PWM Sensor General Settings
 #define PWM_SENSOR_RESOLUTION_MHZ          10

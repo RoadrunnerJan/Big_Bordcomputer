@@ -40,6 +40,7 @@ extern double value_oil_temperature;     // Current oil temperature (°C)
 extern double value_volt;                // Current battery voltage (V)
 extern double value_outside_temperature; // Current outdoor temperature (°C)
 extern int value_brightness;             // Current display brightness (0-100)
+extern float brightness_filtered;        // Filtered brightness value for smoothing
 extern bool night_mode_active;           // Day/night mode flag
 extern float value_brightness_array[5]; // Array for brightness value filtering
 #define sizeof_brightness_array (sizeof(value_brightness_array) / sizeof(value_brightness_array[0]))
