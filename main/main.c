@@ -332,7 +332,7 @@ static void lv_tick_task_screen(void *pv)
         #if USE_BUZZER == true
             if (!time_checked[1]) {
                 time(&checkTime);
-            }// TODO: re-enable beeper after a specific timeout?
+            }
             if ((long)(checkTime - StartUpTime) >= BUZZER_ON_DELAY_SEC)
             {
                 if (!time_checked[1]) {
