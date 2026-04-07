@@ -104,6 +104,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a3616ee4324b49c21f5c630113d7486fa" id="r_a3616ee4324b49c21f5c630113d7486fa"><td class="memItemLeft">int16_t&#160;</td><td class="memItemRight"><a class="el" href="#a3616ee4324b49c21f5c630113d7486fa">read_ads1115</a> (i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_setting)</td></tr>
 <tr class="memitem:a588f37762af357a454b6e23e463d5b8d" id="r_a588f37762af357a454b6e23e463d5b8d"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a588f37762af357a454b6e23e463d5b8d">interpolate_temp</a> (float r_measured)</td></tr>
 <tr class="memitem:a5ae029b9d6dc2e265df44e534ada788b" id="r_a5ae029b9d6dc2e265df44e534ada788b"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a5ae029b9d6dc2e265df44e534ada788b">interpolate_outside_temp</a> (float r_measured)</td></tr>
+<tr class="memitem:a785d1fe320cf21f8bbf5b40016fbca9e" id="r_a785d1fe320cf21f8bbf5b40016fbca9e"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a785d1fe320cf21f8bbf5b40016fbca9e">interpolate_pressure</a> (float r_measured)</td></tr>
 <tr class="memitem:a5524d0e119c73860a14f8a581bbb1c85" id="r_a5524d0e119c73860a14f8a581bbb1c85"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a5524d0e119c73860a14f8a581bbb1c85">raw_to_res_safe</a> (int16_t raw, float r_pullup)</td></tr>
 <tr class="memitem:a3016d9748f92a3665c1e7202ce1e4e88" id="r_a3016d9748f92a3665c1e7202ce1e4e88"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3016d9748f92a3665c1e7202ce1e4e88">get_i2c_adc_volt</a> ()</td></tr>
 <tr class="memitem:aa319e8e470ad9782603cb91c30f17a14" id="r_aa319e8e470ad9782603cb91c30f17a14"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aa319e8e470ad9782603cb91c30f17a14">get_i2c_adc_volt_bel</a> ()</td></tr>
@@ -123,8 +124,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ad58bf4c44b9439565e32297d332f0b49" id="r_ad58bf4c44b9439565e32297d332f0b49"><td class="memItemLeft">button_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ad58bf4c44b9439565e32297d332f0b49">cfg_time</a> [2] = {0}</td></tr>
 <tr class="memitem:a50b1fe2759bea9706faf3ed4eb6e815c" id="r_a50b1fe2759bea9706faf3ed4eb6e815c"><td class="memItemLeft">button_gpio_config_t&#160;</td><td class="memItemRight"><a class="el" href="#a50b1fe2759bea9706faf3ed4eb6e815c">gpio_cfg_time</a> [2] = {0}</td></tr>
 <tr class="memitem:ac817f20c65ad9af1ef7b4f85ab389df7" id="r_ac817f20c65ad9af1ef7b4f85ab389df7"><td class="memItemLeft">button_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ac817f20c65ad9af1ef7b4f85ab389df7">btn_time</a> [2] = {0}</td></tr>
-<tr class="memitem:a32a907f8cf265cd25cd40c6acf9b56d4" id="r_a32a907f8cf265cd25cd40c6acf9b56d4"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a32a907f8cf265cd25cd40c6acf9b56d4">oil_temp_table</a> []</td></tr>
-<tr class="memitem:a8e60f82a011434b87b9c2c9937914fc2" id="r_a8e60f82a011434b87b9c2c9937914fc2"><td class="memItemLeft">const <a class="el" href="structntc__table__t.html">ntc_table_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a8e60f82a011434b87b9c2c9937914fc2">outside_temperature_table</a> []</td></tr>
+<tr class="memitem:a3222dc2ea3f4f877a09b77f768e098a6" id="r_a3222dc2ea3f4f877a09b77f768e098a6"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a> []</td></tr>
+<tr class="memitem:a9368b27af8dd8c123596c5554a756233" id="r_a9368b27af8dd8c123596c5554a756233"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a> []</td></tr>
+<tr class="memitem:a09ac495d5458f3dd994d77827de483d8" id="r_a09ac495d5458f3dd994d77827de483d8"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a09ac495d5458f3dd994d77827de483d8">pressure_table</a> []</td></tr>
 <tr class="memitem:afa9e8129f0495e4719121defad0fa0d6" id="r_afa9e8129f0495e4719121defad0fa0d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa9e8129f0495e4719121defad0fa0d6">testmode_activated</a> = false</td></tr>
 <tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a> = 0</td></tr>
 <tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a> = 0</td></tr>
@@ -379,6 +381,31 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a785d1fe320cf21f8bbf5b40016fbca9e" name="a785d1fe320cf21f8bbf5b40016fbca9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785d1fe320cf21f8bbf5b40016fbca9e">&#9670;&#160;</a></span>interpolate_pressure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float interpolate_pressure </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>r_measured</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interpolate pressure from outside NTC table.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r_measured</td><td>Measured resistance in Ohm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Interpolated pressure in bar or ADC_FAIL_VALUE for invalid. </dd></dl>
+
+</div>
+</div>
 <a id="a588f37762af357a454b6e23e463d5b8d" name="a588f37762af357a454b6e23e463d5b8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a588f37762af357a454b6e23e463d5b8d">&#9670;&#160;</a></span>interpolate_temp()</h2>
 
@@ -393,6 +420,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Interpolate temperature from oil NTC table.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r_measured</td><td>Measured resistance in Ohm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Interpolated temperature in °C or ADC_FAIL_VALUE for invalid. </dd></dl>
 
 </div>
 </div>
@@ -607,42 +642,69 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a32a907f8cf265cd25cd40c6acf9b56d4" name="a32a907f8cf265cd25cd40c6acf9b56d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32a907f8cf265cd25cd40c6acf9b56d4">&#9670;&#160;</a></span>oil_temp_table</h2>
+<a id="a3222dc2ea3f4f877a09b77f768e098a6" name="a3222dc2ea3f4f877a09b77f768e098a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3222dc2ea3f4f877a09b77f768e098a6">&#9670;&#160;</a></span>oil_temp_table</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structntc__table__t.html">ntc_table_t</a> oil_temp_table[]</td>
+          <td class="memname">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a> oil_temp_table[]</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                 = {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">                                     = {</div>
 <div class="line">    </div>
-<div class="line">    {0, 2500.0}, {10, 1500.0}, {20, 1000.0}, {30, 650.0}, {40, 430.0},</div>
-<div class="line">    {50, 322.0}, {60, 225.0},  {70, 155.0},  {80, 112.0}, {90, 83.0},</div>
-<div class="line">    {100, 62.0}, {110, 47.0},  {120, 37.0},  {130, 29.0}, {140, 23.0}, {150, 19.0}</div>
+<div class="line">    {-15, 7721.35}, {-10, 5720.88}, {-5, 4284.03}, {0, 3240.18}, {5, 2473.6}, </div>
+<div class="line">    {10, 1905.87}, {15, 1404.44}, {20, 1168.64}, {25, 926.71}, {30, 739.98}, </div>
+<div class="line">    {35, 594.9}, {40, 481.52}, {45, 392.57}, {50, 322.17}, {55, 266.19}, </div>
+<div class="line">    {60, 221.17}, {65, 184.72}, {70, 155.29}, {75, 131.38}, {80, 112.08}, </div>
+<div class="line">    {85, 96.4}, {90, 82.96}, {95, 71.44}, {100, 61.92}, {105, 54.01}, </div>
+<div class="line">    {110, 47.24}, {115, 41.42}, {120, 36.51}, {125, 32.38}, {130, 28.81}, </div>
+<div class="line">    {135, 25.7}, {140, 23.0}, {145, 20.66}, {150, 18.59}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a8e60f82a011434b87b9c2c9937914fc2" name="a8e60f82a011434b87b9c2c9937914fc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e60f82a011434b87b9c2c9937914fc2">&#9670;&#160;</a></span>outside_temperature_table</h2>
+<a id="a9368b27af8dd8c123596c5554a756233" name="a9368b27af8dd8c123596c5554a756233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9368b27af8dd8c123596c5554a756233">&#9670;&#160;</a></span>outside_temperature_table</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structntc__table__t.html">ntc_table_t</a> outside_temperature_table[]</td>
+          <td class="memname">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a> outside_temperature_table[]</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                            = {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">                                                = {</div>
 <div class="line">    </div>
-<div class="line">    {-30, 88000.0}, {-20, 52000.0}, {-10, 31500.0}, {0, 19500.0},</div>
-<div class="line">    {10, 12500.0},  {20, 8200.0},   {25, 6700.0},   {30, 5500.0},</div>
-<div class="line">    {40, 3800.0},   {50, 2600.0},   {60, 1850.0},   {70, 1300.0}</div>
+<div class="line">    {-15, 36475.0}, {-10, 27665.0}, {-5, 21166.0}, {0, 16330.0}, {5, 12695.0}, </div>
+<div class="line">    {10, 9950.0}, {15, 7855.0}, {20, 6245.0}, {25, 5000.0}, {30, 4028.0}, </div>
+<div class="line">    {35, 3266.0}, {40, 2663.0}, {45, 2185.0}, {50, 1803.0}, {55, 1495.0}, </div>
+<div class="line">    {60, 1247.0}, {65, 1045.0}, {70, 880.0}, {75, 745.0}, {80, 633.0}, </div>
+<div class="line">    {85, 541.0}, {90, 464.0}, {95, 400.0}, {100, 346.0}, {105, 301.0}, </div>
+<div class="line">    {110, 262.0}, {115, 229.0}, {120, 201.0}, {125, 177.0}, {130, 156.0}, </div>
+<div class="line">    {135, 138.0}, {140, 122.0}, {145, 109.0}, {150, 97.0}</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a09ac495d5458f3dd994d77827de483d8" name="a09ac495d5458f3dd994d77827de483d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09ac495d5458f3dd994d77827de483d8">&#9670;&#160;</a></span>pressure_table</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a> pressure_table[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                     = {</div>
+<div class="line">    </div>
+<div class="line">    {0.0, 11.0}, {0.5, 29.0}, {1.0, 47.0}, {1.5, 65.0}, {2.0, 82.0}, </div>
+<div class="line">    {2.5, 100.0}, {3.0, 117.0}, {3.5, 134.0}, {4.0, 151.0}, {4.5, 167.0}, {5.0, 184.0}</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>

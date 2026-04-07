@@ -5,7 +5,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}{CHIP\+\_\+\+USED}}~ESP32\+P4
 \begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~false
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~true
 \begin{DoxyCompactList}\small\item\em Feature flags -\/ enable/\+disable optional modules. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}{LOGGING\+\_\+\+ENABLED}}~true
 \item 
@@ -205,7 +205,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5a9f4db8ac69f922872c1f6e189f3a75}{LED\+\_\+\+DUTY\+\_\+\+RES\+\_\+\+VALUE}}~256
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e}{LED\+\_\+\+FREQ}}~5000
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e}{LED\+\_\+\+FREQ}}~25000
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a902e5796c5baac95edd152cde50002d2}{LED\+\_\+\+CLK}}~LEDC\+\_\+\+AUTO\+\_\+\+CLK
 \item 
@@ -221,9 +221,9 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}~100
 \begin{DoxyCompactList}\small\item\em Auto-\/brightness thresholds and manual defaults. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a1af7791013896769504004ef23940090}{BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V}}~1.\+0
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a1af7791013896769504004ef23940090}{BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V}}~0.\+05
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN}}~5
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN}}~15
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN\+\_\+V}}~2.\+29
 \item 
@@ -272,6 +272,8 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a}{TASK\+\_\+4\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0}{FILTER\+\_\+\+ALPHA}}~0.\+1f
+\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}{FILTER\+\_\+\+ALPHA\+\_\+\+BEL}}~0.\+1f
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689}{PWM\+\_\+\+SENSOR\+\_\+\+RESOLUTION\+\_\+\+MHZ}}~10
 \item 
@@ -445,7 +447,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}{VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP}}~70
 \item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}}~7000
+\+\#define \doxymbox{\hyperlink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}}~10000
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT}}~2
 \item 
@@ -684,7 +686,7 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 \index{BRIGHTNESS\_DAY\_MIN\_V@{BRIGHTNESS\_DAY\_MIN\_V}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_DAY\_MIN\_V}{BRIGHTNESS\_DAY\_MIN\_V}}
 {\footnotesize\ttfamily \label{individual__config_8h_a1af7791013896769504004ef23940090} 
-\+\#define BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V~1.\+0}
+\+\#define BRIGHTNESS\+\_\+\+DAY\+\_\+\+MIN\+\_\+V~0.\+05}
 
 \Hypertarget{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}}
 \index{BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}!individual\_config.h@{individual\_config.h}}
@@ -702,7 +704,7 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 \index{BRIGHTNESS\_NIGHT\_MIN@{BRIGHTNESS\_NIGHT\_MIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MIN}{BRIGHTNESS\_NIGHT\_MIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2} 
-\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN~5}
+\+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN~15}
 
 \Hypertarget{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}}
 \index{BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}!individual\_config.h@{individual\_config.h}}
@@ -789,6 +791,12 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 \doxysubsubsection{\texorpdfstring{FILTER\_ALPHA}{FILTER\_ALPHA}}
 {\footnotesize\ttfamily \label{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0} 
 \+\#define FILTER\+\_\+\+ALPHA~0.\+1f}
+
+\Hypertarget{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}}
+\index{FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{FILTER\_ALPHA\_BEL}{FILTER\_ALPHA\_BEL}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b} 
+\+\#define FILTER\+\_\+\+ALPHA\+\_\+\+BEL~0.\+1f}
 
 \Hypertarget{individual__config_8h_af7f4269bb7d36168ba4c83efb544d805}\index{individual\_config.h@{individual\_config.h}!GAUGE\_ON\_DELAY\_SEC@{GAUGE\_ON\_DELAY\_SEC}}
 \index{GAUGE\_ON\_DELAY\_SEC@{GAUGE\_ON\_DELAY\_SEC}!individual\_config.h@{individual\_config.h}}
@@ -1134,7 +1142,7 @@ LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ:\+ SPI clock for display pixel writes. L
 \index{LED\_FREQ@{LED\_FREQ}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{LED\_FREQ}{LED\_FREQ}}
 {\footnotesize\ttfamily \label{individual__config_8h_a085751fedd182a3b3ee46c7cd438da5e} 
-\+\#define LED\+\_\+\+FREQ~5000}
+\+\#define LED\+\_\+\+FREQ~25000}
 
 \Hypertarget{individual__config_8h_a843b341668408e5656cf19cf3389bb5a}\index{individual\_config.h@{individual\_config.h}!LED\_GPIO@{LED\_GPIO}}
 \index{LED\_GPIO@{LED\_GPIO}!individual\_config.h@{individual\_config.h}}
@@ -1746,7 +1754,7 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 \index{TESTMODE\_ACTIVATE\_TIMEOUT\_MS@{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7} 
-\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS~7000}
+\+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS~10000}
 
 \Hypertarget{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}\index{individual\_config.h@{individual\_config.h}!TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}}
 \index{TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}!individual\_config.h@{individual\_config.h}}
@@ -1758,7 +1766,7 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 \index{USE\_BUZZER@{USE\_BUZZER}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{USE\_BUZZER}{USE\_BUZZER}}
 {\footnotesize\ttfamily \label{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445} 
-\+\#define USE\+\_\+\+BUZZER~false}
+\+\#define USE\+\_\+\+BUZZER~true}
 
 
 

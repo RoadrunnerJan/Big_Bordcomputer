@@ -98,7 +98,7 @@ $(function(){initNavTree('individual__config_8h.html','',''); });
 Macros</h2></td></tr>
 <tr class="memitem:abc5772bb8f4980f3c762ed695dde4c21" id="r_abc5772bb8f4980f3c762ed695dde4c21"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abc5772bb8f4980f3c762ed695dde4c21">CHIP_USED</a>&#160;&#160;&#160;ESP32P4</td></tr>
 <tr class="memdesc:abc5772bb8f4980f3c762ed695dde4c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core project configuration values.  <br /></td></tr>
-<tr class="memitem:a90ba4699a88b95a3609bc117dd06c445" id="r_a90ba4699a88b95a3609bc117dd06c445"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a90ba4699a88b95a3609bc117dd06c445">USE_BUZZER</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memitem:a90ba4699a88b95a3609bc117dd06c445" id="r_a90ba4699a88b95a3609bc117dd06c445"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a90ba4699a88b95a3609bc117dd06c445">USE_BUZZER</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memdesc:a90ba4699a88b95a3609bc117dd06c445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feature flags - enable/disable optional modules.  <br /></td></tr>
 <tr class="memitem:a3ccdf5e151cf4faa7bea9d68a1af829a" id="r_a3ccdf5e151cf4faa7bea9d68a1af829a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3ccdf5e151cf4faa7bea9d68a1af829a">LOGGING_ENABLED</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memitem:a454deab6aeff0af2de8c334bec94dfe9" id="r_a454deab6aeff0af2de8c334bec94dfe9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a454deab6aeff0af2de8c334bec94dfe9">LOGGING_TAG</a>&#160;&#160;&#160;&quot;JRO_BOARD_COMPUTER_LOG&quot;</td></tr>
@@ -204,7 +204,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ade3a58ca3fc05681b689884e377a37d5" id="r_ade3a58ca3fc05681b689884e377a37d5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ade3a58ca3fc05681b689884e377a37d5">LED_TIMER</a>&#160;&#160;&#160;LEDC_TIMER_0</td></tr>
 <tr class="memitem:a369ea8fa8e3d35f4bc416fe00ac440b8" id="r_a369ea8fa8e3d35f4bc416fe00ac440b8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a369ea8fa8e3d35f4bc416fe00ac440b8">LED_DUTY_RESOLUTION</a>&#160;&#160;&#160;LEDC_TIMER_8_BIT</td></tr>
 <tr class="memitem:a5a9f4db8ac69f922872c1f6e189f3a75" id="r_a5a9f4db8ac69f922872c1f6e189f3a75"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5a9f4db8ac69f922872c1f6e189f3a75">LED_DUTY_RES_VALUE</a>&#160;&#160;&#160;256</td></tr>
-<tr class="memitem:a085751fedd182a3b3ee46c7cd438da5e" id="r_a085751fedd182a3b3ee46c7cd438da5e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a085751fedd182a3b3ee46c7cd438da5e">LED_FREQ</a>&#160;&#160;&#160;5000</td></tr>
+<tr class="memitem:a085751fedd182a3b3ee46c7cd438da5e" id="r_a085751fedd182a3b3ee46c7cd438da5e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a085751fedd182a3b3ee46c7cd438da5e">LED_FREQ</a>&#160;&#160;&#160;25000</td></tr>
 <tr class="memitem:a902e5796c5baac95edd152cde50002d2" id="r_a902e5796c5baac95edd152cde50002d2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a902e5796c5baac95edd152cde50002d2">LED_CLK</a>&#160;&#160;&#160;LEDC_AUTO_CLK</td></tr>
 <tr class="memitem:a9e917f20402c4bc2dacf745cbdfdd14e" id="r_a9e917f20402c4bc2dacf745cbdfdd14e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9e917f20402c4bc2dacf745cbdfdd14e">LED_CHANNEL</a>&#160;&#160;&#160;LEDC_CHANNEL_0</td></tr>
 <tr class="memitem:a02a8e9e41a85850dd2d93c21322c7a94" id="r_a02a8e9e41a85850dd2d93c21322c7a94"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a02a8e9e41a85850dd2d93c21322c7a94">LED_INTR</a>&#160;&#160;&#160;LEDC_INTR_DISABLE</td></tr>
@@ -213,8 +213,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a6f277d6a175e29641ab81cd6c305e7c4" id="r_a6f277d6a175e29641ab81cd6c305e7c4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6f277d6a175e29641ab81cd6c305e7c4">LED_H_POINT</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memitem:a5755272baaeeb1a610b6f88e7afeb2d3" id="r_a5755272baaeeb1a610b6f88e7afeb2d3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a>&#160;&#160;&#160;100</td></tr>
 <tr class="memdesc:a5755272baaeeb1a610b6f88e7afeb2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-brightness thresholds and manual defaults.  <br /></td></tr>
-<tr class="memitem:a1af7791013896769504004ef23940090" id="r_a1af7791013896769504004ef23940090"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1af7791013896769504004ef23940090">BRIGHTNESS_DAY_MIN_V</a>&#160;&#160;&#160;1.0</td></tr>
-<tr class="memitem:a63a82ef9298c0a838ef68d9ecfa061e2" id="r_a63a82ef9298c0a838ef68d9ecfa061e2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memitem:a1af7791013896769504004ef23940090" id="r_a1af7791013896769504004ef23940090"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1af7791013896769504004ef23940090">BRIGHTNESS_DAY_MIN_V</a>&#160;&#160;&#160;0.05</td></tr>
+<tr class="memitem:a63a82ef9298c0a838ef68d9ecfa061e2" id="r_a63a82ef9298c0a838ef68d9ecfa061e2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a>&#160;&#160;&#160;15</td></tr>
 <tr class="memitem:aa322bf5f0bf2bbe87f22f3ec7f7cd668" id="r_aa322bf5f0bf2bbe87f22f3ec7f7cd668"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa322bf5f0bf2bbe87f22f3ec7f7cd668">BRIGHTNESS_NIGHT_MIN_V</a>&#160;&#160;&#160;2.29</td></tr>
 <tr class="memitem:add3c629e9878a9bbd7bfed7baf2d0781" id="r_add3c629e9878a9bbd7bfed7baf2d0781"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#add3c629e9878a9bbd7bfed7baf2d0781">BRIGHTNESS_NIGHT_MAX</a>&#160;&#160;&#160;40</td></tr>
 <tr class="memitem:a5cf58e6540f125d0a004a94f7c7b97b9" id="r_a5cf58e6540f125d0a004a94f7c7b97b9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5cf58e6540f125d0a004a94f7c7b97b9">BRIGHTNESS_NIGHT_MAX_V</a>&#160;&#160;&#160;10.74</td></tr>
@@ -239,6 +239,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ab6b8904ea8f761781af33d049960e758" id="r_ab6b8904ea8f761781af33d049960e758"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab6b8904ea8f761781af33d049960e758">TASK_4_DELAYTIME_SCREEN</a>&#160;&#160;&#160;100</td></tr>
 <tr class="memitem:a85b2c7fecc9c02092aae6acc0775a70a" id="r_a85b2c7fecc9c02092aae6acc0775a70a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a85b2c7fecc9c02092aae6acc0775a70a">TASK_4_CORE_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a98df6ff3e166bc8d8a5ae25dbafceef3">TASK_1_CORE_SCREEN</a></td></tr>
 <tr class="memitem:ab293aa6b5b839bd2c6def529a7e002d0" id="r_ab293aa6b5b839bd2c6def529a7e002d0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab293aa6b5b839bd2c6def529a7e002d0">FILTER_ALPHA</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memitem:a0aba378a08cd6b071ab97d7ec085020b" id="r_a0aba378a08cd6b071ab97d7ec085020b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0aba378a08cd6b071ab97d7ec085020b">FILTER_ALPHA_BEL</a>&#160;&#160;&#160;0.1f</td></tr>
 <tr class="memitem:a710942d71c4e9bc34e4ccdeefad07689" id="r_a710942d71c4e9bc34e4ccdeefad07689"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a710942d71c4e9bc34e4ccdeefad07689">PWM_SENSOR_RESOLUTION_MHZ</a>&#160;&#160;&#160;10</td></tr>
 <tr class="memitem:a07034a3b8648a31ed4e9ab4c257bc804" id="r_a07034a3b8648a31ed4e9ab4c257bc804"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a07034a3b8648a31ed4e9ab4c257bc804">PWM_SENSOR_PRESCALE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memitem:a3aa72444e4e467d27b85838a441d35f5" id="r_a3aa72444e4e467d27b85838a441d35f5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3aa72444e4e467d27b85838a441d35f5">PWM_SENSOR_NEG_EDGE</a>&#160;&#160;&#160;1</td></tr>
@@ -325,7 +326,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ac1ba699ae485cacc498a67a54b952f4d" id="r_ac1ba699ae485cacc498a67a54b952f4d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac1ba699ae485cacc498a67a54b952f4d">VALUE_MAX_TEMP</a>&#160;&#160;&#160;150</td></tr>
 <tr class="memitem:a962b50e1e4c01928d2326ebe463ceb5b" id="r_a962b50e1e4c01928d2326ebe463ceb5b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a962b50e1e4c01928d2326ebe463ceb5b">VALUE_MAX_VOLT</a>&#160;&#160;&#160;16.0</td></tr>
 <tr class="memitem:ab83d8677103a7081d5a8496188025b0b" id="r_ab83d8677103a7081d5a8496188025b0b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab83d8677103a7081d5a8496188025b0b">VALUE_MAX_OUT_TEMP</a>&#160;&#160;&#160;70</td></tr>
-<tr class="memitem:afb49e31aecc553b20cf07b22e55a9bd7" id="r_afb49e31aecc553b20cf07b22e55a9bd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a>&#160;&#160;&#160;7000</td></tr>
+<tr class="memitem:afb49e31aecc553b20cf07b22e55a9bd7" id="r_afb49e31aecc553b20cf07b22e55a9bd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a>&#160;&#160;&#160;10000</td></tr>
 <tr class="memitem:aa62bc4c38f6dc5dafe8b054c52a598bc" id="r_aa62bc4c38f6dc5dafe8b054c52a598bc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa62bc4c38f6dc5dafe8b054c52a598bc">TESTMODE_ACTIVATE_BUTTON_1_COUNT</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memitem:a27cc0d7ece37bb64ea7c541981677807" id="r_a27cc0d7ece37bb64ea7c541981677807"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a27cc0d7ece37bb64ea7c541981677807">TESTMODE_ACTIVATE_BUTTON_2_COUNT</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memitem:ab95db9b37e9121be348e6ea15f86c5a9" id="r_ab95db9b37e9121be348e6ea15f86c5a9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab95db9b37e9121be348e6ea15f86c5a9">TESTMODE_ACTIVATE_BUTTON_3_COUNT</a>&#160;&#160;&#160;2</td></tr>
@@ -846,7 +847,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BRIGHTNESS_DAY_MIN_V&#160;&#160;&#160;1.0</td>
+          <td class="memname">#define BRIGHTNESS_DAY_MIN_V&#160;&#160;&#160;0.05</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -888,7 +889,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BRIGHTNESS_NIGHT_MIN&#160;&#160;&#160;5</td>
+          <td class="memname">#define BRIGHTNESS_NIGHT_MIN&#160;&#160;&#160;15</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1077,6 +1078,20 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define FILTER_ALPHA&#160;&#160;&#160;0.1f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0aba378a08cd6b071ab97d7ec085020b" name="a0aba378a08cd6b071ab97d7ec085020b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aba378a08cd6b071ab97d7ec085020b">&#9670;&#160;</a></span>FILTER_ALPHA_BEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FILTER_ALPHA_BEL&#160;&#160;&#160;0.1f</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1877,7 +1892,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LED_FREQ&#160;&#160;&#160;5000</td>
+          <td class="memname">#define LED_FREQ&#160;&#160;&#160;25000</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3286,7 +3301,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TESTMODE_ACTIVATE_TIMEOUT_MS&#160;&#160;&#160;7000</td>
+          <td class="memname">#define TESTMODE_ACTIVATE_TIMEOUT_MS&#160;&#160;&#160;10000</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3314,7 +3329,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define USE_BUZZER&#160;&#160;&#160;false</td>
+          <td class="memname">#define USE_BUZZER&#160;&#160;&#160;true</td>
         </tr>
       </table>
 </div><div class="memdoc">

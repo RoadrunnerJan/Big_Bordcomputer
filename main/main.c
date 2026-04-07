@@ -64,7 +64,7 @@ bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
      * Temperature alert beep pattern
      * Generates double beep pattern when outdoor temperature < 3°C
      */
-    static void temperature_buzzering(void)
+    static void temperature_buzzering(void *pvParameters)
     {
         buzzer_beep(BUZZER_BEEPING_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
@@ -114,7 +114,7 @@ static void update_values(int displayID)
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
             
             set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_oil_pressure_string(get_output_string());
+            set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -127,7 +127,7 @@ static void update_values(int displayID)
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
 
             set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_oil_temperature_string(get_output_string());
+            set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             if(is_testmode_activated()) {
@@ -139,7 +139,7 @@ static void update_values(int displayID)
             calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
 
             set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_voltage_string(get_output_string());
+            set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
             if(is_testmode_activated()) {
@@ -171,7 +171,7 @@ static void update_values(int displayID)
             int hour = timeinfo.tm_hour >= 12 ? timeinfo.tm_hour - 12 : timeinfo.tm_hour;
             set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
             set_var_lvgl_value_clock_minute(timeinfo.tm_min);
-            set_var_lvgl_value_temperature_string(get_output_string());
+            set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
         break;
     }
 }
@@ -338,7 +338,7 @@ static void lv_tick_task_screen(void *pv)
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
                 }
-                if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP)
+                if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP && getOutputTemperatureSet())
                 {
                     xTaskCreatePinnedToCore(temperature_buzzering, "temperature_buzzering", BUZZER_TASK_STEPDEPTH, NULL, BUZZER_TASK_PRIORITY, NULL, BUZZER_TASK_CORE);
                     buzzed = true;

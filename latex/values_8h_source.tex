@@ -44,34 +44,42 @@
 \DoxyCodeLine{00040\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8c_a64cb441167d6932e541441209d31f040}{value\_volt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Current\ battery\ voltage\ (V)}}
 \DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8c_a10b3b64739e3de3e61a06ef5434447dc}{value\_outside\_temperature}};\ \textcolor{comment}{//\ Current\ outdoor\ temperature\ (°C)}}
 \DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{values_8c_a5417638ee52e124071a9c3d78a45e455}{value\_brightness}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Current\ display\ brightness\ (0-\/100)}}
-\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{values_8c_a2e46e8efc3c52e68d70b01707d4edea6}{night\_mode\_active}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Day/night\ mode\ flag}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{comment}{/*\ =====\ Display\ Output\ =====\ */}}
-\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{values_8c_a337ff90228def09e9868e067ef50f71c}{output\_string}}[20];\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Formatted\ value\ string\ for\ LVGL\ display}}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{comment}{/*\ =====\ Inline\ Functions\ =====\ */}}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8h_a87038ca07bdb2939f1924e3149e5050e}{calc\_filter}}(\textcolor{keywordtype}{double}\ new\_value\_us,\ \textcolor{keywordtype}{double}\ pre\_value\_us)\ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ (new\_value\_us\ *\ \doxymbox{\hyperlink{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0}{FILTER\_ALPHA}})\ +\ (pre\_value\_us\ *\ (1.0f\ -\/\ \doxymbox{\hyperlink{individual__config_8h_ab293aa6b5b839bd2c6def529a7e002d0}{FILTER\_ALPHA}}));}
-\DoxyCodeLine{00059\ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_a62b2188dbcd1b3b5b7952cfc549f0a86}{reset\_values}}(\textcolor{keywordtype}{int}\ screenSelection);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_ac514d396b9082664b1f2faf7c1e2aa62}{reset\_brightness}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_aae23d631c2c925d9510951ea93a2fdd1}{calculate\_value}}(\textcolor{keywordtype}{int}\ screenSelection,\ \textcolor{keywordtype}{double}\ new\_value);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8h_a93bef038a8c357eadde3459f19a5949e}{get\_value\_by\_screen\_id}}(\textcolor{keywordtype}{int}\ screenSelection);}
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{values_8c_ae65cb3b40d955d584814215df2606155}{brightness\_filtered}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Filtered\ brightness\ value\ for\ smoothing}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{values_8c_a2e46e8efc3c52e68d70b01707d4edea6}{night\_mode\_active}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Day/night\ mode\ flag}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{values_8c_a1134e57c5b33ef9fc25ac198cfa81135}{value\_brightness\_array}}[5];\ \textcolor{comment}{//\ Array\ for\ brightness\ value\ filtering}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ sizeof\_brightness\_array\ (sizeof(value\_brightness\_array)\ /\ sizeof(value\_brightness\_array[0]))}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{values_8c_a2fed0276c2bfe1d0481d2beb30fd9ffe}{value\_brightness\_array\_idx}};\ \ \ \textcolor{comment}{//\ Index\ for\ brightness\ value\ array}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{/*\ =====\ Display\ Output\ =====\ */}}
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{values_8c_a8159d2da0780f2aa44c3a5e53d3ca0e6}{output\_string\_outside\_temperature}}[20];\ \textcolor{comment}{//\ Formatted\ value\ string\ for\ LVGL\ display}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{values_8c_a5bfb363fc820815d4ee7c44b55992124}{output\_string\_oil\_pressure}}[20];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Formatted\ value\ string\ for\ LVGL\ display}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{values_8c_a050aa6af7f80568f09920cf2d3de14d8}{output\_string\_oil\_temperature}}[20];\ \ \ \ \ \textcolor{comment}{//\ Formatted\ value\ string\ for\ LVGL\ display}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{values_8c_aaf1a130c068b047bdbe5d22cb201eec3}{output\_string\_volt}}[20];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Formatted\ value\ string\ for\ LVGL\ display}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ =====\ Inline\ Functions\ =====\ */}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8h_a55fee2d326057a47f900355557814170}{calc\_filter}}(\textcolor{keywordtype}{double}\ new\_value\_us,\ \textcolor{keywordtype}{double}\ pre\_value\_us,\ \textcolor{keywordtype}{double}\ alpha)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ (new\_value\_us\ *\ alpha)\ +\ (pre\_value\_us\ *\ (1.0f\ -\/\ alpha));}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_a62b2188dbcd1b3b5b7952cfc549f0a86}{reset\_values}}(\textcolor{keywordtype}{int}\ screenSelection);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_ac514d396b9082664b1f2faf7c1e2aa62}{reset\_brightness}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_aae23d631c2c925d9510951ea93a2fdd1}{calculate\_value}}(\textcolor{keywordtype}{int}\ screenSelection,\ \textcolor{keywordtype}{double}\ new\_value);}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_a6716fa7df23009066f0de8f2add1fe0b}{calcBrightness}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{values_8h_a93bef038a8c357eadde3459f19a5949e}{get\_value\_by\_screen\_id}}(\textcolor{keywordtype}{int}\ screenSelection);}
 \DoxyCodeLine{00095\ }
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{values_8h_a9c8bf0a883b5730062a6c022340b6f50}{get\_output\_string}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00106\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{values_8h_a73221be1b1c78e4541912e7aa56cd73c}{getBrightness}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{values_8h_ad865da0ea1b2c96cc9f9b079cdc83f93}{getNightModeActive}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{values_8h_a6716fa7df23009066f0de8f2add1fe0b}{calcBrightness}}(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{values_8h_a40780b3f685159484e53b71214dd9fc4}{get\_output\_string\_by\_screen\_id}}(\textcolor{keywordtype}{int}\ screenSelection);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{values_8h_a73221be1b1c78e4541912e7aa56cd73c}{getBrightness}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{values_8h_ad865da0ea1b2c96cc9f9b079cdc83f93}{getNightModeActive}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{values_8h_a853a64e815c5d3fc04914e2347a92a5a}{getOutputTemperatureSet}}();}
 
 \end{DoxyCode}

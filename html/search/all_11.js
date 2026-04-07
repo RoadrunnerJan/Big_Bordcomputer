@@ -20,7 +20,7 @@ var searchData=
   ['task_5fpriority_17',['task_priority',['../structdisplay__settings.html#a412e3a2657100a656bdf1a532a90afd8',1,'display_settings']]],
   ['task_5fstep_5fdepth_18',['task_step_depth',['../structdisplay__settings.html#a3cb2e2cc7c3e587af208d30bcbf6c436',1,'display_settings']]],
   ['tast_5fcore_19',['tast_core',['../structdisplay__settings.html#a93303013959d8ba4f8fcc4c2742945ca',1,'display_settings']]],
-  ['temp_20',['temp',['../structntc__table__t.html#a3794ab63a4b74b8e2cf3320d282d8802',1,'ntc_table_t']]],
+  ['temp_20',['temp',['../structlookup__values__t.html#a62ffd3b6becab80922b6075418267381',1,'lookup_values_t']]],
   ['temp_5fus_21',['temp_us',['../structsensor__data__t.html#a495190bb00ceb6f08985f33eae6240a2',1,'sensor_data_t']]],
   ['temp_5fvalue_5fset_22',['temp_value_set',['../values_8c.html#aa2ea020aec48763bdf4f49303bcb995d',1,'temp_value_set:&#160;values.c'],['../values_8h.html#aa2ea020aec48763bdf4f49303bcb995d',1,'temp_value_set:&#160;values.c']]],
   ['temperature_5ftest_5fswitch_23',['temperature_test_switch',['../test_simulation_8c.html#ac57426501c15d07507e82ac9126c1d55',1,'temperature_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#ac57426501c15d07507e82ac9126c1d55',1,'temperature_test_switch:&#160;testSimulation.c']]],

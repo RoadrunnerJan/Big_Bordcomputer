@@ -80,7 +80,7 @@ void reset_test_values(void) {
     test_value_oil_pressure         = VALUE_DEFAULT_PRES;
     test_value_oil_temperature      = VALUE_DEFAULT_TEMP;
     test_value_volt                 = VALUE_DEFAULT_VOLT;
-    test_value_outside_temperature  = 0.0;
+    test_value_outside_temperature  = 4.0;
     test_value_brightness           = BRIGHTNESS_DAY;
     test_night_mode_active          = false;
 }

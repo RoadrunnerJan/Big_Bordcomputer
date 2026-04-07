@@ -1,8 +1,9 @@
 var i2c_functions_8h =
 [
-    [ "ntc_table_t", "structntc__table__t.html", "structntc__table__t" ],
+    [ "lookup_values_t", "structlookup__values__t.html", "structlookup__values__t" ],
     [ "OIL_TABLE_SIZE", "i2c_functions_8h.html#aa612694140b11242c12098971310d89a", null ],
     [ "OUTSIDE_TABLE_SIZE", "i2c_functions_8h.html#a8bfd1527698a7d424696866246e7d6ad", null ],
+    [ "PRESSURE_TABLE_SIZE", "i2c_functions_8h.html#a5a9cd48e78e7901ba75a5f71e209b5cd", null ],
     [ "get_i2c_adc_oil_press", "i2c_functions_8h.html#a05b124606279b3e9d0dd924ae260801a", null ],
     [ "get_i2c_adc_oil_temp", "i2c_functions_8h.html#aff35661486adfbe819f76fe6ad43d150", null ],
     [ "get_i2c_adc_outside_temp", "i2c_functions_8h.html#ad8d1640b3b5cc5a310abfa729975e2bc", null ],
@@ -22,8 +23,8 @@ var i2c_functions_8h =
     [ "ds3231_cfg", "i2c_functions_8h.html#ab267adc45de633391260efd03afa0ad6", null ],
     [ "ds3231_handle", "i2c_functions_8h.html#a992ab7409747ebf3a31ff7643d9720f2", null ],
     [ "gpio_cfg_time", "i2c_functions_8h.html#a50b1fe2759bea9706faf3ed4eb6e815c", null ],
-    [ "oil_temp_table", "i2c_functions_8h.html#a32a907f8cf265cd25cd40c6acf9b56d4", null ],
-    [ "outside_temperature_table", "i2c_functions_8h.html#a8e60f82a011434b87b9c2c9937914fc2", null ],
+    [ "oil_temp_table", "i2c_functions_8h.html#a3222dc2ea3f4f877a09b77f768e098a6", null ],
+    [ "outside_temperature_table", "i2c_functions_8h.html#a9368b27af8dd8c123596c5554a756233", null ],
     [ "reference_voltage", "i2c_functions_8h.html#a55ced10a5ef8304b6466cb0566d2b2f9", null ],
     [ "testmode_activated", "i2c_functions_8h.html#afa9e8129f0495e4719121defad0fa0d6", null ],
     [ "testmode_activation_count", "i2c_functions_8h.html#a6291b474d126cd2545e39479ac119bd2", null ],

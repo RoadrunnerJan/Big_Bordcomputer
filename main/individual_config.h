@@ -16,7 +16,7 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         false  // true: enable buzzer alert functionality
+#define USE_BUZZER                         true  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 
@@ -98,7 +98,7 @@
     #define LCD_1_INVERT_COLOR             true
     #define LCD_1_MALLOC_CAP                MALLOC_CAP_SPIRAM
     #define LCD_1_BUFFER_FACTOR             2
-    #define LCD_1_SCREEN_ID                SCREEN_ID_GAUGE_CLOCK_TEMPERATURE
+    #define LCD_1_SCREEN_ID                SCREEN_ID_GAUGE_CLOCK_TEMPERATURE // SCREEN_ID_GAUGE_TEMPERATURE_CLOCK
 
     /* ===== LCD 2 PINS ===== */
     #if NUMBER_OF_DISPLAYS > 1

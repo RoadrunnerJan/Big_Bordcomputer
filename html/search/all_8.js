@@ -15,10 +15,11 @@ var searchData=
   ['init_5fsystem_12',['init_system',['../main_8c.html#afceb890a6ab9be73cc5481369538c705',1,'main.c']]],
   ['init_5ftime_5fbuttons_13',['init_time_buttons',['../i2c_functions_8c.html#a49588e9a58e96fb5007445a7d0133c60',1,'init_time_buttons():&#160;i2cFunctions.c'],['../i2c_functions_8h.html#adefb1faa97f5dcd7f89a4327b3d4a893',1,'init_time_buttons(void):&#160;i2cFunctions.c']]],
   ['interpolate_5foutside_5ftemp_14',['interpolate_outside_temp',['../i2c_functions_8c.html#a5ae029b9d6dc2e265df44e534ada788b',1,'i2cFunctions.c']]],
-  ['interpolate_5ftemp_15',['interpolate_temp',['../i2c_functions_8c.html#a588f37762af357a454b6e23e463d5b8d',1,'i2cFunctions.c']]],
-  ['intr_5fflags_16',['intr_flags',['../structspi__settings.html#a2fd465c6439576cb1ae68e3df70eebb1',1,'spi_settings']]],
-  ['io_5fconfig_17',['io_config',['../structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b',1,'display_settings']]],
-  ['io_5fhandle_18',['io_handle',['../structdisplay__settings.html#ac5ab4bdd9e312d7e1b0bc5d2a9a9007d',1,'display_settings']]],
-  ['is_5ftestmode_5factivated_19',['is_testmode_activated',['../i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0',1,'i2cFunctions.h']]],
-  ['ispwm_20',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
+  ['interpolate_5fpressure_15',['interpolate_pressure',['../i2c_functions_8c.html#a785d1fe320cf21f8bbf5b40016fbca9e',1,'i2cFunctions.c']]],
+  ['interpolate_5ftemp_16',['interpolate_temp',['../i2c_functions_8c.html#a588f37762af357a454b6e23e463d5b8d',1,'i2cFunctions.c']]],
+  ['intr_5fflags_17',['intr_flags',['../structspi__settings.html#a2fd465c6439576cb1ae68e3df70eebb1',1,'spi_settings']]],
+  ['io_5fconfig_18',['io_config',['../structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b',1,'display_settings']]],
+  ['io_5fhandle_19',['io_handle',['../structdisplay__settings.html#ac5ab4bdd9e312d7e1b0bc5d2a9a9007d',1,'display_settings']]],
+  ['is_5ftestmode_5factivated_20',['is_testmode_activated',['../i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0',1,'i2cFunctions.h']]],
+  ['ispwm_21',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
 ];

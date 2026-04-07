@@ -53,6 +53,7 @@ var individual__config_8h =
     [ "CHIP_USED", "individual__config_8h.html#abc5772bb8f4980f3c762ed695dde4c21", null ],
     [ "EEZ_VALUE_FACTOR", "individual__config_8h.html#ac2f4bb90d6c2451310a80f949a777bc2", null ],
     [ "FILTER_ALPHA", "individual__config_8h.html#ab293aa6b5b839bd2c6def529a7e002d0", null ],
+    [ "FILTER_ALPHA_BEL", "individual__config_8h.html#a0aba378a08cd6b071ab97d7ec085020b", null ],
     [ "GAUGE_ON_DELAY_SEC", "individual__config_8h.html#af7f4269bb7d36168ba4c83efb544d805", null ],
     [ "I2C_CLK_SRC", "individual__config_8h.html#aeed45b5fe842c931fe0732bad3dd29f9", null ],
     [ "I2C_GLITCH_IGNORE", "individual__config_8h.html#a70862c98ff5bb54336cd13a6c5781eba", null ],

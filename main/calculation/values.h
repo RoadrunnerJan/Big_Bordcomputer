@@ -47,7 +47,10 @@ extern float value_brightness_array[5]; // Array for brightness value filtering
 extern int value_brightness_array_idx;   // Index for brightness value array
 
 /* ===== Display Output ===== */
-extern char output_string[20];           // Formatted value string for LVGL display
+extern char output_string_outside_temperature[20]; // Formatted value string for LVGL display
+extern char output_string_oil_pressure[20];        // Formatted value string for LVGL display
+extern char output_string_oil_temperature[20];     // Formatted value string for LVGL display
+extern char output_string_volt[20];                // Formatted value string for LVGL display
 
 /* ===== Inline Functions ===== */
 
@@ -99,9 +102,10 @@ void calcBrightness(float value);
 
 /**
  * Get formatted output string for current sensor value
- * @return Pointer to output_string (valid for one sensor reading)
+ * @param screenSelection Screen ID
+ * @return Pointer to output string (valid for one sensor reading)
  */
-char* get_output_string(void);
+char* get_output_string_by_screen_id(int screenSelection);
 
 /**
  * Get current brightness level percentage
@@ -115,3 +119,8 @@ int getBrightness(void);
  */
 bool getNightModeActive(void);
 
+/**
+ * Get current output temperature set state
+ * @return true if output temperature is set, false otherwise
+ */
+bool getOutputTemperatureSet();

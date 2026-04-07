@@ -16,14 +16,16 @@ I2C interface for DS3231 RTC and ADS1115 ADC.
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}
+struct \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\+\#define \doxymbox{\hyperlink{i2c_functions_8h_aa612694140b11242c12098971310d89a}{OIL\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))
+\+\#define \doxymbox{\hyperlink{i2c_functions_8h_aa612694140b11242c12098971310d89a}{OIL\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}}))
 \item 
-\+\#define \doxymbox{\hyperlink{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad}{OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))
+\+\#define \doxymbox{\hyperlink{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad}{OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}}))
+\item 
+\+\#define \doxymbox{\hyperlink{i2c_functions_8h_a5a9cd48e78e7901ba75a5f71e209b5cd}{PRESSURE\+\_\+\+TABLE\+\_\+\+SIZE}}~(sizeof(\doxymbox{\hyperlink{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}}\+[0]\+))
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -71,9 +73,9 @@ button\+\_\+gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_a50b1f
 \item 
 button\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8h_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\+\_\+time}} \+[2]\+
 \item 
-const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
 \item 
-const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8h_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
 \item 
 bool \doxymbox{\hyperlink{i2c_functions_8h_afa9e8129f0495e4719121defad0fa0d6}{testmode\+\_\+activated}}
 \item 
@@ -115,13 +117,19 @@ CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
 \index{OIL\_TABLE\_SIZE@{OIL\_TABLE\_SIZE}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{OIL\_TABLE\_SIZE}{OIL\_TABLE\_SIZE}}
 {\footnotesize\ttfamily \label{i2c_functions_8h_aa612694140b11242c12098971310d89a} 
-\+\#define OIL\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))}
+\+\#define OIL\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}}))}
 
 \Hypertarget{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad}\index{i2cFunctions.h@{i2cFunctions.h}!OUTSIDE\_TABLE\_SIZE@{OUTSIDE\_TABLE\_SIZE}}
 \index{OUTSIDE\_TABLE\_SIZE@{OUTSIDE\_TABLE\_SIZE}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{OUTSIDE\_TABLE\_SIZE}{OUTSIDE\_TABLE\_SIZE}}
 {\footnotesize\ttfamily \label{i2c_functions_8h_a8bfd1527698a7d424696866246e7d6ad} 
-\+\#define OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}}))}
+\+\#define OUTSIDE\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8h_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}}))}
+
+\Hypertarget{i2c_functions_8h_a5a9cd48e78e7901ba75a5f71e209b5cd}\index{i2cFunctions.h@{i2cFunctions.h}!PRESSURE\_TABLE\_SIZE@{PRESSURE\_TABLE\_SIZE}}
+\index{PRESSURE\_TABLE\_SIZE@{PRESSURE\_TABLE\_SIZE}!i2cFunctions.h@{i2cFunctions.h}}
+\doxysubsubsection{\texorpdfstring{PRESSURE\_TABLE\_SIZE}{PRESSURE\_TABLE\_SIZE}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a5a9cd48e78e7901ba75a5f71e209b5cd} 
+\+\#define PRESSURE\+\_\+\+TABLE\+\_\+\+SIZE~(sizeof(\doxymbox{\hyperlink{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}}) /\+ sizeof(\doxymbox{\hyperlink{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}}\+[0]\+))}
 
 
 
@@ -261,17 +269,17 @@ i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ds3231\+\_\+handle\hspace{0.3cm}{\tt
 {\footnotesize\ttfamily \label{i2c_functions_8h_a50b1fe2759bea9706faf3ed4eb6e815c} 
 button\+\_\+gpio\+\_\+config\+\_\+t gpio\+\_\+cfg\+\_\+time\+[2]\+\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4}\index{i2cFunctions.h@{i2cFunctions.h}!oil\_temp\_table@{oil\_temp\_table}}
+\Hypertarget{i2c_functions_8h_a3222dc2ea3f4f877a09b77f768e098a6}\index{i2cFunctions.h@{i2cFunctions.h}!oil\_temp\_table@{oil\_temp\_table}}
 \index{oil\_temp\_table@{oil\_temp\_table}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{oil\_temp\_table}{oil\_temp\_table}}
-{\footnotesize\ttfamily \label{i2c_functions_8h_a32a907f8cf265cd25cd40c6acf9b56d4} 
-const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} oil\+\_\+temp\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a3222dc2ea3f4f877a09b77f768e098a6} 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} oil\+\_\+temp\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2}\index{i2cFunctions.h@{i2cFunctions.h}!outside\_temperature\_table@{outside\_temperature\_table}}
+\Hypertarget{i2c_functions_8h_a9368b27af8dd8c123596c5554a756233}\index{i2cFunctions.h@{i2cFunctions.h}!outside\_temperature\_table@{outside\_temperature\_table}}
 \index{outside\_temperature\_table@{outside\_temperature\_table}!i2cFunctions.h@{i2cFunctions.h}}
 \doxysubsubsection{\texorpdfstring{outside\_temperature\_table}{outside\_temperature\_table}}
-{\footnotesize\ttfamily \label{i2c_functions_8h_a8e60f82a011434b87b9c2c9937914fc2} 
-const \doxymbox{\hyperlink{structntc__table__t}{ntc\+\_\+table\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \label{i2c_functions_8h_a9368b27af8dd8c123596c5554a756233} 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{i2c_functions_8h_a55ced10a5ef8304b6466cb0566d2b2f9}\index{i2cFunctions.h@{i2cFunctions.h}!reference\_voltage@{reference\_voltage}}
 \index{reference\_voltage@{reference\_voltage}!i2cFunctions.h@{i2cFunctions.h}}

@@ -76,11 +76,12 @@ var searchData=
   ['logging_2eh_73',['logging.h',['../logging_8h.html',1,'']]],
   ['logging_5fenabled_74',['LOGGING_ENABLED',['../individual__config_8h.html#a3ccdf5e151cf4faa7bea9d68a1af829a',1,'individual_config.h']]],
   ['logging_5ftag_75',['LOGGING_TAG',['../individual__config_8h.html#a454deab6aeff0af2de8c334bec94dfe9',1,'individual_config.h']]],
-  ['lsb_5f2048_76',['LSB_2048',['../individual__config_8h.html#ac83c49065dacf9828a6acdceefaa54f6',1,'individual_config.h']]],
-  ['lsb_5f4096_77',['LSB_4096',['../individual__config_8h.html#abb231f31dd71babedb1a64b056d0a6d1',1,'individual_config.h']]],
-  ['lv_5fclocktemp_5ftest_78',['lv_Clocktemp_test',['../test_simulation_8c.html#a26e4a7ae995e133e89b16eb92ab0b67e',1,'lv_Clocktemp_test():&#160;testSimulation.c'],['../test_simulation_8h.html#a803e95fb98cd89ae749f9556c6f20054',1,'lv_Clocktemp_test(void):&#160;testSimulation.c']]],
-  ['lv_5fdisplays_79',['lv_displays',['../structdisplay__settings.html#a84ee1776595c889bb88f8034a1db6dab',1,'display_settings']]],
-  ['lv_5fpressure_5ftest_80',['lv_pressure_test',['../test_simulation_8c.html#ad8e9acc755f5e43bdc566e4b012fd1d5',1,'lv_pressure_test():&#160;testSimulation.c'],['../test_simulation_8h.html#ae861eb1aae5dce451e6ad313c89695c6',1,'lv_pressure_test(void):&#160;testSimulation.c']]],
-  ['lv_5ftemperature_5ftest_81',['lv_temperature_test',['../test_simulation_8c.html#a856a770346f094ce110c5ec8d85c7632',1,'lv_temperature_test():&#160;testSimulation.c'],['../test_simulation_8h.html#aa629bf8b616356a294651226b156ebef',1,'lv_temperature_test(void):&#160;testSimulation.c']]],
-  ['lv_5fvolt_5ftest_82',['lv_volt_test',['../test_simulation_8c.html#add87703df2035698ea7ecd8f7204d470',1,'lv_volt_test():&#160;testSimulation.c'],['../test_simulation_8h.html#a77ec812ad1b3b3ccac3d8f226b020789',1,'lv_volt_test(void):&#160;testSimulation.c']]]
+  ['lookup_5fvalues_5ft_76',['lookup_values_t',['../structlookup__values__t.html',1,'']]],
+  ['lsb_5f2048_77',['LSB_2048',['../individual__config_8h.html#ac83c49065dacf9828a6acdceefaa54f6',1,'individual_config.h']]],
+  ['lsb_5f4096_78',['LSB_4096',['../individual__config_8h.html#abb231f31dd71babedb1a64b056d0a6d1',1,'individual_config.h']]],
+  ['lv_5fclocktemp_5ftest_79',['lv_Clocktemp_test',['../test_simulation_8c.html#a26e4a7ae995e133e89b16eb92ab0b67e',1,'lv_Clocktemp_test():&#160;testSimulation.c'],['../test_simulation_8h.html#a803e95fb98cd89ae749f9556c6f20054',1,'lv_Clocktemp_test(void):&#160;testSimulation.c']]],
+  ['lv_5fdisplays_80',['lv_displays',['../structdisplay__settings.html#a84ee1776595c889bb88f8034a1db6dab',1,'display_settings']]],
+  ['lv_5fpressure_5ftest_81',['lv_pressure_test',['../test_simulation_8c.html#ad8e9acc755f5e43bdc566e4b012fd1d5',1,'lv_pressure_test():&#160;testSimulation.c'],['../test_simulation_8h.html#ae861eb1aae5dce451e6ad313c89695c6',1,'lv_pressure_test(void):&#160;testSimulation.c']]],
+  ['lv_5ftemperature_5ftest_82',['lv_temperature_test',['../test_simulation_8c.html#a856a770346f094ce110c5ec8d85c7632',1,'lv_temperature_test():&#160;testSimulation.c'],['../test_simulation_8h.html#aa629bf8b616356a294651226b156ebef',1,'lv_temperature_test(void):&#160;testSimulation.c']]],
+  ['lv_5fvolt_5ftest_83',['lv_volt_test',['../test_simulation_8c.html#add87703df2035698ea7ecd8f7204d470',1,'lv_volt_test():&#160;testSimulation.c'],['../test_simulation_8h.html#a77ec812ad1b3b3ccac3d8f226b020789',1,'lv_volt_test(void):&#160;testSimulation.c']]]
 ];
