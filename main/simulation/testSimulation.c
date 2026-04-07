@@ -68,7 +68,7 @@ double test_thresholds[5][4] = {
     /* clock temperature */ { 33, -15,  20, 0.06},
 
     //                        <=   >=   <=    >=
-    /* brightness        */ {  2,  40,   2,  80}
+    /* brightness        */ {  5,  100,   5,  100}
 };
 
 /* ===== Function Implementations ===== */
@@ -269,10 +269,12 @@ void brightness_test() {
             test_value_brightness += test_steps[4][3];
             if (test_value_brightness >= test_thresholds[4][3]) {
                 brightness_test_switch = 0;
-                test_night_mode_active = !(test_night_mode_active);
             }
         break;
     }
+    if (test_value_brightness <= BRIGHTNESS_NIGHT_MAX) 
+        test_night_mode_active = true;
+    else test_night_mode_active = false;
 }
 
 /**
