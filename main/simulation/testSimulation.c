@@ -68,7 +68,7 @@ double test_thresholds[5][4] = {
     /* clock temperature */ { 33, -15,  20, 0.06},
 
     //                        <=   >=   <=    >=
-    /* brightness        */ {  5,  100,   5,  100}
+    /* brightness        */ {  BRIGHTNESS_NIGHT_MIN,  BRIGHTNESS_DAY,   BRIGHTNESS_NIGHT_MIN,  BRIGHTNESS_DAY}
 };
 
 /* ===== Function Implementations ===== */
