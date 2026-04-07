@@ -472,8 +472,8 @@ float get_i2c_adc_volt() {
     int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_ADS_CHANNEL, ADC_VOLT_ADS_PGA);
     float v_board = (raw * LSB_2048) / 1000.0f;
     v_board = v_board * ((ADC_VOLT_ADS_PULLUP + ADC_VOLT_ADS_PULLDOWN) / ADC_VOLT_ADS_PULLDOWN);
-    char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V", v_board);
+    char log_msg[100];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V | ADC value: %.2f", v_board, (raw * LSB_2048) / 1000.0f);
     printLog(log_msg);
     return v_board;
 }
@@ -483,8 +483,8 @@ float get_i2c_adc_volt_bel() {
     int16_t raw = read_ads1115(ads_handle[0], ADC_VOLT_BEL_ADS_CHANNEL, ADC_VOLT_BEL_ADS_PGA);
     float v_bel = (raw * LSB_4096) / 1000.0f; 
     v_bel = v_bel * ((ADC_VOLT_BEL_ADS_PULLUP + ADC_VOLT_BEL_ADS_PULLDOWN) / ADC_VOLT_BEL_ADS_PULLDOWN); // Teiler 10k/2.2k
-    char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V", v_bel);
+    char log_msg[100];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V | ADC value: %.2f", v_bel, (raw * LSB_4096) / 1000.0f);
     printLog(log_msg);
     return v_bel;
 }
@@ -495,8 +495,8 @@ float get_i2c_adc_oil_temp() {
     float oil_t = raw_to_res_safe(raw, ADC_TEMP_ADS_PULLUP);
     if (oil_t < ADC_TEMP_ADS_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Error (open circuit)
     else oil_t = interpolate_temp(oil_t);
-    char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C", oil_t);
+    char log_msg[100];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C | resistor value: %.2f", oil_t, raw_to_res_safe(raw, ADC_TEMP_ADS_PULLUP));
     printLog(log_msg);
     return oil_t;
 }
@@ -507,8 +507,8 @@ float get_i2c_adc_oil_press() {
     float oil_p = raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP);
     if (oil_p < ADC_PRES_ADS_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_ADS_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
     else oil_p = interpolate_pressure(oil_p);
-    char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar", oil_p);
+    char log_msg[100];
+    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar | resistor value: %.2f", oil_p, raw_to_res_safe(raw, ADC_PRES_ADS_PULLUP));
     printLog(log_msg);
     return oil_p;
 }
@@ -520,8 +520,8 @@ float get_i2c_adc_outside_temp() {
         float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP); 
         if (outside_t < ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; 
         else outside_t = interpolate_outside_temp(outside_t);
-        char log_msg[50];
-        snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C", outside_t);
+        char log_msg[100];
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, raw_to_res_safe(raw, ADC_OUT_TEMP_ADS_PULLUP));
         printLog(log_msg);
         return outside_t;
     #else 
