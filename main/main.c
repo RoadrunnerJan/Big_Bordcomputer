@@ -64,7 +64,7 @@ bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
      * Temperature alert beep pattern
      * Generates double beep pattern when outdoor temperature < 3°C
      */
-    static void temperature_beep(void)
+    static void temperature_buzzering(void)
     {
         buzzer_beep(BUZZER_BEEPING_VALUE);
         vTaskDelay(pdMS_TO_TICKS(BUZZER_BEEP_ON_TIME));
@@ -338,9 +338,9 @@ static void lv_tick_task_screen(void *pv)
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
                 }
-                if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN)
+                if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP)
                 {
-                    xTaskCreatePinnedToCore(temperature_beep, "temperature_beep", BUZZER_TASK_STEPDEPTH, NULL, BUZZER_TASK_PRIORITY, NULL, BUZZER_TASK_CORE);
+                    xTaskCreatePinnedToCore(temperature_buzzering, "temperature_buzzering", BUZZER_TASK_STEPDEPTH, NULL, BUZZER_TASK_PRIORITY, NULL, BUZZER_TASK_CORE);
                     buzzed = true;
                 }
             }
