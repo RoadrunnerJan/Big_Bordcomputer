@@ -43,16 +43,16 @@ The datasheets for the used components can be found in the `datasheets/` directo
 In test mode, sensor-critical values are simulated and the UI loop runs in a deterministic cycle.
 Activate test mode with the following button sequence within `TESTMODE_ACTIVATE_TIMEOUT_MS` (7 seconds):
 
-1. Press `BUTTON_CLOCK_MINUTE_PIN` (minute button) twice to decrease minute
-2. Press `BUTTON_CLOCK_HOUR_PIN` (hour button) once to decrease hour
-3. Press `BUTTON_CLOCK_MINUTE_PIN` twice to increase minute
-4. Press `BUTTON_CLOCK_HOUR_PIN` once to increase hour and toggle test mode
+1. Press minute button twice to decrease minute
+2. Press hour button once to decrease hour
+3. Press minute button twice to increase minute
+4. Press hour button once to increase hour and toggle test mode
 
 On success, logs show:
 - `"Test mode ACTIVATED!"` or `"Test mode DEACTIVATED!"`
 
 Activation parameters are defined in `main/individual_config.h`:
-- `TESTMODE_ACTIVATE_TIMEOUT_MS` (=7000)
+- `TESTMODE_ACTIVATE_TIMEOUT_MS` (=10000 ms)
 - `TESTMODE_ACTIVATE_BUTTON_1_COUNT` (=2)
 - `TESTMODE_ACTIVATE_BUTTON_2_COUNT` (=1)
 - `TESTMODE_ACTIVATE_BUTTON_3_COUNT` (=2)
