@@ -13,7 +13,9 @@ This project implements a custom-built boardcomputer for classic vehicles like t
 
 The E36 version uses four displays, each with its own gauge. All parameters are configurable.
 
-![First Impression](gifs/FirstImpression.GIF)
+![Demo Image](demo/Demo_1.jpeg)
+
+![First Impression](demo/FirstImpression.GIF)
 
 ## Hardware Overview
 
@@ -23,6 +25,7 @@ The project is based on a powerful ESP32-P4 that controls all peripherals.
 - **ESP32-P4 WT9932P4-TINY** - Main processor
 - **4x 1.28 Inch Round TFT LCD Display (240x240 RGB) with GC9A01 Driver** ([Link to AliExpress](https://de.aliexpress.com/item/1005009364283361.html))
 - **Custom PCB** to connect the displays and peripherals with the ESP (in the `hardware/` directory)
+![Board Image](demo/Platine.jpeg)
 - **5V Buzzer** for warnings when outside temperature is below 3°C
 - **2x Buttons** for time adjustment
 - **12V to 5V Converter** for power supply
@@ -94,10 +97,14 @@ For detailed instructions see the official ESP-IDF guides.
 │   ├── logging/                # Logging functions
 │   ├── lvgl/                   # LVGL-UI and graphics
 │   └── peripherie/             # Peripheral drivers (buzzer, buttons, etc.)
+├── demo/                       # Demo images and videos
 ├── hardware/                   # PCB design and hardware files
 ├── datasheets/                 # Datasheets of components
 ├── fonts/                      # Fonts
 ├── png/                        # Images and icons
+├── build/                      # Build artifacts (generated)
+├── html/                       # Doxygen HTML documentation
+├── latex/                      # Doxygen LaTeX documentation
 ├── managed_components/         # ESP-IDF components
 └── README.md                   # This file
 ```
