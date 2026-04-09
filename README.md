@@ -13,6 +13,8 @@ This project implements a custom-built boardcomputer for classic vehicles like t
 
 The E36 version uses four displays, each with its own gauge. All parameters are configurable.
 
+![First Impression](gifs/FirstImpression.GIF)
+
 ## Hardware Overview
 
 The project is based on a powerful ESP32-P4 that controls all peripherals.
