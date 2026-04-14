@@ -42,22 +42,24 @@ extern double value_outside_temperature; // Current outdoor temperature (°C)
 extern int value_brightness;             // Current display brightness (0-100)
 extern float brightness_filtered;        // Filtered brightness value for smoothing
 extern bool night_mode_active;           // Day/night mode flag
-extern float value_brightness_array[5]; // Array for brightness value filtering
-#define sizeof_brightness_array (sizeof(value_brightness_array) / sizeof(value_brightness_array[0]))
+
+extern float value_oil_pressure_array[VALUE_OVERSAMPLING_OIL_PRES];           // Array for oil pressure value filtering
+extern float value_oil_temperature_array[VALUE_OVERSAMPLING_OIL_TEMP];      // Array for oil temperature value filtering
+extern float value_volt_array[VALUE_OVERSAMPLING_VOLT];         // Array for voltage value filtering
+extern float value_outside_temperature_array[VALUE_OVERSAMPLING_OUT_TEMP];     // Array for outdoor temperature value filtering
+extern float value_brightness_array[VALUE_OVERSAMPLING_BRIGHT];             // Array for brightness value filtering
+
+extern int value_oil_pressure_array_idx;      // Index for oil pressure value array
+extern int value_oil_temperature_array_idx;       // Index for oil temperature value array
+extern int value_volt_array_idx;          // Index for voltage value array
+extern int value_outside_temperature_array_idx;      // Index for outdoor temperature value array
 extern int value_brightness_array_idx;   // Index for brightness value array
 
-extern int value_oil_temperature_array_idx;       // Index for oil temperature value array
-extern float value_oil_temperature_array[5];      // Array for oil temperature value filtering
-#define sizeof_oil_temperature_array (sizeof(value_oil_temperature_array) / sizeof(value_oil_temperature_array[0]))
-extern int value_oil_pressure_array_idx;      // Index for oil pressure value array
-extern float value_oil_pressure_array[5];     // Array for oil pressure value filtering
-#define sizeof_oil_pressure_array (sizeof(value_oil_pressure_array) / sizeof(value_oil_pressure_array[0]))
-extern int value_outside_temperature_array_idx;      // Index for outdoor temperature value array
-extern float value_outside_temperature_array[5];     // Array for outdoor temperature value filtering
-#define sizeof_outside_temperature_array (sizeof(value_outside_temperature_array) / sizeof(value_outside_temperature_array[0]))
-extern int value_volt_array_idx;          // Index for voltage value array
-extern float value_volt_array[5];         // Array for voltage value filtering
-#define sizeof_volt_array (sizeof(value_volt_array) / sizeof(value_volt_array[0]))
+extern bool new_value_available_oil_pres;
+extern bool new_value_available_oil_temp;
+extern bool new_value_available_volt;
+extern bool new_value_available_out_temp;
+extern bool new_value_available_bright;
 
 /* ===== Display Output ===== */
 extern char output_string_outside_temperature[20]; // Formatted value string for LVGL display
@@ -133,9 +135,20 @@ int getBrightness(void);
 bool getNightModeActive(void);
 
 /**
+ * Get if night mode changed
+ * @return true if night mode active changed, false if not
+ */
+bool getNightModechanged(void);
+
+/**
  * Get current output temperature set state
  * @return true if output temperature is set, false otherwise
  */
 bool getOutputTemperatureSet();
 
+/**
+ * Get if the oversampling was successfull so that the lvgl should get updatedfor current sensor value
+ * @param screenSelection Screen ID
+ * @return true if value got calculated
+ */
 bool updateLVGLScreen(int screenSelection);

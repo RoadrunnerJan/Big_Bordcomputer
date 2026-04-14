@@ -26,6 +26,7 @@ bool pres_value_set            = false;   // Oil pressure value initialized
 bool temp_value_set            = false;   // Oil temperature value initialized
 bool volt_value_set            = false;   // Battery voltage value initialized
 bool outside_temperature_set   = false;   // Outdoor temperature value initialized
+bool bright_value_set          = false;   // bright value initialized
 
 /* ===== Global Sensor Values ===== */
 double value_oil_pressure      = VALUE_DEFAULT_PRES;
@@ -34,17 +35,26 @@ double value_volt              = VALUE_DEFAULT_VOLT;
 double value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
 int value_brightness           = VALUE_DEFAULT_BRIGHT;
 float brightness_filtered      = 0;
-float value_brightness_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
-int value_brightness_array_idx = 0;
-float value_outside_temperature_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
-int value_outside_temperature_array_idx = 0;
-float value_oil_temperature_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
-int value_oil_temperature_array_idx = 0;
-float value_oil_pressure_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
-int value_oil_pressure_array_idx = 0;
-float value_volt_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
-int value_volt_array_idx = 0;
 bool night_mode_active         = VALUE_DEFAULT_NIGHT_MODE;
+
+/* ===== Value Arrays for Oversampling ===== */
+float value_oil_pressure_array[VALUE_OVERSAMPLING_OIL_PRES] = {0.0};
+float value_oil_temperature_array[VALUE_OVERSAMPLING_OIL_TEMP] = {0.0};
+float value_volt_array[VALUE_OVERSAMPLING_VOLT] = {0.0};
+float value_outside_temperature_array[VALUE_OVERSAMPLING_OUT_TEMP] = {0.0};
+float value_brightness_array[VALUE_OVERSAMPLING_BRIGHT] = {0.0};
+
+int value_brightness_array_idx = 0;
+int value_outside_temperature_array_idx = 0;
+int value_oil_temperature_array_idx = 0;
+int value_oil_pressure_array_idx = 0;
+int value_volt_array_idx = 0;
+
+bool new_value_available_oil_pres = false;
+bool new_value_available_oil_temp = false;
+bool new_value_available_volt     = false;
+bool new_value_available_out_temp = false;
+bool new_value_available_bright   = false;
 
 /* ===== Display Output ===== */
 char output_string_outside_temperature[20]; // Formatted value string for LVGL display
@@ -64,22 +74,38 @@ void reset_values(int screenSelection) {
             value_oil_pressure = VALUE_DEFAULT_PRES;
             pres_value_set = false;
             snprintf(output_string_oil_pressure, sizeof(output_string_oil_pressure), "%s", "---");
+            new_value_available_oil_pres = false;
+            for (int i = 0; i < VALUE_OVERSAMPLING_OIL_PRES; i++) {
+                value_oil_pressure_array[i] = 0;
+            }
             break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             value_oil_temperature = VALUE_DEFAULT_TEMP;
             temp_value_set = false;
             snprintf(output_string_oil_temperature, sizeof(output_string_oil_temperature), "%s", "---");
+            new_value_available_oil_temp = false;
+            for (int i = 0; i < VALUE_OVERSAMPLING_OIL_TEMP; i++) {
+                value_oil_temperature_array[i] = 0;
+            }
             break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             value_volt = VALUE_DEFAULT_VOLT;
             volt_value_set = false;
             snprintf(output_string_volt, sizeof(output_string_volt), "%s", "---");
+            new_value_available_volt = false;
+            for (int i = 0; i < VALUE_OVERSAMPLING_VOLT; i++) {
+                value_volt_array[i] = 0;
+            }
             break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             value_outside_temperature = VALUE_DEFAULT_OUT_TEMP;
             outside_temperature_set = false;
             snprintf(output_string_outside_temperature, sizeof(output_string_outside_temperature), "%s", "---");
+            new_value_available_out_temp = false;
+            for (int i = 0; i < VALUE_OVERSAMPLING_OUT_TEMP; i++) {
+                value_outside_temperature_array[i] = 0;
+            }
             break;
         default:
             value_oil_pressure = VALUE_DEFAULT_PRES;
@@ -94,10 +120,25 @@ void reset_values(int screenSelection) {
             snprintf(output_string_oil_temperature, sizeof(output_string_oil_temperature), "%s", "---");
             snprintf(output_string_volt, sizeof(output_string_volt), "%s", "---");
             snprintf(output_string_outside_temperature, sizeof(output_string_outside_temperature), "%s", "---");
+            new_value_available_oil_pres = false;
+            new_value_available_oil_temp = false;
+            new_value_available_volt = false;
+            new_value_available_out_temp = false;
+            for (int i = 0; i < VALUE_OVERSAMPLING_OIL_PRES; i++) {
+                value_oil_pressure_array[i] = 0;
+            }
+            for (int i = 0; i < VALUE_OVERSAMPLING_OIL_TEMP; i++) {
+                value_oil_temperature_array[i] = 0;
+            }
+            for (int i = 0; i < VALUE_OVERSAMPLING_VOLT; i++) {
+                value_volt_array[i] = 0;
+            }
+            for (int i = 0; i < VALUE_OVERSAMPLING_OUT_TEMP; i++) {
+                value_outside_temperature_array[i] = 0;
+            }
             break;
     }
 }
-
 
 /**
  * Reset brightness to default day mode value and disable night mode
@@ -105,10 +146,12 @@ void reset_values(int screenSelection) {
 void reset_brightness(void) {
     value_brightness = BRIGHTNESS_DAY;
     night_mode_active = VALUE_DEFAULT_NIGHT_MODE;
-    for (int i = 0; i < sizeof_brightness_array; i++) {
+    bright_value_set = false;
+    for (int i = 0; i < VALUE_OVERSAMPLING_BRIGHT; i++) {
         value_brightness_array[i] = 0;
     }
     value_brightness_array_idx = 0;
+    new_value_available_bright = true;
 }
 
 /**
@@ -138,15 +181,15 @@ void calculate_value(int screenSelection, double value) {
                         snprintf(output_string_oil_pressure, sizeof(output_string_oil_pressure), "%s%.1f", ">", VALUE_MAX_PRES);
                     }
 
-                    if (value_oil_pressure_array_idx >= sizeof_oil_pressure_array) { // sizeof_oil_pressure_array = 5
+                    if (value_oil_pressure_array_idx >= VALUE_OVERSAMPLING_OIL_PRES) { // VALUE_OVERSAMPLING_OIL_PRES = 5
                         value_oil_pressure_array_idx = 0;
                         float sum = 0.0f;
-                        for (int i = 0; i < sizeof_oil_pressure_array; i++) {
+                        for (int i = 0; i < VALUE_OVERSAMPLING_OIL_PRES; i++) {
                             sum += value_oil_pressure_array[i];
                         }
-                        value = sum / (float)sizeof_oil_pressure_array;
-                        value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA);
-
+                        value = sum / (float)VALUE_OVERSAMPLING_OIL_PRES;
+                        value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA_OIL_PRES);
+                        new_value_available_oil_pres = true;
                     }
                     else {
                         value_oil_pressure_array[value_oil_pressure_array_idx] = value;
@@ -176,15 +219,15 @@ void calculate_value(int screenSelection, double value) {
                         snprintf(output_string_oil_temperature, sizeof(output_string_oil_temperature), "%s%d", ">", VALUE_MAX_TEMP);
                     }
                     
-                    if (value_oil_temperature_array_idx >= sizeof_oil_temperature_array) { // sizeof_oil_temperature_array = 5
+                    if (value_oil_temperature_array_idx >= VALUE_OVERSAMPLING_OIL_TEMP) { // VALUE_OVERSAMPLING_OIL_TEMP = 5
                         value_oil_temperature_array_idx = 0;
                         float sum = 0.0f;
-                        for (int i = 0; i < sizeof_oil_temperature_array; i++) {
+                        for (int i = 0; i < VALUE_OVERSAMPLING_OIL_TEMP; i++) {
                             sum += value_oil_temperature_array[i];
                         }
-                        value = sum / (float)sizeof_oil_temperature_array;
-                        value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA);
-
+                        value = sum / (float)VALUE_OVERSAMPLING_OIL_TEMP;
+                        value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA_OIL_TEMP);
+                        new_value_available_oil_temp = true;
                     }
                     else {
                         value_oil_temperature_array[value_oil_temperature_array_idx] = value;
@@ -213,14 +256,15 @@ void calculate_value(int screenSelection, double value) {
                         value = VALUE_MAX_VOLT;
                         snprintf(output_string_volt, sizeof(output_string_volt), "%s%.1f", ">", VALUE_MAX_VOLT);
                     }
-                    if (value_volt_array_idx >= sizeof_volt_array) { // sizeof_volt_array = 5
+                    if (value_volt_array_idx >= VALUE_OVERSAMPLING_VOLT) { // VALUE_OVERSAMPLING_VOLT = 5
                         value_volt_array_idx = 0;
                         float sum = 0.0f;
-                        for (int i = 0; i < sizeof_volt_array; i++) {
+                        for (int i = 0; i < VALUE_OVERSAMPLING_VOLT; i++) {
                             sum += value_volt_array[i];
                         }
-                        value = sum / (float)sizeof_volt_array;
-                        value_volt = calc_filter(value, value_volt, FILTER_ALPHA);
+                        value = sum / (float)VALUE_OVERSAMPLING_VOLT;
+                        value_volt = calc_filter(value, value_volt, FILTER_ALPHA_VOLT);
+                        new_value_available_volt = true;
                     }
                     else {
                         value_volt_array[value_volt_array_idx] = value;
@@ -257,15 +301,15 @@ void calculate_value(int screenSelection, double value) {
                             snprintf(output_string_outside_temperature, sizeof(output_string_outside_temperature), "%d.0", (int)value_outside_temperature);
                         }
                     }
-                    if (value_outside_temperature_array_idx >= sizeof_outside_temperature_array) { // sizeof_outside_temperature_array = 5
+                    if (value_outside_temperature_array_idx >= VALUE_OVERSAMPLING_OUT_TEMP) { // VALUE_OVERSAMPLING_OUT_TEMP = 5
                         value_outside_temperature_array_idx = 0;
                         float sum = 0.0f;
-                        for (int i = 0; i < sizeof_outside_temperature_array; i++) {
+                        for (int i = 0; i < VALUE_OVERSAMPLING_OUT_TEMP; i++) {
                             sum += value_outside_temperature_array[i];
                         }
-                        value = sum / (float)sizeof_outside_temperature_array;
-                        value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA);
-
+                        value = sum / (float)VALUE_OVERSAMPLING_OUT_TEMP;
+                        value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA_OUT_TEMP);
+                        new_value_available_out_temp = true;
                     }
                     else {
                         value_outside_temperature_array[value_outside_temperature_array_idx] = value;
@@ -287,38 +331,42 @@ void calculate_value(int screenSelection, double value) {
  */
 void calcBrightness(float value) {
     // Range check and day/night mode selection
-    // 2.29-10.74V = Night mode (5-25%), < 0.05V = Day mode (100%)
+    // 2.29-10.74V = Night mode (20-40%), < 0.05V = Day mode (100%)
     value_brightness_array[value_brightness_array_idx] = value; // Store as cents for precision
     value_brightness_array_idx = (value_brightness_array_idx + 1);
-    if (value_brightness_array_idx >= sizeof_brightness_array) { // sizeof_brightness_array = 5
+    if (value_brightness_array_idx >= VALUE_OVERSAMPLING_BRIGHT) { // VALUE_OVERSAMPLING_BRIGHT = 5
         value_brightness_array_idx = 0;
         float sum = 0.0f;
-        for (int i = 0; i < sizeof_brightness_array; i++) {
+        for (int i = 0; i < VALUE_OVERSAMPLING_BRIGHT; i++) {
             sum += value_brightness_array[i];
         }
-        value = sum / (float)sizeof_brightness_array;
+        value = sum / (float)VALUE_OVERSAMPLING_BRIGHT;
         if (value < BRIGHTNESS_DAY_MIN_V) {
             value_brightness = BRIGHTNESS_DAY;
             night_mode_active = false;
+            new_value_available_bright = true;
+            bright_value_set = false;
         } else {
-            value_brightness = calc_filter(value, value_brightness, FILTER_ALPHA_BEL); // FILTER_ALPHA_BEL = 0.05f for very smooth brightness changes
-            if (brightness_filtered == 0.0f) {
-                brightness_filtered = value;
-            } else {
-                brightness_filtered = calc_filter(value, brightness_filtered, FILTER_ALPHA_BEL);
+            if (bright_value_set == false)
+            {
+                night_mode_active = true;
+                new_value_available_bright = true;
+                bright_value_set = true;
+                value_brightness = value;
             }
-            night_mode_active = true;
-            float night_val = (brightness_filtered - BRIGHTNESS_NIGHT_MIN_V) /
-                            (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
+            else {
+                brightness_filtered = calc_filter(value, brightness_filtered, FILTER_ALPHA_BEL);                
+                float night_val = (brightness_filtered - BRIGHTNESS_NIGHT_MIN_V) / (BRIGHTNESS_NIGHT_MAX_V - BRIGHTNESS_NIGHT_MIN_V) * BRIGHTNESS_NIGHT_MAX;
 
-            if (night_val > BRIGHTNESS_NIGHT_MAX) {
-                night_val = BRIGHTNESS_NIGHT_MAX;
-            }
-            if (night_val < BRIGHTNESS_NIGHT_MIN) {
-                night_val = BRIGHTNESS_NIGHT_MIN;
-            }
+                if (night_val > BRIGHTNESS_NIGHT_MAX) {
+                    night_val = BRIGHTNESS_NIGHT_MAX;
+                }
+                if (night_val < BRIGHTNESS_NIGHT_MIN) {
+                    night_val = BRIGHTNESS_NIGHT_MIN;
+                }
 
-            value_brightness = (int)night_val;
+                value_brightness = (int)night_val;
+            }
             char log_msg[50];
             snprintf(log_msg, sizeof(log_msg), "Set Brightness: %d %%", value_brightness);
             printLog(log_msg);
@@ -375,12 +423,23 @@ int getBrightness(void) {
     return value_brightness;
 }
 
-
 /**
  * Get current day/night mode state
  */
 bool getNightModeActive(void) {
     return night_mode_active;
+}
+
+/**
+ * Get if night mode changed
+ */
+bool getNightModechanged(void) {
+    if (new_value_available_bright)
+    {
+        new_value_available_bright = false;
+        return true;
+    }
+    return false;
 }
 
 /*
@@ -391,40 +450,42 @@ bool getOutputTemperatureSet() {
     return outside_temperature_set;
 }
 
+/*
+ * Check if oversampling finisehd
+ * @return true if a new value ist available, false otherwise
+ */
 bool updateLVGLScreen(int screenSelection)
 {
     switch (screenSelection) {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
-            // Check if oversampling finisehd
-            if (value_oil_pressure_array_idx >= sizeof_oil_pressure_array) {
-                value_oil_pressure_array_idx = 0;
+            if (new_value_available_oil_pres)
+            {
+                new_value_available_oil_pres = false;
                 return true;
             }
-            break;
+        break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            // Update oil temperature screen
-            if (value_oil_temperature_array_idx >= sizeof_oil_temperature_array) {
-                value_oil_temperature_array_idx = 0;
+            if (new_value_available_oil_temp)
+            {
+                new_value_available_oil_temp = false;
                 return true;
             }
-            break;
+        break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            // Update voltage screen
-            if (value_volt_array_idx >= sizeof_volt_array) {
-                value_volt_array_idx = 0;
+            if (new_value_available_volt)
+            {
+                new_value_available_volt = false;
                 return true;
             }
-            break;
+        break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            // Update outside temperature screen
-            if (value_outside_temperature_array_idx >= sizeof_outside_temperature_array) {
-                value_outside_temperature_array_idx = 0;
+            if (new_value_available_out_temp)
+            {
+                new_value_available_out_temp = false;
                 return true;
             }
-            break;
-        default:
-            return false;
+        break;
     }
     return false;
 }

@@ -312,8 +312,6 @@
     PWM SENSOR CONFIGURATION (Hella 6PP 010 378-201)
 #################################################################################
 */
-#define FILTER_ALPHA                       0.1f
-#define FILTER_ALPHA_BEL                   0.1f
 
 // PWM Sensor General Settings
 #define PWM_SENSOR_RESOLUTION_MHZ          10
@@ -445,6 +443,23 @@
 #define VALUE_MAX_TEMP                     150
 #define VALUE_MAX_VOLT                     16.0
 #define VALUE_MAX_OUT_TEMP                 70
+
+/*
+#################################################################################
+    IMPROVE SENSOR VALUE QUALITY
+#################################################################################
+*/
+#define VALUE_OVERSAMPLING_OIL_PRES        5
+#define VALUE_OVERSAMPLING_OIL_TEMP        5
+#define VALUE_OVERSAMPLING_VOLT            5
+#define VALUE_OVERSAMPLING_OUT_TEMP        5
+#define VALUE_OVERSAMPLING_BRIGHT          10
+
+#define FILTER_ALPHA_OIL_PRES              0.1f
+#define FILTER_ALPHA_OIL_TEMP              0.1f
+#define FILTER_ALPHA_VOLT                  0.1f
+#define FILTER_ALPHA_OUT_TEMP              0.1f
+#define FILTER_ALPHA_BEL                   0.1f
 
 /*
 #################################################################################

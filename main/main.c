@@ -17,8 +17,55 @@
  *      - PWM sensor and I2C ADC interface
  *      - LVGL gauge system
  *      - Buzzer alert system
- *
  */
+
+ /*
+ 
+    ToDo:
+        - Ref 3.3V messen, dafür einen Spannungsteiler von Pin 3.3V zu Pin 20 -> ADC lesen und dann als Referenzspannung nutzen
+        - Für Spannungsteiler -> Spannung halbieren: R1 = R2 = 1k (z.b.)
+        - ESP ADC Pinout lesen: https://randomnerdtutorials.com/esp-idf-esp32-gpio-analog-adc/
+        - ESP ADC bis 4095 (Kurve nicht linear: 0, 0.1, 0.15 => 0; 3.1, 3.2, 3.3 => 4095)
+
+        -> Pin 20 -> ADC_CHANNEL_7     (siehe https://docs.espressif.com/projects/esp-idf/en/stable/esp32p4/api-reference/peripherals/gpio.html)
+        -> Pin 20 -> ADC_UNIT_1 
+        -> ADC_BITWIDTH_12 für 4095
+        -> ADC_ATTEN     ADC_ATTEN_DB_12 -> // ~3.3V full-scale voltage
+
+
+         // lesecode:
+            #include <esp_adc/adc_oneshot.h>
+
+            int adc_value;
+            adc_oneshot_unit_handle_t adc_handle;
+
+            // Initialize ADC Oneshot Mode Driver on the ADC Unit
+            adc_oneshot_unit_init_cfg_t init_config = {
+                .unit_id = ADC_UNIT,
+                .clk_src = ADC_RTC_CLK_SRC_DEFAULT,
+            };
+            ESP_ERROR_CHECK(adc_oneshot_new_unit(&init_config, &adc_handle));
+
+            // Configure ADC channel
+            adc_oneshot_chan_cfg_t config = {
+                .bitwidth = ADC_BITWIDTH,
+                .atten = ADC_ATTEN,
+            };
+            ESP_ERROR_CHECK(adc_oneshot_config_channel(adc_handle, ADC_PIN, &config));
+
+            // ADC Oneshot Analog Read loop
+            while (1) {
+                // Read ADC value with Oneshot
+                ESP_ERROR_CHECK(adc_oneshot_read(adc_handle, ADC_PIN, &adc_value));
+                // Print ADC value
+                ESP_LOGI("ADC Value", "%d", adc_value);
+                // Delay 1 second
+                vTaskDelay(1000 / portTICK_PERIOD_MS); 
+            }
+        
+ */
+
+
 
 /* ===== Project Configuration ===== */
 #include "individual_config.h"
@@ -112,11 +159,9 @@ static void update_values(int displayID)
                 else value = get_i2c_adc_oil_press();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
-            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
-            {
-                set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
-                set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
-            }
+            set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
+            
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -127,11 +172,9 @@ static void update_values(int displayID)
                 else value = get_i2c_adc_oil_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
-            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
-            {
-                set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
-                set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
-            }
+            set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
+            
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             if(is_testmode_activated()) {
@@ -140,12 +183,10 @@ static void update_values(int displayID)
             else {
                 value = get_i2c_adc_volt();
             }
-                calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
-            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
-            {
-                set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
-                set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
-            }
+            calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
+            set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
+            
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
             if(is_testmode_activated()) {
@@ -161,10 +202,8 @@ static void update_values(int displayID)
             snprintf(output_string, sizeof(output_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
             set_var_lvgl_value_clock(output_string); 
             calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
-            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
-            {
-                set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * EEZ_VALUE_FACTOR);
-            }
+
+            set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * EEZ_VALUE_FACTOR);
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -174,10 +213,7 @@ static void update_values(int displayID)
                 value = get_i2c_adc_outside_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
-            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
-            {
-                set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
-            }
+            set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
 
             time(&now);
             localtime_r(&now, &timeinfo);
@@ -204,93 +240,109 @@ static void tick_switch(int displayID)
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
-            if(!night_mode)
+        
+            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
-                if (lv_scr_act() != objects.gauge_oil_pressure) 
+                if(!night_mode)
                 {
-                    lv_scr_load_anim(objects.gauge_oil_pressure, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_oil_pressure) 
+                    {
+                        lv_scr_load_anim(objects.gauge_oil_pressure, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_oil_pressure();
                 }
-                tick_screen_gauge_oil_pressure();
-            }
-            else
-            {
-                if (lv_scr_act() != objects.gauge_oil_pressure_night) 
+                else
                 {
-                    lv_scr_load_anim(objects.gauge_oil_pressure_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_oil_pressure_night) 
+                    {
+                        lv_scr_load_anim(objects.gauge_oil_pressure_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_oil_pressure_night();
                 }
-                tick_screen_gauge_oil_pressure_night();
             }
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            if(!night_mode)
+            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
-                if (lv_scr_act() != objects.gauge_oil_temperature) 
+                if(!night_mode)
                 {
-                    lv_scr_load_anim(objects.gauge_oil_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_oil_temperature) 
+                    {
+                        lv_scr_load_anim(objects.gauge_oil_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_oil_temperature();
                 }
-                tick_screen_gauge_oil_temperature();
-            }
-            else
-            {
-                if (lv_scr_act() != objects.gauge_oil_temperature_night) 
+                else
                 {
-                    lv_scr_load_anim(objects.gauge_oil_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_oil_temperature_night) 
+                    {
+                        lv_scr_load_anim(objects.gauge_oil_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_oil_temperature_night();
                 }
-                tick_screen_gauge_oil_temperature_night();
             }
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            if(!night_mode)
+            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
-                if (lv_scr_act() != objects.gauge_voltage) 
+                if(!night_mode)
                 {
-                    lv_scr_load_anim(objects.gauge_voltage, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_voltage) 
+                    {
+                        lv_scr_load_anim(objects.gauge_voltage, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_voltage();
                 }
-                tick_screen_gauge_voltage();
-            }
-            else
-            {
-                if (lv_scr_act() != objects.gauge_voltage_night) 
+                else
                 {
-                    lv_scr_load_anim(objects.gauge_voltage_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_voltage_night) 
+                    {
+                        lv_scr_load_anim(objects.gauge_voltage_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_voltage_night();
                 }
-                tick_screen_gauge_voltage_night();
             }
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-            if(!night_mode)
+            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
-                if (lv_scr_act() != objects.gauge_temperature_clock) 
+                if(!night_mode)
                 {
-                    lv_scr_load_anim(objects.gauge_temperature_clock, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_temperature_clock) 
+                    {
+                        lv_scr_load_anim(objects.gauge_temperature_clock, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_temperature_clock();
                 }
-                tick_screen_gauge_temperature_clock();
-            }
-            else
-            {
-                if (lv_scr_act() != objects.gauge_temperature_clock_night) 
+                else
                 {
-                    lv_scr_load_anim(objects.gauge_temperature_clock_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_temperature_clock_night) 
+                    {
+                        lv_scr_load_anim(objects.gauge_temperature_clock_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_temperature_clock_night();
                 }
-                tick_screen_gauge_temperature_clock_night();
             }
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            if(!night_mode)
+            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
-                if (lv_scr_act() != objects.gauge_clock_temperature) 
+                if(!night_mode)
                 {
-                    lv_scr_load_anim(objects.gauge_clock_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_clock_temperature) 
+                    {
+                        lv_scr_load_anim(objects.gauge_clock_temperature, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_clock_temperature();
                 }
-                tick_screen_gauge_clock_temperature();
-            }
-            else
-            {
-                if (lv_scr_act() != objects.gauge_clock_temperature_night) 
+                else
                 {
-                    lv_scr_load_anim(objects.gauge_clock_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    if (lv_scr_act() != objects.gauge_clock_temperature_night) 
+                    {
+                        lv_scr_load_anim(objects.gauge_clock_temperature_night, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);  
+                    }
+                    tick_screen_gauge_clock_temperature_night();
                 }
-                tick_screen_gauge_clock_temperature_night();
             }
         break;
     }
