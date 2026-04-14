@@ -233,15 +233,16 @@ static void update_values(int displayID)
  * The screen is only reloaded if it differs from the currently active screen.
  * 
  * @param displayID Index of the display to update
+ * @param force_night_mode_update Flag to force night mode update
  */
-static void tick_switch(int displayID)
+static void tick_switch(int displayID, bool force_night_mode_update)
 {
     lv_disp_set_default(DISPLAYS[displayID].lv_displays);
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
         
-            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
+            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
                 if(!night_mode)
                 {
@@ -262,7 +263,7 @@ static void tick_switch(int displayID)
             }
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
+            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
                 if(!night_mode)
                 {
@@ -283,7 +284,7 @@ static void tick_switch(int displayID)
             }
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
-            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
+            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
                 if(!night_mode)
                 {
@@ -304,7 +305,7 @@ static void tick_switch(int displayID)
             }
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
+            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
                 if(!night_mode)
                 {
@@ -325,7 +326,7 @@ static void tick_switch(int displayID)
             }
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            if (getNightModechanged() || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
+            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
             {
                 if(!night_mode)
                 {
@@ -387,8 +388,9 @@ static void lv_tick_task_screen(void *pv)
             update_values(i);
         }
         // Phase 2: Update and render screen displays with current values
+        bool force_night_mode_update = getNightModechanged() ? true : false; // Force screen update if night mode state changed
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
-            tick_switch(i);
+            tick_switch(i, force_night_mode_update);
         }
 
         #if USE_BUZZER == true
