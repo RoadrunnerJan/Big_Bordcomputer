@@ -48,8 +48,8 @@
 static time_t now;
 static struct tm timeinfo;
 
-time_t StartUpTime = 0;
-time_t checkTime = 0;
+struct timeval StartUpTime;
+struct timeval checkTime;
 int testmodeActivated = false;
 
 bool night_mode = false;
@@ -112,9 +112,11 @@ static void update_values(int displayID)
                 else value = get_i2c_adc_oil_press();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
-            
-            set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
+            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
+            {
+                set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
+                set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
+            }
         break;
         case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -125,9 +127,11 @@ static void update_values(int displayID)
                 else value = get_i2c_adc_oil_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
-
-            set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
+            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
+            {
+                set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
+                set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
+            }
         break;
         case SCREEN_ID_GAUGE_VOLTAGE:
             if(is_testmode_activated()) {
@@ -136,10 +140,12 @@ static void update_values(int displayID)
             else {
                 value = get_i2c_adc_volt();
             }
-            calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
-
-            set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
-            set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
+                calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
+            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
+            {
+                set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
+                set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
+            }
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
             if(is_testmode_activated()) {
@@ -148,14 +154,17 @@ static void update_values(int displayID)
             else {
                 value = get_i2c_adc_outside_temp();
             }
-            calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
 
             time(&now);
             localtime_r(&now, &timeinfo);
             char output_string[20];
             snprintf(output_string, sizeof(output_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
-            set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * EEZ_VALUE_FACTOR);
             set_var_lvgl_value_clock(output_string); 
+            calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
+            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
+            {
+                set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * EEZ_VALUE_FACTOR);
+            }
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -165,13 +174,16 @@ static void update_values(int displayID)
                 value = get_i2c_adc_outside_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
+            if (updateLVGLScreen(DISPLAYS[displayID].screen_selection) || is_testmode_activated())
+            {
+                set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
+            }
 
             time(&now);
             localtime_r(&now, &timeinfo);
             int hour = timeinfo.tm_hour >= 12 ? timeinfo.tm_hour - 12 : timeinfo.tm_hour;
             set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
             set_var_lvgl_value_clock_minute(timeinfo.tm_min);
-            set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
         break;
     }
 }
@@ -288,10 +300,9 @@ static void tick_switch(int displayID)
 static void lv_tick_task_screen(void *pv)
 {
     (void)pv;
+
     while (1) {
-        if (!time_checked[0]) {
-            time(&checkTime);
-        }
+        gettimeofday(&checkTime, NULL);
         if(is_testmode_activated()) {
             brightness_test();
             night_mode = getNightModeActiveTestValue();
@@ -301,7 +312,7 @@ static void lv_tick_task_screen(void *pv)
             night_mode = getNightModeActive();
         }
 
-        if ((long)(checkTime - StartUpTime) > GAUGE_ON_DELAY_SEC)
+        if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) > GAUGE_ON_DELAY_MS)
         { 
             if (!time_checked[0]) {
                 time_checked[0] = !time_checked[0];
@@ -323,7 +334,6 @@ static void lv_tick_task_screen(void *pv)
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
             update_values(i);
         }
-
         // Phase 2: Update and render screen displays with current values
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
             tick_switch(i);
@@ -331,9 +341,9 @@ static void lv_tick_task_screen(void *pv)
 
         #if USE_BUZZER == true
             if (!time_checked[1]) {
-                time(&checkTime);
+                gettimeofday(&checkTime, NULL);
             }
-            if ((long)(checkTime - StartUpTime) >= BUZZER_ON_DELAY_SEC)
+            if ((long)((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) >= BUZZER_ON_DELAY_MS)
             {
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
@@ -392,9 +402,9 @@ void init_system()
     init_i2c();
     sync_rtc_to_system();
     printLog("RTC initialized and synchronized to system time.");
-    time(&StartUpTime);
+    gettimeofday(&StartUpTime, NULL);
     char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "System started at: %s", ctime(&StartUpTime));
+    snprintf(log_msg, sizeof(log_msg), "System started at: %s", ctime(&StartUpTime.tv_sec));
     printLog(log_msg);
 
     // init buttons

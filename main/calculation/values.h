@@ -46,6 +46,19 @@ extern float value_brightness_array[5]; // Array for brightness value filtering
 #define sizeof_brightness_array (sizeof(value_brightness_array) / sizeof(value_brightness_array[0]))
 extern int value_brightness_array_idx;   // Index for brightness value array
 
+extern int value_oil_temperature_array_idx;       // Index for oil temperature value array
+extern float value_oil_temperature_array[5];      // Array for oil temperature value filtering
+#define sizeof_oil_temperature_array (sizeof(value_oil_temperature_array) / sizeof(value_oil_temperature_array[0]))
+extern int value_oil_pressure_array_idx;      // Index for oil pressure value array
+extern float value_oil_pressure_array[5];     // Array for oil pressure value filtering
+#define sizeof_oil_pressure_array (sizeof(value_oil_pressure_array) / sizeof(value_oil_pressure_array[0]))
+extern int value_outside_temperature_array_idx;      // Index for outdoor temperature value array
+extern float value_outside_temperature_array[5];     // Array for outdoor temperature value filtering
+#define sizeof_outside_temperature_array (sizeof(value_outside_temperature_array) / sizeof(value_outside_temperature_array[0]))
+extern int value_volt_array_idx;          // Index for voltage value array
+extern float value_volt_array[5];         // Array for voltage value filtering
+#define sizeof_volt_array (sizeof(value_volt_array) / sizeof(value_volt_array[0]))
+
 /* ===== Display Output ===== */
 extern char output_string_outside_temperature[20]; // Formatted value string for LVGL display
 extern char output_string_oil_pressure[20];        // Formatted value string for LVGL display
@@ -124,3 +137,5 @@ bool getNightModeActive(void);
  * @return true if output temperature is set, false otherwise
  */
 bool getOutputTemperatureSet();
+
+bool updateLVGLScreen(int screenSelection);

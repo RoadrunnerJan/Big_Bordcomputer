@@ -234,7 +234,7 @@
  */
 #define BRIGHTNESS_DAY                     100
 #define BRIGHTNESS_DAY_MIN_V               0.05
-#define BRIGHTNESS_NIGHT_MIN               15
+#define BRIGHTNESS_NIGHT_MIN               20
 #define BRIGHTNESS_NIGHT_MIN_V             2.29
 #define BRIGHTNESS_NIGHT_MAX               40
 #define BRIGHTNESS_NIGHT_MAX_V             10.74
@@ -245,8 +245,8 @@
 #################################################################################
 */
 #define EEZ_VALUE_FACTOR                   1000  // Factor for float-to-int conversion for LVGL
-#define GAUGE_ON_DELAY_SEC                 1
-#define BUZZER_ON_DELAY_SEC                5
+#define GAUGE_ON_DELAY_MS                  1000
+#define BUZZER_ON_DELAY_MS                 5000
 #define MAIN_TASK_FINISHED_DELAY           5000
 
 /*
@@ -372,6 +372,7 @@
 #define ADC_ADS1115_2_ADDR                 0x49
 #define ADC_ADS1115_ADDR_LENGTH            RTC_ADDR_LENGTH
 #define ADC_ADS1115_SCL_SPEED_HZ           400000
+#define ADC_ADS1115_READING_DELAY_MS       12
 
 /*
 #################################################################################

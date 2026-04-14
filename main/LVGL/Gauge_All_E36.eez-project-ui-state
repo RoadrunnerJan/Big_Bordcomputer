@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/1",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -191,7 +191,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 37.530636286752056,
-              "selected": 2,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -1462,11 +1462,17 @@
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/1[flow-state]": {
-      "selection": {},
+      "selection": {
+        "0": {
+          "1": {
+            "$selected": true
+          }
+        }
+      },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -199,
+          "y": -245
         },
         "scale": 2
       },

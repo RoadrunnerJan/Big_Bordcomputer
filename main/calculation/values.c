@@ -36,6 +36,14 @@ int value_brightness           = VALUE_DEFAULT_BRIGHT;
 float brightness_filtered      = 0;
 float value_brightness_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
 int value_brightness_array_idx = 0;
+float value_outside_temperature_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
+int value_outside_temperature_array_idx = 0;
+float value_oil_temperature_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
+int value_oil_temperature_array_idx = 0;
+float value_oil_pressure_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
+int value_oil_pressure_array_idx = 0;
+float value_volt_array[5] = {0.0, 0.0, 0.0, 0.0, 0.0};
+int value_volt_array_idx = 0;
 bool night_mode_active         = VALUE_DEFAULT_NIGHT_MODE;
 
 /* ===== Display Output ===== */
@@ -103,7 +111,6 @@ void reset_brightness(void) {
     value_brightness_array_idx = 0;
 }
 
-
 /**
  * Calculate and validate sensor value with range checking and filtering
  * Updates global sensor value variable and output_string for LVGL display
@@ -130,7 +137,21 @@ void calculate_value(int screenSelection, double value) {
                         value = VALUE_MAX_PRES;
                         snprintf(output_string_oil_pressure, sizeof(output_string_oil_pressure), "%s%.1f", ">", VALUE_MAX_PRES);
                     }
-                    value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA);
+
+                    if (value_oil_pressure_array_idx >= sizeof_oil_pressure_array) { // sizeof_oil_pressure_array = 5
+                        value_oil_pressure_array_idx = 0;
+                        float sum = 0.0f;
+                        for (int i = 0; i < sizeof_oil_pressure_array; i++) {
+                            sum += value_oil_pressure_array[i];
+                        }
+                        value = sum / (float)sizeof_oil_pressure_array;
+                        value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA);
+
+                    }
+                    else {
+                        value_oil_pressure_array[value_oil_pressure_array_idx] = value;
+                        value_oil_pressure_array_idx = (value_oil_pressure_array_idx + 1);
+                    }
                 }
             }
             break;
@@ -154,7 +175,21 @@ void calculate_value(int screenSelection, double value) {
                         value = VALUE_MAX_TEMP;
                         snprintf(output_string_oil_temperature, sizeof(output_string_oil_temperature), "%s%d", ">", VALUE_MAX_TEMP);
                     }
-                    value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA);
+                    
+                    if (value_oil_temperature_array_idx >= sizeof_oil_temperature_array) { // sizeof_oil_temperature_array = 5
+                        value_oil_temperature_array_idx = 0;
+                        float sum = 0.0f;
+                        for (int i = 0; i < sizeof_oil_temperature_array; i++) {
+                            sum += value_oil_temperature_array[i];
+                        }
+                        value = sum / (float)sizeof_oil_temperature_array;
+                        value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA);
+
+                    }
+                    else {
+                        value_oil_temperature_array[value_oil_temperature_array_idx] = value;
+                        value_oil_temperature_array_idx = (value_oil_temperature_array_idx + 1);
+                    }
                 }
             }
             break;
@@ -178,7 +213,19 @@ void calculate_value(int screenSelection, double value) {
                         value = VALUE_MAX_VOLT;
                         snprintf(output_string_volt, sizeof(output_string_volt), "%s%.1f", ">", VALUE_MAX_VOLT);
                     }
-                    value_volt = calc_filter(value, value_volt, FILTER_ALPHA);
+                    if (value_volt_array_idx >= sizeof_volt_array) { // sizeof_volt_array = 5
+                        value_volt_array_idx = 0;
+                        float sum = 0.0f;
+                        for (int i = 0; i < sizeof_volt_array; i++) {
+                            sum += value_volt_array[i];
+                        }
+                        value = sum / (float)sizeof_volt_array;
+                        value_volt = calc_filter(value, value_volt, FILTER_ALPHA);
+                    }
+                    else {
+                        value_volt_array[value_volt_array_idx] = value;
+                        value_volt_array_idx = (value_volt_array_idx + 1);
+                    }
                 }
             }
             break;
@@ -210,7 +257,20 @@ void calculate_value(int screenSelection, double value) {
                             snprintf(output_string_outside_temperature, sizeof(output_string_outside_temperature), "%d.0", (int)value_outside_temperature);
                         }
                     }
-                    value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA);
+                    if (value_outside_temperature_array_idx >= sizeof_outside_temperature_array) { // sizeof_outside_temperature_array = 5
+                        value_outside_temperature_array_idx = 0;
+                        float sum = 0.0f;
+                        for (int i = 0; i < sizeof_outside_temperature_array; i++) {
+                            sum += value_outside_temperature_array[i];
+                        }
+                        value = sum / (float)sizeof_outside_temperature_array;
+                        value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA);
+
+                    }
+                    else {
+                        value_outside_temperature_array[value_outside_temperature_array_idx] = value;
+                        value_outside_temperature_array_idx = (value_outside_temperature_array_idx + 1);
+                    }
                 }
             }
             break;
@@ -329,4 +389,42 @@ bool getNightModeActive(void) {
  */
 bool getOutputTemperatureSet() {
     return outside_temperature_set;
+}
+
+bool updateLVGLScreen(int screenSelection)
+{
+    switch (screenSelection) {
+        case SCREEN_ID_GAUGE_OIL_PRESSURE:
+            // Check if oversampling finisehd
+            if (value_oil_pressure_array_idx >= sizeof_oil_pressure_array) {
+                value_oil_pressure_array_idx = 0;
+                return true;
+            }
+            break;
+        case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
+            // Update oil temperature screen
+            if (value_oil_temperature_array_idx >= sizeof_oil_temperature_array) {
+                value_oil_temperature_array_idx = 0;
+                return true;
+            }
+            break;
+        case SCREEN_ID_GAUGE_VOLTAGE:
+            // Update voltage screen
+            if (value_volt_array_idx >= sizeof_volt_array) {
+                value_volt_array_idx = 0;
+                return true;
+            }
+            break;
+        case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
+        case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
+            // Update outside temperature screen
+            if (value_outside_temperature_array_idx >= sizeof_outside_temperature_array) {
+                value_outside_temperature_array_idx = 0;
+                return true;
+            }
+            break;
+        default:
+            return false;
+    }
+    return false;
 }

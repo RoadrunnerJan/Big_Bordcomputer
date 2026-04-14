@@ -374,7 +374,7 @@ int16_t read_ads1115(i2c_master_dev_handle_t dev, uint8_t channel, uint16_t pga_
     ESP_ERROR_CHECK(i2c_master_transmit(dev, tx_buf, 3, -1));
 
     // 2. Wait (128 SPS requires ~8ms, 15ms is absolutely safe)
-    vTaskDelay(pdMS_TO_TICKS(15)); 
+    vTaskDelay(pdMS_TO_TICKS(ADC_ADS1115_READING_DELAY_MS)); 
 
     // 3. Read conversion result register
     uint8_t reg_addr = 0x00;
