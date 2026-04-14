@@ -352,7 +352,7 @@ void calcBrightness(float value) {
                 night_mode_active = true;
                 new_value_available_bright = true;
                 bright_value_set = true;
-                value_brightness = value;
+                value_brightness = BRIGHTNESS_NIGHT_MAX;
             }
             else {
                 brightness_filtered = calc_filter(value, brightness_filtered, FILTER_ALPHA_BEL);                
