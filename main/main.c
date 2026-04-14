@@ -434,7 +434,7 @@ static void lv_tick_task_screen(void *pv)
             pwm_sensor_print();
         }
 
-        vTaskDelay(pdMS_TO_TICKS(50));
+        //vTaskDelay(pdMS_TO_TICKS(50));
     }
 }
 
