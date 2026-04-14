@@ -2022,10 +2022,10 @@ void create_screen_gauge_clock_temperature() {
             // ClockTemp_gauge_image
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.clock_temp_gauge_image = obj;
-            lv_obj_set_pos(obj, 85, 46);
+            lv_obj_set_pos(obj, 85, 43);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_clock);
-            lv_img_set_zoom(obj, 100);
+            lv_img_set_zoom(obj, 110);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_ADV_HITTEST|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
             lv_obj_set_scroll_dir(obj, LV_DIR_NONE);
@@ -2297,10 +2297,10 @@ void create_screen_gauge_clock_temperature_night() {
             // ClockTemp_gauge_image_Night
             lv_obj_t *obj = lv_img_create(parent_obj);
             objects.clock_temp_gauge_image_night = obj;
-            lv_obj_set_pos(obj, 85, 46);
+            lv_obj_set_pos(obj, 85, 43);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
             lv_img_set_src(obj, &img_clock);
-            lv_img_set_zoom(obj, 100);
+            lv_img_set_zoom(obj, 110);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_ADV_HITTEST|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
             lv_obj_set_scroll_dir(obj, LV_DIR_NONE);

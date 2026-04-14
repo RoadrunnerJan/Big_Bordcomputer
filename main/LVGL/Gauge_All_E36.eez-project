@@ -6040,7 +6040,7 @@
               "objID": "2e758ff4-557a-4205-a8c3-2a529ee44806",
               "type": "LVGLImageWidget",
               "left": 85,
-              "top": 46,
+              "top": 43,
               "width": 70,
               "height": 70,
               "customInputs": [],
@@ -6087,7 +6087,7 @@
               "setPivot": false,
               "pivotX": 0,
               "pivotY": 0,
-              "zoom": 100,
+              "zoom": 110,
               "angle": 0,
               "innerAlign": "CENTER"
             },
@@ -6791,16 +6791,16 @@
               "maxTextLength": 128
             },
             {
-              "objID": "641e39c4-bca4-40be-9cc0-d8ddd03fe845",
+              "objID": "8bbaf892-76fb-41d6-b47d-050b575feec8",
               "type": "LVGLImageWidget",
               "left": 85,
-              "top": 46,
+              "top": 43,
               "width": 70,
               "height": 70,
               "customInputs": [],
               "customOutputs": [],
               "style": {
-                "objID": "7ade5e0c-4968-4d14-b064-326d85e446ce",
+                "objID": "8c4df3cc-b636-418d-89fd-8b0e233b828d",
                 "useStyle": "default",
                 "conditionalStyles": [],
                 "childStyles": []
@@ -6825,7 +6825,7 @@
               "disabledStateType": "literal",
               "states": "",
               "localStyles": {
-                "objID": "b3bf76f7-952d-419d-d4f8-a5029dacf5fe",
+                "objID": "5a46d38e-de63-424f-d986-0ab08fb352f8",
                 "definition": {
                   "MAIN": {
                     "DEFAULT": {
@@ -6841,7 +6841,7 @@
               "setPivot": false,
               "pivotX": 0,
               "pivotY": 0,
-              "zoom": 100,
+              "zoom": 110,
               "angle": 0,
               "innerAlign": "CENTER"
             },
