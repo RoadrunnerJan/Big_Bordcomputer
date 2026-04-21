@@ -16,8 +16,8 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         true  // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
+#define USE_BUZZER                         false  // true: enable buzzer alert functionality
+#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 
 
@@ -228,12 +228,13 @@
  * @brief Auto-brightness thresholds and manual defaults.
  *
  * BRIGHTNESS_DAY: default daytime brightness percent.
- * BRIGHTNESS_DAY_MIN_V: min battery voltage to treat as day mode.
+ * BRIGHTNESS_DAY_MAX_V: min battery voltage to treat as day mode.
  * BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode.
  * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
  */
+#define BRIGHTNESS_AUTO_ENABLE             false
 #define BRIGHTNESS_DAY                     100
-#define BRIGHTNESS_DAY_MIN_V               0.15
+#define BRIGHTNESS_DAY_MAX_V               0.05 //0.15
 #define BRIGHTNESS_NIGHT_MIN               20
 #define BRIGHTNESS_NIGHT_MIN_V             2.29
 #define BRIGHTNESS_NIGHT_MAX               40
@@ -381,7 +382,7 @@
 #define LSB_2048                           0.0625f
 #define LSB_4096                           0.125f
 #define ADC_MAX_V_VALID                    3.25f
-#define ADC_ADS_REF_V                      2.8f // 2.8f adc reference bei PKW netz
+#define ADC_ADS_REF_V                      2.8f//2.8f // 2.8f adc reference bei PKW netz
 #define ADC_FAIL_VALUE                     -99.0f
 
 // ADC Channel Assignments
@@ -450,9 +451,9 @@
 #################################################################################
 */
 #define VALUE_OVERSAMPLING_OIL_PRES        2
-#define VALUE_OVERSAMPLING_OIL_TEMP        4
-#define VALUE_OVERSAMPLING_VOLT            2
-#define VALUE_OVERSAMPLING_OUT_TEMP        4
+#define VALUE_OVERSAMPLING_OIL_TEMP        5
+#define VALUE_OVERSAMPLING_VOLT            4
+#define VALUE_OVERSAMPLING_OUT_TEMP        5
 #define VALUE_OVERSAMPLING_BRIGHT          10
 
 #define FILTER_ALPHA_OIL_PRES              0.1f

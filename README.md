@@ -25,7 +25,9 @@ The project is based on a powerful ESP32-P4 that controls all peripherals.
 - **ESP32-P4 WT9932P4-TINY** - Main processor
 - **4x 1.28 Inch Round TFT LCD Display (240x240 RGB) with GC9A01 Driver** ([Link to AliExpress](https://de.aliexpress.com/item/1005009364283361.html))
 - **Custom PCB** to connect the displays and peripherals with the ESP (in the `hardware/` directory)
+
 ![Board Image](demo/Platine.jpeg)
+
 - **5V Buzzer** for warnings when outside temperature is below 3°C
 - **2x Buttons** for time adjustment
 - **12V to 5V Converter** for power supply
@@ -108,6 +110,75 @@ For detailed instructions see the official ESP-IDF guides.
 ├── managed_components/         # ESP-IDF components
 └── README.md                   # This file
 ```
+
+## Roadmap / ToDo
+
+### Hardware
+
+- **ADC performance optimization**
+  - Current external ADCs are too slow for time-critical measurements  
+  - Evaluate switching to internal ADCs of the ESP32  
+  - Verify compatibility across different ESP32 variants  
+  - Consider hybrid approach: keep one external ADC for non-time-critical signals
+
+- **Reference voltage measurement**
+  - Add hardware support to measure reference voltage  
+  - Implement software compensation for improved ADC accuracy
+
+- **PCB redesign**
+  - Rework pin mapping, especially with respect to ADC usage  
+  - Optimize signal routing and noise immunity (automotive environment)
+
+- **Add acceleration sensor**
+  - Integrate accelerometer (e.g. for G-force measurement)  
+  - Evaluate placement and filtering requirements
+
+- **New enclosure (case)**
+  - Design and manufacture an improved housing  
+  - Consider thermal behavior, vibration resistance, and mounting
+
+### Firmware / Software
+
+- **Improve ADC sampling**
+  - Reduce latency and jitter  
+  - Evaluate DMA / continuous sampling if supported  
+  - Implement filtering (moving average, median, etc.)
+
+- **Display responsiveness**
+  - Optimize LVGL rendering performance  
+  - Reduce UI lag and improve refresh behavior
+
+- **Test mode rework**
+  - Current implementation is no longer reliable  
+  - Redesign test mode to better integrate with normal operation  
+  - Ensure deterministic behavior and easier activation/debugging
+
+- **Sensor abstraction layer**
+  - Improve modularity for different sensor types (PWM vs analog)  
+  - Allow easier configuration or runtime switching
+
+- **Error handling & diagnostics**
+  - Add better logging for sensor faults and communication errors  
+  - Implement fallback strategies for invalid readings
+
+### System / Features / UX
+
+- **New display concepts**
+  - Evaluate alternative visualization types (e.g. G-force display, combined gauges)  
+  - Improve readability and usability while driving
+
+- **Startup & calibration behavior**
+  - Ensure stable readings after power-on (temperature drift, warm-up effects)  
+  - Add optional calibration phase or adaptive filtering
+
+- **Performance monitoring**
+  - Track system load (CPU, memory, task timing)  
+  - Identify bottlenecks in real-world usage
+
+- **Configuration improvements**
+  - Make system configuration more flexible (compile-time vs runtime)  
+  - Possibly introduce a simple settings interface
+
 
 ## Troubleshooting
 

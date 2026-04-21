@@ -341,7 +341,7 @@ void calcBrightness(float value) {
             sum += value_brightness_array[i];
         }
         value = sum / (float)VALUE_OVERSAMPLING_BRIGHT;
-        if (value < BRIGHTNESS_DAY_MIN_V) {
+        if (value < BRIGHTNESS_DAY_MAX_V) {
             value_brightness = BRIGHTNESS_DAY;
             night_mode_active = false;
             new_value_available_bright = true;

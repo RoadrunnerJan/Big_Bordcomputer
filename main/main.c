@@ -79,6 +79,7 @@
 #include "peripherie/i2cFunctions.h"
 #include "peripherie/pwmSensor.h"
 #include "peripherie/pwmSwitch.h"
+#include "peripherie/adc.h"
 
 /* ===== Utilities ===== */
 #include "logging/logging.h"
@@ -357,12 +358,18 @@ static void lv_tick_task_screen(void *pv)
     while (1) {
         gettimeofday(&checkTime, NULL);
         if(is_testmode_activated()) {
+            vTaskDelay(pdMS_TO_TICKS(50));
             brightness_test();
             night_mode = getNightModeActiveTestValue();
         }
         else {
             calcBrightness(get_i2c_adc_volt_bel());
-            night_mode = getNightModeActive();
+            if(BRIGHTNESS_AUTO_ENABLE) {
+                night_mode = getNightModeActive();
+            }
+            else {
+                night_mode = false; // Force day mode if auto brightness is disabled
+            }
         }
 
         if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) > GAUGE_ON_DELAY_MS)
@@ -374,7 +381,12 @@ static void lv_tick_task_screen(void *pv)
                 set_lcd_brightness(getBrightnessTestValue());
             }
             else {
-                set_lcd_brightness(getBrightness());
+                if(BRIGHTNESS_AUTO_ENABLE) {
+                    set_lcd_brightness(getBrightness());
+                }
+                else {
+                    set_lcd_brightness(BRIGHTNESS_DAY); // Force day mode brightness if auto brightness is disabled
+                }
             }
         }
 
@@ -434,7 +446,9 @@ static void lv_tick_task_screen(void *pv)
             pwm_sensor_print();
         }
 
-        //vTaskDelay(pdMS_TO_TICKS(50));
+        vTaskDelay(pdMS_TO_TICKS(50));
+
+        read_adc_value();
     }
 }
 
@@ -486,6 +500,12 @@ void init_system()
         printLog("Buzzer initialized.");
     #endif
     printLog("Initialization complete. Entering main loop.");
+
+
+
+
+    adc_init();
+    printLog("ADC initialized.");
 }
 
 /**
