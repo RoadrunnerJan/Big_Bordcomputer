@@ -91,39 +91,40 @@ $(function(){initNavTree('pwm_switch_8h_source.html','',''); });
   <div class="headertitle"><div class="title">pwmSwitch.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="pwm_switch_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* ===== Project Configuration ===== */</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="individual__config_8h.html">../individual_config.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* ===== ESP-IDF GPIO Driver ===== */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;driver/gpio.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;esp_system.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* ===== Utilities ===== */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">../logging/logging.h</a>&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<a href="pwm_switch_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* ===== Project Configuration ===== */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="individual__config_8h.html">../individual_config.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/* ===== ESP-IDF GPIO Driver ===== */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;driver/gpio.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;esp_system.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* ===== Utilities ===== */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">../logging/logging.h</a>&quot;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/* ===== Switch State ===== */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a>;                  <span class="comment">// Current switch state (true=PWM, false=ADC)</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> gpio_config_t <a class="code hl_variable" href="pwm_switch_8c.html#a0182a91a2e5646d38d05d252069da695">pwmSW_conf</a>;          <span class="comment">// GPIO configuration</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/* ===== Switch State ===== */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a>;                  <span class="comment">// Current switch state (true=PWM, false=ADC)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> gpio_config_t <a class="code hl_variable" href="pwm_switch_8c.html#a0182a91a2e5646d38d05d252069da695">pwmSW_conf</a>;          <span class="comment">// GPIO configuration</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/* ===== Function Declarations ===== */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> <a class="code hl_function" href="pwm_switch_8h.html#a8e6fbb3b51611498a8f3d3284a82c028">init_pwmSW</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">bool</span> <a class="code hl_function" href="pwm_switch_8h.html#ab16e3e06d2401b2b5c3614395a47c60c">read_pwmSW</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">   51</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">isPWM</a>(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a>; }</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/* ===== Function Declarations ===== */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="pwm_switch_8h.html#a8e6fbb3b51611498a8f3d3284a82c028">init_pwmSW</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">bool</span> <a class="code hl_function" href="pwm_switch_8h.html#ab16e3e06d2401b2b5c3614395a47c60c">read_pwmSW</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">   58</a></span><span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">isPWM</a>(<span class="keywordtype">void</span>) { <span class="keywordflow">return</span> <a class="code hl_variable" href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a>; }</div>
 <div class="ttc" id="aindividual__config_8h_html"><div class="ttname"><a href="individual__config_8h.html">individual_config.h</a></div></div>
-<div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="apwm_switch_8c_html_a0182a91a2e5646d38d05d252069da695"><div class="ttname"><a href="pwm_switch_8c.html#a0182a91a2e5646d38d05d252069da695">pwmSW_conf</a></div><div class="ttdeci">gpio_config_t pwmSW_conf</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:23</div></div>
-<div class="ttc" id="apwm_switch_8c_html_afa7467159e202397eef6806aaa1067a6"><div class="ttname"><a href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a></div><div class="ttdeci">bool pwmSW_Value</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:22</div></div>
-<div class="ttc" id="apwm_switch_8h_html_a8e6fbb3b51611498a8f3d3284a82c028"><div class="ttname"><a href="pwm_switch_8h.html#a8e6fbb3b51611498a8f3d3284a82c028">init_pwmSW</a></div><div class="ttdeci">void init_pwmSW(void)</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:32</div></div>
-<div class="ttc" id="apwm_switch_8h_html_ab16e3e06d2401b2b5c3614395a47c60c"><div class="ttname"><a href="pwm_switch_8h.html#ab16e3e06d2401b2b5c3614395a47c60c">read_pwmSW</a></div><div class="ttdeci">bool read_pwmSW(void)</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:51</div></div>
-<div class="ttc" id="apwm_switch_8h_html_ac7cb7dd9d16fa98333f2df69e0f88487"><div class="ttname"><a href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">isPWM</a></div><div class="ttdeci">bool isPWM(void)</div><div class="ttdef"><b>Definition</b> pwmSwitch.h:51</div></div>
+<div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div><div class="ttdoc">Logging module for debug output control.</div></div>
+<div class="ttc" id="apwm_switch_8c_html_a0182a91a2e5646d38d05d252069da695"><div class="ttname"><a href="pwm_switch_8c.html#a0182a91a2e5646d38d05d252069da695">pwmSW_conf</a></div><div class="ttdeci">gpio_config_t pwmSW_conf</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:19</div></div>
+<div class="ttc" id="apwm_switch_8c_html_afa7467159e202397eef6806aaa1067a6"><div class="ttname"><a href="pwm_switch_8c.html#afa7467159e202397eef6806aaa1067a6">pwmSW_Value</a></div><div class="ttdeci">bool pwmSW_Value</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:18</div></div>
+<div class="ttc" id="apwm_switch_8h_html_a8e6fbb3b51611498a8f3d3284a82c028"><div class="ttname"><a href="pwm_switch_8h.html#a8e6fbb3b51611498a8f3d3284a82c028">init_pwmSW</a></div><div class="ttdeci">void init_pwmSW(void)</div><div class="ttdoc">Initialize PWM/ADC selector GPIO pin.</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:29</div></div>
+<div class="ttc" id="apwm_switch_8h_html_ab16e3e06d2401b2b5c3614395a47c60c"><div class="ttname"><a href="pwm_switch_8h.html#ab16e3e06d2401b2b5c3614395a47c60c">read_pwmSW</a></div><div class="ttdeci">bool read_pwmSW(void)</div><div class="ttdoc">Read current sensor input selector state.</div><div class="ttdef"><b>Definition</b> pwmSwitch.c:50</div></div>
+<div class="ttc" id="apwm_switch_8h_html_ac7cb7dd9d16fa98333f2df69e0f88487"><div class="ttname"><a href="pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487">isPWM</a></div><div class="ttdeci">bool isPWM(void)</div><div class="ttdoc">Get current sensor input mode.</div><div class="ttdef"><b>Definition</b> pwmSwitch.h:58</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

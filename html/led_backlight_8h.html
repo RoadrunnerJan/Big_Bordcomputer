@@ -91,6 +91,9 @@ $(function(){initNavTree('led_backlight_8h.html','',''); });
   <div class="headertitle"><div class="title">ledBacklight.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>LED backlight PWM driver for LCD display brightness control.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="individual__config_8h_source.html">../individual_config.h</a>&quot;</code><br />
 <code>#include &quot;driver/ledc.h&quot;</code><br />
 </div>
@@ -99,14 +102,26 @@ $(function(){initNavTree('led_backlight_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a97d88f9559692cdc79987b3b7b265cb3" id="r_a97d88f9559692cdc79987b3b7b265cb3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a97d88f9559692cdc79987b3b7b265cb3">init_lcd_backlight_pwm</a> (void)</td></tr>
+<tr class="memdesc:a97d88f9559692cdc79987b3b7b265cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize LED backlight PWM configuration.  <br /></td></tr>
 <tr class="memitem:a2f86bb9918d671cee72a7dd81011f555" id="r_a2f86bb9918d671cee72a7dd81011f555"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2f86bb9918d671cee72a7dd81011f555">set_lcd_brightness</a> (uint8_t percentage)</td></tr>
+<tr class="memdesc:a2f86bb9918d671cee72a7dd81011f555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set LCD brightness level.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aeb1ed8a70d6d9c4eeaf3f9e2c4588b03" id="r_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03"><td class="memItemLeft">ledc_timer_config_t&#160;</td><td class="memItemRight"><a class="el" href="#aeb1ed8a70d6d9c4eeaf3f9e2c4588b03">ledc_timer</a></td></tr>
 <tr class="memitem:aec3e29ef86275172b97d9fd16dbc861f" id="r_aec3e29ef86275172b97d9fd16dbc861f"><td class="memItemLeft">ledc_channel_config_t&#160;</td><td class="memItemRight"><a class="el" href="#aec3e29ef86275172b97d9fd16dbc861f">ledc_channel</a></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>LED backlight PWM driver for LCD display brightness control. </p>
+<p>Manages PWM-based brightness control for SPI LCD displays using ESP32's LEDC module. Supports percentage-based brightness control (0-100%).</p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>LEDC PWM configuration for display brightness</li>
+<li>Percentage-based brightness control (0-100%) </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a97d88f9559692cdc79987b3b7b265cb3" name="a97d88f9559692cdc79987b3b7b265cb3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97d88f9559692cdc79987b3b7b265cb3">&#9670;&#160;</a></span>init_lcd_backlight_pwm()</h2>
 
@@ -121,8 +136,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize LED backlight PWM configuration Sets up LEDC timer and channel based on <a class="el" href="individual__config_8h.html">individual_config.h</a> settings</p>
-<p>Initialize LED backlight PWM configuration Configures LEDC timer and channel for LCD brightness control </p>
+
+<p>Initialize LED backlight PWM configuration. </p>
+<p>Sets up LEDC timer and channel based on <a class="el" href="individual__config_8h.html">individual_config.h</a> settings.</p>
+<p>Configures LEDC timer and channel for LCD brightness control. </p>
 
 </div>
 </div>
@@ -140,13 +157,22 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set LCD brightness level </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Set LCD brightness level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">percentage</td><td>Brightness level (0-100%)</td></tr>
   </table>
   </dd>
 </dl>
-<p>Set LCD brightness level (0-100%) Converts percentage to duty cycle value </p>
+<p>Set LCD brightness level.</p>
+<p>Converts percentage to PWM duty cycle and applies to the backlight pin.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">percentage</td><td>Brightness level clamped to 0-100% </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

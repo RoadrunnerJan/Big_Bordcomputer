@@ -93,91 +93,314 @@ $(function(){initNavTree('index.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> | Supported Targets | ESP32-P4 | ESP32-S3 | | --------------&mdash; | -----&mdash; | -----&mdash; |</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
-Customizable ESP32 Boardcomputer</h1>
-<p>This project implements a custom-built boardcomputer for classic vehicles like the BMW E36. Instead of the standard BMW boardcomputer (which only displays average fuel consumption or broken light bulbs), or multifunctional clocks (date, time, temperature), this system provides a complete display of current engine parameters.</p>
-<p><b>Main Features:</b></p><ul>
-<li>Display of oil temperature, oil pressure, battery voltage, and time/temperature</li>
-<li>Four round TFT displays for separate gauges</li>
-<li>Adjustable number and type of displays</li>
-<li>Fully customizable design via LVGL</li>
-</ul>
-<p>The E36 version uses four displays, each with its own gauge. All parameters are configurable.</p>
+ESP32-P4 Classic Vehicle Board Computer (E36)</h1>
+<p>A fully customizable, FreeRTOS-based board computer system for classic vehicles like the BMW E36. Features real-time engine parameter monitoring via multiple gauge displays, PWM/ADC sensor interfaces, and LVGL-driven graphics with day/night mode support.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Hardware Overview</h2>
-<p>The project is based on a powerful ESP32-P4 that controls all peripherals.</p>
-<p><b>Components used for the E36 boardcomputer:</b></p><ul>
-<li><b>ESP32-P4 WT9932P4-TINY</b> - Main processor</li>
-<li><b>4x 1.28 Inch Round TFT LCD Display (240x240 RGB) with GC9A01 Driver</b> (<a href="https://de.aliexpress.com/item/1005009364283361.html">Link to AliExpress</a>)</li>
-<li><b>Custom PCB</b> to connect the displays and peripherals with the ESP (in the <span class="tt">hardware/</span> directory)</li>
-<li><b>5V Buzzer</b> for warnings when outside temperature is below 3°C</li>
-<li><b>2x Buttons</b> for time adjustment</li>
-<li><b>12V to 5V Converter</b> for power supply</li>
-<li><b>BMW Oil Temperature and Pressure Sensor (Hella 6PP 010 378-201)</b> - PWM signal from engine</li>
-<li>or using analog <b>VDO sensors</b> for oil pressure and temperature</li>
+Overview</h2>
+<p>This project replaces standard or aftermarket boardcomputers with a modern, highly configurable solution displaying real-time engine data:</p><ul>
+<li><b>Oil temperature</b> and <b>pressure</b> with automatic sensor type detection (PWM Hella sensor or I2C ADC)</li>
+<li><b>Battery voltage</b> monitoring</li>
+<li><b>Outside temperature</b> with NTC thermistor interpolation</li>
+<li><b>Time display</b> with RTC synchronization (DS3231)</li>
+<li><b>Automatic brightness control</b> with ambient light sensing</li>
+<li><b>Temperature-based buzzer alerts</b> for frost warning</li>
 </ul>
-<p>The datasheets for the used components can be found in the <span class="tt">datasheets/</span> directory.</p>
+<p>The modular architecture supports up to 4 independent round (240x240) TFT displays, each rendering separate gauge views.</p>
+<p><b>Demo:</b> <img src="demo/Demo_1.jpeg" alt="Demo Image" class="inline"/></p>
+<p><img src="demo/FirstImpression.GIF" alt="First Impression" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Software</h2>
+Hardware</h2>
+<p><b>Main Processor:</b> ESP32-P4 (WT9932P4-TINY)</p>
+<p><b>Display &amp; UI:</b></p><ul>
+<li>4× 1.28" Round TFT LCD Displays (240×240 RGB, GC9A01 driver) – &lt;a href="<a href="https://de.aliexpress.com/item/1005009364283361.html">https://de.aliexpress.com/item/1005009364283361.html</a>" &gt;Reference&lt;/a&gt;
+- Custom PCB for display and peripheral integration (see &lt;tt&gt;hardware/&lt;/tt&gt; directory)
+
+&lt;img src="demo/Platine.jpeg" alt="Board Image"/&gt;
+
+&lt;strong&gt;Sensors &amp; Peripherals:&lt;/strong&gt;
+- &lt;strong&gt;Oil sensors&lt;/strong&gt;: BMW Hella 6PP 010 378-201 (PWM) OR VDO analog sensors (via ADC)
+- &lt;strong&gt;Temperature sensors&lt;/strong&gt;: NTC thermistors for oil and ambient temperature
+- &lt;strong&gt;RTC&lt;/strong&gt;: DS3231 real-time clock (I2C)
+- &lt;strong&gt;ADC&lt;/strong&gt;: 2× ADS1115 (16-bit, I2C) for sensor conditioning
+- &lt;strong&gt;Power&lt;/strong&gt;: 12V to 5V converter
+- &lt;strong&gt;Audio&lt;/strong&gt;: 5V buzzer with PWM control (optional, compile-time selectable)
+- &lt;strong&gt;Buttons&lt;/strong&gt;: 2× GPIO buttons for manual time adjustment
+- &lt;strong&gt;Ambient sensor&lt;/strong&gt;: Light sensor for day/night mode detection
+- &lt;strong&gt;Display backlight&lt;/strong&gt;: PWM-controlled brightness (0-100%)
+
+&lt;strong&gt;Documentation:&lt;/strong&gt; Component datasheets available in &lt;tt&gt;datasheets/&lt;/tt&gt; directory.
+
+@subsection autotoc_md3 Software Architecture
+
+- &lt;strong&gt;Operating System&lt;/strong&gt;: FreeRTOS with multi-core support
+- &lt;strong&gt;Graphics&lt;/strong&gt;: LVGL with dual mode screens (day/night)
+- &lt;strong&gt;Sensor I/O&lt;/strong&gt;: 
+  - I2C: RTC, ADCs, button handlers
+  - SPI: Multi-display controller
+  - ADC: Internal and external sensor reading
+  - MCPWM: Hella PWM sensor capture
+- &lt;strong&gt;Modular design&lt;/strong&gt; with independent modules for calculation, logging, UI, and peripherals
+
+@subsection autotoc_md4 Key Features
+
+@subsubsection autotoc_md5 Multi-Display Support
+- Up to 4 independent gauge displays
+- SPI or I2C based
+- Configurable via defines
+- Per-display screen assignment
+
+@subsubsection autotoc_md6 Sensor Processing
+- &lt;strong&gt;Oversampling&lt;/strong&gt; with configurable averaging
+- &lt;strong&gt;Low-pass filtering&lt;/strong&gt; (exponential moving average)
+- &lt;strong&gt;Range validation&lt;/strong&gt; with automatic clipping
+- &lt;strong&gt;Error detection&lt;/strong&gt; (open circuit, short circuit)
+- &lt;strong&gt;Table interpolation&lt;/strong&gt; for thermistor and pressure curves
+
+@subsubsection autotoc_md7 Day/Night Mode
+- Automatic brightness adjustment based on ambient light
+- Screen theme switching (day colors vs. night colors)
+- Forced day mode option
+- Adjustable thresholds and interpolation curves
+
+@subsubsection autotoc_md8 Test Mode
+- Deterministic sensor value simulation
+- Useful for UI/logic testing without hardware
+- Cycle-accurate brightness and night mode testing
+- Activation via button sequence (configurable pattern and timeout)
+
+@subsection autotoc_md9 Project Structure
+
+@icode 
+BC_Big_E36/
+├── CMakeLists.txt              # Main project configuration
+├── sdkconfig*                  # ESP-IDF SDK configuration variants
+├── Doxyfile                    # Doxygen documentation config
+│
+├── main/                       # Primary firmware source
+│   ├── main.c                  # Application entry point &amp; FreeRTOS task management
+│   ├── individual_config.h     # Hardware pins, features, and tuning parameters
+│   ├── idf_component.yml       # Component manifest
+│   │
+│   ├── calculation/            # Sensor value processing
+│   │   ├── values.h|c          # Filtering, validation, interpolation
+│   │
+│   ├── logging/                # Debug output &amp; logging
+│   │   ├── logging.h|c         # Compile-time enabled logging macros
+│   │
+│   ├── peripherie/             # Hardware drivers
+│   │   ├── adc.h|c             # ADS1115 ADC interface &amp; NTC lookup tables
+│   │   ├── buzzer.h|c          # LEDC PWM buzzer control
+│   │   ├── i2cFunctions.h|c    # I2C bus, DS3231 RTC, button handlers
+│   │   ├── ledBacklight.h|c    # PWM display brightness control
+│   │   ├── pwmSensor.h|c       # MCPWM Hella sensor decoder
+│   │   ├── pwmSwitch.h|c       # GPIO mode selector (PWM vs ADC)
+│   │   └── spiFunctions.h|c    # Multi-display SPI controller &amp; LVGL integration
+│   │
+│   ├── simulation/             # Test &amp; development utilities
+│   │   └── testSimulation.h|c  # Deterministic test value generation
+│   │
+│   └── lvgl/                   # UI &amp; graphics (generated by SquareLine)
+│       ├── src/
+│       │   └── ui/
+│       │       ├── screens.h   # Screen definitions
+│       │       ├── ui.h|c      # LVGL init &amp; screen creation
+│       │       └── vars.h      # LVGL variable bindings
+│       └── variableFunctions.h|c
+│
+├── hardware/                   # PCB design files
+├── demo/                       # Photos, videos, demo materials
+├── datasheets/                 # Component reference documentation
+├── fonts/                      # TrueType fonts for displays
+├── png/                        # Icons and image assets
+├── build/                      # Build artifacts (auto-generated)
+├── managed_components/         # ESP-IDF managed components
+├── html/ &amp; latex/              # Doxygen-generated documentation
+└── README.md                   # This file
+@endicode 
+
+@subsection autotoc_md10 Building &amp; Flashing
+
+@subsubsection autotoc_md11 Prerequisites
+- &lt;strong&gt;ESP-IDF v5.1+&lt;/strong&gt; installed and sourced
+- &lt;strong&gt;Python 3.8+&lt;/strong&gt;
+- &lt;strong&gt;USB cable&lt;/strong&gt; for ESP32-P4 programming
+
+@subsubsection autotoc_md12 Build
+@icode{bash} 
+idf.py build
+@endicode 
+
+@subsubsection autotoc_md13 Flash
+@icode{bash} 
+idf.py flash
+@endicode 
+
+@subsubsection autotoc_md14 Monitor
+@icode{bash} 
+idf.py monitor
+@endicode 
+
+For complete ESP-IDF documentation, see &lt;a href="<a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html</a>" &gt;Official Guide&lt;/a&gt;.
+
+@subsection autotoc_md15 Test Mode Activation
+
+Test mode enables deterministic sensor simulation without hardware. Activate within 10 seconds of boot using this button sequence:
+
+1. &lt;strong&gt;Press minute button&lt;/strong&gt; 2× (decrease)
+2. &lt;strong&gt;Press hour button&lt;/strong&gt; 1× (decrease)
+3. &lt;strong&gt;Press minute button&lt;/strong&gt; 2× (increase)
+4. &lt;strong&gt;Press hour button&lt;/strong&gt; 1× (toggle test mode)
+
+On success, serial log shows:
+@icode 
+"Test mode ACTIVATED!" </li>
+</ul>
+<p><b>Configuration</b> (in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>):</p><ul>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> – Window for button sequence (default: 10000 ms)</li>
+<li><span class="tt">TESTMODE_ACTIVATE_BUTTON_*_COUNT</span> – Button press counts for each step</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Documentation</h2>
+<p>Comprehensive code documentation is generated via <b>Doxygen</b>:</p>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
+<div class="line"># Browse: html/index.html</div>
+</div><!-- fragment --><p>All modules, functions, and structures include detailed Doxygen comments in English.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+Sensor Calibration</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Oil Temperature (NTC Thermistor)</h3>
 <ul>
-<li><b>FreeRTOS Tasks</b> for scheduling different operations</li>
-<li><b>LVGL</b> for designing the gauges</li>
-<li><b>ADC Sampling</b> of sensor values oder alternativ <b>PWM Sampling</b> of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201</li>
-<li><b>Modular Architecture</b> mit separate directories für calculation, logging, LVGL-UI, und peripherals</li>
+<li>Lookup table in <span class="tt"><a class="el" href="adc_8c.html" title="ADC interface for sensor readings via internal ADC.">main/peripherie/adc.c</a></span>: <span class="tt"><a class="el" href="adc_8c.html#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a>[]</span></li>
+<li>Range: -15°C to +150°C</li>
+<li>Linear interpolation between table entries</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-Test mode activation</h2>
-<p>In test mode, sensor-critical values are simulated and the UI loop runs in a deterministic cycle. Activate test mode with the following button sequence within <span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (7 seconds):</p>
-<ol type="1">
-<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> (minute button) twice to decrease minute</li>
-<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> (hour button) once to decrease hour</li>
-<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a0b715214e1a19ea5ebd45950f3c65811" title="Time adjustment button definition and debounce timing.">BUTTON_CLOCK_MINUTE_PIN</a></span> twice to increase minute</li>
-<li>Press <span class="tt"><a class="el" href="individual__config_8h.html#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a></span> once to increase hour and toggle test mode</li>
-</ol>
-<p>On success, logs show:</p><ul>
-<li><span class="tt">"Test mode ACTIVATED!"</span> or <span class="tt">"Test mode DEACTIVATED!"</span></li>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Oil Pressure</h3>
+<ul>
+<li>Calibration table in <span class="tt"><a class="el" href="adc_8c.html" title="ADC interface for sensor readings via internal ADC.">main/peripherie/adc.c</a></span>: <span class="tt"><a class="el" href="adc_8c.html#a09ac495d5458f3dd994d77827de483d8">pressure_table</a>[]</span></li>
+<li>Range: 0 to 5 bar</li>
+<li>Resistance-to-pressure conversion</li>
 </ul>
-<p>Activation parameters are defined in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>:</p><ul>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> (=7000)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#aa62bc4c38f6dc5dafe8b054c52a598bc">TESTMODE_ACTIVATE_BUTTON_1_COUNT</a></span> (=2)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a27cc0d7ece37bb64ea7c541981677807">TESTMODE_ACTIVATE_BUTTON_2_COUNT</a></span> (=1)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#ab95db9b37e9121be348e6ea15f86c5a9">TESTMODE_ACTIVATE_BUTTON_3_COUNT</a></span> (=2)</li>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#a7df5799ea0565ee0f7371b27d5c723b9">TESTMODE_ACTIVATE_BUTTON_4_COUNT</a></span> (=1)</li>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Outdoor Temperature (NTC Thermistor)</h3>
+<ul>
+<li>Lookup table in <span class="tt"><a class="el" href="adc_8c.html" title="ADC interface for sensor readings via internal ADC.">main/peripherie/adc.c</a></span>: <span class="tt"><a class="el" href="adc_8c.html#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a>[]</span></li>
+<li>Range: -15°C to +150°C</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-How to Flash the Project</h2>
-<ol type="1">
-<li><b>Requirements:</b><ul>
-<li>ESP-IDF installed (version according to SDK configuration)</li>
-<li>USB cable for the ESP32-P4</li>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+Voltage</h3>
+<ul>
+<li>Battery voltage with voltage divider: <span class="tt">(<a class="el" href="individual__config_8h.html#ad7feacb850cd11f0dfc20cd2e3ff30bf">ADC_VOLT_PULLUP</a> + <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7">ADC_VOLT_PULLDOWN</a>) / <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7">ADC_VOLT_PULLDOWN</a></span></li>
+<li>Brightness sensor with 10k/2.2k divider</li>
+</ul>
+<p>All calibration values are configurable in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+Configuration</h2>
+<p>Key settings in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>:</p>
+<ul>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#abc5772bb8f4980f3c762ed695dde4c21" title="Core project configuration values.">CHIP_USED</a></span> – Target ESP32 variant (ESP32P4, ESP32S3, etc.)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9" title="Core project configuration values.">NUMBER_OF_DISPLAYS</a></span> – Number of LCD panels (1-4)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a90ba4699a88b95a3609bc117dd06c445" title="Feature flags - enable/disable optional modules.">USE_BUZZER</a></span> – Enable/disable buzzer functionality</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a3ccdf5e151cf4faa7bea9d68a1af829a">LOGGING_ENABLED</a></span> – Enable/disable debug logging</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#a85498e1c53498101123d5d98a95f1206" title="Auto-brightness thresholds and manual defaults.">BRIGHTNESS_AUTO_ENABLE</a></span> – Auto brightness or fixed day mode</li>
+<li>Pin assignments for SPI, I2C, GPIO peripherals</li>
+<li>Sensor calibration thresholds and filtering parameters</li>
+<li>Thresholds for day/night mode switching</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+Performance &amp; Power</h2>
+<ul>
+<li><b>FreeRTOS Task</b>: Main gauge update loop runs at 50 ms intervals (20 Hz)</li>
+<li><b>Display refresh</b>: Per-display independent rendering with LVGL</li>
+<li><b>Sensor sampling</b>: Configurable oversampling (5 samples default) for noise reduction</li>
+<li><b>Low-power modes</b>: Can be implemented via FreeRTOS task suspension or ESP32 sleep states (future)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+Roadmap &amp; Known Limitations</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+Near-term</h3>
+<ul>
+<li>✅ Multi-display support <br  />
+</li>
+<li>✅ PWM Hella sensor support</li>
+<li>✅ ADC-based sensor alternative</li>
+<li>✅ RTC synchronization</li>
+<li>✅ Day/night mode</li>
+<li>✅ Test mode for development</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+Future Enhancements</h3>
+<ul>
+<li><b>Performance</b>: Optimize ADC sampling latency (evaluate internal ADCs, DMA)</li>
+<li><b>Sensors</b>: Add acceleration (G-force), RPM, fuel consumption calculation</li>
+<li><b>Hardware</b>: Redesigned PCB with improved routing, reference voltage measurement</li>
+<li><b>UI</b>: Additional gauge types, customizable screen layouts</li>
+<li><b>Power</b>: Low-power sleep modes, CAN bus integration (future vehicle models)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+Contributing</h2>
+<p>This is a personal project. Feel free to fork, adapt, and extend for your own classic vehicle!</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+License</h2>
+<p>[Specify your preferred license here]</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+Contact</h2>
+<p>For questions or suggestions: [Your contact info]</p>
+<hr  />
+<p><b>Last Updated</b>: April 2026 <br  />
+ <b>Firmware Version</b>: 1.0 <br  />
+ <b>Target</b>: BMW E36 (adaptable to other vehicles)</p>
+<ul>
+<li><b>Test mode rework</b><ul>
+<li>Current implementation is no longer reliable <br  />
+</li>
+<li>Redesign test mode to better integrate with normal operation <br  />
+</li>
+<li>Ensure deterministic behavior and easier activation/debugging</li>
 </ul>
 </li>
-<li><b>Compile the project:</b> <div class="fragment"><div class="line">idf.py build</div>
-</div><!-- fragment --></li>
-<li><b>Flash:</b> <div class="fragment"><div class="line">idf.py flash</div>
-</div><!-- fragment --></li>
-<li><b>Start monitor:</b> <div class="fragment"><div class="line">idf.py monitor</div>
-</div><!-- fragment --></li>
-</ol>
-<p>For detailed instructions see the official ESP-IDF guides.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
-Project Structure</h2>
-<div class="fragment"><div class="line">├── CMakeLists.txt              # Main build configuration</div>
-<div class="line">├── sdkconfig                   # ESP-IDF configuration</div>
-<div class="line">├── main/                       # Main source code</div>
-<div class="line">│   ├── CMakeLists.txt</div>
-<div class="line">│   ├── main.c                  # Main entry point</div>
-<div class="line">│   ├── individual_config.h     # Configuration defines</div>
-<div class="line">│   ├── calculation/            # Calculation modules</div>
-<div class="line">│   ├── logging/                # Logging functions</div>
-<div class="line">│   ├── lvgl/                   # LVGL-UI and graphics</div>
-<div class="line">│   └── peripherie/             # Peripheral drivers (buzzer, buttons, etc.)</div>
-<div class="line">├── hardware/                   # PCB design and hardware files</div>
-<div class="line">├── datasheets/                 # Datasheets of components</div>
-<div class="line">├── fonts/                      # Fonts</div>
-<div class="line">├── png/                        # Images and icons</div>
-<div class="line">├── managed_components/         # ESP-IDF components</div>
-<div class="line">└── README.md                   # This file</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<li><b>Sensor abstraction layer</b><ul>
+<li>Improve modularity for different sensor types (PWM vs analog) <br  />
+</li>
+<li>Allow easier configuration or runtime switching</li>
+</ul>
+</li>
+<li><b>Error handling &amp; diagnostics</b><ul>
+<li>Add better logging for sensor faults and communication errors <br  />
+</li>
+<li>Implement fallback strategies for invalid readings</li>
+</ul>
+</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+System / Features / UX</h3>
+<ul>
+<li><b>New display concepts</b><ul>
+<li>Evaluate alternative visualization types (e.g. G-force display, combined gauges) <br  />
+</li>
+<li>Improve readability and usability while driving</li>
+</ul>
+</li>
+<li><b>Startup &amp; calibration behavior</b><ul>
+<li>Ensure stable readings after power-on (temperature drift, warm-up effects) <br  />
+</li>
+<li>Add optional calibration phase or adaptive filtering</li>
+</ul>
+</li>
+<li><b>Performance monitoring</b><ul>
+<li>Track system load (CPU, memory, task timing) <br  />
+</li>
+<li>Identify bottlenecks in real-world usage</li>
+</ul>
+</li>
+<li><b>Configuration improvements</b><ul>
+<li>Make system configuration more flexible (compile-time vs runtime) <br  />
+</li>
+<li>Possibly introduce a simple settings interface</li>
+</ul>
+</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
 Troubleshooting</h2>
 <ul>
 <li><b>Flashing errors:</b><ul>

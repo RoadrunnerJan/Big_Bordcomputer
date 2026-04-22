@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['hardware_20overview_0',['Hardware Overview',['../index.html#autotoc_md1',1,'']]],
-  ['how_20to_20flash_20the_20project_1',['How to Flash the Project',['../index.html#autotoc_md4',1,'']]]
+  ['features_0',['Key Features',['../index.html#autotoc_md4',1,'']]],
+  ['features_20ux_1',['System / Features / UX',['../index.html#autotoc_md31',1,'']]],
+  ['flash_2',['Flash',['../index.html#autotoc_md13',1,'']]],
+  ['flashing_3',['Building &amp;amp; Flashing',['../index.html#autotoc_md10',1,'']]],
+  ['future_20enhancements_4',['Future Enhancements',['../index.html#autotoc_md26',1,'']]]
 ];

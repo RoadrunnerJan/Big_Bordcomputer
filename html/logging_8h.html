@@ -91,6 +91,9 @@ $(function(){initNavTree('logging_8h.html','',''); });
   <div class="headertitle"><div class="title">logging.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Logging module for debug output control.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="individual__config_8h_source.html">../individual_config.h</a>&quot;</code><br />
 <code>#include &quot;esp_log.h&quot;</code><br />
 </div>
@@ -105,7 +108,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a7148712d78e8164f230be2b1e6e91160" id="r_a7148712d78e8164f230be2b1e6e91160"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7148712d78e8164f230be2b1e6e91160">printWarningLog</a> (const char *message)</td></tr>
 <tr class="memdesc:a7148712d78e8164f230be2b1e6e91160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print warning log message.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Logging module for debug output control. </p>
+<p>Provides logging functions with compile-time enable/disable support. Outputs informational messages, errors, and warnings via ESP-IDF ESP_LOG macros.</p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>Info, error, and warning log functions</li>
+<li>Compile-time enable/disable support </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a8d463dcc2620a67b82a8be00e31ae3c0" name="a8d463dcc2620a67b82a8be00e31ae3c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d463dcc2620a67b82a8be00e31ae3c0">&#9670;&#160;</a></span>printErrorLog()</h2>
 
@@ -122,22 +135,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Print error log message. </p>
-<p>Output only if LOGGING_ENABLED is true in configuration. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Output only if LOGGING_ENABLED is true in configuration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Error message string.</td></tr>
+    <tr><td class="paramname">message</td><td>Error message string to display</td></tr>
   </table>
   </dd>
 </dl>
-<p>Print error log message Output only if LOGGING_ENABLED is true </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Error message string</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Print error log message Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a></p>
-<p>Print error log message Output only if LOGGING_ENABLED is true </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Error message string </td></tr>
+    <tr><td class="paramname">message</td><td>Error message string to display </td></tr>
   </table>
   </dd>
 </dl>
@@ -160,13 +168,20 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Print informational log message. </p>
-<p>Output only if LOGGING_ENABLED is true in configuration. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Output only if LOGGING_ENABLED is true in configuration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Log message string.</td></tr>
+    <tr><td class="paramname">message</td><td>Log message string to display</td></tr>
   </table>
   </dd>
 </dl>
-<p>Print informational log message Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a> </p>
+<p>Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Log message string to display </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -186,22 +201,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Print warning log message. </p>
-<p>Output only if LOGGING_ENABLED is true in configuration. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Output only if LOGGING_ENABLED is true in configuration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Warning message string.</td></tr>
+    <tr><td class="paramname">message</td><td>Warning message string to display</td></tr>
   </table>
   </dd>
 </dl>
-<p>Print warning log message Output only if LOGGING_ENABLED is true </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Warning message string</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Print warning log message Output only if LOGGING_ENABLED is true in <a class="el" href="individual__config_8h.html">individual_config.h</a></p>
-<p>Print warning log message Output only if LOGGING_ENABLED is true </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Warning message string </td></tr>
+    <tr><td class="paramname">message</td><td>Warning message string to display </td></tr>
   </table>
   </dd>
 </dl>

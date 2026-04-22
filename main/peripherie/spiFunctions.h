@@ -1,10 +1,9 @@
-#pragma once
-
 /**
  * @file spiFunctions.h
  * @brief SPI display driver for multiple LCD panels.
  *
  * Manages SPI communication with multiple LCD displays using ESP-IDF and LVGL.
+ * Supports up to 4 independent 240x240 round TFT displays with GC9A01 drivers.
  *
  * @author Jan Niklas Rodewald (JRO)
  * @date 01.04.2026
@@ -15,6 +14,8 @@
  *      - LVGL integration for graphics rendering
  *      - Display task scheduling and timing
  */
+
+#pragma once
 
 /* ===== Project Configuration ===== */
 #include "../individual_config.h"

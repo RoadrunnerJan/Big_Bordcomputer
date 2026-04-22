@@ -92,7 +92,7 @@ $(function(){initNavTree('i2c_functions_8h.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>I2C interface for DS3231 RTC and ADS1115 ADC.  
+<p>I2C interface for DS3231 RTC and time adjustment buttons.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="individual__config_8h_source.html">../individual_config.h</a>&quot;</code><br />
 <code>#include &quot;driver/i2c_master.h&quot;</code><br />
@@ -105,28 +105,16 @@ $(function(){initNavTree('i2c_functions_8h.html','',''); });
 </div>
 <p><a href="i2c_functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:lookup_5Fvalues_5Ft" id="r_lookup_5Fvalues_5Ft"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structlookup__values__t.html">lookup_values_t</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa612694140b11242c12098971310d89a" id="r_aa612694140b11242c12098971310d89a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa612694140b11242c12098971310d89a">OIL_TABLE_SIZE</a>&#160;&#160;&#160;(sizeof(<a class="el" href="#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a>) / sizeof(<a class="el" href="structlookup__values__t.html">lookup_values_t</a>))</td></tr>
-<tr class="memitem:a8bfd1527698a7d424696866246e7d6ad" id="r_a8bfd1527698a7d424696866246e7d6ad"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8bfd1527698a7d424696866246e7d6ad">OUTSIDE_TABLE_SIZE</a>&#160;&#160;&#160;(sizeof(<a class="el" href="#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a>) / sizeof(<a class="el" href="structlookup__values__t.html">lookup_values_t</a>))</td></tr>
-<tr class="memitem:a5a9cd48e78e7901ba75a5f71e209b5cd" id="r_a5a9cd48e78e7901ba75a5f71e209b5cd"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5a9cd48e78e7901ba75a5f71e209b5cd">PRESSURE_TABLE_SIZE</a>&#160;&#160;&#160;(sizeof(<a class="el" href="i2c_functions_8c.html#a09ac495d5458f3dd994d77827de483d8">pressure_table</a>) / sizeof(<a class="el" href="i2c_functions_8c.html#a09ac495d5458f3dd994d77827de483d8">pressure_table</a>[0]))</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a44ff2fa430fff0f39b4bb6e017dc2f46" id="r_a44ff2fa430fff0f39b4bb6e017dc2f46"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a44ff2fa430fff0f39b4bb6e017dc2f46">init_i2c</a> (void)</td></tr>
+<tr class="memdesc:a44ff2fa430fff0f39b4bb6e017dc2f46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize I2C bus and attach connected sensors.  <br /></td></tr>
 <tr class="memitem:a6b780707272c87024478d0879e480195" id="r_a6b780707272c87024478d0879e480195"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b780707272c87024478d0879e480195">sync_rtc_to_system</a> (void)</td></tr>
+<tr class="memdesc:a6b780707272c87024478d0879e480195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize system time with RTC DS3231 time.  <br /></td></tr>
 <tr class="memitem:adefb1faa97f5dcd7f89a4327b3d4a893" id="r_adefb1faa97f5dcd7f89a4327b3d4a893"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adefb1faa97f5dcd7f89a4327b3d4a893">init_time_buttons</a> (void)</td></tr>
-<tr class="memitem:a3561a0a098f68a9e060d09286f75b0ca" id="r_a3561a0a098f68a9e060d09286f75b0ca"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3561a0a098f68a9e060d09286f75b0ca">get_i2c_adc_volt</a> (void)</td></tr>
-<tr class="memitem:a67126ffb5167e564aa3217b6bf69d878" id="r_a67126ffb5167e564aa3217b6bf69d878"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a67126ffb5167e564aa3217b6bf69d878">get_i2c_adc_volt_bel</a> (void)</td></tr>
-<tr class="memitem:aff35661486adfbe819f76fe6ad43d150" id="r_aff35661486adfbe819f76fe6ad43d150"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aff35661486adfbe819f76fe6ad43d150">get_i2c_adc_oil_temp</a> (void)</td></tr>
-<tr class="memitem:a05b124606279b3e9d0dd924ae260801a" id="r_a05b124606279b3e9d0dd924ae260801a"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a05b124606279b3e9d0dd924ae260801a">get_i2c_adc_oil_press</a> (void)</td></tr>
-<tr class="memitem:ad8d1640b3b5cc5a310abfa729975e2bc" id="r_ad8d1640b3b5cc5a310abfa729975e2bc"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ad8d1640b3b5cc5a310abfa729975e2bc">get_i2c_adc_outside_temp</a> (void)</td></tr>
-<tr class="memitem:a9cee2a253f1fd4bafb685724fdd73dad" id="r_a9cee2a253f1fd4bafb685724fdd73dad"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9cee2a253f1fd4bafb685724fdd73dad">get_i2c_adc_reference_voltage</a> (void)</td></tr>
+<tr class="memdesc:adefb1faa97f5dcd7f89a4327b3d4a893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the time adjustment buttons and callbacks.  <br /></td></tr>
 <tr class="memitem:ad1e08059bfd9523c7db8c2a021dd00e0" id="r_ad1e08059bfd9523c7db8c2a021dd00e0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad1e08059bfd9523c7db8c2a021dd00e0">is_testmode_activated</a> (void)</td></tr>
+<tr class="memdesc:ad1e08059bfd9523c7db8c2a021dd00e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of testmode activation.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -134,189 +122,27 @@ Variables</h2></td></tr>
 <tr class="memitem:a457e9b0ccf6478fd7e45c0463abbd533" id="r_a457e9b0ccf6478fd7e45c0463abbd533"><td class="memItemLeft">i2c_master_bus_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a457e9b0ccf6478fd7e45c0463abbd533">bus_handle</a></td></tr>
 <tr class="memitem:ab267adc45de633391260efd03afa0ad6" id="r_ab267adc45de633391260efd03afa0ad6"><td class="memItemLeft">i2c_device_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ab267adc45de633391260efd03afa0ad6">ds3231_cfg</a></td></tr>
 <tr class="memitem:a992ab7409747ebf3a31ff7643d9720f2" id="r_a992ab7409747ebf3a31ff7643d9720f2"><td class="memItemLeft">i2c_master_dev_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a992ab7409747ebf3a31ff7643d9720f2">ds3231_handle</a></td></tr>
-<tr class="memitem:acb5ddf7923f8366395f68b86c77d6059" id="r_acb5ddf7923f8366395f68b86c77d6059"><td class="memItemLeft">i2c_device_config_t&#160;</td><td class="memItemRight"><a class="el" href="#acb5ddf7923f8366395f68b86c77d6059">ads_cfg</a> [<a class="el" href="individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5">NUMBER_OF_ADS1115_DEVICES</a>]</td></tr>
-<tr class="memitem:a7f84388a86187f1b6076f572802a2392" id="r_a7f84388a86187f1b6076f572802a2392"><td class="memItemLeft">i2c_master_dev_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a7f84388a86187f1b6076f572802a2392">ads_handle</a> [<a class="el" href="individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5">NUMBER_OF_ADS1115_DEVICES</a>]</td></tr>
-<tr class="memitem:a55ced10a5ef8304b6466cb0566d2b2f9" id="r_a55ced10a5ef8304b6466cb0566d2b2f9"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a55ced10a5ef8304b6466cb0566d2b2f9">reference_voltage</a></td></tr>
 <tr class="memitem:ad58bf4c44b9439565e32297d332f0b49" id="r_ad58bf4c44b9439565e32297d332f0b49"><td class="memItemLeft">button_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ad58bf4c44b9439565e32297d332f0b49">cfg_time</a> [2]</td></tr>
 <tr class="memitem:a50b1fe2759bea9706faf3ed4eb6e815c" id="r_a50b1fe2759bea9706faf3ed4eb6e815c"><td class="memItemLeft">button_gpio_config_t&#160;</td><td class="memItemRight"><a class="el" href="#a50b1fe2759bea9706faf3ed4eb6e815c">gpio_cfg_time</a> [2]</td></tr>
 <tr class="memitem:ac817f20c65ad9af1ef7b4f85ab389df7" id="r_ac817f20c65ad9af1ef7b4f85ab389df7"><td class="memItemLeft">button_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ac817f20c65ad9af1ef7b4f85ab389df7">btn_time</a> [2]</td></tr>
-<tr class="memitem:a3222dc2ea3f4f877a09b77f768e098a6" id="r_a3222dc2ea3f4f877a09b77f768e098a6"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a> []</td></tr>
-<tr class="memitem:a9368b27af8dd8c123596c5554a756233" id="r_a9368b27af8dd8c123596c5554a756233"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a> []</td></tr>
 <tr class="memitem:afa9e8129f0495e4719121defad0fa0d6" id="r_afa9e8129f0495e4719121defad0fa0d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa9e8129f0495e4719121defad0fa0d6">testmode_activated</a></td></tr>
 <tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a></td></tr>
 <tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a></td></tr>
 <tr class="memitem:adaf37611e9f0c039d25b49384b649b5f" id="r_adaf37611e9f0c039d25b49384b649b5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#adaf37611e9f0c039d25b49384b649b5f">testmode_activation_state</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>I2C interface for DS3231 RTC and ADS1115 ADC. </p>
-<p>Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors.</p>
+<div class="textblock"><p>I2C interface for DS3231 RTC and time adjustment buttons. </p>
+<p>Manages I2C communication with the DS3231 real-time clock and provides button handlers for manual time adjustment functionality.</p>
 <dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
 <li>DS3231 real-time clock interface</li>
-<li>ADS1115 ADC for analog sensor readings</li>
 <li>NTC temperature table interpolation</li>
 <li>Button control for time adjustment</li>
 <li>Dual ADC support for enhanced sensor coverage </li>
 </ul>
 </dd></dl>
-</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="aa612694140b11242c12098971310d89a" name="aa612694140b11242c12098971310d89a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa612694140b11242c12098971310d89a">&#9670;&#160;</a></span>OIL_TABLE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OIL_TABLE_SIZE&#160;&#160;&#160;(sizeof(<a class="el" href="#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a>) / sizeof(<a class="el" href="structlookup__values__t.html">lookup_values_t</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8bfd1527698a7d424696866246e7d6ad" name="a8bfd1527698a7d424696866246e7d6ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bfd1527698a7d424696866246e7d6ad">&#9670;&#160;</a></span>OUTSIDE_TABLE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OUTSIDE_TABLE_SIZE&#160;&#160;&#160;(sizeof(<a class="el" href="#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a>) / sizeof(<a class="el" href="structlookup__values__t.html">lookup_values_t</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5a9cd48e78e7901ba75a5f71e209b5cd" name="a5a9cd48e78e7901ba75a5f71e209b5cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a9cd48e78e7901ba75a5f71e209b5cd">&#9670;&#160;</a></span>PRESSURE_TABLE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRESSURE_TABLE_SIZE&#160;&#160;&#160;(sizeof(<a class="el" href="i2c_functions_8c.html#a09ac495d5458f3dd994d77827de483d8">pressure_table</a>) / sizeof(<a class="el" href="i2c_functions_8c.html#a09ac495d5458f3dd994d77827de483d8">pressure_table</a>[0]))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a05b124606279b3e9d0dd924ae260801a" name="a05b124606279b3e9d0dd924ae260801a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b124606279b3e9d0dd924ae260801a">&#9670;&#160;</a></span>get_i2c_adc_oil_press()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float get_i2c_adc_oil_press </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read oil pressure from ADS1115 ADC with resistance-to-pressure conversion </p>
-
-</div>
-</div>
-<a id="aff35661486adfbe819f76fe6ad43d150" name="aff35661486adfbe819f76fe6ad43d150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff35661486adfbe819f76fe6ad43d150">&#9670;&#160;</a></span>get_i2c_adc_oil_temp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float get_i2c_adc_oil_temp </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read oil temperature from ADS1115 ADC with NTC lookup table </p>
-
-</div>
-</div>
-<a id="ad8d1640b3b5cc5a310abfa729975e2bc" name="ad8d1640b3b5cc5a310abfa729975e2bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8d1640b3b5cc5a310abfa729975e2bc">&#9670;&#160;</a></span>get_i2c_adc_outside_temp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float get_i2c_adc_outside_temp </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read outdoor temperature from ADS1115 ADC with NTC lookup table </p>
-
-</div>
-</div>
-<a id="a9cee2a253f1fd4bafb685724fdd73dad" name="a9cee2a253f1fd4bafb685724fdd73dad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cee2a253f1fd4bafb685724fdd73dad">&#9670;&#160;</a></span>get_i2c_adc_reference_voltage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void get_i2c_adc_reference_voltage </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Measure and update the ADC reference voltage dynamically.</p>
-<p>Reads from the second ADS1115 ADC device and updates the global reference_voltage.</p>
-<p>Read reference voltage from ADS1115 ADC (Version 4.2 feature)</p>
-<p>Measure and update the ADC reference voltage dynamically.</p>
-<p>Reads the reference voltage from the second ADS1115 device (if available) and updates the global reference_voltage variable for use in <a class="el" href="i2c_functions_8c.html#a5524d0e119c73860a14f8a581bbb1c85">raw_to_res_safe()</a>. If the measurement is out of valid range, defaults to ADC_ADS_REF_V.</p>
-<p>Read reference voltage from ADS1115 ADC (Version 4.2 feature) </p>
-
-</div>
-</div>
-<a id="a3561a0a098f68a9e060d09286f75b0ca" name="a3561a0a098f68a9e060d09286f75b0ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3561a0a098f68a9e060d09286f75b0ca">&#9670;&#160;</a></span>get_i2c_adc_volt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float get_i2c_adc_volt </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read battery voltage from ADS1115 ADC </p>
-
-</div>
-</div>
-<a id="a67126ffb5167e564aa3217b6bf69d878" name="a67126ffb5167e564aa3217b6bf69d878"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67126ffb5167e564aa3217b6bf69d878">&#9670;&#160;</a></span>get_i2c_adc_volt_bel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float get_i2c_adc_volt_bel </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read brightness/light sensor voltage from ADS1115 ADC </p>
-
-</div>
-</div>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a44ff2fa430fff0f39b4bb6e017dc2f46" name="a44ff2fa430fff0f39b4bb6e017dc2f46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44ff2fa430fff0f39b4bb6e017dc2f46">&#9670;&#160;</a></span>init_i2c()</h2>
 
@@ -331,9 +157,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize I2C bus and attach connected sensors (RTC and ADC).</p>
-<p>Initialize I2C bus and attach RTC and ADC devices.</p>
-<p>Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-device support. </p>
+
+<p>Initialize I2C bus and attach connected sensors. </p>
+<p>Sets up the I2C master bus and attaches the DS3231 RTC device.</p>
+<p>Initialize I2C bus and attach connected sensors.</p>
+<p>Sets up the I2C master bus and attaches the DS3231 device for multi-device support. </p>
 
 </div>
 </div>
@@ -351,7 +179,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Initialize the time adjustment buttons and callbacks. </p>
+<p>Configures GPIO buttons for hour and minute adjustment with interrupt handlers. </p>
 
 </div>
 </div>
@@ -377,7 +207,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the state of the testmode_activation </p>
+
+<p>Get the state of testmode activation. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if test mode is currently active, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -395,55 +227,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sync system time with RTC DS3231 time. </p>
+
+<p>Synchronize system time with RTC DS3231 time. </p>
+<p>Reads current time from the DS3231 and updates ESP32 system time. </p>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="acb5ddf7923f8366395f68b86c77d6059" name="acb5ddf7923f8366395f68b86c77d6059"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb5ddf7923f8366395f68b86c77d6059">&#9670;&#160;</a></span>ads_cfg</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">i2c_device_config_t ads_cfg[<a class="el" href="individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5">NUMBER_OF_ADS1115_DEVICES</a>]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7f84388a86187f1b6076f572802a2392" name="a7f84388a86187f1b6076f572802a2392"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f84388a86187f1b6076f572802a2392">&#9670;&#160;</a></span>ads_handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">i2c_master_dev_handle_t ads_handle[<a class="el" href="individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5">NUMBER_OF_ADS1115_DEVICES</a>]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac817f20c65ad9af1ef7b4f85ab389df7" name="ac817f20c65ad9af1ef7b4f85ab389df7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac817f20c65ad9af1ef7b4f85ab389df7">&#9670;&#160;</a></span>btn_time</h2>
 
@@ -595,74 +385,6 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3222dc2ea3f4f877a09b77f768e098a6" name="a3222dc2ea3f4f877a09b77f768e098a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3222dc2ea3f4f877a09b77f768e098a6">&#9670;&#160;</a></span>oil_temp_table</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a> oil_temp_table[]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9368b27af8dd8c123596c5554a756233" name="a9368b27af8dd8c123596c5554a756233"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9368b27af8dd8c123596c5554a756233">&#9670;&#160;</a></span>outside_temperature_table</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a> outside_temperature_table[]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a55ced10a5ef8304b6466cb0566d2b2f9" name="a55ced10a5ef8304b6466cb0566d2b2f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55ced10a5ef8304b6466cb0566d2b2f9">&#9670;&#160;</a></span>reference_voltage</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float reference_voltage</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>ADC reference voltage for resistance calculations (dynamically adjustable).</p>
-<p>ADC reference voltage for resistance calculations. Defaults to ADC_ADS_REF_V, but can be updated dynamically via <a class="el" href="i2c_functions_8c.html#a9cee2a253f1fd4bafb685724fdd73dad">get_i2c_adc_reference_voltage()</a>. </p>
 
 </div>
 </div>

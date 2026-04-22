@@ -2,112 +2,171 @@
 \hypertarget{index}{}\label{index}\index{Big\_Boardcomputer@{Big\_Boardcomputer}}
 \label{index_md__r_e_a_d_m_e}%
 \Hypertarget{index_md__r_e_a_d_m_e}%
- \texorpdfstring{$\vert$}{|} Supported Targets \texorpdfstring{$\vert$}{|} ESP32-\/\+P4 \texorpdfstring{$\vert$}{|} ESP32-\/\+S3 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|}\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Customizable ESP32 Boardcomputer}{Customizable ESP32 Boardcomputer}}\label{index_autotoc_md0}
-This project implements a custom-\/built boardcomputer for classic vehicles like the BMW E36. Instead of the standard BMW boardcomputer (which only displays average fuel consumption or broken light bulbs), or multifunctional clocks (date, time, temperature), this system provides a complete display of current engine parameters.
-
-{\bfseries{Main Features:\+}}
+ \texorpdfstring{$\vert$}{|} Supported Targets \texorpdfstring{$\vert$}{|} ESP32-\/\+P4 \texorpdfstring{$\vert$}{|} ESP32-\/\+S3 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|} -\/-\/-\/-\/-\/--- \texorpdfstring{$\vert$}{|}\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{ESP32-\/\+P4 Classic Vehicle Board Computer (E36)}{ESP32-\/\+P4 Classic Vehicle Board Computer (E36)}}\label{index_autotoc_md0}
+A fully customizable, Free\+RTOS-\/based board computer system for classic vehicles like the BMW E36. Features real-\/time engine parameter monitoring via multiple gauge displays, PWM/\+\+ADC sensor interfaces, and LVGL-\/driven graphics with day/\+night mode support.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md1}
+This project replaces standard or aftermarket boardcomputers with a modern, highly configurable solution displaying real-\/time engine data:\+
 \begin{DoxyItemize}
-\item Display of oil temperature, oil pressure, battery voltage, and time/\+temperature
-\item Four round TFT displays for separate gauges
-\item Adjustable number and type of displays
-\item Fully customizable design via LVGL
+\item {\bfseries{Oil temperature}} and {\bfseries{pressure}} with automatic sensor type detection (PWM Hella sensor or I2C ADC)
+\item {\bfseries{Battery voltage}} monitoring
+\item {\bfseries{Outside temperature}} with NTC thermistor interpolation
+\item {\bfseries{Time display}} with RTC synchronization (DS3231)
+\item {\bfseries{Automatic brightness control}} with ambient light sensing
+\item {\bfseries{Temperature-\/based buzzer alerts}} for frost warning
 \end{DoxyItemize}
 
-The E36 version uses four displays, each with its own gauge. All parameters are configurable.\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Hardware Overview}{Hardware Overview}}\label{index_autotoc_md1}
-The project is based on a powerful ESP32-\/\+P4 that controls all peripherals.
+The modular architecture supports up to 4 independent round (240x240) TFT displays, each rendering separate gauge views.
 
-{\bfseries{Components used for the E36 boardcomputer:\+}}
+{\bfseries{Demo:\+}} 
+
+\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Hardware}{Hardware}}\label{index_autotoc_md2}
+{\bfseries{Main Processor:\+}} ESP32-\/\+P4 (WT9932\+P4-\/\+TINY)
+
+{\bfseries{Display \& UI:\+}}
 \begin{DoxyItemize}
-\item {\bfseries{ESP32-\/\+P4 WT9932\+P4-\/\+TINY}} -\/ Main processor
-\item {\bfseries{4x 1.\+28 Inch Round TFT LCD Display (240x240 RGB) with GC9\+A01 Driver}} (\href{https://de.aliexpress.com/item/1005009364283361.html}{\texttt{Link to Ali\+Express}})
-\item {\bfseries{Custom PCB}} to connect the displays and peripherals with the ESP (in the {\ttfamily hardware/\+} directory)
-\item {\bfseries{5V Buzzer}} for warnings when outside temperature is below 3°C
-\item {\bfseries{2x Buttons}} for time adjustment
-\item {\bfseries{12V to 5V Converter}} for power supply
-\item {\bfseries{BMW Oil Temperature and Pressure Sensor (Hella 6PP 010 378-\/201)}} -\/ PWM signal from engine
-\item or using analog {\bfseries{VDO sensors}} for oil pressure and temperature
+\item 4× 1.\+28"{} Round TFT LCD Displays (240×240 RGB, GC9\+A01 driver) – $<$a href="{}\href{https://de.aliexpress.com/item/1005009364283361.html}{\texttt{https:\+/\+/\+de.\+aliexpress.\+com/\+item/\+1005009364283361.\+html}}"{} $>$\+Reference$<$/\+a$>$ -\/ Custom PCB for display and peripheral integration (see $<$tt$>$hardware/\+$<$/\+tt$>$ directory)  $<$img src="{}demo/\+\+Platine.\+jpeg"{} alt="{}Board Image"{}/\+$>$  $<$strong$>$\+Sensors \& Peripherals:\+$<$/\+strong$>$ -\/ $<$strong$>$\+Oil sensors$<$/\+strong$>$:\+ BMW Hella 6\+PP 010 378-\/201 (\+PWM) OR VDO analog sensors (via ADC) -\/ $<$strong$>$\+Temperature sensors$<$/\+strong$>$:\+ NTC thermistors for oil and ambient temperature -\/ $<$strong$>$\+RTC$<$/\+strong$>$:\+ DS3231 real-\/time clock (\+I2\+C) -\/ $<$strong$>$\+ADC$<$/\+strong$>$:\+ 2× ADS1115 (16-\/bit, I2\+C) for sensor conditioning -\/ $<$strong$>$\+Power$<$/\+strong$>$:\+ 12\+V to 5\+V converter -\/ $<$strong$>$\+Audio$<$/\+strong$>$:\+ 5\+V buzzer with PWM control (optional, compile-\/time selectable) -\/ $<$strong$>$\+Buttons$<$/\+strong$>$:\+ 2× GPIO buttons for manual time adjustment -\/ $<$strong$>$\+Ambient sensor$<$/\+strong$>$:\+ Light sensor for day/\+night mode detection -\/ $<$strong$>$\+Display backlight$<$/\+strong$>$:\+ PWM-\/controlled brightness (0-\/100\%)  $<$strong$>$\+Documentation:\+$<$/\+strong$>$ Component datasheets available in $<$tt$>$datasheets/\+$<$/\+tt$>$ directory.  @subsection autotoc\+\_\+md3 Software Architecture  -\/ $<$strong$>$\+Operating System$<$/\+strong$>$:\+ Free\+RTOS with multi-\/core support -\/ $<$strong$>$\+Graphics$<$/\+strong$>$:\+ LVGL with dual mode screens (day/\+night) -\/ $<$strong$>$\+Sensor I/\+\+O$<$/\+strong$>$:\+    -\/ I2\+C:\+ RTC, ADCs, button handlers   -\/ SPI:\+ Multi-\/display controller   -\/ ADC:\+ Internal and external sensor reading   -\/ MCPWM:\+ Hella PWM sensor capture -\/ $<$strong$>$\+Modular design$<$/\+strong$>$ with independent modules for calculation, logging, UI, and peripherals  @subsection autotoc\+\_\+md4 Key Features  @subsubsection autotoc\+\_\+md5 Multi-\/\+Display Support -\/ Up to 4 independent gauge displays -\/ SPI or I2\+C based -\/ Configurable via defines -\/ Per-\/display screen assignment  @subsubsection autotoc\+\_\+md6 Sensor Processing -\/ $<$strong$>$\+Oversampling$<$/\+strong$>$ with configurable averaging -\/ $<$strong$>$\+Low-\/pass filtering$<$/\+strong$>$ (exponential moving average) -\/ $<$strong$>$\+Range validation$<$/\+strong$>$ with automatic clipping -\/ $<$strong$>$\+Error detection$<$/\+strong$>$ (open circuit, short circuit) -\/ $<$strong$>$\+Table interpolation$<$/\+strong$>$ for thermistor and pressure curves  @subsubsection autotoc\+\_\+md7 Day/\+\+Night Mode -\/ Automatic brightness adjustment based on ambient light -\/ Screen theme switching (day colors vs. night colors) -\/ Forced day mode option -\/ Adjustable thresholds and interpolation curves  @subsubsection autotoc\+\_\+md8 Test Mode -\/ Deterministic sensor value simulation -\/ Useful for UI/\+logic testing without hardware -\/ Cycle-\/accurate brightness and night mode testing -\/ Activation via button sequence (configurable pattern and timeout)  @subsection autotoc\+\_\+md9 Project Structure  @icode  \+BC\+\_\+\+Big\+\_\+\+E36/\+ ├── CMake\+Lists.\+txt              \+\# Main project configuration ├── sdkconfig\texorpdfstring{$\ast$}{*}                  \+\# ESP-\/\+IDF SDK configuration variants ├── Doxyfile                    \+\# Doxygen documentation config │ ├── main/\+                       \+\# Primary firmware source │   ├── main.\+c                  \+\# Application entry point \& Free\+RTOS task management │   ├── individual\+\_\+config.\+h     \+\# Hardware pins, features, and tuning parameters │   ├── idf\+\_\+component.\+yml       \+\# Component manifest │   │ │   ├── calculation/\+            \+\# Sensor value processing │   │   ├── values.\+h\texorpdfstring{$\vert$}{|}c          \+\# Filtering, validation, interpolation │   │ │   ├── logging/\+                \+\# Debug output \& logging │   │   ├── logging.\+h\texorpdfstring{$\vert$}{|}c         \+\# Compile-\/time enabled logging macros │   │ │   ├── peripherie/\+             \+\# Hardware drivers │   │   ├── adc.\+h\texorpdfstring{$\vert$}{|}c             \+\# ADS1115 ADC interface \& NTC lookup tables │   │   ├── buzzer.\+h\texorpdfstring{$\vert$}{|}c          \+\# LEDC PWM buzzer control │   │   ├── i2c\+Functions.\+h\texorpdfstring{$\vert$}{|}c    \+\# I2\+C bus, DS3231 RTC, button handlers │   │   ├── led\+Backlight.\+h\texorpdfstring{$\vert$}{|}c    \+\# PWM display brightness control │   │   ├── pwm\+Sensor.\+h\texorpdfstring{$\vert$}{|}c       \+\# MCPWM Hella sensor decoder │   │   ├── pwm\+Switch.\+h\texorpdfstring{$\vert$}{|}c       \+\# GPIO mode selector (\+PWM vs ADC) │   │   └── spi\+Functions.\+h\texorpdfstring{$\vert$}{|}c    \+\# Multi-\/display SPI controller \& LVGL integration │   │ │   ├── simulation/\+             \+\# Test \& development utilities │   │   └── test\+Simulation.\+h\texorpdfstring{$\vert$}{|}c  \+\# Deterministic test value generation │   │ │   └── lvgl/\+                   \+\# UI \& graphics (generated by Square\+Line) │       ├── src/\+ │       │   └── ui/\+ │       │       ├── screens.\+h   \+\# Screen definitions │       │       ├── ui.\+h\texorpdfstring{$\vert$}{|}c      \+\# LVGL init \& screen creation │       │       └── vars.\+h      \+\# LVGL variable bindings │       └── variable\+Functions.\+h\texorpdfstring{$\vert$}{|}c │ ├── hardware/\+                   \+\# PCB design files ├── demo/\+                       \+\# Photos, videos, demo materials ├── datasheets/\+                 \+\# Component reference documentation ├── fonts/\+                      \+\# True\+Type fonts for displays ├── png/\+                        \+\# Icons and image assets ├── build/\+                      \+\# Build artifacts (auto-\/generated) ├── managed\+\_\+components/\+         \+\# ESP-\/\+IDF managed components ├── html/\+ \& latex/\+              \+\# Doxygen-\/generated documentation └── README.\+md                   \+\# This file @endicode   @subsection autotoc\+\_\+md10 Building \& Flashing  @subsubsection autotoc\+\_\+md11 Prerequisites -\/ $<$strong$>$\+ESP-\/\+IDF v5.\+1+$<$/\+strong$>$ installed and sourced -\/ $<$strong$>$\+Python 3.\+8+$<$/\+strong$>$ -\/ $<$strong$>$\+USB cable$<$/\+strong$>$ for ESP32-\/\+P4 programming  @subsubsection autotoc\+\_\+md12 Build @icode\{bash\}  idf.\+py build @endicode   @subsubsection autotoc\+\_\+md13 Flash @icode\{bash\}  idf.\+py flash @endicode   @subsubsection autotoc\+\_\+md14 Monitor @icode\{bash\}  idf.\+py monitor @endicode   \+For complete ESP-\/\+IDF documentation, see $<$a href="{}\href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html}{\texttt{https:\+/\+/\+docs.\+espressif.\+com/\+projects/\+esp-\/idf/\+en/\+latest/\+esp32/\+get-\/started/\+index.\+html}}"{} $>$\+Official Guide$<$/\+a$>$.  @subsection autotoc\+\_\+md15 Test Mode Activation  \+Test mode enables deterministic sensor simulation without hardware. Activate within 10 seconds of boot using this button sequence:\+  1. $<$strong$>$\+Press minute button$<$/\+strong$>$ 2× (decrease) 2. $<$strong$>$\+Press hour button$<$/\+strong$>$ 1× (decrease) 3. $<$strong$>$\+Press minute button$<$/\+strong$>$ 2× (increase) 4. $<$strong$>$\+Press hour button$<$/\+strong$>$ 1× (toggle test mode)  \+On success, serial log shows:\+ @icode  "{}Test mode ACTIVATED!"{} 
 \end{DoxyItemize}
 
-The datasheets for the used components can be found in the {\ttfamily datasheets/\+} directory.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Software}{Software}}\label{index_autotoc_md2}
-
+{\bfseries{Configuration}} (in {\ttfamily \doxylink{individual__config_8h}{main/\+individual\+\_\+config.\+h}}):\+
 \begin{DoxyItemize}
-\item {\bfseries{Free\+RTOS Tasks}} for scheduling different operations
-\item {\bfseries{LVGL}} for designing the gauges
-\item {\bfseries{ADC Sampling}} of sensor values oder alternativ {\bfseries{PWM Sampling}} of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-\/201
-\item {\bfseries{Modular Architecture}} mit separate directories für calculation, logging, LVGL-\/\+UI, und peripherals
-\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\texorpdfstring{Test mode activation}{Test mode activation}}\label{index_autotoc_md3}
-In test mode, sensor-\/critical values are simulated and the UI loop runs in a deterministic cycle. Activate test mode with the following button sequence within {\ttfamily \doxylink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}} (7 seconds):\+
+\item {\ttfamily \doxylink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}} – Window for button sequence (default:\+ 10000 ms)
+\item {\ttfamily TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+COUNT} – Button press counts for each step
+\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md16}
+Comprehensive code documentation is generated via {\bfseries{Doxygen}}:\+
 
 
-\begin{DoxyEnumerate}
-\item Press {\ttfamily \doxylink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}} (minute button) twice to decrease minute
-\item Press {\ttfamily \doxylink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}} (hour button) once to decrease hour
-\item Press {\ttfamily \doxylink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}} twice to increase minute
-\item Press {\ttfamily \doxylink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}} once to increase hour and toggle test mode
-\end{DoxyEnumerate}
-
-On success, logs show:\+
-\begin{DoxyItemize}
-\item {\ttfamily "{}Test mode ACTIVATED!"{}} or {\ttfamily "{}Test mode DEACTIVATED!"{}}
-\end{DoxyItemize}
-
-Activation parameters are defined in {\ttfamily \doxylink{individual__config_8h}{main/\+individual\+\_\+config.\+h}}:\+
-\begin{DoxyItemize}
-\item {\ttfamily \doxylink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}} (=7000)
-\item {\ttfamily \doxylink{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT}} (=2)
-\item {\ttfamily \doxylink{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT}} (=1)
-\item {\ttfamily \doxylink{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT}} (=2)
-\item {\ttfamily \doxylink{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT}} (=1)
-\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{How to Flash the Project}{How to Flash the Project}}\label{index_autotoc_md4}
-
-\begin{DoxyEnumerate}
-\item {\bfseries{Requirements:\+}}
-\begin{DoxyItemize}
-\item ESP-\/\+IDF installed (version according to SDK configuration)
-\item USB cable for the ESP32-\/\+P4
-\end{DoxyItemize}
-\item {\bfseries{Compile the project:\+}} 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{idf.py\ build}
+\DoxyCodeLine{doxygen\ Doxyfile}
+\DoxyCodeLine{\#\ Browse:\ html/index.html}
 
 \end{DoxyCode}
 
-\item {\bfseries{Flash:\+}} 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{idf.py\ flash}
 
-\end{DoxyCode}
+All modules, functions, and structures include detailed Doxygen comments in English.\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Sensor Calibration}{Sensor Calibration}}\label{index_autotoc_md17}
+\hypertarget{index_autotoc_md18}{}\doxysubsubsection{\texorpdfstring{Oil Temperature (NTC Thermistor)}{Oil Temperature (NTC Thermistor)}}\label{index_autotoc_md18}
 
-\item {\bfseries{Start monitor:\+}} 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{idf.py\ monitor}
+\begin{DoxyItemize}
+\item Lookup table in {\ttfamily \doxylink{adc_8c}{main/\+peripherie/\+adc.\+c}}:\+ {\ttfamily \doxylink{adc_8c_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}\+[]\+}
+\item Range:\+ -\/15°C to +150°C
+\item Linear interpolation between table entries
+\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysubsubsection{\texorpdfstring{Oil Pressure}{Oil Pressure}}\label{index_autotoc_md19}
 
-\end{DoxyCode}
+\begin{DoxyItemize}
+\item Calibration table in {\ttfamily \doxylink{adc_8c}{main/\+peripherie/\+adc.\+c}}:\+ {\ttfamily \doxylink{adc_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}\+[]\+}
+\item Range:\+ 0 to 5 bar
+\item Resistance-\/to-\/pressure conversion
+\end{DoxyItemize}\hypertarget{index_autotoc_md20}{}\doxysubsubsection{\texorpdfstring{Outdoor Temperature (NTC Thermistor)}{Outdoor Temperature (NTC Thermistor)}}\label{index_autotoc_md20}
 
-\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item Lookup table in {\ttfamily \doxylink{adc_8c}{main/\+peripherie/\+adc.\+c}}:\+ {\ttfamily \doxylink{adc_8c_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}\+[]\+}
+\item Range:\+ -\/15°C to +150°C
+\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxysubsubsection{\texorpdfstring{Voltage}{Voltage}}\label{index_autotoc_md21}
 
-For detailed instructions see the official ESP-\/\+IDF guides.\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md5}
+\begin{DoxyItemize}
+\item Battery voltage with voltage divider:\+ {\ttfamily (\doxylink{individual__config_8h_ad7feacb850cd11f0dfc20cd2e3ff30bf}{ADC\+\_\+\+VOLT\+\_\+\+PULLUP} + \doxylink{individual__config_8h_aa0a06b6bbbc1361c162e0e0ca523f2e7}{ADC\+\_\+\+VOLT\+\_\+\+PULLDOWN}) /\+ \doxylink{individual__config_8h_aa0a06b6bbbc1361c162e0e0ca523f2e7}{ADC\+\_\+\+VOLT\+\_\+\+PULLDOWN}}
+\item Brightness sensor with 10k/\+2.\+2k divider
+\end{DoxyItemize}
 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Main\ build\ configuration}
-\DoxyCodeLine{├──\ sdkconfig\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ ESP-\/IDF\ configuration}
-\DoxyCodeLine{├──\ main/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Main\ source\ code}
-\DoxyCodeLine{│\ \ \ ├──\ CMakeLists.txt}
-\DoxyCodeLine{│\ \ \ ├──\ main.c\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Main\ entry\ point}
-\DoxyCodeLine{│\ \ \ ├──\ individual\_config.h\ \ \ \ \ \#\ Configuration\ defines}
-\DoxyCodeLine{│\ \ \ ├──\ calculation/\ \ \ \ \ \ \ \ \ \ \ \ \#\ Calculation\ modules}
-\DoxyCodeLine{│\ \ \ ├──\ logging/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Logging\ functions}
-\DoxyCodeLine{│\ \ \ ├──\ lvgl/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ LVGL-\/UI\ and\ graphics}
-\DoxyCodeLine{│\ \ \ └──\ peripherie/\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Peripheral\ drivers\ (buzzer,\ buttons,\ etc.)}
-\DoxyCodeLine{├──\ hardware/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ PCB\ design\ and\ hardware\ files}
-\DoxyCodeLine{├──\ datasheets/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Datasheets\ of\ components}
-\DoxyCodeLine{├──\ fonts/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Fonts}
-\DoxyCodeLine{├──\ png/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Images\ and\ icons}
-\DoxyCodeLine{├──\ managed\_components/\ \ \ \ \ \ \ \ \ \#\ ESP-\/IDF\ components}
-\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ This\ file}
+All calibration values are configurable in {\ttfamily \doxylink{individual__config_8h}{main/\+individual\+\_\+config.\+h}}.\hypertarget{index_autotoc_md22}{}\doxysubsection{\texorpdfstring{Configuration}{Configuration}}\label{index_autotoc_md22}
+Key settings in {\ttfamily \doxylink{individual__config_8h}{main/\+individual\+\_\+config.\+h}}:\+
 
-\end{DoxyCode}
-\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}{CHIP\+\_\+\+USED}} – Target ESP32 variant (ESP32\+P4, ESP32\+S3, etc.)
+\item {\ttfamily \doxylink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}} – Number of LCD panels (1-\/4)
+\item {\ttfamily \doxylink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}} – Enable/\+disable buzzer functionality
+\item {\ttfamily \doxylink{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}{LOGGING\+\_\+\+ENABLED}} – Enable/\+disable debug logging
+\item {\ttfamily \doxylink{individual__config_8h_a85498e1c53498101123d5d98a95f1206}{BRIGHTNESS\+\_\+\+AUTO\+\_\+\+ENABLE}} – Auto brightness or fixed day mode
+\item Pin assignments for SPI, I2C, GPIO peripherals
+\item Sensor calibration thresholds and filtering parameters
+\item Thresholds for day/\+night mode switching
+\end{DoxyItemize}\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{Performance \& Power}{Performance \& Power}}\label{index_autotoc_md23}
+
+\begin{DoxyItemize}
+\item {\bfseries{Free\+RTOS Task}}:\+ Main gauge update loop runs at 50 ms intervals (20 Hz)
+\item {\bfseries{Display refresh}}:\+ Per-\/display independent rendering with LVGL
+\item {\bfseries{Sensor sampling}}:\+ Configurable oversampling (5 samples default) for noise reduction
+\item {\bfseries{Low-\/power modes}}:\+ Can be implemented via Free\+RTOS task suspension or ESP32 sleep states (future)
+\end{DoxyItemize}\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Roadmap \& Known Limitations}{Roadmap \& Known Limitations}}\label{index_autotoc_md24}
+\hypertarget{index_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{Near-\/term}{Near-\/term}}\label{index_autotoc_md25}
+
+\begin{DoxyItemize}
+\item ✅ Multi-\/display support ~\newline
+
+\item ✅ PWM Hella sensor support
+\item ✅ ADC-\/based sensor alternative
+\item ✅ RTC synchronization
+\item ✅ Day/\+night mode
+\item ✅ Test mode for development
+\end{DoxyItemize}\hypertarget{index_autotoc_md26}{}\doxysubsubsection{\texorpdfstring{Future Enhancements}{Future Enhancements}}\label{index_autotoc_md26}
+
+\begin{DoxyItemize}
+\item {\bfseries{Performance}}:\+ Optimize ADC sampling latency (evaluate internal ADCs, DMA)
+\item {\bfseries{Sensors}}:\+ Add acceleration (G-\/force), RPM, fuel consumption calculation
+\item {\bfseries{Hardware}}:\+ Redesigned PCB with improved routing, reference voltage measurement
+\item {\bfseries{UI}}:\+ Additional gauge types, customizable screen layouts
+\item {\bfseries{Power}}:\+ Low-\/power sleep modes, CAN bus integration (future vehicle models)
+\end{DoxyItemize}\hypertarget{index_autotoc_md27}{}\doxysubsection{\texorpdfstring{Contributing}{Contributing}}\label{index_autotoc_md27}
+This is a personal project. Feel free to fork, adapt, and extend for your own classic vehicle!\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{License}{License}}\label{index_autotoc_md28}
+\+[Specify your preferred license here]\+\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{Contact}{Contact}}\label{index_autotoc_md29}
+For questions or suggestions:\+ \+[Your contact info]\+
+
+\DoxyHorRuler{0}
+
+
+{\bfseries{Last Updated}}:\+ April 2026 ~\newline
+ {\bfseries{Firmware Version}}:\+ 1.\+0 ~\newline
+ {\bfseries{Target}}:\+ BMW E36 (adaptable to other vehicles)
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Test mode rework}}
+\begin{DoxyItemize}
+\item Current implementation is no longer reliable ~\newline
+
+\item Redesign test mode to better integrate with normal operation ~\newline
+
+\item Ensure deterministic behavior and easier activation/\+debugging
+\end{DoxyItemize}
+\item {\bfseries{Sensor abstraction layer}}
+\begin{DoxyItemize}
+\item Improve modularity for different sensor types (PWM vs analog) ~\newline
+
+\item Allow easier configuration or runtime switching
+\end{DoxyItemize}
+\item {\bfseries{Error handling \& diagnostics}}
+\begin{DoxyItemize}
+\item Add better logging for sensor faults and communication errors ~\newline
+
+\item Implement fallback strategies for invalid readings
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md31}{}\doxysubsubsection{\texorpdfstring{System /\+ Features /\+ UX}{System /\+ Features /\+ UX}}\label{index_autotoc_md31}
+
+\begin{DoxyItemize}
+\item {\bfseries{New display concepts}}
+\begin{DoxyItemize}
+\item Evaluate alternative visualization types (e.\+g. G-\/force display, combined gauges) ~\newline
+
+\item Improve readability and usability while driving
+\end{DoxyItemize}
+\item {\bfseries{Startup \& calibration behavior}}
+\begin{DoxyItemize}
+\item Ensure stable readings after power-\/on (temperature drift, warm-\/up effects) ~\newline
+
+\item Add optional calibration phase or adaptive filtering
+\end{DoxyItemize}
+\item {\bfseries{Performance monitoring}}
+\begin{DoxyItemize}
+\item Track system load (CPU, memory, task timing) ~\newline
+
+\item Identify bottlenecks in real-\/world usage
+\end{DoxyItemize}
+\item {\bfseries{Configuration improvements}}
+\begin{DoxyItemize}
+\item Make system configuration more flexible (compile-\/time vs runtime) ~\newline
+
+\item Possibly introduce a simple settings interface
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md32}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{index_autotoc_md32}
 
 \begin{DoxyItemize}
 \item {\bfseries{Flashing errors:\+}}

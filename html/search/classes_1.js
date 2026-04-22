@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lookup_5fvalues_5ft_0',['lookup_values_t',['../structlookup__values__t.html',1,'']]]
+  ['display_5fsettings_0',['display_settings',['../structdisplay__settings.html',1,'']]]
 ];

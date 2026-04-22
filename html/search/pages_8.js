@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['project_0',['How to Flash the Project',['../index.html#autotoc_md4',1,'']]],
-  ['project_20structure_1',['Project Structure',['../index.html#autotoc_md5',1,'']]]
+  ['license_0',['License',['../index.html#autotoc_md28',1,'']]],
+  ['limitations_1',['Roadmap &amp;amp; Known Limitations',['../index.html#autotoc_md24',1,'']]]
 ];

@@ -91,12 +91,16 @@ $(function(){initNavTree('spi_functions_8c.html','',''); });
   <div class="headertitle"><div class="title">spiFunctions.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>SPI display driver multi display control implementation.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="individual__config_8h_source.html">../individual_config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="spi_functions_8h_source.html">spiFunctions.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae323ee5914dcc58d391f154dc5cd13a7" id="r_ae323ee5914dcc58d391f154dc5cd13a7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae323ee5914dcc58d391f154dc5cd13a7">set_Displays</a> ()</td></tr>
+<tr class="memdesc:ae323ee5914dcc58d391f154dc5cd13a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize and load all display screens.  <br /></td></tr>
 <tr class="memitem:ae909944aa85ae98323073c628be541aa" id="r_ae909944aa85ae98323073c628be541aa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae909944aa85ae98323073c628be541aa">spi_init</a> (void)</td></tr>
 <tr class="memitem:a407d5033a6f0198221c8a9081d7e807e" id="r_a407d5033a6f0198221c8a9081d7e807e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a407d5033a6f0198221c8a9081d7e807e">display_init</a> (void)</td></tr>
 <tr class="memitem:a6479b9628d9b1967d74f61f3bfccd536" id="r_a6479b9628d9b1967d74f61f3bfccd536"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6479b9628d9b1967d74f61f3bfccd536">buffer_and_driver_init</a> ()</td></tr>
@@ -109,7 +113,17 @@ Variables</h2></td></tr>
 <tr class="memitem:a5297ef2d8c460fc39919e9bdd8f65395" id="r_a5297ef2d8c460fc39919e9bdd8f65395"><td class="memItemLeft">esp_timer_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a5297ef2d8c460fc39919e9bdd8f65395">periodic_timer</a></td></tr>
 <tr class="memitem:a7bcd43513f7ef323ca0151fc9c69e07a" id="r_a7bcd43513f7ef323ca0151fc9c69e07a"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7bcd43513f7ef323ca0151fc9c69e07a">reset_is_set</a> = false</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>SPI display driver multi display control implementation. </p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>Multi-display SPI initialization (up to 4 displays)</li>
+<li>LVGL integration for graphics rendering</li>
+<li>Display task scheduling and timing </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a6479b9628d9b1967d74f61f3bfccd536" name="a6479b9628d9b1967d74f61f3bfccd536"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6479b9628d9b1967d74f61f3bfccd536">&#9670;&#160;</a></span>buffer_and_driver_init()</h2>
 
@@ -160,7 +174,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize and load all display screens Sets up LVGL displays and loads appropriate screens based on screen selection </p>
+
+<p>Initialize and load all display screens. </p>
+<p>Sets up LVGL displays and loads appropriate screens based on screen selection configuration for each display. </p>
 
 </div>
 </div>

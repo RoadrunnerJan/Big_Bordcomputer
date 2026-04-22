@@ -2,37 +2,19 @@
 \hypertarget{led_backlight_8h_source}{}\label{led_backlight_8h_source}\index{main/peripherie/ledBacklight.h@{main/peripherie/ledBacklight.h}}
 \doxymbox{\hyperlink{led_backlight_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ LED\ BACKLIGHT\ CONTROL\ -\/\ PWM\ Driver\ for\ LCD\ Displays}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Manages\ PWM-\/based\ brightness\ control\ for\ SPI\ LCD\ displays}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Author:\ Jan\ Niklas\ Rodewald\ (JRO)}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Date:\ 01.04.2026}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ CHANGELOG}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ v1.0\ (01.04.2026)\ -\/\ Initial\ implementation}}
-\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ LEDC\ PWM\ configuration\ for\ display\ brightness}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Percentage-\/based\ brightness\ control\ (0-\/100\%)}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}driver/ledc.h"{}}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}driver/ledc.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*\ =====\ External\ Configuration\ =====\ */}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ ledc\_timer\_config\_t\ \doxymbox{\hyperlink{led_backlight_8c_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03}{ledc\_timer}};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ ledc\_channel\_config\_t\ \doxymbox{\hyperlink{led_backlight_8c_aec3e29ef86275172b97d9fd16dbc861f}{ledc\_channel}};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{comment}{/*\ =====\ External\ Configuration\ =====\ */}}
-\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ ledc\_timer\_config\_t\ \doxymbox{\hyperlink{led_backlight_8c_aeb1ed8a70d6d9c4eeaf3f9e2c4588b03}{ledc\_timer}};}
-\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ ledc\_channel\_config\_t\ \doxymbox{\hyperlink{led_backlight_8c_aec3e29ef86275172b97d9fd16dbc861f}{ledc\_channel}};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3}{init\_lcd\_backlight\_pwm}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}{set\_lcd\_brightness}}(uint8\_t\ percentage);\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3}{init\_lcd\_backlight\_pwm}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}{set\_lcd\_brightness}}(uint8\_t\ percentage);\ }
 
 \end{DoxyCode}

@@ -13,5 +13,10 @@ var searchData=
   ['value_5fmin_5fout_5ftemp_10',['VALUE_MIN_OUT_TEMP',['../individual__config_8h.html#a230b35e74f5f229ad706ad5c127bf342',1,'individual_config.h']]],
   ['value_5fmin_5fpres_11',['VALUE_MIN_PRES',['../individual__config_8h.html#a371c597eddcd4c669475093d169c082a',1,'individual_config.h']]],
   ['value_5fmin_5ftemp_12',['VALUE_MIN_TEMP',['../individual__config_8h.html#a524c7577eb39a5a60010cb5af17a34c8',1,'individual_config.h']]],
-  ['value_5fmin_5fvolt_13',['VALUE_MIN_VOLT',['../individual__config_8h.html#adb5acc4553fc99bba16ddf670569e93c',1,'individual_config.h']]]
+  ['value_5fmin_5fvolt_13',['VALUE_MIN_VOLT',['../individual__config_8h.html#adb5acc4553fc99bba16ddf670569e93c',1,'individual_config.h']]],
+  ['value_5foversampling_5fbright_14',['VALUE_OVERSAMPLING_BRIGHT',['../individual__config_8h.html#a9bf78b4133604c1271bfb43ac4f4ee2d',1,'individual_config.h']]],
+  ['value_5foversampling_5foil_5fpres_15',['VALUE_OVERSAMPLING_OIL_PRES',['../individual__config_8h.html#a91a055e359a2f748c8ed6c82f9de4342',1,'individual_config.h']]],
+  ['value_5foversampling_5foil_5ftemp_16',['VALUE_OVERSAMPLING_OIL_TEMP',['../individual__config_8h.html#aa604e599ee1ccecf3ff34c1ca823f79f',1,'individual_config.h']]],
+  ['value_5foversampling_5fout_5ftemp_17',['VALUE_OVERSAMPLING_OUT_TEMP',['../individual__config_8h.html#a6f65cd3aaeb74764610aa254f44be66f',1,'individual_config.h']]],
+  ['value_5foversampling_5fvolt_18',['VALUE_OVERSAMPLING_VOLT',['../individual__config_8h.html#a3de208e79149e57e550f44426a24534a',1,'individual_config.h']]]
 ];

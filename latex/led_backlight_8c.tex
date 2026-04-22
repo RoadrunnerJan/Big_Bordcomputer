@@ -1,13 +1,18 @@
 \doxysection{main/\+peripherie/\+led\+Backlight.c File Reference}
 \hypertarget{led_backlight_8c}{}\label{led_backlight_8c}\index{main/peripherie/ledBacklight.c@{main/peripherie/ledBacklight.c}}
+
+
+LED backlight PWM driver implementation.  
+
+
 {\ttfamily \+\#include "{}led\+Backlight.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{led_backlight_8c_a97d88f9559692cdc79987b3b7b265cb3}{init\+\_\+lcd\+\_\+backlight\+\_\+pwm}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize LED backlight PWM configuration. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{led_backlight_8c_a2f86bb9918d671cee72a7dd81011f555}{set\+\_\+lcd\+\_\+brightness}} (uint8\+\_\+t percentage)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set LCD brightness level (0-\/100\%). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,6 +20,24 @@ ledc\+\_\+timer\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8c_aeb1ed8
 \item 
 ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8c_aec3e29ef86275172b97d9fd16dbc861f}{ledc\+\_\+channel}} = \{0\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LED backlight PWM driver implementation. 
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item LEDC PWM configuration for display brightness
+\item Percentage-\/based brightness control (0-\/100\%) 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -26,13 +49,30 @@ ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8c_aec3e
 {\footnotesize\ttfamily \label{led_backlight_8c_a97d88f9559692cdc79987b3b7b265cb3} 
 void init\+\_\+lcd\+\_\+backlight\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize LED backlight PWM configuration Configures LEDC timer and channel for LCD brightness control \Hypertarget{led_backlight_8c_a2f86bb9918d671cee72a7dd81011f555}\index{ledBacklight.c@{ledBacklight.c}!set\_lcd\_brightness@{set\_lcd\_brightness}}
+
+
+Initialize LED backlight PWM configuration. 
+
+Configures LEDC timer and channel for LCD brightness control. \Hypertarget{led_backlight_8c_a2f86bb9918d671cee72a7dd81011f555}\index{ledBacklight.c@{ledBacklight.c}!set\_lcd\_brightness@{set\_lcd\_brightness}}
 \index{set\_lcd\_brightness@{set\_lcd\_brightness}!ledBacklight.c@{ledBacklight.c}}
 \doxysubsubsection{\texorpdfstring{set\_lcd\_brightness()}{set\_lcd\_brightness()}}
 {\footnotesize\ttfamily \label{led_backlight_8c_a2f86bb9918d671cee72a7dd81011f555} 
 void set\+\_\+lcd\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{percentage}{}\end{DoxyParamCaption})}
 
-Set LCD brightness level (0-\/100\%) Converts percentage to duty cycle value 
+
+
+Set LCD brightness level (0-\/100\%). 
+
+Set LCD brightness level.
+
+Converts percentage to PWM duty cycle and applies to the backlight pin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage} & Brightness level clamped to 0-\/100\% \\
+\hline
+\end{DoxyParams}
+
 
 \label{doc-var-members}
 \Hypertarget{led_backlight_8c_doc-var-members}

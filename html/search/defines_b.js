@@ -19,7 +19,7 @@ var searchData=
   ['pin_5fspi_5f2_5fmiso_16',['PIN_SPI_2_MISO',['../individual__config_8h.html#a7c1044c21532cf4285895d10a6b4968b',1,'individual_config.h']]],
   ['pin_5fspi_5f2_5fmosi_17',['PIN_SPI_2_MOSI',['../individual__config_8h.html#a833575c09bd81118700ae61d04a6ec4d',1,'individual_config.h']]],
   ['pin_5fspi_5f2_5fsclk_18',['PIN_SPI_2_SCLK',['../individual__config_8h.html#a857c7003e437cd368b6e75c1f9b6fd8e',1,'individual_config.h']]],
-  ['pressure_5ftable_5fsize_19',['PRESSURE_TABLE_SIZE',['../i2c_functions_8h.html#a5a9cd48e78e7901ba75a5f71e209b5cd',1,'i2cFunctions.h']]],
+  ['pressure_5ftable_5fsize_19',['PRESSURE_TABLE_SIZE',['../adc_8h.html#a5a9cd48e78e7901ba75a5f71e209b5cd',1,'adc.h']]],
   ['pwm_5fadc_5fswitch_5fintr_5ftype_20',['PWM_ADC_SWITCH_INTR_TYPE',['../individual__config_8h.html#a47109b819e9b566e0f7e02f5b9790456',1,'individual_config.h']]],
   ['pwm_5fadc_5fswitch_5fmode_21',['PWM_ADC_SWITCH_MODE',['../individual__config_8h.html#ae351184dec4c5ec451f85768e04ae331',1,'individual_config.h']]],
   ['pwm_5fadc_5fswitch_5fpin_22',['PWM_ADC_SWITCH_PIN',['../individual__config_8h.html#a7451847218b5826426548ebc4166c7c5',1,'individual_config.h']]],

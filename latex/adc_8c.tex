@@ -1,0 +1,372 @@
+\doxysection{main/\+peripherie/\+adc.c File Reference}
+\hypertarget{adc_8c}{}\label{adc_8c}\index{main/peripherie/adc.c@{main/peripherie/adc.c}}
+
+
+ADC interface for sensor readings via internal ADC.  
+
+
+{\ttfamily \+\#include "{}adc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{adc_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95}{adc\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize ADC hardware and calibration. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{adc_8c_ae8e20d8c3f734d14c99ba0a627ad10f8}{read\+\_\+adc\+\_\+value\+\_\+raw}} (\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\+\_\+selection}} adc\+\_\+sel)
+\begin{DoxyCompactList}\small\item\em Read raw ADC value with calibration. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a588f37762af357a454b6e23e463d5b8d}{interpolate\+\_\+temp}} (float r\+\_\+measured)
+\begin{DoxyCompactList}\small\item\em Interpolate oil temperature from NTC thermistor table. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a5ae029b9d6dc2e265df44e534ada788b}{interpolate\+\_\+outside\+\_\+temp}} (float r\+\_\+measured)
+\begin{DoxyCompactList}\small\item\em Interpolate outdoor temperature from NTC thermistor table. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a785d1fe320cf21f8bbf5b40016fbca9e}{interpolate\+\_\+pressure}} (float r\+\_\+measured)
+\begin{DoxyCompactList}\small\item\em Interpolate oil pressure from calibration table. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a9ed41ccecb71b316fa9639e64a4ec4b3}{raw\+\_\+to\+\_\+res\+\_\+safe}} (float raw\+\_\+voltage, float r\+\_\+pullup)
+\begin{DoxyCompactList}\small\item\em Convert raw ADC voltage to sensor resistance with safety checks. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a1635d0189b2d48c69f258aad4585883d}{get\+\_\+adc\+\_\+volt}} ()
+\begin{DoxyCompactList}\small\item\em Read battery voltage from ADC. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a168b109fa19083c5a4ead81e8a298dd4}{get\+\_\+adc\+\_\+volt\+\_\+bel}} ()
+\begin{DoxyCompactList}\small\item\em Read brightness/\+light sensor voltage from ADC. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a32ddd3e1456e8abef8c4d0db34b02df4}{get\+\_\+adc\+\_\+oil\+\_\+temp}} ()
+\begin{DoxyCompactList}\small\item\em Read oil temperature from ADC using NTC thermistor calibration. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a197cfe22083959c04685d60153207e8a}{get\+\_\+adc\+\_\+oil\+\_\+press}} ()
+\begin{DoxyCompactList}\small\item\em Read oil pressure from ADC using calibration table. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a9c55cfe5eaf876e4402b7460ea759a1f}{get\+\_\+adc\+\_\+outside\+\_\+temp}} ()
+\begin{DoxyCompactList}\small\item\em Read outdoor temperature from ADC using NTC thermistor calibration. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{adc_8c_a89167f9393f55acc3cf5b6a5e47a89af}{get\+\_\+adc\+\_\+reference\+\_\+voltage}} (void)
+\begin{DoxyCompactList}\small\item\em Measure and update the ADC reference voltage dynamically. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+adc\+\_\+oneshot\+\_\+unit\+\_\+init\+\_\+cfg\+\_\+t \doxymbox{\hyperlink{adc_8c_ab8312f91420a75afd9d29df66b44aa85}{init\+\_\+config}} \+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+
+\item 
+adc\+\_\+oneshot\+\_\+unit\+\_\+handle\+\_\+t \doxymbox{\hyperlink{adc_8c_ab67e7b00ec2abc929c23209b55fc7496}{adc\+\_\+handler}} \+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+
+\item 
+adc\+\_\+cali\+\_\+curve\+\_\+fitting\+\_\+config\+\_\+t \doxymbox{\hyperlink{adc_8c_ad1b41a73421aef36042226d52f6db578}{cali\+\_\+config}} \+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+
+\item 
+adc\+\_\+cali\+\_\+handle\+\_\+t \doxymbox{\hyperlink{adc_8c_ab4aaea083da9b672746255ebc1f67abd}{cali\+\_\+handler}} \+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+
+\item 
+\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a1b27817604a4502be2244972d0eb2ce2}{adc\+\_\+handles}} \+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\+\_\+\+ABC\+\_\+\+NBR}} -\/ 1]\+
+\item 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
+\item 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
+\item 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{adc_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}} \+[$\,$]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ADC interface for sensor readings via internal ADC. 
+
+Manages analog-\/to-\/digital converters from the microcontroller for reading various sensors:\+ oil pressure, oil temperature, battery voltage, and outdoor temperature. Includes NTC thermistor and pressure table interpolation with calibration.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item NTC thermistor table interpolation
+\item Pressure sensor calibration table
+\item Voltage divider calculations with dynamic reference 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{adc_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adc_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95}\index{adc.c@{adc.c}!adc\_init@{adc\_init}}
+\index{adc\_init@{adc\_init}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_init()}{adc\_init()}}
+{\footnotesize\ttfamily \label{adc_8c_a1e942fcd91f79d49e4ddb8d7e9d3ef95} 
+void adc\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize ADC hardware and calibration. 
+
+Initializes both ADC units with calibration curve fitting. Configures all channels according to configuration defines. \Hypertarget{adc_8c_a197cfe22083959c04685d60153207e8a}\index{adc.c@{adc.c}!get\_adc\_oil\_press@{get\_adc\_oil\_press}}
+\index{get\_adc\_oil\_press@{get\_adc\_oil\_press}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_oil\_press()}{get\_adc\_oil\_press()}}
+{\footnotesize\ttfamily \label{adc_8c_a197cfe22083959c04685d60153207e8a} 
+float get\+\_\+adc\+\_\+oil\+\_\+press (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read oil pressure from ADC using calibration table. 
+
+Reads raw ADC value, converts to resistance, and interpolates pressure from calibration table.
+
+\begin{DoxyReturn}{Returns}
+Oil pressure in bar 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a32ddd3e1456e8abef8c4d0db34b02df4}\index{adc.c@{adc.c}!get\_adc\_oil\_temp@{get\_adc\_oil\_temp}}
+\index{get\_adc\_oil\_temp@{get\_adc\_oil\_temp}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_oil\_temp()}{get\_adc\_oil\_temp()}}
+{\footnotesize\ttfamily \label{adc_8c_a32ddd3e1456e8abef8c4d0db34b02df4} 
+float get\+\_\+adc\+\_\+oil\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read oil temperature from ADC using NTC thermistor calibration. 
+
+Reads raw ADC value, converts to resistance, and interpolates temperature from calibration table.
+
+\begin{DoxyReturn}{Returns}
+Oil temperature in °C 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a9c55cfe5eaf876e4402b7460ea759a1f}\index{adc.c@{adc.c}!get\_adc\_outside\_temp@{get\_adc\_outside\_temp}}
+\index{get\_adc\_outside\_temp@{get\_adc\_outside\_temp}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_outside\_temp()}{get\_adc\_outside\_temp()}}
+{\footnotesize\ttfamily \label{adc_8c_a9c55cfe5eaf876e4402b7460ea759a1f} 
+float get\+\_\+adc\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read outdoor temperature from ADC using NTC thermistor calibration. 
+
+Reads raw ADC value, converts to resistance, and interpolates temperature from calibration table.
+
+\begin{DoxyReturn}{Returns}
+Outdoor temperature in °C 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a89167f9393f55acc3cf5b6a5e47a89af}\index{adc.c@{adc.c}!get\_adc\_reference\_voltage@{get\_adc\_reference\_voltage}}
+\index{get\_adc\_reference\_voltage@{get\_adc\_reference\_voltage}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_reference\_voltage()}{get\_adc\_reference\_voltage()}}
+{\footnotesize\ttfamily \label{adc_8c_a89167f9393f55acc3cf5b6a5e47a89af} 
+float get\+\_\+adc\+\_\+reference\+\_\+voltage (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Measure and update the ADC reference voltage dynamically. 
+
+Measure and update the ADC reference voltage dynamically.
+
+Reads the reference voltage using the dedicated ADC channel with voltage divider, calculates the actual reference voltage, and updates the global reference\+\_\+voltage variable for use in \doxylink{adc_8c_a9ed41ccecb71b316fa9639e64a4ec4b3}{raw\+\_\+to\+\_\+res\+\_\+safe()}. \Hypertarget{adc_8c_a1635d0189b2d48c69f258aad4585883d}\index{adc.c@{adc.c}!get\_adc\_volt@{get\_adc\_volt}}
+\index{get\_adc\_volt@{get\_adc\_volt}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_volt()}{get\_adc\_volt()}}
+{\footnotesize\ttfamily \label{adc_8c_a1635d0189b2d48c69f258aad4585883d} 
+float get\+\_\+adc\+\_\+volt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read battery voltage from ADC. 
+
+Applies voltage divider calculation to convert measured value to actual system voltage.
+
+\begin{DoxyReturn}{Returns}
+Battery voltage in volts 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a168b109fa19083c5a4ead81e8a298dd4}\index{adc.c@{adc.c}!get\_adc\_volt\_bel@{get\_adc\_volt\_bel}}
+\index{get\_adc\_volt\_bel@{get\_adc\_volt\_bel}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{get\_adc\_volt\_bel()}{get\_adc\_volt\_bel()}}
+{\footnotesize\ttfamily \label{adc_8c_a168b109fa19083c5a4ead81e8a298dd4} 
+float get\+\_\+adc\+\_\+volt\+\_\+bel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read brightness/\+light sensor voltage from ADC. 
+
+Applies voltage divider calculation to convert measured brightness sensor value.
+
+\begin{DoxyReturn}{Returns}
+Brightness voltage in volts (used for day/\+night mode detection) 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a5ae029b9d6dc2e265df44e534ada788b}\index{adc.c@{adc.c}!interpolate\_outside\_temp@{interpolate\_outside\_temp}}
+\index{interpolate\_outside\_temp@{interpolate\_outside\_temp}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{interpolate\_outside\_temp()}{interpolate\_outside\_temp()}}
+{\footnotesize\ttfamily \label{adc_8c_a5ae029b9d6dc2e265df44e534ada788b} 
+float interpolate\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
+
+
+
+Interpolate outdoor temperature from NTC thermistor table. 
+
+Performs linear interpolation on the outside\+\_\+temperature\+\_\+table to convert measured resistance value to ambient temperature. Clamps to table boundaries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r\+\_\+measured} & Measured resistance in Ohms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpolated temperature in °C, or ADC\+\_\+\+FAIL\+\_\+\+VALUE if out of range 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a785d1fe320cf21f8bbf5b40016fbca9e}\index{adc.c@{adc.c}!interpolate\_pressure@{interpolate\_pressure}}
+\index{interpolate\_pressure@{interpolate\_pressure}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{interpolate\_pressure()}{interpolate\_pressure()}}
+{\footnotesize\ttfamily \label{adc_8c_a785d1fe320cf21f8bbf5b40016fbca9e} 
+float interpolate\+\_\+pressure (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
+
+
+
+Interpolate oil pressure from calibration table. 
+
+Performs linear interpolation on the pressure\+\_\+table to convert measured resistance to oil pressure in bar. Handles extrapolation beyond table boundaries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r\+\_\+measured} & Measured resistance in Ohms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpolated pressure in bar, or ADC\+\_\+\+FAIL\+\_\+\+VALUE if out of range 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a588f37762af357a454b6e23e463d5b8d}\index{adc.c@{adc.c}!interpolate\_temp@{interpolate\_temp}}
+\index{interpolate\_temp@{interpolate\_temp}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{interpolate\_temp()}{interpolate\_temp()}}
+{\footnotesize\ttfamily \label{adc_8c_a588f37762af357a454b6e23e463d5b8d} 
+float interpolate\+\_\+temp (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
+
+
+
+Interpolate oil temperature from NTC thermistor table. 
+
+Performs linear interpolation on the oil\+\_\+temp\+\_\+table to convert measured resistance value to temperature. Clamps to table boundaries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r\+\_\+measured} & Measured resistance in Ohms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpolated temperature in °C, or ADC\+\_\+\+FAIL\+\_\+\+VALUE if out of range 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_a9ed41ccecb71b316fa9639e64a4ec4b3}\index{adc.c@{adc.c}!raw\_to\_res\_safe@{raw\_to\_res\_safe}}
+\index{raw\_to\_res\_safe@{raw\_to\_res\_safe}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{raw\_to\_res\_safe()}{raw\_to\_res\_safe()}}
+{\footnotesize\ttfamily \label{adc_8c_a9ed41ccecb71b316fa9639e64a4ec4b3} 
+float raw\+\_\+to\+\_\+res\+\_\+safe (\begin{DoxyParamCaption}\item[{float}]{raw\+\_\+voltage}{, }\item[{float}]{r\+\_\+pullup}{}\end{DoxyParamCaption})}
+
+
+
+Convert raw ADC voltage to sensor resistance with safety checks. 
+
+Calculates sensor resistance from measured voltage using voltage divider formula. Detects sensor errors (open circuit, short circuit) and returns ADC\+\_\+\+FAIL\+\_\+\+VALUE. Accounts for 100Ω protective series resistor in sensor circuit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+\_\+voltage} & Raw ADC reading in millivolts \\
+\hline
+{\em r\+\_\+pullup} & Pull-\/up resistor value in Ohms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calculated sensor resistance in Ohms, or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error 
+\end{DoxyReturn}
+\Hypertarget{adc_8c_ae8e20d8c3f734d14c99ba0a627ad10f8}\index{adc.c@{adc.c}!read\_adc\_value\_raw@{read\_adc\_value\_raw}}
+\index{read\_adc\_value\_raw@{read\_adc\_value\_raw}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{read\_adc\_value\_raw()}{read\_adc\_value\_raw()}}
+{\footnotesize\ttfamily \label{adc_8c_ae8e20d8c3f734d14c99ba0a627ad10f8} 
+int read\+\_\+adc\+\_\+value\+\_\+raw (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\+\_\+selection}}}]{adc\+\_\+sel}{}\end{DoxyParamCaption})}
+
+
+
+Read raw ADC value with calibration. 
+
+Read raw calibrated ADC value.
+
+Reads raw value from specified ADC channel and converts to voltage using hardware calibration curve if available.
+
+
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+sel} & ADC channel selector (\doxylink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\+\_\+selection} enum) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Voltage value in millivolts, or raw ADC count if uncalibrated 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{adc_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{adc_8c_ab67e7b00ec2abc929c23209b55fc7496}\index{adc.c@{adc.c}!adc\_handler@{adc\_handler}}
+\index{adc\_handler@{adc\_handler}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_handler}{adc\_handler}}
+{\footnotesize\ttfamily \label{adc_8c_ab67e7b00ec2abc929c23209b55fc7496} 
+adc\+\_\+oneshot\+\_\+unit\+\_\+handle\+\_\+t adc\+\_\+handler\+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+}
+
+\Hypertarget{adc_8c_a1b27817604a4502be2244972d0eb2ce2}\index{adc.c@{adc.c}!adc\_handles@{adc\_handles}}
+\index{adc\_handles@{adc\_handles}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{adc\_handles}{adc\_handles}}
+{\footnotesize\ttfamily \label{adc_8c_a1b27817604a4502be2244972d0eb2ce2} 
+\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} adc\+\_\+handles\+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\+\_\+\+ABC\+\_\+\+NBR}} -\/ 1]\+}
+
+\Hypertarget{adc_8c_ad1b41a73421aef36042226d52f6db578}\index{adc.c@{adc.c}!cali\_config@{cali\_config}}
+\index{cali\_config@{cali\_config}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{cali\_config}{cali\_config}}
+{\footnotesize\ttfamily \label{adc_8c_ad1b41a73421aef36042226d52f6db578} 
+adc\+\_\+cali\+\_\+curve\+\_\+fitting\+\_\+config\+\_\+t cali\+\_\+config\+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+}
+
+\Hypertarget{adc_8c_ab4aaea083da9b672746255ebc1f67abd}\index{adc.c@{adc.c}!cali\_handler@{cali\_handler}}
+\index{cali\_handler@{cali\_handler}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{cali\_handler}{cali\_handler}}
+{\footnotesize\ttfamily \label{adc_8c_ab4aaea083da9b672746255ebc1f67abd} 
+adc\+\_\+cali\+\_\+handle\+\_\+t cali\+\_\+handler\+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+}
+
+\Hypertarget{adc_8c_ab8312f91420a75afd9d29df66b44aa85}\index{adc.c@{adc.c}!init\_config@{init\_config}}
+\index{init\_config@{init\_config}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{init\_config}{init\_config}}
+{\footnotesize\ttfamily \label{adc_8c_ab8312f91420a75afd9d29df66b44aa85} 
+adc\+\_\+oneshot\+\_\+unit\+\_\+init\+\_\+cfg\+\_\+t init\+\_\+config\+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+}
+
+\Hypertarget{adc_8c_a3222dc2ea3f4f877a09b77f768e098a6}\index{adc.c@{adc.c}!oil\_temp\_table@{oil\_temp\_table}}
+\index{oil\_temp\_table@{oil\_temp\_table}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{oil\_temp\_table}{oil\_temp\_table}}
+{\footnotesize\ttfamily \label{adc_8c_a3222dc2ea3f4f877a09b77f768e098a6} 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} oil\+\_\+temp\+\_\+table\+[$\,$]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{-\/15,\ 7721.35\},\ \{-\/10,\ 5720.88\},\ \{-\/5,\ 4284.03\},\ \{0,\ 3240.18\},\ \{5,\ 2473.6\},\ }
+\DoxyCodeLine{\ \ \ \ \{10,\ 1905.87\},\ \{15,\ 1404.44\},\ \{20,\ 1168.64\},\ \{25,\ 926.71\},\ \{30,\ 739.98\},\ }
+\DoxyCodeLine{\ \ \ \ \{35,\ 594.9\},\ \{40,\ 481.52\},\ \{45,\ 392.57\},\ \{50,\ 322.17\},\ \{55,\ 266.19\},\ }
+\DoxyCodeLine{\ \ \ \ \{60,\ 221.17\},\ \{65,\ 184.72\},\ \{70,\ 155.29\},\ \{75,\ 131.38\},\ \{80,\ 112.08\},\ }
+\DoxyCodeLine{\ \ \ \ \{85,\ 96.4\},\ \{90,\ 82.96\},\ \{95,\ 71.44\},\ \{100,\ 61.92\},\ \{105,\ 54.01\},\ }
+\DoxyCodeLine{\ \ \ \ \{110,\ 47.24\},\ \{115,\ 41.42\},\ \{120,\ 36.51\},\ \{125,\ 32.38\},\ \{130,\ 28.81\},\ }
+\DoxyCodeLine{\ \ \ \ \{135,\ 25.7\},\ \{140,\ 23.0\},\ \{145,\ 20.66\},\ \{150,\ 18.59\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Oil temperature calibration table \Hypertarget{adc_8c_a9368b27af8dd8c123596c5554a756233}\index{adc.c@{adc.c}!outside\_temperature\_table@{outside\_temperature\_table}}
+\index{outside\_temperature\_table@{outside\_temperature\_table}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{outside\_temperature\_table}{outside\_temperature\_table}}
+{\footnotesize\ttfamily \label{adc_8c_a9368b27af8dd8c123596c5554a756233} 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{-\/15,\ 36475.0\},\ \{-\/10,\ 27665.0\},\ \{-\/5,\ 21166.0\},\ \{0,\ 16330.0\},\ \{5,\ 12695.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{10,\ 9950.0\},\ \{15,\ 7855.0\},\ \{20,\ 6245.0\},\ \{25,\ 5000.0\},\ \{30,\ 4028.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{35,\ 3266.0\},\ \{40,\ 2663.0\},\ \{45,\ 2185.0\},\ \{50,\ 1803.0\},\ \{55,\ 1495.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{60,\ 1247.0\},\ \{65,\ 1045.0\},\ \{70,\ 880.0\},\ \{75,\ 745.0\},\ \{80,\ 633.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{85,\ 541.0\},\ \{90,\ 464.0\},\ \{95,\ 400.0\},\ \{100,\ 346.0\},\ \{105,\ 301.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{110,\ 262.0\},\ \{115,\ 229.0\},\ \{120,\ 201.0\},\ \{125,\ 177.0\},\ \{130,\ 156.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{135,\ 138.0\},\ \{140,\ 122.0\},\ \{145,\ 109.0\},\ \{150,\ 97.0\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Outdoor temperature calibration table \Hypertarget{adc_8c_a09ac495d5458f3dd994d77827de483d8}\index{adc.c@{adc.c}!pressure\_table@{pressure\_table}}
+\index{pressure\_table@{pressure\_table}!adc.c@{adc.c}}
+\doxysubsubsection{\texorpdfstring{pressure\_table}{pressure\_table}}
+{\footnotesize\ttfamily \label{adc_8c_a09ac495d5458f3dd994d77827de483d8} 
+const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} pressure\+\_\+table\+[$\,$]\+}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{0.0,\ 11.0\},\ \{0.5,\ 29.0\},\ \{1.0,\ 47.0\},\ \{1.5,\ 65.0\},\ \{2.0,\ 82.0\},\ }
+\DoxyCodeLine{\ \ \ \ \{2.5,\ 100.0\},\ \{3.0,\ 117.0\},\ \{3.5,\ 134.0\},\ \{4.0,\ 151.0\},\ \{4.5,\ 167.0\},\ \{5.0,\ 184.0\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Oil pressure calibration table 

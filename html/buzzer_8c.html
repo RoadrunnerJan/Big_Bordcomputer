@@ -91,19 +91,33 @@ $(function(){initNavTree('buzzer_8c.html','',''); });
   <div class="headertitle"><div class="title">buzzer.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Buzzer control audio alert driver implementation.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="buzzer_8h_source.html">buzzer.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0cead532fdd0c0de5fa1c1de0f6556bd" id="r_a0cead532fdd0c0de5fa1c1de0f6556bd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0cead532fdd0c0de5fa1c1de0f6556bd">buzzer_init</a> (void)</td></tr>
+<tr class="memdesc:a0cead532fdd0c0de5fa1c1de0f6556bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize buzzer PWM hardware.  <br /></td></tr>
 <tr class="memitem:ab0922ceaa048af968fd0f2f830ad773b" id="r_ab0922ceaa048af968fd0f2f830ad773b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab0922ceaa048af968fd0f2f830ad773b">buzzer_beep</a> (uint16_t duty)</td></tr>
+<tr class="memdesc:ab0922ceaa048af968fd0f2f830ad773b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate beep by setting PWM duty cycle.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a3f1323002a9f1cc1b3c86f6dd723a96a" id="r_a3f1323002a9f1cc1b3c86f6dd723a96a"><td class="memItemLeft">ledc_timer_config_t&#160;</td><td class="memItemRight"><a class="el" href="#a3f1323002a9f1cc1b3c86f6dd723a96a">buz_timer</a> = {0}</td></tr>
 <tr class="memitem:a3abdda7fc723c3c54c1292ef1bcaae45" id="r_a3abdda7fc723c3c54c1292ef1bcaae45"><td class="memItemLeft">ledc_channel_config_t&#160;</td><td class="memItemRight"><a class="el" href="#a3abdda7fc723c3c54c1292ef1bcaae45">buz_channel</a> = {0}</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Buzzer control audio alert driver implementation. </p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>LEDC PWM configuration for audio output</li>
+<li>Temperature alert beeping patterns </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ab0922ceaa048af968fd0f2f830ad773b" name="ab0922ceaa048af968fd0f2f830ad773b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0922ceaa048af968fd0f2f830ad773b">&#9670;&#160;</a></span>buzzer_beep()</h2>
 
@@ -118,9 +132,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Generate beep by setting PWM duty cycle </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Generate beep by setting PWM duty cycle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">duty</td><td>PWM duty value (0 = silent, max = loudest) </td></tr>
+    <tr><td class="paramname">duty</td><td>PWM duty cycle value (0 = silent, max = loudest) </td></tr>
   </table>
   </dd>
 </dl>
@@ -141,7 +157,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize buzzer PWM hardware Configures LEDC timer and channel for audio output </p>
+
+<p>Initialize buzzer PWM hardware. </p>
+<p>Configures LEDC timer and channel for audio output with settings from configuration. </p>
 
 </div>
 </div>

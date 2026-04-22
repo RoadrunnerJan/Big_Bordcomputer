@@ -1,14 +1,19 @@
 \doxysection{main/\+peripherie/\+led\+Backlight.h File Reference}
 \hypertarget{led_backlight_8h}{}\label{led_backlight_8h}\index{main/peripherie/ledBacklight.h@{main/peripherie/ledBacklight.h}}
+
+
+LED backlight PWM driver for LCD display brightness control.  
+
+
 {\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
 {\ttfamily \+\#include "{}driver/\+ledc.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3}{init\+\_\+lcd\+\_\+backlight\+\_\+pwm}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize LED backlight PWM configuration. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}{set\+\_\+lcd\+\_\+brightness}} (uint8\+\_\+t percentage)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set LCD brightness level. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,6 +21,26 @@ ledc\+\_\+timer\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8h_aeb1ed8
 \item 
 ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8h_aec3e29ef86275172b97d9fd16dbc861f}{ledc\+\_\+channel}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LED backlight PWM driver for LCD display brightness control. 
+
+Manages PWM-\/based brightness control for SPI LCD displays using ESP32\textquotesingle{}s LEDC module. Supports percentage-\/based brightness control (0-\/100\%).
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item LEDC PWM configuration for display brightness
+\item Percentage-\/based brightness control (0-\/100\%) 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -27,20 +52,37 @@ ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{led_backlight_8h_aec3e
 {\footnotesize\ttfamily \label{led_backlight_8h_a97d88f9559692cdc79987b3b7b265cb3} 
 void init\+\_\+lcd\+\_\+backlight\+\_\+pwm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize LED backlight PWM configuration Sets up LEDC timer and channel based on \doxylink{individual__config_8h}{individual\+\_\+config.\+h} settings
 
-Initialize LED backlight PWM configuration Configures LEDC timer and channel for LCD brightness control \Hypertarget{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}\index{ledBacklight.h@{ledBacklight.h}!set\_lcd\_brightness@{set\_lcd\_brightness}}
+
+Initialize LED backlight PWM configuration. 
+
+Sets up LEDC timer and channel based on \doxylink{individual__config_8h}{individual\+\_\+config.\+h} settings.
+
+Configures LEDC timer and channel for LCD brightness control. \Hypertarget{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555}\index{ledBacklight.h@{ledBacklight.h}!set\_lcd\_brightness@{set\_lcd\_brightness}}
 \index{set\_lcd\_brightness@{set\_lcd\_brightness}!ledBacklight.h@{ledBacklight.h}}
 \doxysubsubsection{\texorpdfstring{set\_lcd\_brightness()}{set\_lcd\_brightness()}}
 {\footnotesize\ttfamily \label{led_backlight_8h_a2f86bb9918d671cee72a7dd81011f555} 
 void set\+\_\+lcd\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{percentage}{}\end{DoxyParamCaption})}
 
-Set LCD brightness level 
+
+
+Set LCD brightness level. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em percentage} & Brightness level (0-\/100\%)\\
 \hline
 \end{DoxyParams}
-Set LCD brightness level (0-\/100\%) Converts percentage to duty cycle value 
+Set LCD brightness level.
+
+Converts percentage to PWM duty cycle and applies to the backlight pin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em percentage} & Brightness level clamped to 0-\/100\% \\
+\hline
+\end{DoxyParams}
+
 
 \label{doc-var-members}
 \Hypertarget{led_backlight_8h_doc-var-members}

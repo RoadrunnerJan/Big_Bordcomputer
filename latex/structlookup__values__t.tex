@@ -2,16 +2,26 @@
 \hypertarget{structlookup__values__t}{}\label{structlookup__values__t}\index{lookup\_values\_t@{lookup\_values\_t}}
 
 
-{\ttfamily \+\#include $<$i2c\+Functions.\+h$>$}
+Lookup table entry for sensor calibration.  
+
+
+
+
+{\ttfamily \+\#include $<$adc.\+h$>$}
 
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-float \doxymbox{\hyperlink{structlookup__values__t_a62ffd3b6becab80922b6075418267381}{temp}}
+float \doxymbox{\hyperlink{structlookup__values__t_a58641d6981159587993d9b6db2fcc60f}{value}}
 \item 
 float \doxymbox{\hyperlink{structlookup__values__t_a105ce9befc60bcf30d2cbd86c38c455b}{res}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Lookup table entry for sensor calibration. 
+
+Pairs a physical value with its corresponding electrical resistance. 
 
 \label{doc-variable-members}
 \Hypertarget{structlookup__values__t_doc-variable-members}
@@ -22,14 +32,14 @@ float \doxymbox{\hyperlink{structlookup__values__t_a105ce9befc60bcf30d2cbd86c38c
 {\footnotesize\ttfamily \label{structlookup__values__t_a105ce9befc60bcf30d2cbd86c38c455b} 
 float lookup\+\_\+values\+\_\+t::\+res}
 
-\Hypertarget{structlookup__values__t_a62ffd3b6becab80922b6075418267381}\index{lookup\_values\_t@{lookup\_values\_t}!temp@{temp}}
-\index{temp@{temp}!lookup\_values\_t@{lookup\_values\_t}}
-\doxysubsubsection{\texorpdfstring{temp}{temp}}
-{\footnotesize\ttfamily \label{structlookup__values__t_a62ffd3b6becab80922b6075418267381} 
-float lookup\+\_\+values\+\_\+t::\+temp}
+Resistance in Ohms \Hypertarget{structlookup__values__t_a58641d6981159587993d9b6db2fcc60f}\index{lookup\_values\_t@{lookup\_values\_t}!value@{value}}
+\index{value@{value}!lookup\_values\_t@{lookup\_values\_t}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily \label{structlookup__values__t_a58641d6981159587993d9b6db2fcc60f} 
+float lookup\+\_\+values\+\_\+t::\+value}
 
-
+Temperature (°C) or Pressure (bar) value 
 
 The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-main/\+peripherie/\+\doxymbox{\hyperlink{i2c_functions_8h}{i2c\+Functions.\+h}}\end{DoxyCompactItemize}
+main/\+peripherie/\+\doxymbox{\hyperlink{adc_8h}{adc.\+h}}\end{DoxyCompactItemize}

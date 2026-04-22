@@ -13,11 +13,11 @@ PWM/\+\+ADC input mode selector.
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{pwm_switch_8h_a8e6fbb3b51611498a8f3d3284a82c028}{init\+\_\+pwm\+SW}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize PWM/\+\+ADC selector GPIO pin. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{pwm_switch_8h_ab16e3e06d2401b2b5c3614395a47c60c}{read\+\_\+pwm\+SW}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Read current sensor input selector state. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{pwm_switch_8h_ac7cb7dd9d16fa98333f2df69e0f88487}{is\+PWM}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get current sensor input mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,7 +30,7 @@ gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{pwm_switch_8h_a0182a91a2e5646d38d05
 \doxysubsection{Detailed Description}
 PWM/\+\+ADC input mode selector. 
 
-GPIO switch to toggle between PWM sensor and I2C ADC input modes.
+GPIO switch to toggle between PWM sensor and I2C ADC input modes. Allows switching sensor input source at runtime.
 
 \begin{DoxyAuthor}{Author}
 Jan Niklas Rodewald (JRO) 
@@ -56,16 +56,24 @@ CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
 {\footnotesize\ttfamily \label{pwm_switch_8h_a8e6fbb3b51611498a8f3d3284a82c028} 
 void init\+\_\+pwm\+SW (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize PWM/\+\+ADC selector GPIO pin
 
-Initialize PWM/\+\+ADC selector GPIO pin Configures GPIO and reads initial state \Hypertarget{pwm_switch_8h_ac7cb7dd9d16fa98333f2df69e0f88487}\index{pwmSwitch.h@{pwmSwitch.h}!isPWM@{isPWM}}
+
+Initialize PWM/\+\+ADC selector GPIO pin. 
+
+Configures GPIO for reading the sensor input mode selector switch.
+
+Configures GPIO and reads initial state. \Hypertarget{pwm_switch_8h_ac7cb7dd9d16fa98333f2df69e0f88487}\index{pwmSwitch.h@{pwmSwitch.h}!isPWM@{isPWM}}
 \index{isPWM@{isPWM}!pwmSwitch.h@{pwmSwitch.h}}
 \doxysubsubsection{\texorpdfstring{isPWM()}{isPWM()}}
 {\footnotesize\ttfamily \label{pwm_switch_8h_ac7cb7dd9d16fa98333f2df69e0f88487} 
 bool is\+PWM (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Inline accessor for current sensor input mode \begin{DoxyReturn}{Returns}
-true for PWM sensor, false for I2C ADC 
+
+
+Get current sensor input mode. 
+
+\begin{DoxyReturn}{Returns}
+true for PWM sensor mode, false for I2C ADC mode 
 \end{DoxyReturn}
 \Hypertarget{pwm_switch_8h_ab16e3e06d2401b2b5c3614395a47c60c}\index{pwmSwitch.h@{pwmSwitch.h}!read\_pwmSW@{read\_pwmSW}}
 \index{read\_pwmSW@{read\_pwmSW}!pwmSwitch.h@{pwmSwitch.h}}
@@ -73,10 +81,18 @@ true for PWM sensor, false for I2C ADC
 {\footnotesize\ttfamily \label{pwm_switch_8h_ab16e3e06d2401b2b5c3614395a47c60c} 
 bool read\+\_\+pwm\+SW (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Read current sensor input selector state \begin{DoxyReturn}{Returns}
-true if PWM sensors selected, false if I2C ADC selected
+
+
+Read current sensor input selector state. 
+
+Detects changes in sensor input mode and logs state transitions.
+
+\begin{DoxyReturn}{Returns}
+true if state changed, false if unchanged
 \end{DoxyReturn}
-Read current sensor input selector state Detects changes and logs sensor mode switching \begin{DoxyReturn}{Returns}
+Detects changes and logs sensor mode switching.
+
+\begin{DoxyReturn}{Returns}
 true if state changed, false if unchanged 
 \end{DoxyReturn}
 

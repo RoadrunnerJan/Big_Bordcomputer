@@ -1,20 +1,16 @@
-/*
- * ============================================================================
- * PWM SENSOR READER - Hella 6PP 010 378-201 Oil Sensor Implementation
- * ============================================================================
+/**
+ * @file pwmSensor.c
+ * @brief PWM sensor reader Hella 6PP 010 378-201 oil sensor implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - MCPWM capture for PWM signal decoding
  *      - Multi-pulse sensor support (temperature, pressure, diagnostic)
  *      - Hella 6PP 010 378-201 sensor integration
  *      - Test mode with serial output
- *
  */
 
 #include "pwmSensor.h"
@@ -47,10 +43,13 @@ inline double calc_temperature(int value_us){ return ((double) value_us + PWM_SE
 inline double calc_pressure(int value_us){ return ((double) value_us + PWM_SENSOR_PRES_CALC_VALUE_1) / PWM_SENSOR_PRES_CALC_VALUE_2; }
 
 /**
- * Get the last decoded PWM value for a sensor by ID.
+ * @brief Get the last decoded PWM value for a sensor by ID.
  *
- * @param id PWM sensor ID (temperature, pressure, diagnostic)
- * @return Calculated sensor value, or -99 if value not updated.
+ * Retrieves the calculated sensor value (temperature, pressure, or diagnostic code)
+ * for the specified sensor ID. Returns -99 if value hasn't been updated.
+ *
+ * @param id PWM sensor ID (PWM_SENSOR_TEMP_PULSE_ID, PWM_SENSOR_PRES_PULSE_ID, or PWM_SENSOR_DIAG_PULSE_ID)
+ * @return Calculated sensor value, or -99 if value not updated
  */
 double get_pwm_value(int id)
 {
@@ -64,9 +63,10 @@ double get_pwm_value(int id)
 }
 
 /**
- * MCPWM capture callback reacting on rising/falling edges.
+ * @brief MCPWM capture callback reacting on rising/falling edges.
  *
  * Parses pulse width and period into sensor data buckets and tracks sequence state.
+ * Called by MCPWM driver on each edge detection event.
  */
 static bool IRAM_ATTR pwm_capture_callback(mcpwm_cap_channel_handle_t cap_chan, const mcpwm_capture_event_data_t *edata, void *user_data)
 {

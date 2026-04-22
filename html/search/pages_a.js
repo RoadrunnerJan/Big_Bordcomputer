@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['test_20mode_20activation_0',['Test mode activation',['../index.html#autotoc_md3',1,'']]],
-  ['the_20project_1',['How to Flash the Project',['../index.html#autotoc_md4',1,'']]],
-  ['to_20flash_20the_20project_2',['How to Flash the Project',['../index.html#autotoc_md4',1,'']]],
-  ['troubleshooting_3',['Troubleshooting',['../index.html#autotoc_md6',1,'']]]
+  ['near_20term_0',['Near-term',['../index.html#autotoc_md25',1,'']]],
+  ['night_20mode_1',['Day/Night Mode',['../index.html#autotoc_md7',1,'']]],
+  ['ntc_20thermistor_2',['NTC Thermistor',['../index.html#autotoc_md18',1,'Oil Temperature (NTC Thermistor)'],['../index.html#autotoc_md20',1,'Outdoor Temperature (NTC Thermistor)']]]
 ];

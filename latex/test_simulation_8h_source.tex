@@ -4,73 +4,64 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ TEST\ SIMULATION\ MODULE\ -\/\ Debug\ Mode\ Value\ Generation}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Generates\ test\ sensor\ values\ for\ development\ and\ testing\ without\ hardware.}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Useful\ for\ UI/logic\ testing\ when\ hardware\ is\ unavailable.}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Author:\ Jan\ Niklas\ Rodewald\ (JRO)}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Date:\ 01.04.2026}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ CHANGELOG}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ ============================================================================}}
-\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ v1.0\ (01.04.2026)\ -\/\ Initial\ implementation}}
-\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Test\ value\ generation\ for\ all\ sensor\ types}}
-\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Brightness\ and\ night\ mode\ simulation}}
-\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ \ \ -\/\ Compile-\/time\ enable/disable\ support}}
-\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*\ =====\ System\ Includes\ =====\ */}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}esp\_system.h"{}}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{/*\ =====\ System\ Includes\ =====\ */}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}esp\_system.h"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
+\DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{comment}{/*\ =====\ Test\ Value\ Storage\ =====\ */}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{comment}{/*\ =====\ Test\ Value\ Storage\ =====\ */}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1}{test\_value\_oil\_pressure}};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486}{test\_value\_oil\_temperature}};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}{test\_value\_volt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simulated\ battery\ voltage\ (V)}}
-\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd}{test\_value\_outside\_temperature}};\ \textcolor{comment}{//\ Simulated\ outdoor\ temperature\ (°C)}}
-\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}{test\_value\_brightness}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simulated\ brightness\ (0-\/100)}}
-\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}{test\_night\_mode\_active}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simulated\ night\ mode\ state}}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{comment}{/*\ =====\ Test\ Value\ Controllers\ =====\ */}}
-\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}{pressure\_test\_switch}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pressure\ test\ mode\ control}}
-\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}{temperature\_test\_switch}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Temperature\ test\ mode\ control}}
-\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}{volt\_test\_switch}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Voltage\ test\ mode\ control}}
-\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}{Clocktemp\_test\_switch}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Outdoor\ temperature\ test\ mode\ control}}
-\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197}{brightness\_test\_switch}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Brightness\ test\ mode\ control}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1}{test\_value\_oil\_pressure}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486}{test\_value\_oil\_temperature}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}{test\_value\_volt}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd}{test\_value\_outside\_temperature}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}{test\_value\_brightness}};}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{comment}{/*\ =====\ Test\ Value\ Arrays\ =====\ */}}
-\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}{test\_steps}}[5][4];\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Test\ value\ increment\ arrays}}
-\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}{test\_thresholds}}[5][4];\ \ \ \ \ \ \ \textcolor{comment}{//\ Test\ value\ thresholds}}
-\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}{test\_night\_mode\_active}};}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00058\ \textcolor{comment}{/*\ =====\ Test\ Value\ Controllers\ =====\ */}}
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_aa9b1abc587f0cf43e9d97fedfaa2cb13}{reset\_test\_switches}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}{pressure\_test\_switch}};}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_ae861eb1aae5dce451e6ad313c89695c6}{lv\_pressure\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}{temperature\_test\_switch}};}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00073\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_a77ec812ad1b3b3ccac3d8f226b020789}{lv\_volt\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}{volt\_test\_switch}};}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_aa629bf8b616356a294651226b156ebef}{lv\_temperature\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00078\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}{Clocktemp\_test\_switch}};}
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_a803e95fb98cd89ae749f9556c6f20054}{lv\_Clocktemp\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00083\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197}{brightness\_test\_switch}};}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_a954371edf476de01a50de219d71675c9}{brightness\_test}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00093\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8h_a31410fce3f9b6553b30869ca96dd3809}{getBrightnessTestValue}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00085\ \textcolor{comment}{/*\ =====\ Test\ Value\ Arrays\ =====\ */}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}{test\_steps}}[5][4];}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{test_simulation_8h_a1fe7bed1251384d8b55a598879af5945}{getNightModeActiveTestValue}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_a818c29dea25b52df8e5748e115b4e833}{reset\_test\_values}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}{test\_thresholds}}[5][4];}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_aa9b1abc587f0cf43e9d97fedfaa2cb13}{reset\_test\_switches}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_ae861eb1aae5dce451e6ad313c89695c6}{lv\_pressure\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_a77ec812ad1b3b3ccac3d8f226b020789}{lv\_volt\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_aa629bf8b616356a294651226b156ebef}{lv\_temperature\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{test_simulation_8h_a803e95fb98cd89ae749f9556c6f20054}{lv\_Clocktemp\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_a954371edf476de01a50de219d71675c9}{brightness\_test}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{test_simulation_8h_a31410fce3f9b6553b30869ca96dd3809}{getBrightnessTestValue}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{test_simulation_8h_a1fe7bed1251384d8b55a598879af5945}{getNightModeActiveTestValue}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{test_simulation_8h_a818c29dea25b52df8e5748e115b4e833}{reset\_test\_values}}(\textcolor{keywordtype}{void});}
 
 \end{DoxyCode}

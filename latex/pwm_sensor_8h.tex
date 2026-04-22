@@ -14,16 +14,16 @@ PWM sensor reader for Hella 6PP 010 378-\/201 oil sensor.
 \begin{DoxyCompactItemize}
 \item 
 struct \doxymbox{\hyperlink{structvalue__pair__t}{value\+\_\+pair\+\_\+t}}
-\item 
+\begin{DoxyCompactList}\small\item\em PWM value pair -\/ period and pulse width. \end{DoxyCompactList}\item 
 struct \doxymbox{\hyperlink{structsensor__data__t}{sensor\+\_\+data\+\_\+t}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sensor data from Hella 6PP oil sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{pwm_sensor_8h_af4221afe7e5ed42055dad84c45e67e05}{pwm\+\_\+sensor\+\_\+init}} (void)
 \item 
 double \doxymbox{\hyperlink{pwm_sensor_8h_a5b0bb12e2a7bf9876ea3c788cb0557ec}{get\+\_\+pwm\+\_\+value}} (int id)
-\item 
+\begin{DoxyCompactList}\small\item\em Get the last decoded PWM value for a sensor by ID. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{pwm_sensor_8h_aa31dd9471c53c6a3067184376203c6c0}{pwm\+\_\+sensor\+\_\+print}} (void)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
@@ -58,7 +58,7 @@ int \doxymbox{\hyperlink{pwm_sensor_8h_aeac442504835d85f0a187589aa581e28}{first\
 \doxysubsection{Detailed Description}
 PWM sensor reader for Hella 6PP 010 378-\/201 oil sensor. 
 
-Decodes PWM pulse signals for oil pressure and temperature readings.
+Decodes PWM pulse signals for oil pressure and temperature readings using MCPWM (Motor Control PWM) capture functionality. Supports multi-\/pulse sensors with diagnostic feedback.
 
 \begin{DoxyAuthor}{Author}
 Jan Niklas Rodewald (JRO) 
@@ -86,6 +86,10 @@ CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
 {\footnotesize\ttfamily \label{pwm_sensor_8h_a5b0bb12e2a7bf9876ea3c788cb0557ec} 
 double get\+\_\+pwm\+\_\+value (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
 
+
+
+Get the last decoded PWM value for a sensor by ID. 
+
 Get decoded sensor value by pulse ID 
 \begin{DoxyParams}{Parameters}
 {\em id} & Pulse ID (PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID, PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID, etc.) \\
@@ -94,15 +98,15 @@ Get decoded sensor value by pulse ID
 \begin{DoxyReturn}{Returns}
 Decoded value or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error
 \end{DoxyReturn}
-Get the last decoded PWM value for a sensor by ID.
+Retrieves the calculated sensor value (temperature, pressure, or diagnostic code) for the specified sensor ID. Returns -\/99 if value hasn\textquotesingle{}t been updated.
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & PWM sensor ID (temperature, pressure, diagnostic) \\
+{\em id} & PWM sensor ID (PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID, PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID, or PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PULSE\+\_\+\+ID) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Calculated sensor value, or -\/99 if value not updated. 
+Calculated sensor value, or -\/99 if value not updated 
 \end{DoxyReturn}
 \Hypertarget{pwm_sensor_8h_af4221afe7e5ed42055dad84c45e67e05}\index{pwmSensor.h@{pwmSensor.h}!pwm\_sensor\_init@{pwm\_sensor\_init}}
 \index{pwm\_sensor\_init@{pwm\_sensor\_init}!pwmSensor.h@{pwmSensor.h}}
@@ -155,19 +159,19 @@ mcpwm\+\_\+capture\+\_\+channel\+\_\+config\+\_\+t chan\+\_\+config\hspace{0.3cm
 {\footnotesize\ttfamily \label{pwm_sensor_8h_aeac442504835d85f0a187589aa581e28} 
 int first\+\_\+init\+\_\+done\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877}\index{pwmSensor.h@{pwmSensor.h}!last\_pos\_edge@{last\_pos\_edge}}
+Initialization flag \Hypertarget{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877}\index{pwmSensor.h@{pwmSensor.h}!last\_pos\_edge@{last\_pos\_edge}}
 \index{last\_pos\_edge@{last\_pos\_edge}!pwmSensor.h@{pwmSensor.h}}
 \doxysubsubsection{\texorpdfstring{last\_pos\_edge}{last\_pos\_edge}}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_ae17d35a50057f46bbbc78f4c3ef49877} 
 uint32\+\_\+t last\+\_\+pos\+\_\+edge\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5}\index{pwmSensor.h@{pwmSensor.h}!last\_seen\_count@{last\_seen\_count}}
+Last positive edge timestamp \Hypertarget{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5}\index{pwmSensor.h@{pwmSensor.h}!last\_seen\_count@{last\_seen\_count}}
 \index{last\_seen\_count@{last\_seen\_count}!pwmSensor.h@{pwmSensor.h}}
 \doxysubsubsection{\texorpdfstring{last\_seen\_count}{last\_seen\_count}}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_a73b084f136ce85daabb235e76bc1fbe5} 
 uint32\+\_\+t last\+\_\+seen\+\_\+count\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d}\index{pwmSensor.h@{pwmSensor.h}!latest\_sensor\_values@{latest\_sensor\_values}}
+Counter for timeout detection \Hypertarget{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d}\index{pwmSensor.h@{pwmSensor.h}!latest\_sensor\_values@{latest\_sensor\_values}}
 \index{latest\_sensor\_values@{latest\_sensor\_values}!pwmSensor.h@{pwmSensor.h}}
 \doxysubsubsection{\texorpdfstring{latest\_sensor\_values}{latest\_sensor\_values}}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_a5171af8f76451aadef2e70626de6a97d} 
@@ -179,13 +183,13 @@ volatile \doxymbox{\hyperlink{structsensor__data__t}{sensor\+\_\+data\+\_\+t}} l
 {\footnotesize\ttfamily \label{pwm_sensor_8h_aa658256e07f4ffdbd13e4b9d1738742d} 
 uint32\+\_\+t period\+\_\+us\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392}\index{pwmSensor.h@{pwmSensor.h}!pulse\_idx@{pulse\_idx}}
+Measured period in microseconds \Hypertarget{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392}\index{pwmSensor.h@{pwmSensor.h}!pulse\_idx@{pulse\_idx}}
 \index{pulse\_idx@{pulse\_idx}!pwmSensor.h@{pwmSensor.h}}
 \doxysubsubsection{\texorpdfstring{pulse\_idx}{pulse\_idx}}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_aa9da010c329740d9b3a9a5c099794392} 
 int pulse\+\_\+idx\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b}\index{pwmSensor.h@{pwmSensor.h}!timer\_config@{timer\_config}}
+Current pulse index (0-\/2 for 3 sensors) \Hypertarget{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b}\index{pwmSensor.h@{pwmSensor.h}!timer\_config@{timer\_config}}
 \index{timer\_config@{timer\_config}!pwmSensor.h@{pwmSensor.h}}
 \doxysubsubsection{\texorpdfstring{timer\_config}{timer\_config}}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_a84700ebedf68f76028da8032bd3c8e6b} 
@@ -197,3 +201,4 @@ mcpwm\+\_\+capture\+\_\+timer\+\_\+config\+\_\+t timer\+\_\+config\hspace{0.3cm}
 {\footnotesize\ttfamily \label{pwm_sensor_8h_a325272ddd9a962f05deb905101d25cbd} 
 uint32\+\_\+t width\hspace{0.3cm}{\ttfamily [extern]}}
 
+Measured pulse width in microseconds 

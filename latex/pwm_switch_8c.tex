@@ -1,13 +1,18 @@
 \doxysection{main/\+peripherie/\+pwm\+Switch.c File Reference}
 \hypertarget{pwm_switch_8c}{}\label{pwm_switch_8c}\index{main/peripherie/pwmSwitch.c@{main/peripherie/pwmSwitch.c}}
+
+
+PWM/\+\+ADC switch sensor input selection implementation.  
+
+
 {\ttfamily \+\#include "{}pwm\+Switch.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{pwm_switch_8c_a8e6fbb3b51611498a8f3d3284a82c028}{init\+\_\+pwm\+SW}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize PWM/\+\+ADC selector GPIO pin. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{pwm_switch_8c_ab16e3e06d2401b2b5c3614395a47c60c}{read\+\_\+pwm\+SW}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Read current sensor input selector state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,6 +20,24 @@ bool \doxymbox{\hyperlink{pwm_switch_8c_afa7467159e202397eef6806aaa1067a6}{pwm\+
 \item 
 gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{pwm_switch_8c_a0182a91a2e5646d38d05d252069da695}{pwm\+SW\+\_\+conf}} = \{0\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PWM/\+\+ADC switch sensor input selection implementation. 
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item GPIO-\/based sensor mode selection
+\item Mode change detection and logging 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -26,13 +49,23 @@ gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{pwm_switch_8c_a0182a91a2e5646d38d05
 {\footnotesize\ttfamily \label{pwm_switch_8c_a8e6fbb3b51611498a8f3d3284a82c028} 
 void init\+\_\+pwm\+SW (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize PWM/\+\+ADC selector GPIO pin Configures GPIO and reads initial state \Hypertarget{pwm_switch_8c_ab16e3e06d2401b2b5c3614395a47c60c}\index{pwmSwitch.c@{pwmSwitch.c}!read\_pwmSW@{read\_pwmSW}}
+
+
+Initialize PWM/\+\+ADC selector GPIO pin. 
+
+Configures GPIO and reads initial state. \Hypertarget{pwm_switch_8c_ab16e3e06d2401b2b5c3614395a47c60c}\index{pwmSwitch.c@{pwmSwitch.c}!read\_pwmSW@{read\_pwmSW}}
 \index{read\_pwmSW@{read\_pwmSW}!pwmSwitch.c@{pwmSwitch.c}}
 \doxysubsubsection{\texorpdfstring{read\_pwmSW()}{read\_pwmSW()}}
 {\footnotesize\ttfamily \label{pwm_switch_8c_ab16e3e06d2401b2b5c3614395a47c60c} 
 bool read\+\_\+pwm\+SW (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Read current sensor input selector state Detects changes and logs sensor mode switching \begin{DoxyReturn}{Returns}
+
+
+Read current sensor input selector state. 
+
+Detects changes and logs sensor mode switching.
+
+\begin{DoxyReturn}{Returns}
 true if state changed, false if unchanged 
 \end{DoxyReturn}
 

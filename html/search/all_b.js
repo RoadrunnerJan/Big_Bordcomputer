@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['night_5fmode_0',['night_mode',['../main_8c.html#a9415d6967ea31a1d71a6364878d31189',1,'main.c']]],
-  ['night_5fmode_5factive_1',['night_mode_active',['../values_8c.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c'],['../values_8h.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c']]],
-  ['number_5fof_5fads1115_5fdevices_2',['NUMBER_OF_ADS1115_DEVICES',['../individual__config_8h.html#a65a261a5356d8d1d94954ef277e467e5',1,'individual_config.h']]],
-  ['number_5fof_5fdisplays_3',['NUMBER_OF_DISPLAYS',['../individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9',1,'individual_config.h']]],
-  ['number_5fof_5fspi_4',['NUMBER_OF_SPI',['../individual__config_8h.html#a7a80df8b2fd93814ce229e8b2a1c04ad',1,'individual_config.h']]]
+  ['main_2ec_0',['main.c',['../main_8c.html',1,'']]],
+  ['main_5ftask_5ffinished_5fdelay_1',['MAIN_TASK_FINISHED_DELAY',['../individual__config_8h.html#a6d7e836e81c91b823bc4d89f3fb4ba69',1,'individual_config.h']]],
+  ['malloc_5fcap_2',['malloc_cap',['../structdisplay__settings.html#a78e9c101581787bcaf0b5045f664ea5f',1,'display_settings']]],
+  ['max_5fabc_5fnbr_3',['MAX_ABC_NBR',['../adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd',1,'adc.h']]],
+  ['max_5ftransfer_5fsz_4',['max_transfer_sz',['../structspi__settings.html#aa304a3c7649835fa1f531caa305176f7',1,'spi_settings']]],
+  ['mode_5',['Mode',['../index.html#autotoc_md7',1,'Day/Night Mode'],['../index.html#autotoc_md8',1,'Test Mode']]],
+  ['mode_20activation_6',['Test Mode Activation',['../index.html#autotoc_md15',1,'']]],
+  ['monitor_7',['Monitor',['../index.html#autotoc_md14',1,'']]],
+  ['multi_20display_20support_8',['Multi-Display Support',['../index.html#autotoc_md5',1,'']]]
 ];

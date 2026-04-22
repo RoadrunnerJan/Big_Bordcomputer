@@ -1,18 +1,14 @@
-/*
- * ============================================================================
- * PWM/ADC SWITCH - Sensor Input Selection Implementation
- * ============================================================================
+/**
+ * @file pwmSwitch.c
+ * @brief PWM/ADC switch sensor input selection implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - GPIO-based sensor mode selection
  *      - Mode change detection and logging
- *
  */
 
 #include "pwmSwitch.h"
@@ -26,8 +22,9 @@ gpio_config_t pwmSW_conf = {0};     // GPIO configuration
 /* ===== Function Implementations ===== */
 
 /**
- * Initialize PWM/ADC selector GPIO pin
- * Configures GPIO and reads initial state
+ * @brief Initialize PWM/ADC selector GPIO pin.
+ *
+ * Configures GPIO and reads initial state.
  */
 void init_pwmSW(void)
 {
@@ -44,8 +41,10 @@ void init_pwmSW(void)
 
 
 /**
- * Read current sensor input selector state
- * Detects changes and logs sensor mode switching
+ * @brief Read current sensor input selector state.
+ *
+ * Detects changes and logs sensor mode switching.
+ *
  * @return true if state changed, false if unchanged
  */
 bool read_pwmSW(void)

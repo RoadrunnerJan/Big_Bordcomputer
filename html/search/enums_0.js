@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flowglobalvariables_0',['FlowGlobalVariables',['../vars_8h.html#a8c94e815d345f136c2c62958408da178',1,'vars.h']]]
+  ['adc_5fselection_0',['adc_selection',['../adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3',1,'adc.h']]]
 ];

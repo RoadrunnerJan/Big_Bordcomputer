@@ -91,30 +91,31 @@ $(function(){initNavTree('buzzer_8h_source.html','',''); });
   <div class="headertitle"><div class="title">buzzer.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="buzzer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* ===== Project Configuration ===== */</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="individual__config_8h.html">../individual_config.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* ===== ESP-IDF PWM Driver ===== */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;driver/ledc.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<a href="buzzer_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* ===== Project Configuration ===== */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="individual__config_8h.html">../individual_config.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/* ===== ESP-IDF PWM Driver ===== */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;driver/ledc.h&quot;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* ===== PWM Configuration ===== */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> ledc_timer_config_t <a class="code hl_variable" href="buzzer_8c.html#a3f1323002a9f1cc1b3c86f6dd723a96a">buz_timer</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> ledc_channel_config_t <a class="code hl_variable" href="buzzer_8c.html#a3abdda7fc723c3c54c1292ef1bcaae45">buz_channel</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* ===== PWM Configuration ===== */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> ledc_timer_config_t <a class="code hl_variable" href="buzzer_8c.html#a3f1323002a9f1cc1b3c86f6dd723a96a">buz_timer</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> ledc_channel_config_t <a class="code hl_variable" href="buzzer_8c.html#a3abdda7fc723c3c54c1292ef1bcaae45">buz_channel</a>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/* ===== Function Declarations ===== */</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="buzzer_8h.html#a0cead532fdd0c0de5fa1c1de0f6556bd">buzzer_init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="buzzer_8h.html#ab0922ceaa048af968fd0f2f830ad773b">buzzer_beep</a>(uint16_t duty);</div>
-<div class="ttc" id="abuzzer_8c_html_a3abdda7fc723c3c54c1292ef1bcaae45"><div class="ttname"><a href="buzzer_8c.html#a3abdda7fc723c3c54c1292ef1bcaae45">buz_channel</a></div><div class="ttdeci">ledc_channel_config_t buz_channel</div><div class="ttdef"><b>Definition</b> buzzer.c:23</div></div>
-<div class="ttc" id="abuzzer_8c_html_a3f1323002a9f1cc1b3c86f6dd723a96a"><div class="ttname"><a href="buzzer_8c.html#a3f1323002a9f1cc1b3c86f6dd723a96a">buz_timer</a></div><div class="ttdeci">ledc_timer_config_t buz_timer</div><div class="ttdef"><b>Definition</b> buzzer.c:22</div></div>
-<div class="ttc" id="abuzzer_8h_html_a0cead532fdd0c0de5fa1c1de0f6556bd"><div class="ttname"><a href="buzzer_8h.html#a0cead532fdd0c0de5fa1c1de0f6556bd">buzzer_init</a></div><div class="ttdeci">void buzzer_init(void)</div><div class="ttdef"><b>Definition</b> buzzer.c:32</div></div>
-<div class="ttc" id="abuzzer_8h_html_ab0922ceaa048af968fd0f2f830ad773b"><div class="ttname"><a href="buzzer_8h.html#ab0922ceaa048af968fd0f2f830ad773b">buzzer_beep</a></div><div class="ttdeci">void buzzer_beep(uint16_t duty)</div><div class="ttdef"><b>Definition</b> buzzer.c:60</div></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* ===== Function Declarations ===== */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> <a class="code hl_function" href="buzzer_8h.html#a0cead532fdd0c0de5fa1c1de0f6556bd">buzzer_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> <a class="code hl_function" href="buzzer_8h.html#ab0922ceaa048af968fd0f2f830ad773b">buzzer_beep</a>(uint16_t duty);</div>
+<div class="ttc" id="abuzzer_8c_html_a3abdda7fc723c3c54c1292ef1bcaae45"><div class="ttname"><a href="buzzer_8c.html#a3abdda7fc723c3c54c1292ef1bcaae45">buz_channel</a></div><div class="ttdeci">ledc_channel_config_t buz_channel</div><div class="ttdef"><b>Definition</b> buzzer.c:19</div></div>
+<div class="ttc" id="abuzzer_8c_html_a3f1323002a9f1cc1b3c86f6dd723a96a"><div class="ttname"><a href="buzzer_8c.html#a3f1323002a9f1cc1b3c86f6dd723a96a">buz_timer</a></div><div class="ttdeci">ledc_timer_config_t buz_timer</div><div class="ttdef"><b>Definition</b> buzzer.c:18</div></div>
+<div class="ttc" id="abuzzer_8h_html_a0cead532fdd0c0de5fa1c1de0f6556bd"><div class="ttname"><a href="buzzer_8h.html#a0cead532fdd0c0de5fa1c1de0f6556bd">buzzer_init</a></div><div class="ttdeci">void buzzer_init(void)</div><div class="ttdoc">Initialize buzzer PWM hardware.</div><div class="ttdef"><b>Definition</b> buzzer.c:29</div></div>
+<div class="ttc" id="abuzzer_8h_html_ab0922ceaa048af968fd0f2f830ad773b"><div class="ttname"><a href="buzzer_8h.html#ab0922ceaa048af968fd0f2f830ad773b">buzzer_beep</a></div><div class="ttdeci">void buzzer_beep(uint16_t duty)</div><div class="ttdoc">Generate beep by setting PWM duty cycle.</div><div class="ttdef"><b>Definition</b> buzzer.c:58</div></div>
 <div class="ttc" id="aindividual__config_8h_html"><div class="ttname"><a href="individual__config_8h.html">individual_config.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

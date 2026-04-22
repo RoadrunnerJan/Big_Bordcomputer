@@ -1,27 +1,32 @@
 \doxysection{main/\+simulation/\+test\+Simulation.c File Reference}
 \hypertarget{test_simulation_8c}{}\label{test_simulation_8c}\index{main/simulation/testSimulation.c@{main/simulation/testSimulation.c}}
+
+
+Test simulation module debug mode value generation implementation.  
+
+
 {\ttfamily \+\#include "{}test\+Simulation.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{test_simulation_8c_a818c29dea25b52df8e5748e115b4e833}{reset\+\_\+test\+\_\+values}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Reset all test values to default state. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{test_simulation_8c_a598334365af036bb6f17dc435d7d08c5}{reset\+\_\+test\+\_\+switches}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Reset all test state switches to initial phase. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_ad8e9acc755f5e43bdc566e4b012fd1d5}{lv\+\_\+pressure\+\_\+test}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Simulate oil pressure test cycle. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_add87703df2035698ea7ecd8f7204d470}{lv\+\_\+volt\+\_\+test}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generate test battery voltage value. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632}{lv\+\_\+temperature\+\_\+test}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generate test oil temperature value. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_a26e4a7ae995e133e89b16eb92ab0b67e}{lv\+\_\+\+Clocktemp\+\_\+test}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generate test outdoor temperature value. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{test_simulation_8c_a96cd1c74872a3aee742b520f91401a6a}{brightness\+\_\+test}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Run brightness test sequence. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_a645e9a3663505f86616abd888e387bee}{get\+Brightness\+Test\+Value}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get current test brightness value. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{test_simulation_8c_a720ab94c941ab37325970e30ef833a73}{get\+Night\+Mode\+Active\+Test\+Value}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get current night mode test state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,27 +35,46 @@ double \doxymbox{\hyperlink{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1
 double \doxymbox{\hyperlink{test_simulation_8c_a5c60cf91ec05e598a4e0406edb1cb486}{test\+\_\+value\+\_\+oil\+\_\+temperature}} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Simulated oil temperature in °C. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}{test\+\_\+value\+\_\+volt}} = 8.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Simulated battery voltage in volts. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd}{test\+\_\+value\+\_\+outside\+\_\+temperature}} = 0.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Simulated outdoor temperature in °C. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}{test\+\_\+value\+\_\+brightness}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Simulated display brightness (0-\/100). \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}{test\+\_\+night\+\_\+mode\+\_\+active}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Simulated night mode state. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}{pressure\+\_\+test\+\_\+switch}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure test mode control variable. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}{temperature\+\_\+test\+\_\+switch}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature test mode control variable. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}{volt\+\_\+test\+\_\+switch}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Voltage test mode control variable. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}{Clocktemp\+\_\+test\+\_\+switch}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Outdoor temperature test mode control variable. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197}{brightness\+\_\+test\+\_\+switch}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Brightness test mode control variable. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}{test\+\_\+steps}} \+[5]\+\+[4]\+
-\item 
+\begin{DoxyCompactList}\small\item\em Test step changes for each sensor type. \end{DoxyCompactList}\item 
 double \doxymbox{\hyperlink{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}{test\+\_\+thresholds}} \+[5]\+\+[4]\+
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Test thresholds for switching between test phases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Test simulation module debug mode value generation implementation. 
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item Test value generation for all sensor types
+\item Brightness and night mode simulation
+\item Compile-\/time enable/\+disable support 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -62,11 +86,19 @@ double \doxymbox{\hyperlink{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8
 {\footnotesize\ttfamily \label{test_simulation_8c_a96cd1c74872a3aee742b520f91401a6a} 
 void brightness\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Run brightness test sequence. 
+
 Simulate brightness test cycle Cycles through 4 phases with night mode toggle at the end \Hypertarget{test_simulation_8c_a645e9a3663505f86616abd888e387bee}\index{testSimulation.c@{testSimulation.c}!getBrightnessTestValue@{getBrightnessTestValue}}
 \index{getBrightnessTestValue@{getBrightnessTestValue}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{getBrightnessTestValue()}{getBrightnessTestValue()}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a645e9a3663505f86616abd888e387bee} 
 int get\+Brightness\+Test\+Value (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Get current test brightness value. 
 
 Get current brightness test value \begin{DoxyReturn}{Returns}
 Current simulated brightness value 
@@ -77,6 +109,10 @@ Current simulated brightness value
 {\footnotesize\ttfamily \label{test_simulation_8c_a720ab94c941ab37325970e30ef833a73} 
 bool get\+Night\+Mode\+Active\+Test\+Value (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Get current night mode test state. 
+
 Get current night mode test state \begin{DoxyReturn}{Returns}
 True if night mode is active in test 
 \end{DoxyReturn}
@@ -85,6 +121,10 @@ True if night mode is active in test
 \doxysubsubsection{\texorpdfstring{lv\_Clocktemp\_test()}{lv\_Clocktemp\_test()}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a26e4a7ae995e133e89b16eb92ab0b67e} 
 double lv\+\_\+\+Clocktemp\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Generate test outdoor temperature value. 
 
 Simulate outside temperature test cycle Cycles through 4 phases:\+ increase to 33, decrease to -\/15, increase to 20, decrease to 0.\+06 \begin{DoxyReturn}{Returns}
 Current simulated outside temperature value 
@@ -95,14 +135,21 @@ Current simulated outside temperature value
 {\footnotesize\ttfamily \label{test_simulation_8c_ad8e9acc755f5e43bdc566e4b012fd1d5} 
 double lv\+\_\+pressure\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Simulate oil pressure test cycle Cycles through 4 phases:\+ increase to 4.\+5, decrease to 2.\+5, increase to 5.\+5, decrease to 0.\+04 \begin{DoxyReturn}{Returns}
-Current simulated oil pressure value 
-\end{DoxyReturn}
-\Hypertarget{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632}\index{testSimulation.c@{testSimulation.c}!lv\_temperature\_test@{lv\_temperature\_test}}
+
+
+Simulate oil pressure test cycle. 
+
+Generate test oil pressure value.
+
+Cycles through predefined pressure values for testing gauge functionality. \Hypertarget{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632}\index{testSimulation.c@{testSimulation.c}!lv\_temperature\_test@{lv\_temperature\_test}}
 \index{lv\_temperature\_test@{lv\_temperature\_test}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{lv\_temperature\_test()}{lv\_temperature\_test()}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a856a770346f094ce110c5ec8d85c7632} 
 double lv\+\_\+temperature\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Generate test oil temperature value. 
 
 Simulate oil temperature test cycle Cycles through 4 phases:\+ increase to 100, decrease to 110, increase to 140, decrease to 0.\+06 \begin{DoxyReturn}{Returns}
 Current simulated oil temperature value 
@@ -113,6 +160,10 @@ Current simulated oil temperature value
 {\footnotesize\ttfamily \label{test_simulation_8c_add87703df2035698ea7ecd8f7204d470} 
 double lv\+\_\+volt\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+
+
+Generate test battery voltage value. 
+
 Simulate voltage test cycle Cycles through 4 phases:\+ increase to 15.\+5, decrease to 11, increase to 14, decrease to 8.\+04 \begin{DoxyReturn}{Returns}
 Current simulated voltage value 
 \end{DoxyReturn}
@@ -122,13 +173,21 @@ Current simulated voltage value
 {\footnotesize\ttfamily \label{test_simulation_8c_a598334365af036bb6f17dc435d7d08c5} 
 void reset\+\_\+test\+\_\+switches (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Reset all test state switches to initial phase \Hypertarget{test_simulation_8c_a818c29dea25b52df8e5748e115b4e833}\index{testSimulation.c@{testSimulation.c}!reset\_test\_values@{reset\_test\_values}}
+
+
+Reset all test state switches to initial phase. 
+
+Reset all test mode switches to initial state. \Hypertarget{test_simulation_8c_a818c29dea25b52df8e5748e115b4e833}\index{testSimulation.c@{testSimulation.c}!reset\_test\_values@{reset\_test\_values}}
 \index{reset\_test\_values@{reset\_test\_values}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{reset\_test\_values()}{reset\_test\_values()}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a818c29dea25b52df8e5748e115b4e833} 
 void reset\+\_\+test\+\_\+values (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Reset all test values to default state 
+
+
+Reset all test values to default state. 
+
+Reset all test values to defaults. 
 
 \label{doc-var-members}
 \Hypertarget{test_simulation_8c_doc-var-members}
@@ -139,11 +198,19 @@ Reset all test values to default state
 {\footnotesize\ttfamily \label{test_simulation_8c_a6347ffd479374ec1af0b9f455c051197} 
 int brightness\+\_\+test\+\_\+switch = 0}
 
+
+
+Brightness test mode control variable. 
+
 \Hypertarget{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590}\index{testSimulation.c@{testSimulation.c}!Clocktemp\_test\_switch@{Clocktemp\_test\_switch}}
 \index{Clocktemp\_test\_switch@{Clocktemp\_test\_switch}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{Clocktemp\_test\_switch}{Clocktemp\_test\_switch}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a781e0aae99d7dfe899c7ab1b2cb9e590} 
 int Clocktemp\+\_\+test\+\_\+switch = 0}
+
+
+
+Outdoor temperature test mode control variable. 
 
 \Hypertarget{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24}\index{testSimulation.c@{testSimulation.c}!pressure\_test\_switch@{pressure\_test\_switch}}
 \index{pressure\_test\_switch@{pressure\_test\_switch}!testSimulation.c@{testSimulation.c}}
@@ -151,17 +218,29 @@ int Clocktemp\+\_\+test\+\_\+switch = 0}
 {\footnotesize\ttfamily \label{test_simulation_8c_a27b1d1f91fab51a18531eb2926295b24} 
 int pressure\+\_\+test\+\_\+switch = 0}
 
+
+
+Pressure test mode control variable. 
+
 \Hypertarget{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55}\index{testSimulation.c@{testSimulation.c}!temperature\_test\_switch@{temperature\_test\_switch}}
 \index{temperature\_test\_switch@{temperature\_test\_switch}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{temperature\_test\_switch}{temperature\_test\_switch}}
 {\footnotesize\ttfamily \label{test_simulation_8c_ac57426501c15d07507e82ac9126c1d55} 
 int temperature\+\_\+test\+\_\+switch = 0}
 
+
+
+Temperature test mode control variable. 
+
 \Hypertarget{test_simulation_8c_af4ada18762294ede2ca24897d42a324c}\index{testSimulation.c@{testSimulation.c}!test\_night\_mode\_active@{test\_night\_mode\_active}}
 \index{test\_night\_mode\_active@{test\_night\_mode\_active}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{test\_night\_mode\_active}{test\_night\_mode\_active}}
 {\footnotesize\ttfamily \label{test_simulation_8c_af4ada18762294ede2ca24897d42a324c} 
 bool test\+\_\+night\+\_\+mode\+\_\+active = false}
+
+
+
+Simulated night mode state. 
 
 \Hypertarget{test_simulation_8c_af1333589211ca00a4523fa43b542dfb3}\index{testSimulation.c@{testSimulation.c}!test\_steps@{test\_steps}}
 \index{test\_steps@{test\_steps}!testSimulation.c@{testSimulation.c}}
@@ -180,7 +259,13 @@ double test\+\_\+steps\+[5]\+\+[4]\+}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-Test step changes for each sensor type Format:\+ \+[sensor\+\_\+type]\+\+[step\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}\index{testSimulation.c@{testSimulation.c}!test\_thresholds@{test\_thresholds}}
+
+
+Test step changes for each sensor type. 
+
+Test value increment arrays for cycling through test phases.
+
+Format:\+ \+[sensor\+\_\+type]\+\+[step\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8}\index{testSimulation.c@{testSimulation.c}!test\_thresholds@{test\_thresholds}}
 \index{test\_thresholds@{test\_thresholds}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{test\_thresholds}{test\_thresholds}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a94a5bb5d152d0934ad9d85e5524c76d8} 
@@ -206,11 +291,21 @@ double test\+\_\+thresholds\+[5]\+\+[4]\+}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-Test thresholds for switching between test phases Format:\+ \+[sensor\+\_\+type]\+\+[threshold\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}\index{testSimulation.c@{testSimulation.c}!test\_value\_brightness@{test\_value\_brightness}}
+
+
+Test thresholds for switching between test phases. 
+
+Test value thresholds for switching between test phases.
+
+Format:\+ \+[sensor\+\_\+type]\+\+[threshold\+\_\+index]\+ sensor\+\_\+type:\+ 0=oil\+\_\+pressure, 1=volt, 2=oil\+\_\+temperature, 3=clock\+\_\+temperature, 4=brightness \Hypertarget{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3}\index{testSimulation.c@{testSimulation.c}!test\_value\_brightness@{test\_value\_brightness}}
 \index{test\_value\_brightness@{test\_value\_brightness}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{test\_value\_brightness}{test\_value\_brightness}}
 {\footnotesize\ttfamily \label{test_simulation_8c_aeed03d67b23ccb68536b732553d0ada3} 
 int test\+\_\+value\+\_\+brightness = 0}
+
+
+
+Simulated display brightness (0-\/100). 
 
 \Hypertarget{test_simulation_8c_a78f1a367c6d98da155117412f7022ca1}\index{testSimulation.c@{testSimulation.c}!test\_value\_oil\_pressure@{test\_value\_oil\_pressure}}
 \index{test\_value\_oil\_pressure@{test\_value\_oil\_pressure}!testSimulation.c@{testSimulation.c}}
@@ -238,15 +333,27 @@ Simulated oil temperature in °C.
 {\footnotesize\ttfamily \label{test_simulation_8c_a9b31b65cb555fc10e13885cfc8d95cfd} 
 double test\+\_\+value\+\_\+outside\+\_\+temperature = 0.\+0}
 
+
+
+Simulated outdoor temperature in °C. 
+
 \Hypertarget{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9}\index{testSimulation.c@{testSimulation.c}!test\_value\_volt@{test\_value\_volt}}
 \index{test\_value\_volt@{test\_value\_volt}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{test\_value\_volt}{test\_value\_volt}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a99b2f7b70208b5314b4c25fc98fb50d9} 
 double test\+\_\+value\+\_\+volt = 8.\+0}
 
+
+
+Simulated battery voltage in volts. 
+
 \Hypertarget{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219}\index{testSimulation.c@{testSimulation.c}!volt\_test\_switch@{volt\_test\_switch}}
 \index{volt\_test\_switch@{volt\_test\_switch}!testSimulation.c@{testSimulation.c}}
 \doxysubsubsection{\texorpdfstring{volt\_test\_switch}{volt\_test\_switch}}
 {\footnotesize\ttfamily \label{test_simulation_8c_a2fc4081524c0c7d655d7af9562d9f219} 
 int volt\+\_\+test\+\_\+switch = 0}
+
+
+
+Voltage test mode control variable. 
 

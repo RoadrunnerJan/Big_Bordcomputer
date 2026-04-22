@@ -91,19 +91,31 @@ $(function(){initNavTree('test_simulation_8c.html','',''); });
   <div class="headertitle"><div class="title">testSimulation.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Test simulation module debug mode value generation implementation.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="test_simulation_8h_source.html">testSimulation.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a818c29dea25b52df8e5748e115b4e833" id="r_a818c29dea25b52df8e5748e115b4e833"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a818c29dea25b52df8e5748e115b4e833">reset_test_values</a> (void)</td></tr>
+<tr class="memdesc:a818c29dea25b52df8e5748e115b4e833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all test values to default state.  <br /></td></tr>
 <tr class="memitem:a598334365af036bb6f17dc435d7d08c5" id="r_a598334365af036bb6f17dc435d7d08c5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a598334365af036bb6f17dc435d7d08c5">reset_test_switches</a> ()</td></tr>
+<tr class="memdesc:a598334365af036bb6f17dc435d7d08c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all test state switches to initial phase.  <br /></td></tr>
 <tr class="memitem:ad8e9acc755f5e43bdc566e4b012fd1d5" id="r_ad8e9acc755f5e43bdc566e4b012fd1d5"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad8e9acc755f5e43bdc566e4b012fd1d5">lv_pressure_test</a> ()</td></tr>
+<tr class="memdesc:ad8e9acc755f5e43bdc566e4b012fd1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate oil pressure test cycle.  <br /></td></tr>
 <tr class="memitem:add87703df2035698ea7ecd8f7204d470" id="r_add87703df2035698ea7ecd8f7204d470"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#add87703df2035698ea7ecd8f7204d470">lv_volt_test</a> ()</td></tr>
+<tr class="memdesc:add87703df2035698ea7ecd8f7204d470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate test battery voltage value.  <br /></td></tr>
 <tr class="memitem:a856a770346f094ce110c5ec8d85c7632" id="r_a856a770346f094ce110c5ec8d85c7632"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a856a770346f094ce110c5ec8d85c7632">lv_temperature_test</a> ()</td></tr>
+<tr class="memdesc:a856a770346f094ce110c5ec8d85c7632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate test oil temperature value.  <br /></td></tr>
 <tr class="memitem:a26e4a7ae995e133e89b16eb92ab0b67e" id="r_a26e4a7ae995e133e89b16eb92ab0b67e"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a26e4a7ae995e133e89b16eb92ab0b67e">lv_Clocktemp_test</a> ()</td></tr>
+<tr class="memdesc:a26e4a7ae995e133e89b16eb92ab0b67e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate test outdoor temperature value.  <br /></td></tr>
 <tr class="memitem:a96cd1c74872a3aee742b520f91401a6a" id="r_a96cd1c74872a3aee742b520f91401a6a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a96cd1c74872a3aee742b520f91401a6a">brightness_test</a> ()</td></tr>
+<tr class="memdesc:a96cd1c74872a3aee742b520f91401a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run brightness test sequence.  <br /></td></tr>
 <tr class="memitem:a645e9a3663505f86616abd888e387bee" id="r_a645e9a3663505f86616abd888e387bee"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a645e9a3663505f86616abd888e387bee">getBrightnessTestValue</a> ()</td></tr>
+<tr class="memdesc:a645e9a3663505f86616abd888e387bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current test brightness value.  <br /></td></tr>
 <tr class="memitem:a720ab94c941ab37325970e30ef833a73" id="r_a720ab94c941ab37325970e30ef833a73"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a720ab94c941ab37325970e30ef833a73">getNightModeActiveTestValue</a> ()</td></tr>
+<tr class="memdesc:a720ab94c941ab37325970e30ef833a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current night mode test state.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -112,18 +124,39 @@ Variables</h2></td></tr>
 <tr class="memitem:a5c60cf91ec05e598a4e0406edb1cb486" id="r_a5c60cf91ec05e598a4e0406edb1cb486"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a5c60cf91ec05e598a4e0406edb1cb486">test_value_oil_temperature</a> = 0.0</td></tr>
 <tr class="memdesc:a5c60cf91ec05e598a4e0406edb1cb486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated oil temperature in °C.  <br /></td></tr>
 <tr class="memitem:a99b2f7b70208b5314b4c25fc98fb50d9" id="r_a99b2f7b70208b5314b4c25fc98fb50d9"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a99b2f7b70208b5314b4c25fc98fb50d9">test_value_volt</a> = 8.0</td></tr>
+<tr class="memdesc:a99b2f7b70208b5314b4c25fc98fb50d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated battery voltage in volts.  <br /></td></tr>
 <tr class="memitem:a9b31b65cb555fc10e13885cfc8d95cfd" id="r_a9b31b65cb555fc10e13885cfc8d95cfd"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a9b31b65cb555fc10e13885cfc8d95cfd">test_value_outside_temperature</a> = 0.0</td></tr>
+<tr class="memdesc:a9b31b65cb555fc10e13885cfc8d95cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated outdoor temperature in °C.  <br /></td></tr>
 <tr class="memitem:aeed03d67b23ccb68536b732553d0ada3" id="r_aeed03d67b23ccb68536b732553d0ada3"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aeed03d67b23ccb68536b732553d0ada3">test_value_brightness</a> = 0</td></tr>
+<tr class="memdesc:aeed03d67b23ccb68536b732553d0ada3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated display brightness (0-100).  <br /></td></tr>
 <tr class="memitem:af4ada18762294ede2ca24897d42a324c" id="r_af4ada18762294ede2ca24897d42a324c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af4ada18762294ede2ca24897d42a324c">test_night_mode_active</a> = false</td></tr>
+<tr class="memdesc:af4ada18762294ede2ca24897d42a324c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated night mode state.  <br /></td></tr>
 <tr class="memitem:a27b1d1f91fab51a18531eb2926295b24" id="r_a27b1d1f91fab51a18531eb2926295b24"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a27b1d1f91fab51a18531eb2926295b24">pressure_test_switch</a> = 0</td></tr>
+<tr class="memdesc:a27b1d1f91fab51a18531eb2926295b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure test mode control variable.  <br /></td></tr>
 <tr class="memitem:ac57426501c15d07507e82ac9126c1d55" id="r_ac57426501c15d07507e82ac9126c1d55"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ac57426501c15d07507e82ac9126c1d55">temperature_test_switch</a> = 0</td></tr>
+<tr class="memdesc:ac57426501c15d07507e82ac9126c1d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature test mode control variable.  <br /></td></tr>
 <tr class="memitem:a2fc4081524c0c7d655d7af9562d9f219" id="r_a2fc4081524c0c7d655d7af9562d9f219"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a2fc4081524c0c7d655d7af9562d9f219">volt_test_switch</a> = 0</td></tr>
+<tr class="memdesc:a2fc4081524c0c7d655d7af9562d9f219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage test mode control variable.  <br /></td></tr>
 <tr class="memitem:a781e0aae99d7dfe899c7ab1b2cb9e590" id="r_a781e0aae99d7dfe899c7ab1b2cb9e590"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a781e0aae99d7dfe899c7ab1b2cb9e590">Clocktemp_test_switch</a> = 0</td></tr>
+<tr class="memdesc:a781e0aae99d7dfe899c7ab1b2cb9e590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outdoor temperature test mode control variable.  <br /></td></tr>
 <tr class="memitem:a6347ffd479374ec1af0b9f455c051197" id="r_a6347ffd479374ec1af0b9f455c051197"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6347ffd479374ec1af0b9f455c051197">brightness_test_switch</a> = 0</td></tr>
+<tr class="memdesc:a6347ffd479374ec1af0b9f455c051197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness test mode control variable.  <br /></td></tr>
 <tr class="memitem:af1333589211ca00a4523fa43b542dfb3" id="r_af1333589211ca00a4523fa43b542dfb3"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#af1333589211ca00a4523fa43b542dfb3">test_steps</a> [5][4]</td></tr>
+<tr class="memdesc:af1333589211ca00a4523fa43b542dfb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test step changes for each sensor type.  <br /></td></tr>
 <tr class="memitem:a94a5bb5d152d0934ad9d85e5524c76d8" id="r_a94a5bb5d152d0934ad9d85e5524c76d8"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a94a5bb5d152d0934ad9d85e5524c76d8">test_thresholds</a> [5][4]</td></tr>
+<tr class="memdesc:a94a5bb5d152d0934ad9d85e5524c76d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test thresholds for switching between test phases.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Test simulation module debug mode value generation implementation. </p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>Test value generation for all sensor types</li>
+<li>Brightness and night mode simulation</li>
+<li>Compile-time enable/disable support </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a96cd1c74872a3aee742b520f91401a6a" name="a96cd1c74872a3aee742b520f91401a6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96cd1c74872a3aee742b520f91401a6a">&#9670;&#160;</a></span>brightness_test()</h2>
 
@@ -138,6 +171,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Run brightness test sequence. </p>
 <p>Simulate brightness test cycle Cycles through 4 phases with night mode toggle at the end </p>
 
 </div>
@@ -156,6 +191,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get current test brightness value. </p>
 <p>Get current brightness test value </p><dl class="section return"><dt>Returns</dt><dd>Current simulated brightness value </dd></dl>
 
 </div>
@@ -174,6 +211,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get current night mode test state. </p>
 <p>Get current night mode test state </p><dl class="section return"><dt>Returns</dt><dd>True if night mode is active in test </dd></dl>
 
 </div>
@@ -192,6 +231,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generate test outdoor temperature value. </p>
 <p>Simulate outside temperature test cycle Cycles through 4 phases: increase to 33, decrease to -15, increase to 20, decrease to 0.06 </p><dl class="section return"><dt>Returns</dt><dd>Current simulated outside temperature value </dd></dl>
 
 </div>
@@ -210,7 +251,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Simulate oil pressure test cycle Cycles through 4 phases: increase to 4.5, decrease to 2.5, increase to 5.5, decrease to 0.04 </p><dl class="section return"><dt>Returns</dt><dd>Current simulated oil pressure value </dd></dl>
+
+<p>Simulate oil pressure test cycle. </p>
+<p>Generate test oil pressure value.</p>
+<p>Cycles through predefined pressure values for testing gauge functionality. </p>
 
 </div>
 </div>
@@ -228,6 +272,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generate test oil temperature value. </p>
 <p>Simulate oil temperature test cycle Cycles through 4 phases: increase to 100, decrease to 110, increase to 140, decrease to 0.06 </p><dl class="section return"><dt>Returns</dt><dd>Current simulated oil temperature value </dd></dl>
 
 </div>
@@ -246,6 +292,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generate test battery voltage value. </p>
 <p>Simulate voltage test cycle Cycles through 4 phases: increase to 15.5, decrease to 11, increase to 14, decrease to 8.04 </p><dl class="section return"><dt>Returns</dt><dd>Current simulated voltage value </dd></dl>
 
 </div>
@@ -264,7 +312,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reset all test state switches to initial phase </p>
+
+<p>Reset all test state switches to initial phase. </p>
+<p>Reset all test mode switches to initial state. </p>
 
 </div>
 </div>
@@ -282,7 +332,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reset all test values to default state </p>
+
+<p>Reset all test values to default state. </p>
+<p>Reset all test values to defaults. </p>
 
 </div>
 </div>
@@ -299,6 +351,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Brightness test mode control variable. </p>
+
 </div>
 </div>
 <a id="a781e0aae99d7dfe899c7ab1b2cb9e590" name="a781e0aae99d7dfe899c7ab1b2cb9e590"></a>
@@ -312,6 +366,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Outdoor temperature test mode control variable. </p>
 
 </div>
 </div>
@@ -327,6 +383,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pressure test mode control variable. </p>
+
 </div>
 </div>
 <a id="ac57426501c15d07507e82ac9126c1d55" name="ac57426501c15d07507e82ac9126c1d55"></a>
@@ -341,6 +399,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Temperature test mode control variable. </p>
+
 </div>
 </div>
 <a id="af4ada18762294ede2ca24897d42a324c" name="af4ada18762294ede2ca24897d42a324c"></a>
@@ -354,6 +414,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Simulated night mode state. </p>
 
 </div>
 </div>
@@ -375,7 +437,10 @@ Variables</h2></td></tr>
 <div class="line">     {+0.30, -0.30, +0.30, -0.30},</div>
 <div class="line">     {-1.00, +1.00, -1.00, +1.00}</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Test step changes for each sensor type Format: [sensor_type][step_index] sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness </p>
+</div><!-- fragment -->
+<p>Test step changes for each sensor type. </p>
+<p>Test value increment arrays for cycling through test phases.</p>
+<p>Format: [sensor_type][step_index] sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness </p>
 
 </div>
 </div>
@@ -406,9 +471,12 @@ Variables</h2></td></tr>
 <div class="line">    </div>
 <div class="line">     {  <a class="code hl_define" href="individual__config_8h.html#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a>,  <a class="code hl_define" href="individual__config_8h.html#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a>,   <a class="code hl_define" href="individual__config_8h.html#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a>,  <a class="code hl_define" href="individual__config_8h.html#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a>}</div>
 <div class="line">}</div>
-<div class="ttc" id="aindividual__config_8h_html_a5755272baaeeb1a610b6f88e7afeb2d3"><div class="ttname"><a href="individual__config_8h.html#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a></div><div class="ttdeci">#define BRIGHTNESS_DAY</div><div class="ttdoc">Auto-brightness thresholds and manual defaults.</div><div class="ttdef"><b>Definition</b> individual_config.h:235</div></div>
-<div class="ttc" id="aindividual__config_8h_html_a63a82ef9298c0a838ef68d9ecfa061e2"><div class="ttname"><a href="individual__config_8h.html#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a></div><div class="ttdeci">#define BRIGHTNESS_NIGHT_MIN</div><div class="ttdef"><b>Definition</b> individual_config.h:237</div></div>
-</div><!-- fragment --><p>Test thresholds for switching between test phases Format: [sensor_type][threshold_index] sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness </p>
+<div class="ttc" id="aindividual__config_8h_html_a5755272baaeeb1a610b6f88e7afeb2d3"><div class="ttname"><a href="individual__config_8h.html#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a></div><div class="ttdeci">#define BRIGHTNESS_DAY</div><div class="ttdef"><b>Definition</b> individual_config.h:234</div></div>
+<div class="ttc" id="aindividual__config_8h_html_a63a82ef9298c0a838ef68d9ecfa061e2"><div class="ttname"><a href="individual__config_8h.html#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a></div><div class="ttdeci">#define BRIGHTNESS_NIGHT_MIN</div><div class="ttdef"><b>Definition</b> individual_config.h:236</div></div>
+</div><!-- fragment -->
+<p>Test thresholds for switching between test phases. </p>
+<p>Test value thresholds for switching between test phases.</p>
+<p>Format: [sensor_type][threshold_index] sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness </p>
 
 </div>
 </div>
@@ -423,6 +491,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Simulated display brightness (0-100). </p>
 
 </div>
 </div>
@@ -470,6 +540,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Simulated outdoor temperature in °C. </p>
+
 </div>
 </div>
 <a id="a99b2f7b70208b5314b4c25fc98fb50d9" name="a99b2f7b70208b5314b4c25fc98fb50d9"></a>
@@ -484,6 +556,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Simulated battery voltage in volts. </p>
+
 </div>
 </div>
 <a id="a2fc4081524c0c7d655d7af9562d9f219" name="a2fc4081524c0c7d655d7af9562d9f219"></a>
@@ -497,6 +571,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Voltage test mode control variable. </p>
 
 </div>
 </div>

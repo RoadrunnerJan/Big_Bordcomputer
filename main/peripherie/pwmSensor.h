@@ -1,10 +1,10 @@
-#pragma once
-
 /**
  * @file pwmSensor.h
  * @brief PWM sensor reader for Hella 6PP 010 378-201 oil sensor.
  *
- * Decodes PWM pulse signals for oil pressure and temperature readings.
+ * Decodes PWM pulse signals for oil pressure and temperature readings using
+ * MCPWM (Motor Control PWM) capture functionality. Supports multi-pulse sensors
+ * with diagnostic feedback.
  *
  * @author Jan Niklas Rodewald (JRO)
  * @date 01.04.2026
@@ -16,6 +16,8 @@
  *      - Hella 6PP 010 378-201 sensor integration
  *      - Test mode with serial output
  */
+
+#pragma once
 
 /* ===== Project Configuration ===== */
 #include "../individual_config.h"
@@ -34,25 +36,28 @@
 /* ===== PWM Sensor Data Structures ===== */
 
 /**
- * PWM value pair - period and pulse width
+ * @brief PWM value pair - period and pulse width.
+ *
+ * Stores timing information captured from a PWM signal.
  */
 typedef struct {
-    uint32_t period_us;  // Full period in microseconds
-    uint32_t value_us;   // Pulse width in microseconds
+    uint32_t period_us;  /**< Full period in microseconds */
+    uint32_t value_us;   /**< Pulse width in microseconds */
 } value_pair_t;
 
 /**
- * Sensor data from Hella 6PP sensor
- * Contains three separate pulse measurements:
+ * @brief Sensor data from Hella 6PP oil sensor.
+ *
+ * Contains three separate pulse measurements corresponding to:
  * - Temperature sensor (PWM_SENSOR_TEMP_PULSE_ID)
  * - Pressure sensor (PWM_SENSOR_PRES_PULSE_ID)
  * - Diagnostic pulse (PWM_SENSOR_DIAG_PULSE_ID)
  */
 typedef struct {
-    value_pair_t temp_us;       // Temperature pulse data
-    value_pair_t press_us;      // Pressure pulse data
-    value_pair_t diag_us;       // Diagnostic pulse data
-    uint32_t update_count;      // Counter for data updates
+    value_pair_t temp_us;       /**< Temperature pulse data */
+    value_pair_t press_us;      /**< Pressure pulse data */
+    value_pair_t diag_us;       /**< Diagnostic pulse data */
+    uint32_t update_count;      /**< Counter for data updates */
 } sensor_data_t;
 
 
@@ -67,12 +72,12 @@ extern mcpwm_capture_event_callbacks_t cbs;
 extern volatile sensor_data_t latest_sensor_values;
 
 /* ===== Pulse Tracking Variables ===== */
-extern uint32_t last_pos_edge;      // Last positive edge timestamp
-extern int pulse_idx;               // Current pulse index (0-2 for 3 sensors)
-extern uint32_t period_us;          // Measured period
-extern uint32_t width;              // Measured pulse width
-extern uint32_t last_seen_count;    // Counter for timeout detection
-extern int first_init_done;         // Initialization flag
+extern uint32_t last_pos_edge;      /**< Last positive edge timestamp */
+extern int pulse_idx;               /**< Current pulse index (0-2 for 3 sensors) */
+extern uint32_t period_us;          /**< Measured period in microseconds */
+extern uint32_t width;              /**< Measured pulse width in microseconds */
+extern uint32_t last_seen_count;    /**< Counter for timeout detection */
+extern int first_init_done;         /**< Initialization flag */
 
 
 /* ===== Function Declarations ===== */

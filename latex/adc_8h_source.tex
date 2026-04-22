@@ -1,0 +1,63 @@
+\doxysection{adc.\+h}
+\hypertarget{adc_8h_source}{}\label{adc_8h_source}\index{main/peripherie/adc.h@{main/peripherie/adc.h}}
+\doxymbox{\hyperlink{adc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}esp\_adc/adc\_oneshot.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{individual__config_8h}{../individual\_config.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}esp\_adc/adc\_cali.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}esp\_adc/adc\_cali\_scheme.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{logging_8h}{../logging/logging.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structlookup__values__t_a58641d6981159587993d9b6db2fcc60f}{value}};\ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{structlookup__values__t_a105ce9befc60bcf30d2cbd86c38c455b}{res}};\ \ \ \ }
+\DoxyCodeLine{00015\ \}\ \doxymbox{\hyperlink{structlookup__values__t}{lookup\_values\_t}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3abf68a4b61c9cf9d73c8e94315ab6b865}{ADC\_OIL\_PRESSURE}}\ =\ 0,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a34694035085fc1c09098551f8b4b3df8}{ADC\_OIL\_TEMPERATURE}}\ =\ 1,\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a27c0d1553ff464332f46254a4499c3bd}{ADC\_OUT\_TEMPERATURE}}\ =\ 2,\ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a5c0384cbeca7f7e0dba86bc2188b5b9b}{ADC\_12V}}\ =\ 3,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a3b0f80060a0f8d63f46bec1e186142c8}{ADC\_AMBI}}\ =\ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151}{ADC\_3V3}}\ =\ 5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\_ABC\_NBR}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \}\ \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\_selection}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ adc\_channel\_t\ \doxymbox{\hyperlink{structadc__handles__t_a5aa42351d8169729b1c95b1a0e97374e}{channel}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ adc\_oneshot\_chan\_cfg\_t\ \doxymbox{\hyperlink{structadc__handles__t_adb209b21039d7dcb83163c31d679d20f}{chan\_config}};\ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ adc\_oneshot\_unit\_handle\_t\ \doxymbox{\hyperlink{structadc__handles__t_adbec15e3c4637f01ad35a9a13b9159fe}{adc\_handle}};\ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ adc\_cali\_handle\_t\ \doxymbox{\hyperlink{structadc__handles__t_ad40138c1268cf8d10fa2e2bbadbd5d85}{cali\_handle}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \}\ \doxymbox{\hyperlink{structadc__handles__t}{adc\_handles\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ adc\_oneshot\_unit\_init\_cfg\_t\ \doxymbox{\hyperlink{adc_8c_ab8312f91420a75afd9d29df66b44aa85}{init\_config}}[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\_UNIT\_NUMBER}}];}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ adc\_oneshot\_unit\_handle\_t\ \doxymbox{\hyperlink{adc_8c_ab67e7b00ec2abc929c23209b55fc7496}{adc\_handler}}[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\_UNIT\_NUMBER}}];}
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ adc\_cali\_curve\_fitting\_config\_t\ \doxymbox{\hyperlink{adc_8c_ad1b41a73421aef36042226d52f6db578}{cali\_config}}[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\_UNIT\_NUMBER}}];}
+\DoxyCodeLine{00047\ \textcolor{keyword}{extern}\ adc\_cali\_handle\_t\ \doxymbox{\hyperlink{adc_8c_ab4aaea083da9b672746255ebc1f67abd}{cali\_handler}}[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\_UNIT\_NUMBER}}];}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{structadc__handles__t}{adc\_handles\_t}}\ \doxymbox{\hyperlink{adc_8c_a1b27817604a4502be2244972d0eb2ce2}{adc\_handles}}[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\_ABC\_NBR}}\ -\/\ 1];}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlookup__values__t}{lookup\_values\_t}}\ \doxymbox{\hyperlink{adc_8c_a3222dc2ea3f4f877a09b77f768e098a6}{oil\_temp\_table}}[];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlookup__values__t}{lookup\_values\_t}}\ \doxymbox{\hyperlink{adc_8c_a9368b27af8dd8c123596c5554a756233}{outside\_temperature\_table}}[];\ \ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlookup__values__t}{lookup\_values\_t}}\ \doxymbox{\hyperlink{adc_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\_table}}[];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ OIL\_TABLE\_SIZE\ (sizeof(oil\_temp\_table)\ /\ sizeof(lookup\_values\_t))}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ OUTSIDE\_TABLE\_SIZE\ (sizeof(outside\_temperature\_table)\ /\ sizeof(lookup\_values\_t))}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ PRESSURE\_TABLE\_SIZE\ (sizeof(pressure\_table)\ /\ sizeof(pressure\_table[0]))}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{adc_8h_a2b815e6730e8723a6d1d06d9ef8f31c0}{adc\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{adc_8h_ae8e20d8c3f734d14c99ba0a627ad10f8}{read\_adc\_value\_raw}}(\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\_selection}}\ adc\_sel);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_aecb92412f5a57e9891a1586697c50e76}{get\_adc\_volt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_a54e862054e3ebe64416cefcbce61d129}{get\_adc\_volt\_bel}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_acda2b737883de19d5eef6e52778e0ae6}{get\_adc\_oil\_temp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_ad1347339dd37ac606dd775d486c3e1f3}{get\_adc\_oil\_press}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_a8e7400a93b60cf9e28dd03210ec76efe}{get\_adc\_outside\_temp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{adc_8h_a89167f9393f55acc3cf5b6a5e47a89af}{get\_adc\_reference\_voltage}}(\textcolor{keywordtype}{void});}
+
+\end{DoxyCode}

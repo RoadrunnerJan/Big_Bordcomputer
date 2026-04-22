@@ -1,18 +1,14 @@
-/*
- * ============================================================================
- * LOGGING MODULE - Debug Output Implementation
- * ============================================================================
+/**
+ * @file logging.c
+ * @brief Logging module debug output implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Info, error, and warning log functions
  *      - Compile-time enable/disable support
- *
  */
 
 #include "logging.h"
@@ -21,8 +17,11 @@
 /* ===== Function Implementations ===== */
 
 /**
- * Print informational log message
+ * @brief Print informational log message.
+ *
  * Output only if LOGGING_ENABLED is true in individual_config.h
+ *
+ * @param message Log message string to display
  */
 void printLog(const char *message)
 {
@@ -33,8 +32,11 @@ void printLog(const char *message)
 
 
 /**
- * Print error log message
+ * @brief Print error log message.
+ *
  * Output only if LOGGING_ENABLED is true in individual_config.h
+ *
+ * @param message Error message string to display
  */
 void printErrorLog(const char *message)
 {
@@ -45,8 +47,11 @@ void printErrorLog(const char *message)
 
 
 /**
- * Print warning log message
+ * @brief Print warning log message.
+ *
  * Output only if LOGGING_ENABLED is true in individual_config.h
+ *
+ * @param message Warning message string to display
  */
 void printWarningLog(const char *message)
 {

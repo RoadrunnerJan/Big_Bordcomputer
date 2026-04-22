@@ -1,5 +1,7 @@
 var dir_8a04bc4a30b33dd575fe13944cb7c227 =
 [
+    [ "adc.c", "adc_8c.html", "adc_8c" ],
+    [ "adc.h", "adc_8h.html", "adc_8h" ],
     [ "buzzer.c", "buzzer_8c.html", "buzzer_8c" ],
     [ "buzzer.h", "buzzer_8h.html", "buzzer_8h" ],
     [ "i2cFunctions.c", "i2c_functions_8c.html", "i2c_functions_8c" ],

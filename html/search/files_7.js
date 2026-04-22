@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['testsimulation_2ec_0',['testSimulation.c',['../test_simulation_8c.html',1,'']]],
-  ['testsimulation_2eh_1',['testSimulation.h',['../test_simulation_8h.html',1,'']]]
+  ['spifunctions_2ec_0',['spiFunctions.c',['../spi_functions_8c.html',1,'']]],
+  ['spifunctions_2eh_1',['spiFunctions.h',['../spi_functions_8h.html',1,'']]]
 ];

@@ -1,68 +1,20 @@
 
-/*
- * ============================================================================
- * MAIN APPLICATION - E36 Board Computer
- * ============================================================================
- * FreeRTOS-based multi-display gauge system with sensor processing
- * Main entry point and board initialization
+/**
+ * @file main.c
+ * @brief Main application entry point for E36 Board Computer.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * FreeRTOS-based multi-display gauge system with real-time sensor processing,
+ * LVGL graphical interface, and peripheral management for classic vehicle dashboard.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Multi-display support with FreeRTOS tasks
  *      - PWM sensor and I2C ADC interface
- *      - LVGL gauge system
- *      - Buzzer alert system
- */
-
- /*
- 
-    ToDo:
-        - Ref 3.3V messen, dafür einen Spannungsteiler von Pin 3.3V zu Pin 20 -> ADC lesen und dann als Referenzspannung nutzen
-        - Für Spannungsteiler -> Spannung halbieren: R1 = R2 = 1k (z.b.)
-        - ESP ADC Pinout lesen: https://randomnerdtutorials.com/esp-idf-esp32-gpio-analog-adc/
-        - ESP ADC bis 4095 (Kurve nicht linear: 0, 0.1, 0.15 => 0; 3.1, 3.2, 3.3 => 4095)
-
-        -> Pin 20 -> ADC_CHANNEL_7     (siehe https://docs.espressif.com/projects/esp-idf/en/stable/esp32p4/api-reference/peripherals/gpio.html)
-        -> Pin 20 -> ADC_UNIT_1 
-        -> ADC_BITWIDTH_12 für 4095
-        -> ADC_ATTEN     ADC_ATTEN_DB_12 -> // ~3.3V full-scale voltage
-
-
-         // lesecode:
-            #include <esp_adc/adc_oneshot.h>
-
-            int adc_value;
-            adc_oneshot_unit_handle_t adc_handle;
-
-            // Initialize ADC Oneshot Mode Driver on the ADC Unit
-            adc_oneshot_unit_init_cfg_t init_config = {
-                .unit_id = ADC_UNIT,
-                .clk_src = ADC_RTC_CLK_SRC_DEFAULT,
-            };
-            ESP_ERROR_CHECK(adc_oneshot_new_unit(&init_config, &adc_handle));
-
-            // Configure ADC channel
-            adc_oneshot_chan_cfg_t config = {
-                .bitwidth = ADC_BITWIDTH,
-                .atten = ADC_ATTEN,
-            };
-            ESP_ERROR_CHECK(adc_oneshot_config_channel(adc_handle, ADC_PIN, &config));
-
-            // ADC Oneshot Analog Read loop
-            while (1) {
-                // Read ADC value with Oneshot
-                ESP_ERROR_CHECK(adc_oneshot_read(adc_handle, ADC_PIN, &adc_value));
-                // Print ADC value
-                ESP_LOGI("ADC Value", "%d", adc_value);
-                // Delay 1 second
-                vTaskDelay(1000 / portTICK_PERIOD_MS); 
-            }
-        
+ *      - LVGL gauge system with day/night mode switching
+ *      - Buzzer alert system for temperature warnings
  */
 
 
@@ -107,10 +59,14 @@ bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
 /* ===== Buzzer Task (only if enabled) ===== */
 #if USE_BUZZER == true
     static int buzzed = 0;
-    
+
     /**
-     * Temperature alert beep pattern
-     * Generates double beep pattern when outdoor temperature < 3°C
+     * @brief Generate temperature alert beep pattern.
+     *
+     * Generates a double beep pattern when outdoor temperature falls below 3°C.
+     * Task runs to completion then deletes itself.
+     *
+     * @param pvParameters Task parameter (unused)
      */
     static void temperature_buzzering(void *pvParameters)
     {
@@ -134,16 +90,18 @@ bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
 /* ===== Display Update Tasks ===== */
 
 /**
- * Update sensor values and LVGL variables for a given display
- * 
- * Reads sensor data (PWM or I2C ADC) based on the current screen selection,
- * calculates the values, and updates the LVGL display variables.
- * This function handles:
- * - Sensor reading (test mode or actual sensor data)
- * - Value calculation and calibration
+ * @brief Update sensor values and LVGL variables for a display.
+ *
+ * Reads sensor data (PWM or I2C ADC) based on current screen selection,
+ * calculates processed values, and updates LVGL display variables for rendering.
+ *
+ * Handles:
+ * - Sensor reading in test mode or from actual hardware
+ * - Value calculation with calibration
  * - LVGL variable updates for display rendering
- * 
- * @param displayID Index of the display to update values for
+ * - Automatic day/night mode adjustments
+ *
+ * @param displayID Index of the display to update values for (0 to NUMBER_OF_DISPLAYS-1)
  */
 static void update_values(int displayID)
 {
@@ -157,7 +115,7 @@ static void update_values(int displayID)
             else 
             {
                 if (isPWM()) value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
-                else value = get_i2c_adc_oil_press();
+                else value = get_adc_oil_press();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
             set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
@@ -170,7 +128,7 @@ static void update_values(int displayID)
             }
             else {
                 if (isPWM()) value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
-                else value = get_i2c_adc_oil_temp();
+                else value = get_adc_oil_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
             set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
@@ -182,7 +140,7 @@ static void update_values(int displayID)
                 value = lv_volt_test();
             }
             else {
-                value = get_i2c_adc_volt();
+                value = get_adc_volt();
             }
             calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
             set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
@@ -194,7 +152,7 @@ static void update_values(int displayID)
                 value = lv_Clocktemp_test();
             }
             else {
-                value = get_i2c_adc_outside_temp();
+                value = get_adc_outside_temp();
             }
 
             time(&now);
@@ -211,7 +169,7 @@ static void update_values(int displayID)
                 value = lv_Clocktemp_test();
             }
             else {
-                value = get_i2c_adc_outside_temp();
+                value = get_adc_outside_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
             set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
@@ -226,15 +184,15 @@ static void update_values(int displayID)
 }
 
 /**
- * Handle display screen updates and rendering for a given display
- * 
+ * @brief Handle display screen updates and rendering for a given display.
+ *
  * Manages screen switching between day and night modes based on brightness settings.
- * Performs screen load animation without delays (removed for performance optimization)
- * and calls the appropriate screen-specific tick function to render updated values.
- * The screen is only reloaded if it differs from the currently active screen.
- * 
- * @param displayID Index of the display to update
- * @param force_night_mode_update Flag to force night mode update
+ * Performs screen load with animation and calls the appropriate screen-specific
+ * tick function to render updated values. Screen is only reloaded if it differs
+ * from the currently active screen to optimize performance.
+ *
+ * @param displayID Index of the display to update (0 to NUMBER_OF_DISPLAYS-1)
+ * @param force_night_mode_update Flag to force screen update when night mode changes
  */
 static void tick_switch(int displayID, bool force_night_mode_update)
 {
@@ -351,6 +309,15 @@ static void tick_switch(int displayID, bool force_night_mode_update)
     lv_timer_handler();
 }
 
+/**
+ * @brief Main LVGL tick task for periodic display updates.
+ *
+ * Core FreeRTOS task that runs the display update loop at 50ms intervals.
+ * Handles brightness calculation, night mode switching, sensor reading,
+ * value updates, screen rendering, and optional buzzer alerts.
+ *
+ * @param pv Task parameter (unused)
+ */
 static void lv_tick_task_screen(void *pv)
 {
     (void)pv;
@@ -363,7 +330,7 @@ static void lv_tick_task_screen(void *pv)
             night_mode = getNightModeActiveTestValue();
         }
         else {
-            calcBrightness(get_i2c_adc_volt_bel());
+            calcBrightness(get_adc_volt_bel());
             if(BRIGHTNESS_AUTO_ENABLE) {
                 night_mode = getNightModeActive();
             }
@@ -392,7 +359,7 @@ static void lv_tick_task_screen(void *pv)
 
         // Read reference voltage for ADC calculations (Version 4.2 feature)
         if(!is_testmode_activated()) {
-            get_i2c_adc_reference_voltage();
+            get_adc_reference_voltage();
         }
 
         // Phase 1: Update all sensor values and LVGL variables for all displays
@@ -447,16 +414,22 @@ static void lv_tick_task_screen(void *pv)
         }
 
         vTaskDelay(pdMS_TO_TICKS(50));
-
-        read_adc_value();
     }
 }
 
 /**
- * Initialize all hardware and system components.
+ * @brief Initialize all hardware and system components.
  *
- * Sets up backlight PWM, RTC, buttons, SPI display layers, LVGL and sensors.
- * Also starts timers and optional buzzer component.
+ * Sets up all peripherals and services required for the board computer:
+ * - Display backlight PWM and brightness control
+ * - ADC for sensor input
+ * - I2C bus with RTC (DS3231) and synchronizes system time
+ * - Time adjustment buttons with callbacks
+ * - SPI display layers and LVGL graphics engine
+ * - PWM/ADC sensor mode selector
+ * - Optional buzzer component for temperature alerts
+ *
+ * Must be called once during application startup before creating tasks.
  */
 void init_system()
 {
@@ -465,6 +438,9 @@ void init_system()
     // init display backlight
     init_lcd_backlight_pwm();
     printLog("Display backlight initialized.");
+
+    adc_init();
+    printLog("ADC initialized.");
 
     // init rtc
     init_i2c();
@@ -500,19 +476,17 @@ void init_system()
         printLog("Buzzer initialized.");
     #endif
     printLog("Initialization complete. Entering main loop.");
-
-
-
-
-    adc_init();
-    printLog("ADC initialized.");
 }
 
+
 /**
- * ESP-IDF main entry point.
+ * @brief ESP-IDF application main entry point.
  *
- * Initializes system resources and creates the LVGL tick task.
- * The main function then enters idle mode while tasks run in the background.
+ * Initializes all system resources and creates the main LVGL tick task
+ * for periodic display updates. After task creation, enters idle mode
+ * while background tasks handle application logic.
+ *
+ * This function is automatically called by ESP-IDF runtime.
  */
 void app_main(void)
 {

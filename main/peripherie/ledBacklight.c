@@ -1,18 +1,14 @@
-/*
- * ============================================================================
- * LED BACKLIGHT CONTROL - PWM Driver Implementation
- * ============================================================================
+/**
+ * @file ledBacklight.c
+ * @brief LED backlight PWM driver implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - LEDC PWM configuration for display brightness
  *      - Percentage-based brightness control (0-100%)
- *
  */
 
 #include "ledBacklight.h"
@@ -25,8 +21,9 @@ ledc_channel_config_t ledc_channel = {0};
 /* ===== Function Implementations ===== */
 
 /**
- * Initialize LED backlight PWM configuration
- * Configures LEDC timer and channel for LCD brightness control
+ * @brief Initialize LED backlight PWM configuration.
+ *
+ * Configures LEDC timer and channel for LCD brightness control.
  */
 void init_lcd_backlight_pwm(void)
 {
@@ -53,8 +50,11 @@ void init_lcd_backlight_pwm(void)
 
 
 /**
- * Set LCD brightness level (0-100%)
- * Converts percentage to duty cycle value
+ * @brief Set LCD brightness level (0-100%).
+ *
+ * Converts percentage to PWM duty cycle and applies to the backlight pin.
+ *
+ * @param percentage Brightness level clamped to 0-100%
  */
 void set_lcd_brightness(uint8_t percentage)
 {

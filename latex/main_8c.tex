@@ -1,5 +1,10 @@
 \doxysection{main/\+main.c File Reference}
 \hypertarget{main_8c}{}\label{main_8c}\index{main/main.c@{main/main.c}}
+
+
+Main application entry point for E36 Board Computer.  
+
+
 {\ttfamily \+\#include "{}individual\+\_\+config.\+h"{}}\newline
 {\ttfamily \+\#include "{}peripherie/\+spi\+Functions.\+h"{}}\newline
 {\ttfamily \+\#include "{}peripherie/\+led\+Backlight.\+h"{}}\newline
@@ -7,6 +12,7 @@
 {\ttfamily \+\#include "{}peripherie/\+i2c\+Functions.\+h"{}}\newline
 {\ttfamily \+\#include "{}peripherie/\+pwm\+Sensor.\+h"{}}\newline
 {\ttfamily \+\#include "{}peripherie/\+pwm\+Switch.\+h"{}}\newline
+{\ttfamily \+\#include "{}peripherie/\+adc.\+h"{}}\newline
 {\ttfamily \+\#include "{}logging/\+logging.\+h"{}}\newline
 {\ttfamily \+\#include "{}calculation/\+values.\+h"{}}\newline
 {\ttfamily \+\#include "{}simulation/\+test\+Simulation.\+h"{}}\newline
@@ -14,15 +20,15 @@
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{main_8c_afceb890a6ab9be73cc5481369538c705}{init\+\_\+system}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize all hardware and system components. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em ESP-\/\+IDF application main entry point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-time\+\_\+t \doxymbox{\hyperlink{main_8c_a6e518afa23f4d64bf5cadee75e8af186}{Start\+Up\+Time}} = 0
+struct timeval \doxymbox{\hyperlink{main_8c_af79698230cc91220f161709d9a7203f8}{Start\+Up\+Time}}
 \item 
-time\+\_\+t \doxymbox{\hyperlink{main_8c_a6ed0b29f7880e47087b6696327cef962}{check\+Time}} = 0
+struct timeval \doxymbox{\hyperlink{main_8c_a556487bb4a127c111ded5f79f9de97fe}{check\+Time}}
 \item 
 int \doxymbox{\hyperlink{main_8c_ac8e5c5d7af5d734614837b48dc709d91}{testmode\+Activated}} = false
 \item 
@@ -30,6 +36,28 @@ bool \doxymbox{\hyperlink{main_8c_a9415d6967ea31a1d71a6364878d31189}{night\+\_\+
 \item 
 bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+checked}} \+[2]\+ = \{false, false\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application entry point for E36 Board Computer. 
+
+Free\+RTOS-\/based multi-\/display gauge system with real-\/time sensor processing, LVGL graphical interface, and peripheral management for classic vehicle dashboard.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item Multi-\/display support with Free\+RTOS tasks
+\item PWM sensor and I2C ADC interface
+\item LVGL gauge system with day/\+night mode switching
+\item Buzzer alert system for temperature warnings 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -41,26 +69,43 @@ bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+c
 {\footnotesize\ttfamily \label{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
 void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-ESP-\/\+IDF main entry point.
 
-Initializes system resources and creates the LVGL tick task. The main function then enters idle mode while tasks run in the background. \Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
+
+ESP-\/\+IDF application main entry point. 
+
+Initializes all system resources and creates the main LVGL tick task for periodic display updates. After task creation, enters idle mode while background tasks handle application logic.
+
+This function is automatically called by ESP-\/\+IDF runtime. \Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
 \index{init\_system@{init\_system}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{init\_system()}{init\_system()}}
 {\footnotesize\ttfamily \label{main_8c_afceb890a6ab9be73cc5481369538c705} 
 void init\+\_\+system (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Initialize all hardware and system components.
 
-Sets up backlight PWM, RTC, buttons, SPI display layers, LVGL and sensors. Also starts timers and optional buzzer component. 
+
+Initialize all hardware and system components. 
+
+Sets up all peripherals and services required for the board computer:\+
+\begin{DoxyItemize}
+\item Display backlight PWM and brightness control
+\item ADC for sensor input
+\item I2C bus with RTC (DS3231) and synchronizes system time
+\item Time adjustment buttons with callbacks
+\item SPI display layers and LVGL graphics engine
+\item PWM/\+\+ADC sensor mode selector
+\item Optional buzzer component for temperature alerts
+\end{DoxyItemize}
+
+Must be called once during application startup before creating tasks. 
 
 \label{doc-var-members}
 \Hypertarget{main_8c_doc-var-members}
 \doxysubsection{Variable Documentation}
-\Hypertarget{main_8c_a6ed0b29f7880e47087b6696327cef962}\index{main.c@{main.c}!checkTime@{checkTime}}
+\Hypertarget{main_8c_a556487bb4a127c111ded5f79f9de97fe}\index{main.c@{main.c}!checkTime@{checkTime}}
 \index{checkTime@{checkTime}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{checkTime}{checkTime}}
-{\footnotesize\ttfamily \label{main_8c_a6ed0b29f7880e47087b6696327cef962} 
-time\+\_\+t check\+Time = 0}
+{\footnotesize\ttfamily \label{main_8c_a556487bb4a127c111ded5f79f9de97fe} 
+struct timeval check\+Time}
 
 \Hypertarget{main_8c_a9415d6967ea31a1d71a6364878d31189}\index{main.c@{main.c}!night\_mode@{night\_mode}}
 \index{night\_mode@{night\_mode}!main.c@{main.c}}
@@ -68,11 +113,11 @@ time\+\_\+t check\+Time = 0}
 {\footnotesize\ttfamily \label{main_8c_a9415d6967ea31a1d71a6364878d31189} 
 bool night\+\_\+mode = false}
 
-\Hypertarget{main_8c_a6e518afa23f4d64bf5cadee75e8af186}\index{main.c@{main.c}!StartUpTime@{StartUpTime}}
+\Hypertarget{main_8c_af79698230cc91220f161709d9a7203f8}\index{main.c@{main.c}!StartUpTime@{StartUpTime}}
 \index{StartUpTime@{StartUpTime}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{StartUpTime}{StartUpTime}}
-{\footnotesize\ttfamily \label{main_8c_a6e518afa23f4d64bf5cadee75e8af186} 
-time\+\_\+t Start\+Up\+Time = 0}
+{\footnotesize\ttfamily \label{main_8c_af79698230cc91220f161709d9a7203f8} 
+struct timeval Start\+Up\+Time}
 
 \Hypertarget{main_8c_ac8e5c5d7af5d734614837b48dc709d91}\index{main.c@{main.c}!testmodeActivated@{testmodeActivated}}
 \index{testmodeActivated@{testmodeActivated}!main.c@{main.c}}

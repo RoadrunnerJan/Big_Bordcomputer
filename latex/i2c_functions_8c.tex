@@ -1,43 +1,26 @@
 \doxysection{main/\+peripherie/\+i2c\+Functions.c File Reference}
 \hypertarget{i2c_functions_8c}{}\label{i2c_functions_8c}\index{main/peripherie/i2cFunctions.c@{main/peripherie/i2cFunctions.c}}
+
+
+I2C interface RTC and ADC device communication implementation.  
+
+
 {\ttfamily \+\#include "{}i2c\+Functions.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697}{init\+\_\+i2c}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize I2C bus and attach RTC and ADC devices. \end{DoxyCompactList}\item 
 uint8\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a0f7a9fea6e3ea1106a9b5485f7f8df61}{bcd2dec}} (uint8\+\_\+t val)
 \item 
 uint8\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_af6baa5614567fc7a64a994e755d4c721}{dec2bcd}} (uint8\+\_\+t val)
 \item 
 void \doxymbox{\hyperlink{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}{sync\+\_\+rtc\+\_\+to\+\_\+system}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Synchronize system time with RTC DS3231 time. \end{DoxyCompactList}\item 
 esp\+\_\+err\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a0aaff805c3f70e6f5fad12df0cb285e5}{ds3231\+\_\+set\+\_\+time}} (struct tm \texorpdfstring{$\ast$}{*}time)
 \item 
 void \doxymbox{\hyperlink{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}{init\+\_\+time\+\_\+buttons}} ()
-\item 
-int16\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a3616ee4324b49c21f5c630113d7486fa}{read\+\_\+ads1115}} (i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t dev, uint8\+\_\+t channel, uint16\+\_\+t pga\+\_\+setting)
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a588f37762af357a454b6e23e463d5b8d}{interpolate\+\_\+temp}} (float r\+\_\+measured)
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a5ae029b9d6dc2e265df44e534ada788b}{interpolate\+\_\+outside\+\_\+temp}} (float r\+\_\+measured)
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a785d1fe320cf21f8bbf5b40016fbca9e}{interpolate\+\_\+pressure}} (float r\+\_\+measured)
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a5524d0e119c73860a14f8a581bbb1c85}{raw\+\_\+to\+\_\+res\+\_\+safe}} (int16\+\_\+t raw, float r\+\_\+pullup)
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88}{get\+\_\+i2c\+\_\+adc\+\_\+volt}} ()
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_aa319e8e470ad9782603cb91c30f17a14}{get\+\_\+i2c\+\_\+adc\+\_\+volt\+\_\+bel}} ()
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a3f7d5fe4dd5e5530888a288b417417cd}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+temp}} ()
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a9a4ff1f57ce9ff4990f4d77a1be56191}{get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press}} ()
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a9673141d092ff9b9f4b89d4a0f1590c4}{get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp}} ()
-\item 
-void \doxymbox{\hyperlink{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}{get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialize the time adjustment buttons and callbacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,21 +32,11 @@ i2c\+\_\+device\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ab267ad
 \item 
 i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2}{ds3231\+\_\+handle}} = NULL
 \item 
-i2c\+\_\+device\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_acb5ddf7923f8366395f68b86c77d6059}{ads\+\_\+cfg}} \+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+ = \{0\}
-\item 
-i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a7f84388a86187f1b6076f572802a2392}{ads\+\_\+handle}} \+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+
-\item 
 button\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49}{cfg\+\_\+time}} \+[2]\+ = \{0\}
 \item 
 button\+\_\+gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c}{gpio\+\_\+cfg\+\_\+time}} \+[2]\+ = \{0\}
 \item 
 button\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\+\_\+time}} \+[2]\+ = \{0\}
-\item 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8c_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
-\item 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8c_a9368b27af8dd8c123596c5554a756233}{outside\+\_\+temperature\+\_\+table}} \+[$\,$]\+
-\item 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}{pressure\+\_\+table}} \+[$\,$]\+
 \item 
 bool \doxymbox{\hyperlink{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}{testmode\+\_\+activated}} = false
 \item 
@@ -72,9 +45,27 @@ Tick\+Type\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a63b736710f6e0f87dce37e1
 int \doxymbox{\hyperlink{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2}{testmode\+\_\+activation\+\_\+count}} = 0
 \item 
 int \doxymbox{\hyperlink{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f}{testmode\+\_\+activation\+\_\+state}} = 0
-\item 
-float \doxymbox{\hyperlink{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9}{reference\+\_\+voltage}} = \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C interface RTC and ADC device communication implementation. 
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item DS3231 real-\/time clock interface
+\item NTC temperature table interpolation
+\item Button control for time adjustment
+\item Dual ADC support for enhanced sensor coverage 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -108,169 +99,43 @@ Write the given time struct into the DS3231 RTC.
 \begin{DoxyReturn}{Returns}
 ESP\+\_\+\+OK on success, error code otherwise. 
 \end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a9a4ff1f57ce9ff4990f4d77a1be56191}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_oil\_press@{get\_i2c\_adc\_oil\_press}}
-\index{get\_i2c\_adc\_oil\_press@{get\_i2c\_adc\_oil\_press}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_oil\_press()}{get\_i2c\_adc\_oil\_press()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a9a4ff1f57ce9ff4990f4d77a1be56191} 
-float get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+press (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Read oil pressure from ADS1115 ADC with resistance-\/to-\/pressure conversion \Hypertarget{i2c_functions_8c_a3f7d5fe4dd5e5530888a288b417417cd}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_oil\_temp@{get\_i2c\_adc\_oil\_temp}}
-\index{get\_i2c\_adc\_oil\_temp@{get\_i2c\_adc\_oil\_temp}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_oil\_temp()}{get\_i2c\_adc\_oil\_temp()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a3f7d5fe4dd5e5530888a288b417417cd} 
-float get\+\_\+i2c\+\_\+adc\+\_\+oil\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Read oil temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8c_a9673141d092ff9b9f4b89d4a0f1590c4}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_outside\_temp@{get\_i2c\_adc\_outside\_temp}}
-\index{get\_i2c\_adc\_outside\_temp@{get\_i2c\_adc\_outside\_temp}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_outside\_temp()}{get\_i2c\_adc\_outside\_temp()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a9673141d092ff9b9f4b89d4a0f1590c4} 
-float get\+\_\+i2c\+\_\+adc\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Read outdoor temperature from ADS1115 ADC with NTC lookup table \Hypertarget{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_reference\_voltage@{get\_i2c\_adc\_reference\_voltage}}
-\index{get\_i2c\_adc\_reference\_voltage@{get\_i2c\_adc\_reference\_voltage}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_reference\_voltage()}{get\_i2c\_adc\_reference\_voltage()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad} 
-void get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Measure and update the ADC reference voltage dynamically.
-
-Reads the reference voltage from the second ADS1115 device (if available) and updates the global reference\+\_\+voltage variable for use in \doxylink{i2c_functions_8c_a5524d0e119c73860a14f8a581bbb1c85}{raw\+\_\+to\+\_\+res\+\_\+safe()}. If the measurement is out of valid range, defaults to ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V.
-
-Read reference voltage from ADS1115 ADC (Version 4.\+2 feature) \Hypertarget{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}}
-\index{get\_i2c\_adc\_volt@{get\_i2c\_adc\_volt}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_volt()}{get\_i2c\_adc\_volt()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a3016d9748f92a3665c1e7202ce1e4e88} 
-float get\+\_\+i2c\+\_\+adc\+\_\+volt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Read battery voltage from ADS1115 ADC \Hypertarget{i2c_functions_8c_aa319e8e470ad9782603cb91c30f17a14}\index{i2cFunctions.c@{i2cFunctions.c}!get\_i2c\_adc\_volt\_bel@{get\_i2c\_adc\_volt\_bel}}
-\index{get\_i2c\_adc\_volt\_bel@{get\_i2c\_adc\_volt\_bel}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{get\_i2c\_adc\_volt\_bel()}{get\_i2c\_adc\_volt\_bel()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_aa319e8e470ad9782603cb91c30f17a14} 
-float get\+\_\+i2c\+\_\+adc\+\_\+volt\+\_\+bel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-Read brightness/\+light sensor voltage from ADS1115 ADC \Hypertarget{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697}\index{i2cFunctions.c@{i2cFunctions.c}!init\_i2c@{init\_i2c}}
+\Hypertarget{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697}\index{i2cFunctions.c@{i2cFunctions.c}!init\_i2c@{init\_i2c}}
 \index{init\_i2c@{init\_i2c}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{init\_i2c()}{init\_i2c()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697} 
 void init\+\_\+i2c (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize I2C bus and attach RTC and ADC devices.
 
-Sets up DS3231 and ADS1115 devices on the I2C bus, including multi-\/device support. \Hypertarget{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}\index{i2cFunctions.c@{i2cFunctions.c}!init\_time\_buttons@{init\_time\_buttons}}
+
+Initialize I2C bus and attach RTC and ADC devices. 
+
+Initialize I2C bus and attach connected sensors.
+
+Sets up the I2C master bus and attaches the DS3231 device for multi-\/device support. \Hypertarget{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}\index{i2cFunctions.c@{i2cFunctions.c}!init\_time\_buttons@{init\_time\_buttons}}
 \index{init\_time\_buttons@{init\_time\_buttons}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{init\_time\_buttons()}{init\_time\_buttons()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60} 
 void init\+\_\+time\+\_\+buttons (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize the time adjustment buttons and callbacks. \Hypertarget{i2c_functions_8c_a5ae029b9d6dc2e265df44e534ada788b}\index{i2cFunctions.c@{i2cFunctions.c}!interpolate\_outside\_temp@{interpolate\_outside\_temp}}
-\index{interpolate\_outside\_temp@{interpolate\_outside\_temp}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{interpolate\_outside\_temp()}{interpolate\_outside\_temp()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a5ae029b9d6dc2e265df44e534ada788b} 
-float interpolate\+\_\+outside\+\_\+temp (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
-
-Interpolate temperature from outside NTC table.
 
 
-\begin{DoxyParams}{Parameters}
-{\em r\+\_\+measured} & Measured resistance in Ohm. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Interpolated temperature in °C or ADC\+\_\+\+FAIL\+\_\+\+VALUE for invalid. 
-\end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a785d1fe320cf21f8bbf5b40016fbca9e}\index{i2cFunctions.c@{i2cFunctions.c}!interpolate\_pressure@{interpolate\_pressure}}
-\index{interpolate\_pressure@{interpolate\_pressure}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{interpolate\_pressure()}{interpolate\_pressure()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a785d1fe320cf21f8bbf5b40016fbca9e} 
-float interpolate\+\_\+pressure (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
+Initialize the time adjustment buttons and callbacks. 
 
-Interpolate pressure from outside NTC table.
-
-
-\begin{DoxyParams}{Parameters}
-{\em r\+\_\+measured} & Measured resistance in Ohm. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Interpolated pressure in bar or ADC\+\_\+\+FAIL\+\_\+\+VALUE for invalid. 
-\end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a588f37762af357a454b6e23e463d5b8d}\index{i2cFunctions.c@{i2cFunctions.c}!interpolate\_temp@{interpolate\_temp}}
-\index{interpolate\_temp@{interpolate\_temp}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{interpolate\_temp()}{interpolate\_temp()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a588f37762af357a454b6e23e463d5b8d} 
-float interpolate\+\_\+temp (\begin{DoxyParamCaption}\item[{float}]{r\+\_\+measured}{}\end{DoxyParamCaption})}
-
-Interpolate temperature from oil NTC table.
-
-
-\begin{DoxyParams}{Parameters}
-{\em r\+\_\+measured} & Measured resistance in Ohm. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Interpolated temperature in °C or ADC\+\_\+\+FAIL\+\_\+\+VALUE for invalid. 
-\end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a5524d0e119c73860a14f8a581bbb1c85}\index{i2cFunctions.c@{i2cFunctions.c}!raw\_to\_res\_safe@{raw\_to\_res\_safe}}
-\index{raw\_to\_res\_safe@{raw\_to\_res\_safe}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{raw\_to\_res\_safe()}{raw\_to\_res\_safe()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a5524d0e119c73860a14f8a581bbb1c85} 
-float raw\+\_\+to\+\_\+res\+\_\+safe (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{raw}{, }\item[{float}]{r\+\_\+pullup}{}\end{DoxyParamCaption})}
-
-Convert raw ADS1115 value to resistance, with validation.
-
-
-\begin{DoxyParams}{Parameters}
-{\em raw} & Raw ADC sample from ADS1115. \\
-\hline
-{\em r\+\_\+pullup} & Pull-\/up resistance value in Ohms. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Calculated resistance in Ohms or ADC\+\_\+\+FAIL\+\_\+\+VALUE on error. 
-\end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a3616ee4324b49c21f5c630113d7486fa}\index{i2cFunctions.c@{i2cFunctions.c}!read\_ads1115@{read\_ads1115}}
-\index{read\_ads1115@{read\_ads1115}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{read\_ads1115()}{read\_ads1115()}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a3616ee4324b49c21f5c630113d7486fa} 
-int16\+\_\+t read\+\_\+ads1115 (\begin{DoxyParamCaption}\item[{i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t}]{dev}{, }\item[{uint8\+\_\+t}]{channel}{, }\item[{uint16\+\_\+t}]{pga\+\_\+setting}{}\end{DoxyParamCaption})}
-
-Read raw ADC data from ADS1115 on a specific channel.
-
-
-\begin{DoxyParams}{Parameters}
-{\em dev} & ADS1115 device handle. \\
-\hline
-{\em channel} & ADC channel index (0..3). \\
-\hline
-{\em pga\+\_\+setting} & PGA configuration bits. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Signed 16-\/bit ADC conversion value. 
-\end{DoxyReturn}
-\Hypertarget{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}\index{i2cFunctions.c@{i2cFunctions.c}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
+Configures GPIO buttons for hour and minute adjustment with interrupt handlers. \Hypertarget{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}\index{i2cFunctions.c@{i2cFunctions.c}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
 \index{sync\_rtc\_to\_system@{sync\_rtc\_to\_system}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{sync\_rtc\_to\_system()}{sync\_rtc\_to\_system()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9} 
 void sync\+\_\+rtc\+\_\+to\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Sync system time with RTC DS3231 time. 
+
+
+Synchronize system time with RTC DS3231 time. 
+
+Reads current time from the DS3231 and updates ESP32 system time. 
 
 \label{doc-var-members}
 \Hypertarget{i2c_functions_8c_doc-var-members}
 \doxysubsection{Variable Documentation}
-\Hypertarget{i2c_functions_8c_acb5ddf7923f8366395f68b86c77d6059}\index{i2cFunctions.c@{i2cFunctions.c}!ads\_cfg@{ads\_cfg}}
-\index{ads\_cfg@{ads\_cfg}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{ads\_cfg}{ads\_cfg}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_acb5ddf7923f8366395f68b86c77d6059} 
-i2c\+\_\+device\+\_\+config\+\_\+t ads\+\_\+cfg\+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+ = \{0\}}
-
-\Hypertarget{i2c_functions_8c_a7f84388a86187f1b6076f572802a2392}\index{i2cFunctions.c@{i2cFunctions.c}!ads\_handle@{ads\_handle}}
-\index{ads\_handle@{ads\_handle}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{ads\_handle}{ads\_handle}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a7f84388a86187f1b6076f572802a2392} 
-i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ads\+\_\+handle\+[\doxymbox{\hyperlink{individual__config_8h_a65a261a5356d8d1d94954ef277e467e5}{NUMBER\+\_\+\+OF\+\_\+\+ADS1115\+\_\+\+DEVICES}}]\+}
-
 \Hypertarget{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7}\index{i2cFunctions.c@{i2cFunctions.c}!btn\_time@{btn\_time}}
 \index{btn\_time@{btn\_time}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{btn\_time}{btn\_time}}
@@ -313,68 +178,7 @@ i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ds3231\+\_\+handle = NULL}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c} 
 button\+\_\+gpio\+\_\+config\+\_\+t gpio\+\_\+cfg\+\_\+time\+[2]\+ = \{0\}}
 
-\Hypertarget{i2c_functions_8c_a3222dc2ea3f4f877a09b77f768e098a6}\index{i2cFunctions.c@{i2cFunctions.c}!oil\_temp\_table@{oil\_temp\_table}}
-\index{oil\_temp\_table@{oil\_temp\_table}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{oil\_temp\_table}{oil\_temp\_table}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a3222dc2ea3f4f877a09b77f768e098a6} 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} oil\+\_\+temp\+\_\+table\+[$\,$]\+}
-
-{\bfseries Initial value:\+}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \{-\/15,\ 7721.35\},\ \{-\/10,\ 5720.88\},\ \{-\/5,\ 4284.03\},\ \{0,\ 3240.18\},\ \{5,\ 2473.6\},\ }
-\DoxyCodeLine{\ \ \ \ \{10,\ 1905.87\},\ \{15,\ 1404.44\},\ \{20,\ 1168.64\},\ \{25,\ 926.71\},\ \{30,\ 739.98\},\ }
-\DoxyCodeLine{\ \ \ \ \{35,\ 594.9\},\ \{40,\ 481.52\},\ \{45,\ 392.57\},\ \{50,\ 322.17\},\ \{55,\ 266.19\},\ }
-\DoxyCodeLine{\ \ \ \ \{60,\ 221.17\},\ \{65,\ 184.72\},\ \{70,\ 155.29\},\ \{75,\ 131.38\},\ \{80,\ 112.08\},\ }
-\DoxyCodeLine{\ \ \ \ \{85,\ 96.4\},\ \{90,\ 82.96\},\ \{95,\ 71.44\},\ \{100,\ 61.92\},\ \{105,\ 54.01\},\ }
-\DoxyCodeLine{\ \ \ \ \{110,\ 47.24\},\ \{115,\ 41.42\},\ \{120,\ 36.51\},\ \{125,\ 32.38\},\ \{130,\ 28.81\},\ }
-\DoxyCodeLine{\ \ \ \ \{135,\ 25.7\},\ \{140,\ 23.0\},\ \{145,\ 20.66\},\ \{150,\ 18.59\}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-\Hypertarget{i2c_functions_8c_a9368b27af8dd8c123596c5554a756233}\index{i2cFunctions.c@{i2cFunctions.c}!outside\_temperature\_table@{outside\_temperature\_table}}
-\index{outside\_temperature\_table@{outside\_temperature\_table}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{outside\_temperature\_table}{outside\_temperature\_table}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a9368b27af8dd8c123596c5554a756233} 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} outside\+\_\+temperature\+\_\+table\+[$\,$]\+}
-
-{\bfseries Initial value:\+}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \{-\/15,\ 36475.0\},\ \{-\/10,\ 27665.0\},\ \{-\/5,\ 21166.0\},\ \{0,\ 16330.0\},\ \{5,\ 12695.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{10,\ 9950.0\},\ \{15,\ 7855.0\},\ \{20,\ 6245.0\},\ \{25,\ 5000.0\},\ \{30,\ 4028.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{35,\ 3266.0\},\ \{40,\ 2663.0\},\ \{45,\ 2185.0\},\ \{50,\ 1803.0\},\ \{55,\ 1495.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{60,\ 1247.0\},\ \{65,\ 1045.0\},\ \{70,\ 880.0\},\ \{75,\ 745.0\},\ \{80,\ 633.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{85,\ 541.0\},\ \{90,\ 464.0\},\ \{95,\ 400.0\},\ \{100,\ 346.0\},\ \{105,\ 301.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{110,\ 262.0\},\ \{115,\ 229.0\},\ \{120,\ 201.0\},\ \{125,\ 177.0\},\ \{130,\ 156.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{135,\ 138.0\},\ \{140,\ 122.0\},\ \{145,\ 109.0\},\ \{150,\ 97.0\}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-\Hypertarget{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8}\index{i2cFunctions.c@{i2cFunctions.c}!pressure\_table@{pressure\_table}}
-\index{pressure\_table@{pressure\_table}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{pressure\_table}{pressure\_table}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a09ac495d5458f3dd994d77827de483d8} 
-const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} pressure\+\_\+table\+[$\,$]\+}
-
-{\bfseries Initial value:\+}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \{0.0,\ 11.0\},\ \{0.5,\ 29.0\},\ \{1.0,\ 47.0\},\ \{1.5,\ 65.0\},\ \{2.0,\ 82.0\},\ }
-\DoxyCodeLine{\ \ \ \ \{2.5,\ 100.0\},\ \{3.0,\ 117.0\},\ \{3.5,\ 134.0\},\ \{4.0,\ 151.0\},\ \{4.5,\ 167.0\},\ \{5.0,\ 184.0\}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-\Hypertarget{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9}\index{i2cFunctions.c@{i2cFunctions.c}!reference\_voltage@{reference\_voltage}}
-\index{reference\_voltage@{reference\_voltage}!i2cFunctions.c@{i2cFunctions.c}}
-\doxysubsubsection{\texorpdfstring{reference\_voltage}{reference\_voltage}}
-{\footnotesize\ttfamily \label{i2c_functions_8c_a55ced10a5ef8304b6466cb0566d2b2f9} 
-float reference\+\_\+voltage = \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}}
-
-ADC reference voltage for resistance calculations. Defaults to ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V, but can be updated dynamically via \doxylink{i2c_functions_8c_a9cee2a253f1fd4bafb685724fdd73dad}{get\+\_\+i2c\+\_\+adc\+\_\+reference\+\_\+voltage()}. \Hypertarget{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activated@{testmode\_activated}}
+\Hypertarget{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activated@{testmode\_activated}}
 \index{testmode\_activated@{testmode\_activated}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{testmode\_activated}{testmode\_activated}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6} 

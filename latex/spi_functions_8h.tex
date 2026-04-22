@@ -44,7 +44,7 @@ void \doxymbox{\hyperlink{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a}{bu
 void \doxymbox{\hyperlink{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0}{timer\+\_\+start}} (void)
 \item 
 void \doxymbox{\hyperlink{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a}{set\+\_\+\+Displays}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialize and load all display screens. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,7 +59,7 @@ esp\+\_\+timer\+\_\+handle\+\_\+t \doxymbox{\hyperlink{spi_functions_8h_a5297ef2
 \doxysubsection{Detailed Description}
 SPI display driver for multiple LCD panels. 
 
-Manages SPI communication with multiple LCD displays using ESP-\/\+IDF and LVGL.
+Manages SPI communication with multiple LCD displays using ESP-\/\+IDF and LVGL. Supports up to 4 independent 240x240 round TFT displays with GC9\+A01 drivers.
 
 \begin{DoxyAuthor}{Author}
 Jan Niklas Rodewald (JRO) 
@@ -98,7 +98,11 @@ Initialize display configuration for all connected displays Sets up display para
 {\footnotesize\ttfamily \label{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a} 
 void set\+\_\+\+Displays (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize and load all display screens Sets up LVGL displays and loads appropriate screens based on screen selection \Hypertarget{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}\index{spiFunctions.h@{spiFunctions.h}!setUp\_Variables@{setUp\_Variables}}
+
+
+Initialize and load all display screens. 
+
+Sets up LVGL displays and loads appropriate screens based on screen selection configuration for each display. \Hypertarget{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}\index{spiFunctions.h@{spiFunctions.h}!setUp\_Variables@{setUp\_Variables}}
 \index{setUp\_Variables@{setUp\_Variables}!spiFunctions.h@{spiFunctions.h}}
 \doxysubsubsection{\texorpdfstring{setUp\_Variables()}{setUp\_Variables()}}
 {\footnotesize\ttfamily \label{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091} 

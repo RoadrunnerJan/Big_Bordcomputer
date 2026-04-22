@@ -1,5 +1,10 @@
 \doxysection{main/\+logging/\+logging.h File Reference}
 \hypertarget{logging_8h}{}\label{logging_8h}\index{main/logging/logging.h@{main/logging/logging.h}}
+
+
+Logging module for debug output control.  
+
+
 {\ttfamily \+\#include "{}../\+individual\+\_\+config.\+h"{}}\newline
 {\ttfamily \+\#include "{}esp\+\_\+log.\+h"{}}\newline
 \doxysubsubsection*{Functions}
@@ -11,6 +16,26 @@ void \doxymbox{\hyperlink{logging_8h_a8d463dcc2620a67b82a8be00e31ae3c0}{print\+E
 \begin{DoxyCompactList}\small\item\em Print error log message. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{logging_8h_a7148712d78e8164f230be2b1e6e91160}{print\+Warning\+Log}} (const char \texorpdfstring{$\ast$}{*}message)
 \begin{DoxyCompactList}\small\item\em Print warning log message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Logging module for debug output control. 
+
+Provides logging functions with compile-\/time enable/\+disable support. Outputs informational messages, errors, and warnings via ESP-\/\+IDF ESP\+\_\+\+LOG macros.
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item Info, error, and warning log functions
+\item Compile-\/time enable/\+disable support 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -26,21 +51,18 @@ void print\+Error\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstrin
 
 Print error log message. 
 
-Output only if LOGGING\+\_\+\+ENABLED is true in configuration. 
-\begin{DoxyParams}{Parameters}
-{\em message} & Error message string.\\
-\hline
-\end{DoxyParams}
-Print error log message Output only if LOGGING\+\_\+\+ENABLED is true 
-\begin{DoxyParams}{Parameters}
-{\em message} & Error message string\\
-\hline
-\end{DoxyParams}
-Print error log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+Output only if LOGGING\+\_\+\+ENABLED is true in configuration.
 
-Print error log message Output only if LOGGING\+\_\+\+ENABLED is true 
+
 \begin{DoxyParams}{Parameters}
-{\em message} & Error message string \\
+{\em message} & Error message string to display\\
+\hline
+\end{DoxyParams}
+Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Error message string to display \\
 \hline
 \end{DoxyParams}
 \Hypertarget{logging_8h_a1cfb49f712b475f025b4ca451f63327f}\index{logging.h@{logging.h}!printLog@{printLog}}
@@ -53,12 +75,21 @@ void print\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast
 
 Print informational log message. 
 
-Output only if LOGGING\+\_\+\+ENABLED is true in configuration. 
+Output only if LOGGING\+\_\+\+ENABLED is true in configuration.
+
+
 \begin{DoxyParams}{Parameters}
-{\em message} & Log message string.\\
+{\em message} & Log message string to display\\
 \hline
 \end{DoxyParams}
-Print informational log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h} \Hypertarget{logging_8h_a7148712d78e8164f230be2b1e6e91160}\index{logging.h@{logging.h}!printWarningLog@{printWarningLog}}
+Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Log message string to display \\
+\hline
+\end{DoxyParams}
+\Hypertarget{logging_8h_a7148712d78e8164f230be2b1e6e91160}\index{logging.h@{logging.h}!printWarningLog@{printWarningLog}}
 \index{printWarningLog@{printWarningLog}!logging.h@{logging.h}}
 \doxysubsubsection{\texorpdfstring{printWarningLog()}{printWarningLog()}}
 {\footnotesize\ttfamily \label{logging_8h_a7148712d78e8164f230be2b1e6e91160} 
@@ -68,20 +99,17 @@ void print\+Warning\+Log (\begin{DoxyParamCaption}\item[{const char \texorpdfstr
 
 Print warning log message. 
 
-Output only if LOGGING\+\_\+\+ENABLED is true in configuration. 
-\begin{DoxyParams}{Parameters}
-{\em message} & Warning message string.\\
-\hline
-\end{DoxyParams}
-Print warning log message Output only if LOGGING\+\_\+\+ENABLED is true 
-\begin{DoxyParams}{Parameters}
-{\em message} & Warning message string\\
-\hline
-\end{DoxyParams}
-Print warning log message Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+Output only if LOGGING\+\_\+\+ENABLED is true in configuration.
 
-Print warning log message Output only if LOGGING\+\_\+\+ENABLED is true 
+
 \begin{DoxyParams}{Parameters}
-{\em message} & Warning message string \\
+{\em message} & Warning message string to display\\
+\hline
+\end{DoxyParams}
+Output only if LOGGING\+\_\+\+ENABLED is true in \doxylink{individual__config_8h}{individual\+\_\+config.\+h}
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Warning message string to display \\
 \hline
 \end{DoxyParams}

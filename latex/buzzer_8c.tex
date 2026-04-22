@@ -1,13 +1,18 @@
 \doxysection{main/\+peripherie/\+buzzer.c File Reference}
 \hypertarget{buzzer_8c}{}\label{buzzer_8c}\index{main/peripherie/buzzer.c@{main/peripherie/buzzer.c}}
+
+
+Buzzer control audio alert driver implementation.  
+
+
 {\ttfamily \+\#include "{}buzzer.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{buzzer_8c_a0cead532fdd0c0de5fa1c1de0f6556bd}{buzzer\+\_\+init}} (void)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize buzzer PWM hardware. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{buzzer_8c_ab0922ceaa048af968fd0f2f830ad773b}{buzzer\+\_\+beep}} (uint16\+\_\+t duty)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generate beep by setting PWM duty cycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,6 +20,24 @@ ledc\+\_\+timer\+\_\+config\+\_\+t \doxymbox{\hyperlink{buzzer_8c_a3f1323002a9f1
 \item 
 ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{buzzer_8c_a3abdda7fc723c3c54c1292ef1bcaae45}{buz\+\_\+channel}} = \{0\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Buzzer control audio alert driver implementation. 
+
+\begin{DoxyAuthor}{Author}
+Jan Niklas Rodewald (JRO) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
+\begin{DoxyItemize}
+\item LEDC PWM configuration for audio output
+\item Temperature alert beeping patterns 
+\end{DoxyItemize}
+\end{DoxyNote}
 
 
 \label{doc-func-members}
@@ -26,9 +49,13 @@ ledc\+\_\+channel\+\_\+config\+\_\+t \doxymbox{\hyperlink{buzzer_8c_a3abdda7fc72
 {\footnotesize\ttfamily \label{buzzer_8c_ab0922ceaa048af968fd0f2f830ad773b} 
 void buzzer\+\_\+beep (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duty}{}\end{DoxyParamCaption})}
 
-Generate beep by setting PWM duty cycle 
+
+
+Generate beep by setting PWM duty cycle. 
+
+
 \begin{DoxyParams}{Parameters}
-{\em duty} & PWM duty value (0 = silent, max = loudest) \\
+{\em duty} & PWM duty cycle value (0 = silent, max = loudest) \\
 \hline
 \end{DoxyParams}
 \Hypertarget{buzzer_8c_a0cead532fdd0c0de5fa1c1de0f6556bd}\index{buzzer.c@{buzzer.c}!buzzer\_init@{buzzer\_init}}
@@ -37,7 +64,11 @@ Generate beep by setting PWM duty cycle
 {\footnotesize\ttfamily \label{buzzer_8c_a0cead532fdd0c0de5fa1c1de0f6556bd} 
 void buzzer\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
-Initialize buzzer PWM hardware Configures LEDC timer and channel for audio output 
+
+
+Initialize buzzer PWM hardware. 
+
+Configures LEDC timer and channel for audio output with settings from configuration. 
 
 \label{doc-var-members}
 \Hypertarget{buzzer_8c_doc-var-members}

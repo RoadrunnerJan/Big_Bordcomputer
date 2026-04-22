@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['ads_5fcfg_0',['ads_cfg',['../i2c_functions_8c.html#acb5ddf7923f8366395f68b86c77d6059',1,'ads_cfg:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#acb5ddf7923f8366395f68b86c77d6059',1,'ads_cfg:&#160;i2cFunctions.c']]],
-  ['ads_5fhandle_1',['ads_handle',['../i2c_functions_8c.html#a7f84388a86187f1b6076f572802a2392',1,'ads_handle:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a7f84388a86187f1b6076f572802a2392',1,'ads_handle:&#160;i2cFunctions.c']]]
+  ['adc_5fhandle_0',['adc_handle',['../structadc__handles__t.html#adbec15e3c4637f01ad35a9a13b9159fe',1,'adc_handles_t']]],
+  ['adc_5fhandler_1',['adc_handler',['../adc_8c.html#ab67e7b00ec2abc929c23209b55fc7496',1,'adc_handler:&#160;adc.c'],['../adc_8h.html#ab67e7b00ec2abc929c23209b55fc7496',1,'adc_handler:&#160;adc.c']]],
+  ['adc_5fhandles_2',['adc_handles',['../adc_8c.html#a1b27817604a4502be2244972d0eb2ce2',1,'adc_handles:&#160;adc.c'],['../adc_8h.html#a1b27817604a4502be2244972d0eb2ce2',1,'adc_handles:&#160;adc.c']]]
 ];

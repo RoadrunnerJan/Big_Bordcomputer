@@ -1,19 +1,15 @@
-/*
- * ============================================================================
- * TEST SIMULATION MODULE - Debug Mode Value Generation Implementation
- * ============================================================================
+/**
+ * @file testSimulation.c
+ * @brief Test simulation module debug mode value generation implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Test value generation for all sensor types
  *      - Brightness and night mode simulation
  *      - Compile-time enable/disable support
- *
  */
 
 /* ===== Includes ===== */
@@ -37,7 +33,8 @@ int brightness_test_switch  = 0;
 /* ===== Test Configuration Arrays ===== */
 
 /**
- * Test step changes for each sensor type
+ * @brief Test step changes for each sensor type.
+ *
  * Format: [sensor_type][step_index]
  * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
  */
@@ -50,7 +47,8 @@ double test_steps[5][4] = {
 };
 
 /**
- * Test thresholds for switching between test phases
+ * @brief Test thresholds for switching between test phases.
+ *
  * Format: [sensor_type][threshold_index]
  * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
  */
@@ -74,7 +72,7 @@ double test_thresholds[5][4] = {
 /* ===== Function Implementations ===== */
 
 /**
- * Reset all test values to default state
+ * @brief Reset all test values to default state.
  */
 void reset_test_values(void) {
     test_value_oil_pressure         = VALUE_DEFAULT_PRES;
@@ -86,7 +84,7 @@ void reset_test_values(void) {
 }
 
 /**
- * Reset all test state switches to initial phase
+ * @brief Reset all test state switches to initial phase.
  */
 void reset_test_switches() {
     pressure_test_switch    = 0;
@@ -97,9 +95,9 @@ void reset_test_switches() {
 }
 
 /**
- * Simulate oil pressure test cycle
- * Cycles through 4 phases: increase to 4.5, decrease to 2.5, increase to 5.5, decrease to 0.04
- * @return Current simulated oil pressure value
+ * @brief Simulate oil pressure test cycle.
+ *
+ * Cycles through predefined pressure values for testing gauge functionality.
  */
 double lv_pressure_test()
 {

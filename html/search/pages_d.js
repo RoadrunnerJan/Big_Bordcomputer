@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['übersicht_0',['Hardware-Übersicht',['../index.html#autotoc_md1',1,'']]]
+  ['roadmap_20known_20limitations_0',['Roadmap &amp;amp; Known Limitations',['../index.html#autotoc_md24',1,'']]]
 ];

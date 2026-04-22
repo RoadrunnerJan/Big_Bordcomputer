@@ -1,20 +1,20 @@
-/*
- * ============================================================================
- * SENSOR VALUE CALCULATION & MANAGEMENT - Implementation
- * ============================================================================
+/**
+ * @file values.c
+ * @brief Sensor value calculation and management implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * Handles real-time processing of sensor values including low-pass filtering,
+ * range validation, error detection, and formatted output for display.
+ * Supports multiple sensor types with independent filtering and state management.
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
+ *
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Low-pass filter for sensor smoothing
  *      - Range validation and error handling
  *      - Automatic day/night mode detection
  *      - Formatted output string generation
- *
  */
 
 #include "values.h"
@@ -66,7 +66,13 @@ char output_string_volt[20];                // Formatted value string for LVGL d
 /* ===== Function Implementations ===== */
 
 /**
- * Reset sensor values to defaults for specified screen/gauge
+ * @brief Reset sensor values to defaults for specified screen/gauge.
+ *
+ * Resets the sensor value, state flag, display string, and oversampling array
+ * to their default/initial states. Used during mode transitions or sensor resets.
+ *
+ * @param screenSelection Screen ID from screens.h to identify which sensor to reset
+ *                        (-1 resets all sensors)
  */
 void reset_values(int screenSelection) {
     switch (screenSelection) {
@@ -141,7 +147,10 @@ void reset_values(int screenSelection) {
 }
 
 /**
- * Reset brightness to default day mode value and disable night mode
+ * @brief Reset brightness to default day mode value and disable night mode.
+ *
+ * Resets display brightness to BRIGHTNESS_DAY setting and clears night mode state.
+ * Used during startup or when returning from night mode.
  */
 void reset_brightness(void) {
     value_brightness = BRIGHTNESS_DAY;
@@ -155,8 +164,19 @@ void reset_brightness(void) {
 }
 
 /**
- * Calculate and validate sensor value with range checking and filtering
- * Updates global sensor value variable and output_string for LVGL display
+ * @brief Calculate and validate sensor value with range checking and filtering.
+ *
+ * Processes raw sensor input with:
+ * - Error detection (ADC_FAIL_VALUE check)
+ * - Range validation (min/max clamping)
+ * - Exponential moving average filtering
+ * - Formatted string generation for display
+ * - Oversampling aggregation
+ *
+ * Updates global sensor value variable and output string for LVGL display.
+ *
+ * @param screenSelection Screen ID identifying the sensor type to process
+ * @param value Raw sensor value to process
  */
 void calculate_value(int screenSelection, double value) {
     switch (screenSelection) {
@@ -324,10 +344,14 @@ void calculate_value(int screenSelection, double value) {
 }
 
 /**
- * Calculate brightness level from voltage with automatic day/night mode detection
- * Day mode    (< 0.05V):      100% brightness (BRIGHTNESS_DAY constant)
- * Night mode  (2.29-10.74V): 5-25% brightness (linear interpolation)
- * Uses voltage reference divider for battery voltage monitoring
+ * @brief Calculate brightness level from voltage with automatic day/night mode detection.
+ *
+ * Detects and switches between day and night modes based on ambient light sensor voltage.
+ * - Day mode   (< 0.05V):      100% brightness (BRIGHTNESS_DAY constant)
+ * - Night mode (2.29-10.74V): linear interpolation 5-25% brightness
+ * Uses oversampling for stable readings with exponential moving average filtering.
+ *
+ * @param value Ambient light sensor voltage in volts
  */
 void calcBrightness(float value) {
     // Range check and day/night mode selection
@@ -376,7 +400,12 @@ void calcBrightness(float value) {
 
 
 /**
- * Get current sensor value by screen type
+ * @brief Get current sensor value by screen type.
+ *
+ * Retrieves the processed and filtered sensor value associated with a specific gauge screen.
+ *
+ * @param screenSelection Screen ID identifying the sensor type
+ * @return Current sensor value in appropriate units (bar, °C, V, etc.)
  */
 double get_value_by_screen_id(int screenSelection) {
     switch (screenSelection) {
@@ -396,8 +425,13 @@ double get_value_by_screen_id(int screenSelection) {
 
 
 /**
- * Get formatted output string for current sensor value by screen type
- * Returns pointer to the appropriate output string variable for LVGL display
+ * @brief Get formatted output string for current sensor value by screen type.
+ *
+ * Returns pointer to the display-ready formatted string for the specified gauge.
+ * String includes units and range indicators (< or >).
+ *
+ * @param screenSelection Screen ID identifying the sensor type
+ * @return Pointer to formatted output string for LVGL display, or NULL if invalid
  */
 char* get_output_string_by_screen_id(int screenSelection) {
     switch (screenSelection) {
@@ -417,21 +451,27 @@ char* get_output_string_by_screen_id(int screenSelection) {
 
 
 /**
- * Get current brightness level percentage
+ * @brief Get current brightness level percentage.
+ *
+ * @return Brightness level (0-100%)
  */
 int getBrightness(void) {
     return value_brightness;
 }
 
 /**
- * Get current day/night mode state
+ * @brief Get current day/night mode state.
+ *
+ * @return true if night mode is active, false if day mode
  */
 bool getNightModeActive(void) {
     return night_mode_active;
 }
 
 /**
- * Get if night mode changed
+ * @brief Check if night mode state has changed since last query.
+ *
+ * @return true if night mode state changed, false otherwise
  */
 bool getNightModechanged(void) {
     if (new_value_available_bright)
@@ -442,17 +482,23 @@ bool getNightModechanged(void) {
     return false;
 }
 
-/*
- * Get current output temperature set state
- * @return true if output temperature is set, false otherwise
+/**
+ * @brief Get current outdoor temperature set state.
+ *
+ * @return true if outdoor temperature is set and valid, false otherwise
  */
 bool getOutputTemperatureSet() {
     return outside_temperature_set;
 }
 
-/*
- * Check if oversampling finisehd
- * @return true if a new value ist available, false otherwise
+/**
+ * @brief Check if new oversampled sensor value is available for screen update.
+ *
+ * Returns true once per cycle when oversampling buffer is full and average computed.
+ * Used to trigger screen refresh with new sensor data.
+ *
+ * @param screenSelection Screen ID identifying the sensor type
+ * @return true if new averaged value available, false otherwise
  */
 bool updateLVGLScreen(int screenSelection)
 {

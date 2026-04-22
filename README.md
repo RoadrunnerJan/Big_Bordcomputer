@@ -1,152 +1,267 @@
 | Supported Targets | ESP32-P4 | ESP32-S3 |
 | ----------------- | -------- | -------- |
 
-# Customizable ESP32 Boardcomputer
+# ESP32-P4 Classic Vehicle Board Computer (E36)
 
-This project implements a custom-built boardcomputer for classic vehicles like the BMW E36. Instead of the standard BMW boardcomputer (which only displays average fuel consumption or broken light bulbs), or multifunctional clocks (date, time, temperature), this system provides a complete display of current engine parameters.
+A fully customizable, FreeRTOS-based board computer system for classic vehicles like the BMW E36. Features real-time engine parameter monitoring via multiple gauge displays, PWM/ADC sensor interfaces, and LVGL-driven graphics with day/night mode support.
 
-**Main Features:**
-- Display of oil temperature, oil pressure, battery voltage, and time/temperature
-- Four round TFT displays for separate gauges
-- Adjustable number and type of displays
-- Fully customizable design via LVGL
+## Overview
 
-The E36 version uses four displays, each with its own gauge. All parameters are configurable.
+This project replaces standard or aftermarket boardcomputers with a modern, highly configurable solution displaying real-time engine data:
+- **Oil temperature** and **pressure** with automatic sensor type detection (PWM Hella sensor or I2C ADC)
+- **Battery voltage** monitoring
+- **Outside temperature** with NTC thermistor interpolation
+- **Time display** with RTC synchronization (DS3231)
+- **Automatic brightness control** with ambient light sensing
+- **Temperature-based buzzer alerts** for frost warning
 
+The modular architecture supports up to 4 independent round (240x240) TFT displays, each rendering separate gauge views.
+
+**Demo:**
 ![Demo Image](demo/Demo_1.jpeg)
 
 ![First Impression](demo/FirstImpression.GIF)
 
-## Hardware Overview
+## Hardware
 
-The project is based on a powerful ESP32-P4 that controls all peripherals.
+**Main Processor:** ESP32-P4 (WT9932P4-TINY)
 
-**Components used for the E36 boardcomputer:**
-- **ESP32-P4 WT9932P4-TINY** - Main processor
-- **4x 1.28 Inch Round TFT LCD Display (240x240 RGB) with GC9A01 Driver** ([Link to AliExpress](https://de.aliexpress.com/item/1005009364283361.html))
-- **Custom PCB** to connect the displays and peripherals with the ESP (in the `hardware/` directory)
+**Display & UI:**
+- 4× 1.28" Round TFT LCD Displays (240×240 RGB, GC9A01 driver) – [Reference](https://de.aliexpress.com/item/1005009364283361.html)
+- Custom PCB for display and peripheral integration (see `hardware/` directory)
 
 ![Board Image](demo/Platine.jpeg)
 
-- **5V Buzzer** for warnings when outside temperature is below 3°C
-- **2x Buttons** for time adjustment
-- **12V to 5V Converter** for power supply
-- **BMW Oil Temperature and Pressure Sensor (Hella 6PP 010 378-201)** - PWM signal from engine
-- or using analog **VDO sensors** for oil pressure and temperature
+**Sensors & Peripherals:**
+- **Oil sensors**: BMW Hella 6PP 010 378-201 (PWM) OR VDO analog sensors (via ADC)
+- **Temperature sensors**: NTC thermistors for oil and ambient temperature
+- **RTC**: DS3231 real-time clock (I2C)
+- **ADC**: interne ADCs for sensor measuring
+- **Power**: 12V to 5V converter
+- **Audio**: 5V buzzer with PWM control (optional, compile-time selectable)
+- **Buttons**: 2× GPIO buttons for manual time adjustment
+- **Ambient sensor**: Light sensor for day/night mode detection
+- **Display backlight**: PWM-controlled brightness (0-100%)
 
-The datasheets for the used components can be found in the `datasheets/` directory.
+**Documentation:** Component datasheets available in `datasheets/` directory.
 
-## Software
+## Software Architecture
 
-- **FreeRTOS Tasks** for scheduling different operations
-- **LVGL** for designing the gauges
-- **ADC Sampling** of sensor values oder alternativ **PWM Sampling** of oil pressure und oil temperature based on VDO sensor characteristics; PWM sampling is based on Hella Sensor 6PP 010 378-201
-- **Modular Architecture** mit separate directories für calculation, logging, LVGL-UI, und peripherals
+- **Operating System**: FreeRTOS with multi-core support
+- **Graphics**: LVGL with dual mode screens (day/night)
+- **Sensor I/O**: 
+  - I2C: RTC, ADCs, button handlers
+  - SPI: Multi-display controller
+  - ADC: Internal and external sensor reading
+  - MCPWM: Hella PWM sensor capture
+- **Modular design** with independent modules for calculation, logging, UI, and peripherals
 
-## Test mode activation
+## Key Features
 
-In test mode, sensor-critical values are simulated and the UI loop runs in a deterministic cycle.
-Activate test mode with the following button sequence within `TESTMODE_ACTIVATE_TIMEOUT_MS` (7 seconds):
+### Multi-Display Support
+- Up to 4 independent gauge displays
+- SPI or I2C based
+- Configurable via defines
+- Per-display screen assignment
 
-1. Press minute button twice to decrease minute
-2. Press hour button once to decrease hour
-3. Press minute button twice to increase minute
-4. Press hour button once to increase hour and toggle test mode
+### Sensor Processing
+- **Oversampling** with configurable averaging
+- **Low-pass filtering** (exponential moving average)
+- **Range validation** with automatic clipping
+- **Error detection** (open circuit, short circuit)
+- **Table interpolation** for thermistor and pressure curves
 
-On success, logs show:
-- `"Test mode ACTIVATED!"` or `"Test mode DEACTIVATED!"`
+### Day/Night Mode
+- Automatic brightness adjustment based on ambient light
+- Screen theme switching (day colors vs. night colors)
+- Forced day mode option
+- Adjustable thresholds and interpolation curves
 
-Activation parameters are defined in `main/individual_config.h`:
-- `TESTMODE_ACTIVATE_TIMEOUT_MS` (=10000 ms)
-- `TESTMODE_ACTIVATE_BUTTON_1_COUNT` (=2)
-- `TESTMODE_ACTIVATE_BUTTON_2_COUNT` (=1)
-- `TESTMODE_ACTIVATE_BUTTON_3_COUNT` (=2)
-- `TESTMODE_ACTIVATE_BUTTON_4_COUNT` (=1)
-
-## How to Flash the Project
-
-1. **Requirements:**
-   - ESP-IDF installed (version according to SDK configuration)
-   - USB cable for the ESP32-P4
-
-2. **Compile the project:**
-   ```
-   idf.py build
-   ```
-
-3. **Flash:**
-   ```
-   idf.py flash
-   ```
-
-4. **Start monitor:**
-   ```
-   idf.py monitor
-   ```
-
-For detailed instructions see the official ESP-IDF guides.
+### Test Mode
+- Deterministic sensor value simulation
+- Useful for UI/logic testing without hardware
+- Cycle-accurate brightness and night mode testing
+- Activation via button sequence (configurable pattern and timeout)
 
 ## Project Structure
 
 ```
-├── CMakeLists.txt              # Main build configuration
-├── sdkconfig                   # ESP-IDF configuration
-├── main/                       # Main source code
-│   ├── CMakeLists.txt
-│   ├── main.c                  # Main entry point
-│   ├── individual_config.h     # Configuration defines
-│   ├── calculation/            # Calculation modules
-│   ├── logging/                # Logging functions
-│   ├── lvgl/                   # LVGL-UI and graphics
-│   └── peripherie/             # Peripheral drivers (buzzer, buttons, etc.)
-├── demo/                       # Demo images and videos
-├── hardware/                   # PCB design and hardware files
-├── datasheets/                 # Datasheets of components
-├── fonts/                      # Fonts
-├── png/                        # Images and icons
-├── build/                      # Build artifacts (generated)
-├── html/                       # Doxygen HTML documentation
-├── latex/                      # Doxygen LaTeX documentation
-├── managed_components/         # ESP-IDF components
+BC_Big_E36/
+├── CMakeLists.txt              # Main project configuration
+├── sdkconfig*                  # ESP-IDF SDK configuration variants
+├── Doxyfile                    # Doxygen documentation config
+│
+├── main/                       # Primary firmware source
+│   ├── main.c                  # Application entry point & FreeRTOS task management
+│   ├── individual_config.h     # Hardware pins, features, and tuning parameters
+│   ├── idf_component.yml       # Component manifest
+│   │
+│   ├── calculation/            # Sensor value processing
+│   │   ├── values.h|c          # Filtering, validation, interpolation
+│   │
+│   ├── logging/                # Debug output & logging
+│   │   ├── logging.h|c         # Compile-time enabled logging macros
+│   │
+│   ├── peripherie/             # Hardware drivers
+│   │   ├── adc.h|c             # ADS1115 ADC interface & NTC lookup tables
+│   │   ├── buzzer.h|c          # LEDC PWM buzzer control
+│   │   ├── i2cFunctions.h|c    # I2C bus, DS3231 RTC, button handlers
+│   │   ├── ledBacklight.h|c    # PWM display brightness control
+│   │   ├── pwmSensor.h|c       # MCPWM Hella sensor decoder
+│   │   ├── pwmSwitch.h|c       # GPIO mode selector (PWM vs ADC)
+│   │   └── spiFunctions.h|c    # Multi-display SPI controller & LVGL integration
+│   │
+│   ├── simulation/             # Test & development utilities
+│   │   └── testSimulation.h|c  # Deterministic test value generation
+│   │
+│   └── lvgl/                   # UI & graphics (generated by SquareLine)
+│       ├── src/
+│       │   └── ui/
+│       │       ├── screens.h   # Screen definitions
+│       │       ├── ui.h|c      # LVGL init & screen creation
+│       │       └── vars.h      # LVGL variable bindings
+│       └── variableFunctions.h|c
+│
+├── hardware/                   # PCB design files
+├── demo/                       # Photos, videos, demo materials
+├── datasheets/                 # Component reference documentation
+├── fonts/                      # TrueType fonts for displays
+├── png/                        # Icons and image assets
+├── build/                      # Build artifacts (auto-generated)
+├── managed_components/         # ESP-IDF managed components
+├── html/ & latex/              # Doxygen-generated documentation
 └── README.md                   # This file
 ```
 
-## Roadmap / ToDo
+## Building & Flashing
 
-### Hardware
+### Prerequisites
+- **ESP-IDF v5.1+** installed and sourced
+- **Python 3.8+**
+- **USB cable** for ESP32-P4 programming
 
-- **ADC performance optimization**
-  - Current external ADCs are too slow for time-critical measurements  
-  - Evaluate switching to internal ADCs of the ESP32  
-  - Verify compatibility across different ESP32 variants  
-  - Consider hybrid approach: keep one external ADC for non-time-critical signals
+### Build
+```bash
+idf.py build
+```
 
-- **Reference voltage measurement**
-  - Add hardware support to measure reference voltage  
-  - Implement software compensation for improved ADC accuracy
+### Flash
+```bash
+idf.py flash
+```
 
-- **PCB redesign**
-  - Rework pin mapping, especially with respect to ADC usage  
-  - Optimize signal routing and noise immunity (automotive environment)
+### Monitor
+```bash
+idf.py monitor
+```
 
-- **Add acceleration sensor**
-  - Integrate accelerometer (e.g. for G-force measurement)  
-  - Evaluate placement and filtering requirements
+For complete ESP-IDF documentation, see [Official Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html).
 
-- **New enclosure (case)**
-  - Design and manufacture an improved housing  
-  - Consider thermal behavior, vibration resistance, and mounting
+## Test Mode Activation
 
-### Firmware / Software
+Test mode enables deterministic sensor simulation without hardware. Activate within 10 seconds of boot using this button sequence:
 
-- **Improve ADC sampling**
-  - Reduce latency and jitter  
-  - Evaluate DMA / continuous sampling if supported  
-  - Implement filtering (moving average, median, etc.)
+1. **Press minute button** 2× (decrease)
+2. **Press hour button** 1× (decrease)
+3. **Press minute button** 2× (increase)
+4. **Press hour button** 1× (toggle test mode)
 
-- **Display responsiveness**
-  - Optimize LVGL rendering performance  
-  - Reduce UI lag and improve refresh behavior
+On success, serial log shows:
+```
+"Test mode ACTIVATED!"
+```
+
+**Configuration** (in `main/individual_config.h`):
+- `TESTMODE_ACTIVATE_TIMEOUT_MS` – Window for button sequence (default: 10000 ms)
+- `TESTMODE_ACTIVATE_BUTTON_*_COUNT` – Button press counts for each step
+
+## Documentation
+
+Comprehensive code documentation is generated via **Doxygen**:
+
+```bash
+doxygen Doxyfile
+# Browse: html/index.html
+```
+
+All modules, functions, and structures include detailed Doxygen comments in English.
+
+## Sensor Calibration
+
+### Oil Temperature (NTC Thermistor)
+- Lookup table in `main/peripherie/adc.c`: `oil_temp_table[]`
+- Range: -15°C to +150°C
+- Linear interpolation between table entries
+
+### Oil Pressure
+- Calibration table in `main/peripherie/adc.c`: `pressure_table[]`
+- Range: 0 to 5 bar
+- Resistance-to-pressure conversion
+
+### Outdoor Temperature (NTC Thermistor)
+- Lookup table in `main/peripherie/adc.c`: `outside_temperature_table[]`
+- Range: -15°C to +150°C
+
+### Voltage
+- Battery voltage with voltage divider: `(ADC_VOLT_PULLUP + ADC_VOLT_PULLDOWN) / ADC_VOLT_PULLDOWN`
+- Brightness sensor with 10k/2.2k divider
+
+All calibration values are configurable in `main/individual_config.h`.
+
+## Configuration
+
+Key settings in `main/individual_config.h`:
+
+- `CHIP_USED` – Target ESP32 variant (ESP32P4, ESP32S3, etc.)
+- `NUMBER_OF_DISPLAYS` – Number of LCD panels (1-4)
+- `USE_BUZZER` – Enable/disable buzzer functionality
+- `LOGGING_ENABLED` – Enable/disable debug logging
+- `BRIGHTNESS_AUTO_ENABLE` – Auto brightness or fixed day mode
+- Pin assignments for SPI, I2C, GPIO peripherals
+- Sensor calibration thresholds and filtering parameters
+- Thresholds for day/night mode switching
+
+## Performance & Power
+
+- **FreeRTOS Task**: Main gauge update loop runs at 50 ms intervals (20 Hz)
+- **Display refresh**: Per-display independent rendering with LVGL
+- **Sensor sampling**: Configurable oversampling (5 samples default) for noise reduction
+- **Low-power modes**: Can be implemented via FreeRTOS task suspension or ESP32 sleep states (future)
+
+## Roadmap & Known Limitations
+
+### Near-term
+- ✅ Multi-display support  
+- ✅ PWM Hella sensor support
+- ✅ ADC-based sensor alternative
+- ✅ RTC synchronization
+- ✅ Day/night mode
+- ✅ Test mode for development
+
+### Future Enhancements
+- **Performance**: Optimize ADC sampling latency (evaluate internal ADCs, DMA)
+- **Sensors**: Add acceleration (G-force), RPM, fuel consumption calculation
+- **Hardware**: Redesigned PCB with improved routing, reference voltage measurement
+- **UI**: Additional gauge types, customizable screen layouts
+- **Power**: Low-power sleep modes, CAN bus integration (future vehicle models)
+
+## Contributing
+
+This is a personal project. Feel free to fork, adapt, and extend for your own classic vehicle!
+
+## License
+
+[Specify your preferred license here]
+
+## Contact
+
+For questions or suggestions: [Your contact info]
+
+---
+
+**Last Updated**: April 2026  
+**Firmware Version**: 1.0  
+**Target**: BMW E36 (adaptable to other vehicles)
 
 - **Test mode rework**
   - Current implementation is no longer reliable  

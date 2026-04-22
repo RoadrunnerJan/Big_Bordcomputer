@@ -1,20 +1,15 @@
-
-/*
- * ============================================================================
- * SPI DISPLAY DRIVER - Multi Display Control Implementation
- * ============================================================================
+/**
+ * @file spiFunctions.c
+ * @brief SPI display driver multi display control implementation.
  *
- * Author: Jan Niklas Rodewald (JRO)
- * Date: 01.04.2026
+ * @author Jan Niklas Rodewald (JRO)
+ * @date 01.04.2026
  *
- * ============================================================================
- * CHANGELOG
- * ============================================================================
+ * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - Multi-display SPI initialization (up to 4 displays)
  *      - LVGL integration for graphics rendering
  *      - Display task scheduling and timing
- *
  */
 
 /* ===== Includes ===== */
@@ -34,8 +29,10 @@ int reset_is_set = false;
 /* ===== Function Implementations ===== */
 
 /**
- * Initialize and load all display screens
+ * @brief Initialize and load all display screens.
+ *
  * Sets up LVGL displays and loads appropriate screens based on screen selection
+ * configuration for each display.
  */
 void set_Displays() {
 

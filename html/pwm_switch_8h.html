@@ -104,8 +104,11 @@ $(function(){initNavTree('pwm_switch_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8e6fbb3b51611498a8f3d3284a82c028" id="r_a8e6fbb3b51611498a8f3d3284a82c028"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8e6fbb3b51611498a8f3d3284a82c028">init_pwmSW</a> (void)</td></tr>
+<tr class="memdesc:a8e6fbb3b51611498a8f3d3284a82c028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize PWM/ADC selector GPIO pin.  <br /></td></tr>
 <tr class="memitem:ab16e3e06d2401b2b5c3614395a47c60c" id="r_ab16e3e06d2401b2b5c3614395a47c60c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab16e3e06d2401b2b5c3614395a47c60c">read_pwmSW</a> (void)</td></tr>
+<tr class="memdesc:ab16e3e06d2401b2b5c3614395a47c60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read current sensor input selector state.  <br /></td></tr>
 <tr class="memitem:ac7cb7dd9d16fa98333f2df69e0f88487" id="r_ac7cb7dd9d16fa98333f2df69e0f88487"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac7cb7dd9d16fa98333f2df69e0f88487">isPWM</a> (void)</td></tr>
+<tr class="memdesc:ac7cb7dd9d16fa98333f2df69e0f88487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current sensor input mode.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -114,7 +117,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>PWM/ADC input mode selector. </p>
-<p>GPIO switch to toggle between PWM sensor and I2C ADC input modes.</p>
+<p>GPIO switch to toggle between PWM sensor and I2C ADC input modes. Allows switching sensor input source at runtime.</p>
 <dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
@@ -137,8 +140,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize PWM/ADC selector GPIO pin</p>
-<p>Initialize PWM/ADC selector GPIO pin Configures GPIO and reads initial state </p>
+
+<p>Initialize PWM/ADC selector GPIO pin. </p>
+<p>Configures GPIO for reading the sensor input mode selector switch.</p>
+<p>Configures GPIO and reads initial state. </p>
 
 </div>
 </div>
@@ -164,7 +169,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Inline accessor for current sensor input mode </p><dl class="section return"><dt>Returns</dt><dd>true for PWM sensor, false for I2C ADC </dd></dl>
+
+<p>Get current sensor input mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>true for PWM sensor mode, false for I2C ADC mode </dd></dl>
 
 </div>
 </div>
@@ -182,8 +189,12 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Read current sensor input selector state </p><dl class="section return"><dt>Returns</dt><dd>true if PWM sensors selected, false if I2C ADC selected</dd></dl>
-<p>Read current sensor input selector state Detects changes and logs sensor mode switching </p><dl class="section return"><dt>Returns</dt><dd>true if state changed, false if unchanged </dd></dl>
+
+<p>Read current sensor input selector state. </p>
+<p>Detects changes in sensor input mode and logs state transitions.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if state changed, false if unchanged</dd></dl>
+<p>Detects changes and logs sensor mode switching.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if state changed, false if unchanged </dd></dl>
 
 </div>
 </div>

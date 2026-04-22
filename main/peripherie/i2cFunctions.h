@@ -1,10 +1,9 @@
-#pragma once
-
 /**
  * @file i2cFunctions.h
- * @brief I2C interface for DS3231 RTC and ADS1115 ADC.
+ * @brief I2C interface for DS3231 RTC and time adjustment buttons.
  *
- * Handles I2C communication with DS3231 RTC and ADS1115 ADC sensors.
+ * Manages I2C communication with the DS3231 real-time clock and provides
+ * button handlers for manual time adjustment functionality.
  *
  * @author Jan Niklas Rodewald (JRO)
  * @date 01.04.2026
@@ -12,11 +11,12 @@
  * @note CHANGELOG
  * v1.0 (01.04.2026) - Initial implementation
  *      - DS3231 real-time clock interface
- *      - ADS1115 ADC for analog sensor readings
  *      - NTC temperature table interpolation
  *      - Button control for time adjustment
  *      - Dual ADC support for enhanced sensor coverage
  */
+
+#pragma once
 
 /* ===== Project Configuration ===== */
 #include "../individual_config.h"
@@ -37,13 +37,6 @@
 #include "../logging/logging.h"
 
 
-/* ===== NTC Temperature Lookup Table Structure ===== */
-typedef struct {
-    float temp;  // Temperature in °C
-    float res;   // Resistance in Ohms
-} lookup_values_t;
-
-
 /* ===== I2C Bus Configuration ===== */
 extern i2c_master_bus_config_t bus_cfg;
 extern i2c_master_bus_handle_t bus_handle;
@@ -52,26 +45,10 @@ extern i2c_master_bus_handle_t bus_handle;
 extern i2c_device_config_t ds3231_cfg;
 extern i2c_master_dev_handle_t ds3231_handle;
 
-/* ===== ADC (ADS1115) Configuration ===== */
-extern i2c_device_config_t ads_cfg[NUMBER_OF_ADS1115_DEVICES];
-extern i2c_master_dev_handle_t ads_handle[NUMBER_OF_ADS1115_DEVICES];
-
-/**
- * ADC reference voltage for resistance calculations (dynamically adjustable).
- */
-extern float reference_voltage;
-
 /* ===== Time Adjustment Buttons ===== */
 extern button_config_t cfg_time[2];           // [0] = Hour, [1] = Minute
 extern button_gpio_config_t gpio_cfg_time[2];
 extern button_handle_t btn_time[2];
-
-/* ===== Temperature Lookup Tables ===== */
-extern const lookup_values_t oil_temp_table[];
-extern const lookup_values_t outside_temperature_table[];
-#define OIL_TABLE_SIZE (sizeof(oil_temp_table) / sizeof(lookup_values_t))
-#define OUTSIDE_TABLE_SIZE (sizeof(outside_temperature_table) / sizeof(lookup_values_t))
-#define PRESSURE_TABLE_SIZE (sizeof(pressure_table) / sizeof(pressure_table[0]))
 
 /* ===== Testmode Activation Values ===== */
 extern bool testmode_activated;
@@ -79,65 +56,33 @@ extern TickType_t testmode_activation_time;
 extern int testmode_activation_count;
 extern int testmode_activation_state;
 
-/* ===== Reference Voltage ===== */
-extern float reference_voltage;
-
 /* ===== Function Declarations ===== */
 
 /**
- * Initialize I2C bus and attach connected sensors (RTC and ADC).
+ * @brief Initialize I2C bus and attach connected sensors.
+ *
+ * Sets up the I2C master bus and attaches the DS3231 RTC device.
  */
 void init_i2c(void);
 
 /**
- * Sync system time with RTC DS3231 time.
+ * @brief Synchronize system time with RTC DS3231 time.
+ *
+ * Reads current time from the DS3231 and updates ESP32 system time.
  */
 void sync_rtc_to_system(void);
 
 /**
- * Initialize the time adjustment buttons and callbacks.
+ * @brief Initialize the time adjustment buttons and callbacks.
+ *
+ * Configures GPIO buttons for hour and minute adjustment with interrupt handlers.
  */
 void init_time_buttons(void);
 
 /**
- * Read battery voltage from ADS1115 ADC
- */
-float get_i2c_adc_volt(void);
-
-/**
- * Read brightness/light sensor voltage from ADS1115 ADC
- */
-float get_i2c_adc_volt_bel(void);
-
-/**
- * Read oil temperature from ADS1115 ADC with NTC lookup table
- */
-float get_i2c_adc_oil_temp(void);
-
-/**
- * Read oil pressure from ADS1115 ADC with resistance-to-pressure conversion
- */
-float get_i2c_adc_oil_press(void);
-
-/**
- * Read outdoor temperature from ADS1115 ADC with NTC lookup table
- */
-float get_i2c_adc_outside_temp(void);
-
-/**
- * Measure and update the ADC reference voltage dynamically.
+ * @brief Get the state of testmode activation.
  *
- * Reads from the second ADS1115 ADC device and updates the global reference_voltage.
- */
-void get_i2c_adc_reference_voltage(void);
-
-/**
- * Read reference voltage from ADS1115 ADC (Version 4.2 feature)
- */
-void get_i2c_adc_reference_voltage(void);
-
-/**
- * Return the state of the testmode_activation
+ * @return true if test mode is currently active, false otherwise
  */
 inline bool is_testmode_activated(void) {
     return testmode_activated;

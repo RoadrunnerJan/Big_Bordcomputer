@@ -91,6 +91,9 @@ $(function(){initNavTree('main_8c.html','',''); });
   <div class="headertitle"><div class="title">main.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Main application entry point for E36 Board Computer.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="individual__config_8h_source.html">individual_config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="spi_functions_8h_source.html">peripherie/spiFunctions.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="led_backlight_8h_source.html">peripherie/ledBacklight.h</a>&quot;</code><br />
@@ -98,6 +101,7 @@ $(function(){initNavTree('main_8c.html','',''); });
 <code>#include &quot;<a class="el" href="i2c_functions_8h_source.html">peripherie/i2cFunctions.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pwm_sensor_8h_source.html">peripherie/pwmSensor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pwm_switch_8h_source.html">peripherie/pwmSwitch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="adc_8h_source.html">peripherie/adc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="logging_8h_source.html">logging/logging.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="values_8h_source.html">calculation/values.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="test_simulation_8h_source.html">simulation/testSimulation.h</a>&quot;</code><br />
@@ -105,17 +109,31 @@ $(function(){initNavTree('main_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afceb890a6ab9be73cc5481369538c705" id="r_afceb890a6ab9be73cc5481369538c705"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afceb890a6ab9be73cc5481369538c705">init_system</a> ()</td></tr>
+<tr class="memdesc:afceb890a6ab9be73cc5481369538c705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all hardware and system components.  <br /></td></tr>
 <tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP-IDF application main entry point.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a6e518afa23f4d64bf5cadee75e8af186" id="r_a6e518afa23f4d64bf5cadee75e8af186"><td class="memItemLeft">time_t&#160;</td><td class="memItemRight"><a class="el" href="#a6e518afa23f4d64bf5cadee75e8af186">StartUpTime</a> = 0</td></tr>
-<tr class="memitem:a6ed0b29f7880e47087b6696327cef962" id="r_a6ed0b29f7880e47087b6696327cef962"><td class="memItemLeft">time_t&#160;</td><td class="memItemRight"><a class="el" href="#a6ed0b29f7880e47087b6696327cef962">checkTime</a> = 0</td></tr>
+<tr class="memitem:af79698230cc91220f161709d9a7203f8" id="r_af79698230cc91220f161709d9a7203f8"><td class="memItemLeft">struct timeval&#160;</td><td class="memItemRight"><a class="el" href="#af79698230cc91220f161709d9a7203f8">StartUpTime</a></td></tr>
+<tr class="memitem:a556487bb4a127c111ded5f79f9de97fe" id="r_a556487bb4a127c111ded5f79f9de97fe"><td class="memItemLeft">struct timeval&#160;</td><td class="memItemRight"><a class="el" href="#a556487bb4a127c111ded5f79f9de97fe">checkTime</a></td></tr>
 <tr class="memitem:ac8e5c5d7af5d734614837b48dc709d91" id="r_ac8e5c5d7af5d734614837b48dc709d91"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ac8e5c5d7af5d734614837b48dc709d91">testmodeActivated</a> = false</td></tr>
 <tr class="memitem:a9415d6967ea31a1d71a6364878d31189" id="r_a9415d6967ea31a1d71a6364878d31189"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9415d6967ea31a1d71a6364878d31189">night_mode</a> = false</td></tr>
 <tr class="memitem:a7e24ed21034aec1f2db65c49fe77dcd9" id="r_a7e24ed21034aec1f2db65c49fe77dcd9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7e24ed21034aec1f2db65c49fe77dcd9">time_checked</a> [2] = {false, false}</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Main application entry point for E36 Board Computer. </p>
+<p>FreeRTOS-based multi-display gauge system with real-time sensor processing, LVGL graphical interface, and peripheral management for classic vehicle dashboard.</p>
+<dl class="section author"><dt>Author</dt><dd>Jan Niklas Rodewald (JRO) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>01.04.2026</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>CHANGELOG v1.0 (01.04.2026) - Initial implementation<ul>
+<li>Multi-display support with FreeRTOS tasks</li>
+<li>PWM sensor and I2C ADC interface</li>
+<li>LVGL gauge system with day/night mode switching</li>
+<li>Buzzer alert system for temperature warnings </li>
+</ul>
+</dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
 
@@ -130,8 +148,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ESP-IDF main entry point.</p>
-<p>Initializes system resources and creates the LVGL tick task. The main function then enters idle mode while tasks run in the background. </p>
+
+<p>ESP-IDF application main entry point. </p>
+<p>Initializes all system resources and creates the main LVGL tick task for periodic display updates. After task creation, enters idle mode while background tasks handle application logic.</p>
+<p>This function is automatically called by ESP-IDF runtime. </p>
 
 </div>
 </div>
@@ -149,20 +169,30 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialize all hardware and system components.</p>
-<p>Sets up backlight PWM, RTC, buttons, SPI display layers, LVGL and sensors. Also starts timers and optional buzzer component. </p>
+
+<p>Initialize all hardware and system components. </p>
+<p>Sets up all peripherals and services required for the board computer:</p><ul>
+<li>Display backlight PWM and brightness control</li>
+<li>ADC for sensor input</li>
+<li>I2C bus with RTC (DS3231) and synchronizes system time</li>
+<li>Time adjustment buttons with callbacks</li>
+<li>SPI display layers and LVGL graphics engine</li>
+<li>PWM/ADC sensor mode selector</li>
+<li>Optional buzzer component for temperature alerts</li>
+</ul>
+<p>Must be called once during application startup before creating tasks. </p>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a6ed0b29f7880e47087b6696327cef962" name="a6ed0b29f7880e47087b6696327cef962"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ed0b29f7880e47087b6696327cef962">&#9670;&#160;</a></span>checkTime</h2>
+<a id="a556487bb4a127c111ded5f79f9de97fe" name="a556487bb4a127c111ded5f79f9de97fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a556487bb4a127c111ded5f79f9de97fe">&#9670;&#160;</a></span>checkTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">time_t checkTime = 0</td>
+          <td class="memname">struct timeval checkTime</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -183,14 +213,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a6e518afa23f4d64bf5cadee75e8af186" name="a6e518afa23f4d64bf5cadee75e8af186"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e518afa23f4d64bf5cadee75e8af186">&#9670;&#160;</a></span>StartUpTime</h2>
+<a id="af79698230cc91220f161709d9a7203f8" name="af79698230cc91220f161709d9a7203f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af79698230cc91220f161709d9a7203f8">&#9670;&#160;</a></span>StartUpTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">time_t StartUpTime = 0</td>
+          <td class="memname">struct timeval StartUpTime</td>
         </tr>
       </table>
 </div><div class="memdoc">

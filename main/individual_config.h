@@ -17,7 +17,7 @@
  * @brief Feature flags - enable/disable optional modules.
  */
 #define USE_BUZZER                         false  // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
+#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 
 
@@ -32,11 +32,9 @@
      *
      * NUMBER_OF_DISPLAYS: Number of independent LCD panels attached.
      * NUMBER_OF_SPI: Number of SPI host controllers used for displays.
-     * NUMBER_OF_ADS1115_DEVICES: Number of ADS1115 ADC chips on I2C bus.
      */
     #define NUMBER_OF_DISPLAYS                 4      // up to 4 displays possible
     #define NUMBER_OF_SPI                      2      // for four displays, two SPI hosts are required
-    #define NUMBER_OF_ADS1115_DEVICES          2      // number of ADS1115 ADC devices on I2C
     /**
      * @brief SPI bus configuration, used for SPI LCD panels.
      *
@@ -353,7 +351,7 @@
 
 /*
 #################################################################################
-    I2C CONFIGURATION (RTC DS3231 & ADS1115 ADCs)
+    I2C CONFIGURATION (RTC DS3231)
 #################################################################################
 */
 #define I2C_SDA_PIN                        9
@@ -367,61 +365,75 @@
 
 // I2C Device Addresses
 #define RTC_DS3231_ADDR                    0x68
-#define ADC_ADS1115_1_ADDR                 0x48
-#define ADC_ADS1115_2_ADDR                 0x49
-#define ADC_ADS1115_ADDR_LENGTH            RTC_ADDR_LENGTH
-#define ADC_ADS1115_SCL_SPEED_HZ           400000
-#define ADC_ADS1115_READING_DELAY_MS       12
 
 /*
 #################################################################################
-    ADC (ADS1115) CONFIGURATION
+    ADC CONFIGURATION
 #################################################################################
 */
+// ADC Setup
+#define ADC_UNIT_NUMBER                   2   
+#define ADC_UNIT_1_BITWIDTH               ADC_BITWIDTH_DEFAULT
+#define ADC_UNIT_2_BITWIDTH               ADC_BITWIDTH_DEFAULT
+#define ADC_UNIT_1_ATTEN                  ADC_ATTEN_DB_12
+#define ADC_UNIT_2_ATTEN                  ADC_ATTEN_DB_12
+
+#define ADC_OIL_PRESSURE_UNIT_ID          ADC_UNIT_1
+#define ADC_OIL_PRESSURE_BITWIDTH         ADC_BITWIDTH_DEFAULT
+#define ADC_OIL_PRESSURE_ATTEN            ADC_ATTEN_DB_12
+#define ADC_OIL_PRESSURE_CHANNEL          ADC_CHANNEL_3
+
+#define ADC_OIL_TEMPERATURE_UNIT_ID       ADC_UNIT_1
+#define ADC_OIL_TEMPERATURE_BITWIDTH      ADC_BITWIDTH_DEFAULT
+#define ADC_OIL_TEMPERATURE_ATTEN         ADC_ATTEN_DB_12
+#define ADC_OIL_TEMPERATURE_CHANNEL       ADC_CHANNEL_6
+
+#define ADC_OUT_TEMPERATURE_UNIT_ID       ADC_UNIT_1
+#define ADC_OUT_TEMPERATURE_BITWIDTH      ADC_BITWIDTH_DEFAULT
+#define ADC_OUT_TEMPERATURE_ATTEN         ADC_ATTEN_DB_12
+#define ADC_OUT_TEMPERATURE_CHANNEL       ADC_CHANNEL_7
+
+#define ADC_OIL_12V_UNIT_ID               ADC_UNIT_2
+#define ADC_OIL_12V_BITWIDTH              ADC_BITWIDTH_DEFAULT
+#define ADC_OIL_12V_ATTEN                 ADC_ATTEN_DB_12
+#define ADC_OIL_12V_CHANNEL               ADC_CHANNEL_4
+
+#define ADC_AMBI_UNIT_ID              ADC_UNIT_2
+#define ADC_AMBI_BITWIDTH             ADC_BITWIDTH_DEFAULT
+#define ADC_AMBI_ATTEN                ADC_ATTEN_DB_12
+#define ADC_AMBI_CHANNEL              ADC_CHANNEL_5
+
+#define ADC_3V3_UNIT_ID               ADC_UNIT_2
+#define ADC_3V3_BITWIDTH              ADC_BITWIDTH_DEFAULT
+#define ADC_3V3_ATTEN                 ADC_ATTEN_DB_12
+#define ADC_3V3_CHANNEL               ADC_CHANNEL_3
+
 // LSB (Least Significant Bit) values for different ranges
-#define LSB_2048                           0.0625f
-#define LSB_4096                           0.125f
 #define ADC_MAX_V_VALID                    3.25f
-#define ADC_ADS_REF_V                      2.8f//2.8f // 2.8f adc reference bei PKW netz
+#define ADC_ADS_REF_V                      3.3f//2.8f // 2.8f adc reference bei PKW netz
 #define ADC_FAIL_VALUE                     -99.0f
 
-// ADC Channel Assignments
-#define ADC_VOLT_ADS_CHANNEL               0       // Battery voltage
-#define ADC_VOLT_BEL_ADS_CHANNEL           1       // Brightness/Light sensor
-#define ADC_TEMP_ADS_CHANNEL               2       // oil temperature
-#define ADC_PRES_ADS_CHANNEL               3       // Oil pressure
-#define ADC_OUT_TEMP_ADS_CHANNEL           0       // Outdoor temperature
-#define ADC_VOLT_REF_CHANNEL               1       // Reference voltage reading (only in Version 4.2)
-
-// Programmable Gain Amplifier (PGA) Settings
-#define ADC_VOLT_ADS_PGA                   0x02
-#define ADC_VOLT_BEL_ADS_PGA               0x01
-#define ADC_TEMP_ADS_PGA                   0x01
-#define ADC_PRES_ADS_PGA                   0x01
-#define ADC_OUT_TEMP_ADS_PGA               0x01
-#define ADC_VOLT_REF_PGA                   0x01
-
 // Pull-up Resistor Values
-#define ADC_VOLT_ADS_PULLUP                10000.0f
-#define ADC_VOLT_ADS_PULLDOWN              1500.0f
-#define ADC_VOLT_BEL_ADS_PULLUP            10000.0f
-#define ADC_VOLT_BEL_ADS_PULLDOWN          2200.0f
-#define ADC_TEMP_ADS_PULLUP                680.0f
-#define ADC_PRES_ADS_PULLUP                680.0f
-#define ADC_OUT_TEMP_ADS_PULLUP            4700.0f
+#define ADC_VOLT_PULLUP                10000.0f
+#define ADC_VOLT_PULLDOWN              1500.0f
+#define ADC_VOLT_BEL_PULLUP            10000.0f
+#define ADC_VOLT_BEL_PULLDOWN          2200.0f
+#define ADC_TEMP_PULLUP                680.0f
+#define ADC_PRES_PULLUP                680.0f
+#define ADC_OUT_TEMP_PULLUP            4700.0f
+#define ADC_3V3_PULLUP                 1000.0f
+#define ADC_3V3_PULLDOWN               1000.0f
 
 // Failure Detection Thresholds
-#define ADC_TEMP_ADS_VAL_TO_FAIL_MIN       -50
-#define ADC_PRES_ADS_VAL_TO_FAIL_MIN       0
-#define ADC_PRES_ADS_VAL_TO_FAIL_MAX       250.0f
-#define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MIN   0
-#define ADC_OUT_TEMP_ADS_VAL_TO_FAIL_MAX   150000.0f
-#define ADC_ADS_REF_V_TO_FAIL_MIN          ADC_ADS_REF_V - 0.5f
-#define ADC_ADS_REF_V_TO_FAIL_MAX          ADC_ADS_REF_V + 0.5f
+#define ADC_TEMP_VAL_TO_FAIL_MIN       -50
+#define ADC_PRES_VAL_TO_FAIL_MIN       0
+#define ADC_PRES_VAL_TO_FAIL_MAX       250.0f
+#define ADC_OUT_TEMP_VAL_TO_FAIL_MIN   0
+#define ADC_OUT_TEMP_VAL_TO_FAIL_MAX   150000.0f
 
 // Pressure Resistance Range Values
-#define ADC_PRES_ADS_VAL_MIN_R             10.0f
-#define ADC_PRES_ADS_VAL_MAX_R             184.0f
+#define ADC_PRES_VAL_MIN_R             10.0f
+#define ADC_PRES_VAL_MAX_R             184.0f
 
 /*
 #################################################################################

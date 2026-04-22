@@ -25,13 +25,43 @@
 var NAVTREE =
 [
   [ "Big_Boardcomputer", "index.html", [
-    [ "Customizable ESP32 Boardcomputer", "index.html#autotoc_md0", [
-      [ "Hardware Overview", "index.html#autotoc_md1", null ],
-      [ "Software", "index.html#autotoc_md2", null ],
-      [ "Test mode activation", "index.html#autotoc_md3", null ],
-      [ "How to Flash the Project", "index.html#autotoc_md4", null ],
-      [ "Project Structure", "index.html#autotoc_md5", null ],
-      [ "Troubleshooting", "index.html#autotoc_md6", null ]
+    [ "ESP32-P4 Classic Vehicle Board Computer (E36)", "index.html#autotoc_md0", [
+      [ "Overview", "index.html#autotoc_md1", null ],
+      [ "Hardware", "index.html#autotoc_md2", null ],
+      [ "Software Architecture", "index.html#autotoc_md3", null ],
+      [ "Key Features", "index.html#autotoc_md4", [
+        [ "Multi-Display Support", "index.html#autotoc_md5", null ],
+        [ "Sensor Processing", "index.html#autotoc_md6", null ],
+        [ "Day/Night Mode", "index.html#autotoc_md7", null ],
+        [ "Test Mode", "index.html#autotoc_md8", null ]
+      ] ],
+      [ "Project Structure", "index.html#autotoc_md9", null ],
+      [ "Building &amp; Flashing", "index.html#autotoc_md10", [
+        [ "Prerequisites", "index.html#autotoc_md11", null ],
+        [ "Build", "index.html#autotoc_md12", null ],
+        [ "Flash", "index.html#autotoc_md13", null ],
+        [ "Monitor", "index.html#autotoc_md14", null ]
+      ] ],
+      [ "Test Mode Activation", "index.html#autotoc_md15", null ],
+      [ "Documentation", "index.html#autotoc_md16", null ],
+      [ "Sensor Calibration", "index.html#autotoc_md17", [
+        [ "Oil Temperature (NTC Thermistor)", "index.html#autotoc_md18", null ],
+        [ "Oil Pressure", "index.html#autotoc_md19", null ],
+        [ "Outdoor Temperature (NTC Thermistor)", "index.html#autotoc_md20", null ],
+        [ "Voltage", "index.html#autotoc_md21", null ]
+      ] ],
+      [ "Configuration", "index.html#autotoc_md22", null ],
+      [ "Performance &amp; Power", "index.html#autotoc_md23", null ],
+      [ "Roadmap &amp; Known Limitations", "index.html#autotoc_md24", [
+        [ "Near-term", "index.html#autotoc_md25", null ],
+        [ "Future Enhancements", "index.html#autotoc_md26", null ]
+      ] ],
+      [ "Contributing", "index.html#autotoc_md27", null ],
+      [ "License", "index.html#autotoc_md28", null ],
+      [ "Contact", "index.html#autotoc_md29", [
+        [ "System / Features / UX", "index.html#autotoc_md31", null ]
+      ] ],
+      [ "Troubleshooting", "index.html#autotoc_md32", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -47,6 +77,8 @@ var NAVTREE =
         [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
@@ -55,9 +87,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"individual__config_8h.html#a801d1ce041eb806f86e62e9d267fee2b",
-"structspi__settings.html#a37894fa5fd9b2c9e43c94fd89b7b5638"
+"adc_8c.html",
+"individual__config_8h.html#a4cec07593b05ca2bd8449b4138158deb",
+"pwm_switch_8h.html#a0182a91a2e5646d38d05d252069da695"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

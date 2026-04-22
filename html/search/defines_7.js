@@ -57,7 +57,5 @@ var searchData=
   ['led_5fstart_5fbright_54',['LED_START_BRIGHT',['../individual__config_8h.html#a19388170f732e4edf122aceab67fd83c',1,'individual_config.h']]],
   ['led_5ftimer_55',['LED_TIMER',['../individual__config_8h.html#ade3a58ca3fc05681b689884e377a37d5',1,'individual_config.h']]],
   ['logging_5fenabled_56',['LOGGING_ENABLED',['../individual__config_8h.html#a3ccdf5e151cf4faa7bea9d68a1af829a',1,'individual_config.h']]],
-  ['logging_5ftag_57',['LOGGING_TAG',['../individual__config_8h.html#a454deab6aeff0af2de8c334bec94dfe9',1,'individual_config.h']]],
-  ['lsb_5f2048_58',['LSB_2048',['../individual__config_8h.html#ac83c49065dacf9828a6acdceefaa54f6',1,'individual_config.h']]],
-  ['lsb_5f4096_59',['LSB_4096',['../individual__config_8h.html#abb231f31dd71babedb1a64b056d0a6d1',1,'individual_config.h']]]
+  ['logging_5ftag_57',['LOGGING_TAG',['../individual__config_8h.html#a454deab6aeff0af2de8c334bec94dfe9',1,'individual_config.h']]]
 ];
