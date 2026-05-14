@@ -102,6 +102,9 @@ struct display_settings
     // Configuration Structures
     esp_lcd_panel_io_spi_config_t io_config;
     esp_lcd_panel_dev_config_t panel_config;
+
+    // Display delay time
+    int delay_time_screen_ms;
 };
 
 

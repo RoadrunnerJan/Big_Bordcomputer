@@ -185,6 +185,7 @@ void display_init(void)
     DISPLAYS[0].task_priority =          TASK_1_PRIORITY_SCREEN;
     DISPLAYS[0].task_delay_time_ms =     TASK_1_DELAYTIME_SCREEN;
     DISPLAYS[0].tast_core =              TASK_1_CORE_SCREEN;
+    DISPLAYS[0].delay_time_screen_ms =   MEASURE_DELAY_TIME_1_MS;
 
     #if NUMBER_OF_DISPLAYS > 1
         DISPLAYS[1].screen_selection =     LCD_2_SCREEN_ID;
@@ -204,6 +205,7 @@ void display_init(void)
         DISPLAYS[1].task_priority =        TASK_2_PRIORITY_SCREEN;
         DISPLAYS[1].task_delay_time_ms =   TASK_2_DELAYTIME_SCREEN;
         DISPLAYS[1].tast_core =            TASK_2_CORE_SCREEN;
+        DISPLAYS[1].delay_time_screen_ms = MEASURE_DELAY_TIME_2_MS;
     #endif
     #if NUMBER_OF_DISPLAYS > 2
         DISPLAYS[2].screen_selection =     LCD_3_SCREEN_ID;
@@ -223,6 +225,7 @@ void display_init(void)
         DISPLAYS[2].task_priority =        TASK_3_PRIORITY_SCREEN;
         DISPLAYS[2].task_delay_time_ms =   TASK_3_DELAYTIME_SCREEN;
         DISPLAYS[2].tast_core =            TASK_3_CORE_SCREEN;
+        DISPLAYS[2].delay_time_screen_ms = MEASURE_DELAY_TIME_3_MS;
     #endif
     #if NUMBER_OF_DISPLAYS > 3
         DISPLAYS[3].screen_selection =     LCD_4_SCREEN_ID;
@@ -242,6 +245,7 @@ void display_init(void)
         DISPLAYS[3].task_priority =        TASK_4_PRIORITY_SCREEN;
         DISPLAYS[3].task_delay_time_ms =   TASK_4_DELAYTIME_SCREEN;
         DISPLAYS[3].tast_core =            TASK_4_CORE_SCREEN;
+        DISPLAYS[3].delay_time_screen_ms = MEASURE_DELAY_TIME_4_MS;
     #endif
 
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)

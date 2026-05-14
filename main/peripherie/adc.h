@@ -26,7 +26,7 @@ typedef enum {
     ADC_12V = 3,                /**< Battery voltage (12V supply) input */
     ADC_AMBI = 4,               /**< Ambient light sensor input */
     ADC_3V3 = 5,                /**< 3.3V reference voltage input */
-    MAX_ABC_NBR                 /**< Must ALWAYS be the last enum value */
+    MAX_ADC_NBR                 /**< Must ALWAYS be the last enum value */
 } adc_selection;
 
 /**
@@ -45,7 +45,7 @@ extern adc_oneshot_unit_init_cfg_t init_config[ADC_UNIT_NUMBER];
 extern adc_oneshot_unit_handle_t adc_handler[ADC_UNIT_NUMBER];
 extern adc_cali_curve_fitting_config_t cali_config[ADC_UNIT_NUMBER];
 extern adc_cali_handle_t cali_handler[ADC_UNIT_NUMBER];
-extern adc_handles_t adc_handles[MAX_ABC_NBR - 1];
+extern adc_handles_t adc_handles[MAX_ADC_NBR - 1];
 
 extern const lookup_values_t oil_temp_table[];         /**< Oil temperature calibration table */
 extern const lookup_values_t outside_temperature_table[];  /**< Outdoor temperature calibration table */

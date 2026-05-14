@@ -54,6 +54,7 @@ int testmodeActivated = false;
 
 bool night_mode = false;
 bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
+long long last_executed_time[5] = {0, 0, 0, 0, 0}; // Oil Pressure, Oil Temp, Volt, Out Temp, Brightness
 
 
 /* ===== Buzzer Task (only if enabled) ===== */
@@ -306,7 +307,12 @@ static void tick_switch(int displayID, bool force_night_mode_update)
             }
         break;
     }
+                
     lv_timer_handler();
+    if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[displayID]) > DISPLAYS[displayID].delay_time_screen_ms)
+    {
+        last_executed_time[displayID] = (long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000;
+    }
 }
 
 /**
@@ -324,18 +330,24 @@ static void lv_tick_task_screen(void *pv)
 
     while (1) {
         gettimeofday(&checkTime, NULL);
-        if(is_testmode_activated()) {
-            vTaskDelay(pdMS_TO_TICKS(50));
-            brightness_test();
-            night_mode = getNightModeActiveTestValue();
+        int time_test_time = is_testmode_activated() ? MEASURE_DELAY_TIME_BRIGHT_TEST_MS : MEASURE_DELAY_TIME_BRIGHT_MS;
+        if(is_testmode_activated()){
+            if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+            {
+                brightness_test();
+                night_mode = getNightModeActiveTestValue();
+            }
         }
         else {
-            calcBrightness(get_adc_volt_bel());
-            if(BRIGHTNESS_AUTO_ENABLE) {
-                night_mode = getNightModeActive();
-            }
-            else {
-                night_mode = false; // Force day mode if auto brightness is disabled
+            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+            {
+                calcBrightness(get_adc_volt_bel());
+                if(BRIGHTNESS_AUTO_ENABLE) {
+                    night_mode = getNightModeActive();
+                }
+                else {
+                    night_mode = false; // Force day mode if auto brightness is disabled
+                }
             }
         }
 
@@ -344,15 +356,20 @@ static void lv_tick_task_screen(void *pv)
             if (!time_checked[0]) {
                 time_checked[0] = !time_checked[0];
             }
-            if(is_testmode_activated()) {
-                set_lcd_brightness(getBrightnessTestValue());
-            }
-            else {
-                if(BRIGHTNESS_AUTO_ENABLE) {
-                    set_lcd_brightness(getBrightness());
+            
+            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+            {
+                last_executed_time[5] = (long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000;
+                if(is_testmode_activated()) {
+                    set_lcd_brightness(getBrightnessTestValue());
                 }
                 else {
-                    set_lcd_brightness(BRIGHTNESS_DAY); // Force day mode brightness if auto brightness is disabled
+                    if(BRIGHTNESS_AUTO_ENABLE) {
+                        set_lcd_brightness(getBrightness());
+                    }
+                    else {
+                        set_lcd_brightness(BRIGHTNESS_DAY); // Force day mode brightness if auto brightness is disabled
+                    }
                 }
             }
         }
@@ -364,7 +381,10 @@ static void lv_tick_task_screen(void *pv)
 
         // Phase 1: Update all sensor values and LVGL variables for all displays
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
-            update_values(i);
+            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[i]) > DISPLAYS[i].delay_time_screen_ms)
+            {
+                update_values(i);
+            }
         }
         // Phase 2: Update and render screen displays with current values
         bool force_night_mode_update = getNightModechanged() ? true : false; // Force screen update if night mode state changed
@@ -376,7 +396,7 @@ static void lv_tick_task_screen(void *pv)
             if (!time_checked[1]) {
                 gettimeofday(&checkTime, NULL);
             }
-            if ((long)((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) >= BUZZER_ON_DELAY_MS)
+            if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) >= BUZZER_ON_DELAY_MS)
             {
                 if (!time_checked[1]) {
                     time_checked[1] = !time_checked[1];
@@ -413,7 +433,7 @@ static void lv_tick_task_screen(void *pv)
             pwm_sensor_print();
         }
 
-        vTaskDelay(pdMS_TO_TICKS(50));
+        vTaskDelay(pdMS_TO_TICKS(25));
     }
 }
 

@@ -85,5 +85,9 @@ void init_time_buttons(void);
  * @return true if test mode is currently active, false otherwise
  */
 inline bool is_testmode_activated(void) {
-    return testmode_activated;
+    #if TESTMODE_ACTIVE == true
+        return true;
+    #else
+        return testmode_activated;
+    #endif
 }

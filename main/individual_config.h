@@ -19,7 +19,7 @@
 #define USE_BUZZER                         false  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-
+#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
 
 /*
 #################################################################################
@@ -473,6 +473,13 @@
 #define FILTER_ALPHA_VOLT                  0.1f
 #define FILTER_ALPHA_OUT_TEMP              0.1f
 #define FILTER_ALPHA_BEL                   0.1f
+
+#define MEASURE_DELAY_TIME_1_MS            25
+#define MEASURE_DELAY_TIME_2_MS            250
+#define MEASURE_DELAY_TIME_3_MS            100
+#define MEASURE_DELAY_TIME_4_MS            250
+#define MEASURE_DELAY_TIME_BRIGHT_MS       250
+#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  1000
 
 /*
 #################################################################################

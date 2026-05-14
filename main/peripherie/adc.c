@@ -22,7 +22,7 @@ adc_oneshot_unit_init_cfg_t init_config[ADC_UNIT_NUMBER];
 adc_oneshot_unit_handle_t adc_handler[ADC_UNIT_NUMBER];
 adc_cali_curve_fitting_config_t cali_config[ADC_UNIT_NUMBER];
 adc_cali_handle_t cali_handler[ADC_UNIT_NUMBER];
-adc_handles_t adc_handles[MAX_ABC_NBR - 1];
+adc_handles_t adc_handles[MAX_ADC_NBR - 1];
 
 const lookup_values_t oil_temp_table[] = {
     // {Temperature in °C, Resistance in Ohms}
@@ -74,7 +74,7 @@ void adc_init() {
         }
     }
 
-    for (int i = 0; i < MAX_ABC_NBR; i ++){
+    for (int i = 0; i < MAX_ADC_NBR; i ++){
         switch(i)
         {
             case ADC_OIL_PRESSURE:
