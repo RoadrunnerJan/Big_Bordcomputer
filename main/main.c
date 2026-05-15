@@ -425,7 +425,6 @@ static void lv_tick_task_screen(void *pv)
         {
             testmodeActivated = true;
             reset_test_values();
-            reset_test_switches();
             reset_values(-1);
 
         }

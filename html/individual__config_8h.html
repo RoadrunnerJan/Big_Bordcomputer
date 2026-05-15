@@ -98,7 +98,7 @@ $(function(){initNavTree('individual__config_8h.html','',''); });
 Macros</h2></td></tr>
 <tr class="memitem:abc5772bb8f4980f3c762ed695dde4c21" id="r_abc5772bb8f4980f3c762ed695dde4c21"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abc5772bb8f4980f3c762ed695dde4c21">CHIP_USED</a>&#160;&#160;&#160;ESP32P4</td></tr>
 <tr class="memdesc:abc5772bb8f4980f3c762ed695dde4c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core project configuration values.  <br /></td></tr>
-<tr class="memitem:a90ba4699a88b95a3609bc117dd06c445" id="r_a90ba4699a88b95a3609bc117dd06c445"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a90ba4699a88b95a3609bc117dd06c445">USE_BUZZER</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memitem:a90ba4699a88b95a3609bc117dd06c445" id="r_a90ba4699a88b95a3609bc117dd06c445"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a90ba4699a88b95a3609bc117dd06c445">USE_BUZZER</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memdesc:a90ba4699a88b95a3609bc117dd06c445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feature flags - enable/disable optional modules.  <br /></td></tr>
 <tr class="memitem:a3ccdf5e151cf4faa7bea9d68a1af829a" id="r_a3ccdf5e151cf4faa7bea9d68a1af829a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3ccdf5e151cf4faa7bea9d68a1af829a">LOGGING_ENABLED</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memitem:a454deab6aeff0af2de8c334bec94dfe9" id="r_a454deab6aeff0af2de8c334bec94dfe9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a454deab6aeff0af2de8c334bec94dfe9">LOGGING_TAG</a>&#160;&#160;&#160;&quot;JRO_BOARD_COMPUTER_LOG&quot;</td></tr>
@@ -255,9 +255,15 @@ Macros</h2></td></tr>
 <tr class="memdesc:add3c629e9878a9bbd7bfed7baf2d0781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum brightness in night mode (0-100%).  <br /></td></tr>
 <tr class="memitem:a5cf58e6540f125d0a004a94f7c7b97b9" id="r_a5cf58e6540f125d0a004a94f7c7b97b9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5cf58e6540f125d0a004a94f7c7b97b9">BRIGHTNESS_NIGHT_MAX_V</a>&#160;&#160;&#160;10.74</td></tr>
 <tr class="memdesc:a5cf58e6540f125d0a004a94f7c7b97b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage mapping point for maximum night brightness.  <br /></td></tr>
-<tr class="memitem:ac2f4bb90d6c2451310a80f949a777bc2" id="r_ac2f4bb90d6c2451310a80f949a777bc2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac2f4bb90d6c2451310a80f949a777bc2">EEZ_VALUE_FACTOR</a>&#160;&#160;&#160;1000</td></tr>
-<tr class="memdesc:ac2f4bb90d6c2451310a80f949a777bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display rendering and initialization timing parameters.  <br /></td></tr>
-<tr class="memitem:af7d5b688d597247e5d46d3c12ca1d6cf" id="r_af7d5b688d597247e5d46d3c12ca1d6cf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af7d5b688d597247e5d46d3c12ca1d6cf">GAUGE_ON_DELAY_MS</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memitem:abc5e556cf61038ad33f46e70a4e51682" id="r_abc5e556cf61038ad33f46e70a4e51682"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abc5e556cf61038ad33f46e70a4e51682">EEZ_VALUE_FACTOR_1</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:abc5e556cf61038ad33f46e70a4e51682"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display rendering and initialization timing parameters.  <br /></td></tr>
+<tr class="memitem:a4a53ae097a079953f3389bf0e24b9168" id="r_a4a53ae097a079953f3389bf0e24b9168"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4a53ae097a079953f3389bf0e24b9168">EEZ_VALUE_FACTOR_2</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:a4a53ae097a079953f3389bf0e24b9168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling factor for float-to-integer conversion in LVGL.  <br /></td></tr>
+<tr class="memitem:af9fb86afd4f21a6b62f87dac48cc988e" id="r_af9fb86afd4f21a6b62f87dac48cc988e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af9fb86afd4f21a6b62f87dac48cc988e">EEZ_VALUE_FACTOR_3</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:af9fb86afd4f21a6b62f87dac48cc988e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling factor for float-to-integer conversion in LVGL.  <br /></td></tr>
+<tr class="memitem:a8611b75afe00be730bbfa2e5dfd34ab0" id="r_a8611b75afe00be730bbfa2e5dfd34ab0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8611b75afe00be730bbfa2e5dfd34ab0">EEZ_VALUE_FACTOR_4</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:a8611b75afe00be730bbfa2e5dfd34ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling factor for float-to-integer conversion in LVGL.  <br /></td></tr>
+<tr class="memitem:af7d5b688d597247e5d46d3c12ca1d6cf" id="r_af7d5b688d597247e5d46d3c12ca1d6cf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af7d5b688d597247e5d46d3c12ca1d6cf">GAUGE_ON_DELAY_MS</a>&#160;&#160;&#160;1200</td></tr>
 <tr class="memdesc:af7d5b688d597247e5d46d3c12ca1d6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay before gauges become active after boot (milliseconds).  <br /></td></tr>
 <tr class="memitem:a40ea04e9f5c26956209bcc0a89a00fac" id="r_a40ea04e9f5c26956209bcc0a89a00fac"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a40ea04e9f5c26956209bcc0a89a00fac">BUZZER_ON_DELAY_MS</a>&#160;&#160;&#160;5000</td></tr>
 <tr class="memdesc:a40ea04e9f5c26956209bcc0a89a00fac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay before buzzer activation is allowed (milliseconds).  <br /></td></tr>
@@ -485,19 +491,19 @@ Macros</h2></td></tr>
 <tr class="memdesc:ac0160d591fd8a0b2995edaa0ed3277ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outdoor temperature smoothing factor.  <br /></td></tr>
 <tr class="memitem:a0aba378a08cd6b071ab97d7ec085020b" id="r_a0aba378a08cd6b071ab97d7ec085020b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0aba378a08cd6b071ab97d7ec085020b">FILTER_ALPHA_BEL</a>&#160;&#160;&#160;0.1f</td></tr>
 <tr class="memdesc:a0aba378a08cd6b071ab97d7ec085020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness smoothing factor.  <br /></td></tr>
-<tr class="memitem:a6035b876ba62c9deb3694d0baa08e231" id="r_a6035b876ba62c9deb3694d0baa08e231"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:a6035b876ba62c9deb3694d0baa08e231" id="r_a6035b876ba62c9deb3694d0baa08e231"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:a6035b876ba62c9deb3694d0baa08e231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor measurement timing configuration.  <br /></td></tr>
-<tr class="memitem:a0d806d9e4d224c3d843596a118502cda" id="r_a0d806d9e4d224c3d843596a118502cda"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0d806d9e4d224c3d843596a118502cda">MEASURE_DELAY_TIME_1_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a></td></tr>
-<tr class="memdesc:a0d806d9e4d224c3d843596a118502cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 1 update interval (25ms).  <br /></td></tr>
-<tr class="memitem:abbb18ebcc6f9d6e12561d0d093bdc429" id="r_abbb18ebcc6f9d6e12561d0d093bdc429"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abbb18ebcc6f9d6e12561d0d093bdc429">MEASURE_DELAY_TIME_2_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
-<tr class="memdesc:abbb18ebcc6f9d6e12561d0d093bdc429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 2 update interval (125ms).  <br /></td></tr>
-<tr class="memitem:a77a3118ca39eea76bd706c60b8cd39e6" id="r_a77a3118ca39eea76bd706c60b8cd39e6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a77a3118ca39eea76bd706c60b8cd39e6">MEASURE_DELAY_TIME_3_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 2</td></tr>
-<tr class="memdesc:a77a3118ca39eea76bd706c60b8cd39e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 3 update interval (50ms).  <br /></td></tr>
-<tr class="memitem:a2e38659375d30ce125ce55521de0da5a" id="r_a2e38659375d30ce125ce55521de0da5a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2e38659375d30ce125ce55521de0da5a">MEASURE_DELAY_TIME_4_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
-<tr class="memdesc:a2e38659375d30ce125ce55521de0da5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 4 update interval (125ms).  <br /></td></tr>
-<tr class="memitem:a3494bcac8e0b3ef66592697416092de3" id="r_a3494bcac8e0b3ef66592697416092de3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3494bcac8e0b3ef66592697416092de3">MEASURE_DELAY_TIME_BRIGHT_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
-<tr class="memdesc:a3494bcac8e0b3ef66592697416092de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness update interval (125ms).  <br /></td></tr>
-<tr class="memitem:a7be6bba1f17d8e74cd742a5d8ad83cfc" id="r_a7be6bba1f17d8e74cd742a5d8ad83cfc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7be6bba1f17d8e74cd742a5d8ad83cfc">MEASURE_DELAY_TIME_BRIGHT_TEST_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10</td></tr>
+<tr class="memitem:a0d806d9e4d224c3d843596a118502cda" id="r_a0d806d9e4d224c3d843596a118502cda"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0d806d9e4d224c3d843596a118502cda">MEASURE_DELAY_TIME_1_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 50)</td></tr>
+<tr class="memdesc:a0d806d9e4d224c3d843596a118502cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 1 update interval (500ms).  <br /></td></tr>
+<tr class="memitem:abbb18ebcc6f9d6e12561d0d093bdc429" id="r_abbb18ebcc6f9d6e12561d0d093bdc429"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abbb18ebcc6f9d6e12561d0d093bdc429">MEASURE_DELAY_TIME_2_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 20)</td></tr>
+<tr class="memdesc:abbb18ebcc6f9d6e12561d0d093bdc429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 2 update interval (200ms).  <br /></td></tr>
+<tr class="memitem:a77a3118ca39eea76bd706c60b8cd39e6" id="r_a77a3118ca39eea76bd706c60b8cd39e6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a77a3118ca39eea76bd706c60b8cd39e6">MEASURE_DELAY_TIME_3_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> *  2)</td></tr>
+<tr class="memdesc:a77a3118ca39eea76bd706c60b8cd39e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 3 update interval (20ms).  <br /></td></tr>
+<tr class="memitem:a2e38659375d30ce125ce55521de0da5a" id="r_a2e38659375d30ce125ce55521de0da5a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2e38659375d30ce125ce55521de0da5a">MEASURE_DELAY_TIME_4_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> *  5)</td></tr>
+<tr class="memdesc:a2e38659375d30ce125ce55521de0da5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 4 update interval (50ms).  <br /></td></tr>
+<tr class="memitem:a3494bcac8e0b3ef66592697416092de3" id="r_a3494bcac8e0b3ef66592697416092de3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3494bcac8e0b3ef66592697416092de3">MEASURE_DELAY_TIME_BRIGHT_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10)</td></tr>
+<tr class="memdesc:a3494bcac8e0b3ef66592697416092de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness update interval (100ms).  <br /></td></tr>
+<tr class="memitem:a7be6bba1f17d8e74cd742a5d8ad83cfc" id="r_a7be6bba1f17d8e74cd742a5d8ad83cfc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7be6bba1f17d8e74cd742a5d8ad83cfc">MEASURE_DELAY_TIME_BRIGHT_TEST_MS</a>&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 25)</td></tr>
 <tr class="memdesc:a7be6bba1f17d8e74cd742a5d8ad83cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test mode brightness interval (250ms).  <br /></td></tr>
 <tr class="memitem:afb49e31aecc553b20cf07b22e55a9bd7" id="r_afb49e31aecc553b20cf07b22e55a9bd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a>&#160;&#160;&#160;10000</td></tr>
 <tr class="memdesc:afb49e31aecc553b20cf07b22e55a9bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test mode button activation sequence parameters.  <br /></td></tr>
@@ -1523,20 +1529,68 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2f4bb90d6c2451310a80f949a777bc2" name="ac2f4bb90d6c2451310a80f949a777bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2f4bb90d6c2451310a80f949a777bc2">&#9670;&#160;</a></span>EEZ_VALUE_FACTOR</h2>
+<a id="abc5e556cf61038ad33f46e70a4e51682" name="abc5e556cf61038ad33f46e70a4e51682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5e556cf61038ad33f46e70a4e51682">&#9670;&#160;</a></span>EEZ_VALUE_FACTOR_1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define EEZ_VALUE_FACTOR&#160;&#160;&#160;1000</td>
+          <td class="memname">#define EEZ_VALUE_FACTOR_1&#160;&#160;&#160;1000</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Display rendering and initialization timing parameters. </p>
 <p>Scaling factor for float-to-integer conversion in LVGL </p>
+
+</div>
+</div>
+<a id="a4a53ae097a079953f3389bf0e24b9168" name="a4a53ae097a079953f3389bf0e24b9168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a53ae097a079953f3389bf0e24b9168">&#9670;&#160;</a></span>EEZ_VALUE_FACTOR_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EEZ_VALUE_FACTOR_2&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling factor for float-to-integer conversion in LVGL. </p>
+
+</div>
+</div>
+<a id="af9fb86afd4f21a6b62f87dac48cc988e" name="af9fb86afd4f21a6b62f87dac48cc988e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9fb86afd4f21a6b62f87dac48cc988e">&#9670;&#160;</a></span>EEZ_VALUE_FACTOR_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EEZ_VALUE_FACTOR_3&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling factor for float-to-integer conversion in LVGL. </p>
+
+</div>
+</div>
+<a id="a8611b75afe00be730bbfa2e5dfd34ab0" name="a8611b75afe00be730bbfa2e5dfd34ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8611b75afe00be730bbfa2e5dfd34ab0">&#9670;&#160;</a></span>EEZ_VALUE_FACTOR_4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EEZ_VALUE_FACTOR_4&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling factor for float-to-integer conversion in LVGL. </p>
 
 </div>
 </div>
@@ -1628,7 +1682,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GAUGE_ON_DELAY_MS&#160;&#160;&#160;1000</td>
+          <td class="memname">#define GAUGE_ON_DELAY_MS&#160;&#160;&#160;1200</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2575,7 +2629,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAIN_TICK_TIME_DELAY_MS&#160;&#160;&#160;25</td>
+          <td class="memname">#define MAIN_TICK_TIME_DELAY_MS&#160;&#160;&#160;10</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2592,12 +2646,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_1_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a></td>
+          <td class="memname">#define MEASURE_DELAY_TIME_1_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 50)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Display 1 update interval (25ms). </p>
+<p>Display 1 update interval (500ms). </p>
 
 </div>
 </div>
@@ -2608,12 +2662,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_2_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+          <td class="memname">#define MEASURE_DELAY_TIME_2_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 20)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Display 2 update interval (125ms). </p>
+<p>Display 2 update interval (200ms). </p>
 
 </div>
 </div>
@@ -2624,12 +2678,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_3_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 2</td>
+          <td class="memname">#define MEASURE_DELAY_TIME_3_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> *  2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Display 3 update interval (50ms). </p>
+<p>Display 3 update interval (20ms). </p>
 
 </div>
 </div>
@@ -2640,12 +2694,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_4_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+          <td class="memname">#define MEASURE_DELAY_TIME_4_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> *  5)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Display 4 update interval (125ms). </p>
+<p>Display 4 update interval (50ms). </p>
 
 </div>
 </div>
@@ -2656,12 +2710,12 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Brightness update interval (125ms). </p>
+<p>Brightness update interval (100ms). </p>
 
 </div>
 </div>
@@ -2672,7 +2726,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10</td>
+          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS&#160;&#160;&#160;(<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 25)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -4114,7 +4168,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define USE_BUZZER&#160;&#160;&#160;false</td>
+          <td class="memname">#define USE_BUZZER&#160;&#160;&#160;true</td>
         </tr>
       </table>
 </div><div class="memdoc">

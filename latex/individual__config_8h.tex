@@ -5,7 +5,7 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}{CHIP\+\_\+\+USED}}~ESP32\+P4
 \begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~false
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}{USE\+\_\+\+BUZZER}}~true
 \begin{DoxyCompactList}\small\item\em Feature flags -\/ enable/\+disable optional modules. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a3ccdf5e151cf4faa7bea9d68a1af829a}{LOGGING\+\_\+\+ENABLED}}~true
 \item 
@@ -233,9 +233,15 @@
 \begin{DoxyCompactList}\small\item\em Maximum brightness in night mode (0-\/100\%). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX\+\_\+V}}~10.\+74
 \begin{DoxyCompactList}\small\item\em Battery voltage mapping point for maximum night brightness. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR}}~1000
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abc5e556cf61038ad33f46e70a4e51682}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+1}}~1000
 \begin{DoxyCompactList}\small\item\em Display rendering and initialization timing parameters. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf}{GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS}}~1000
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a4a53ae097a079953f3389bf0e24b9168}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+2}}~1000
+\begin{DoxyCompactList}\small\item\em Scaling factor for float-\/to-\/integer conversion in LVGL. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af9fb86afd4f21a6b62f87dac48cc988e}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+3}}~1000
+\begin{DoxyCompactList}\small\item\em Scaling factor for float-\/to-\/integer conversion in LVGL. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a8611b75afe00be730bbfa2e5dfd34ab0}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+4}}~1000
+\begin{DoxyCompactList}\small\item\em Scaling factor for float-\/to-\/integer conversion in LVGL. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf}{GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS}}~1200
 \begin{DoxyCompactList}\small\item\em Delay before gauges become active after boot (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a40ea04e9f5c26956209bcc0a89a00fac}{BUZZER\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS}}~5000
 \begin{DoxyCompactList}\small\item\em Delay before buzzer activation is allowed (milliseconds). \end{DoxyCompactList}\item 
@@ -487,19 +493,19 @@
 \begin{DoxyCompactList}\small\item\em Outdoor temperature smoothing factor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}{FILTER\+\_\+\+ALPHA\+\_\+\+BEL}}~0.\+1f
 \begin{DoxyCompactList}\small\item\em Brightness smoothing factor. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}~25
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}~10
 \begin{DoxyCompactList}\small\item\em Sensor measurement timing configuration. \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a0d806d9e4d224c3d843596a118502cda}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}
-\begin{DoxyCompactList}\small\item\em Display 1 update interval (25ms). \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
-\begin{DoxyCompactList}\small\item\em Display 2 update interval (125ms). \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 2
-\begin{DoxyCompactList}\small\item\em Display 3 update interval (50ms). \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a2e38659375d30ce125ce55521de0da5a}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
-\begin{DoxyCompactList}\small\item\em Display 4 update interval (125ms). \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a3494bcac8e0b3ef66592697416092de3}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
-\begin{DoxyCompactList}\small\item\em Brightness update interval (125ms). \end{DoxyCompactList}\item 
-\+\#define \doxymbox{\hyperlink{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0d806d9e4d224c3d843596a118502cda}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 50)
+\begin{DoxyCompactList}\small\item\em Display 1 update interval (500ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 20)
+\begin{DoxyCompactList}\small\item\em Display 2 update interval (200ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*}  2)
+\begin{DoxyCompactList}\small\item\em Display 3 update interval (20ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2e38659375d30ce125ce55521de0da5a}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*}  5)
+\begin{DoxyCompactList}\small\item\em Display 4 update interval (50ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3494bcac8e0b3ef66592697416092de3}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10)
+\begin{DoxyCompactList}\small\item\em Brightness update interval (100ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS}}~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 25)
 \begin{DoxyCompactList}\small\item\em Test mode brightness interval (250ms). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}}~10000
 \begin{DoxyCompactList}\small\item\em Test mode button activation sequence parameters. \end{DoxyCompactList}\item 
@@ -1094,17 +1100,47 @@ Delay before buzzer activation is allowed (milliseconds).
 
 Core project configuration values. 
 
-CHIP\+\_\+\+USED:\+ Target ESP32 chip variant. When changing chip types, add a new conditional section (\+\#if CHIP\+\_\+\+USED == $<$new\+\_\+chip$>$) after the existing section and define all required pins and settings for that chip. ESP32 variants:\+ ESP32, ESP32\+S2, ESP32\+S3, ESP32\+C3, ESP32\+C6, ESP32\+P4 \Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
-\index{EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}!individual\_config.h@{individual\_config.h}}
-\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR}{EEZ\_VALUE\_FACTOR}}
-{\footnotesize\ttfamily \label{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2} 
-\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR~1000}
+CHIP\+\_\+\+USED:\+ Target ESP32 chip variant. When changing chip types, add a new conditional section (\+\#if CHIP\+\_\+\+USED == $<$new\+\_\+chip$>$) after the existing section and define all required pins and settings for that chip. ESP32 variants:\+ ESP32, ESP32\+S2, ESP32\+S3, ESP32\+C3, ESP32\+C6, ESP32\+P4 \Hypertarget{individual__config_8h_abc5e556cf61038ad33f46e70a4e51682}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR\_1@{EEZ\_VALUE\_FACTOR\_1}}
+\index{EEZ\_VALUE\_FACTOR\_1@{EEZ\_VALUE\_FACTOR\_1}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR\_1}{EEZ\_VALUE\_FACTOR\_1}}
+{\footnotesize\ttfamily \label{individual__config_8h_abc5e556cf61038ad33f46e70a4e51682} 
+\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+1~1000}
 
 
 
 Display rendering and initialization timing parameters. 
 
-Scaling factor for float-\/to-\/integer conversion in LVGL \Hypertarget{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}}
+Scaling factor for float-\/to-\/integer conversion in LVGL \Hypertarget{individual__config_8h_a4a53ae097a079953f3389bf0e24b9168}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR\_2@{EEZ\_VALUE\_FACTOR\_2}}
+\index{EEZ\_VALUE\_FACTOR\_2@{EEZ\_VALUE\_FACTOR\_2}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR\_2}{EEZ\_VALUE\_FACTOR\_2}}
+{\footnotesize\ttfamily \label{individual__config_8h_a4a53ae097a079953f3389bf0e24b9168} 
+\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+2~1000}
+
+
+
+Scaling factor for float-\/to-\/integer conversion in LVGL. 
+
+\Hypertarget{individual__config_8h_af9fb86afd4f21a6b62f87dac48cc988e}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR\_3@{EEZ\_VALUE\_FACTOR\_3}}
+\index{EEZ\_VALUE\_FACTOR\_3@{EEZ\_VALUE\_FACTOR\_3}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR\_3}{EEZ\_VALUE\_FACTOR\_3}}
+{\footnotesize\ttfamily \label{individual__config_8h_af9fb86afd4f21a6b62f87dac48cc988e} 
+\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+3~1000}
+
+
+
+Scaling factor for float-\/to-\/integer conversion in LVGL. 
+
+\Hypertarget{individual__config_8h_a8611b75afe00be730bbfa2e5dfd34ab0}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR\_4@{EEZ\_VALUE\_FACTOR\_4}}
+\index{EEZ\_VALUE\_FACTOR\_4@{EEZ\_VALUE\_FACTOR\_4}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR\_4}{EEZ\_VALUE\_FACTOR\_4}}
+{\footnotesize\ttfamily \label{individual__config_8h_a8611b75afe00be730bbfa2e5dfd34ab0} 
+\+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR\+\_\+4~1000}
+
+
+
+Scaling factor for float-\/to-\/integer conversion in LVGL. 
+
+\Hypertarget{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}}
 \index{FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{FILTER\_ALPHA\_BEL}{FILTER\_ALPHA\_BEL}}
 {\footnotesize\ttfamily \label{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b} 
@@ -1158,7 +1194,7 @@ Voltage smoothing factor.
 \index{GAUGE\_ON\_DELAY\_MS@{GAUGE\_ON\_DELAY\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{GAUGE\_ON\_DELAY\_MS}{GAUGE\_ON\_DELAY\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf} 
-\+\#define GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS~1000}
+\+\#define GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS~1200}
 
 
 
@@ -1594,7 +1630,7 @@ Delay for main task completion (milliseconds).
 \index{MAIN\_TICK\_TIME\_DELAY\_MS@{MAIN\_TICK\_TIME\_DELAY\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MAIN\_TICK\_TIME\_DELAY\_MS}{MAIN\_TICK\_TIME\_DELAY\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231} 
-\+\#define MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS~25}
+\+\#define MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS~10}
 
 
 
@@ -1604,57 +1640,57 @@ Defines how often sensor values are read and processed for each display/\+subsys
 \index{MEASURE\_DELAY\_TIME\_1\_MS@{MEASURE\_DELAY\_TIME\_1\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_1\_MS}{MEASURE\_DELAY\_TIME\_1\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a0d806d9e4d224c3d843596a118502cda} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 50)}
 
 
 
-Display 1 update interval (25ms). 
+Display 1 update interval (500ms). 
 
 \Hypertarget{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_2\_MS@{MEASURE\_DELAY\_TIME\_2\_MS}}
 \index{MEASURE\_DELAY\_TIME\_2\_MS@{MEASURE\_DELAY\_TIME\_2\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_2\_MS}{MEASURE\_DELAY\_TIME\_2\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 20)}
 
 
 
-Display 2 update interval (125ms). 
+Display 2 update interval (200ms). 
 
 \Hypertarget{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_3\_MS@{MEASURE\_DELAY\_TIME\_3\_MS}}
 \index{MEASURE\_DELAY\_TIME\_3\_MS@{MEASURE\_DELAY\_TIME\_3\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_3\_MS}{MEASURE\_DELAY\_TIME\_3\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 2}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*}  2)}
 
 
 
-Display 3 update interval (50ms). 
+Display 3 update interval (20ms). 
 
 \Hypertarget{individual__config_8h_a2e38659375d30ce125ce55521de0da5a}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_4\_MS@{MEASURE\_DELAY\_TIME\_4\_MS}}
 \index{MEASURE\_DELAY\_TIME\_4\_MS@{MEASURE\_DELAY\_TIME\_4\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_4\_MS}{MEASURE\_DELAY\_TIME\_4\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a2e38659375d30ce125ce55521de0da5a} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*}  5)}
 
 
 
-Display 4 update interval (125ms). 
+Display 4 update interval (50ms). 
 
 \Hypertarget{individual__config_8h_a3494bcac8e0b3ef66592697416092de3}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_BRIGHT\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}}
 \index{MEASURE\_DELAY\_TIME\_BRIGHT\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a3494bcac8e0b3ef66592697416092de3} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10)}
 
 
 
-Brightness update interval (125ms). 
+Brightness update interval (100ms). 
 
 \Hypertarget{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}}
 \index{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc} 
-\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10}
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS~(\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 25)}
 
 
 
@@ -2498,7 +2534,7 @@ Number of simultaneous SPI transactions in queue.
 \index{USE\_BUZZER@{USE\_BUZZER}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{USE\_BUZZER}{USE\_BUZZER}}
 {\footnotesize\ttfamily \label{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445} 
-\+\#define USE\+\_\+\+BUZZER~false}
+\+\#define USE\+\_\+\+BUZZER~true}
 
 
 

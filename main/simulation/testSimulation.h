@@ -68,72 +68,25 @@ extern int test_value_brightness;
  */
 extern bool test_night_mode_active;
 
-/* ===== Test Value Controllers ===== */
+/**
+ * @brief Direction array for test value oscillation.
+ * 
+ * Controls direction of value changes: 1 for increasing, -1 for decreasing.
+ * Array indices: [0]=oil pressure, [1]=voltage, [2]=oil temp, [3]=outdoor temp, [4]=brightness.
+ */
+extern int test_direction[5];
 
 /**
- * @brief Phase counter for oil pressure test cycle.
- *
- * Current phase in the pressure test sequence (0-3), incremented by lv_pressure_test().
+ * @brief Step size array for test value oscillation.
+ * 
+ * Controls rate of value change for each sensor.
+ * Array indices: [0]=oil pressure (0.015 bar/cycle), [1]=voltage (0.01 V/cycle), 
+ * [2]=oil temp (0.5°C/cycle), [3]=outdoor temp (0.5°C/cycle), [4]=brightness (1%/cycle).
  */
-extern int pressure_test_switch;
-
-/**
- * @brief Phase counter for oil temperature test cycle.
- *
- * Current phase in the temperature test sequence (0-3), incremented by lv_temperature_test().
- */
-extern int temperature_test_switch;
-
-/**
- * @brief Phase counter for voltage test cycle.
- *
- * Current phase in the voltage test sequence (0-3), incremented by lv_volt_test().
- */
-extern int volt_test_switch;
-
-/**
- * @brief Phase counter for outdoor temperature test cycle.
- *
- * Current phase in the outdoor temperature test sequence (0-3), incremented by lv_Clocktemp_test().
- */
-extern int Clocktemp_test_switch;
-
-/**
- * @brief Phase counter for brightness test cycle.
- *
- * Current phase in the brightness test sequence (0-3), incremented by brightness_test().
- */
-extern int brightness_test_switch;
-
-/* ===== Test Value Arrays ===== */
-
-/**
- * @brief Test value increment per phase for each sensor type.
- *
- * Array structure: [sensor_type][phase_index]
- * - sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=outdoor_temperature, 4=brightness
- * - phase_index: 0-3 representing the four test cycle phases
- * Values can be positive (increase) or negative (decrease).
- */
-extern double test_steps[5][4];
-
-/**
- * @brief Test value threshold limits for phase transitions.
- *
- * Array structure: [sensor_type][threshold_index]
- * - sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=outdoor_temperature, 4=brightness
- * - threshold_index: 0-3 representing the four test cycle phase boundaries
- * Each threshold defines when to transition to the next phase.
- */
-extern double test_thresholds[5][4];
+extern double test_step[5];
 
 
 /* ===== Function Declarations ===== */
-
-/**
- * @brief Reset all test mode switches to initial state.
- */
-void reset_test_switches(void);
 
 /**
  * @brief Generate test oil pressure value.
@@ -164,7 +117,12 @@ double lv_temperature_test(void);
 double lv_Clocktemp_test(void);
 
 /**
- * @brief Run brightness test sequence.
+ * @brief Run brightness test sequence with night mode transitions.
+ *
+ * Cycles brightness through predefined phases and automatically manages night mode state.
+ * Night mode is enabled when brightness <= BRIGHTNESS_NIGHT_MAX, disabled otherwise.
+ *
+ * @note This function updates both test_value_brightness and test_night_mode_active.
  */
 void brightness_test(void);
 

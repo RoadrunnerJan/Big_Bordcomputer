@@ -40,7 +40,6 @@ var searchData=
   ['values_2ec_37',['values.c',['../values_8c.html',1,'']]],
   ['values_2eh_38',['values.h',['../values_8h.html',1,'']]],
   ['vehicle_20board_20computer_20e36_39',['ESP32-P4 Classic Vehicle Board Computer (E36)',['../index.html#autotoc_md0',1,'']]],
-  ['volt_5ftest_5fswitch_40',['volt_test_switch',['../test_simulation_8c.html#a2fc4081524c0c7d655d7af9562d9f219',1,'volt_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#a2fc4081524c0c7d655d7af9562d9f219',1,'volt_test_switch:&#160;testSimulation.c']]],
-  ['volt_5fvalue_5fset_41',['volt_value_set',['../values_8c.html#a85f57d7c98c97d9d2f77aac32a484037',1,'volt_value_set:&#160;values.c'],['../values_8h.html#a85f57d7c98c97d9d2f77aac32a484037',1,'volt_value_set:&#160;values.c']]],
-  ['voltage_42',['Voltage',['../index.html#autotoc_md21',1,'']]]
+  ['volt_5fvalue_5fset_40',['volt_value_set',['../values_8c.html#a85f57d7c98c97d9d2f77aac32a484037',1,'volt_value_set:&#160;values.c'],['../values_8h.html#a85f57d7c98c97d9d2f77aac32a484037',1,'volt_value_set:&#160;values.c']]],
+  ['voltage_41',['Voltage',['../index.html#autotoc_md21',1,'']]]
 ];

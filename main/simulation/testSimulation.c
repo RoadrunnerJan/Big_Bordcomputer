@@ -16,58 +16,36 @@
 #include "testSimulation.h"
 
 /* ===== Global Test Value Variables ===== */
+
+/// Simulated oil pressure value (bar)
 double test_value_oil_pressure         = 0.0;
+/// Simulated oil temperature value (°C)
 double test_value_oil_temperature      = 0.0;
+/// Simulated battery voltage value (V)
 double test_value_volt                 = 8.0;
+/// Simulated outdoor temperature value (°C)
 double test_value_outside_temperature  = 0.0;
+/// Simulated brightness level (0-100)
 int test_value_brightness              = 0;
+/// Simulated night mode state
 bool test_night_mode_active            = false;
 
-/* ===== Test State Variables ===== */
-int pressure_test_switch    = 0;
-int temperature_test_switch = 0;
-int volt_test_switch        = 0;
-int Clocktemp_test_switch   = 0;
-int brightness_test_switch  = 0;
-
-/* ===== Test Configuration Arrays ===== */
+/**
+ * @brief Direction array for test value oscillation.
+ * 
+ * Controls direction of value changes: 1 for increasing, -1 for decreasing.
+ * Array indices: [0]=oil pressure, [1]=voltage, [2]=oil temp, [3]=outdoor temp, [4]=brightness.
+ */
+int test_direction[5] = {1, 1, 1, 1, 1};
 
 /**
- * @brief Test step changes for each sensor type.
- *
- * Format: [sensor_type][step_index]
- * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
+ * @brief Step size array for test value oscillation.
+ * 
+ * Controls rate of value change for each sensor.
+ * Array indices: [0]=oil pressure (0.015 bar/cycle), [1]=voltage (0.01 V/cycle), 
+ * [2]=oil temp (0.5°C/cycle), [3]=outdoor temp (0.5°C/cycle), [4]=brightness (1%/cycle).
  */
-double test_steps[5][4] = {
-    /* oil pressure      */ {+0.10, -0.02, +0.35, -0.25},
-    /* volt              */ {+0.02, -0.005, +0.005, -0.03},
-    /* oil temperature   */ {+0.25, -0.25, +0.25, -0.25},
-    /* clock temperature */ {+1.00, -1.50, +1.20, -1.00},
-    /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
-};
-
-/**
- * @brief Test thresholds for switching between test phases.
- *
- * Format: [sensor_type][threshold_index]
- * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
- */
-double test_thresholds[5][4] = {
-    //                        >=   <=   >=    <=
-    /* oil pressure      */ {4.5, 2.5, 5.5, 0.04},
-
-    //                        >=   <=   >=    <=
-    /* volt              */ {15.5, 11,  14, 8.04},
-
-    //                        >=   <=   >=    <=
-    /* oil temperature   */ {100, 110, 140, 0.06},
-
-    //                        >=   <=   >=    <=
-    /* clock temperature */ { 33, -15,  20, 0.06},
-
-    //                        <=   >=   <=    >=
-    /* brightness        */ {  BRIGHTNESS_NIGHT_MIN,  BRIGHTNESS_DAY,   BRIGHTNESS_NIGHT_MIN,  BRIGHTNESS_DAY}
-};
+double test_step[5] = {0.015, 0.01, 0.5, 4.0, 1};
 
 /* ===== Function Implementations ===== */
 
@@ -84,230 +62,83 @@ void reset_test_values(void) {
 }
 
 /**
- * @brief Reset all test state switches to initial phase.
- */
-void reset_test_switches() {
-    pressure_test_switch    = 0;
-    temperature_test_switch = 0;
-    volt_test_switch        = 0;
-    Clocktemp_test_switch   = 0;
-    brightness_test_switch  = 0;
-}
-
-/**
  * @brief Simulate oil pressure test cycle.
  *
- * Cycles through four predefined pressure phases:
- * 1. Increase from current value to MAX (4.5 bar)
- * 2. Decrease to MIN (2.5 bar)
- * 3. Increase to MAX+ (5.5 bar)
- * 4. Decrease to near MIN (0.04 bar)
- * Then repeats from phase 1.
+ * Simulates oil pressure by oscillating between minimum and maximum values.
  *
  * @return Current simulated oil pressure in bar
  */
 double lv_pressure_test()
 {
-    switch (pressure_test_switch) {
-        case 0:
-            test_value_oil_pressure += test_steps[0][0];
-            if (test_value_oil_pressure >= test_thresholds[0][0]) {
-                pressure_test_switch = 1;
-            }
-        break;
-        case 1:
-            test_value_oil_pressure += test_steps[0][1];
-            if (test_value_oil_pressure <= test_thresholds[0][1]) {
-                pressure_test_switch = 2;
-            }
-        break;
-        case 2:
-            test_value_oil_pressure += test_steps[0][2];
-            if (test_value_oil_pressure >= test_thresholds[0][2]) {
-                pressure_test_switch = 3;
-            }
-        break;
-        case 3:
-            test_value_oil_pressure += test_steps[0][3];
-            if (test_value_oil_pressure <= test_thresholds[0][3]) {
-                pressure_test_switch = 0;
-            }
-        break;
-    }
+    test_value_oil_pressure += test_direction[0] * test_step[0];
+
+    if(test_value_oil_pressure >= VALUE_MAX_PRES-test_step[0]) test_direction[0] = -1;
+    if(test_value_oil_pressure <= VALUE_MIN_PRES-test_step[0]) test_direction[0] = +1;
     return test_value_oil_pressure;
 }
 
 /**
  * @brief Simulate voltage test cycle.
  *
- * Cycles through four predefined voltage phases:
- * 1. Increase from current value to MAX (15.5 V)
- * 2. Decrease to MIN (11 V)
- * 3. Increase to MID (14 V)
- * 4. Decrease to near MIN (8.04 V)
- * Then repeats from phase 1.
+ * Simulates battery voltage by oscillating between minimum and maximum values.
  *
  * @return Current simulated voltage in volts
  */
 double lv_volt_test()
 {
-    switch (volt_test_switch) {
-        case 0:
-            test_value_volt += test_steps[1][0];
-            if (test_value_volt >= test_thresholds[1][0]) {
-                volt_test_switch = 1;
-            }
-        break;
-        case 1:
-            test_value_volt += test_steps[1][1];
-            if (test_value_volt <= test_thresholds[1][1]) {
-                volt_test_switch = 2;
-            }
-        break;
-        case 2:
-            test_value_volt += test_steps[1][2];
-            if (test_value_volt >= test_thresholds[1][2]) {
-                volt_test_switch = 3;
-            }
-        break;
-        case 3:
-            test_value_volt += test_steps[1][3];
-            if (test_value_volt <= test_thresholds[1][3]) {
-                volt_test_switch = 0;
-            }
-        break;
-    }
+    test_value_volt += test_direction[1] * test_step[1];
+
+    if(test_value_volt >= VALUE_MAX_VOLT-test_step[1]) test_direction[1] = -1;
+    if(test_value_volt <= VALUE_MIN_VOLT-test_step[1]) test_direction[1] = +1;
     return test_value_volt;
 }
 
 /**
  * @brief Simulate oil temperature test cycle.
- *
- * Cycles through four predefined temperature phases:
- * 1. Increase from current value to MAX (100°C)
- * 2. Decrease to MIN (110°C, note reverse range)
- * 3. Increase to MAX+ (140°C)
- * 4. Decrease to near MIN (0.06°C)
- * Then repeats from phase 1.
+ * 
+ * Simulates oil temperature by oscillating between minimum and maximum values.
  *
  * @return Current simulated oil temperature in °C
  */
 double lv_temperature_test()
 {
-    switch (temperature_test_switch) {
-        case 0:
-            test_value_oil_temperature += test_steps[2][0];
-            if (test_value_oil_temperature >= test_thresholds[2][0]) {
-                temperature_test_switch = 1;
-            }
-        break;
-        case 1:
-            test_value_oil_temperature += test_steps[2][1];
-            if (test_value_oil_temperature <= test_thresholds[2][1]) {
-                temperature_test_switch = 2;
-            }
-        break;
-        case 2:
-            test_value_oil_temperature += test_steps[2][2];
-            if (test_value_oil_temperature >= test_thresholds[2][2]) {
-                temperature_test_switch = 3;
-            }
-        break;
-        case 3:
-            test_value_oil_temperature += test_steps[2][3];
-            if (test_value_oil_temperature <= test_thresholds[2][3]) {
-                temperature_test_switch = 0;
-            }
-        break;
-    }
+    test_value_oil_temperature += test_direction[2] * test_step[2];
+
+    if(test_value_oil_temperature >= VALUE_MAX_TEMP-test_step[2]) test_direction[2] = -1;
+    if(test_value_oil_temperature <= VALUE_MIN_TEMP-test_step[2]) test_direction[2] = +1;
     return test_value_oil_temperature;
 }
 
 /**
  * @brief Simulate outdoor temperature test cycle.
  *
- * Cycles through four predefined temperature phases:
- * 1. Increase from current value to MAX (33°C)
- * 2. Decrease to MIN (-15°C)
- * 3. Increase to MID (20°C)
- * 4. Decrease to near MIN (0.06°C)
- * Then repeats from phase 1.
+ * Simulates outdoor temperature by oscillating between minimum and maximum values.
  *
  * @return Current simulated outdoor temperature in °C
  */
 double lv_Clocktemp_test()
 {
-    switch (Clocktemp_test_switch) {
-        case 0:
-            test_value_outside_temperature += test_steps[3][0];
-            if (test_value_outside_temperature >= test_thresholds[3][0]) {
-                Clocktemp_test_switch = 1;
-            }
-        break;
-        case 1:
-            test_value_outside_temperature += test_steps[3][1];
-            if (test_value_outside_temperature <= test_thresholds[3][1]) {
-                Clocktemp_test_switch = 2;
-            }
-        break;
-        case 2:
-            test_value_outside_temperature += test_steps[3][2];
-            if (test_value_outside_temperature >= test_thresholds[3][2]) {
-                Clocktemp_test_switch = 3;
-            }
-        break;
-        case 3:
-            test_value_outside_temperature += test_steps[3][3];
-            if (test_value_outside_temperature <= test_thresholds[3][3]) {
-                Clocktemp_test_switch = 0;
-            }
-        break;
-    }
+    test_value_outside_temperature += test_direction[3] * test_step[3];
+
+    if(test_value_outside_temperature >= VALUE_MAX_OUT_TEMP-test_step[3]) test_direction[3] = -1;
+    if(test_value_outside_temperature <= VALUE_MIN_OUT_TEMP-test_step[3]) test_direction[3] = +1;
     return test_value_outside_temperature;
 }
 
 /**
  * @brief Run brightness test sequence with night mode transitions.
  *
- * Cycles brightness through four phases:
- * 1. Decrease from current value to night minimum
- * 2. Increase to day maximum
- * 3. Decrease to night minimum again
- * 4. Increase to day maximum
- * Then repeats from phase 1.
- *
- * Automatically toggles night mode based on brightness level:
- * - Night mode enabled when brightness <= BRIGHTNESS_NIGHT_MAX
- * - Night mode disabled when brightness > BRIGHTNESS_NIGHT_MAX
+ * Cycles brightness through predefined phases and automatically manages night mode state.
+ * Night mode is enabled when brightness <= BRIGHTNESS_NIGHT_MAX, disabled otherwise.
+ * This function updates both test_value_brightness and test_night_mode_active.
+ * 
  */
 void brightness_test() {
 
-    switch (brightness_test_switch) {
-        case 0:
-            test_value_brightness += test_steps[4][0];
-            if (test_value_brightness <= test_thresholds[4][0]) {
-                brightness_test_switch = 1;
-            }
-        break;
-        case 1:
-            test_value_brightness += test_steps[4][1];
-            if (test_value_brightness >= test_thresholds[4][1]) {
-                brightness_test_switch = 2;
-            }
-        break;
-        case 2:
-            test_value_brightness += test_steps[4][2];
-            if (test_value_brightness <= test_thresholds[4][2]) {
-                brightness_test_switch = 3;
-            }
-        break;
-        case 3:
-            test_value_brightness += test_steps[4][3];
-            if (test_value_brightness >= test_thresholds[4][3]) {
-                brightness_test_switch = 0;
-            }
-        break;
-    }
+    test_value_brightness += test_direction[4] * test_step[4];
+
+    if(test_value_brightness >= BRIGHTNESS_DAY-test_step[4]) test_direction[4] = -1;
+    if(test_value_brightness <= BRIGHTNESS_NIGHT_MIN-test_step[4]) test_direction[4] = +1;
     if (test_value_brightness <= BRIGHTNESS_NIGHT_MAX) 
         test_night_mode_active = true;
     else test_night_mode_active = false;

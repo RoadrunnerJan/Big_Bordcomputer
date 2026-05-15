@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['screen_5fselection_0',['screen_selection',['../structdisplay__settings.html#a454d77aabcbf17881bfb833c29a94281',1,'display_settings']]],
-  ['spi_5fdma_1',['spi_dma',['../structspi__settings.html#a37894fa5fd9b2c9e43c94fd89b7b5638',1,'spi_settings']]],
-  ['spi_5fhost_2',['spi_host',['../structspi__settings.html#ad9971f6ff9373530279ecf6ac81524f7',1,'spi_settings::spi_host'],['../structdisplay__settings.html#a34397efca41d54694258d31d65b5399d',1,'display_settings::spi_host']]],
-  ['spi_5fsetup_3',['SPI_SETUP',['../spi_functions_8c.html#aa23181a4e6a5e0d9b8b36802b97de619',1,'SPI_SETUP:&#160;spiFunctions.c'],['../spi_functions_8h.html#aa23181a4e6a5e0d9b8b36802b97de619',1,'SPI_SETUP:&#160;spiFunctions.c']]],
-  ['startuptime_5fsec_4',['StartUpTime_sec',['../i2c_functions_8c.html#ab1a05dc00ed464a91c8ea2a7f649bebc',1,'StartUpTime_sec:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#ab1a05dc00ed464a91c8ea2a7f649bebc',1,'StartUpTime_sec:&#160;i2cFunctions.c']]]
+  ['res_0',['res',['../structlookup__values__t.html#a105ce9befc60bcf30d2cbd86c38c455b',1,'lookup_values_t']]],
+  ['reset_5fis_5fset_1',['reset_is_set',['../spi_functions_8c.html#a7bcd43513f7ef323ca0151fc9c69e07a',1,'spiFunctions.c']]]
 ];

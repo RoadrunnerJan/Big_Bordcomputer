@@ -7,19 +7,13 @@ var test_simulation_8c =
     [ "lv_pressure_test", "test_simulation_8c.html#ad8e9acc755f5e43bdc566e4b012fd1d5", null ],
     [ "lv_temperature_test", "test_simulation_8c.html#a856a770346f094ce110c5ec8d85c7632", null ],
     [ "lv_volt_test", "test_simulation_8c.html#add87703df2035698ea7ecd8f7204d470", null ],
-    [ "reset_test_switches", "test_simulation_8c.html#a598334365af036bb6f17dc435d7d08c5", null ],
     [ "reset_test_values", "test_simulation_8c.html#a818c29dea25b52df8e5748e115b4e833", null ],
-    [ "brightness_test_switch", "test_simulation_8c.html#a6347ffd479374ec1af0b9f455c051197", null ],
-    [ "Clocktemp_test_switch", "test_simulation_8c.html#a781e0aae99d7dfe899c7ab1b2cb9e590", null ],
-    [ "pressure_test_switch", "test_simulation_8c.html#a27b1d1f91fab51a18531eb2926295b24", null ],
-    [ "temperature_test_switch", "test_simulation_8c.html#ac57426501c15d07507e82ac9126c1d55", null ],
+    [ "test_direction", "test_simulation_8c.html#af79bf500f60127c130917d01dfefa191", null ],
     [ "test_night_mode_active", "test_simulation_8c.html#af4ada18762294ede2ca24897d42a324c", null ],
-    [ "test_steps", "test_simulation_8c.html#af1333589211ca00a4523fa43b542dfb3", null ],
-    [ "test_thresholds", "test_simulation_8c.html#a94a5bb5d152d0934ad9d85e5524c76d8", null ],
+    [ "test_step", "test_simulation_8c.html#a3d477c9bf501c213e37e77dcc5530115", null ],
     [ "test_value_brightness", "test_simulation_8c.html#aeed03d67b23ccb68536b732553d0ada3", null ],
     [ "test_value_oil_pressure", "test_simulation_8c.html#a78f1a367c6d98da155117412f7022ca1", null ],
     [ "test_value_oil_temperature", "test_simulation_8c.html#a5c60cf91ec05e598a4e0406edb1cb486", null ],
     [ "test_value_outside_temperature", "test_simulation_8c.html#a9b31b65cb555fc10e13885cfc8d95cfd", null ],
-    [ "test_value_volt", "test_simulation_8c.html#a99b2f7b70208b5314b4c25fc98fb50d9", null ],
-    [ "volt_test_switch", "test_simulation_8c.html#a2fc4081524c0c7d655d7af9562d9f219", null ]
+    [ "test_value_volt", "test_simulation_8c.html#a99b2f7b70208b5314b4c25fc98fb50d9", null ]
 ];

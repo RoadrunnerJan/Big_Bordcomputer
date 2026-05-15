@@ -8,6 +8,5 @@ var searchData=
   ['cbs_5',['cbs',['../pwm_sensor_8c.html#aacf93a512496094d35a83945c8a6f3e1',1,'cbs:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#aacf93a512496094d35a83945c8a6f3e1',1,'cbs:&#160;pwmSensor.c']]],
   ['cfg_5ftime_6',['cfg_time',['../i2c_functions_8c.html#ad58bf4c44b9439565e32297d332f0b49',1,'cfg_time:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#ad58bf4c44b9439565e32297d332f0b49',1,'cfg_time:&#160;i2cFunctions.c']]],
   ['chan_5fconfig_7',['chan_config',['../structadc__handles__t.html#adb209b21039d7dcb83163c31d679d20f',1,'adc_handles_t::chan_config'],['../pwm_sensor_8c.html#ae90bc56e5dac79721704756ffd8d3e68',1,'chan_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#ae90bc56e5dac79721704756ffd8d3e68',1,'chan_config:&#160;pwmSensor.c']]],
-  ['channel_8',['channel',['../structadc__handles__t.html#a5aa42351d8169729b1c95b1a0e97374e',1,'adc_handles_t']]],
-  ['clocktemp_5ftest_5fswitch_9',['Clocktemp_test_switch',['../test_simulation_8c.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c']]]
+  ['channel_8',['channel',['../structadc__handles__t.html#a5aa42351d8169729b1c95b1a0e97374e',1,'adc_handles_t']]]
 ];

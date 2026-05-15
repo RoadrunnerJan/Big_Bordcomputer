@@ -1,4 +1,24 @@
 var searchData=
 [
-  ['update_5fcount_0',['update_count',['../structsensor__data__t.html#a37e0e9300bf55e3e987b123ba33557b1',1,'sensor_data_t']]]
+  ['task_5fdelay_5ftime_5fms_0',['task_delay_time_ms',['../structdisplay__settings.html#a44cf14f7d5a62d95231f9834cadad347',1,'display_settings']]],
+  ['task_5fpriority_1',['task_priority',['../structdisplay__settings.html#a412e3a2657100a656bdf1a532a90afd8',1,'display_settings']]],
+  ['task_5fstep_5fdepth_2',['task_step_depth',['../structdisplay__settings.html#a3cb2e2cc7c3e587af208d30bcbf6c436',1,'display_settings']]],
+  ['tast_5fcore_3',['tast_core',['../structdisplay__settings.html#a93303013959d8ba4f8fcc4c2742945ca',1,'display_settings']]],
+  ['temp_5fus_4',['temp_us',['../structsensor__data__t.html#a495190bb00ceb6f08985f33eae6240a2',1,'sensor_data_t']]],
+  ['temp_5fvalue_5fset_5',['temp_value_set',['../values_8c.html#aa2ea020aec48763bdf4f49303bcb995d',1,'temp_value_set:&#160;values.c'],['../values_8h.html#aa2ea020aec48763bdf4f49303bcb995d',1,'temp_value_set:&#160;values.c']]],
+  ['test_5fdirection_6',['test_direction',['../test_simulation_8c.html#af79bf500f60127c130917d01dfefa191',1,'test_direction:&#160;testSimulation.c'],['../test_simulation_8h.html#af79bf500f60127c130917d01dfefa191',1,'test_direction:&#160;testSimulation.c']]],
+  ['test_5fnight_5fmode_5factive_7',['test_night_mode_active',['../test_simulation_8c.html#af4ada18762294ede2ca24897d42a324c',1,'test_night_mode_active:&#160;testSimulation.c'],['../test_simulation_8h.html#af4ada18762294ede2ca24897d42a324c',1,'test_night_mode_active:&#160;testSimulation.c']]],
+  ['test_5fstep_8',['test_step',['../test_simulation_8c.html#a3d477c9bf501c213e37e77dcc5530115',1,'test_step:&#160;testSimulation.c'],['../test_simulation_8h.html#a3d477c9bf501c213e37e77dcc5530115',1,'test_step:&#160;testSimulation.c']]],
+  ['test_5fvalue_5fbrightness_9',['test_value_brightness',['../test_simulation_8c.html#aeed03d67b23ccb68536b732553d0ada3',1,'test_value_brightness:&#160;testSimulation.c'],['../test_simulation_8h.html#aeed03d67b23ccb68536b732553d0ada3',1,'test_value_brightness:&#160;testSimulation.c']]],
+  ['test_5fvalue_5foil_5fpressure_10',['test_value_oil_pressure',['../test_simulation_8c.html#a78f1a367c6d98da155117412f7022ca1',1,'test_value_oil_pressure:&#160;testSimulation.c'],['../test_simulation_8h.html#a78f1a367c6d98da155117412f7022ca1',1,'test_value_oil_pressure:&#160;testSimulation.c']]],
+  ['test_5fvalue_5foil_5ftemperature_11',['test_value_oil_temperature',['../test_simulation_8c.html#a5c60cf91ec05e598a4e0406edb1cb486',1,'test_value_oil_temperature:&#160;testSimulation.c'],['../test_simulation_8h.html#a5c60cf91ec05e598a4e0406edb1cb486',1,'test_value_oil_temperature:&#160;testSimulation.c']]],
+  ['test_5fvalue_5foutside_5ftemperature_12',['test_value_outside_temperature',['../test_simulation_8c.html#a9b31b65cb555fc10e13885cfc8d95cfd',1,'test_value_outside_temperature:&#160;testSimulation.c'],['../test_simulation_8h.html#a9b31b65cb555fc10e13885cfc8d95cfd',1,'test_value_outside_temperature:&#160;testSimulation.c']]],
+  ['test_5fvalue_5fvolt_13',['test_value_volt',['../test_simulation_8c.html#a99b2f7b70208b5314b4c25fc98fb50d9',1,'test_value_volt:&#160;testSimulation.c'],['../test_simulation_8h.html#a99b2f7b70208b5314b4c25fc98fb50d9',1,'test_value_volt:&#160;testSimulation.c']]],
+  ['testmode_5factivated_14',['testmode_activated',['../i2c_functions_8c.html#afa9e8129f0495e4719121defad0fa0d6',1,'testmode_activated:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#afa9e8129f0495e4719121defad0fa0d6',1,'testmode_activated:&#160;i2cFunctions.c']]],
+  ['testmode_5factivation_5fcount_15',['testmode_activation_count',['../i2c_functions_8c.html#a6291b474d126cd2545e39479ac119bd2',1,'testmode_activation_count:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a6291b474d126cd2545e39479ac119bd2',1,'testmode_activation_count:&#160;i2cFunctions.c']]],
+  ['testmode_5factivation_5fstate_16',['testmode_activation_state',['../i2c_functions_8c.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c']]],
+  ['testmode_5factivation_5ftime_17',['testmode_activation_time',['../i2c_functions_8c.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c']]],
+  ['testmodeactivated_18',['testmodeActivated',['../main_8c.html#ac8e5c5d7af5d734614837b48dc709d91',1,'main.c']]],
+  ['time_5fupdate_5fpossible_19',['time_Update_Possible',['../i2c_functions_8c.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c']]],
+  ['timer_5fconfig_20',['timer_config',['../pwm_sensor_8c.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c']]]
 ];

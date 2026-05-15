@@ -5,6 +5,7 @@ var structdisplay__settings =
     [ "delay_time_screen_ms", "structdisplay__settings.html#a2cbf04bfd661a31b6ea51fe79d54b42b", null ],
     [ "disp_drv", "structdisplay__settings.html#abfcfd0425e5e0ff371988d79ec788f7d", null ],
     [ "draw_buf", "structdisplay__settings.html#a705dc03dd6364a74053ff2d7d281ea55", null ],
+    [ "eez_factor", "structdisplay__settings.html#ac931d2d8719792bf725133ea3e245f3d", null ],
     [ "io_config", "structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b", null ],
     [ "io_handle", "structdisplay__settings.html#ac5ab4bdd9e312d7e1b0bc5d2a9a9007d", null ],
     [ "lcd_invert_color", "structdisplay__settings.html#af0ce02ecd5c170700bab7d5a761a7e27", null ],

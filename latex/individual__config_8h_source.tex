@@ -11,7 +11,7 @@
 \DoxyCodeLine{00007\ \textcolor{comment}{*/}}
 \DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ CHIP\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ESP32P4\ }}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ USE\_BUZZER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false\ \ }\textcolor{comment}{//\ true:\ enable\ buzzer\ alert\ functionality}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ USE\_BUZZER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ \ }\textcolor{comment}{//\ true:\ enable\ buzzer\ alert\ functionality}}
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ LOGGING\_ENABLED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ \ \ }\textcolor{comment}{//\ true:\ send\ debug\ output\ via\ serial\ logger}}
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ LOGGING\_TAG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}JRO\_BOARD\_COMPUTER\_LOG"{}\ }\textcolor{comment}{//\ default\ ESP\_LOG\ tag}}
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ true\ \ }\textcolor{comment}{//\ true:\ enable\ test\ mode\ for\ simulating\ sensor\ values\ and\ brightness}}
@@ -188,251 +188,254 @@
 \DoxyCodeLine{00251\ \textcolor{comment}{\ \ \ \ DISPLAY\ \&\ TIMING\ SETTINGS}}
 \DoxyCodeLine{00252\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
 \DoxyCodeLine{00253\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ EEZ\_VALUE\_FACTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ \ }}
-\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ GAUGE\_ON\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ \ }}
-\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ BUZZER\_ON\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5000\ \ \ \ \ \ }}
-\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ MAIN\_TASK\_FINISHED\_DELAY\ \ \ \ \ \ \ \ \ \ \ 5000\ \ \ \ \ \ }}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00263\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00264\ \textcolor{comment}{\ \ \ \ FREERTOS\ TASK\ CONFIGURATION\ (FOR\ EACH\ DISPLAY)}}
-\DoxyCodeLine{00265\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00266\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ TASK\_1\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ 4096\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ TASK\_1\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#define\ TASK\_1\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ 200\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ TASK\_1\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00279\ }
-\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 1}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
-\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
-\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
-\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 2}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
-\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
-\DoxyCodeLine{00296\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
-\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 3}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
-\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
-\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
-\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00310\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00311\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00312\ \textcolor{comment}{\ \ \ \ BUZZER\ CONFIGURATION\ (only\ active\ when\ USE\_BUZZER\ ==\ true)}}
-\DoxyCodeLine{00313\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00314\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#if\ USE\_BUZZER\ ==\ true}}
-\DoxyCodeLine{00322\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TEMP\_MIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00323\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEPING\_VALUE\ \ \ \ \ \ \ \ \ \ \ 255\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00324\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_QUIET\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00325\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_STEPDEPTH\ \ \ \ \ \ \ \ \ \ 8192\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00326\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_PRIORITY\ \ \ \ \ \ \ \ \ \ \ 20\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_CORE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEP\_ON\_TIME\ \ \ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00329\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEP\_OFF\_TIME\ \ \ \ \ \ \ \ \ \ \ 400\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00330\ }
-\DoxyCodeLine{00334\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_SPEED\_MODE\ \ \ \ \ \ LEDC\_LOW\_SPEED\_MODE\ \ \ }}
-\DoxyCodeLine{00335\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_DUTY\_RES\ \ \ \ \ \ \ \ LEDC\_TIMER\_13\_BIT\ \ \ \ \ }}
-\DoxyCodeLine{00336\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_TIMER\ \ \ \ \ \ \ \ \ \ \ LEDC\_TIMER\_1\ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00337\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_FREQ\_HZ\ \ \ \ \ \ \ \ \ 2700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00338\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_CLK\_CFG\ \ \ \ \ \ \ \ \ LEDC\_AUTO\_CLK\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_CHANNEL\ \ \ \ \ \ \ \ \ LEDC\_CHANNEL\_1\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00340\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_INTR\_TYPE\ \ \ \ \ \ \ LEDC\_INTR\_DISABLE\ \ \ \ \ }}
-\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_TIMER\_SEL\ \ \ \ \ \ \ LEDC\_TIMER\_1\ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_DUTY\ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_HPOINT\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00346\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00347\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00348\ \textcolor{comment}{\ \ \ \ PWM\ SENSOR\ CONFIGURATION\ (Hella\ 6PP\ 010\ 378-\/201)}}
-\DoxyCodeLine{00349\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00350\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00359\ \textcolor{comment}{//\ PWM\ Sensor\ General\ Settings}}
-\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_RESOLUTION\_MHZ\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRESCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_NEG\_EDGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_POS\_EDGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PULL\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00365\ }
-\DoxyCodeLine{00366\ \textcolor{comment}{//\ Diagnostic\ Pulse\ (Pulse\ ID\ 0)}}
-\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 900\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 1100\ \ \ \ \ \ }}
-\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 800\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00375\ }
-\DoxyCodeLine{00376\ \textcolor{comment}{//\ Temperature\ Pulse\ (Pulse\ ID\ 1)\ -\/\ from\ datasheet}}
-\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 3900\ \ \ \ \ \ }}
-\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 4200\ \ \ \ \ \ }}
-\DoxyCodeLine{00385\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 4050\ \ \ \ \ \ }}
-\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1\ \ \ \ \ \ \ -\/896.0\ \ \ \ }}
-\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2\ \ \ \ \ \ \ 19.2\ \ \ \ \ \ }}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \textcolor{comment}{//\ Pressure\ Pulse\ (Pulse\ ID\ 2)\ -\/\ from\ datasheet}}
-\DoxyCodeLine{00396\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 3900\ \ \ \ \ \ }}
-\DoxyCodeLine{00398\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 4200\ \ \ \ \ \ }}
-\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 4050\ \ \ \ \ \ }}
-\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_CALC\_VALUE\_1\ \ \ \ \ \ \ 64.0\ \ \ \ \ \ }}
-\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_CALC\_VALUE\_2\ \ \ \ \ \ \ 384\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00403\ }
-\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_MAX\_SENSOR\_COUNT\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00405\ }
-\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#define\ PWM\_ADC\_SWTICH\_VALUE\_PWM\ \ \ \ \ \ \ \ \ \ \ true\ \ \ \ \ \ }}
-\DoxyCodeLine{00410\ }
-\DoxyCodeLine{00411\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00412\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00413\ \textcolor{comment}{\ \ \ \ I2C\ CONFIGURATION\ (RTC\ DS3231)}}
-\DoxyCodeLine{00414\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00415\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ I2C\_SDA\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ I2C\_SCL\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#define\ I2C\_CLK\_SRC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CLK\_SRC\_DEFAULT\ \ }}
-\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ I2C\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_NUM\_0\ }}
-\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#define\ I2C\_GLITCH\_IGNORE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#define\ I2C\_INT\_PULLUP\_ENB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false\ \ \ \ \ }}
-\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_LENGTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ADDR\_BIT\_LEN\_7\ \ }}
-\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ RTC\_SCL\_SPEED\_HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100000\ \ \ \ }}
-\DoxyCodeLine{00427\ }
-\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ RTC\_DS3231\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x68\ \ \ \ \ \ }}
-\DoxyCodeLine{00432\ }
-\DoxyCodeLine{00433\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00434\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00435\ \textcolor{comment}{\ \ \ \ ADC\ CONFIGURATION}}
-\DoxyCodeLine{00436\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00437\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00444\ \textcolor{comment}{//\ ADC\ Setup}}
-\DoxyCodeLine{00445\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_NUMBER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_1\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT\ \ }}
-\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_2\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT\ \ }}
-\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_1\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12\ \ }}
-\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_2\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12\ \ }}
-\DoxyCodeLine{00450\ }
-\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_1}}
-\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_BITWIDTH\ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_CHANNEL\ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_3}}
-\DoxyCodeLine{00458\ }
-\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_UNIT\_ID\ \ \ \ \ \ \ ADC\_UNIT\_1}}
-\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_BITWIDTH\ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_ATTEN\ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_CHANNEL\ \ \ \ \ \ \ ADC\_CHANNEL\_6}}
-\DoxyCodeLine{00466\ }
-\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_UNIT\_ID\ \ \ \ \ \ \ ADC\_UNIT\_1}}
-\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_BITWIDTH\ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00472\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_ATTEN\ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00473\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_CHANNEL\ \ \ \ \ \ \ ADC\_CHANNEL\_7}}
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00478\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
-\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_4}}
-\DoxyCodeLine{00482\ }
-\DoxyCodeLine{00486\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
-\DoxyCodeLine{00487\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_5}}
-\DoxyCodeLine{00490\ }
-\DoxyCodeLine{00494\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
-\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
-\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
-\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_3}}
-\DoxyCodeLine{00498\ }
-\DoxyCodeLine{00506\ \textcolor{comment}{//\ LSB\ (Least\ Significant\ Bit)\ values\ for\ different\ ranges}}
-\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#define\ ADC\_MAX\_V\_VALID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.25f\ \ \ \ \ }}
-\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#define\ ADC\_ADS\_REF\_V\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.3f\ \ \ \ \ \ }}
-\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#define\ ADC\_FAIL\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/99.0f\ \ \ \ }}
-\DoxyCodeLine{00510\ }
-\DoxyCodeLine{00517\ \textcolor{comment}{//\ Pull-\/up\ Resistor\ Values}}
-\DoxyCodeLine{00518\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10000.0f\ \ \ \ \ \ }}
-\DoxyCodeLine{00519\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_PULLDOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1500.0f\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00520\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_BEL\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ 10000.0f\ \ \ \ \ \ }}
-\DoxyCodeLine{00521\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_BEL\_PULLDOWN\ \ \ \ \ \ \ \ \ \ 2200.0f\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00522\ \textcolor{preprocessor}{\#define\ ADC\_TEMP\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 680.0f\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00523\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 680.0f\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00524\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ 4700.0f\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00525\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00526\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_PULLDOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00527\ }
-\DoxyCodeLine{00533\ \textcolor{comment}{//\ Failure\ Detection\ Thresholds}}
-\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#define\ ADC\_TEMP\_VAL\_TO\_FAIL\_MIN\ \ \ \ \ \ \ -\/50\ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_TO\_FAIL\_MIN\ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00536\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_TO\_FAIL\_MAX\ \ \ \ \ \ \ 250.0f\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN\ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX\ \ \ 150000.0f\ \ \ \ \ }}
-\DoxyCodeLine{00539\ }
-\DoxyCodeLine{00545\ \textcolor{comment}{//\ Pressure\ Resistance\ Range\ Values}}
-\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_MIN\_R\ \ \ \ \ \ \ \ \ \ \ \ \ 10.0f\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00547\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_MAX\_R\ \ \ \ \ \ \ \ \ \ \ \ \ 184.0f\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00548\ }
-\DoxyCodeLine{00549\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00550\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00551\ \textcolor{comment}{\ \ \ \ SENSOR\ VALUE\ LIMITS\ \&\ DEFAULTS}}
-\DoxyCodeLine{00552\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00553\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00561\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.0\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_BRIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BRIGHTNESS\_DAY\ \ }}
-\DoxyCodeLine{00565\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_NIGHT\_MODE\ \ \ \ \ \ \ \ \ \ \ false\ \ \ \ \ }}
-\DoxyCodeLine{00566\ }
-\DoxyCodeLine{00570\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_PRES\ \ }}
-\DoxyCodeLine{00571\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_TEMP\ \ }}
-\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_VOLT\ \ }}
-\DoxyCodeLine{00573\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/30\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00574\ }
-\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6.0\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00579\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 16.0\ \ \ \ \ \ }}
-\DoxyCodeLine{00581\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 70\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00582\ }
-\DoxyCodeLine{00583\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00584\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00585\ \textcolor{comment}{\ \ \ \ IMPROVE\ SENSOR\ VALUE\ QUALITY}}
-\DoxyCodeLine{00586\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00587\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00595\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OIL\_PRES\ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OIL\_TEMP\ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00597\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ 4\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OUT\_TEMP\ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_BRIGHT\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00600\ }
-\DoxyCodeLine{00607\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OIL\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
-\DoxyCodeLine{00608\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OIL\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
-\DoxyCodeLine{00609\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
-\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
-\DoxyCodeLine{00611\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_BEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
-\DoxyCodeLine{00612\ }
-\DoxyCodeLine{00618\ \textcolor{preprocessor}{\#define\ MAIN\_TICK\_TIME\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ 25\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00619\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_1\_MS\ \ \ \ \ \ \ \ \ \ \ \ MAIN\_TICK\_TIME\_DELAY\_MS\ \ \ \ \ \ \ }}
-\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_2\_MS\ \ \ \ \ \ \ \ \ \ \ \ MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 5\ \ \ }}
-\DoxyCodeLine{00621\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_3\_MS\ \ \ \ \ \ \ \ \ \ \ \ MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 2\ \ \ }}
-\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_4\_MS\ \ \ \ \ \ \ \ \ \ \ \ MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 5\ \ \ }}
-\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_BRIGHT\_MS\ \ \ \ \ \ \ MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 5\ \ \ }}
-\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS\ \ MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 10\ \ }}
-\DoxyCodeLine{00625\ }
-\DoxyCodeLine{00626\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00627\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00628\ \textcolor{comment}{\ \ \ \ Enable\ Testmode\ Settings}}
-\DoxyCodeLine{00629\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
-\DoxyCodeLine{00630\ \textcolor{comment}{*/}}
-\DoxyCodeLine{00637\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_TIMEOUT\_MS\ \ \ \ \ \ 10000\ \ \ \ \ }\textcolor{preprocessor}{}}
-\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT\ \ 2\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00649\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT\ \ 1\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT\ \ 2\ \ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT\ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ EEZ\_VALUE\_FACTOR\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ }}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ EEZ\_VALUE\_FACTOR\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ }}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ EEZ\_VALUE\_FACTOR\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ \ }}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ EEZ\_VALUE\_FACTOR\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000\ \ \ \ \ \ }}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ GAUGE\_ON\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1200\ \ \ \ \ \ }}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ BUZZER\_ON\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5000\ \ \ \ \ \ }}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ MAIN\_TASK\_FINISHED\_DELAY\ \ \ \ \ \ \ \ \ \ \ 5000\ \ \ \ \ \ }}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ FREERTOS\ TASK\ CONFIGURATION\ (FOR\ EACH\ DISPLAY)}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00269\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ TASK\_1\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ 4096\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ TASK\_1\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#define\ TASK\_1\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ 200\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#define\ TASK\_1\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_2\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_3\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#if\ NUMBER\_OF\_DISPLAYS\ >\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_STEPDEPTH\_SCREEN\ \ \ \ \ \ \ \ TASK\_1\_STEPDEPTH\_SCREEN}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_PRIORITY\_SCREEN\ \ \ \ \ \ \ \ \ TASK\_1\_PRIORITY\_SCREEN}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_DELAYTIME\_SCREEN\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \#define\ TASK\_4\_CORE\_SCREEN\ \ \ \ \ \ \ \ \ \ \ \ \ TASK\_1\_CORE\_SCREEN}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00314\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00315\ \textcolor{comment}{\ \ \ \ BUZZER\ CONFIGURATION\ (only\ active\ when\ USE\_BUZZER\ ==\ true)}}
+\DoxyCodeLine{00316\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00317\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#if\ USE\_BUZZER\ ==\ true}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TEMP\_MIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEPING\_VALUE\ \ \ \ \ \ \ \ \ \ \ 255\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_QUIET\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_STEPDEPTH\ \ \ \ \ \ \ \ \ \ 8192\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_PRIORITY\ \ \ \ \ \ \ \ \ \ \ 20\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_TASK\_CORE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEP\_ON\_TIME\ \ \ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_BEEP\_OFF\_TIME\ \ \ \ \ \ \ \ \ \ \ 400\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_SPEED\_MODE\ \ \ \ \ \ LEDC\_LOW\_SPEED\_MODE\ \ \ }}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_DUTY\_RES\ \ \ \ \ \ \ \ LEDC\_TIMER\_13\_BIT\ \ \ \ \ }}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_TIMER\ \ \ \ \ \ \ \ \ \ \ LEDC\_TIMER\_1\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_FREQ\_HZ\ \ \ \ \ \ \ \ \ 2700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_CLK\_CFG\ \ \ \ \ \ \ \ \ LEDC\_AUTO\_CLK\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_CHANNEL\ \ \ \ \ \ \ \ \ LEDC\_CHANNEL\_1\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_INTR\_TYPE\ \ \ \ \ \ \ LEDC\_INTR\_DISABLE\ \ \ \ \ }}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_TIMER\_SEL\ \ \ \ \ \ \ LEDC\_TIMER\_1\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_DUTY\ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ \#define\ BUZZER\_SETTING\_HPOINT\ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ \ \ \ PWM\ SENSOR\ CONFIGURATION\ (Hella\ 6PP\ 010\ 378-\/201)}}
+\DoxyCodeLine{00352\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00353\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00362\ \textcolor{comment}{//\ PWM\ Sensor\ General\ Settings}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_RESOLUTION\_MHZ\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRESCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_NEG\_EDGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_POS\_EDGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PULL\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \textcolor{comment}{//\ Diagnostic\ Pulse\ (Pulse\ ID\ 0)}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 900\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 1100\ \ \ \ \ \ }}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_DIAG\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 800\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{comment}{//\ Temperature\ Pulse\ (Pulse\ ID\ 1)\ -\/\ from\ datasheet}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 3900\ \ \ \ \ \ }}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 4200\ \ \ \ \ \ }}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 4050\ \ \ \ \ \ }}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1\ \ \ \ \ \ \ -\/896.0\ \ \ \ }}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2\ \ \ \ \ \ \ 19.2\ \ \ \ \ \ }}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \textcolor{comment}{//\ Pressure\ Pulse\ (Pulse\ ID\ 2)\ -\/\ from\ datasheet}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PULSE\_ID\ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PERIOD\_MIN\ \ \ \ \ \ \ \ \ 3900\ \ \ \ \ \ }}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_PERIOD\_MAX\ \ \ \ \ \ \ \ \ 4200\ \ \ \ \ \ }}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_VALUE\_MIN\ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_VALUE\_MAX\ \ \ \ \ \ \ \ \ \ 4050\ \ \ \ \ \ }}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_CALC\_VALUE\_1\ \ \ \ \ \ \ 64.0\ \ \ \ \ \ }}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_PRES\_CALC\_VALUE\_2\ \ \ \ \ \ \ 384\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#define\ PWM\_SENSOR\_MAX\_SENSOR\_COUNT\ \ \ \ \ \ \ \ 100\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#define\ PWM\_ADC\_SWTICH\_VALUE\_PWM\ \ \ \ \ \ \ \ \ \ \ true\ \ \ \ \ \ }}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00415\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ \ \ \ I2C\ CONFIGURATION\ (RTC\ DS3231)}}
+\DoxyCodeLine{00417\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00418\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ I2C\_SDA\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 9\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#define\ I2C\_SCL\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#define\ I2C\_CLK\_SRC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_CLK\_SRC\_DEFAULT\ \ }}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ I2C\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_NUM\_0\ }}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ I2C\_GLITCH\_IGNORE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ I2C\_INT\_PULLUP\_ENB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false\ \ \ \ \ }}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#define\ RTC\_ADDR\_LENGTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ I2C\_ADDR\_BIT\_LEN\_7\ \ }}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ RTC\_SCL\_SPEED\_HZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100000\ \ \ \ }}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ RTC\_DS3231\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x68\ \ \ \ \ \ }}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00437\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00438\ \textcolor{comment}{\ \ \ \ ADC\ CONFIGURATION}}
+\DoxyCodeLine{00439\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00440\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//\ ADC\ Setup}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_NUMBER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_1\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT\ \ }}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_2\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT\ \ }}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_1\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12\ \ }}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\#define\ ADC\_UNIT\_2\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12\ \ }}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_1}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_BITWIDTH\ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_PRESSURE\_CHANNEL\ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_3}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_UNIT\_ID\ \ \ \ \ \ \ ADC\_UNIT\_1}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_BITWIDTH\ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_ATTEN\ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_TEMPERATURE\_CHANNEL\ \ \ \ \ \ \ ADC\_CHANNEL\_6}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_UNIT\_ID\ \ \ \ \ \ \ ADC\_UNIT\_1}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_BITWIDTH\ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_ATTEN\ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMPERATURE\_CHANNEL\ \ \ \ \ \ \ ADC\_CHANNEL\_7}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\#define\ ADC\_OIL\_12V\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_4}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ ADC\_AMBI\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_5}}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_UNIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_UNIT\_2}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_BITWIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_BITWIDTH\_DEFAULT}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_ATTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_ATTEN\_DB\_12}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_3}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00509\ \textcolor{comment}{//\ LSB\ (Least\ Significant\ Bit)\ values\ for\ different\ ranges}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#define\ ADC\_MAX\_V\_VALID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.25f\ \ \ \ \ }}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\#define\ ADC\_ADS\_REF\_V\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.3f\ \ \ \ \ \ }}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\#define\ ADC\_FAIL\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/99.0f\ \ \ \ }}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00520\ \textcolor{comment}{//\ Pull-\/up\ Resistor\ Values}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10000.0f\ \ \ \ \ \ }}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_PULLDOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1500.0f\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_BEL\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ 10000.0f\ \ \ \ \ \ }}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\#define\ ADC\_VOLT\_BEL\_PULLDOWN\ \ \ \ \ \ \ \ \ \ 2200.0f\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\#define\ ADC\_TEMP\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 680.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 680.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ 4700.0f\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_PULLUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\#define\ ADC\_3V3\_PULLDOWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00536\ \textcolor{comment}{//\ Failure\ Detection\ Thresholds}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#define\ ADC\_TEMP\_VAL\_TO\_FAIL\_MIN\ \ \ \ \ \ \ -\/50\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_TO\_FAIL\_MIN\ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_TO\_FAIL\_MAX\ \ \ \ \ \ \ 250.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN\ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\#define\ ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX\ \ \ 150000.0f\ \ \ \ \ }}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00548\ \textcolor{comment}{//\ Pressure\ Resistance\ Range\ Values}}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_MIN\_R\ \ \ \ \ \ \ \ \ \ \ \ \ 10.0f\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#define\ ADC\_PRES\_VAL\_MAX\_R\ \ \ \ \ \ \ \ \ \ \ \ \ 184.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00553\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00554\ \textcolor{comment}{\ \ \ \ SENSOR\ VALUE\ LIMITS\ \&\ DEFAULTS}}
+\DoxyCodeLine{00555\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00556\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8.0\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_BRIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BRIGHTNESS\_DAY\ \ }}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#define\ VALUE\_DEFAULT\_NIGHT\_MODE\ \ \ \ \ \ \ \ \ \ \ false\ \ \ \ \ }}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00573\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_PRES\ \ }}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_TEMP\ \ }}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_DEFAULT\_VOLT\ \ }}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#define\ VALUE\_MIN\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/30\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00581\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6.0\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 150\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 16.0\ \ \ \ \ \ }}
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#define\ VALUE\_MAX\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 70\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00587\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00588\ \textcolor{comment}{\ \ \ \ IMPROVE\ SENSOR\ VALUE\ QUALITY}}
+\DoxyCodeLine{00589\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00590\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OIL\_PRES\ \ \ \ \ \ \ \ 2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OIL\_TEMP\ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ 4\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00601\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_OUT\_TEMP\ \ \ \ \ \ \ \ 5\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00602\ \textcolor{preprocessor}{\#define\ VALUE\_OVERSAMPLING\_BRIGHT\ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OIL\_PRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
+\DoxyCodeLine{00611\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OIL\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_VOLT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
+\DoxyCodeLine{00613\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_OUT\_TEMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#define\ FILTER\_ALPHA\_BEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.1f\ \ \ \ \ \ }}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00621\ \textcolor{preprocessor}{\#define\ MAIN\_TICK\_TIME\_DELAY\_MS\ \ \ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_1\_MS\ \ \ \ \ \ \ \ \ \ \ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 50)\ \ }}
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_2\_MS\ \ \ \ \ \ \ \ \ \ \ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 20)\ \ }}
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_3\_MS\ \ \ \ \ \ \ \ \ \ \ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ \ 2)\ \ }}
+\DoxyCodeLine{00625\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_4\_MS\ \ \ \ \ \ \ \ \ \ \ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ \ 5)\ \ }}
+\DoxyCodeLine{00626\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_BRIGHT\_MS\ \ \ \ \ \ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 10)\ \ }}
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#define\ MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS\ \ (MAIN\_TICK\_TIME\_DELAY\_MS\ *\ 25)\ \ }}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00630\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00631\ \textcolor{comment}{\ \ \ \ Enable\ Testmode\ Settings}}
+\DoxyCodeLine{00632\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00633\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_TIMEOUT\_MS\ \ \ \ \ \ 10000\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT\ \ 2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00652\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT\ \ 1\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00653\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT\ \ 2\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00654\ \textcolor{preprocessor}{\#define\ TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT\ \ 1\ \ \ \ \ \ \ \ \ }}
 
 \end{DoxyCode}
