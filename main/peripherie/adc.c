@@ -246,9 +246,11 @@ float get_adc_volt() {
     float raw = (float) read_adc_value_raw(ADC_12V);
     float v_board = raw / 1000.0f; // Convert mV to V
     v_board = v_board * ((ADC_VOLT_PULLUP + ADC_VOLT_PULLDOWN) / ADC_VOLT_PULLDOWN);
-    char log_msg[100];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V | ADC value: %.2f V", v_board, raw / 1000.0f);
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        char log_msg[100];
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V | ADC value: %.2f V", v_board, raw / 1000.0f);
+        printLog(log_msg);
+    #endif
     return v_board;
 }
 
@@ -257,9 +259,11 @@ float get_adc_volt_bel() {
     float raw = (float) read_adc_value_raw(ADC_AMBI);
     float v_bel = raw / 1000.0f; 
     v_bel = v_bel * ((ADC_VOLT_BEL_PULLUP + ADC_VOLT_BEL_PULLDOWN) / ADC_VOLT_BEL_PULLDOWN); // Teiler 10k/2.2k
-    char log_msg[100];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V | ADC value: %.2f V", v_bel, raw / 1000.0f);
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        char log_msg[100];
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V | ADC value: %.2f V", v_bel, raw / 1000.0f);
+        printLog(log_msg);
+    #endif
     return v_bel;
 }
 
@@ -270,8 +274,10 @@ float get_adc_oil_temp() {
     if (oil_t < ADC_TEMP_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Error (open circuit)
     else oil_t = interpolate_temp(oil_t);
     char log_msg[100];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C | resistor value: %.2f", oil_t, raw_to_res_safe(raw, ADC_TEMP_PULLUP));
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C | resistor value: %.2f", oil_t, raw_to_res_safe(raw, ADC_TEMP_PULLUP));
+        printLog(log_msg);
+    #endif
     return oil_t;
 }
 
@@ -282,8 +288,10 @@ float get_adc_oil_press() {
     if (oil_p < ADC_PRES_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
     else oil_p = interpolate_pressure(oil_p);
     char log_msg[100];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar | resistor value: %.2f", oil_p, raw_to_res_safe(raw, ADC_PRES_PULLUP));
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar | resistor value: %.2f", oil_p, raw_to_res_safe(raw, ADC_PRES_PULLUP));
+        printLog(log_msg);
+    #endif
     return oil_p;
 }
 
@@ -294,8 +302,10 @@ float get_adc_outside_temp() {
     if (outside_t < ADC_OUT_TEMP_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; // Error or implausible reading
     else outside_t = interpolate_outside_temp(outside_t);
     char log_msg[100];
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, raw_to_res_safe(raw, ADC_OUT_TEMP_PULLUP));
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, raw_to_res_safe(raw, ADC_OUT_TEMP_PULLUP));
+        printLog(log_msg);
+    #endif
     return outside_t;
 }
 
@@ -309,7 +319,9 @@ float get_adc_reference_voltage(void) {
     char log_msg[50];
     float reference_voltage = ((float) read_adc_value_raw(ADC_3V3)) / 1000.0f;
     float volate_divider = (ADC_3V3_PULLUP + ADC_3V3_PULLDOWN) / ADC_3V3_PULLDOWN; // Teiler 1k/1k
-    snprintf(log_msg, sizeof(log_msg), "Measured ADC reference voltage: %.2f V", reference_voltage*volate_divider);    
-    printLog(log_msg);
+    #if LOGGING_ENABLED == true
+        snprintf(log_msg, sizeof(log_msg), "Measured ADC reference voltage: %.2f V", reference_voltage*volate_divider);    
+        printLog(log_msg);
+    #endif
     return reference_voltage*volate_divider; // Multiply by voltage divider because of voltage divider on the reference measurement
 }

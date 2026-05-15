@@ -56,6 +56,16 @@ double get_pwm_value(int id)
     if (latest_sensor_values.update_count == last_seen_count) return -99;
     else {
         last_seen_count = latest_sensor_values.update_count;
+
+        #if LOGGING_ENABLED == true
+            char log_msg[100];
+            snprintf(log_msg, sizeof(log_msg), "Measured PWM: Temp: %.0f°C | Pres: %.1f bar | Diag: %.0fµs", 
+                    calc_temperature(latest_sensor_values.temp_us.value_us),
+                    calc_pressure(latest_sensor_values.press_us.value_us), 
+                    (double) get_diag(latest_sensor_values.diag_us.value_us));
+            printLog(log_msg);
+        #endif
+
         return id == PWM_SENSOR_TEMP_PULSE_ID ? calc_temperature(latest_sensor_values.temp_us.value_us) : 
             id == PWM_SENSOR_PRES_PULSE_ID ? calc_pressure(latest_sensor_values.press_us.value_us) :
             (double) get_diag(latest_sensor_values.diag_us.value_us);
