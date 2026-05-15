@@ -17,10 +17,10 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         false  // true: enable buzzer alert functionality
+#define USE_BUZZER                         true  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-#define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
+#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
 
 /*
 #################################################################################
@@ -254,7 +254,10 @@
 /**
  * @brief Display rendering and initialization timing parameters.
  */
-#define EEZ_VALUE_FACTOR                   1000      ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_1                 1000     ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_2                 1000     ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_3                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_4                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
 #define GAUGE_ON_DELAY_MS                  1000      ///< Delay before gauges become active after boot (milliseconds)
 #define BUZZER_ON_DELAY_MS                 5000      ///< Delay before buzzer activation is allowed (milliseconds)
 #define MAIN_TASK_FINISHED_DELAY           5000      ///< Delay for main task completion (milliseconds)
@@ -615,12 +618,12 @@
  *
  * Defines how often sensor values are read and processed for each display/subsystem.
  */
-#define MAIN_TICK_TIME_DELAY_MS            25        ///< Main loop tick interval (milliseconds)
-#define MEASURE_DELAY_TIME_1_MS            MAIN_TICK_TIME_DELAY_MS       ///< Display 1 update interval (25ms)
-#define MEASURE_DELAY_TIME_2_MS            MAIN_TICK_TIME_DELAY_MS * 5   ///< Display 2 update interval (125ms)
-#define MEASURE_DELAY_TIME_3_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 3 update interval (50ms)
-#define MEASURE_DELAY_TIME_4_MS            MAIN_TICK_TIME_DELAY_MS * 5   ///< Display 4 update interval (125ms)
-#define MEASURE_DELAY_TIME_BRIGHT_MS       MAIN_TICK_TIME_DELAY_MS * 5   ///< Brightness update interval (125ms)
+#define MAIN_TICK_TIME_DELAY_MS            10                            ///< Main loop tick interval (milliseconds)
+#define MEASURE_DELAY_TIME_1_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 1 update interval (50ms)
+#define MEASURE_DELAY_TIME_2_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 2 update interval (25ms)
+#define MEASURE_DELAY_TIME_3_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 3 update interval (125ms)
+#define MEASURE_DELAY_TIME_4_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 4 update interval (125ms)
+#define MEASURE_DELAY_TIME_BRIGHT_MS       MAIN_TICK_TIME_DELAY_MS * 10  ///< Brightness update interval (125ms)
 #define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  MAIN_TICK_TIME_DELAY_MS * 10  ///< Test mode brightness interval (250ms)
 
 /*

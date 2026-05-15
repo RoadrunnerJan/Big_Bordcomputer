@@ -10,8 +10,6 @@ extern "C" {
 
 // enum declarations
 
-
-
 // Flow global variables
 
 enum FlowGlobalVariables {
@@ -50,7 +48,6 @@ extern int32_t get_var_lvgl_value_clock_hour();
 extern void set_var_lvgl_value_clock_hour(int32_t value);
 extern int32_t get_var_lvgl_value_clock_minute();
 extern void set_var_lvgl_value_clock_minute(int32_t value);
-
 
 #ifdef __cplusplus
 }

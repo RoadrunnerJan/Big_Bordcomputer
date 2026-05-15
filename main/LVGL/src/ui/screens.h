@@ -7,6 +7,23 @@
 extern "C" {
 #endif
 
+// Screens
+
+enum ScreensEnum {
+    _SCREEN_ID_FIRST = 1,
+    SCREEN_ID_GAUGE_OIL_PRESSURE = 1,
+    SCREEN_ID_GAUGE_OIL_PRESSURE_NIGHT = 2,
+    SCREEN_ID_GAUGE_OIL_TEMPERATURE = 3,
+    SCREEN_ID_GAUGE_OIL_TEMPERATURE_NIGHT = 4,
+    SCREEN_ID_GAUGE_VOLTAGE = 5,
+    SCREEN_ID_GAUGE_VOLTAGE_NIGHT = 6,
+    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 7,
+    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK_NIGHT = 8,
+    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE = 9,
+    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE_NIGHT = 10,
+    _SCREEN_ID_LAST = 10
+};
+
 typedef struct _objects_t {
     lv_obj_t *gauge_oil_pressure;
     lv_obj_t *gauge_oil_pressure_night;
@@ -122,18 +139,80 @@ typedef struct _objects_t {
 
 extern objects_t objects;
 
-enum ScreensEnum {
-    SCREEN_ID_GAUGE_OIL_PRESSURE = 1,
-    SCREEN_ID_GAUGE_OIL_PRESSURE_NIGHT = 2,
-    SCREEN_ID_GAUGE_OIL_TEMPERATURE = 3,
-    SCREEN_ID_GAUGE_OIL_TEMPERATURE_NIGHT = 4,
-    SCREEN_ID_GAUGE_VOLTAGE = 5,
-    SCREEN_ID_GAUGE_VOLTAGE_NIGHT = 6,
-    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 7,
-    SCREEN_ID_GAUGE_TEMPERATURE_CLOCK_NIGHT = 8,
-    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE = 9,
-    SCREEN_ID_GAUGE_CLOCK_TEMPERATURE_NIGHT = 10,
-};
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_oil_pressure_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_oil_pressure_night_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_oil_temperature_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_oil_temperature_night_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_voltage_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_voltage_night_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_temperature_clock_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+} screen_gauge_temperature_clock_night_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+    lv_meter_scale_t *scale2;
+    lv_meter_indicator_t *indicator1;
+} screen_gauge_clock_temperature_state_t;
+
+typedef struct {
+    lv_meter_scale_t *scale;
+    lv_meter_scale_t *scale1;
+    lv_meter_indicator_t *indicator;
+    lv_meter_scale_t *scale2;
+    lv_meter_indicator_t *indicator1;
+} screen_gauge_clock_temperature_night_state_t;
+
+extern screen_gauge_oil_pressure_state_t screen_gauge_oil_pressure_state;
+extern screen_gauge_oil_pressure_night_state_t screen_gauge_oil_pressure_night_state;
+extern screen_gauge_oil_temperature_state_t screen_gauge_oil_temperature_state;
+extern screen_gauge_oil_temperature_night_state_t screen_gauge_oil_temperature_night_state;
+extern screen_gauge_voltage_state_t screen_gauge_voltage_state;
+extern screen_gauge_voltage_night_state_t screen_gauge_voltage_night_state;
+extern screen_gauge_temperature_clock_state_t screen_gauge_temperature_clock_state;
+extern screen_gauge_temperature_clock_night_state_t screen_gauge_temperature_clock_night_state;
+extern screen_gauge_clock_temperature_state_t screen_gauge_clock_temperature_state;
+extern screen_gauge_clock_temperature_night_state_t screen_gauge_clock_temperature_night_state;
 
 void create_screen_gauge_oil_pressure();
 void tick_screen_gauge_oil_pressure();
@@ -169,11 +248,6 @@ void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
 
 void create_screens();
-
-
-
-
-
 
 #ifdef __cplusplus
 }

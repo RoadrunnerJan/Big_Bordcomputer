@@ -1,0 +1,26 @@
+{
+  "files": [
+    "actions.h",
+    "fonts.h",
+    "images.c",
+    "images.h",
+    "screens.c",
+    "screens.h",
+    "structs.h",
+    "styles.c",
+    "styles.h",
+    "ui.c",
+    "ui.h",
+    "ui_font_damion_22.c",
+    "ui_font_damion_36.c",
+    "ui_font_oswald_22.c",
+    "ui_font_oswald_36.c",
+    "ui_image_clock.c",
+    "ui_image_knob.c",
+    "ui_image_oil_can.c",
+    "ui_image_oil_can_temp.c",
+    "ui_image_temperature.c",
+    "ui_image_volt.c",
+    "vars.h"
+  ]
+}

@@ -133,7 +133,7 @@ static void update_values(int displayID)
                 else value = get_adc_oil_press();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
-            set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * DISPLAYS[displayID].eez_factor);
             set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
             
         break;
@@ -146,7 +146,7 @@ static void update_values(int displayID)
                 else value = get_adc_oil_temp();
             }
             calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
-            set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * DISPLAYS[displayID].eez_factor);
             set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
             
         break;
@@ -158,7 +158,7 @@ static void update_values(int displayID)
                 value = get_adc_volt();
             }
             calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
-            set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * DISPLAYS[displayID].eez_factor);
             set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
             
         break;
@@ -177,7 +177,7 @@ static void update_values(int displayID)
             set_var_lvgl_value_clock(output_string); 
             calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
 
-            set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * EEZ_VALUE_FACTOR);
+            set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * DISPLAYS[displayID].eez_factor);
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
             if(is_testmode_activated()) {
@@ -345,13 +345,7 @@ static void lv_tick_task_screen(void *pv)
     while (1) {
         set_now_time_ms();
         int time_test_time = is_testmode_activated() ? MEASURE_DELAY_TIME_BRIGHT_TEST_MS : MEASURE_DELAY_TIME_BRIGHT_MS;
-        
-            printf("time_test_time: %d\n", time_test_time);
-            printf("now_ms: %lld\n", get_now_time_ms());
-            printf("last_brightness_check_time: %lld\n", get_last_executed_brightness());
-            printf("div: %lld\n", (get_now_time_ms() - get_last_executed_brightness()));
-            printf("checkTime: %d\n", (get_now_time_ms() - get_last_executed_brightness()) > time_test_time);
-
+    
         if(is_testmode_activated()){
             if ((get_now_time_ms() - get_last_executed_brightness()) > time_test_time)
             {
@@ -519,9 +513,6 @@ void init_system()
  * while background tasks handle application logic.
  *
  * @return ESP_OK on successful initialization, error code on failure
- */
- *
- * This function is automatically called by ESP-IDF runtime.
  */
 void app_main(void)
 {

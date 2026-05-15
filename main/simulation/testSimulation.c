@@ -39,10 +39,10 @@ int brightness_test_switch  = 0;
  * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
  */
 double test_steps[5][4] = {
-    /* oil pressure      */ {+0.05, -0.01, +0.05, -0.01},
-    /* volt              */ {+0.50, -0.01, +0.05, -0.05},
-    /* oil temperature   */ {+0.50, -0.50, +0.50, -0.50},
-    /* clock temperature */ {+0.50, -0.50, +0.50, -0.50},
+    /* oil pressure      */ {+0.10, -0.02, +0.35, -0.25},
+    /* volt              */ {+0.20, -0.10, +0.10, -0.15},
+    /* oil temperature   */ {+0.20, -0.20, +0.20, -0.20},
+    /* clock temperature */ {+0.20, -0.20, +0.20, -0.20},
     /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
 };
 

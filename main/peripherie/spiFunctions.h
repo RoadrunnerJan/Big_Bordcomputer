@@ -105,6 +105,7 @@ struct display_settings
 
     // Display delay time
     int delay_time_screen_ms;
+    int eez_factor;
 };
 
 
