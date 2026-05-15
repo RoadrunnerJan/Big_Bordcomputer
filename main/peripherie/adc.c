@@ -301,6 +301,7 @@ float get_adc_outside_temp() {
     float outside_t = raw_to_res_safe(raw, ADC_OUT_TEMP_PULLUP);
     if (outside_t < ADC_OUT_TEMP_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; // Error or implausible reading
     else outside_t = interpolate_outside_temp(outside_t);
+    if (outside_t > VALUE_MAX_OUT_TEMP *1.5f) outside_t = ADC_FAIL_VALUE; // Error or implausible reading
     char log_msg[100];
     #if LOGGING_ENABLED == true
         snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, raw_to_res_safe(raw, ADC_OUT_TEMP_PULLUP));
