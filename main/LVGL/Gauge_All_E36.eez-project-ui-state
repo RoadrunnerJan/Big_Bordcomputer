@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/3",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/6",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -197,10 +197,10 @@
                 {
                   "type": "tab",
                   "id": "#a9a9baa1-5ea2-411d-a5ac-d93c6f733ea6",
-                  "name": "Gauge_Oil_Temperature_Night",
+                  "name": "Gauge_Temperature_Clock",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/3",
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/6",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -249,7 +249,8 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -269,8 +270,7 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -1664,7 +1664,8 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "2": {
+          "2": {},
+          "7": {
             "$selected": true
           }
         }
