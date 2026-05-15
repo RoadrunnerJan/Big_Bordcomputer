@@ -405,7 +405,7 @@ static void lv_tick_task_screen(void *pv)
         }
 
         #if USE_BUZZER == true
-            bool buzzer_check = is_testmode_activated() ? get_adc_outside_temp() != ADC_FAIL_VALUE : true; // In test mode, only check buzzer condition if outside temp reading is valid
+            bool buzzer_check = !is_testmode_activated() ? get_adc_outside_temp() != ADC_FAIL_VALUE : true; // In test mode, only check buzzer condition if outside temp reading is valid
             if (get_now_time_ms() - *get_startup_time_sec() * 1000LL >= BUZZER_ON_DELAY_MS && buzzer_check)
             {
                 if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP && getOutputTemperatureSet())
