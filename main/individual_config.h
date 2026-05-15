@@ -20,7 +20,7 @@
 #define USE_BUZZER                         false  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
+#define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
 
 /*
 #################################################################################
@@ -619,11 +619,11 @@
  * Defines how often sensor values are read and processed for each display/subsystem.
  */
 #define MAIN_TICK_TIME_DELAY_MS            10                            ///< Main loop tick interval (milliseconds)
-#define MEASURE_DELAY_TIME_1_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 1 update interval (50ms)
-#define MEASURE_DELAY_TIME_2_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 2 update interval (25ms)
-#define MEASURE_DELAY_TIME_3_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 3 update interval (125ms)
-#define MEASURE_DELAY_TIME_4_MS            MAIN_TICK_TIME_DELAY_MS * 7   ///< Display 4 update interval (125ms)
-#define MEASURE_DELAY_TIME_BRIGHT_MS       MAIN_TICK_TIME_DELAY_MS * 10  ///< Brightness update interval (125ms)
+#define MEASURE_DELAY_TIME_1_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 1 update interval (100ms)
+#define MEASURE_DELAY_TIME_2_MS            MAIN_TICK_TIME_DELAY_MS * 10  ///< Display 2 update interval (100ms)
+#define MEASURE_DELAY_TIME_3_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 3 update interval (20ms)
+#define MEASURE_DELAY_TIME_4_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 4 update interval (20ms)
+#define MEASURE_DELAY_TIME_BRIGHT_MS       MAIN_TICK_TIME_DELAY_MS * 10  ///< Brightness update interval (100ms)
 #define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  MAIN_TICK_TIME_DELAY_MS * 25  ///< Test mode brightness interval (250ms)
 
 /*
