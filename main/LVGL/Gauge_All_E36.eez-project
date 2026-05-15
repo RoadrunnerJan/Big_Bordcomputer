@@ -1975,7 +1975,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 140,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 223,
+              "bgEndAngle": 227,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"
@@ -2705,7 +2705,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 140,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 223,
+              "bgEndAngle": 227,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"
@@ -4810,7 +4810,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 141,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 243,
+              "bgEndAngle": 244,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"
@@ -5457,7 +5457,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 141,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 243,
+              "bgEndAngle": 244,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"

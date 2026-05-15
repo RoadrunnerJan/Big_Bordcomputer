@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/3",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -191,17 +191,16 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 45.24007047390491,
-              "selected": 4,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#a9a9baa1-5ea2-411d-a5ac-d93c6f733ea6",
-                  "name": "Gauge_Oil_Temperature",
+                  "name": "Gauge_Oil_Temperature_Night",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/2",
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/3",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -250,8 +249,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -271,7 +269,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -535,6 +534,88 @@
                       "id": "DEBUGGER_LOGS",
                       "name": "Logs",
                       "component": "logs",
+                      "enableClose": false,
+                      "icon": "svg:log"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "rootDockerSimulator": {
+      "version": 1,
+      "json": {
+        "global": {
+          "splitterSize": 4,
+          "splitterExtra": 4,
+          "tabEnableRename": false,
+          "borderEnableAutoHide": true
+        },
+        "borders": [],
+        "layout": {
+          "type": "row",
+          "id": "#eabb1d85-b8d0-4877-b717-da0c4350d48d",
+          "children": [
+            {
+              "type": "tabset",
+              "id": "#443a967e-9ec5-4706-8de3-a4a2f4d3671d",
+              "weight": 70,
+              "enableDrop": false,
+              "enableDrag": false,
+              "enableClose": false,
+              "enableTabStrip": true,
+              "children": [
+                {
+                  "type": "tab",
+                  "id": "DOCKER_SIMULATOR_PREVIEW",
+                  "name": "Preview",
+                  "component": "dockerSimulatorPreview",
+                  "enableClose": false,
+                  "icon": "material:computer"
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "id": "#d30a1404-b8a5-42e1-8d12-2c5091631527",
+              "weight": 30,
+              "children": [
+                {
+                  "type": "tabset",
+                  "id": "#6b6f6dba-22af-4286-8672-4935d97bf0b8",
+                  "weight": 50,
+                  "enableDrop": false,
+                  "enableDrag": false,
+                  "enableClose": false,
+                  "enableTabStrip": true,
+                  "children": [
+                    {
+                      "type": "tab",
+                      "id": "DOCKER_SIMULATOR_LOGS",
+                      "name": "Build Logs",
+                      "component": "dockerSimulatorLogs",
+                      "enableClose": false,
+                      "icon": "svg:log"
+                    }
+                  ]
+                },
+                {
+                  "type": "tabset",
+                  "id": "#b4f71d94-f156-4edb-98b3-8b5fa58efcf0",
+                  "weight": 50,
+                  "enableDrop": false,
+                  "enableDrag": false,
+                  "enableClose": false,
+                  "enableTabStrip": true,
+                  "children": [
+                    {
+                      "type": "tab",
+                      "id": "DOCKER_SIMULATOR_PREVIEW_LOGS",
+                      "name": "Preview Logs",
+                      "component": "dockerSimulatorPreviewLogs",
                       "enableClose": false,
                       "icon": "svg:log"
                     }
@@ -1471,8 +1552,8 @@
       },
       "transform": {
         "translate": {
-          "x": -247,
-          "y": -303
+          "x": -233,
+          "y": -267
         },
         "scale": 2
       },
@@ -1481,6 +1562,14 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "8": {
+            "$selected": true
+          }
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/1[flow-state]": {
@@ -1503,14 +1592,22 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "8": {
+            "$selected": true
+          }
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/2[flow-state]": {
       "selection": {},
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -181,
+          "y": -189
         },
         "scale": 2
       },
@@ -1519,6 +1616,10 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {}
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/4[flow-state]": {
@@ -1528,21 +1629,29 @@
           "x": -120,
           "y": -120
         },
-        "scale": 1.25
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "8": {
+            "$selected": true
+          }
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/7[flow-state]": {
       "selection": {},
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -267,
+          "y": -256
         },
         "scale": 2
       },
@@ -1551,6 +1660,14 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "2": {
+            "$selected": true
+          }
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/8[flow-state]": {
@@ -1573,22 +1690,32 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
-      }
+      },
+      "selectionFront": {},
+      "selectionBack": {}
     },
     "[Gauge_All_E36.eez-project]:/userPages/6[flow-state]": {
       "selection": {},
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -238,
+          "y": -235
         },
-        "scale": 1.25
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "2": {
+            "$selected": true
+          }
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/3[flow-state]": {
@@ -1611,11 +1738,43 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "3": {
+            "$selected": true
+          },
+          "8": {}
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/9[flow-state]": {
       "selection": {
         "0": {}
+      },
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 2
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/5[flow-state]": {
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "8": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {

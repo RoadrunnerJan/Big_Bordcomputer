@@ -608,7 +608,7 @@ void create_screen_gauge_oil_temperature() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 140);
-            lv_arc_set_bg_end_angle(obj, 223);
+            lv_arc_set_bg_end_angle(obj, 227);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -844,7 +844,7 @@ void create_screen_gauge_oil_temperature_night() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 140);
-            lv_arc_set_bg_end_angle(obj, 223);
+            lv_arc_set_bg_end_angle(obj, 227);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1531,7 +1531,7 @@ void create_screen_gauge_temperature_clock() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 141);
-            lv_arc_set_bg_end_angle(obj, 243);
+            lv_arc_set_bg_end_angle(obj, 244);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1746,7 +1746,7 @@ void create_screen_gauge_temperature_clock_night() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 141);
-            lv_arc_set_bg_end_angle(obj, 243);
+            lv_arc_set_bg_end_angle(obj, 244);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
