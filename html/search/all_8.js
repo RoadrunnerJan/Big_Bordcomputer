@@ -22,5 +22,6 @@ var searchData=
   ['io_5fconfig_19',['io_config',['../structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b',1,'display_settings']]],
   ['io_5fhandle_20',['io_handle',['../structdisplay__settings.html#ac5ab4bdd9e312d7e1b0bc5d2a9a9007d',1,'display_settings']]],
   ['is_5ftestmode_5factivated_21',['is_testmode_activated',['../i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0',1,'i2cFunctions.h']]],
-  ['ispwm_22',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
+  ['ischeckpossible_22',['isCheckPossible',['../i2c_functions_8h.html#a448ce9ae442185b28b9ab44347c439ee',1,'i2cFunctions.h']]],
+  ['ispwm_23',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
 ];

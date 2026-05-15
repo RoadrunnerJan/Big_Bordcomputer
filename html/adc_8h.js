@@ -12,7 +12,7 @@ var adc_8h =
       [ "ADC_12V", "adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3a5c0384cbeca7f7e0dba86bc2188b5b9b", null ],
       [ "ADC_AMBI", "adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3a3b0f80060a0f8d63f46bec1e186142c8", null ],
       [ "ADC_3V3", "adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151", null ],
-      [ "MAX_ABC_NBR", "adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd", null ]
+      [ "MAX_ADC_NBR", "adc_8h.html#a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc", null ]
     ] ],
     [ "adc_init", "adc_8h.html#a2b815e6730e8723a6d1d06d9ef8f31c0", null ],
     [ "get_adc_oil_press", "adc_8h.html#ad1347339dd37ac606dd775d486c3e1f3", null ],
@@ -23,7 +23,7 @@ var adc_8h =
     [ "get_adc_volt_bel", "adc_8h.html#a54e862054e3ebe64416cefcbce61d129", null ],
     [ "read_adc_value_raw", "adc_8h.html#ae8e20d8c3f734d14c99ba0a627ad10f8", null ],
     [ "adc_handler", "adc_8h.html#ab67e7b00ec2abc929c23209b55fc7496", null ],
-    [ "adc_handles", "adc_8h.html#a1b27817604a4502be2244972d0eb2ce2", null ],
+    [ "adc_handles", "adc_8h.html#a7a702e1b0253de06d01123ba367d93d5", null ],
     [ "cali_config", "adc_8h.html#ad1b41a73421aef36042226d52f6db578", null ],
     [ "cali_handler", "adc_8h.html#ab4aaea083da9b672746255ebc1f67abd", null ],
     [ "init_config", "adc_8h.html#ab8312f91420a75afd9d29df66b44aa85", null ],

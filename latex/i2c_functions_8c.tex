@@ -12,40 +12,62 @@ I2C interface RTC and ADC device communication implementation.
 void \doxymbox{\hyperlink{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697}{init\+\_\+i2c}} ()
 \begin{DoxyCompactList}\small\item\em Initialize I2C bus and attach RTC and ADC devices. \end{DoxyCompactList}\item 
 uint8\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a0f7a9fea6e3ea1106a9b5485f7f8df61}{bcd2dec}} (uint8\+\_\+t val)
-\item 
+\begin{DoxyCompactList}\small\item\em Convert Binary-\/\+Coded Decimal (BCD) to decimal value. \end{DoxyCompactList}\item 
 uint8\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_af6baa5614567fc7a64a994e755d4c721}{dec2bcd}} (uint8\+\_\+t val)
-\item 
+\begin{DoxyCompactList}\small\item\em Convert decimal value to Binary-\/\+Coded Decimal (BCD) format. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}{sync\+\_\+rtc\+\_\+to\+\_\+system}} ()
-\begin{DoxyCompactList}\small\item\em Synchronize system time with RTC DS3231 time. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read time from DS3231 RTC and synchronize ESP32 system time. \end{DoxyCompactList}\item 
 esp\+\_\+err\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a0aaff805c3f70e6f5fad12df0cb285e5}{ds3231\+\_\+set\+\_\+time}} (struct tm \texorpdfstring{$\ast$}{*}time)
-\item 
+\begin{DoxyCompactList}\small\item\em Write time to DS3231 RTC device. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}{init\+\_\+time\+\_\+buttons}} ()
-\begin{DoxyCompactList}\small\item\em Initialize the time adjustment buttons and callbacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialize time adjustment buttons with callbacks. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_a75b777408fdba2537a144a6f1369e4a9}{set\+\_\+startup\+\_\+time\+\_\+sec}} ()
+\begin{DoxyCompactList}\small\item\em Capture the system startup time from current system clock. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_a89cc99294c1880528777e05f8ae6bdb6}{set\+\_\+now\+\_\+time\+\_\+ms}} ()
+\begin{DoxyCompactList}\small\item\em Update current system time in milliseconds. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_aeaad3d3d0e0d9dc72044b68ba28bce61}{set\+\_\+last\+\_\+executed\+\_\+time\+\_\+per\+\_\+screen}} (int display\+ID, int64\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Set the last execution timestamp for a specific display. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_aa607242df4b1b738f17bca2c34442085}{update\+\_\+last\+\_\+executed\+\_\+time\+\_\+per\+\_\+screen}} (int display\+ID)
+\begin{DoxyCompactList}\small\item\em Update the last execution timestamp to current time for a display. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{i2c_functions_8c_a427abb60b1f48ede1d65b6d22bd56a99}{set\+\_\+last\+\_\+executed\+\_\+brightness}} ()
+\begin{DoxyCompactList}\small\item\em Update the last brightness adjustment timestamp to current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 i2c\+\_\+master\+\_\+bus\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6}{bus\+\_\+cfg}} = \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em I2C master bus configuration parameters. \end{DoxyCompactList}\item 
 i2c\+\_\+master\+\_\+bus\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a457e9b0ccf6478fd7e45c0463abbd533}{bus\+\_\+handle}} = NULL
-\item 
+\begin{DoxyCompactList}\small\item\em I2C master bus handle for device operations. \end{DoxyCompactList}\item 
 i2c\+\_\+device\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6}{ds3231\+\_\+cfg}} = \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em DS3231 RTC device configuration parameters. \end{DoxyCompactList}\item 
 i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2}{ds3231\+\_\+handle}} = NULL
-\item 
+\begin{DoxyCompactList}\small\item\em DS3231 RTC device handle for read/\+write operations. \end{DoxyCompactList}\item 
 button\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49}{cfg\+\_\+time}} \+[2]\+ = \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em Button configuration for hour and minute adjustment buttons. \end{DoxyCompactList}\item 
 button\+\_\+gpio\+\_\+config\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c}{gpio\+\_\+cfg\+\_\+time}} \+[2]\+ = \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em GPIO configuration for hour and minute adjustment buttons. \end{DoxyCompactList}\item 
 button\+\_\+handle\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7}{btn\+\_\+time}} \+[2]\+ = \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em Button handles for hour and minute adjustment buttons. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}{testmode\+\_\+activated}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Global test mode activation flag. \end{DoxyCompactList}\item 
 Tick\+Type\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a63b736710f6e0f87dce37e12e89993ff}{testmode\+\_\+activation\+\_\+time}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Timestamp of last testmode activation sequence start. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2}{testmode\+\_\+activation\+\_\+count}} = 0
-\item 
+\begin{DoxyCompactList}\small\item\em Counter for consecutive button presses in activation sequence. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f}{testmode\+\_\+activation\+\_\+state}} = 0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Current state in testmode activation sequence. \end{DoxyCompactList}\item 
+int64\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ab1a05dc00ed464a91c8ea2a7f649bebc}{Start\+Up\+Time\+\_\+sec}} = 0
+\begin{DoxyCompactList}\small\item\em System startup time in seconds since Unix epoch. \end{DoxyCompactList}\item 
+int64\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a24331e06f07766b1db2fa98c9d34c22a}{last\+\_\+executed\+\_\+time}} \+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}+1]\+ = \{0\}
+\begin{DoxyCompactList}\small\item\em Last execution timestamps for each display and brightness update. \end{DoxyCompactList}\item 
+int64\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_ae227f2373bb2e1a4ae4d5eb0a3067c56}{last\+\_\+executed\+\_\+time\+\_\+brightness}} = 0
+\begin{DoxyCompactList}\small\item\em Last brightness control update timestamp in milliseconds. \end{DoxyCompactList}\item 
+int64\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_a0ffe52391d9b347ff63387e6ac93eb84}{last\+\_\+brightness\+\_\+check\+\_\+time}} = 0
+\item 
+int64\+\_\+t \doxymbox{\hyperlink{i2c_functions_8c_abb669e8e5d7c37a8c18aa644d901dae3}{now\+\_\+ms}} = 0
+\begin{DoxyCompactList}\small\item\em Current system time in milliseconds since boot. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{i2c_functions_8c_a84f043ae41e1037d7d132f6b439ef16e}{time\+\_\+\+Update\+\_\+\+Possible}} = true
+\begin{DoxyCompactList}\small\item\em Flag indicating whether time updates are allowed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -77,27 +99,59 @@ CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
 {\footnotesize\ttfamily \label{i2c_functions_8c_a0f7a9fea6e3ea1106a9b5485f7f8df61} 
 uint8\+\_\+t bcd2dec (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Convert Binary-\/\+Coded Decimal (BCD) to decimal value. 
+
+BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & BCD-\/encoded byte value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decoded decimal value (0-\/99) 
+\end{DoxyReturn}
 \Hypertarget{i2c_functions_8c_af6baa5614567fc7a64a994e755d4c721}\index{i2cFunctions.c@{i2cFunctions.c}!dec2bcd@{dec2bcd}}
 \index{dec2bcd@{dec2bcd}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{dec2bcd()}{dec2bcd()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_af6baa5614567fc7a64a994e755d4c721} 
 uint8\+\_\+t dec2bcd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Convert decimal value to Binary-\/\+Coded Decimal (BCD) format. 
+
+BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Decimal value to encode (0-\/99) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+BCD-\/encoded byte value 
+\end{DoxyReturn}
 \Hypertarget{i2c_functions_8c_a0aaff805c3f70e6f5fad12df0cb285e5}\index{i2cFunctions.c@{i2cFunctions.c}!ds3231\_set\_time@{ds3231\_set\_time}}
 \index{ds3231\_set\_time@{ds3231\_set\_time}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{ds3231\_set\_time()}{ds3231\_set\_time()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a0aaff805c3f70e6f5fad12df0cb285e5} 
 esp\+\_\+err\+\_\+t ds3231\+\_\+set\+\_\+time (\begin{DoxyParamCaption}\item[{struct tm \texorpdfstring{$\ast$}{*}}]{time}{}\end{DoxyParamCaption})}
 
-Write the given time struct into the DS3231 RTC.
+
+
+Write time to DS3231 RTC device. 
+
+Converts the provided time structure to BCD format and writes it to the DS3231 real-\/time clock. This updates the RTC\textquotesingle{}s internal time keeping.
 
 
 \begin{DoxyParams}{Parameters}
-{\em time} & Pointer to struct tm containing the desired time to set. \\
+{\em time} & Pointer to struct tm containing the desired time to write \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-ESP\+\_\+\+OK on success, error code otherwise. 
+ESP\+\_\+\+OK on success, error code otherwise 
 \end{DoxyReturn}
 \Hypertarget{i2c_functions_8c_a4a79eff98f9a3527ef7af069c1d38697}\index{i2cFunctions.c@{i2cFunctions.c}!init\_i2c@{init\_i2c}}
 \index{init\_i2c@{init\_i2c}!i2cFunctions.c@{i2cFunctions.c}}
@@ -111,7 +165,7 @@ Initialize I2C bus and attach RTC and ADC devices.
 
 Initialize I2C bus and attach connected sensors.
 
-Sets up the I2C master bus and attaches the DS3231 device for multi-\/device support. \Hypertarget{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}\index{i2cFunctions.c@{i2cFunctions.c}!init\_time\_buttons@{init\_time\_buttons}}
+Sets up the I2C master bus with configured GPIO pins and clock source, then attaches the DS3231 real-\/time clock device for time operations. Call this once during system initialization before using I2C functions. \Hypertarget{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60}\index{i2cFunctions.c@{i2cFunctions.c}!init\_time\_buttons@{init\_time\_buttons}}
 \index{init\_time\_buttons@{init\_time\_buttons}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{init\_time\_buttons()}{init\_time\_buttons()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a49588e9a58e96fb5007445a7d0133c60} 
@@ -119,9 +173,68 @@ void init\+\_\+time\+\_\+buttons (\begin{DoxyParamCaption}\item[{void}]{}{}\end{
 
 
 
-Initialize the time adjustment buttons and callbacks. 
+Initialize time adjustment buttons with callbacks. 
 
-Configures GPIO buttons for hour and minute adjustment with interrupt handlers. \Hypertarget{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}\index{i2cFunctions.c@{i2cFunctions.c}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
+Initialize the time adjustment buttons and callbacks.
+
+Configures GPIO-\/based buttons for hour and minute time adjustments. Registers single-\/click handlers for time increment and long-\/press handlers for time decrement. Each button is independently configured with its own debounce timing and active level settings.
+
+Called during system initialization to enable runtime time adjustments and test mode activation via button sequences. \Hypertarget{i2c_functions_8c_a427abb60b1f48ede1d65b6d22bd56a99}\index{i2cFunctions.c@{i2cFunctions.c}!set\_last\_executed\_brightness@{set\_last\_executed\_brightness}}
+\index{set\_last\_executed\_brightness@{set\_last\_executed\_brightness}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{set\_last\_executed\_brightness()}{set\_last\_executed\_brightness()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a427abb60b1f48ede1d65b6d22bd56a99} 
+void set\+\_\+last\+\_\+executed\+\_\+brightness (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Update the last brightness adjustment timestamp to current time. 
+
+Records when brightness control calculations were last performed. Used to control the frequency of brightness updates independent of display updates. Only updates if time checks are permitted. \Hypertarget{i2c_functions_8c_aeaad3d3d0e0d9dc72044b68ba28bce61}\index{i2cFunctions.c@{i2cFunctions.c}!set\_last\_executed\_time\_per\_screen@{set\_last\_executed\_time\_per\_screen}}
+\index{set\_last\_executed\_time\_per\_screen@{set\_last\_executed\_time\_per\_screen}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{set\_last\_executed\_time\_per\_screen()}{set\_last\_executed\_time\_per\_screen()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_aeaad3d3d0e0d9dc72044b68ba28bce61} 
+void set\+\_\+last\+\_\+executed\+\_\+time\+\_\+per\+\_\+screen (\begin{DoxyParamCaption}\item[{int}]{display\+ID}{, }\item[{int64\+\_\+t}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Set the last execution timestamp for a specific display. 
+
+Set a specific execution timestamp for a display update.
+
+Updates the timestamp tracking when sensor values were last read/\+calculated for the specified display. Used for controlling update frequency per display. Only updates if time checks are permitted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em display\+ID} & Index of the display (0 to NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS-\/1) \\
+\hline
+{\em time} & Timestamp in milliseconds to record \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c_functions_8c_a89cc99294c1880528777e05f8ae6bdb6}\index{i2cFunctions.c@{i2cFunctions.c}!set\_now\_time\_ms@{set\_now\_time\_ms}}
+\index{set\_now\_time\_ms@{set\_now\_time\_ms}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{set\_now\_time\_ms()}{set\_now\_time\_ms()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a89cc99294c1880528777e05f8ae6bdb6} 
+void set\+\_\+now\+\_\+time\+\_\+ms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Update current system time in milliseconds. 
+
+Update the current system time in millisecond precision.
+
+Reads the current system time and converts to millisecond precision. Only updates if time checks are permitted (not blocked by button operations). Called periodically by the main loop to keep the timing reference current. \Hypertarget{i2c_functions_8c_a75b777408fdba2537a144a6f1369e4a9}\index{i2cFunctions.c@{i2cFunctions.c}!set\_startup\_time\_sec@{set\_startup\_time\_sec}}
+\index{set\_startup\_time\_sec@{set\_startup\_time\_sec}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{set\_startup\_time\_sec()}{set\_startup\_time\_sec()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a75b777408fdba2537a144a6f1369e4a9} 
+void set\+\_\+startup\+\_\+time\+\_\+sec (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Capture the system startup time from current system clock. 
+
+Record and set the system startup time.
+
+Records the current time as the application startup time. Used for calculating elapsed time and scheduling delayed initialization tasks. Should be called once during system initialization after time synchronization. \Hypertarget{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9}\index{i2cFunctions.c@{i2cFunctions.c}!sync\_rtc\_to\_system@{sync\_rtc\_to\_system}}
 \index{sync\_rtc\_to\_system@{sync\_rtc\_to\_system}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{sync\_rtc\_to\_system()}{sync\_rtc\_to\_system()}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a5aff81bc1133144c01eff1b172944ba9} 
@@ -129,9 +242,30 @@ void sync\+\_\+rtc\+\_\+to\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{}{
 
 
 
-Synchronize system time with RTC DS3231 time. 
+Read time from DS3231 RTC and synchronize ESP32 system time. 
 
-Reads current time from the DS3231 and updates ESP32 system time. 
+Synchronize system time with RTC DS3231 time.
+
+Reads the current time from the DS3231 real-\/time clock via I2C, converts from BCD format to standard time structure, and updates the ESP32 system clock. This ensures accurate time after boot. \Hypertarget{i2c_functions_8c_aa607242df4b1b738f17bca2c34442085}\index{i2cFunctions.c@{i2cFunctions.c}!update\_last\_executed\_time\_per\_screen@{update\_last\_executed\_time\_per\_screen}}
+\index{update\_last\_executed\_time\_per\_screen@{update\_last\_executed\_time\_per\_screen}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{update\_last\_executed\_time\_per\_screen()}{update\_last\_executed\_time\_per\_screen()}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_aa607242df4b1b738f17bca2c34442085} 
+void update\+\_\+last\+\_\+executed\+\_\+time\+\_\+per\+\_\+screen (\begin{DoxyParamCaption}\item[{int}]{display\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Update the last execution timestamp to current time for a display. 
+
+Update the last execution timestamp for a display to current time.
+
+Records the current system time as the last update time for the specified display. Called after sensor values are successfully read and processed. Only updates if time checks are permitted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em display\+ID} & Index of the display (0 to NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS-\/1) \\
+\hline
+\end{DoxyParams}
+
 
 \label{doc-var-members}
 \Hypertarget{i2c_functions_8c_doc-var-members}
@@ -142,11 +276,19 @@ Reads current time from the DS3231 and updates ESP32 system time.
 {\footnotesize\ttfamily \label{i2c_functions_8c_ac817f20c65ad9af1ef7b4f85ab389df7} 
 button\+\_\+handle\+\_\+t btn\+\_\+time\+[2]\+ = \{0\}}
 
-\Hypertarget{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6}\index{i2cFunctions.c@{i2cFunctions.c}!bus\_cfg@{bus\_cfg}}
+
+
+Button handles for hour and minute adjustment buttons. 
+
+Index:\+ \+[0]\+ = Hour button, \+[1]\+ = Minute button \Hypertarget{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6}\index{i2cFunctions.c@{i2cFunctions.c}!bus\_cfg@{bus\_cfg}}
 \index{bus\_cfg@{bus\_cfg}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{bus\_cfg}{bus\_cfg}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_aab28d6f688b1eaba1041d583ee4ce5f6} 
 i2c\+\_\+master\+\_\+bus\+\_\+config\+\_\+t bus\+\_\+cfg = \{0\}}
+
+
+
+I2C master bus configuration parameters. 
 
 \Hypertarget{i2c_functions_8c_a457e9b0ccf6478fd7e45c0463abbd533}\index{i2cFunctions.c@{i2cFunctions.c}!bus\_handle@{bus\_handle}}
 \index{bus\_handle@{bus\_handle}!i2cFunctions.c@{i2cFunctions.c}}
@@ -154,17 +296,29 @@ i2c\+\_\+master\+\_\+bus\+\_\+config\+\_\+t bus\+\_\+cfg = \{0\}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a457e9b0ccf6478fd7e45c0463abbd533} 
 i2c\+\_\+master\+\_\+bus\+\_\+handle\+\_\+t bus\+\_\+handle = NULL}
 
+
+
+I2C master bus handle for device operations. 
+
 \Hypertarget{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49}\index{i2cFunctions.c@{i2cFunctions.c}!cfg\_time@{cfg\_time}}
 \index{cfg\_time@{cfg\_time}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{cfg\_time}{cfg\_time}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_ad58bf4c44b9439565e32297d332f0b49} 
 button\+\_\+config\+\_\+t cfg\+\_\+time\+[2]\+ = \{0\}}
 
-\Hypertarget{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6}\index{i2cFunctions.c@{i2cFunctions.c}!ds3231\_cfg@{ds3231\_cfg}}
+
+
+Button configuration for hour and minute adjustment buttons. 
+
+Index:\+ \+[0]\+ = Hour button, \+[1]\+ = Minute button \Hypertarget{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6}\index{i2cFunctions.c@{i2cFunctions.c}!ds3231\_cfg@{ds3231\_cfg}}
 \index{ds3231\_cfg@{ds3231\_cfg}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{ds3231\_cfg}{ds3231\_cfg}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_ab267adc45de633391260efd03afa0ad6} 
 i2c\+\_\+device\+\_\+config\+\_\+t ds3231\+\_\+cfg = \{0\}}
+
+
+
+DS3231 RTC device configuration parameters. 
 
 \Hypertarget{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2}\index{i2cFunctions.c@{i2cFunctions.c}!ds3231\_handle@{ds3231\_handle}}
 \index{ds3231\_handle@{ds3231\_handle}!i2cFunctions.c@{i2cFunctions.c}}
@@ -172,11 +326,65 @@ i2c\+\_\+device\+\_\+config\+\_\+t ds3231\+\_\+cfg = \{0\}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a992ab7409747ebf3a31ff7643d9720f2} 
 i2c\+\_\+master\+\_\+dev\+\_\+handle\+\_\+t ds3231\+\_\+handle = NULL}
 
+
+
+DS3231 RTC device handle for read/\+write operations. 
+
 \Hypertarget{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c}\index{i2cFunctions.c@{i2cFunctions.c}!gpio\_cfg\_time@{gpio\_cfg\_time}}
 \index{gpio\_cfg\_time@{gpio\_cfg\_time}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{gpio\_cfg\_time}{gpio\_cfg\_time}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a50b1fe2759bea9706faf3ed4eb6e815c} 
 button\+\_\+gpio\+\_\+config\+\_\+t gpio\+\_\+cfg\+\_\+time\+[2]\+ = \{0\}}
+
+
+
+GPIO configuration for hour and minute adjustment buttons. 
+
+Index:\+ \+[0]\+ = Hour button, \+[1]\+ = Minute button \Hypertarget{i2c_functions_8c_a0ffe52391d9b347ff63387e6ac93eb84}\index{i2cFunctions.c@{i2cFunctions.c}!last\_brightness\_check\_time@{last\_brightness\_check\_time}}
+\index{last\_brightness\_check\_time@{last\_brightness\_check\_time}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{last\_brightness\_check\_time}{last\_brightness\_check\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a0ffe52391d9b347ff63387e6ac93eb84} 
+int64\+\_\+t last\+\_\+brightness\+\_\+check\+\_\+time = 0}
+
+\Hypertarget{i2c_functions_8c_a24331e06f07766b1db2fa98c9d34c22a}\index{i2cFunctions.c@{i2cFunctions.c}!last\_executed\_time@{last\_executed\_time}}
+\index{last\_executed\_time@{last\_executed\_time}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{last\_executed\_time}{last\_executed\_time}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a24331e06f07766b1db2fa98c9d34c22a} 
+int64\+\_\+t last\+\_\+executed\+\_\+time\+[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}+1]\+ = \{0\}}
+
+
+
+Last execution timestamps for each display and brightness update. 
+
+Array indices:\+ \+[0..NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS-\/1]\+ = display updates, \+[NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS]\+ = brightness update timestamp \Hypertarget{i2c_functions_8c_ae227f2373bb2e1a4ae4d5eb0a3067c56}\index{i2cFunctions.c@{i2cFunctions.c}!last\_executed\_time\_brightness@{last\_executed\_time\_brightness}}
+\index{last\_executed\_time\_brightness@{last\_executed\_time\_brightness}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{last\_executed\_time\_brightness}{last\_executed\_time\_brightness}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_ae227f2373bb2e1a4ae4d5eb0a3067c56} 
+int64\+\_\+t last\+\_\+executed\+\_\+time\+\_\+brightness = 0}
+
+
+
+Last brightness control update timestamp in milliseconds. 
+
+\Hypertarget{i2c_functions_8c_abb669e8e5d7c37a8c18aa644d901dae3}\index{i2cFunctions.c@{i2cFunctions.c}!now\_ms@{now\_ms}}
+\index{now\_ms@{now\_ms}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{now\_ms}{now\_ms}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_abb669e8e5d7c37a8c18aa644d901dae3} 
+int64\+\_\+t now\+\_\+ms = 0}
+
+
+
+Current system time in milliseconds since boot. 
+
+\Hypertarget{i2c_functions_8c_ab1a05dc00ed464a91c8ea2a7f649bebc}\index{i2cFunctions.c@{i2cFunctions.c}!StartUpTime\_sec@{StartUpTime\_sec}}
+\index{StartUpTime\_sec@{StartUpTime\_sec}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{StartUpTime\_sec}{StartUpTime\_sec}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_ab1a05dc00ed464a91c8ea2a7f649bebc} 
+int64\+\_\+t Start\+Up\+Time\+\_\+sec = 0}
+
+
+
+System startup time in seconds since Unix epoch. 
 
 \Hypertarget{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activated@{testmode\_activated}}
 \index{testmode\_activated@{testmode\_activated}!i2cFunctions.c@{i2cFunctions.c}}
@@ -184,11 +392,19 @@ button\+\_\+gpio\+\_\+config\+\_\+t gpio\+\_\+cfg\+\_\+time\+[2]\+ = \{0\}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_afa9e8129f0495e4719121defad0fa0d6} 
 bool testmode\+\_\+activated = false}
 
+
+
+Global test mode activation flag. 
+
 \Hypertarget{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activation\_count@{testmode\_activation\_count}}
 \index{testmode\_activation\_count@{testmode\_activation\_count}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{testmode\_activation\_count}{testmode\_activation\_count}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a6291b474d126cd2545e39479ac119bd2} 
 int testmode\+\_\+activation\+\_\+count = 0}
+
+
+
+Counter for consecutive button presses in activation sequence. 
 
 \Hypertarget{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activation\_state@{testmode\_activation\_state}}
 \index{testmode\_activation\_state@{testmode\_activation\_state}!i2cFunctions.c@{i2cFunctions.c}}
@@ -196,9 +412,28 @@ int testmode\+\_\+activation\+\_\+count = 0}
 {\footnotesize\ttfamily \label{i2c_functions_8c_adaf37611e9f0c039d25b49384b649b5f} 
 int testmode\+\_\+activation\+\_\+state = 0}
 
+
+
+Current state in testmode activation sequence. 
+
 \Hypertarget{i2c_functions_8c_a63b736710f6e0f87dce37e12e89993ff}\index{i2cFunctions.c@{i2cFunctions.c}!testmode\_activation\_time@{testmode\_activation\_time}}
 \index{testmode\_activation\_time@{testmode\_activation\_time}!i2cFunctions.c@{i2cFunctions.c}}
 \doxysubsubsection{\texorpdfstring{testmode\_activation\_time}{testmode\_activation\_time}}
 {\footnotesize\ttfamily \label{i2c_functions_8c_a63b736710f6e0f87dce37e12e89993ff} 
 Tick\+Type\+\_\+t testmode\+\_\+activation\+\_\+time = 0}
 
+
+
+Timestamp of last testmode activation sequence start. 
+
+\Hypertarget{i2c_functions_8c_a84f043ae41e1037d7d132f6b439ef16e}\index{i2cFunctions.c@{i2cFunctions.c}!time\_Update\_Possible@{time\_Update\_Possible}}
+\index{time\_Update\_Possible@{time\_Update\_Possible}!i2cFunctions.c@{i2cFunctions.c}}
+\doxysubsubsection{\texorpdfstring{time\_Update\_Possible}{time\_Update\_Possible}}
+{\footnotesize\ttfamily \label{i2c_functions_8c_a84f043ae41e1037d7d132f6b439ef16e} 
+bool time\+\_\+\+Update\+\_\+\+Possible = true}
+
+
+
+Flag indicating whether time updates are allowed. 
+
+Set to false during button operations to prevent time updates. Set to true when button processing is complete. 

@@ -32,7 +32,7 @@ enum \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3}{adc\+\_\+sel
 , \newline
 \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a3b0f80060a0f8d63f46bec1e186142c8}{ADC\+\_\+\+AMBI}} = 4
 , \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151}{ADC\+\_\+3\+V3}} = 5
-, \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\+\_\+\+ABC\+\_\+\+NBR}}
+, \doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc}{MAX\+\_\+\+ADC\+\_\+\+NBR}}
  \}
 \begin{DoxyCompactList}\small\item\em ADC channel selection enumeration. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -65,7 +65,7 @@ adc\+\_\+cali\+\_\+curve\+\_\+fitting\+\_\+config\+\_\+t \doxymbox{\hyperlink{ad
 \item 
 adc\+\_\+cali\+\_\+handle\+\_\+t \doxymbox{\hyperlink{adc_8h_ab4aaea083da9b672746255ebc1f67abd}{cali\+\_\+handler}} \+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+
 \item 
-\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} \doxymbox{\hyperlink{adc_8h_a1b27817604a4502be2244972d0eb2ce2}{adc\+\_\+handles}} \+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\+\_\+\+ABC\+\_\+\+NBR}} -\/ 1]\+
+\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} \doxymbox{\hyperlink{adc_8h_a7a702e1b0253de06d01123ba367d93d5}{adc\+\_\+handles}} \+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc}{MAX\+\_\+\+ADC\+\_\+\+NBR}} -\/ 1]\+
 \item 
 const \doxymbox{\hyperlink{structlookup__values__t}{lookup\+\_\+values\+\_\+t}} \doxymbox{\hyperlink{adc_8h_a3222dc2ea3f4f877a09b77f768e098a6}{oil\+\_\+temp\+\_\+table}} \+[$\,$]\+
 \item 
@@ -148,10 +148,10 @@ ADC\+\_\+\+AMBI&Ambient light sensor input \\
 ADC\+\_\+3\+V3&3.\+3V reference voltage input \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_ABC\_NBR@{MAX\_ABC\_NBR}!adc.h@{adc.h}}
-\index{adc.h@{adc.h}!MAX\_ABC\_NBR@{MAX\_ABC\_NBR}}
-}\Hypertarget{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}\label{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd} 
-MAX\+\_\+\+ABC\+\_\+\+NBR&Must ALWAYS be the last enum value \\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_ADC\_NBR@{MAX\_ADC\_NBR}!adc.h@{adc.h}}
+\index{adc.h@{adc.h}!MAX\_ADC\_NBR@{MAX\_ADC\_NBR}}
+}\Hypertarget{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc}\label{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc} 
+MAX\+\_\+\+ADC\+\_\+\+NBR&Must ALWAYS be the last enum value \\
 \hline
 
 \end{DoxyEnumFields}
@@ -303,11 +303,11 @@ Voltage value in millivolts, or raw ADC count if uncalibrated
 {\footnotesize\ttfamily \label{adc_8h_ab67e7b00ec2abc929c23209b55fc7496} 
 adc\+\_\+oneshot\+\_\+unit\+\_\+handle\+\_\+t adc\+\_\+handler\+[\doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}]\+\hspace{0.3cm}{\ttfamily [extern]}}
 
-\Hypertarget{adc_8h_a1b27817604a4502be2244972d0eb2ce2}\index{adc.h@{adc.h}!adc\_handles@{adc\_handles}}
+\Hypertarget{adc_8h_a7a702e1b0253de06d01123ba367d93d5}\index{adc.h@{adc.h}!adc\_handles@{adc\_handles}}
 \index{adc\_handles@{adc\_handles}!adc.h@{adc.h}}
 \doxysubsubsection{\texorpdfstring{adc\_handles}{adc\_handles}}
-{\footnotesize\ttfamily \label{adc_8h_a1b27817604a4502be2244972d0eb2ce2} 
-\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} adc\+\_\+handles\+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd}{MAX\+\_\+\+ABC\+\_\+\+NBR}} -\/ 1]\+\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily \label{adc_8h_a7a702e1b0253de06d01123ba367d93d5} 
+\doxymbox{\hyperlink{structadc__handles__t}{adc\+\_\+handles\+\_\+t}} adc\+\_\+handles\+[\doxymbox{\hyperlink{adc_8h_a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc}{MAX\+\_\+\+ADC\+\_\+\+NBR}} -\/ 1]\+\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{adc_8h_ad1b41a73421aef36042226d52f6db578}\index{adc.h@{adc.h}!cali\_config@{cali\_config}}
 \index{cali\_config@{cali\_config}!adc.h@{adc.h}}

@@ -88,8 +88,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "adc_8c.html",
-"individual__config_8h.html#a4cec07593b05ca2bd8449b4138158deb",
-"pwm_switch_8h.html#a0182a91a2e5646d38d05d252069da695"
+"individual__config_8h.html#a2e38659375d30ce125ce55521de0da5a",
+"pwm_sensor_8c.html#aa31dd9471c53c6a3067184376203c6c0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

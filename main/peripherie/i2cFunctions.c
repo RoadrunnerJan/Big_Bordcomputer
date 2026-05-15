@@ -32,10 +32,20 @@ TickType_t testmode_activation_time = 0;
 int testmode_activation_count = 0;
 int testmode_activation_state = 0;
 
+int64_t StartUpTime_sec = 0;
+int64_t last_executed_time[NUMBER_OF_DISPLAYS + 1] = {0}; // Display 1-4 last executed time for value updates
+int64_t last_executed_time_brightness = 0;
+int64_t last_brightness_check_time = 0;
+int64_t now_ms = 0;
+
+bool time_Update_Possible = true;
+
 /**
  * @brief Initialize I2C bus and attach RTC and ADC devices.
  *
- * Sets up the I2C master bus and attaches the DS3231 device for multi-device support.
+ * Sets up the I2C master bus with configured GPIO pins and clock source,
+ * then attaches the DS3231 real-time clock device for time operations.
+ * Call this once during system initialization before using I2C functions.
  */
 void init_i2c() {
     // Configure I2C bus
@@ -55,9 +65,33 @@ void init_i2c() {
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &ds3231_cfg, &ds3231_handle));
 }
 
+/**
+ * @brief Convert Binary-Coded Decimal (BCD) to decimal value.
+ *
+ * BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).
+ *
+ * @param val BCD-encoded byte value
+ * @return Decoded decimal value (0-99)
+ */
 inline uint8_t bcd2dec(uint8_t val) { return ((val >> 4) * 10) + (val & 0x0F); }
+
+/**
+ * @brief Convert decimal value to Binary-Coded Decimal (BCD) format.
+ *
+ * BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).
+ *
+ * @param val Decimal value to encode (0-99)
+ * @return BCD-encoded byte value
+ */
 inline uint8_t dec2bcd(uint8_t val) { return ((val / 10) << 4) | (val % 10); }
 
+/**
+ * @brief Read time from DS3231 RTC and synchronize ESP32 system time.
+ *
+ * Reads the current time from the DS3231 real-time clock via I2C,
+ * converts from BCD format to standard time structure, and updates
+ * the ESP32 system clock. This ensures accurate time after boot.
+ */
 void sync_rtc_to_system() {
     uint8_t data[7];
     uint8_t reg = 0x00;  // RTC start register (Seconds)
@@ -83,10 +117,13 @@ void sync_rtc_to_system() {
 }
 
 /**
- * Write the given time struct into the DS3231 RTC.
+ * @brief Write time to DS3231 RTC device.
  *
- * @param time Pointer to struct tm containing the desired time to set.
- * @return ESP_OK on success, error code otherwise.
+ * Converts the provided time structure to BCD format and writes it to the
+ * DS3231 real-time clock. This updates the RTC's internal time keeping.
+ *
+ * @param time Pointer to struct tm containing the desired time to write
+ * @return ESP_OK on success, error code otherwise
  */
 esp_err_t ds3231_set_time(struct tm *time) {
     uint8_t data[8];
@@ -105,16 +142,25 @@ esp_err_t ds3231_set_time(struct tm *time) {
 }
 
 /**
- * Button callback for single-click forward adjustments.
+ * @brief Button callback for forward time adjustments and test mode activation.
  *
- * Implements the activation sequence for test mode:
- * 1) minute minus twice
- * 2) hour minus once
- * 3) minute plus twice
- * 4) hour plus once -> toggle test mode
- * All within TESTMODE_ACTIVATE_TIMEOUT_MS (7 seconds).
+ * Implements the forward path of test mode activation sequence:
+ * - Increments hour or minute based on button pressed
+ * - Checks if button sequence matches testmode activation pattern (states 3-4)
+ * - Toggles test mode when final activation condition is met
+ * - Synchronizes updated time to both RTC and system clock
+ *
+ * Activation sequence (within TESTMODE_ACTIVATE_TIMEOUT_MS):
+ * 1. Press minute button twice (decrease, state 0-1)
+ * 2. Press hour button once (decrease, state 1-2)
+ * 3. Press minute button twice (increase, state 2-3)
+ * 4. Press hour button once (increase, state 3-4) -> toggles test mode
+ *
+ * @param btn_handle Button handle (unused)
+ * @param usr_data Button ID as void pointer (BUTTON_CLOCK_HOUR_PIN or BUTTON_CLOCK_MINUTE_PIN)
  */
 static void button_event_cb(void *btn_handle, void *usr_data) {
+    time_Update_Possible = false;
     int button_id = (int)usr_data;
     time_t now;
     struct tm timeinfo;
@@ -187,14 +233,35 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     // Synchronize system time (so ESP32 knows immediately)
     struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
     settimeofday(&tv, NULL);
+
+    // Update last execution time for hours
+    now_ms = tv.tv_sec * 1000;
+    for (int i = 0; i < NUMBER_OF_DISPLAYS + 1; i++) {
+        last_executed_time[i] = now_ms;
+    }
+    last_executed_time_brightness = now_ms;
+    time_Update_Possible = true;
 }
 
 /**
- * Button callback for single-click backward adjustments.
+ * @brief Button callback for backward time adjustments and test mode activation.
  *
- * Handles the reverse time-decrement path as part of the testmode activation sequence.
+ * Implements the backward path of test mode activation sequence:
+ * - Decrements hour or minute based on button pressed
+ * - Checks if button sequence matches testmode activation pattern (states 0-2)
+ * - Transitions through activation states when conditions are met
+ * - Synchronizes updated time to both RTC and system clock
+ *
+ * Activation sequence (within TESTMODE_ACTIVATE_TIMEOUT_MS):
+ * 1. First button press initializes activation counter (state -1 to 0)
+ * 2. Subsequent presses increment counter until TESTMODE_ACTIVATE_BUTTON_1_COUNT is reached
+ * 3. Progresses through states 0 -> 2 -> 3 before final state 4 completion
+ *
+ * @param btn_handle Button handle (unused)
+ * @param usr_data Button ID as void pointer (BUTTON_CLOCK_HOUR_PIN or BUTTON_CLOCK_MINUTE_PIN)
  */
 static void button_event_cb_back(void *btn_handle, void *usr_data) {
+    time_Update_Possible = false;
     int button_id = (int)usr_data;
     time_t now;
     struct tm timeinfo;
@@ -271,8 +338,27 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
     // Synchronize system time (so ESP32 knows immediately)
     struct timeval tv = { .tv_sec = mktime(&timeinfo), .tv_usec = 0 };
     settimeofday(&tv, NULL);
+
+    // Update last execution time for hours
+    now_ms = tv.tv_sec * 1000;
+    for (int i = 0; i < NUMBER_OF_DISPLAYS + 1; i++) {
+        last_executed_time[i] = now_ms;
+    }
+    last_executed_time_brightness = now_ms;
+    time_Update_Possible = true;
 }
 
+/**
+ * @brief Initialize time adjustment buttons with callbacks.
+ *
+ * Configures GPIO-based buttons for hour and minute time adjustments.
+ * Registers single-click handlers for time increment and long-press handlers
+ * for time decrement. Each button is independently configured with its own
+ * debounce timing and active level settings.
+ *
+ * Called during system initialization to enable runtime time adjustments
+ * and test mode activation via button sequences.
+ */
 void init_time_buttons() {
 
     cfg_time[0].short_press_time = BUTTON_CLOCK_MINUTE_SHORT_MS;
@@ -290,4 +376,72 @@ void init_time_buttons() {
     iot_button_new_gpio_device(&cfg_time[1], &gpio_cfg_time[1], &btn_time[1]);
     iot_button_register_cb(btn_time[1], BUTTON_SINGLE_CLICK, NULL, button_event_cb, (void*)BUTTON_CLOCK_MINUTE_PIN);
     iot_button_register_cb(btn_time[1], BUTTON_LONG_PRESS_START, NULL, button_event_cb_back, (void*)BUTTON_CLOCK_MINUTE_PIN);
+}
+
+/**
+ * @brief Capture the system startup time from current system clock.
+ *
+ * Records the current time as the application startup time.
+ * Used for calculating elapsed time and scheduling delayed initialization tasks.
+ * Should be called once during system initialization after time synchronization.
+ */
+void set_startup_time_sec() { 
+    struct timeval time;
+    gettimeofday(&time, NULL);
+    StartUpTime_sec = time.tv_sec;
+}
+
+/**
+ * @brief Update current system time in milliseconds.
+ *
+ * Reads the current system time and converts to millisecond precision.
+ * Only updates if time checks are permitted (not blocked by button operations).
+ * Called periodically by the main loop to keep the timing reference current.
+ */
+void set_now_time_ms() { 
+    if (!isCheckPossible()) return;
+    struct timeval time;
+    gettimeofday(&time, NULL);
+    now_ms = time.tv_sec * 1000 + time.tv_usec / 1000;
+}
+
+/**
+ * @brief Set the last execution timestamp for a specific display.
+ *
+ * Updates the timestamp tracking when sensor values were last read/calculated
+ * for the specified display. Used for controlling update frequency per display.
+ * Only updates if time checks are permitted.
+ *
+ * @param displayID Index of the display (0 to NUMBER_OF_DISPLAYS-1)
+ * @param time Timestamp in milliseconds to record
+ */
+void set_last_executed_time_per_screen(int displayID, int64_t time) { 
+    if (!isCheckPossible()) return;
+    last_executed_time[displayID] = time;
+}
+
+/**
+ * @brief Update the last execution timestamp to current time for a display.
+ *
+ * Records the current system time as the last update time for the specified display.
+ * Called after sensor values are successfully read and processed.
+ * Only updates if time checks are permitted.
+ *
+ * @param displayID Index of the display (0 to NUMBER_OF_DISPLAYS-1)
+ */
+void update_last_executed_time_per_screen(int displayID) { 
+    if (!isCheckPossible()) return;
+    last_executed_time[displayID] = get_now_time_ms(); 
+}
+
+/**
+ * @brief Update the last brightness adjustment timestamp to current time.
+ *
+ * Records when brightness control calculations were last performed.
+ * Used to control the frequency of brightness updates independent of display updates.
+ * Only updates if time checks are permitted.
+ */
+void set_last_executed_brightness() { 
+    if (!isCheckPossible()) return;
+    last_executed_time_brightness = now_ms;
 }

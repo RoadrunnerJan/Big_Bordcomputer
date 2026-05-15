@@ -13,7 +13,7 @@ var adc_8c =
     [ "raw_to_res_safe", "adc_8c.html#a9ed41ccecb71b316fa9639e64a4ec4b3", null ],
     [ "read_adc_value_raw", "adc_8c.html#ae8e20d8c3f734d14c99ba0a627ad10f8", null ],
     [ "adc_handler", "adc_8c.html#ab67e7b00ec2abc929c23209b55fc7496", null ],
-    [ "adc_handles", "adc_8c.html#a1b27817604a4502be2244972d0eb2ce2", null ],
+    [ "adc_handles", "adc_8c.html#a7a702e1b0253de06d01123ba367d93d5", null ],
     [ "cali_config", "adc_8c.html#ad1b41a73421aef36042226d52f6db578", null ],
     [ "cali_handler", "adc_8c.html#ab4aaea083da9b672746255ebc1f67abd", null ],
     [ "init_config", "adc_8c.html#ab8312f91420a75afd9d29df66b44aa85", null ],

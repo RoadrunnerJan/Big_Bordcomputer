@@ -39,10 +39,10 @@ int brightness_test_switch  = 0;
  * sensor_type: 0=oil_pressure, 1=volt, 2=oil_temperature, 3=clock_temperature, 4=brightness
  */
 double test_steps[5][4] = {
-    /* oil pressure      */ {+0.01, -0.005, +0.01, -0.005},
-    /* volt              */ {+0.1, -0.005, +0.005, -0.10},
-    /* oil temperature   */ {+0.10, -0.10, +0.10, -0.10},
-    /* clock temperature */ {+0.10, -0.10, +0.10, -0.10},
+    /* oil pressure      */ {+0.05, -0.01, +0.05, -0.01},
+    /* volt              */ {+0.50, -0.01, +0.05, -0.05},
+    /* oil temperature   */ {+0.50, -0.50, +0.50, -0.50},
+    /* clock temperature */ {+0.50, -0.50, +0.50, -0.50},
     /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
 };
 
@@ -97,7 +97,14 @@ void reset_test_switches() {
 /**
  * @brief Simulate oil pressure test cycle.
  *
- * Cycles through predefined pressure values for testing gauge functionality.
+ * Cycles through four predefined pressure phases:
+ * 1. Increase from current value to MAX (4.5 bar)
+ * 2. Decrease to MIN (2.5 bar)
+ * 3. Increase to MAX+ (5.5 bar)
+ * 4. Decrease to near MIN (0.04 bar)
+ * Then repeats from phase 1.
+ *
+ * @return Current simulated oil pressure in bar
  */
 double lv_pressure_test()
 {
@@ -131,9 +138,16 @@ double lv_pressure_test()
 }
 
 /**
- * Simulate voltage test cycle
- * Cycles through 4 phases: increase to 15.5, decrease to 11, increase to 14, decrease to 8.04
- * @return Current simulated voltage value
+ * @brief Simulate voltage test cycle.
+ *
+ * Cycles through four predefined voltage phases:
+ * 1. Increase from current value to MAX (15.5 V)
+ * 2. Decrease to MIN (11 V)
+ * 3. Increase to MID (14 V)
+ * 4. Decrease to near MIN (8.04 V)
+ * Then repeats from phase 1.
+ *
+ * @return Current simulated voltage in volts
  */
 double lv_volt_test()
 {
@@ -167,9 +181,16 @@ double lv_volt_test()
 }
 
 /**
- * Simulate oil temperature test cycle
- * Cycles through 4 phases: increase to 100, decrease to 110, increase to 140, decrease to 0.06
- * @return Current simulated oil temperature value
+ * @brief Simulate oil temperature test cycle.
+ *
+ * Cycles through four predefined temperature phases:
+ * 1. Increase from current value to MAX (100°C)
+ * 2. Decrease to MIN (110°C, note reverse range)
+ * 3. Increase to MAX+ (140°C)
+ * 4. Decrease to near MIN (0.06°C)
+ * Then repeats from phase 1.
+ *
+ * @return Current simulated oil temperature in °C
  */
 double lv_temperature_test()
 {
@@ -203,9 +224,16 @@ double lv_temperature_test()
 }
 
 /**
- * Simulate outside temperature test cycle
- * Cycles through 4 phases: increase to 33, decrease to -15, increase to 20, decrease to 0.06
- * @return Current simulated outside temperature value
+ * @brief Simulate outdoor temperature test cycle.
+ *
+ * Cycles through four predefined temperature phases:
+ * 1. Increase from current value to MAX (33°C)
+ * 2. Decrease to MIN (-15°C)
+ * 3. Increase to MID (20°C)
+ * 4. Decrease to near MIN (0.06°C)
+ * Then repeats from phase 1.
+ *
+ * @return Current simulated outdoor temperature in °C
  */
 double lv_Clocktemp_test()
 {
@@ -239,8 +267,18 @@ double lv_Clocktemp_test()
 }
 
 /**
- * Simulate brightness test cycle
- * Cycles through 4 phases with night mode toggle at the end
+ * @brief Run brightness test sequence with night mode transitions.
+ *
+ * Cycles brightness through four phases:
+ * 1. Decrease from current value to night minimum
+ * 2. Increase to day maximum
+ * 3. Decrease to night minimum again
+ * 4. Increase to day maximum
+ * Then repeats from phase 1.
+ *
+ * Automatically toggles night mode based on brightness level:
+ * - Night mode enabled when brightness <= BRIGHTNESS_NIGHT_MAX
+ * - Night mode disabled when brightness > BRIGHTNESS_NIGHT_MAX
  */
 void brightness_test() {
 
@@ -276,13 +314,18 @@ void brightness_test() {
 }
 
 /**
- * Get current brightness test value
- * @return Current simulated brightness value
+ * @brief Get the current simulated brightness value.
+ *
+ * @return Current test brightness value (0-100 representing brightness percentage)
  */
 int getBrightnessTestValue() {return test_value_brightness;}
 
 /**
- * Get current night mode test state
- * @return True if night mode is active in test
+ * @brief Get the current simulated night mode state.
+ *
+ * Reflects whether night mode is active during test simulation.
+ * Automatically updated by brightness_test() based on brightness levels.
+ *
+ * @return true if night mode is currently active, false for day mode
  */
 bool getNightModeActiveTestValue() {return test_night_mode_active;}

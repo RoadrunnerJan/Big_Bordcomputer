@@ -8,10 +8,11 @@
 /**
  * @brief Core project configuration values.
  *
- * CHIP_USED: Target ESP32 chip variant switch. By changing this please add a new section after #if CHIP_USED == ESP32P4
- * for this new chip and add its corresponding pins and settings 
+ * CHIP_USED: Target ESP32 chip variant. When changing chip types, add a new
+ * conditional section (#if CHIP_USED == <new_chip>) after the existing section
+ * and define all required pins and settings for that chip.
  */
-#define CHIP_USED                          ESP32P4 // ESP32 variants: ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
+#define CHIP_USED                          ESP32P4 ///< ESP32 variants: ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4
 
 /**
  * @brief Feature flags - enable/disable optional modules.
@@ -19,7 +20,7 @@
 #define USE_BUZZER                         false  // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
+#define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
 
 /*
 #################################################################################
@@ -42,29 +43,36 @@
      * TRANS_QUEUE_DEPTH: transaction queue depth for spi bus commands.
      */
     /* ===== SPI CONFIGURATION ===== */
-    #define SPI_MODE                       3
-    #define TRANS_QUEUE_DEPTH              1      // Number of simultaneous elements on bus
+    /**
+     * @brief SPI communication parameters for LCD display panels.
+     */
+    #define SPI_MODE                       3         ///< Clock polarity/phase (mode 3 for GC9A01 displays)
+    #define TRANS_QUEUE_DEPTH              1         ///< Number of simultaneous SPI transactions in queue
 
-    // SPI 1 Pins
-    #define PIN_SPI_1_SCLK                 30
-    #define PIN_SPI_1_MOSI                 29
-    #define PIN_SPI_1_MISO                 -1
-    #define SPI_1_MAX_TRANSFER_SZ          (240 * 240 * sizeof(uint16_t))
-    #define SPI_1_QUADWP_IO_NUM            -1
-    #define SPI_1_QUADHD_IO_NUM            -1
-    #define SPI_1_INTR_FLAGS               (ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)
-    #define SPI_1_DMA                      SPI_DMA_CH_AUTO
+    /**
+     * @brief SPI 1 bus configuration (first SPI host for displays 1-2).
+     */
+    #define PIN_SPI_1_SCLK                 30         ///< Serial Clock pin for SPI 1
+    #define PIN_SPI_1_MOSI                 29         ///< Master Out Slave In pin for SPI 1
+    #define PIN_SPI_1_MISO                 -1         ///< Master In Slave Out (unused, set to -1)
+    #define SPI_1_MAX_TRANSFER_SZ          (240 * 240 * sizeof(uint16_t))  ///< Max transfer size for 240x240 display
+    #define SPI_1_QUADWP_IO_NUM            -1         ///< Quad Write Protect (unused, set to -1)
+    #define SPI_1_QUADHD_IO_NUM            -1         ///< Quad Hold (unused, set to -1)
+    #define SPI_1_INTR_FLAGS               (ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)  ///< Interrupt flags
+    #define SPI_1_DMA                      SPI_DMA_CH_AUTO  ///< Automatic DMA channel selection
 
-    // SPI 2 Pins (optional, only if NUMBER_OF_SPI > 1)
+    /**
+     * @brief SPI 2 bus configuration (second SPI host for displays 3-4, optional).
+     */
     #if NUMBER_OF_SPI > 1
-        #define PIN_SPI_2_SCLK             11
-        #define PIN_SPI_2_MOSI             12
-        #define PIN_SPI_2_MISO             -1
-        #define SPI_2_MAX_TRANSFER_SZ      (240 * 240 * sizeof(uint16_t))
-        #define SPI_2_QUADWP_IO_NUM        -1
-        #define SPI_2_QUADHD_IO_NUM        -1
-        #define SPI_2_INTR_FLAGS           (ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)
-        #define SPI_2_DMA                  SPI_DMA_CH_AUTO
+        #define PIN_SPI_2_SCLK             11         ///< Serial Clock pin for SPI 2
+        #define PIN_SPI_2_MOSI             12         ///< Master Out Slave In pin for SPI 2
+        #define PIN_SPI_2_MISO             -1         ///< Master In Slave Out (unused, set to -1)
+        #define SPI_2_MAX_TRANSFER_SZ      (240 * 240 * sizeof(uint16_t))  ///< Max transfer size for 240x240 display
+        #define SPI_2_QUADWP_IO_NUM        -1         ///< Quad Write Protect (unused, set to -1)
+        #define SPI_2_QUADHD_IO_NUM        -1         ///< Quad Hold (unused, set to -1)
+        #define SPI_2_INTR_FLAGS           (ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)  ///< Interrupt flags
+        #define SPI_2_DMA                  SPI_DMA_CH_AUTO  ///< Automatic DMA channel selection
     #endif
 
     /**
@@ -157,35 +165,37 @@
         #define LCD_4_SCREEN_ID            SCREEN_ID_GAUGE_VOLTAGE
     #endif
 
-    /* ===== SENSOR PIN ===== */
-    #define PWM_SENSOR_PIN                 3
-
-    /* ===== PERIPHERAL PINS ===== */
-    #define PWM_ADC_SWITCH_PIN             16
-    #define PWM_ADC_SWITCH_MODE            GPIO_MODE_INPUT
-    #define PWM_ADC_SWITCH_PULL_UP_EN      GPIO_PULLUP_DISABLE
-    #define PWM_ADC_SWITCH_PULL_DOWN_EN    GPIO_PULLDOWN_DISABLE
-    #define PWM_ADC_SWITCH_INTR_TYPE       GPIO_INTR_DISABLE
+    /**
+     * @brief PWM sensor input on a digital-capable GPIO.
+     */
+    #define PWM_SENSOR_PIN                 3          ///< GPIO pin receiving PWM pulses from Hella sensor
 
     /**
-     * @brief Time adjustment button definition and debounce timing.
-     *
-     * BUTTON_CLOCK_*_PIN: GPIO pin for short/long press clock adjust.
-     * BUTTON_CLOCK_*_*_MS: Short/long press thresholds in milliseconds.
-     * BUTTON_CLOCK_*_ACTIVE_LEVEL: GPIO active level (0 = active low).
+     * @brief PWM/ADC sensor input selector switch configuration.
      */
-    /* ===== BUTTON PINS ===== */
-    #define BUTTON_CLOCK_MINUTE_PIN        17
-    #define BUTTON_CLOCK_HOUR_PIN          18
-    #define BUTTON_CLOCK_MINUTE_SHORT_MS   50
-    #define BUTTON_CLOCK_MINUTE_LONG_MS    500
-    #define BUTTON_CLOCK_MINUTE_ACTIVE_LEVEL 0
-    #define BUTTON_CLOCK_HOUR_SHORT_MS     50
-    #define BUTTON_CLOCK_HOUR_LONG_MS      500
-    #define BUTTON_CLOCK_HOUR_ACTIVE_LEVEL 0
+    #define PWM_ADC_SWITCH_PIN             16         ///< GPIO pin for PWM/ADC mode selection (high=PWM, low=ADC)
+    #define PWM_ADC_SWITCH_MODE            GPIO_MODE_INPUT         ///< Configure as digital input
+    #define PWM_ADC_SWITCH_PULL_UP_EN      GPIO_PULLUP_DISABLE     ///< No internal pull-up resistor
+    #define PWM_ADC_SWITCH_PULL_DOWN_EN    GPIO_PULLDOWN_DISABLE   ///< No internal pull-down resistor
+    #define PWM_ADC_SWITCH_INTR_TYPE       GPIO_INTR_DISABLE       ///< No interrupt on level change
+
+    /**
+     * @brief Time adjustment button GPIO configurations.
+     */
+    #define BUTTON_CLOCK_MINUTE_PIN        17         ///< GPIO pin for minute adjustment button
+    #define BUTTON_CLOCK_HOUR_PIN          18         ///< GPIO pin for hour adjustment button
+    #define BUTTON_CLOCK_MINUTE_SHORT_MS   50         ///< Debounce time for minute button in milliseconds
+    #define BUTTON_CLOCK_MINUTE_LONG_MS    500        ///< Long press threshold for minute button
+    #define BUTTON_CLOCK_MINUTE_ACTIVE_LEVEL 0        ///< Active level: 0=active low, 1=active high
+    #define BUTTON_CLOCK_HOUR_SHORT_MS     50         ///< Debounce time for hour button in milliseconds
+    #define BUTTON_CLOCK_HOUR_LONG_MS      500        ///< Long press threshold for hour button
+    #define BUTTON_CLOCK_HOUR_ACTIVE_LEVEL 0          ///< Active level: 0=active low, 1=active high
 
     #if USE_BUZZER == true
-        #define BUZZER_PIN                 15
+        /**
+         * @brief Buzzer output GPIO pin configuration.
+         */
+        #define BUZZER_PIN                 15         ///< GPIO pin for buzzer PWM output
     #endif
 
 #endif
@@ -198,12 +208,10 @@
 /**
  * @brief LEDC PWM settings for display backlight brightness control.
  *
- * LED_SPEED: LEDC speed mode (low or high) for timer/channel.
- * LED_TIMER: LEDC timer index.
- * LED_DUTY_RESOLUTION: PWM duty resolution (e.g., 8-bit gives 0-255 range).
- * LED_DUTY_RES_VALUE: Duty scaling value.
- * LED_FREQ: PWM frequency for LED backlight (flicker-free constant lighting).
- * LED_GPIO: Neupin for PWM output to backlight.
+ * LED_SPEED: LEDC speed mode (low=slower/lower noise, high=faster/more power)
+ * LED_TIMER: LEDC timer index (supports multiple independent timers)
+ * LED_DUTY_RESOLUTION: PWM duty cycle resolution in bits (8-bit = 256 levels)
+ * LED_FREQ: PWM frequency for LED (25 kHz prevents visible flicker)
  */
 #define LED_SPEED                          LEDC_LOW_SPEED_MODE
 #define LED_TIMER                          LEDC_TIMER_0
@@ -230,52 +238,72 @@
  * BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode.
  * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
  */
-#define BRIGHTNESS_AUTO_ENABLE             false
-#define BRIGHTNESS_DAY                     100
-#define BRIGHTNESS_DAY_MAX_V               0.05 //0.15
-#define BRIGHTNESS_NIGHT_MIN               20
-#define BRIGHTNESS_NIGHT_MIN_V             2.29
-#define BRIGHTNESS_NIGHT_MAX               40
-#define BRIGHTNESS_NIGHT_MAX_V             10.74
+#define BRIGHTNESS_AUTO_ENABLE             false    ///< Enable automatic brightness adjustment based on ambient light
+#define BRIGHTNESS_DAY                     100       ///< Default daytime brightness level (0-100%)
+#define BRIGHTNESS_DAY_MAX_V               0.05      ///< Battery voltage threshold for day mode (in volts)
+#define BRIGHTNESS_NIGHT_MIN               20        ///< Minimum brightness in night mode (0-100%)
+#define BRIGHTNESS_NIGHT_MIN_V             2.29      ///< Battery voltage mapping point for minimum night brightness
+#define BRIGHTNESS_NIGHT_MAX               40        ///< Maximum brightness in night mode (0-100%)
+#define BRIGHTNESS_NIGHT_MAX_V             10.74     ///< Battery voltage mapping point for maximum night brightness
 
 /*
 #################################################################################
     DISPLAY & TIMING SETTINGS
 #################################################################################
 */
-#define EEZ_VALUE_FACTOR                   1000  // Factor for float-to-int conversion for LVGL
-#define GAUGE_ON_DELAY_MS                  1000
-#define BUZZER_ON_DELAY_MS                 5000
-#define MAIN_TASK_FINISHED_DELAY           5000
+/**
+ * @brief Display rendering and initialization timing parameters.
+ */
+#define EEZ_VALUE_FACTOR                   1000      ///< Scaling factor for float-to-integer conversion in LVGL
+#define GAUGE_ON_DELAY_MS                  1000      ///< Delay before gauges become active after boot (milliseconds)
+#define BUZZER_ON_DELAY_MS                 5000      ///< Delay before buzzer activation is allowed (milliseconds)
+#define MAIN_TASK_FINISHED_DELAY           5000      ///< Delay for main task completion (milliseconds)
 
 /*
 #################################################################################
     FREERTOS TASK CONFIGURATION (FOR EACH DISPLAY)
 #################################################################################
 */
-#define TASK_1_STEPDEPTH_SCREEN            4096
-#define TASK_1_PRIORITY_SCREEN             10
-#define TASK_1_DELAYTIME_SCREEN            200
-#define TASK_1_CORE_SCREEN                 0
+/**
+ * @brief Display 1 FreeRTOS task configuration parameters.
+ *
+ * TASK_*_STEPDEPTH_SCREEN: Stack size in bytes
+ * TASK_*_PRIORITY_SCREEN: Task priority (higher = more important)
+ * TASK_*_DELAYTIME_SCREEN: Delay between screen updates in milliseconds
+ * TASK_*_CORE_SCREEN: CPU core assignment (0 or 1 on dual-core ESP32)
+ */
+#define TASK_1_STEPDEPTH_SCREEN            4096       ///< Stack depth for display 1 task
+#define TASK_1_PRIORITY_SCREEN             10        ///< Task priority for display 1
+#define TASK_1_DELAYTIME_SCREEN            200       ///< Update interval for display 1 (milliseconds)
+#define TASK_1_CORE_SCREEN                 0         ///< CPU core for display 1 task
 
 #if NUMBER_OF_DISPLAYS > 1
+    /**
+     * @brief Display 2 FreeRTOS task configuration parameters.
+     */
     #define TASK_2_STEPDEPTH_SCREEN        TASK_1_STEPDEPTH_SCREEN
     #define TASK_2_PRIORITY_SCREEN         TASK_1_PRIORITY_SCREEN
-    #define TASK_2_DELAYTIME_SCREEN        100
+    #define TASK_2_DELAYTIME_SCREEN        100        ///< Update interval for display 2 (milliseconds)
     #define TASK_2_CORE_SCREEN             TASK_1_CORE_SCREEN
 #endif
 
 #if NUMBER_OF_DISPLAYS > 2
+    /**
+     * @brief Display 3 FreeRTOS task configuration parameters.
+     */
     #define TASK_3_STEPDEPTH_SCREEN        TASK_1_STEPDEPTH_SCREEN
     #define TASK_3_PRIORITY_SCREEN         TASK_1_PRIORITY_SCREEN
-    #define TASK_3_DELAYTIME_SCREEN        150
+    #define TASK_3_DELAYTIME_SCREEN        150        ///< Update interval for display 3 (milliseconds)
     #define TASK_3_CORE_SCREEN             TASK_1_CORE_SCREEN
 #endif
 
 #if NUMBER_OF_DISPLAYS > 3
+    /**
+     * @brief Display 4 FreeRTOS task configuration parameters.
+     */
     #define TASK_4_STEPDEPTH_SCREEN        TASK_1_STEPDEPTH_SCREEN
     #define TASK_4_PRIORITY_SCREEN         TASK_1_PRIORITY_SCREEN
-    #define TASK_4_DELAYTIME_SCREEN        100
+    #define TASK_4_DELAYTIME_SCREEN        100        ///< Update interval for display 4 (milliseconds)
     #define TASK_4_CORE_SCREEN             TASK_1_CORE_SCREEN
 #endif
 
@@ -284,26 +312,35 @@
     BUZZER CONFIGURATION (only active when USE_BUZZER == true)
 #################################################################################
 */
+/**
+ * @brief Buzzer alarm and PWM output configuration (only if USE_BUZZER == true).
+ *
+ * Defines temperature thresholds for buzzer activation, PWM parameters,
+ * and FreeRTOS task settings for the buzzer alert system.
+ */
 #if USE_BUZZER == true
-    #define BUZZER_TEMP_MIN                3       // Alert when temperature < 3°C
-    #define BUZZER_BEEPING_VALUE           255     // max 255
-    #define BUZZER_QUIET_VALUE             0
-    #define BUZZER_TASK_STEPDEPTH          8192
-    #define BUZZER_TASK_PRIORITY           20
-    #define BUZZER_TASK_CORE               0
-    #define BUZZER_BEEP_ON_TIME            150
-    #define BUZZER_BEEP_OFF_TIME           400
+    #define BUZZER_TEMP_MIN                3          ///< Temperature threshold for cold weather alert (°C)
+    #define BUZZER_BEEPING_VALUE           255        ///< PWM duty cycle for beep sound (0-255, max volume)
+    #define BUZZER_QUIET_VALUE             0          ///< PWM duty cycle for silence (0=off)
+    #define BUZZER_TASK_STEPDEPTH          8192       ///< Stack size for buzzer task in bytes
+    #define BUZZER_TASK_PRIORITY           20         ///< Task priority (higher than display tasks)
+    #define BUZZER_TASK_CORE               0          ///< CPU core for buzzer task
+    #define BUZZER_BEEP_ON_TIME            150        ///< Beep duration in milliseconds
+    #define BUZZER_BEEP_OFF_TIME           400        ///< Silence duration between beeps in milliseconds
 
-    #define BUZZER_SETTING_SPEED_MODE      LEDC_LOW_SPEED_MODE
-    #define BUZZER_SETTING_DUTY_RES        LEDC_TIMER_13_BIT
-    #define BUZZER_SETTING_TIMER           LEDC_TIMER_1
-    #define BUZZER_SETTING_FREQ_HZ         2700
-    #define BUZZER_SETTING_CLK_CFG         LEDC_AUTO_CLK
-    #define BUZZER_SETTING_CHANNEL         LEDC_CHANNEL_1
-    #define BUZZER_SETTING_INTR_TYPE       LEDC_INTR_DISABLE
-    #define BUZZER_SETTING_TIMER_SEL       LEDC_TIMER_1
-    #define BUZZER_SETTING_DUTY            0
-    #define BUZZER_SETTING_HPOINT          0
+    /**
+     * @brief Buzzer LEDC PWM parameters.
+     */
+    #define BUZZER_SETTING_SPEED_MODE      LEDC_LOW_SPEED_MODE   ///< Speed mode for PWM timer
+    #define BUZZER_SETTING_DUTY_RES        LEDC_TIMER_13_BIT     ///< 13-bit duty resolution (8192 levels)
+    #define BUZZER_SETTING_TIMER           LEDC_TIMER_1          ///< Timer index
+    #define BUZZER_SETTING_FREQ_HZ         2700                  ///< Frequency for audible beep tone (Hz)
+    #define BUZZER_SETTING_CLK_CFG         LEDC_AUTO_CLK         ///< Automatic clock selection
+    #define BUZZER_SETTING_CHANNEL         LEDC_CHANNEL_1        ///< PWM channel
+    #define BUZZER_SETTING_INTR_TYPE       LEDC_INTR_DISABLE     ///< No interrupt on PWM events
+    #define BUZZER_SETTING_TIMER_SEL       LEDC_TIMER_1          ///< Timer selection
+    #define BUZZER_SETTING_DUTY            0                     ///< Initial duty cycle (0=off)
+    #define BUZZER_SETTING_HPOINT          0                     ///< Output high point
 #endif
 
 /*
@@ -311,183 +348,304 @@
     PWM SENSOR CONFIGURATION (Hella 6PP 010 378-201)
 #################################################################################
 */
-
+/**
+ * @brief PWM sensor general settings and pulse configuration.
+ *
+ * Hella 6PP sensor transmits three multiplex PWM signals:
+ * - Diagnostic pulse (ID 0): sensor health status
+ * - Temperature pulse (ID 1): oil temperature reading
+ * - Pressure pulse (ID 2): oil pressure reading
+ */
 // PWM Sensor General Settings
-#define PWM_SENSOR_RESOLUTION_MHZ          10
-#define PWM_SENSOR_PRESCALE                1
-#define PWM_SENSOR_NEG_EDGE                1
-#define PWM_SENSOR_POS_EDGE                1
-#define PWM_SENSOR_PULL_UP                 1
+#define PWM_SENSOR_RESOLUTION_MHZ          10        ///< Timer resolution (10 MHz = 100ns per tick)
+#define PWM_SENSOR_PRESCALE                1         ///< Timer prescaler
+#define PWM_SENSOR_NEG_EDGE                1         ///< Count negative (falling) edges
+#define PWM_SENSOR_POS_EDGE                1         ///< Count positive (rising) edges
+#define PWM_SENSOR_PULL_UP                 1         ///< Enable internal pull-up on input pin
 
 // Diagnostic Pulse (Pulse ID 0)
-#define PWM_SENSOR_DIAG_PULSE_ID           0
-#define PWM_SENSOR_DIAG_PERIOD_MIN         900
-#define PWM_SENSOR_DIAG_PERIOD_MAX         1100
-#define PWM_SENSOR_DIAG_VALUE_MIN          150
-#define PWM_SENSOR_DIAG_VALUE_MAX          800
+/**
+ * @brief Diagnostic pulse configuration for sensor health check.
+ */
+#define PWM_SENSOR_DIAG_PULSE_ID           0         ///< Pulse ID for diagnostic signal
+#define PWM_SENSOR_DIAG_PERIOD_MIN         900       ///< Minimum period in clock ticks (nanoseconds/100)
+#define PWM_SENSOR_DIAG_PERIOD_MAX         1100      ///< Maximum period for valid diagnostic pulse
+#define PWM_SENSOR_DIAG_VALUE_MIN          150       ///< Minimum pulse width threshold
+#define PWM_SENSOR_DIAG_VALUE_MAX          800       ///< Maximum pulse width for valid range
 
 // Temperature Pulse (Pulse ID 1) - from datasheet
-#define PWM_SENSOR_TEMP_PULSE_ID           1
-#define PWM_SENSOR_TEMP_PERIOD_MIN         3900
-#define PWM_SENSOR_TEMP_PERIOD_MAX         4200
-#define PWM_SENSOR_TEMP_VALUE_MIN          50
-#define PWM_SENSOR_TEMP_VALUE_MAX          4050
-#define PWM_SENSOR_TEMP_CALC_VALUE_1       -896.0
-#define PWM_SENSOR_TEMP_CALC_VALUE_2       19.2    // Must not be zero
+/**
+ * @brief Temperature sensor pulse configuration from Hella datasheet.
+ *
+ * Equation: Temperature = (PWM_VALUE - 50) / 4050 * PWM_SENSOR_TEMP_CALC_VALUE_2 + PWM_SENSOR_TEMP_CALC_VALUE_1
+ */
+#define PWM_SENSOR_TEMP_PULSE_ID           1         ///< Pulse ID for temperature signal
+#define PWM_SENSOR_TEMP_PERIOD_MIN         3900      ///< Minimum period in clock ticks
+#define PWM_SENSOR_TEMP_PERIOD_MAX         4200      ///< Maximum period for valid temperature pulse
+#define PWM_SENSOR_TEMP_VALUE_MIN          50        ///< Minimum pulse width (0°C)
+#define PWM_SENSOR_TEMP_VALUE_MAX          4050      ///< Maximum pulse width (150°C)
+#define PWM_SENSOR_TEMP_CALC_VALUE_1       -896.0    ///< Temperature offset constant
+#define PWM_SENSOR_TEMP_CALC_VALUE_2       19.2      ///< Temperature slope (must not be zero)
 
 // Pressure Pulse (Pulse ID 2) - from datasheet
-#define PWM_SENSOR_PRES_PULSE_ID           2
-#define PWM_SENSOR_PRES_PERIOD_MIN         3900
-#define PWM_SENSOR_PRES_PERIOD_MAX         4200
-#define PWM_SENSOR_PRES_VALUE_MIN          50
-#define PWM_SENSOR_PRES_VALUE_MAX          4050
-#define PWM_SENSOR_PRES_CALC_VALUE_1       64.0
-#define PWM_SENSOR_PRES_CALC_VALUE_2       384     // Must not be zero
+/**
+ * @brief Pressure sensor pulse configuration from Hella datasheet.
+ *
+ * Equation: Pressure = (PWM_VALUE - 50) / 4050 * PWM_SENSOR_PRES_CALC_VALUE_2 + PWM_SENSOR_PRES_CALC_VALUE_1
+ */
+#define PWM_SENSOR_PRES_PULSE_ID           2         ///< Pulse ID for pressure signal
+#define PWM_SENSOR_PRES_PERIOD_MIN         3900      ///< Minimum period in clock ticks
+#define PWM_SENSOR_PRES_PERIOD_MAX         4200      ///< Maximum period for valid pressure pulse
+#define PWM_SENSOR_PRES_VALUE_MIN          50        ///< Minimum pulse width (0 bar)
+#define PWM_SENSOR_PRES_VALUE_MAX          4050      ///< Maximum pulse width (6 bar)
+#define PWM_SENSOR_PRES_CALC_VALUE_1       64.0      ///< Pressure offset constant
+#define PWM_SENSOR_PRES_CALC_VALUE_2       384       ///< Pressure slope (must not be zero)
 
-#define PWM_SENSOR_MAX_SENSOR_COUNT        100
+#define PWM_SENSOR_MAX_SENSOR_COUNT        100       ///< Maximum number of sensors on PWM bus
 
-// PWM/ADC Switch Pin Configuration
-#define PWM_ADC_SWTICH_VALUE_PWM           true
+/**
+ * @brief PWM/ADC selector for sensor input mode.
+ */
+#define PWM_ADC_SWTICH_VALUE_PWM           true      ///< true=use PWM sensor mode, false=use ADC sensor mode
 
 /*
 #################################################################################
     I2C CONFIGURATION (RTC DS3231)
 #################################################################################
 */
-#define I2C_SDA_PIN                        9
-#define I2C_SCL_PIN                        6
-#define I2C_CLK_SRC                        I2C_CLK_SRC_DEFAULT
-#define I2C_PORT                           I2C_NUM_0
-#define I2C_GLITCH_IGNORE                  7
-#define I2C_INT_PULLUP_ENB                 false
-#define RTC_ADDR_LENGTH                    I2C_ADDR_BIT_LEN_7
-#define RTC_SCL_SPEED_HZ                   100000
+/**
+ * @brief I2C bus GPIO pins and clock configuration for RTC communication.
+ */
+#define I2C_SDA_PIN                        9         ///< Serial Data pin for I2C bus
+#define I2C_SCL_PIN                        6         ///< Serial Clock pin for I2C bus
+#define I2C_CLK_SRC                        I2C_CLK_SRC_DEFAULT  ///< Default clock source
+#define I2C_PORT                           I2C_NUM_0 ///< I2C controller number
+#define I2C_GLITCH_IGNORE                  7         ///< Glitch filter threshold (clock cycles)
+#define I2C_INT_PULLUP_ENB                 false     ///< Use external pull-ups (not internal)
+#define RTC_ADDR_LENGTH                    I2C_ADDR_BIT_LEN_7  ///< 7-bit I2C addressing
+#define RTC_SCL_SPEED_HZ                   100000    ///< I2C clock speed (100 kHz standard mode)
 
-// I2C Device Addresses
-#define RTC_DS3231_ADDR                    0x68
+/**
+ * @brief I2C device addresses for connected sensors.
+ */
+#define RTC_DS3231_ADDR                    0x68      ///< DS3231 RTC I2C address (0x68 = default)
 
 /*
 #################################################################################
     ADC CONFIGURATION
 #################################################################################
 */
+/**
+ * @brief ADC unit setup and hardware configuration.
+ *
+ * Two ADC units (ADC1, ADC2) with independent channels for different sensors.
+ * Bit width and attenuation settings apply to all channels on each unit.
+ */
 // ADC Setup
-#define ADC_UNIT_NUMBER                   2   
-#define ADC_UNIT_1_BITWIDTH               ADC_BITWIDTH_DEFAULT
-#define ADC_UNIT_2_BITWIDTH               ADC_BITWIDTH_DEFAULT
-#define ADC_UNIT_1_ATTEN                  ADC_ATTEN_DB_12
-#define ADC_UNIT_2_ATTEN                  ADC_ATTEN_DB_12
+#define ADC_UNIT_NUMBER                   2         ///< Number of ADC units used (1 or 2)
+#define ADC_UNIT_1_BITWIDTH               ADC_BITWIDTH_DEFAULT  ///< ADC1 resolution (default = 12-bit)
+#define ADC_UNIT_2_BITWIDTH               ADC_BITWIDTH_DEFAULT  ///< ADC2 resolution (default = 12-bit)
+#define ADC_UNIT_1_ATTEN                  ADC_ATTEN_DB_12  ///< ADC1 attenuation (±3.3V range)
+#define ADC_UNIT_2_ATTEN                  ADC_ATTEN_DB_12  ///< ADC2 attenuation (±3.3V range)
 
+/**
+ * @brief Oil pressure sensor ADC configuration.
+ */
 #define ADC_OIL_PRESSURE_UNIT_ID          ADC_UNIT_1
 #define ADC_OIL_PRESSURE_BITWIDTH         ADC_BITWIDTH_DEFAULT
 #define ADC_OIL_PRESSURE_ATTEN            ADC_ATTEN_DB_12
 #define ADC_OIL_PRESSURE_CHANNEL          ADC_CHANNEL_3
 
+/**
+ * @brief Oil temperature sensor ADC configuration.
+ */
 #define ADC_OIL_TEMPERATURE_UNIT_ID       ADC_UNIT_1
 #define ADC_OIL_TEMPERATURE_BITWIDTH      ADC_BITWIDTH_DEFAULT
 #define ADC_OIL_TEMPERATURE_ATTEN         ADC_ATTEN_DB_12
 #define ADC_OIL_TEMPERATURE_CHANNEL       ADC_CHANNEL_6
 
+/**
+ * @brief Outdoor temperature sensor ADC configuration.
+ */
 #define ADC_OUT_TEMPERATURE_UNIT_ID       ADC_UNIT_1
 #define ADC_OUT_TEMPERATURE_BITWIDTH      ADC_BITWIDTH_DEFAULT
 #define ADC_OUT_TEMPERATURE_ATTEN         ADC_ATTEN_DB_12
 #define ADC_OUT_TEMPERATURE_CHANNEL       ADC_CHANNEL_7
 
+/**
+ * @brief Battery 12V voltage divider ADC configuration.
+ */
 #define ADC_OIL_12V_UNIT_ID               ADC_UNIT_2
 #define ADC_OIL_12V_BITWIDTH              ADC_BITWIDTH_DEFAULT
 #define ADC_OIL_12V_ATTEN                 ADC_ATTEN_DB_12
 #define ADC_OIL_12V_CHANNEL               ADC_CHANNEL_4
 
+/**
+ * @brief Ambient brightness sensor ADC configuration.
+ */
 #define ADC_AMBI_UNIT_ID              ADC_UNIT_2
 #define ADC_AMBI_BITWIDTH             ADC_BITWIDTH_DEFAULT
 #define ADC_AMBI_ATTEN                ADC_ATTEN_DB_12
 #define ADC_AMBI_CHANNEL              ADC_CHANNEL_5
 
+/**
+ * @brief 3.3V reference voltage ADC configuration (for system diagnostics).
+ */
 #define ADC_3V3_UNIT_ID               ADC_UNIT_2
 #define ADC_3V3_BITWIDTH              ADC_BITWIDTH_DEFAULT
 #define ADC_3V3_ATTEN                 ADC_ATTEN_DB_12
 #define ADC_3V3_CHANNEL               ADC_CHANNEL_3
 
+/**
+ * @brief ADC reference voltage and measurement configuration.
+ *
+ * ADC_MAX_V_VALID: Maximum valid voltage reading (anything above indicates error)
+ * ADC_ADS_REF_V: Reference voltage for ADC calculations (typical 3.3V)
+ * ADC_FAIL_VALUE: Default value returned on sensor failures
+ */
 // LSB (Least Significant Bit) values for different ranges
-#define ADC_MAX_V_VALID                    3.25f
-#define ADC_ADS_REF_V                      3.3f//2.8f // 2.8f adc reference bei PKW netz
-#define ADC_FAIL_VALUE                     -99.0f
+#define ADC_MAX_V_VALID                    3.25f     ///< Maximum valid ADC voltage (3.25V = overcurrent)
+#define ADC_ADS_REF_V                      3.3f      ///< ADC reference voltage (typically 3.3V)
+#define ADC_FAIL_VALUE                     -99.0f    ///< Error return value for failed readings
 
+/**
+ * @brief Voltage divider pull-up and pull-down resistor values.
+ *
+ * Used for calculating actual voltage from ADC readings.
+ * Formula: V_actual = V_adc * (R_up + R_down) / R_down
+ */
 // Pull-up Resistor Values
-#define ADC_VOLT_PULLUP                10000.0f
-#define ADC_VOLT_PULLDOWN              1500.0f
-#define ADC_VOLT_BEL_PULLUP            10000.0f
-#define ADC_VOLT_BEL_PULLDOWN          2200.0f
-#define ADC_TEMP_PULLUP                680.0f
-#define ADC_PRES_PULLUP                680.0f
-#define ADC_OUT_TEMP_PULLUP            4700.0f
-#define ADC_3V3_PULLUP                 1000.0f
-#define ADC_3V3_PULLDOWN               1000.0f
+#define ADC_VOLT_PULLUP                10000.0f      ///< Ohms - main voltage divider pull-up
+#define ADC_VOLT_PULLDOWN              1500.0f       ///< Ohms - main voltage divider pull-down
+#define ADC_VOLT_BEL_PULLUP            10000.0f      ///< Ohms - brightness feedback pull-up
+#define ADC_VOLT_BEL_PULLDOWN          2200.0f       ///< Ohms - brightness feedback pull-down
+#define ADC_TEMP_PULLUP                680.0f        ///< Ohms - temperature sensor pull-up
+#define ADC_PRES_PULLUP                680.0f        ///< Ohms - pressure sensor pull-up
+#define ADC_OUT_TEMP_PULLUP            4700.0f       ///< Ohms - outdoor temperature pull-up
+#define ADC_3V3_PULLUP                 1000.0f       ///< Ohms - 3.3V reference pull-up
+#define ADC_3V3_PULLDOWN               1000.0f       ///< Ohms - 3.3V reference pull-down
 
+/**
+ * @brief Sensor failure detection thresholds.
+ *
+ * Readings outside these ranges indicate sensor malfunction or disconnection.
+ */
 // Failure Detection Thresholds
-#define ADC_TEMP_VAL_TO_FAIL_MIN       -50
-#define ADC_PRES_VAL_TO_FAIL_MIN       0
-#define ADC_PRES_VAL_TO_FAIL_MAX       250.0f
-#define ADC_OUT_TEMP_VAL_TO_FAIL_MIN   0
-#define ADC_OUT_TEMP_VAL_TO_FAIL_MAX   150000.0f
+#define ADC_TEMP_VAL_TO_FAIL_MIN       -50           ///< Minimum valid oil temperature (°C)
+#define ADC_PRES_VAL_TO_FAIL_MIN       0             ///< Minimum valid oil pressure (bar)
+#define ADC_PRES_VAL_TO_FAIL_MAX       250.0f        ///< Maximum valid oil pressure (bar)
+#define ADC_OUT_TEMP_VAL_TO_FAIL_MIN   0             ///< Minimum valid outdoor temperature range
+#define ADC_OUT_TEMP_VAL_TO_FAIL_MAX   150000.0f     ///< Maximum valid outdoor temperature range
 
+/**
+ * @brief Pressure sensor resistance range mapping.
+ *
+ * DS3231-compatible resistance values for pressure calculation.
+ */
 // Pressure Resistance Range Values
-#define ADC_PRES_VAL_MIN_R             10.0f
-#define ADC_PRES_VAL_MAX_R             184.0f
+#define ADC_PRES_VAL_MIN_R             10.0f         ///< Ohms - minimum sensor resistance (0 bar)
+#define ADC_PRES_VAL_MAX_R             184.0f        ///< Ohms - maximum sensor resistance (6 bar)
 
 /*
 #################################################################################
     SENSOR VALUE LIMITS & DEFAULTS
 #################################################################################
 */
-#define VALUE_DEFAULT_PRES                 0.0
-#define VALUE_DEFAULT_TEMP                 0
-#define VALUE_DEFAULT_VOLT                 8.0
-#define VALUE_DEFAULT_OUT_TEMP             0
-#define VALUE_DEFAULT_BRIGHT               BRIGHTNESS_DAY
-#define VALUE_DEFAULT_NIGHT_MODE           false
+/**
+ * @brief Default and range limit values for sensor readings.
+ *
+ * These values define the operating range and default initialization for all
+ * sensor measurements in the system.
+ */
+#define VALUE_DEFAULT_PRES                 0.0       ///< Default oil pressure on startup (bar)
+#define VALUE_DEFAULT_TEMP                 0         ///< Default oil temperature on startup (°C)
+#define VALUE_DEFAULT_VOLT                 8.0       ///< Default battery voltage on startup (volts)
+#define VALUE_DEFAULT_OUT_TEMP             0         ///< Default outdoor temperature on startup (°C)
+#define VALUE_DEFAULT_BRIGHT               BRIGHTNESS_DAY  ///< Default brightness (day mode)
+#define VALUE_DEFAULT_NIGHT_MODE           false     ///< Night mode off by default
 
-#define VALUE_MIN_PRES                     VALUE_DEFAULT_PRES
-#define VALUE_MIN_TEMP                     VALUE_DEFAULT_TEMP
-#define VALUE_MIN_VOLT                     VALUE_DEFAULT_VOLT
-#define VALUE_MIN_OUT_TEMP                 -30
+/**
+ * @brief Minimum valid sensor values (below indicates error or disconnection).
+ */
+#define VALUE_MIN_PRES                     VALUE_DEFAULT_PRES  ///< Minimum valid pressure (0 bar)
+#define VALUE_MIN_TEMP                     VALUE_DEFAULT_TEMP  ///< Minimum valid temperature (0°C)
+#define VALUE_MIN_VOLT                     VALUE_DEFAULT_VOLT  ///< Minimum valid voltage (8V - automotive minimum)
+#define VALUE_MIN_OUT_TEMP                 -30       ///< Minimum valid outdoor temperature (-30°C)
 
-#define VALUE_MAX_PRES                     6.0
-#define VALUE_MAX_TEMP                     150
-#define VALUE_MAX_VOLT                     16.0
-#define VALUE_MAX_OUT_TEMP                 70
+/**
+ * @brief Maximum valid sensor values (above indicates error or over-range).
+ */
+#define VALUE_MAX_PRES                     6.0       ///< Maximum valid pressure (6 bar)
+#define VALUE_MAX_TEMP                     150       ///< Maximum valid temperature (150°C)
+#define VALUE_MAX_VOLT                     16.0      ///< Maximum valid voltage (16V - charging system max)
+#define VALUE_MAX_OUT_TEMP                 70        ///< Maximum valid outdoor temperature (70°C)
 
 /*
 #################################################################################
     IMPROVE SENSOR VALUE QUALITY
 #################################################################################
 */
-#define VALUE_OVERSAMPLING_OIL_PRES        2
-#define VALUE_OVERSAMPLING_OIL_TEMP        5
-#define VALUE_OVERSAMPLING_VOLT            4
-#define VALUE_OVERSAMPLING_OUT_TEMP        5
-#define VALUE_OVERSAMPLING_BRIGHT          10
+/**
+ * @brief Sensor value oversampling counts and exponential filter coefficients.
+ *
+ * Oversampling: number of readings to average per update cycle.
+ * Filter (alpha): exponential moving average coefficient (0-1, lower = more smoothing).
+ *  New_value = alpha * current + (1-alpha) * previous
+ */
+#define VALUE_OVERSAMPLING_OIL_PRES        2         ///< Average 2 pressure readings
+#define VALUE_OVERSAMPLING_OIL_TEMP        5         ///< Average 5 temperature readings
+#define VALUE_OVERSAMPLING_VOLT            4         ///< Average 4 voltage readings
+#define VALUE_OVERSAMPLING_OUT_TEMP        5         ///< Average 5 outdoor temperature readings
+#define VALUE_OVERSAMPLING_BRIGHT          10        ///< Average 10 brightness readings
 
-#define FILTER_ALPHA_OIL_PRES              0.1f
-#define FILTER_ALPHA_OIL_TEMP              0.1f
-#define FILTER_ALPHA_VOLT                  0.1f
-#define FILTER_ALPHA_OUT_TEMP              0.1f
-#define FILTER_ALPHA_BEL                   0.1f
+/**
+ * @brief Exponential moving average filter coefficients for noise reduction.
+ *
+ * Lower values provide more smoothing but slower response to changes.
+ * Range: 0.0 (very smooth, very slow) to 1.0 (no filtering, responsive).
+ */
+#define FILTER_ALPHA_OIL_PRES              0.1f      ///< Pressure smoothing factor
+#define FILTER_ALPHA_OIL_TEMP              0.1f      ///< Temperature smoothing factor
+#define FILTER_ALPHA_VOLT                  0.1f      ///< Voltage smoothing factor
+#define FILTER_ALPHA_OUT_TEMP              0.1f      ///< Outdoor temperature smoothing factor
+#define FILTER_ALPHA_BEL                   0.1f      ///< Brightness smoothing factor
 
-#define MEASURE_DELAY_TIME_1_MS            25
-#define MEASURE_DELAY_TIME_2_MS            250
-#define MEASURE_DELAY_TIME_3_MS            100
-#define MEASURE_DELAY_TIME_4_MS            250
-#define MEASURE_DELAY_TIME_BRIGHT_MS       250
-#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  1000
+/**
+ * @brief Sensor measurement timing configuration.
+ *
+ * Defines how often sensor values are read and processed for each display/subsystem.
+ */
+#define MAIN_TICK_TIME_DELAY_MS            25        ///< Main loop tick interval (milliseconds)
+#define MEASURE_DELAY_TIME_1_MS            MAIN_TICK_TIME_DELAY_MS       ///< Display 1 update interval (25ms)
+#define MEASURE_DELAY_TIME_2_MS            MAIN_TICK_TIME_DELAY_MS * 5   ///< Display 2 update interval (125ms)
+#define MEASURE_DELAY_TIME_3_MS            MAIN_TICK_TIME_DELAY_MS * 2   ///< Display 3 update interval (50ms)
+#define MEASURE_DELAY_TIME_4_MS            MAIN_TICK_TIME_DELAY_MS * 5   ///< Display 4 update interval (125ms)
+#define MEASURE_DELAY_TIME_BRIGHT_MS       MAIN_TICK_TIME_DELAY_MS * 5   ///< Brightness update interval (125ms)
+#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  MAIN_TICK_TIME_DELAY_MS * 10  ///< Test mode brightness interval (250ms)
 
 /*
 #################################################################################
     Enable Testmode Settings
 #################################################################################
 */
-#define TESTMODE_ACTIVATE_TIMEOUT_MS      10000
-#define TESTMODE_ACTIVATE_BUTTON_1_COUNT  2 // Press minute button 2 times within timeout to decrease minute
-#define TESTMODE_ACTIVATE_BUTTON_2_COUNT  1 // Press hour button 1 times within timeout to decrease hour
-#define TESTMODE_ACTIVATE_BUTTON_3_COUNT  2 // Press minute button 2 times within timeout to increase minute
-#define TESTMODE_ACTIVATE_BUTTON_4_COUNT  1 // Press hour button 1 times within timeout to increase hour and (de-)activate test mode
+/**
+ * @brief Test mode button activation sequence parameters.
+ *
+ * Test mode is activated via a specific sequence of button presses within a timeout window.
+ * This prevents accidental activation while maintaining flexibility for deliberate use.
+ */
+#define TESTMODE_ACTIVATE_TIMEOUT_MS      10000     ///< Time window for completing button sequence (10 seconds)
+/**
+ * @brief Button press counts required for each state transition in test mode activation.
+ *
+ * Sequence state transitions:
+ * - State 0: First minute button press (decrease)
+ * - State 0->1: After 2 total presses of minute button
+ * - State 1->2: After 1 press of hour button (decrease)
+ * - State 2->3: After 2 more presses of minute button (increase)
+ * - State 3->4: After 1 press of hour button (increase) -> test mode toggles
+ */
+#define TESTMODE_ACTIVATE_BUTTON_1_COUNT  2         ///< Press minute button 2 times to reach state 1
+#define TESTMODE_ACTIVATE_BUTTON_2_COUNT  1         ///< Press hour button 1 time to reach state 2
+#define TESTMODE_ACTIVATE_BUTTON_3_COUNT  2         ///< Press minute button 2 times to reach state 3
+#define TESTMODE_ACTIVATE_BUTTON_4_COUNT  1         ///< Press hour button 1 time to toggle test mode

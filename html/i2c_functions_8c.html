@@ -101,26 +101,61 @@ Functions</h2></td></tr>
 <tr class="memitem:a4a79eff98f9a3527ef7af069c1d38697" id="r_a4a79eff98f9a3527ef7af069c1d38697"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4a79eff98f9a3527ef7af069c1d38697">init_i2c</a> ()</td></tr>
 <tr class="memdesc:a4a79eff98f9a3527ef7af069c1d38697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize I2C bus and attach RTC and ADC devices.  <br /></td></tr>
 <tr class="memitem:a0f7a9fea6e3ea1106a9b5485f7f8df61" id="r_a0f7a9fea6e3ea1106a9b5485f7f8df61"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f7a9fea6e3ea1106a9b5485f7f8df61">bcd2dec</a> (uint8_t val)</td></tr>
+<tr class="memdesc:a0f7a9fea6e3ea1106a9b5485f7f8df61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert Binary-Coded Decimal (BCD) to decimal value.  <br /></td></tr>
 <tr class="memitem:af6baa5614567fc7a64a994e755d4c721" id="r_af6baa5614567fc7a64a994e755d4c721"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#af6baa5614567fc7a64a994e755d4c721">dec2bcd</a> (uint8_t val)</td></tr>
+<tr class="memdesc:af6baa5614567fc7a64a994e755d4c721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert decimal value to Binary-Coded Decimal (BCD) format.  <br /></td></tr>
 <tr class="memitem:a5aff81bc1133144c01eff1b172944ba9" id="r_a5aff81bc1133144c01eff1b172944ba9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5aff81bc1133144c01eff1b172944ba9">sync_rtc_to_system</a> ()</td></tr>
-<tr class="memdesc:a5aff81bc1133144c01eff1b172944ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize system time with RTC DS3231 time.  <br /></td></tr>
+<tr class="memdesc:a5aff81bc1133144c01eff1b172944ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read time from DS3231 RTC and synchronize ESP32 system time.  <br /></td></tr>
 <tr class="memitem:a0aaff805c3f70e6f5fad12df0cb285e5" id="r_a0aaff805c3f70e6f5fad12df0cb285e5"><td class="memItemLeft">esp_err_t&#160;</td><td class="memItemRight"><a class="el" href="#a0aaff805c3f70e6f5fad12df0cb285e5">ds3231_set_time</a> (struct tm *time)</td></tr>
+<tr class="memdesc:a0aaff805c3f70e6f5fad12df0cb285e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write time to DS3231 RTC device.  <br /></td></tr>
 <tr class="memitem:a49588e9a58e96fb5007445a7d0133c60" id="r_a49588e9a58e96fb5007445a7d0133c60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a49588e9a58e96fb5007445a7d0133c60">init_time_buttons</a> ()</td></tr>
-<tr class="memdesc:a49588e9a58e96fb5007445a7d0133c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the time adjustment buttons and callbacks.  <br /></td></tr>
+<tr class="memdesc:a49588e9a58e96fb5007445a7d0133c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize time adjustment buttons with callbacks.  <br /></td></tr>
+<tr class="memitem:a75b777408fdba2537a144a6f1369e4a9" id="r_a75b777408fdba2537a144a6f1369e4a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a75b777408fdba2537a144a6f1369e4a9">set_startup_time_sec</a> ()</td></tr>
+<tr class="memdesc:a75b777408fdba2537a144a6f1369e4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture the system startup time from current system clock.  <br /></td></tr>
+<tr class="memitem:a89cc99294c1880528777e05f8ae6bdb6" id="r_a89cc99294c1880528777e05f8ae6bdb6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a89cc99294c1880528777e05f8ae6bdb6">set_now_time_ms</a> ()</td></tr>
+<tr class="memdesc:a89cc99294c1880528777e05f8ae6bdb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update current system time in milliseconds.  <br /></td></tr>
+<tr class="memitem:aeaad3d3d0e0d9dc72044b68ba28bce61" id="r_aeaad3d3d0e0d9dc72044b68ba28bce61"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeaad3d3d0e0d9dc72044b68ba28bce61">set_last_executed_time_per_screen</a> (int displayID, int64_t time)</td></tr>
+<tr class="memdesc:aeaad3d3d0e0d9dc72044b68ba28bce61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the last execution timestamp for a specific display.  <br /></td></tr>
+<tr class="memitem:aa607242df4b1b738f17bca2c34442085" id="r_aa607242df4b1b738f17bca2c34442085"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa607242df4b1b738f17bca2c34442085">update_last_executed_time_per_screen</a> (int displayID)</td></tr>
+<tr class="memdesc:aa607242df4b1b738f17bca2c34442085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the last execution timestamp to current time for a display.  <br /></td></tr>
+<tr class="memitem:a427abb60b1f48ede1d65b6d22bd56a99" id="r_a427abb60b1f48ede1d65b6d22bd56a99"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a427abb60b1f48ede1d65b6d22bd56a99">set_last_executed_brightness</a> ()</td></tr>
+<tr class="memdesc:a427abb60b1f48ede1d65b6d22bd56a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the last brightness adjustment timestamp to current time.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aab28d6f688b1eaba1041d583ee4ce5f6" id="r_aab28d6f688b1eaba1041d583ee4ce5f6"><td class="memItemLeft">i2c_master_bus_config_t&#160;</td><td class="memItemRight"><a class="el" href="#aab28d6f688b1eaba1041d583ee4ce5f6">bus_cfg</a> = {0}</td></tr>
+<tr class="memdesc:aab28d6f688b1eaba1041d583ee4ce5f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C master bus configuration parameters.  <br /></td></tr>
 <tr class="memitem:a457e9b0ccf6478fd7e45c0463abbd533" id="r_a457e9b0ccf6478fd7e45c0463abbd533"><td class="memItemLeft">i2c_master_bus_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a457e9b0ccf6478fd7e45c0463abbd533">bus_handle</a> = NULL</td></tr>
+<tr class="memdesc:a457e9b0ccf6478fd7e45c0463abbd533"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C master bus handle for device operations.  <br /></td></tr>
 <tr class="memitem:ab267adc45de633391260efd03afa0ad6" id="r_ab267adc45de633391260efd03afa0ad6"><td class="memItemLeft">i2c_device_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ab267adc45de633391260efd03afa0ad6">ds3231_cfg</a> = {0}</td></tr>
+<tr class="memdesc:ab267adc45de633391260efd03afa0ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">DS3231 RTC device configuration parameters.  <br /></td></tr>
 <tr class="memitem:a992ab7409747ebf3a31ff7643d9720f2" id="r_a992ab7409747ebf3a31ff7643d9720f2"><td class="memItemLeft">i2c_master_dev_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#a992ab7409747ebf3a31ff7643d9720f2">ds3231_handle</a> = NULL</td></tr>
+<tr class="memdesc:a992ab7409747ebf3a31ff7643d9720f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">DS3231 RTC device handle for read/write operations.  <br /></td></tr>
 <tr class="memitem:ad58bf4c44b9439565e32297d332f0b49" id="r_ad58bf4c44b9439565e32297d332f0b49"><td class="memItemLeft">button_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ad58bf4c44b9439565e32297d332f0b49">cfg_time</a> [2] = {0}</td></tr>
+<tr class="memdesc:ad58bf4c44b9439565e32297d332f0b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button configuration for hour and minute adjustment buttons.  <br /></td></tr>
 <tr class="memitem:a50b1fe2759bea9706faf3ed4eb6e815c" id="r_a50b1fe2759bea9706faf3ed4eb6e815c"><td class="memItemLeft">button_gpio_config_t&#160;</td><td class="memItemRight"><a class="el" href="#a50b1fe2759bea9706faf3ed4eb6e815c">gpio_cfg_time</a> [2] = {0}</td></tr>
+<tr class="memdesc:a50b1fe2759bea9706faf3ed4eb6e815c"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO configuration for hour and minute adjustment buttons.  <br /></td></tr>
 <tr class="memitem:ac817f20c65ad9af1ef7b4f85ab389df7" id="r_ac817f20c65ad9af1ef7b4f85ab389df7"><td class="memItemLeft">button_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ac817f20c65ad9af1ef7b4f85ab389df7">btn_time</a> [2] = {0}</td></tr>
+<tr class="memdesc:ac817f20c65ad9af1ef7b4f85ab389df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button handles for hour and minute adjustment buttons.  <br /></td></tr>
 <tr class="memitem:afa9e8129f0495e4719121defad0fa0d6" id="r_afa9e8129f0495e4719121defad0fa0d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa9e8129f0495e4719121defad0fa0d6">testmode_activated</a> = false</td></tr>
+<tr class="memdesc:afa9e8129f0495e4719121defad0fa0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global test mode activation flag.  <br /></td></tr>
 <tr class="memitem:a63b736710f6e0f87dce37e12e89993ff" id="r_a63b736710f6e0f87dce37e12e89993ff"><td class="memItemLeft">TickType_t&#160;</td><td class="memItemRight"><a class="el" href="#a63b736710f6e0f87dce37e12e89993ff">testmode_activation_time</a> = 0</td></tr>
+<tr class="memdesc:a63b736710f6e0f87dce37e12e89993ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp of last testmode activation sequence start.  <br /></td></tr>
 <tr class="memitem:a6291b474d126cd2545e39479ac119bd2" id="r_a6291b474d126cd2545e39479ac119bd2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6291b474d126cd2545e39479ac119bd2">testmode_activation_count</a> = 0</td></tr>
+<tr class="memdesc:a6291b474d126cd2545e39479ac119bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for consecutive button presses in activation sequence.  <br /></td></tr>
 <tr class="memitem:adaf37611e9f0c039d25b49384b649b5f" id="r_adaf37611e9f0c039d25b49384b649b5f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#adaf37611e9f0c039d25b49384b649b5f">testmode_activation_state</a> = 0</td></tr>
+<tr class="memdesc:adaf37611e9f0c039d25b49384b649b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current state in testmode activation sequence.  <br /></td></tr>
+<tr class="memitem:ab1a05dc00ed464a91c8ea2a7f649bebc" id="r_ab1a05dc00ed464a91c8ea2a7f649bebc"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#ab1a05dc00ed464a91c8ea2a7f649bebc">StartUpTime_sec</a> = 0</td></tr>
+<tr class="memdesc:ab1a05dc00ed464a91c8ea2a7f649bebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">System startup time in seconds since Unix epoch.  <br /></td></tr>
+<tr class="memitem:a24331e06f07766b1db2fa98c9d34c22a" id="r_a24331e06f07766b1db2fa98c9d34c22a"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a24331e06f07766b1db2fa98c9d34c22a">last_executed_time</a> [<a class="el" href="individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9">NUMBER_OF_DISPLAYS</a>+1] = {0}</td></tr>
+<tr class="memdesc:a24331e06f07766b1db2fa98c9d34c22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last execution timestamps for each display and brightness update.  <br /></td></tr>
+<tr class="memitem:ae227f2373bb2e1a4ae4d5eb0a3067c56" id="r_ae227f2373bb2e1a4ae4d5eb0a3067c56"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#ae227f2373bb2e1a4ae4d5eb0a3067c56">last_executed_time_brightness</a> = 0</td></tr>
+<tr class="memdesc:ae227f2373bb2e1a4ae4d5eb0a3067c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last brightness control update timestamp in milliseconds.  <br /></td></tr>
+<tr class="memitem:a0ffe52391d9b347ff63387e6ac93eb84" id="r_a0ffe52391d9b347ff63387e6ac93eb84"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a0ffe52391d9b347ff63387e6ac93eb84">last_brightness_check_time</a> = 0</td></tr>
+<tr class="memitem:abb669e8e5d7c37a8c18aa644d901dae3" id="r_abb669e8e5d7c37a8c18aa644d901dae3"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#abb669e8e5d7c37a8c18aa644d901dae3">now_ms</a> = 0</td></tr>
+<tr class="memdesc:abb669e8e5d7c37a8c18aa644d901dae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current system time in milliseconds since boot.  <br /></td></tr>
+<tr class="memitem:a84f043ae41e1037d7d132f6b439ef16e" id="r_a84f043ae41e1037d7d132f6b439ef16e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a84f043ae41e1037d7d132f6b439ef16e">time_Update_Possible</a> = true</td></tr>
+<tr class="memdesc:a84f043ae41e1037d7d132f6b439ef16e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating whether time updates are allowed.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>I2C interface RTC and ADC device communication implementation. </p>
@@ -157,6 +192,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Convert Binary-Coded Decimal (BCD) to decimal value. </p>
+<p>BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>BCD-encoded byte value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Decoded decimal value (0-99) </dd></dl>
+
 </div>
 </div>
 <a id="af6baa5614567fc7a64a994e755d4c721" name="af6baa5614567fc7a64a994e755d4c721"></a>
@@ -182,6 +227,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Convert decimal value to Binary-Coded Decimal (BCD) format. </p>
+<p>BCD format uses 4 bits per digit (high nibble = tens, low nibble = ones).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>Decimal value to encode (0-99) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>BCD-encoded byte value </dd></dl>
+
 </div>
 </div>
 <a id="a0aaff805c3f70e6f5fad12df0cb285e5" name="a0aaff805c3f70e6f5fad12df0cb285e5"></a>
@@ -198,14 +253,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Write the given time struct into the DS3231 RTC.</p>
+
+<p>Write time to DS3231 RTC device. </p>
+<p>Converts the provided time structure to BCD format and writes it to the DS3231 real-time clock. This updates the RTC's internal time keeping.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time</td><td>Pointer to struct tm containing the desired time to set. </td></tr>
+    <tr><td class="paramname">time</td><td>Pointer to struct tm containing the desired time to write </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ESP_OK on success, error code otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ESP_OK on success, error code otherwise </dd></dl>
 
 </div>
 </div>
@@ -226,7 +283,7 @@ Variables</h2></td></tr>
 
 <p>Initialize I2C bus and attach RTC and ADC devices. </p>
 <p>Initialize I2C bus and attach connected sensors.</p>
-<p>Sets up the I2C master bus and attaches the DS3231 device for multi-device support. </p>
+<p>Sets up the I2C master bus with configured GPIO pins and clock source, then attaches the DS3231 real-time clock device for time operations. Call this once during system initialization before using I2C functions. </p>
 
 </div>
 </div>
@@ -245,8 +302,104 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize the time adjustment buttons and callbacks. </p>
-<p>Configures GPIO buttons for hour and minute adjustment with interrupt handlers. </p>
+<p>Initialize time adjustment buttons with callbacks. </p>
+<p>Initialize the time adjustment buttons and callbacks.</p>
+<p>Configures GPIO-based buttons for hour and minute time adjustments. Registers single-click handlers for time increment and long-press handlers for time decrement. Each button is independently configured with its own debounce timing and active level settings.</p>
+<p>Called during system initialization to enable runtime time adjustments and test mode activation via button sequences. </p>
+
+</div>
+</div>
+<a id="a427abb60b1f48ede1d65b6d22bd56a99" name="a427abb60b1f48ede1d65b6d22bd56a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427abb60b1f48ede1d65b6d22bd56a99">&#9670;&#160;</a></span>set_last_executed_brightness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_last_executed_brightness </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the last brightness adjustment timestamp to current time. </p>
+<p>Records when brightness control calculations were last performed. Used to control the frequency of brightness updates independent of display updates. Only updates if time checks are permitted. </p>
+
+</div>
+</div>
+<a id="aeaad3d3d0e0d9dc72044b68ba28bce61" name="aeaad3d3d0e0d9dc72044b68ba28bce61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaad3d3d0e0d9dc72044b68ba28bce61">&#9670;&#160;</a></span>set_last_executed_time_per_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_last_executed_time_per_screen </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>displayID</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t</td>          <td class="paramname"><span class="paramname"><em>time</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the last execution timestamp for a specific display. </p>
+<p>Set a specific execution timestamp for a display update.</p>
+<p>Updates the timestamp tracking when sensor values were last read/calculated for the specified display. Used for controlling update frequency per display. Only updates if time checks are permitted.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">displayID</td><td>Index of the display (0 to NUMBER_OF_DISPLAYS-1) </td></tr>
+    <tr><td class="paramname">time</td><td>Timestamp in milliseconds to record </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a89cc99294c1880528777e05f8ae6bdb6" name="a89cc99294c1880528777e05f8ae6bdb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89cc99294c1880528777e05f8ae6bdb6">&#9670;&#160;</a></span>set_now_time_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_now_time_ms </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update current system time in milliseconds. </p>
+<p>Update the current system time in millisecond precision.</p>
+<p>Reads the current system time and converts to millisecond precision. Only updates if time checks are permitted (not blocked by button operations). Called periodically by the main loop to keep the timing reference current. </p>
+
+</div>
+</div>
+<a id="a75b777408fdba2537a144a6f1369e4a9" name="a75b777408fdba2537a144a6f1369e4a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b777408fdba2537a144a6f1369e4a9">&#9670;&#160;</a></span>set_startup_time_sec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_startup_time_sec </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Capture the system startup time from current system clock. </p>
+<p>Record and set the system startup time.</p>
+<p>Records the current time as the application startup time. Used for calculating elapsed time and scheduling delayed initialization tasks. Should be called once during system initialization after time synchronization. </p>
 
 </div>
 </div>
@@ -265,8 +418,36 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Synchronize system time with RTC DS3231 time. </p>
-<p>Reads current time from the DS3231 and updates ESP32 system time. </p>
+<p>Read time from DS3231 RTC and synchronize ESP32 system time. </p>
+<p>Synchronize system time with RTC DS3231 time.</p>
+<p>Reads the current time from the DS3231 real-time clock via I2C, converts from BCD format to standard time structure, and updates the ESP32 system clock. This ensures accurate time after boot. </p>
+
+</div>
+</div>
+<a id="aa607242df4b1b738f17bca2c34442085" name="aa607242df4b1b738f17bca2c34442085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa607242df4b1b738f17bca2c34442085">&#9670;&#160;</a></span>update_last_executed_time_per_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_last_executed_time_per_screen </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>displayID</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the last execution timestamp to current time for a display. </p>
+<p>Update the last execution timestamp for a display to current time.</p>
+<p>Records the current system time as the last update time for the specified display. Called after sensor values are successfully read and processed. Only updates if time checks are permitted.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">displayID</td><td>Index of the display (0 to NUMBER_OF_DISPLAYS-1) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -283,6 +464,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Button handles for hour and minute adjustment buttons. </p>
+<p>Index: [0] = Hour button, [1] = Minute button </p>
+
 </div>
 </div>
 <a id="aab28d6f688b1eaba1041d583ee4ce5f6" name="aab28d6f688b1eaba1041d583ee4ce5f6"></a>
@@ -296,6 +480,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>I2C master bus configuration parameters. </p>
 
 </div>
 </div>
@@ -311,6 +497,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>I2C master bus handle for device operations. </p>
+
 </div>
 </div>
 <a id="ad58bf4c44b9439565e32297d332f0b49" name="ad58bf4c44b9439565e32297d332f0b49"></a>
@@ -324,6 +512,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Button configuration for hour and minute adjustment buttons. </p>
+<p>Index: [0] = Hour button, [1] = Minute button </p>
 
 </div>
 </div>
@@ -339,6 +530,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>DS3231 RTC device configuration parameters. </p>
+
 </div>
 </div>
 <a id="a992ab7409747ebf3a31ff7643d9720f2" name="a992ab7409747ebf3a31ff7643d9720f2"></a>
@@ -352,6 +545,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>DS3231 RTC device handle for read/write operations. </p>
 
 </div>
 </div>
@@ -367,6 +562,88 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>GPIO configuration for hour and minute adjustment buttons. </p>
+<p>Index: [0] = Hour button, [1] = Minute button </p>
+
+</div>
+</div>
+<a id="a0ffe52391d9b347ff63387e6ac93eb84" name="a0ffe52391d9b347ff63387e6ac93eb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ffe52391d9b347ff63387e6ac93eb84">&#9670;&#160;</a></span>last_brightness_check_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t last_brightness_check_time = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24331e06f07766b1db2fa98c9d34c22a" name="a24331e06f07766b1db2fa98c9d34c22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24331e06f07766b1db2fa98c9d34c22a">&#9670;&#160;</a></span>last_executed_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t last_executed_time[<a class="el" href="individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9">NUMBER_OF_DISPLAYS</a>+1] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Last execution timestamps for each display and brightness update. </p>
+<p>Array indices: [0..NUMBER_OF_DISPLAYS-1] = display updates, [NUMBER_OF_DISPLAYS] = brightness update timestamp </p>
+
+</div>
+</div>
+<a id="ae227f2373bb2e1a4ae4d5eb0a3067c56" name="ae227f2373bb2e1a4ae4d5eb0a3067c56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae227f2373bb2e1a4ae4d5eb0a3067c56">&#9670;&#160;</a></span>last_executed_time_brightness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t last_executed_time_brightness = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Last brightness control update timestamp in milliseconds. </p>
+
+</div>
+</div>
+<a id="abb669e8e5d7c37a8c18aa644d901dae3" name="abb669e8e5d7c37a8c18aa644d901dae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb669e8e5d7c37a8c18aa644d901dae3">&#9670;&#160;</a></span>now_ms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t now_ms = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current system time in milliseconds since boot. </p>
+
+</div>
+</div>
+<a id="ab1a05dc00ed464a91c8ea2a7f649bebc" name="ab1a05dc00ed464a91c8ea2a7f649bebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a05dc00ed464a91c8ea2a7f649bebc">&#9670;&#160;</a></span>StartUpTime_sec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t StartUpTime_sec = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>System startup time in seconds since Unix epoch. </p>
+
 </div>
 </div>
 <a id="afa9e8129f0495e4719121defad0fa0d6" name="afa9e8129f0495e4719121defad0fa0d6"></a>
@@ -380,6 +657,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Global test mode activation flag. </p>
 
 </div>
 </div>
@@ -395,6 +674,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Counter for consecutive button presses in activation sequence. </p>
+
 </div>
 </div>
 <a id="adaf37611e9f0c039d25b49384b649b5f" name="adaf37611e9f0c039d25b49384b649b5f"></a>
@@ -409,6 +690,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Current state in testmode activation sequence. </p>
+
 </div>
 </div>
 <a id="a63b736710f6e0f87dce37e12e89993ff" name="a63b736710f6e0f87dce37e12e89993ff"></a>
@@ -422,6 +705,25 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Timestamp of last testmode activation sequence start. </p>
+
+</div>
+</div>
+<a id="a84f043ae41e1037d7d132f6b439ef16e" name="a84f043ae41e1037d7d132f6b439ef16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f043ae41e1037d7d132f6b439ef16e">&#9670;&#160;</a></span>time_Update_Possible</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool time_Update_Possible = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flag indicating whether time updates are allowed. </p>
+<p>Set to false during button operations to prevent time updates. Set to true when button processing is complete. </p>
 
 </div>
 </div>

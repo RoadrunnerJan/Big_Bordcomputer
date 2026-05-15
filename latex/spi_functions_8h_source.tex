@@ -91,26 +91,29 @@
 \DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ Configuration\ Structures}}
 \DoxyCodeLine{00103\ \ \ \ \ esp\_lcd\_panel\_io\_spi\_config\_t\ \doxymbox{\hyperlink{structdisplay__settings_aa29fc83d16557686b363fd270fdd359b}{io\_config}};}
 \DoxyCodeLine{00104\ \ \ \ \ esp\_lcd\_panel\_dev\_config\_t\ \doxymbox{\hyperlink{structdisplay__settings_a3111ab6ce399644b216533be9150820b}{panel\_config}};}
-\DoxyCodeLine{00105\ \};}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \textcolor{comment}{/*\ =====\ Global\ Variables\ =====\ */}}
-\DoxyCodeLine{00109\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structspi__settings}{spi\_settings}}\ \doxymbox{\hyperlink{spi_functions_8c_aa23181a4e6a5e0d9b8b36802b97de619}{SPI\_SETUP}}[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\_OF\_SPI}}];}
-\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdisplay__settings}{display\_settings}}\ \doxymbox{\hyperlink{spi_functions_8c_a53598c0ed36fe31997ca9e7f0f6f694a}{DISPLAYS}}[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\_OF\_DISPLAYS}}];}
-\DoxyCodeLine{00111\ \textcolor{keyword}{extern}\ esp\_timer\_handle\_t\ \doxymbox{\hyperlink{spi_functions_8c_a5297ef2d8c460fc39919e9bdd8f65395}{periodic\_timer}};}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Display\ delay\ time}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structdisplay__settings_a2cbf04bfd661a31b6ea51fe79d54b42b}{delay\_time\_screen\_ms}};}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{comment}{/*\ =====\ Global\ Variables\ =====\ */}}
+\DoxyCodeLine{00112\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structspi__settings}{spi\_settings}}\ \doxymbox{\hyperlink{spi_functions_8c_aa23181a4e6a5e0d9b8b36802b97de619}{SPI\_SETUP}}[\doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\_OF\_SPI}}];}
+\DoxyCodeLine{00113\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structdisplay__settings}{display\_settings}}\ \doxymbox{\hyperlink{spi_functions_8c_a53598c0ed36fe31997ca9e7f0f6f694a}{DISPLAYS}}[\doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\_OF\_DISPLAYS}}];}
+\DoxyCodeLine{00114\ \textcolor{keyword}{extern}\ esp\_timer\_handle\_t\ \doxymbox{\hyperlink{spi_functions_8c_a5297ef2d8c460fc39919e9bdd8f65395}{periodic\_timer}};}
 \DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}{setUp\_Variables}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_ae909944aa85ae98323073c628be541aa}{spi\_init}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_a407d5033a6f0198221c8a9081d7e807e}{display\_init}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a}{buffer\_and\_driver\_init}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0}{timer\_start}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a}{set\_Displays}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{/*\ =====\ Function\ Declarations\ =====\ */}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_ad4efed696c2a68e3acfa18bee3055091}{setUp\_Variables}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_ae909944aa85ae98323073c628be541aa}{spi\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_a407d5033a6f0198221c8a9081d7e807e}{display\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_acd3b1cfa3a6f7fd73e351258a7fadf2a}{buffer\_and\_driver\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_aeb09db6f93d0e0f5aad6e9d2345793e0}{timer\_start}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{spi_functions_8h_a283275695ab8402dd9fdb9f75da0889a}{set\_Displays}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
 
 \end{DoxyCode}

@@ -102,28 +102,46 @@ Macros</h2></td></tr>
 <tr class="memdesc:a90ba4699a88b95a3609bc117dd06c445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Feature flags - enable/disable optional modules.  <br /></td></tr>
 <tr class="memitem:a3ccdf5e151cf4faa7bea9d68a1af829a" id="r_a3ccdf5e151cf4faa7bea9d68a1af829a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3ccdf5e151cf4faa7bea9d68a1af829a">LOGGING_ENABLED</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memitem:a454deab6aeff0af2de8c334bec94dfe9" id="r_a454deab6aeff0af2de8c334bec94dfe9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a454deab6aeff0af2de8c334bec94dfe9">LOGGING_TAG</a>&#160;&#160;&#160;&quot;JRO_BOARD_COMPUTER_LOG&quot;</td></tr>
+<tr class="memitem:a2bc6ed307b70b8b4bdd0729b8a053d0e" id="r_a2bc6ed307b70b8b4bdd0729b8a053d0e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2bc6ed307b70b8b4bdd0729b8a053d0e">TESTMODE_ACTIVE</a>&#160;&#160;&#160;true</td></tr>
 <tr class="memitem:ae1ce1bb8c096cd612d6183eea4df8de9" id="r_ae1ce1bb8c096cd612d6183eea4df8de9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae1ce1bb8c096cd612d6183eea4df8de9">NUMBER_OF_DISPLAYS</a>&#160;&#160;&#160;4</td></tr>
 <tr class="memdesc:ae1ce1bb8c096cd612d6183eea4df8de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core project configuration values.  <br /></td></tr>
 <tr class="memitem:a7a80df8b2fd93814ce229e8b2a1c04ad" id="r_a7a80df8b2fd93814ce229e8b2a1c04ad"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7a80df8b2fd93814ce229e8b2a1c04ad">NUMBER_OF_SPI</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memitem:ab1dcc9464e3fcb94922386e8a7f53f21" id="r_ab1dcc9464e3fcb94922386e8a7f53f21"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab1dcc9464e3fcb94922386e8a7f53f21">SPI_MODE</a>&#160;&#160;&#160;3</td></tr>
 <tr class="memdesc:ab1dcc9464e3fcb94922386e8a7f53f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI bus configuration, used for SPI LCD panels.  <br /></td></tr>
 <tr class="memitem:a63c662ad3b301f2d936ca736a1cb091b" id="r_a63c662ad3b301f2d936ca736a1cb091b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a63c662ad3b301f2d936ca736a1cb091b">TRANS_QUEUE_DEPTH</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a63c662ad3b301f2d936ca736a1cb091b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of simultaneous SPI transactions in queue.  <br /></td></tr>
 <tr class="memitem:aad582018b6bc03db7ae468eb3fdf3eb3" id="r_aad582018b6bc03db7ae468eb3fdf3eb3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aad582018b6bc03db7ae468eb3fdf3eb3">PIN_SPI_1_SCLK</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:aad582018b6bc03db7ae468eb3fdf3eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI 1 bus configuration (first SPI host for displays 1-2).  <br /></td></tr>
 <tr class="memitem:a05d95ad303c4b8aec288506682171ea7" id="r_a05d95ad303c4b8aec288506682171ea7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a05d95ad303c4b8aec288506682171ea7">PIN_SPI_1_MOSI</a>&#160;&#160;&#160;29</td></tr>
+<tr class="memdesc:a05d95ad303c4b8aec288506682171ea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master Out Slave In pin for SPI 1.  <br /></td></tr>
 <tr class="memitem:a5a45fed2ab6bfd3a2977111330088c61" id="r_a5a45fed2ab6bfd3a2977111330088c61"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5a45fed2ab6bfd3a2977111330088c61">PIN_SPI_1_MISO</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a5a45fed2ab6bfd3a2977111330088c61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master In Slave Out (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:a168a72d3438cf86470ad7235e623105e" id="r_a168a72d3438cf86470ad7235e623105e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a168a72d3438cf86470ad7235e623105e">SPI_1_MAX_TRANSFER_SZ</a>&#160;&#160;&#160;(240 * 240 * sizeof(uint16_t))</td></tr>
+<tr class="memdesc:a168a72d3438cf86470ad7235e623105e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max transfer size for 240x240 display.  <br /></td></tr>
 <tr class="memitem:a59d0f4a852c4d0659d8cb039ed480dd7" id="r_a59d0f4a852c4d0659d8cb039ed480dd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a59d0f4a852c4d0659d8cb039ed480dd7">SPI_1_QUADWP_IO_NUM</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a59d0f4a852c4d0659d8cb039ed480dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad Write Protect (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:afbe40439029b51b01c0ca83a6f2b2cbb" id="r_afbe40439029b51b01c0ca83a6f2b2cbb"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afbe40439029b51b01c0ca83a6f2b2cbb">SPI_1_QUADHD_IO_NUM</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:afbe40439029b51b01c0ca83a6f2b2cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad Hold (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:a77e54bd03bf00f0ce07ae8bbbd745ea6" id="r_a77e54bd03bf00f0ce07ae8bbbd745ea6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a77e54bd03bf00f0ce07ae8bbbd745ea6">SPI_1_INTR_FLAGS</a>&#160;&#160;&#160;(ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)</td></tr>
+<tr class="memdesc:a77e54bd03bf00f0ce07ae8bbbd745ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt flags.  <br /></td></tr>
 <tr class="memitem:a2626daf8b314d054a90f38997d8a3827" id="r_a2626daf8b314d054a90f38997d8a3827"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2626daf8b314d054a90f38997d8a3827">SPI_1_DMA</a>&#160;&#160;&#160;SPI_DMA_CH_AUTO</td></tr>
+<tr class="memdesc:a2626daf8b314d054a90f38997d8a3827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatic DMA channel selection.  <br /></td></tr>
 <tr class="memitem:a857c7003e437cd368b6e75c1f9b6fd8e" id="r_a857c7003e437cd368b6e75c1f9b6fd8e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a857c7003e437cd368b6e75c1f9b6fd8e">PIN_SPI_2_SCLK</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a857c7003e437cd368b6e75c1f9b6fd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI 2 bus configuration (second SPI host for displays 3-4, optional).  <br /></td></tr>
 <tr class="memitem:a833575c09bd81118700ae61d04a6ec4d" id="r_a833575c09bd81118700ae61d04a6ec4d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a833575c09bd81118700ae61d04a6ec4d">PIN_SPI_2_MOSI</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a833575c09bd81118700ae61d04a6ec4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master Out Slave In pin for SPI 2.  <br /></td></tr>
 <tr class="memitem:a7c1044c21532cf4285895d10a6b4968b" id="r_a7c1044c21532cf4285895d10a6b4968b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7c1044c21532cf4285895d10a6b4968b">PIN_SPI_2_MISO</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a7c1044c21532cf4285895d10a6b4968b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master In Slave Out (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:ae80d06218a249684b89828193c330614" id="r_ae80d06218a249684b89828193c330614"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae80d06218a249684b89828193c330614">SPI_2_MAX_TRANSFER_SZ</a>&#160;&#160;&#160;(240 * 240 * sizeof(uint16_t))</td></tr>
+<tr class="memdesc:ae80d06218a249684b89828193c330614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max transfer size for 240x240 display.  <br /></td></tr>
 <tr class="memitem:a6430d4f4991ede43e03d0104fc11c054" id="r_a6430d4f4991ede43e03d0104fc11c054"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6430d4f4991ede43e03d0104fc11c054">SPI_2_QUADWP_IO_NUM</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:a6430d4f4991ede43e03d0104fc11c054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad Write Protect (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:ac573af73a4bec4d8a5bfa72d74fb6514" id="r_ac573af73a4bec4d8a5bfa72d74fb6514"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac573af73a4bec4d8a5bfa72d74fb6514">SPI_2_QUADHD_IO_NUM</a>&#160;&#160;&#160;-1</td></tr>
+<tr class="memdesc:ac573af73a4bec4d8a5bfa72d74fb6514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad Hold (unused, set to -1).  <br /></td></tr>
 <tr class="memitem:a99cb21495f82c01685873a833d719b25" id="r_a99cb21495f82c01685873a833d719b25"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a99cb21495f82c01685873a833d719b25">SPI_2_INTR_FLAGS</a>&#160;&#160;&#160;(ESP_INTR_FLAG_IRAM | ESP_INTR_FLAG_LEVEL3)</td></tr>
+<tr class="memdesc:a99cb21495f82c01685873a833d719b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt flags.  <br /></td></tr>
 <tr class="memitem:ac5d737be57afbfcb2943acb6f3c337c1" id="r_ac5d737be57afbfcb2943acb6f3c337c1"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac5d737be57afbfcb2943acb6f3c337c1">SPI_2_DMA</a>&#160;&#160;&#160;SPI_DMA_CH_AUTO</td></tr>
+<tr class="memdesc:ac5d737be57afbfcb2943acb6f3c337c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatic DMA channel selection.  <br /></td></tr>
 <tr class="memitem:a8046713c766c7fc1936d9ffd641e2441" id="r_a8046713c766c7fc1936d9ffd641e2441"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8046713c766c7fc1936d9ffd641e2441">LCD_PIXEL_CLOCK_HZ</a>&#160;&#160;&#160;(40 * 1000 * 1000)</td></tr>
 <tr class="memdesc:a8046713c766c7fc1936d9ffd641e2441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common LCD panel configuration, shared by all displays.  <br /></td></tr>
 <tr class="memitem:a970dd1ec4cf86ef299ba32369eb49ce2" id="r_a970dd1ec4cf86ef299ba32369eb49ce2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a970dd1ec4cf86ef299ba32369eb49ce2">LCD_CMD_BITS</a>&#160;&#160;&#160;8</td></tr>
@@ -184,20 +202,33 @@ Macros</h2></td></tr>
 <tr class="memitem:a2f248d73d46ad07ab6613492c6137c23" id="r_a2f248d73d46ad07ab6613492c6137c23"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2f248d73d46ad07ab6613492c6137c23">LCD_4_SPI_HOST</a>&#160;&#160;&#160;<a class="el" href="#afa5670980ac638b68a609f398feb241d">LCD_HOST_2</a></td></tr>
 <tr class="memitem:a54efd3039e7cfc00d1b648be4546cccc" id="r_a54efd3039e7cfc00d1b648be4546cccc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a54efd3039e7cfc00d1b648be4546cccc">LCD_4_SCREEN_ID</a>&#160;&#160;&#160;SCREEN_ID_GAUGE_VOLTAGE</td></tr>
 <tr class="memitem:ab826226f0ccdaac0d5c02cf950219914" id="r_ab826226f0ccdaac0d5c02cf950219914"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab826226f0ccdaac0d5c02cf950219914">PWM_SENSOR_PIN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:ab826226f0ccdaac0d5c02cf950219914"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM sensor input on a digital-capable GPIO.  <br /></td></tr>
 <tr class="memitem:a7451847218b5826426548ebc4166c7c5" id="r_a7451847218b5826426548ebc4166c7c5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7451847218b5826426548ebc4166c7c5">PWM_ADC_SWITCH_PIN</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:a7451847218b5826426548ebc4166c7c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM/ADC sensor input selector switch configuration.  <br /></td></tr>
 <tr class="memitem:ae351184dec4c5ec451f85768e04ae331" id="r_ae351184dec4c5ec451f85768e04ae331"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae351184dec4c5ec451f85768e04ae331">PWM_ADC_SWITCH_MODE</a>&#160;&#160;&#160;GPIO_MODE_INPUT</td></tr>
+<tr class="memdesc:ae351184dec4c5ec451f85768e04ae331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure as digital input.  <br /></td></tr>
 <tr class="memitem:a84cf8438cc8e572ae6aad61c63747d94" id="r_a84cf8438cc8e572ae6aad61c63747d94"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a84cf8438cc8e572ae6aad61c63747d94">PWM_ADC_SWITCH_PULL_UP_EN</a>&#160;&#160;&#160;GPIO_PULLUP_DISABLE</td></tr>
+<tr class="memdesc:a84cf8438cc8e572ae6aad61c63747d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">No internal pull-up resistor.  <br /></td></tr>
 <tr class="memitem:a687cf98650b4953c06392d5959f9f4d4" id="r_a687cf98650b4953c06392d5959f9f4d4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a687cf98650b4953c06392d5959f9f4d4">PWM_ADC_SWITCH_PULL_DOWN_EN</a>&#160;&#160;&#160;GPIO_PULLDOWN_DISABLE</td></tr>
+<tr class="memdesc:a687cf98650b4953c06392d5959f9f4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">No internal pull-down resistor.  <br /></td></tr>
 <tr class="memitem:a47109b819e9b566e0f7e02f5b9790456" id="r_a47109b819e9b566e0f7e02f5b9790456"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a47109b819e9b566e0f7e02f5b9790456">PWM_ADC_SWITCH_INTR_TYPE</a>&#160;&#160;&#160;GPIO_INTR_DISABLE</td></tr>
+<tr class="memdesc:a47109b819e9b566e0f7e02f5b9790456"><td class="mdescLeft">&#160;</td><td class="mdescRight">No interrupt on level change.  <br /></td></tr>
 <tr class="memitem:a0b715214e1a19ea5ebd45950f3c65811" id="r_a0b715214e1a19ea5ebd45950f3c65811"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0b715214e1a19ea5ebd45950f3c65811">BUTTON_CLOCK_MINUTE_PIN</a>&#160;&#160;&#160;17</td></tr>
-<tr class="memdesc:a0b715214e1a19ea5ebd45950f3c65811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time adjustment button definition and debounce timing.  <br /></td></tr>
+<tr class="memdesc:a0b715214e1a19ea5ebd45950f3c65811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time adjustment button GPIO configurations.  <br /></td></tr>
 <tr class="memitem:a56e3524f658a913c549c9da612eb6678" id="r_a56e3524f658a913c549c9da612eb6678"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a56e3524f658a913c549c9da612eb6678">BUTTON_CLOCK_HOUR_PIN</a>&#160;&#160;&#160;18</td></tr>
+<tr class="memdesc:a56e3524f658a913c549c9da612eb6678"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin for hour adjustment button.  <br /></td></tr>
 <tr class="memitem:aaa0000adfde20212f9d61620e40f2d78" id="r_aaa0000adfde20212f9d61620e40f2d78"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aaa0000adfde20212f9d61620e40f2d78">BUTTON_CLOCK_MINUTE_SHORT_MS</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:aaa0000adfde20212f9d61620e40f2d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debounce time for minute button in milliseconds.  <br /></td></tr>
 <tr class="memitem:a88c22a4732d4960ef87a20c48ccaa99d" id="r_a88c22a4732d4960ef87a20c48ccaa99d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a88c22a4732d4960ef87a20c48ccaa99d">BUTTON_CLOCK_MINUTE_LONG_MS</a>&#160;&#160;&#160;500</td></tr>
+<tr class="memdesc:a88c22a4732d4960ef87a20c48ccaa99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long press threshold for minute button.  <br /></td></tr>
 <tr class="memitem:a672a15c4a105e2f9388ac1455b5a5c01" id="r_a672a15c4a105e2f9388ac1455b5a5c01"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a672a15c4a105e2f9388ac1455b5a5c01">BUTTON_CLOCK_MINUTE_ACTIVE_LEVEL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a672a15c4a105e2f9388ac1455b5a5c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active level: 0=active low, 1=active high.  <br /></td></tr>
 <tr class="memitem:acdfbd0f472cd1f7673106d7bcb47e54c" id="r_acdfbd0f472cd1f7673106d7bcb47e54c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#acdfbd0f472cd1f7673106d7bcb47e54c">BUTTON_CLOCK_HOUR_SHORT_MS</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:acdfbd0f472cd1f7673106d7bcb47e54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debounce time for hour button in milliseconds.  <br /></td></tr>
 <tr class="memitem:a4cec07593b05ca2bd8449b4138158deb" id="r_a4cec07593b05ca2bd8449b4138158deb"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4cec07593b05ca2bd8449b4138158deb">BUTTON_CLOCK_HOUR_LONG_MS</a>&#160;&#160;&#160;500</td></tr>
+<tr class="memdesc:a4cec07593b05ca2bd8449b4138158deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long press threshold for hour button.  <br /></td></tr>
 <tr class="memitem:adf9d11b2fd42021a61786187b6447699" id="r_adf9d11b2fd42021a61786187b6447699"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#adf9d11b2fd42021a61786187b6447699">BUTTON_CLOCK_HOUR_ACTIVE_LEVEL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:adf9d11b2fd42021a61786187b6447699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active level: 0=active low, 1=active high.  <br /></td></tr>
 <tr class="memitem:ae2786de7186520fab24837b2e9fd0392" id="r_ae2786de7186520fab24837b2e9fd0392"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae2786de7186520fab24837b2e9fd0392">LED_SPEED</a>&#160;&#160;&#160;LEDC_LOW_SPEED_MODE</td></tr>
 <tr class="memdesc:ae2786de7186520fab24837b2e9fd0392"><td class="mdescLeft">&#160;</td><td class="mdescRight">LEDC PWM settings for display backlight brightness control.  <br /></td></tr>
 <tr class="memitem:ade3a58ca3fc05681b689884e377a37d5" id="r_ade3a58ca3fc05681b689884e377a37d5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ade3a58ca3fc05681b689884e377a37d5">LED_TIMER</a>&#160;&#160;&#160;LEDC_TIMER_0</td></tr>
@@ -213,143 +244,271 @@ Macros</h2></td></tr>
 <tr class="memitem:a85498e1c53498101123d5d98a95f1206" id="r_a85498e1c53498101123d5d98a95f1206"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a85498e1c53498101123d5d98a95f1206">BRIGHTNESS_AUTO_ENABLE</a>&#160;&#160;&#160;false</td></tr>
 <tr class="memdesc:a85498e1c53498101123d5d98a95f1206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-brightness thresholds and manual defaults.  <br /></td></tr>
 <tr class="memitem:a5755272baaeeb1a610b6f88e7afeb2d3" id="r_a5755272baaeeb1a610b6f88e7afeb2d3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a5755272baaeeb1a610b6f88e7afeb2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default daytime brightness level (0-100%).  <br /></td></tr>
 <tr class="memitem:ae50e856eb947d19695cf737cdd1436d8" id="r_ae50e856eb947d19695cf737cdd1436d8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae50e856eb947d19695cf737cdd1436d8">BRIGHTNESS_DAY_MAX_V</a>&#160;&#160;&#160;0.05</td></tr>
+<tr class="memdesc:ae50e856eb947d19695cf737cdd1436d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage threshold for day mode (in volts).  <br /></td></tr>
 <tr class="memitem:a63a82ef9298c0a838ef68d9ecfa061e2" id="r_a63a82ef9298c0a838ef68d9ecfa061e2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a63a82ef9298c0a838ef68d9ecfa061e2">BRIGHTNESS_NIGHT_MIN</a>&#160;&#160;&#160;20</td></tr>
+<tr class="memdesc:a63a82ef9298c0a838ef68d9ecfa061e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum brightness in night mode (0-100%).  <br /></td></tr>
 <tr class="memitem:aa322bf5f0bf2bbe87f22f3ec7f7cd668" id="r_aa322bf5f0bf2bbe87f22f3ec7f7cd668"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa322bf5f0bf2bbe87f22f3ec7f7cd668">BRIGHTNESS_NIGHT_MIN_V</a>&#160;&#160;&#160;2.29</td></tr>
+<tr class="memdesc:aa322bf5f0bf2bbe87f22f3ec7f7cd668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage mapping point for minimum night brightness.  <br /></td></tr>
 <tr class="memitem:add3c629e9878a9bbd7bfed7baf2d0781" id="r_add3c629e9878a9bbd7bfed7baf2d0781"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#add3c629e9878a9bbd7bfed7baf2d0781">BRIGHTNESS_NIGHT_MAX</a>&#160;&#160;&#160;40</td></tr>
+<tr class="memdesc:add3c629e9878a9bbd7bfed7baf2d0781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum brightness in night mode (0-100%).  <br /></td></tr>
 <tr class="memitem:a5cf58e6540f125d0a004a94f7c7b97b9" id="r_a5cf58e6540f125d0a004a94f7c7b97b9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5cf58e6540f125d0a004a94f7c7b97b9">BRIGHTNESS_NIGHT_MAX_V</a>&#160;&#160;&#160;10.74</td></tr>
+<tr class="memdesc:a5cf58e6540f125d0a004a94f7c7b97b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery voltage mapping point for maximum night brightness.  <br /></td></tr>
 <tr class="memitem:ac2f4bb90d6c2451310a80f949a777bc2" id="r_ac2f4bb90d6c2451310a80f949a777bc2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac2f4bb90d6c2451310a80f949a777bc2">EEZ_VALUE_FACTOR</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:ac2f4bb90d6c2451310a80f949a777bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display rendering and initialization timing parameters.  <br /></td></tr>
 <tr class="memitem:af7d5b688d597247e5d46d3c12ca1d6cf" id="r_af7d5b688d597247e5d46d3c12ca1d6cf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af7d5b688d597247e5d46d3c12ca1d6cf">GAUGE_ON_DELAY_MS</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:af7d5b688d597247e5d46d3c12ca1d6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay before gauges become active after boot (milliseconds).  <br /></td></tr>
 <tr class="memitem:a40ea04e9f5c26956209bcc0a89a00fac" id="r_a40ea04e9f5c26956209bcc0a89a00fac"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a40ea04e9f5c26956209bcc0a89a00fac">BUZZER_ON_DELAY_MS</a>&#160;&#160;&#160;5000</td></tr>
+<tr class="memdesc:a40ea04e9f5c26956209bcc0a89a00fac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay before buzzer activation is allowed (milliseconds).  <br /></td></tr>
 <tr class="memitem:a6d7e836e81c91b823bc4d89f3fb4ba69" id="r_a6d7e836e81c91b823bc4d89f3fb4ba69"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6d7e836e81c91b823bc4d89f3fb4ba69">MAIN_TASK_FINISHED_DELAY</a>&#160;&#160;&#160;5000</td></tr>
+<tr class="memdesc:a6d7e836e81c91b823bc4d89f3fb4ba69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay for main task completion (milliseconds).  <br /></td></tr>
 <tr class="memitem:a5e0a58afd80911ea8df9eaedd268672c" id="r_a5e0a58afd80911ea8df9eaedd268672c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5e0a58afd80911ea8df9eaedd268672c">TASK_1_STEPDEPTH_SCREEN</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memdesc:a5e0a58afd80911ea8df9eaedd268672c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 1 FreeRTOS task configuration parameters.  <br /></td></tr>
 <tr class="memitem:a6ea9fe31d435e0fa899888cd24f8c3c9" id="r_a6ea9fe31d435e0fa899888cd24f8c3c9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6ea9fe31d435e0fa899888cd24f8c3c9">TASK_1_PRIORITY_SCREEN</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a6ea9fe31d435e0fa899888cd24f8c3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task priority for display 1.  <br /></td></tr>
 <tr class="memitem:ad502cac9f321d3d937aa08ab8af32267" id="r_ad502cac9f321d3d937aa08ab8af32267"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad502cac9f321d3d937aa08ab8af32267">TASK_1_DELAYTIME_SCREEN</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memdesc:ad502cac9f321d3d937aa08ab8af32267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update interval for display 1 (milliseconds).  <br /></td></tr>
 <tr class="memitem:a98df6ff3e166bc8d8a5ae25dbafceef3" id="r_a98df6ff3e166bc8d8a5ae25dbafceef3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a98df6ff3e166bc8d8a5ae25dbafceef3">TASK_1_CORE_SCREEN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a98df6ff3e166bc8d8a5ae25dbafceef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPU core for display 1 task.  <br /></td></tr>
 <tr class="memitem:ae12057330aeebd4ab49540af10aa2f8a" id="r_ae12057330aeebd4ab49540af10aa2f8a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae12057330aeebd4ab49540af10aa2f8a">TASK_2_STEPDEPTH_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a5e0a58afd80911ea8df9eaedd268672c">TASK_1_STEPDEPTH_SCREEN</a></td></tr>
+<tr class="memdesc:ae12057330aeebd4ab49540af10aa2f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 2 FreeRTOS task configuration parameters.  <br /></td></tr>
 <tr class="memitem:ab1e1ace4209cf40e91bea91332665224" id="r_ab1e1ace4209cf40e91bea91332665224"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab1e1ace4209cf40e91bea91332665224">TASK_2_PRIORITY_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a6ea9fe31d435e0fa899888cd24f8c3c9">TASK_1_PRIORITY_SCREEN</a></td></tr>
 <tr class="memitem:ad04b185b86d13a77ed9a8e9c298bce11" id="r_ad04b185b86d13a77ed9a8e9c298bce11"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad04b185b86d13a77ed9a8e9c298bce11">TASK_2_DELAYTIME_SCREEN</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:ad04b185b86d13a77ed9a8e9c298bce11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update interval for display 2 (milliseconds).  <br /></td></tr>
 <tr class="memitem:ad0ad69a7f17c76c3ec61c6f6e0513164" id="r_ad0ad69a7f17c76c3ec61c6f6e0513164"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad0ad69a7f17c76c3ec61c6f6e0513164">TASK_2_CORE_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a98df6ff3e166bc8d8a5ae25dbafceef3">TASK_1_CORE_SCREEN</a></td></tr>
 <tr class="memitem:aa68ea9ed040536567eb1a1f029c0de09" id="r_aa68ea9ed040536567eb1a1f029c0de09"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa68ea9ed040536567eb1a1f029c0de09">TASK_3_STEPDEPTH_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a5e0a58afd80911ea8df9eaedd268672c">TASK_1_STEPDEPTH_SCREEN</a></td></tr>
+<tr class="memdesc:aa68ea9ed040536567eb1a1f029c0de09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 3 FreeRTOS task configuration parameters.  <br /></td></tr>
 <tr class="memitem:a0fd31553a1c949532a661bb84bf8bf82" id="r_a0fd31553a1c949532a661bb84bf8bf82"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0fd31553a1c949532a661bb84bf8bf82">TASK_3_PRIORITY_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a6ea9fe31d435e0fa899888cd24f8c3c9">TASK_1_PRIORITY_SCREEN</a></td></tr>
 <tr class="memitem:a6761c997cd501205a16b88c0f152c646" id="r_a6761c997cd501205a16b88c0f152c646"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6761c997cd501205a16b88c0f152c646">TASK_3_DELAYTIME_SCREEN</a>&#160;&#160;&#160;150</td></tr>
+<tr class="memdesc:a6761c997cd501205a16b88c0f152c646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update interval for display 3 (milliseconds).  <br /></td></tr>
 <tr class="memitem:a0a1c1d511d3f3f11316926b1c5f01018" id="r_a0a1c1d511d3f3f11316926b1c5f01018"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0a1c1d511d3f3f11316926b1c5f01018">TASK_3_CORE_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a98df6ff3e166bc8d8a5ae25dbafceef3">TASK_1_CORE_SCREEN</a></td></tr>
 <tr class="memitem:ac00defb01b4b0a4dd498911178f033ab" id="r_ac00defb01b4b0a4dd498911178f033ab"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac00defb01b4b0a4dd498911178f033ab">TASK_4_STEPDEPTH_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a5e0a58afd80911ea8df9eaedd268672c">TASK_1_STEPDEPTH_SCREEN</a></td></tr>
+<tr class="memdesc:ac00defb01b4b0a4dd498911178f033ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 4 FreeRTOS task configuration parameters.  <br /></td></tr>
 <tr class="memitem:aea108020a51158de85a2558e2053b672" id="r_aea108020a51158de85a2558e2053b672"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aea108020a51158de85a2558e2053b672">TASK_4_PRIORITY_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a6ea9fe31d435e0fa899888cd24f8c3c9">TASK_1_PRIORITY_SCREEN</a></td></tr>
 <tr class="memitem:ab6b8904ea8f761781af33d049960e758" id="r_ab6b8904ea8f761781af33d049960e758"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab6b8904ea8f761781af33d049960e758">TASK_4_DELAYTIME_SCREEN</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:ab6b8904ea8f761781af33d049960e758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update interval for display 4 (milliseconds).  <br /></td></tr>
 <tr class="memitem:a85b2c7fecc9c02092aae6acc0775a70a" id="r_a85b2c7fecc9c02092aae6acc0775a70a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a85b2c7fecc9c02092aae6acc0775a70a">TASK_4_CORE_SCREEN</a>&#160;&#160;&#160;<a class="el" href="#a98df6ff3e166bc8d8a5ae25dbafceef3">TASK_1_CORE_SCREEN</a></td></tr>
 <tr class="memitem:a710942d71c4e9bc34e4ccdeefad07689" id="r_a710942d71c4e9bc34e4ccdeefad07689"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a710942d71c4e9bc34e4ccdeefad07689">PWM_SENSOR_RESOLUTION_MHZ</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a710942d71c4e9bc34e4ccdeefad07689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buzzer alarm and PWM output configuration (only if USE_BUZZER == true).  <br /></td></tr>
 <tr class="memitem:a07034a3b8648a31ed4e9ab4c257bc804" id="r_a07034a3b8648a31ed4e9ab4c257bc804"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a07034a3b8648a31ed4e9ab4c257bc804">PWM_SENSOR_PRESCALE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a07034a3b8648a31ed4e9ab4c257bc804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer prescaler.  <br /></td></tr>
 <tr class="memitem:a3aa72444e4e467d27b85838a441d35f5" id="r_a3aa72444e4e467d27b85838a441d35f5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3aa72444e4e467d27b85838a441d35f5">PWM_SENSOR_NEG_EDGE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a3aa72444e4e467d27b85838a441d35f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count negative (falling) edges.  <br /></td></tr>
 <tr class="memitem:a08c77bc627ff4aa929c409f1d63168e0" id="r_a08c77bc627ff4aa929c409f1d63168e0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a08c77bc627ff4aa929c409f1d63168e0">PWM_SENSOR_POS_EDGE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a08c77bc627ff4aa929c409f1d63168e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count positive (rising) edges.  <br /></td></tr>
 <tr class="memitem:a85bde9c3f48ecef5c8c9ab6d6829bfaa" id="r_a85bde9c3f48ecef5c8c9ab6d6829bfaa"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a85bde9c3f48ecef5c8c9ab6d6829bfaa">PWM_SENSOR_PULL_UP</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a85bde9c3f48ecef5c8c9ab6d6829bfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable internal pull-up on input pin.  <br /></td></tr>
 <tr class="memitem:a82018e3c9e15336c27b135bdc4ea630e" id="r_a82018e3c9e15336c27b135bdc4ea630e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a82018e3c9e15336c27b135bdc4ea630e">PWM_SENSOR_DIAG_PULSE_ID</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a82018e3c9e15336c27b135bdc4ea630e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostic pulse configuration for sensor health check.  <br /></td></tr>
 <tr class="memitem:a46b7a015bfc83534f3a2c0ac373bbd51" id="r_a46b7a015bfc83534f3a2c0ac373bbd51"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a46b7a015bfc83534f3a2c0ac373bbd51">PWM_SENSOR_DIAG_PERIOD_MIN</a>&#160;&#160;&#160;900</td></tr>
+<tr class="memdesc:a46b7a015bfc83534f3a2c0ac373bbd51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum period in clock ticks (nanoseconds/100).  <br /></td></tr>
 <tr class="memitem:a22849c04b94b03fff7321e9caa755582" id="r_a22849c04b94b03fff7321e9caa755582"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a22849c04b94b03fff7321e9caa755582">PWM_SENSOR_DIAG_PERIOD_MAX</a>&#160;&#160;&#160;1100</td></tr>
+<tr class="memdesc:a22849c04b94b03fff7321e9caa755582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum period for valid diagnostic pulse.  <br /></td></tr>
 <tr class="memitem:a473cb738d041aec6a7867f361e43c29e" id="r_a473cb738d041aec6a7867f361e43c29e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a473cb738d041aec6a7867f361e43c29e">PWM_SENSOR_DIAG_VALUE_MIN</a>&#160;&#160;&#160;150</td></tr>
+<tr class="memdesc:a473cb738d041aec6a7867f361e43c29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum pulse width threshold.  <br /></td></tr>
 <tr class="memitem:afe2c77ea8438ec2777e3ac20987e2031" id="r_afe2c77ea8438ec2777e3ac20987e2031"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afe2c77ea8438ec2777e3ac20987e2031">PWM_SENSOR_DIAG_VALUE_MAX</a>&#160;&#160;&#160;800</td></tr>
+<tr class="memdesc:afe2c77ea8438ec2777e3ac20987e2031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum pulse width for valid range.  <br /></td></tr>
 <tr class="memitem:a812372ba9ac74e0ab9511cf8263be624" id="r_a812372ba9ac74e0ab9511cf8263be624"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a812372ba9ac74e0ab9511cf8263be624">PWM_SENSOR_TEMP_PULSE_ID</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a812372ba9ac74e0ab9511cf8263be624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature sensor pulse configuration from Hella datasheet.  <br /></td></tr>
 <tr class="memitem:a55f0c32bd2a58c0497e62501dd7e4d6c" id="r_a55f0c32bd2a58c0497e62501dd7e4d6c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a55f0c32bd2a58c0497e62501dd7e4d6c">PWM_SENSOR_TEMP_PERIOD_MIN</a>&#160;&#160;&#160;3900</td></tr>
+<tr class="memdesc:a55f0c32bd2a58c0497e62501dd7e4d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum period in clock ticks.  <br /></td></tr>
 <tr class="memitem:afab3b81df73dbaa673b2eeaa887b6d70" id="r_afab3b81df73dbaa673b2eeaa887b6d70"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afab3b81df73dbaa673b2eeaa887b6d70">PWM_SENSOR_TEMP_PERIOD_MAX</a>&#160;&#160;&#160;4200</td></tr>
+<tr class="memdesc:afab3b81df73dbaa673b2eeaa887b6d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum period for valid temperature pulse.  <br /></td></tr>
 <tr class="memitem:a58cd29a5e3b8d67cdf9632c9d04d806c" id="r_a58cd29a5e3b8d67cdf9632c9d04d806c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a58cd29a5e3b8d67cdf9632c9d04d806c">PWM_SENSOR_TEMP_VALUE_MIN</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:a58cd29a5e3b8d67cdf9632c9d04d806c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum pulse width (0°C).  <br /></td></tr>
 <tr class="memitem:a8cbce33da1267d8f49659f57b8d529ca" id="r_a8cbce33da1267d8f49659f57b8d529ca"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8cbce33da1267d8f49659f57b8d529ca">PWM_SENSOR_TEMP_VALUE_MAX</a>&#160;&#160;&#160;4050</td></tr>
+<tr class="memdesc:a8cbce33da1267d8f49659f57b8d529ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum pulse width (150°C).  <br /></td></tr>
 <tr class="memitem:a62129ed73707ffaf613d6c32ff03e046" id="r_a62129ed73707ffaf613d6c32ff03e046"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a62129ed73707ffaf613d6c32ff03e046">PWM_SENSOR_TEMP_CALC_VALUE_1</a>&#160;&#160;&#160;-896.0</td></tr>
+<tr class="memdesc:a62129ed73707ffaf613d6c32ff03e046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature offset constant.  <br /></td></tr>
 <tr class="memitem:af0a868f1ccd5354d5478d9bf35f69177" id="r_af0a868f1ccd5354d5478d9bf35f69177"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af0a868f1ccd5354d5478d9bf35f69177">PWM_SENSOR_TEMP_CALC_VALUE_2</a>&#160;&#160;&#160;19.2</td></tr>
+<tr class="memdesc:af0a868f1ccd5354d5478d9bf35f69177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature slope (must not be zero).  <br /></td></tr>
 <tr class="memitem:a8676d54ad404b8bfcae3dfaec81ca603" id="r_a8676d54ad404b8bfcae3dfaec81ca603"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8676d54ad404b8bfcae3dfaec81ca603">PWM_SENSOR_PRES_PULSE_ID</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a8676d54ad404b8bfcae3dfaec81ca603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure sensor pulse configuration from Hella datasheet.  <br /></td></tr>
 <tr class="memitem:a9d6e0e2c6932590f60dd49a3f2e396bf" id="r_a9d6e0e2c6932590f60dd49a3f2e396bf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9d6e0e2c6932590f60dd49a3f2e396bf">PWM_SENSOR_PRES_PERIOD_MIN</a>&#160;&#160;&#160;3900</td></tr>
+<tr class="memdesc:a9d6e0e2c6932590f60dd49a3f2e396bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum period in clock ticks.  <br /></td></tr>
 <tr class="memitem:a363b8125f33a44f49beb9b675a50f34d" id="r_a363b8125f33a44f49beb9b675a50f34d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a363b8125f33a44f49beb9b675a50f34d">PWM_SENSOR_PRES_PERIOD_MAX</a>&#160;&#160;&#160;4200</td></tr>
+<tr class="memdesc:a363b8125f33a44f49beb9b675a50f34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum period for valid pressure pulse.  <br /></td></tr>
 <tr class="memitem:abac0ce5b828908a277b01535226e4a80" id="r_abac0ce5b828908a277b01535226e4a80"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abac0ce5b828908a277b01535226e4a80">PWM_SENSOR_PRES_VALUE_MIN</a>&#160;&#160;&#160;50</td></tr>
+<tr class="memdesc:abac0ce5b828908a277b01535226e4a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum pulse width (0 bar).  <br /></td></tr>
 <tr class="memitem:afa703f909b055df7fc07f2241e708db9" id="r_afa703f909b055df7fc07f2241e708db9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afa703f909b055df7fc07f2241e708db9">PWM_SENSOR_PRES_VALUE_MAX</a>&#160;&#160;&#160;4050</td></tr>
+<tr class="memdesc:afa703f909b055df7fc07f2241e708db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum pulse width (6 bar).  <br /></td></tr>
 <tr class="memitem:af0cc7d1ac9ce1cbec113f76aa53300f1" id="r_af0cc7d1ac9ce1cbec113f76aa53300f1"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af0cc7d1ac9ce1cbec113f76aa53300f1">PWM_SENSOR_PRES_CALC_VALUE_1</a>&#160;&#160;&#160;64.0</td></tr>
+<tr class="memdesc:af0cc7d1ac9ce1cbec113f76aa53300f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure offset constant.  <br /></td></tr>
 <tr class="memitem:a34b83d85fa8c5a17bb19a953beac266d" id="r_a34b83d85fa8c5a17bb19a953beac266d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a34b83d85fa8c5a17bb19a953beac266d">PWM_SENSOR_PRES_CALC_VALUE_2</a>&#160;&#160;&#160;384</td></tr>
+<tr class="memdesc:a34b83d85fa8c5a17bb19a953beac266d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure slope (must not be zero).  <br /></td></tr>
 <tr class="memitem:a9ddd92aca8612c0d09957aa7cc5a9f36" id="r_a9ddd92aca8612c0d09957aa7cc5a9f36"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9ddd92aca8612c0d09957aa7cc5a9f36">PWM_SENSOR_MAX_SENSOR_COUNT</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a9ddd92aca8612c0d09957aa7cc5a9f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of sensors on PWM bus.  <br /></td></tr>
 <tr class="memitem:aaea767524059ac76b32479e382c20381" id="r_aaea767524059ac76b32479e382c20381"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aaea767524059ac76b32479e382c20381">PWM_ADC_SWTICH_VALUE_PWM</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memdesc:aaea767524059ac76b32479e382c20381"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM/ADC selector for sensor input mode.  <br /></td></tr>
 <tr class="memitem:a2cade698267beb86ccaa38c14d35ab0f" id="r_a2cade698267beb86ccaa38c14d35ab0f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2cade698267beb86ccaa38c14d35ab0f">I2C_SDA_PIN</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:a2cade698267beb86ccaa38c14d35ab0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C bus GPIO pins and clock configuration for RTC communication.  <br /></td></tr>
 <tr class="memitem:a0e4e08bab2fb484136d18b067bef372c" id="r_a0e4e08bab2fb484136d18b067bef372c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0e4e08bab2fb484136d18b067bef372c">I2C_SCL_PIN</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:a0e4e08bab2fb484136d18b067bef372c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial Clock pin for I2C bus.  <br /></td></tr>
 <tr class="memitem:aeed45b5fe842c931fe0732bad3dd29f9" id="r_aeed45b5fe842c931fe0732bad3dd29f9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aeed45b5fe842c931fe0732bad3dd29f9">I2C_CLK_SRC</a>&#160;&#160;&#160;I2C_CLK_SRC_DEFAULT</td></tr>
+<tr class="memdesc:aeed45b5fe842c931fe0732bad3dd29f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default clock source.  <br /></td></tr>
 <tr class="memitem:ad9ecf80e1eac083d16ec47f9d3aeb39f" id="r_ad9ecf80e1eac083d16ec47f9d3aeb39f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad9ecf80e1eac083d16ec47f9d3aeb39f">I2C_PORT</a>&#160;&#160;&#160;I2C_NUM_0</td></tr>
+<tr class="memdesc:ad9ecf80e1eac083d16ec47f9d3aeb39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C controller number.  <br /></td></tr>
 <tr class="memitem:a70862c98ff5bb54336cd13a6c5781eba" id="r_a70862c98ff5bb54336cd13a6c5781eba"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a70862c98ff5bb54336cd13a6c5781eba">I2C_GLITCH_IGNORE</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:a70862c98ff5bb54336cd13a6c5781eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Glitch filter threshold (clock cycles).  <br /></td></tr>
 <tr class="memitem:a4ecb1067d3291cdb412f8884267f6f50" id="r_a4ecb1067d3291cdb412f8884267f6f50"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4ecb1067d3291cdb412f8884267f6f50">I2C_INT_PULLUP_ENB</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:a4ecb1067d3291cdb412f8884267f6f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use external pull-ups (not internal).  <br /></td></tr>
 <tr class="memitem:a2bce6a195f2fde9c275b9cb21e5d574c" id="r_a2bce6a195f2fde9c275b9cb21e5d574c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2bce6a195f2fde9c275b9cb21e5d574c">RTC_ADDR_LENGTH</a>&#160;&#160;&#160;I2C_ADDR_BIT_LEN_7</td></tr>
+<tr class="memdesc:a2bce6a195f2fde9c275b9cb21e5d574c"><td class="mdescLeft">&#160;</td><td class="mdescRight">7-bit I2C addressing  <br /></td></tr>
 <tr class="memitem:a39b3f976a18466171902d0705c9a87f8" id="r_a39b3f976a18466171902d0705c9a87f8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a39b3f976a18466171902d0705c9a87f8">RTC_SCL_SPEED_HZ</a>&#160;&#160;&#160;100000</td></tr>
+<tr class="memdesc:a39b3f976a18466171902d0705c9a87f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C clock speed (100 kHz standard mode).  <br /></td></tr>
 <tr class="memitem:a7b029584460e6c5f08309544cbfc3eee" id="r_a7b029584460e6c5f08309544cbfc3eee"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7b029584460e6c5f08309544cbfc3eee">RTC_DS3231_ADDR</a>&#160;&#160;&#160;0x68</td></tr>
+<tr class="memdesc:a7b029584460e6c5f08309544cbfc3eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C device addresses for connected sensors.  <br /></td></tr>
 <tr class="memitem:acbaf68d847014d9eb06775dc1c082f40" id="r_acbaf68d847014d9eb06775dc1c082f40"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#acbaf68d847014d9eb06775dc1c082f40">ADC_UNIT_NUMBER</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:acbaf68d847014d9eb06775dc1c082f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC unit setup and hardware configuration.  <br /></td></tr>
 <tr class="memitem:a0b8305ed6e3e4f159323b92cd8f6841f" id="r_a0b8305ed6e3e4f159323b92cd8f6841f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0b8305ed6e3e4f159323b92cd8f6841f">ADC_UNIT_1_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
+<tr class="memdesc:a0b8305ed6e3e4f159323b92cd8f6841f"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 resolution (default = 12-bit).  <br /></td></tr>
 <tr class="memitem:a83d11d63ce9a953633174fde69127d81" id="r_a83d11d63ce9a953633174fde69127d81"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a83d11d63ce9a953633174fde69127d81">ADC_UNIT_2_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
+<tr class="memdesc:a83d11d63ce9a953633174fde69127d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC2 resolution (default = 12-bit).  <br /></td></tr>
 <tr class="memitem:ac9df11e98fcd52b19ed0571616710ac7" id="r_ac9df11e98fcd52b19ed0571616710ac7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac9df11e98fcd52b19ed0571616710ac7">ADC_UNIT_1_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
+<tr class="memdesc:ac9df11e98fcd52b19ed0571616710ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 attenuation (±3.3V range).  <br /></td></tr>
 <tr class="memitem:aafb2cac68cdf6dabcccd98b6aca9fa25" id="r_aafb2cac68cdf6dabcccd98b6aca9fa25"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aafb2cac68cdf6dabcccd98b6aca9fa25">ADC_UNIT_2_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
+<tr class="memdesc:aafb2cac68cdf6dabcccd98b6aca9fa25"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC2 attenuation (±3.3V range).  <br /></td></tr>
 <tr class="memitem:a46936bf47259b803d429e6af362abe3e" id="r_a46936bf47259b803d429e6af362abe3e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a46936bf47259b803d429e6af362abe3e">ADC_OIL_PRESSURE_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_1</td></tr>
+<tr class="memdesc:a46936bf47259b803d429e6af362abe3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oil pressure sensor ADC configuration.  <br /></td></tr>
 <tr class="memitem:acf5f8ac35417730c96f7ab0196b70879" id="r_acf5f8ac35417730c96f7ab0196b70879"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#acf5f8ac35417730c96f7ab0196b70879">ADC_OIL_PRESSURE_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:a17fb5aea8fdf48bbb414ee58ca1b0f68" id="r_a17fb5aea8fdf48bbb414ee58ca1b0f68"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a17fb5aea8fdf48bbb414ee58ca1b0f68">ADC_OIL_PRESSURE_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:aee7ad521dd601be729f927aa9c8b14a2" id="r_aee7ad521dd601be729f927aa9c8b14a2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aee7ad521dd601be729f927aa9c8b14a2">ADC_OIL_PRESSURE_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_3</td></tr>
 <tr class="memitem:a84103ab723ce6ce397117368e3d0569b" id="r_a84103ab723ce6ce397117368e3d0569b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a84103ab723ce6ce397117368e3d0569b">ADC_OIL_TEMPERATURE_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_1</td></tr>
+<tr class="memdesc:a84103ab723ce6ce397117368e3d0569b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oil temperature sensor ADC configuration.  <br /></td></tr>
 <tr class="memitem:a4a397c9a1cc3d2f0f36a21a99b9e2f36" id="r_a4a397c9a1cc3d2f0f36a21a99b9e2f36"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4a397c9a1cc3d2f0f36a21a99b9e2f36">ADC_OIL_TEMPERATURE_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:ac018ccf6f9d50cafd4c8d9f413629f97" id="r_ac018ccf6f9d50cafd4c8d9f413629f97"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac018ccf6f9d50cafd4c8d9f413629f97">ADC_OIL_TEMPERATURE_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:aa9780dbdaba7eac4afc7e4db35a5494b" id="r_aa9780dbdaba7eac4afc7e4db35a5494b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa9780dbdaba7eac4afc7e4db35a5494b">ADC_OIL_TEMPERATURE_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_6</td></tr>
 <tr class="memitem:a81a58e3ffd1e321af06e0625393288ca" id="r_a81a58e3ffd1e321af06e0625393288ca"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a81a58e3ffd1e321af06e0625393288ca">ADC_OUT_TEMPERATURE_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_1</td></tr>
+<tr class="memdesc:a81a58e3ffd1e321af06e0625393288ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outdoor temperature sensor ADC configuration.  <br /></td></tr>
 <tr class="memitem:abfab26e093f2e08d4dd7d77b19bc6206" id="r_abfab26e093f2e08d4dd7d77b19bc6206"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abfab26e093f2e08d4dd7d77b19bc6206">ADC_OUT_TEMPERATURE_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:a61201f09e7d2f1e4c963cf6993309264" id="r_a61201f09e7d2f1e4c963cf6993309264"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a61201f09e7d2f1e4c963cf6993309264">ADC_OUT_TEMPERATURE_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:a281396c3e7dae72c804676c28cb303e2" id="r_a281396c3e7dae72c804676c28cb303e2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a281396c3e7dae72c804676c28cb303e2">ADC_OUT_TEMPERATURE_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_7</td></tr>
 <tr class="memitem:a025b8e9d5b2e9b4d4b0478c76bf17c55" id="r_a025b8e9d5b2e9b4d4b0478c76bf17c55"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a025b8e9d5b2e9b4d4b0478c76bf17c55">ADC_OIL_12V_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_2</td></tr>
+<tr class="memdesc:a025b8e9d5b2e9b4d4b0478c76bf17c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Battery 12V voltage divider ADC configuration.  <br /></td></tr>
 <tr class="memitem:ae2f7764e156fd652375ca1fc0f8a6b5f" id="r_ae2f7764e156fd652375ca1fc0f8a6b5f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae2f7764e156fd652375ca1fc0f8a6b5f">ADC_OIL_12V_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:ac66e8592cd9d930543dcef0a4152b6a4" id="r_ac66e8592cd9d930543dcef0a4152b6a4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac66e8592cd9d930543dcef0a4152b6a4">ADC_OIL_12V_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:aac7e1cd64ac07968fe0c25846b01c958" id="r_aac7e1cd64ac07968fe0c25846b01c958"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aac7e1cd64ac07968fe0c25846b01c958">ADC_OIL_12V_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_4</td></tr>
 <tr class="memitem:af1bb07239f438e05aa43b3d81d1023c0" id="r_af1bb07239f438e05aa43b3d81d1023c0"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af1bb07239f438e05aa43b3d81d1023c0">ADC_AMBI_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_2</td></tr>
+<tr class="memdesc:af1bb07239f438e05aa43b3d81d1023c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ambient brightness sensor ADC configuration.  <br /></td></tr>
 <tr class="memitem:a317cc682cfe7495672b88965c8f2d07f" id="r_a317cc682cfe7495672b88965c8f2d07f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a317cc682cfe7495672b88965c8f2d07f">ADC_AMBI_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:a0ffd40d2174aa775bc8f685489d5f6de" id="r_a0ffd40d2174aa775bc8f685489d5f6de"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0ffd40d2174aa775bc8f685489d5f6de">ADC_AMBI_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:a76d75e63c480eee8a318b38f55ea6c51" id="r_a76d75e63c480eee8a318b38f55ea6c51"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a76d75e63c480eee8a318b38f55ea6c51">ADC_AMBI_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_5</td></tr>
 <tr class="memitem:a11254fe7a2f78062a87865e76896384e" id="r_a11254fe7a2f78062a87865e76896384e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a11254fe7a2f78062a87865e76896384e">ADC_3V3_UNIT_ID</a>&#160;&#160;&#160;ADC_UNIT_2</td></tr>
+<tr class="memdesc:a11254fe7a2f78062a87865e76896384e"><td class="mdescLeft">&#160;</td><td class="mdescRight">3.3V reference voltage ADC configuration (for system diagnostics).  <br /></td></tr>
 <tr class="memitem:a1ca87fe512b3aa5f3a8a28817c19a640" id="r_a1ca87fe512b3aa5f3a8a28817c19a640"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1ca87fe512b3aa5f3a8a28817c19a640">ADC_3V3_BITWIDTH</a>&#160;&#160;&#160;ADC_BITWIDTH_DEFAULT</td></tr>
 <tr class="memitem:a31ee758532a6da1e5f0e67c8aaa42d2f" id="r_a31ee758532a6da1e5f0e67c8aaa42d2f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a31ee758532a6da1e5f0e67c8aaa42d2f">ADC_3V3_ATTEN</a>&#160;&#160;&#160;ADC_ATTEN_DB_12</td></tr>
 <tr class="memitem:aa3491561c5517c4417cbad35b1620a5f" id="r_aa3491561c5517c4417cbad35b1620a5f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa3491561c5517c4417cbad35b1620a5f">ADC_3V3_CHANNEL</a>&#160;&#160;&#160;ADC_CHANNEL_3</td></tr>
 <tr class="memitem:a285914aba5f748beb371823980bcd7a7" id="r_a285914aba5f748beb371823980bcd7a7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a285914aba5f748beb371823980bcd7a7">ADC_MAX_V_VALID</a>&#160;&#160;&#160;3.25f</td></tr>
+<tr class="memdesc:a285914aba5f748beb371823980bcd7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC reference voltage and measurement configuration.  <br /></td></tr>
 <tr class="memitem:a8b0ba4b1769c2968e594c5a5642dac0d" id="r_a8b0ba4b1769c2968e594c5a5642dac0d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a8b0ba4b1769c2968e594c5a5642dac0d">ADC_ADS_REF_V</a>&#160;&#160;&#160;3.3f</td></tr>
+<tr class="memdesc:a8b0ba4b1769c2968e594c5a5642dac0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC reference voltage (typically 3.3V).  <br /></td></tr>
 <tr class="memitem:a242963742b7af57917f87d0f3a95edbf" id="r_a242963742b7af57917f87d0f3a95edbf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a242963742b7af57917f87d0f3a95edbf">ADC_FAIL_VALUE</a>&#160;&#160;&#160;-99.0f</td></tr>
+<tr class="memdesc:a242963742b7af57917f87d0f3a95edbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error return value for failed readings.  <br /></td></tr>
 <tr class="memitem:ad7feacb850cd11f0dfc20cd2e3ff30bf" id="r_ad7feacb850cd11f0dfc20cd2e3ff30bf"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad7feacb850cd11f0dfc20cd2e3ff30bf">ADC_VOLT_PULLUP</a>&#160;&#160;&#160;10000.0f</td></tr>
+<tr class="memdesc:ad7feacb850cd11f0dfc20cd2e3ff30bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage divider pull-up and pull-down resistor values.  <br /></td></tr>
 <tr class="memitem:aa0a06b6bbbc1361c162e0e0ca523f2e7" id="r_aa0a06b6bbbc1361c162e0e0ca523f2e7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa0a06b6bbbc1361c162e0e0ca523f2e7">ADC_VOLT_PULLDOWN</a>&#160;&#160;&#160;1500.0f</td></tr>
+<tr class="memdesc:aa0a06b6bbbc1361c162e0e0ca523f2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - main voltage divider pull-down.  <br /></td></tr>
 <tr class="memitem:ac2767badf99aab598b4b7d8a2b48fe97" id="r_ac2767badf99aab598b4b7d8a2b48fe97"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac2767badf99aab598b4b7d8a2b48fe97">ADC_VOLT_BEL_PULLUP</a>&#160;&#160;&#160;10000.0f</td></tr>
+<tr class="memdesc:ac2767badf99aab598b4b7d8a2b48fe97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - brightness feedback pull-up.  <br /></td></tr>
 <tr class="memitem:a1df3d4652f5f8312fca8b9c9bab5f1ae" id="r_a1df3d4652f5f8312fca8b9c9bab5f1ae"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1df3d4652f5f8312fca8b9c9bab5f1ae">ADC_VOLT_BEL_PULLDOWN</a>&#160;&#160;&#160;2200.0f</td></tr>
+<tr class="memdesc:a1df3d4652f5f8312fca8b9c9bab5f1ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - brightness feedback pull-down.  <br /></td></tr>
 <tr class="memitem:ae84b19ecf92a32b87ca34a861e47756e" id="r_ae84b19ecf92a32b87ca34a861e47756e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae84b19ecf92a32b87ca34a861e47756e">ADC_TEMP_PULLUP</a>&#160;&#160;&#160;680.0f</td></tr>
+<tr class="memdesc:ae84b19ecf92a32b87ca34a861e47756e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - temperature sensor pull-up.  <br /></td></tr>
 <tr class="memitem:a5e1d2a9419088b70af1fdba4fd863189" id="r_a5e1d2a9419088b70af1fdba4fd863189"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5e1d2a9419088b70af1fdba4fd863189">ADC_PRES_PULLUP</a>&#160;&#160;&#160;680.0f</td></tr>
+<tr class="memdesc:a5e1d2a9419088b70af1fdba4fd863189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - pressure sensor pull-up.  <br /></td></tr>
 <tr class="memitem:ab8a9955d48f5824dc64f4ef66e815a79" id="r_ab8a9955d48f5824dc64f4ef66e815a79"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab8a9955d48f5824dc64f4ef66e815a79">ADC_OUT_TEMP_PULLUP</a>&#160;&#160;&#160;4700.0f</td></tr>
+<tr class="memdesc:ab8a9955d48f5824dc64f4ef66e815a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - outdoor temperature pull-up.  <br /></td></tr>
 <tr class="memitem:a2f298169d225ab92b89d9c2030904a1e" id="r_a2f298169d225ab92b89d9c2030904a1e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2f298169d225ab92b89d9c2030904a1e">ADC_3V3_PULLUP</a>&#160;&#160;&#160;1000.0f</td></tr>
+<tr class="memdesc:a2f298169d225ab92b89d9c2030904a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - 3.3V reference pull-up.  <br /></td></tr>
 <tr class="memitem:ac717e1ca05e769f46b9fa4a7bd6e3e07" id="r_ac717e1ca05e769f46b9fa4a7bd6e3e07"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac717e1ca05e769f46b9fa4a7bd6e3e07">ADC_3V3_PULLDOWN</a>&#160;&#160;&#160;1000.0f</td></tr>
+<tr class="memdesc:ac717e1ca05e769f46b9fa4a7bd6e3e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - 3.3V reference pull-down.  <br /></td></tr>
 <tr class="memitem:a5a3a241109b126b47e0550a573ec580d" id="r_a5a3a241109b126b47e0550a573ec580d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5a3a241109b126b47e0550a573ec580d">ADC_TEMP_VAL_TO_FAIL_MIN</a>&#160;&#160;&#160;-50</td></tr>
+<tr class="memdesc:a5a3a241109b126b47e0550a573ec580d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor failure detection thresholds.  <br /></td></tr>
 <tr class="memitem:a05a65fe7ba40c892ef5ebf69c0df5476" id="r_a05a65fe7ba40c892ef5ebf69c0df5476"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a05a65fe7ba40c892ef5ebf69c0df5476">ADC_PRES_VAL_TO_FAIL_MIN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a05a65fe7ba40c892ef5ebf69c0df5476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid oil pressure (bar).  <br /></td></tr>
 <tr class="memitem:a35321ea1e43a0ffeb1ac4182e08b7fe9" id="r_a35321ea1e43a0ffeb1ac4182e08b7fe9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a35321ea1e43a0ffeb1ac4182e08b7fe9">ADC_PRES_VAL_TO_FAIL_MAX</a>&#160;&#160;&#160;250.0f</td></tr>
+<tr class="memdesc:a35321ea1e43a0ffeb1ac4182e08b7fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid oil pressure (bar).  <br /></td></tr>
 <tr class="memitem:aed220111a2dc764c69ba0319ecfd88ce" id="r_aed220111a2dc764c69ba0319ecfd88ce"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aed220111a2dc764c69ba0319ecfd88ce">ADC_OUT_TEMP_VAL_TO_FAIL_MIN</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:aed220111a2dc764c69ba0319ecfd88ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid outdoor temperature range.  <br /></td></tr>
 <tr class="memitem:a112c2029c51c7e5bb29d43717322d72a" id="r_a112c2029c51c7e5bb29d43717322d72a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a112c2029c51c7e5bb29d43717322d72a">ADC_OUT_TEMP_VAL_TO_FAIL_MAX</a>&#160;&#160;&#160;150000.0f</td></tr>
+<tr class="memdesc:a112c2029c51c7e5bb29d43717322d72a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid outdoor temperature range.  <br /></td></tr>
 <tr class="memitem:a4cf7cd1aa28b62c773ee780a48a1155b" id="r_a4cf7cd1aa28b62c773ee780a48a1155b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4cf7cd1aa28b62c773ee780a48a1155b">ADC_PRES_VAL_MIN_R</a>&#160;&#160;&#160;10.0f</td></tr>
+<tr class="memdesc:a4cf7cd1aa28b62c773ee780a48a1155b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure sensor resistance range mapping.  <br /></td></tr>
 <tr class="memitem:a10f236472302f776e5f59a2ba162fc59" id="r_a10f236472302f776e5f59a2ba162fc59"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a10f236472302f776e5f59a2ba162fc59">ADC_PRES_VAL_MAX_R</a>&#160;&#160;&#160;184.0f</td></tr>
+<tr class="memdesc:a10f236472302f776e5f59a2ba162fc59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ohms - maximum sensor resistance (6 bar).  <br /></td></tr>
 <tr class="memitem:a39a22552383ce496715a4fe01d75f5d4" id="r_a39a22552383ce496715a4fe01d75f5d4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a39a22552383ce496715a4fe01d75f5d4">VALUE_DEFAULT_PRES</a>&#160;&#160;&#160;0.0</td></tr>
+<tr class="memdesc:a39a22552383ce496715a4fe01d75f5d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default and range limit values for sensor readings.  <br /></td></tr>
 <tr class="memitem:a51292f041e82c58f1768774ded54d178" id="r_a51292f041e82c58f1768774ded54d178"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a51292f041e82c58f1768774ded54d178">VALUE_DEFAULT_TEMP</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a51292f041e82c58f1768774ded54d178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default oil temperature on startup (°C).  <br /></td></tr>
 <tr class="memitem:a4ed78a05f48a46cc6d56abe257b6169c" id="r_a4ed78a05f48a46cc6d56abe257b6169c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a4ed78a05f48a46cc6d56abe257b6169c">VALUE_DEFAULT_VOLT</a>&#160;&#160;&#160;8.0</td></tr>
+<tr class="memdesc:a4ed78a05f48a46cc6d56abe257b6169c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default battery voltage on startup (volts).  <br /></td></tr>
 <tr class="memitem:a5e4d45725c6067172c1a6f0700b75680" id="r_a5e4d45725c6067172c1a6f0700b75680"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5e4d45725c6067172c1a6f0700b75680">VALUE_DEFAULT_OUT_TEMP</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a5e4d45725c6067172c1a6f0700b75680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default outdoor temperature on startup (°C).  <br /></td></tr>
 <tr class="memitem:a7bb8dd7de2daf1cdafcee3fe8cefb531" id="r_a7bb8dd7de2daf1cdafcee3fe8cefb531"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7bb8dd7de2daf1cdafcee3fe8cefb531">VALUE_DEFAULT_BRIGHT</a>&#160;&#160;&#160;<a class="el" href="#a5755272baaeeb1a610b6f88e7afeb2d3">BRIGHTNESS_DAY</a></td></tr>
+<tr class="memdesc:a7bb8dd7de2daf1cdafcee3fe8cefb531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default brightness (day mode).  <br /></td></tr>
 <tr class="memitem:a14638646c96162fc5ef0bcdcdff09713" id="r_a14638646c96162fc5ef0bcdcdff09713"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a14638646c96162fc5ef0bcdcdff09713">VALUE_DEFAULT_NIGHT_MODE</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:a14638646c96162fc5ef0bcdcdff09713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Night mode off by default.  <br /></td></tr>
 <tr class="memitem:a371c597eddcd4c669475093d169c082a" id="r_a371c597eddcd4c669475093d169c082a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a371c597eddcd4c669475093d169c082a">VALUE_MIN_PRES</a>&#160;&#160;&#160;<a class="el" href="#a39a22552383ce496715a4fe01d75f5d4">VALUE_DEFAULT_PRES</a></td></tr>
+<tr class="memdesc:a371c597eddcd4c669475093d169c082a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid sensor values (below indicates error or disconnection).  <br /></td></tr>
 <tr class="memitem:a524c7577eb39a5a60010cb5af17a34c8" id="r_a524c7577eb39a5a60010cb5af17a34c8"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a524c7577eb39a5a60010cb5af17a34c8">VALUE_MIN_TEMP</a>&#160;&#160;&#160;<a class="el" href="#a51292f041e82c58f1768774ded54d178">VALUE_DEFAULT_TEMP</a></td></tr>
+<tr class="memdesc:a524c7577eb39a5a60010cb5af17a34c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid temperature (0°C).  <br /></td></tr>
 <tr class="memitem:adb5acc4553fc99bba16ddf670569e93c" id="r_adb5acc4553fc99bba16ddf670569e93c"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#adb5acc4553fc99bba16ddf670569e93c">VALUE_MIN_VOLT</a>&#160;&#160;&#160;<a class="el" href="#a4ed78a05f48a46cc6d56abe257b6169c">VALUE_DEFAULT_VOLT</a></td></tr>
+<tr class="memdesc:adb5acc4553fc99bba16ddf670569e93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid voltage (8V - automotive minimum).  <br /></td></tr>
 <tr class="memitem:a230b35e74f5f229ad706ad5c127bf342" id="r_a230b35e74f5f229ad706ad5c127bf342"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a230b35e74f5f229ad706ad5c127bf342">VALUE_MIN_OUT_TEMP</a>&#160;&#160;&#160;-30</td></tr>
+<tr class="memdesc:a230b35e74f5f229ad706ad5c127bf342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum valid outdoor temperature (-30°C).  <br /></td></tr>
 <tr class="memitem:a0b6330ab63e0a8f7ee9dcd19d42faedc" id="r_a0b6330ab63e0a8f7ee9dcd19d42faedc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0b6330ab63e0a8f7ee9dcd19d42faedc">VALUE_MAX_PRES</a>&#160;&#160;&#160;6.0</td></tr>
+<tr class="memdesc:a0b6330ab63e0a8f7ee9dcd19d42faedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid sensor values (above indicates error or over-range).  <br /></td></tr>
 <tr class="memitem:ac1ba699ae485cacc498a67a54b952f4d" id="r_ac1ba699ae485cacc498a67a54b952f4d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac1ba699ae485cacc498a67a54b952f4d">VALUE_MAX_TEMP</a>&#160;&#160;&#160;150</td></tr>
+<tr class="memdesc:ac1ba699ae485cacc498a67a54b952f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid temperature (150°C).  <br /></td></tr>
 <tr class="memitem:a962b50e1e4c01928d2326ebe463ceb5b" id="r_a962b50e1e4c01928d2326ebe463ceb5b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a962b50e1e4c01928d2326ebe463ceb5b">VALUE_MAX_VOLT</a>&#160;&#160;&#160;16.0</td></tr>
+<tr class="memdesc:a962b50e1e4c01928d2326ebe463ceb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid voltage (16V - charging system max).  <br /></td></tr>
 <tr class="memitem:ab83d8677103a7081d5a8496188025b0b" id="r_ab83d8677103a7081d5a8496188025b0b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab83d8677103a7081d5a8496188025b0b">VALUE_MAX_OUT_TEMP</a>&#160;&#160;&#160;70</td></tr>
+<tr class="memdesc:ab83d8677103a7081d5a8496188025b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum valid outdoor temperature (70°C).  <br /></td></tr>
 <tr class="memitem:a91a055e359a2f748c8ed6c82f9de4342" id="r_a91a055e359a2f748c8ed6c82f9de4342"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a91a055e359a2f748c8ed6c82f9de4342">VALUE_OVERSAMPLING_OIL_PRES</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a91a055e359a2f748c8ed6c82f9de4342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor value oversampling counts and exponential filter coefficients.  <br /></td></tr>
 <tr class="memitem:aa604e599ee1ccecf3ff34c1ca823f79f" id="r_aa604e599ee1ccecf3ff34c1ca823f79f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa604e599ee1ccecf3ff34c1ca823f79f">VALUE_OVERSAMPLING_OIL_TEMP</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:aa604e599ee1ccecf3ff34c1ca823f79f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average 5 temperature readings.  <br /></td></tr>
 <tr class="memitem:a3de208e79149e57e550f44426a24534a" id="r_a3de208e79149e57e550f44426a24534a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3de208e79149e57e550f44426a24534a">VALUE_OVERSAMPLING_VOLT</a>&#160;&#160;&#160;4</td></tr>
+<tr class="memdesc:a3de208e79149e57e550f44426a24534a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average 4 voltage readings.  <br /></td></tr>
 <tr class="memitem:a6f65cd3aaeb74764610aa254f44be66f" id="r_a6f65cd3aaeb74764610aa254f44be66f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6f65cd3aaeb74764610aa254f44be66f">VALUE_OVERSAMPLING_OUT_TEMP</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:a6f65cd3aaeb74764610aa254f44be66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average 5 outdoor temperature readings.  <br /></td></tr>
 <tr class="memitem:a9bf78b4133604c1271bfb43ac4f4ee2d" id="r_a9bf78b4133604c1271bfb43ac4f4ee2d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9bf78b4133604c1271bfb43ac4f4ee2d">VALUE_OVERSAMPLING_BRIGHT</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a9bf78b4133604c1271bfb43ac4f4ee2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average 10 brightness readings.  <br /></td></tr>
 <tr class="memitem:a9b28c36c5d3b751e4ca37f480db0ee1b" id="r_a9b28c36c5d3b751e4ca37f480db0ee1b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a9b28c36c5d3b751e4ca37f480db0ee1b">FILTER_ALPHA_OIL_PRES</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memdesc:a9b28c36c5d3b751e4ca37f480db0ee1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exponential moving average filter coefficients for noise reduction.  <br /></td></tr>
 <tr class="memitem:a321a601bd06f44a3acf6078e17691c3f" id="r_a321a601bd06f44a3acf6078e17691c3f"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a321a601bd06f44a3acf6078e17691c3f">FILTER_ALPHA_OIL_TEMP</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memdesc:a321a601bd06f44a3acf6078e17691c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature smoothing factor.  <br /></td></tr>
 <tr class="memitem:a7e8f64192a152596917ed3f32f26f1a1" id="r_a7e8f64192a152596917ed3f32f26f1a1"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7e8f64192a152596917ed3f32f26f1a1">FILTER_ALPHA_VOLT</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memdesc:a7e8f64192a152596917ed3f32f26f1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage smoothing factor.  <br /></td></tr>
 <tr class="memitem:ac0160d591fd8a0b2995edaa0ed3277ec" id="r_ac0160d591fd8a0b2995edaa0ed3277ec"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac0160d591fd8a0b2995edaa0ed3277ec">FILTER_ALPHA_OUT_TEMP</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memdesc:ac0160d591fd8a0b2995edaa0ed3277ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outdoor temperature smoothing factor.  <br /></td></tr>
 <tr class="memitem:a0aba378a08cd6b071ab97d7ec085020b" id="r_a0aba378a08cd6b071ab97d7ec085020b"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0aba378a08cd6b071ab97d7ec085020b">FILTER_ALPHA_BEL</a>&#160;&#160;&#160;0.1f</td></tr>
+<tr class="memdesc:a0aba378a08cd6b071ab97d7ec085020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness smoothing factor.  <br /></td></tr>
+<tr class="memitem:a6035b876ba62c9deb3694d0baa08e231" id="r_a6035b876ba62c9deb3694d0baa08e231"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:a6035b876ba62c9deb3694d0baa08e231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor measurement timing configuration.  <br /></td></tr>
+<tr class="memitem:a0d806d9e4d224c3d843596a118502cda" id="r_a0d806d9e4d224c3d843596a118502cda"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0d806d9e4d224c3d843596a118502cda">MEASURE_DELAY_TIME_1_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a></td></tr>
+<tr class="memdesc:a0d806d9e4d224c3d843596a118502cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 1 update interval (25ms).  <br /></td></tr>
+<tr class="memitem:abbb18ebcc6f9d6e12561d0d093bdc429" id="r_abbb18ebcc6f9d6e12561d0d093bdc429"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#abbb18ebcc6f9d6e12561d0d093bdc429">MEASURE_DELAY_TIME_2_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
+<tr class="memdesc:abbb18ebcc6f9d6e12561d0d093bdc429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 2 update interval (125ms).  <br /></td></tr>
+<tr class="memitem:a77a3118ca39eea76bd706c60b8cd39e6" id="r_a77a3118ca39eea76bd706c60b8cd39e6"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a77a3118ca39eea76bd706c60b8cd39e6">MEASURE_DELAY_TIME_3_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 2</td></tr>
+<tr class="memdesc:a77a3118ca39eea76bd706c60b8cd39e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 3 update interval (50ms).  <br /></td></tr>
+<tr class="memitem:a2e38659375d30ce125ce55521de0da5a" id="r_a2e38659375d30ce125ce55521de0da5a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2e38659375d30ce125ce55521de0da5a">MEASURE_DELAY_TIME_4_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
+<tr class="memdesc:a2e38659375d30ce125ce55521de0da5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display 4 update interval (125ms).  <br /></td></tr>
+<tr class="memitem:a3494bcac8e0b3ef66592697416092de3" id="r_a3494bcac8e0b3ef66592697416092de3"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a3494bcac8e0b3ef66592697416092de3">MEASURE_DELAY_TIME_BRIGHT_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td></tr>
+<tr class="memdesc:a3494bcac8e0b3ef66592697416092de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brightness update interval (125ms).  <br /></td></tr>
+<tr class="memitem:a7be6bba1f17d8e74cd742a5d8ad83cfc" id="r_a7be6bba1f17d8e74cd742a5d8ad83cfc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7be6bba1f17d8e74cd742a5d8ad83cfc">MEASURE_DELAY_TIME_BRIGHT_TEST_MS</a>&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10</td></tr>
+<tr class="memdesc:a7be6bba1f17d8e74cd742a5d8ad83cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test mode brightness interval (250ms).  <br /></td></tr>
 <tr class="memitem:afb49e31aecc553b20cf07b22e55a9bd7" id="r_afb49e31aecc553b20cf07b22e55a9bd7"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memdesc:afb49e31aecc553b20cf07b22e55a9bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test mode button activation sequence parameters.  <br /></td></tr>
 <tr class="memitem:aa62bc4c38f6dc5dafe8b054c52a598bc" id="r_aa62bc4c38f6dc5dafe8b054c52a598bc"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aa62bc4c38f6dc5dafe8b054c52a598bc">TESTMODE_ACTIVATE_BUTTON_1_COUNT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:aa62bc4c38f6dc5dafe8b054c52a598bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Button press counts required for each state transition in test mode activation.  <br /></td></tr>
 <tr class="memitem:a27cc0d7ece37bb64ea7c541981677807" id="r_a27cc0d7ece37bb64ea7c541981677807"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a27cc0d7ece37bb64ea7c541981677807">TESTMODE_ACTIVATE_BUTTON_2_COUNT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a27cc0d7ece37bb64ea7c541981677807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Press hour button 1 time to reach state 2.  <br /></td></tr>
 <tr class="memitem:ab95db9b37e9121be348e6ea15f86c5a9" id="r_ab95db9b37e9121be348e6ea15f86c5a9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab95db9b37e9121be348e6ea15f86c5a9">TESTMODE_ACTIVATE_BUTTON_3_COUNT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ab95db9b37e9121be348e6ea15f86c5a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Press minute button 2 times to reach state 3.  <br /></td></tr>
 <tr class="memitem:a7df5799ea0565ee0f7371b27d5c723b9" id="r_a7df5799ea0565ee0f7371b27d5c723b9"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7df5799ea0565ee0f7371b27d5c723b9">TESTMODE_ACTIVATE_BUTTON_4_COUNT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a7df5799ea0565ee0f7371b27d5c723b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Press hour button 1 time to toggle test mode.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a31ee758532a6da1e5f0e67c8aaa42d2f" name="a31ee758532a6da1e5f0e67c8aaa42d2f"></a>
@@ -406,6 +565,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ohms - 3.3V reference pull-down. </p>
+
 </div>
 </div>
 <a id="a2f298169d225ab92b89d9c2030904a1e" name="a2f298169d225ab92b89d9c2030904a1e"></a>
@@ -419,6 +580,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ohms - 3.3V reference pull-up. </p>
 
 </div>
 </div>
@@ -434,6 +597,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>3.3V reference voltage ADC configuration (for system diagnostics). </p>
+
 </div>
 </div>
 <a id="a8b0ba4b1769c2968e594c5a5642dac0d" name="a8b0ba4b1769c2968e594c5a5642dac0d"></a>
@@ -447,6 +612,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC reference voltage (typically 3.3V). </p>
 
 </div>
 </div>
@@ -504,6 +671,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ambient brightness sensor ADC configuration. </p>
+
 </div>
 </div>
 <a id="a242963742b7af57917f87d0f3a95edbf" name="a242963742b7af57917f87d0f3a95edbf"></a>
@@ -518,6 +687,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Error return value for failed readings. </p>
+
 </div>
 </div>
 <a id="a285914aba5f748beb371823980bcd7a7" name="a285914aba5f748beb371823980bcd7a7"></a>
@@ -531,6 +702,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC reference voltage and measurement configuration. </p>
+<p>ADC_MAX_V_VALID: Maximum valid voltage reading (anything above indicates error) ADC_ADS_REF_V: Reference voltage for ADC calculations (typical 3.3V) ADC_FAIL_VALUE: Default value returned on sensor failures Maximum valid ADC voltage (3.25V = overcurrent) </p>
 
 </div>
 </div>
@@ -588,6 +762,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Battery 12V voltage divider ADC configuration. </p>
+
 </div>
 </div>
 <a id="a17fb5aea8fdf48bbb414ee58ca1b0f68" name="a17fb5aea8fdf48bbb414ee58ca1b0f68"></a>
@@ -643,6 +819,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Oil pressure sensor ADC configuration. </p>
 
 </div>
 </div>
@@ -700,6 +878,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Oil temperature sensor ADC configuration. </p>
+
 </div>
 </div>
 <a id="ab8a9955d48f5824dc64f4ef66e815a79" name="ab8a9955d48f5824dc64f4ef66e815a79"></a>
@@ -713,6 +893,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ohms - outdoor temperature pull-up. </p>
 
 </div>
 </div>
@@ -728,6 +910,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum valid outdoor temperature range. </p>
+
 </div>
 </div>
 <a id="aed220111a2dc764c69ba0319ecfd88ce" name="aed220111a2dc764c69ba0319ecfd88ce"></a>
@@ -741,6 +925,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum valid outdoor temperature range. </p>
 
 </div>
 </div>
@@ -798,6 +984,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Outdoor temperature sensor ADC configuration. </p>
+
 </div>
 </div>
 <a id="a5e1d2a9419088b70af1fdba4fd863189" name="a5e1d2a9419088b70af1fdba4fd863189"></a>
@@ -811,6 +999,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ohms - pressure sensor pull-up. </p>
 
 </div>
 </div>
@@ -826,6 +1016,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ohms - maximum sensor resistance (6 bar). </p>
+
 </div>
 </div>
 <a id="a4cf7cd1aa28b62c773ee780a48a1155b" name="a4cf7cd1aa28b62c773ee780a48a1155b"></a>
@@ -839,6 +1031,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pressure sensor resistance range mapping. </p>
+<p>DS3231-compatible resistance values for pressure calculation. Ohms - minimum sensor resistance (0 bar) </p>
 
 </div>
 </div>
@@ -854,6 +1049,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum valid oil pressure (bar). </p>
+
 </div>
 </div>
 <a id="a05a65fe7ba40c892ef5ebf69c0df5476" name="a05a65fe7ba40c892ef5ebf69c0df5476"></a>
@@ -867,6 +1064,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum valid oil pressure (bar). </p>
 
 </div>
 </div>
@@ -882,6 +1081,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ohms - temperature sensor pull-up. </p>
+
 </div>
 </div>
 <a id="a5a3a241109b126b47e0550a573ec580d" name="a5a3a241109b126b47e0550a573ec580d"></a>
@@ -895,6 +1096,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sensor failure detection thresholds. </p>
+<p>Readings outside these ranges indicate sensor malfunction or disconnection. Minimum valid oil temperature (°C) </p>
 
 </div>
 </div>
@@ -910,6 +1114,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>ADC1 attenuation (±3.3V range). </p>
+
 </div>
 </div>
 <a id="a0b8305ed6e3e4f159323b92cd8f6841f" name="a0b8305ed6e3e4f159323b92cd8f6841f"></a>
@@ -923,6 +1129,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC1 resolution (default = 12-bit). </p>
 
 </div>
 </div>
@@ -938,6 +1146,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>ADC2 attenuation (±3.3V range). </p>
+
 </div>
 </div>
 <a id="a83d11d63ce9a953633174fde69127d81" name="a83d11d63ce9a953633174fde69127d81"></a>
@@ -951,6 +1161,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>ADC2 resolution (default = 12-bit). </p>
 
 </div>
 </div>
@@ -966,6 +1178,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>ADC unit setup and hardware configuration. </p>
+<p>Two ADC units (ADC1, ADC2) with independent channels for different sensors. Bit width and attenuation settings apply to all channels on each unit. Number of ADC units used (1 or 2) </p>
+
 </div>
 </div>
 <a id="a1df3d4652f5f8312fca8b9c9bab5f1ae" name="a1df3d4652f5f8312fca8b9c9bab5f1ae"></a>
@@ -979,6 +1194,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ohms - brightness feedback pull-down. </p>
 
 </div>
 </div>
@@ -994,6 +1211,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ohms - brightness feedback pull-up. </p>
+
 </div>
 </div>
 <a id="aa0a06b6bbbc1361c162e0e0ca523f2e7" name="aa0a06b6bbbc1361c162e0e0ca523f2e7"></a>
@@ -1008,6 +1227,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ohms - main voltage divider pull-down. </p>
+
 </div>
 </div>
 <a id="ad7feacb850cd11f0dfc20cd2e3ff30bf" name="ad7feacb850cd11f0dfc20cd2e3ff30bf"></a>
@@ -1021,6 +1242,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Voltage divider pull-up and pull-down resistor values. </p>
+<p>Used for calculating actual voltage from ADC readings. Formula: V_actual = V_adc * (R_up + R_down) / R_down Ohms - main voltage divider pull-up </p>
 
 </div>
 </div>
@@ -1037,7 +1261,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Auto-brightness thresholds and manual defaults. </p>
-<p>BRIGHTNESS_DAY: default daytime brightness percent. BRIGHTNESS_DAY_MAX_V: min battery voltage to treat as day mode. BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode. BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode. </p>
+<p>BRIGHTNESS_DAY: default daytime brightness percent. BRIGHTNESS_DAY_MAX_V: min battery voltage to treat as day mode. BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode. BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode. Enable automatic brightness adjustment based on ambient light </p>
 
 </div>
 </div>
@@ -1053,6 +1277,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default daytime brightness level (0-100%). </p>
+
 </div>
 </div>
 <a id="ae50e856eb947d19695cf737cdd1436d8" name="ae50e856eb947d19695cf737cdd1436d8"></a>
@@ -1066,6 +1292,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Battery voltage threshold for day mode (in volts). </p>
 
 </div>
 </div>
@@ -1081,6 +1309,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum brightness in night mode (0-100%). </p>
+
 </div>
 </div>
 <a id="a5cf58e6540f125d0a004a94f7c7b97b9" name="a5cf58e6540f125d0a004a94f7c7b97b9"></a>
@@ -1094,6 +1324,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Battery voltage mapping point for maximum night brightness. </p>
 
 </div>
 </div>
@@ -1109,6 +1341,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum brightness in night mode (0-100%). </p>
+
 </div>
 </div>
 <a id="aa322bf5f0bf2bbe87f22f3ec7f7cd668" name="aa322bf5f0bf2bbe87f22f3ec7f7cd668"></a>
@@ -1122,6 +1356,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Battery voltage mapping point for minimum night brightness. </p>
 
 </div>
 </div>
@@ -1137,6 +1373,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Active level: 0=active low, 1=active high. </p>
+
 </div>
 </div>
 <a id="a4cec07593b05ca2bd8449b4138158deb" name="a4cec07593b05ca2bd8449b4138158deb"></a>
@@ -1150,6 +1388,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Long press threshold for hour button. </p>
 
 </div>
 </div>
@@ -1165,6 +1405,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>GPIO pin for hour adjustment button. </p>
+
 </div>
 </div>
 <a id="acdfbd0f472cd1f7673106d7bcb47e54c" name="acdfbd0f472cd1f7673106d7bcb47e54c"></a>
@@ -1178,6 +1420,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Debounce time for hour button in milliseconds. </p>
 
 </div>
 </div>
@@ -1193,6 +1437,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Active level: 0=active low, 1=active high. </p>
+
 </div>
 </div>
 <a id="a88c22a4732d4960ef87a20c48ccaa99d" name="a88c22a4732d4960ef87a20c48ccaa99d"></a>
@@ -1206,6 +1452,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Long press threshold for minute button. </p>
 
 </div>
 </div>
@@ -1221,8 +1469,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Time adjustment button definition and debounce timing. </p>
-<p>BUTTON_CLOCK_*_PIN: GPIO pin for short/long press clock adjust. BUTTON_CLOCK_*_*_MS: Short/long press thresholds in milliseconds. BUTTON_CLOCK_*_ACTIVE_LEVEL: GPIO active level (0 = active low). </p>
+<p>Time adjustment button GPIO configurations. </p>
+<p>GPIO pin for minute adjustment button </p>
 
 </div>
 </div>
@@ -1238,6 +1486,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Debounce time for minute button in milliseconds. </p>
+
 </div>
 </div>
 <a id="a40ea04e9f5c26956209bcc0a89a00fac" name="a40ea04e9f5c26956209bcc0a89a00fac"></a>
@@ -1251,6 +1501,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Delay before buzzer activation is allowed (milliseconds). </p>
 
 </div>
 </div>
@@ -1267,7 +1519,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Core project configuration values. </p>
-<p>CHIP_USED: Target ESP32 chip variant switch. By changing this please add a new section after #if CHIP_USED == ESP32P4 for this new chip and add its corresponding pins and settings </p>
+<p>CHIP_USED: Target ESP32 chip variant. When changing chip types, add a new conditional section (#if CHIP_USED == &lt;new_chip&gt;) after the existing section and define all required pins and settings for that chip. ESP32 variants: ESP32, ESP32S2, ESP32S3, ESP32C3, ESP32C6, ESP32P4 </p>
 
 </div>
 </div>
@@ -1283,6 +1535,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Display rendering and initialization timing parameters. </p>
+<p>Scaling factor for float-to-integer conversion in LVGL </p>
+
 </div>
 </div>
 <a id="a0aba378a08cd6b071ab97d7ec085020b" name="a0aba378a08cd6b071ab97d7ec085020b"></a>
@@ -1296,6 +1551,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Brightness smoothing factor. </p>
 
 </div>
 </div>
@@ -1311,6 +1568,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Exponential moving average filter coefficients for noise reduction. </p>
+<p>Lower values provide more smoothing but slower response to changes. Range: 0.0 (very smooth, very slow) to 1.0 (no filtering, responsive). Pressure smoothing factor </p>
+
 </div>
 </div>
 <a id="a321a601bd06f44a3acf6078e17691c3f" name="a321a601bd06f44a3acf6078e17691c3f"></a>
@@ -1324,6 +1584,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Temperature smoothing factor. </p>
 
 </div>
 </div>
@@ -1339,6 +1601,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Outdoor temperature smoothing factor. </p>
+
 </div>
 </div>
 <a id="a7e8f64192a152596917ed3f32f26f1a1" name="a7e8f64192a152596917ed3f32f26f1a1"></a>
@@ -1352,6 +1616,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Voltage smoothing factor. </p>
 
 </div>
 </div>
@@ -1367,6 +1633,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Delay before gauges become active after boot (milliseconds). </p>
+
 </div>
 </div>
 <a id="aeed45b5fe842c931fe0732bad3dd29f9" name="aeed45b5fe842c931fe0732bad3dd29f9"></a>
@@ -1380,6 +1648,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Default clock source. </p>
 
 </div>
 </div>
@@ -1395,6 +1665,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Glitch filter threshold (clock cycles). </p>
+
 </div>
 </div>
 <a id="a4ecb1067d3291cdb412f8884267f6f50" name="a4ecb1067d3291cdb412f8884267f6f50"></a>
@@ -1408,6 +1680,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Use external pull-ups (not internal). </p>
 
 </div>
 </div>
@@ -1423,6 +1697,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>I2C controller number. </p>
+
 </div>
 </div>
 <a id="a0e4e08bab2fb484136d18b067bef372c" name="a0e4e08bab2fb484136d18b067bef372c"></a>
@@ -1437,6 +1713,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Serial Clock pin for I2C bus. </p>
+
 </div>
 </div>
 <a id="a2cade698267beb86ccaa38c14d35ab0f" name="a2cade698267beb86ccaa38c14d35ab0f"></a>
@@ -1450,6 +1728,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>I2C bus GPIO pins and clock configuration for RTC communication. </p>
+<p>Serial Data pin for I2C bus </p>
 
 </div>
 </div>
@@ -2211,7 +2492,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>LEDC PWM settings for display backlight brightness control. </p>
-<p>LED_SPEED: LEDC speed mode (low or high) for timer/channel. LED_TIMER: LEDC timer index. LED_DUTY_RESOLUTION: PWM duty resolution (e.g., 8-bit gives 0-255 range). LED_DUTY_RES_VALUE: Duty scaling value. LED_FREQ: PWM frequency for LED backlight (flicker-free constant lighting). LED_GPIO: Neupin for PWM output to backlight. </p>
+<p>LED_SPEED: LEDC speed mode (low=slower/lower noise, high=faster/more power) LED_TIMER: LEDC timer index (supports multiple independent timers) LED_DUTY_RESOLUTION: PWM duty cycle resolution in bits (8-bit = 256 levels) LED_FREQ: PWM frequency for LED (25 kHz prevents visible flicker) </p>
 
 </div>
 </div>
@@ -2282,6 +2563,121 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Delay for main task completion (milliseconds). </p>
+
+</div>
+</div>
+<a id="a6035b876ba62c9deb3694d0baa08e231" name="a6035b876ba62c9deb3694d0baa08e231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6035b876ba62c9deb3694d0baa08e231">&#9670;&#160;</a></span>MAIN_TICK_TIME_DELAY_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAIN_TICK_TIME_DELAY_MS&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sensor measurement timing configuration. </p>
+<p>Defines how often sensor values are read and processed for each display/subsystem. Main loop tick interval (milliseconds) </p>
+
+</div>
+</div>
+<a id="a0d806d9e4d224c3d843596a118502cda" name="a0d806d9e4d224c3d843596a118502cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d806d9e4d224c3d843596a118502cda">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_1_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_1_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display 1 update interval (25ms). </p>
+
+</div>
+</div>
+<a id="abbb18ebcc6f9d6e12561d0d093bdc429" name="abbb18ebcc6f9d6e12561d0d093bdc429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbb18ebcc6f9d6e12561d0d093bdc429">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_2_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_2_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display 2 update interval (125ms). </p>
+
+</div>
+</div>
+<a id="a77a3118ca39eea76bd706c60b8cd39e6" name="a77a3118ca39eea76bd706c60b8cd39e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a3118ca39eea76bd706c60b8cd39e6">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_3_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_3_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display 3 update interval (50ms). </p>
+
+</div>
+</div>
+<a id="a2e38659375d30ce125ce55521de0da5a" name="a2e38659375d30ce125ce55521de0da5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e38659375d30ce125ce55521de0da5a">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_4_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_4_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display 4 update interval (125ms). </p>
+
+</div>
+</div>
+<a id="a3494bcac8e0b3ef66592697416092de3" name="a3494bcac8e0b3ef66592697416092de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3494bcac8e0b3ef66592697416092de3">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_BRIGHT_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Brightness update interval (125ms). </p>
+
+</div>
+</div>
+<a id="a7be6bba1f17d8e74cd742a5d8ad83cfc" name="a7be6bba1f17d8e74cd742a5d8ad83cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be6bba1f17d8e74cd742a5d8ad83cfc">&#9670;&#160;</a></span>MEASURE_DELAY_TIME_BRIGHT_TEST_MS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS&#160;&#160;&#160;<a class="el" href="#a6035b876ba62c9deb3694d0baa08e231">MAIN_TICK_TIME_DELAY_MS</a> * 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test mode brightness interval (250ms). </p>
 
 </div>
 </div>
@@ -2510,6 +2906,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Master In Slave Out (unused, set to -1). </p>
+
 </div>
 </div>
 <a id="a05d95ad303c4b8aec288506682171ea7" name="a05d95ad303c4b8aec288506682171ea7"></a>
@@ -2523,6 +2921,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Master Out Slave In pin for SPI 1. </p>
 
 </div>
 </div>
@@ -2538,6 +2938,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>SPI 1 bus configuration (first SPI host for displays 1-2). </p>
+<p>Serial Clock pin for SPI 1 </p>
+
 </div>
 </div>
 <a id="a7c1044c21532cf4285895d10a6b4968b" name="a7c1044c21532cf4285895d10a6b4968b"></a>
@@ -2551,6 +2954,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Master In Slave Out (unused, set to -1). </p>
 
 </div>
 </div>
@@ -2566,6 +2971,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Master Out Slave In pin for SPI 2. </p>
+
 </div>
 </div>
 <a id="a857c7003e437cd368b6e75c1f9b6fd8e" name="a857c7003e437cd368b6e75c1f9b6fd8e"></a>
@@ -2579,6 +2986,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>SPI 2 bus configuration (second SPI host for displays 3-4, optional). </p>
+<p>Serial Clock pin for SPI 2 </p>
 
 </div>
 </div>
@@ -2594,6 +3004,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>No interrupt on level change. </p>
+
 </div>
 </div>
 <a id="ae351184dec4c5ec451f85768e04ae331" name="ae351184dec4c5ec451f85768e04ae331"></a>
@@ -2607,6 +3019,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configure as digital input. </p>
 
 </div>
 </div>
@@ -2622,6 +3036,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>PWM/ADC sensor input selector switch configuration. </p>
+<p>GPIO pin for PWM/ADC mode selection (high=PWM, low=ADC) </p>
+
 </div>
 </div>
 <a id="a687cf98650b4953c06392d5959f9f4d4" name="a687cf98650b4953c06392d5959f9f4d4"></a>
@@ -2635,6 +3052,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>No internal pull-down resistor. </p>
 
 </div>
 </div>
@@ -2650,6 +3069,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>No internal pull-up resistor. </p>
+
 </div>
 </div>
 <a id="aaea767524059ac76b32479e382c20381" name="aaea767524059ac76b32479e382c20381"></a>
@@ -2663,6 +3084,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>PWM/ADC selector for sensor input mode. </p>
+<p>true=use PWM sensor mode, false=use ADC sensor mode </p>
 
 </div>
 </div>
@@ -2678,6 +3102,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum period for valid diagnostic pulse. </p>
+
 </div>
 </div>
 <a id="a46b7a015bfc83534f3a2c0ac373bbd51" name="a46b7a015bfc83534f3a2c0ac373bbd51"></a>
@@ -2691,6 +3117,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum period in clock ticks (nanoseconds/100). </p>
 
 </div>
 </div>
@@ -2706,6 +3134,9 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Diagnostic pulse configuration for sensor health check. </p>
+<p>Pulse ID for diagnostic signal </p>
+
 </div>
 </div>
 <a id="afe2c77ea8438ec2777e3ac20987e2031" name="afe2c77ea8438ec2777e3ac20987e2031"></a>
@@ -2719,6 +3150,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum pulse width for valid range. </p>
 
 </div>
 </div>
@@ -2734,6 +3167,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum pulse width threshold. </p>
+
 </div>
 </div>
 <a id="a9ddd92aca8612c0d09957aa7cc5a9f36" name="a9ddd92aca8612c0d09957aa7cc5a9f36"></a>
@@ -2747,6 +3182,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum number of sensors on PWM bus. </p>
 
 </div>
 </div>
@@ -2762,6 +3199,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Count negative (falling) edges. </p>
+
 </div>
 </div>
 <a id="ab826226f0ccdaac0d5c02cf950219914" name="ab826226f0ccdaac0d5c02cf950219914"></a>
@@ -2775,6 +3214,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>PWM sensor input on a digital-capable GPIO. </p>
+<p>GPIO pin receiving PWM pulses from Hella sensor </p>
 
 </div>
 </div>
@@ -2790,6 +3232,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Count positive (rising) edges. </p>
+
 </div>
 </div>
 <a id="af0cc7d1ac9ce1cbec113f76aa53300f1" name="af0cc7d1ac9ce1cbec113f76aa53300f1"></a>
@@ -2803,6 +3247,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pressure offset constant. </p>
 
 </div>
 </div>
@@ -2818,6 +3264,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pressure slope (must not be zero). </p>
+
 </div>
 </div>
 <a id="a363b8125f33a44f49beb9b675a50f34d" name="a363b8125f33a44f49beb9b675a50f34d"></a>
@@ -2831,6 +3279,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum period for valid pressure pulse. </p>
 
 </div>
 </div>
@@ -2846,6 +3296,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum period in clock ticks. </p>
+
 </div>
 </div>
 <a id="a8676d54ad404b8bfcae3dfaec81ca603" name="a8676d54ad404b8bfcae3dfaec81ca603"></a>
@@ -2859,6 +3311,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pressure sensor pulse configuration from Hella datasheet. </p>
+<p>Equation: Pressure = (PWM_VALUE - 50) / 4050 * PWM_SENSOR_PRES_CALC_VALUE_2 + PWM_SENSOR_PRES_CALC_VALUE_1 Pulse ID for pressure signal </p>
 
 </div>
 </div>
@@ -2874,6 +3329,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum pulse width (6 bar). </p>
+
 </div>
 </div>
 <a id="abac0ce5b828908a277b01535226e4a80" name="abac0ce5b828908a277b01535226e4a80"></a>
@@ -2887,6 +3344,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum pulse width (0 bar). </p>
 
 </div>
 </div>
@@ -2902,6 +3361,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Timer prescaler. </p>
+
 </div>
 </div>
 <a id="a85bde9c3f48ecef5c8c9ab6d6829bfaa" name="a85bde9c3f48ecef5c8c9ab6d6829bfaa"></a>
@@ -2915,6 +3376,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable internal pull-up on input pin. </p>
 
 </div>
 </div>
@@ -2930,6 +3393,15 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Buzzer alarm and PWM output configuration (only if USE_BUZZER == true). </p>
+<p>Defines temperature thresholds for buzzer activation, PWM parameters, and FreeRTOS task settings for the buzzer alert system.</p>
+<p>PWM sensor general settings and pulse configuration.</p>
+<p>Hella 6PP sensor transmits three multiplex PWM signals:</p><ul>
+<li>Diagnostic pulse (ID 0): sensor health status</li>
+<li>Temperature pulse (ID 1): oil temperature reading</li>
+<li>Pressure pulse (ID 2): oil pressure reading Timer resolution (10 MHz = 100ns per tick) </li>
+</ul>
+
 </div>
 </div>
 <a id="a62129ed73707ffaf613d6c32ff03e046" name="a62129ed73707ffaf613d6c32ff03e046"></a>
@@ -2943,6 +3415,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Temperature offset constant. </p>
 
 </div>
 </div>
@@ -2958,6 +3432,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Temperature slope (must not be zero). </p>
+
 </div>
 </div>
 <a id="afab3b81df73dbaa673b2eeaa887b6d70" name="afab3b81df73dbaa673b2eeaa887b6d70"></a>
@@ -2971,6 +3447,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum period for valid temperature pulse. </p>
 
 </div>
 </div>
@@ -2986,6 +3464,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum period in clock ticks. </p>
+
 </div>
 </div>
 <a id="a812372ba9ac74e0ab9511cf8263be624" name="a812372ba9ac74e0ab9511cf8263be624"></a>
@@ -2999,6 +3479,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Temperature sensor pulse configuration from Hella datasheet. </p>
+<p>Equation: Temperature = (PWM_VALUE - 50) / 4050 * PWM_SENSOR_TEMP_CALC_VALUE_2 + PWM_SENSOR_TEMP_CALC_VALUE_1 Pulse ID for temperature signal </p>
 
 </div>
 </div>
@@ -3014,6 +3497,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum pulse width (150°C). </p>
+
 </div>
 </div>
 <a id="a58cd29a5e3b8d67cdf9632c9d04d806c" name="a58cd29a5e3b8d67cdf9632c9d04d806c"></a>
@@ -3027,6 +3512,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum pulse width (0°C). </p>
 
 </div>
 </div>
@@ -3042,6 +3529,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>7-bit I2C addressing </p>
+
 </div>
 </div>
 <a id="a7b029584460e6c5f08309544cbfc3eee" name="a7b029584460e6c5f08309544cbfc3eee"></a>
@@ -3055,6 +3544,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>I2C device addresses for connected sensors. </p>
+<p>DS3231 RTC I2C address (0x68 = default) </p>
 
 </div>
 </div>
@@ -3070,6 +3562,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>I2C clock speed (100 kHz standard mode). </p>
+
 </div>
 </div>
 <a id="a2626daf8b314d054a90f38997d8a3827" name="a2626daf8b314d054a90f38997d8a3827"></a>
@@ -3083,6 +3577,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Automatic DMA channel selection. </p>
 
 </div>
 </div>
@@ -3098,6 +3594,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Interrupt flags. </p>
+
 </div>
 </div>
 <a id="a168a72d3438cf86470ad7235e623105e" name="a168a72d3438cf86470ad7235e623105e"></a>
@@ -3111,6 +3609,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Max transfer size for 240x240 display. </p>
 
 </div>
 </div>
@@ -3126,6 +3626,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Quad Hold (unused, set to -1). </p>
+
 </div>
 </div>
 <a id="a59d0f4a852c4d0659d8cb039ed480dd7" name="a59d0f4a852c4d0659d8cb039ed480dd7"></a>
@@ -3139,6 +3641,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Quad Write Protect (unused, set to -1). </p>
 
 </div>
 </div>
@@ -3154,6 +3658,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Automatic DMA channel selection. </p>
+
 </div>
 </div>
 <a id="a99cb21495f82c01685873a833d719b25" name="a99cb21495f82c01685873a833d719b25"></a>
@@ -3167,6 +3673,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Interrupt flags. </p>
 
 </div>
 </div>
@@ -3182,6 +3690,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Max transfer size for 240x240 display. </p>
+
 </div>
 </div>
 <a id="ac573af73a4bec4d8a5bfa72d74fb6514" name="ac573af73a4bec4d8a5bfa72d74fb6514"></a>
@@ -3196,6 +3706,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Quad Hold (unused, set to -1). </p>
+
 </div>
 </div>
 <a id="a6430d4f4991ede43e03d0104fc11c054" name="a6430d4f4991ede43e03d0104fc11c054"></a>
@@ -3209,6 +3721,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Quad Write Protect (unused, set to -1). </p>
 
 </div>
 </div>
@@ -3225,7 +3739,8 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>SPI bus configuration, used for SPI LCD panels. </p>
-<p>SPI_MODE: clock polarity/phase mode (mode 3 for GC9A01 displays). TRANS_QUEUE_DEPTH: transaction queue depth for spi bus commands. </p>
+<p>SPI_MODE: clock polarity/phase mode (mode 3 for GC9A01 displays). TRANS_QUEUE_DEPTH: transaction queue depth for spi bus commands.</p>
+<p>SPI communication parameters for LCD display panels. Clock polarity/phase (mode 3 for GC9A01 displays) </p>
 
 </div>
 </div>
@@ -3241,6 +3756,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>CPU core for display 1 task. </p>
+
 </div>
 </div>
 <a id="ad502cac9f321d3d937aa08ab8af32267" name="ad502cac9f321d3d937aa08ab8af32267"></a>
@@ -3254,6 +3771,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update interval for display 1 (milliseconds). </p>
 
 </div>
 </div>
@@ -3269,6 +3788,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Task priority for display 1. </p>
+
 </div>
 </div>
 <a id="a5e0a58afd80911ea8df9eaedd268672c" name="a5e0a58afd80911ea8df9eaedd268672c"></a>
@@ -3282,6 +3803,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Display 1 FreeRTOS task configuration parameters. </p>
+<p>TASK_*_STEPDEPTH_SCREEN: Stack size in bytes TASK_*_PRIORITY_SCREEN: Task priority (higher = more important) TASK_*_DELAYTIME_SCREEN: Delay between screen updates in milliseconds TASK_*_CORE_SCREEN: CPU core assignment (0 or 1 on dual-core ESP32) Stack depth for display 1 task </p>
 
 </div>
 </div>
@@ -3311,6 +3835,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update interval for display 2 (milliseconds). </p>
+
 </div>
 </div>
 <a id="ab1e1ace4209cf40e91bea91332665224" name="ab1e1ace4209cf40e91bea91332665224"></a>
@@ -3338,6 +3864,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Display 2 FreeRTOS task configuration parameters. </p>
 
 </div>
 </div>
@@ -3367,6 +3895,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update interval for display 3 (milliseconds). </p>
+
 </div>
 </div>
 <a id="a0fd31553a1c949532a661bb84bf8bf82" name="a0fd31553a1c949532a661bb84bf8bf82"></a>
@@ -3394,6 +3924,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Display 3 FreeRTOS task configuration parameters. </p>
 
 </div>
 </div>
@@ -3423,6 +3955,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update interval for display 4 (milliseconds). </p>
+
 </div>
 </div>
 <a id="aea108020a51158de85a2558e2053b672" name="aea108020a51158de85a2558e2053b672"></a>
@@ -3451,6 +3985,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Display 4 FreeRTOS task configuration parameters. </p>
+
 </div>
 </div>
 <a id="aa62bc4c38f6dc5dafe8b054c52a598bc" name="aa62bc4c38f6dc5dafe8b054c52a598bc"></a>
@@ -3464,6 +4000,15 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Button press counts required for each state transition in test mode activation. </p>
+<p>Sequence state transitions:</p><ul>
+<li>State 0: First minute button press (decrease)</li>
+<li>State 0-&gt;1: After 2 total presses of minute button</li>
+<li>State 1-&gt;2: After 1 press of hour button (decrease)</li>
+<li>State 2-&gt;3: After 2 more presses of minute button (increase)</li>
+<li>State 3-&gt;4: After 1 press of hour button (increase) -&gt; test mode toggles Press minute button 2 times to reach state 1 </li>
+</ul>
 
 </div>
 </div>
@@ -3479,6 +4024,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Press hour button 1 time to reach state 2. </p>
+
 </div>
 </div>
 <a id="ab95db9b37e9121be348e6ea15f86c5a9" name="ab95db9b37e9121be348e6ea15f86c5a9"></a>
@@ -3492,6 +4039,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Press minute button 2 times to reach state 3. </p>
 
 </div>
 </div>
@@ -3507,6 +4056,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Press hour button 1 time to toggle test mode. </p>
+
 </div>
 </div>
 <a id="afb49e31aecc553b20cf07b22e55a9bd7" name="afb49e31aecc553b20cf07b22e55a9bd7"></a>
@@ -3517,6 +4068,23 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define TESTMODE_ACTIVATE_TIMEOUT_MS&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test mode button activation sequence parameters. </p>
+<p>Test mode is activated via a specific sequence of button presses within a timeout window. This prevents accidental activation while maintaining flexibility for deliberate use. Time window for completing button sequence (10 seconds) </p>
+
+</div>
+</div>
+<a id="a2bc6ed307b70b8b4bdd0729b8a053d0e" name="a2bc6ed307b70b8b4bdd0729b8a053d0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc6ed307b70b8b4bdd0729b8a053d0e">&#9670;&#160;</a></span>TESTMODE_ACTIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TESTMODE_ACTIVE&#160;&#160;&#160;true</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -3534,6 +4102,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Number of simultaneous SPI transactions in queue. </p>
 
 </div>
 </div>
@@ -3565,6 +4135,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default brightness (day mode). </p>
+
 </div>
 </div>
 <a id="a14638646c96162fc5ef0bcdcdff09713" name="a14638646c96162fc5ef0bcdcdff09713"></a>
@@ -3578,6 +4150,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Night mode off by default. </p>
 
 </div>
 </div>
@@ -3593,6 +4167,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default outdoor temperature on startup (°C). </p>
+
 </div>
 </div>
 <a id="a39a22552383ce496715a4fe01d75f5d4" name="a39a22552383ce496715a4fe01d75f5d4"></a>
@@ -3606,6 +4182,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Default and range limit values for sensor readings. </p>
+<p>These values define the operating range and default initialization for all sensor measurements in the system. Default oil pressure on startup (bar) </p>
 
 </div>
 </div>
@@ -3621,6 +4200,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default oil temperature on startup (°C). </p>
+
 </div>
 </div>
 <a id="a4ed78a05f48a46cc6d56abe257b6169c" name="a4ed78a05f48a46cc6d56abe257b6169c"></a>
@@ -3634,6 +4215,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Default battery voltage on startup (volts). </p>
 
 </div>
 </div>
@@ -3649,6 +4232,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum valid outdoor temperature (70°C). </p>
+
 </div>
 </div>
 <a id="a0b6330ab63e0a8f7ee9dcd19d42faedc" name="a0b6330ab63e0a8f7ee9dcd19d42faedc"></a>
@@ -3662,6 +4247,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum valid sensor values (above indicates error or over-range). </p>
+<p>Maximum valid pressure (6 bar) </p>
 
 </div>
 </div>
@@ -3677,6 +4265,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maximum valid temperature (150°C). </p>
+
 </div>
 </div>
 <a id="a962b50e1e4c01928d2326ebe463ceb5b" name="a962b50e1e4c01928d2326ebe463ceb5b"></a>
@@ -3690,6 +4280,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum valid voltage (16V - charging system max). </p>
 
 </div>
 </div>
@@ -3705,6 +4297,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum valid outdoor temperature (-30°C). </p>
+
 </div>
 </div>
 <a id="a371c597eddcd4c669475093d169c082a" name="a371c597eddcd4c669475093d169c082a"></a>
@@ -3718,6 +4312,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum valid sensor values (below indicates error or disconnection). </p>
+<p>Minimum valid pressure (0 bar) </p>
 
 </div>
 </div>
@@ -3733,6 +4330,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum valid temperature (0°C). </p>
+
 </div>
 </div>
 <a id="adb5acc4553fc99bba16ddf670569e93c" name="adb5acc4553fc99bba16ddf670569e93c"></a>
@@ -3746,6 +4345,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum valid voltage (8V - automotive minimum). </p>
 
 </div>
 </div>
@@ -3761,6 +4362,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Average 10 brightness readings. </p>
+
 </div>
 </div>
 <a id="a91a055e359a2f748c8ed6c82f9de4342" name="a91a055e359a2f748c8ed6c82f9de4342"></a>
@@ -3774,6 +4377,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sensor value oversampling counts and exponential filter coefficients. </p>
+<p>Oversampling: number of readings to average per update cycle. Filter (alpha): exponential moving average coefficient (0-1, lower = more smoothing). New_value = alpha * current + (1-alpha) * previous Average 2 pressure readings </p>
 
 </div>
 </div>
@@ -3789,6 +4395,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Average 5 temperature readings. </p>
+
 </div>
 </div>
 <a id="a6f65cd3aaeb74764610aa254f44be66f" name="a6f65cd3aaeb74764610aa254f44be66f"></a>
@@ -3803,6 +4411,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Average 5 outdoor temperature readings. </p>
+
 </div>
 </div>
 <a id="a3de208e79149e57e550f44426a24534a" name="a3de208e79149e57e550f44426a24534a"></a>
@@ -3816,6 +4426,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Average 4 voltage readings. </p>
 
 </div>
 </div>

@@ -21,5 +21,6 @@ var searchData=
   ['testmode_5factivate_5fbutton_5f3_5fcount_18',['TESTMODE_ACTIVATE_BUTTON_3_COUNT',['../individual__config_8h.html#ab95db9b37e9121be348e6ea15f86c5a9',1,'individual_config.h']]],
   ['testmode_5factivate_5fbutton_5f4_5fcount_19',['TESTMODE_ACTIVATE_BUTTON_4_COUNT',['../individual__config_8h.html#a7df5799ea0565ee0f7371b27d5c723b9',1,'individual_config.h']]],
   ['testmode_5factivate_5ftimeout_5fms_20',['TESTMODE_ACTIVATE_TIMEOUT_MS',['../individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7',1,'individual_config.h']]],
-  ['trans_5fqueue_5fdepth_21',['TRANS_QUEUE_DEPTH',['../individual__config_8h.html#a63c662ad3b301f2d936ca736a1cb091b',1,'individual_config.h']]]
+  ['testmode_5factive_21',['TESTMODE_ACTIVE',['../individual__config_8h.html#a2bc6ed307b70b8b4bdd0729b8a053d0e',1,'individual_config.h']]],
+  ['trans_5fqueue_5fdepth_22',['TRANS_QUEUE_DEPTH',['../individual__config_8h.html#a63c662ad3b301f2d936ca736a1cb091b',1,'individual_config.h']]]
 ];

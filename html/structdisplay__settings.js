@@ -2,6 +2,7 @@ var structdisplay__settings =
 [
     [ "buf", "structdisplay__settings.html#a92e58a2ef9f62f9e1697459c46c6d8c1", null ],
     [ "buffer_factor", "structdisplay__settings.html#aa45819c318a2ebe7f35c1f300983c889", null ],
+    [ "delay_time_screen_ms", "structdisplay__settings.html#a2cbf04bfd661a31b6ea51fe79d54b42b", null ],
     [ "disp_drv", "structdisplay__settings.html#abfcfd0425e5e0ff371988d79ec788f7d", null ],
     [ "draw_buf", "structdisplay__settings.html#a705dc03dd6364a74053ff2d7d281ea55", null ],
     [ "io_config", "structdisplay__settings.html#aa29fc83d16557686b363fd270fdd359b", null ],

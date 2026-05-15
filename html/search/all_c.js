@@ -9,7 +9,8 @@ var searchData=
   ['night_20mode_6',['Day/Night Mode',['../index.html#autotoc_md7',1,'']]],
   ['night_5fmode_7',['night_mode',['../main_8c.html#a9415d6967ea31a1d71a6364878d31189',1,'main.c']]],
   ['night_5fmode_5factive_8',['night_mode_active',['../values_8c.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c'],['../values_8h.html#a2e46e8efc3c52e68d70b01707d4edea6',1,'night_mode_active:&#160;values.c']]],
-  ['ntc_20thermistor_9',['NTC Thermistor',['../index.html#autotoc_md18',1,'Oil Temperature (NTC Thermistor)'],['../index.html#autotoc_md20',1,'Outdoor Temperature (NTC Thermistor)']]],
-  ['number_5fof_5fdisplays_10',['NUMBER_OF_DISPLAYS',['../individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9',1,'individual_config.h']]],
-  ['number_5fof_5fspi_11',['NUMBER_OF_SPI',['../individual__config_8h.html#a7a80df8b2fd93814ce229e8b2a1c04ad',1,'individual_config.h']]]
+  ['now_5fms_9',['now_ms',['../i2c_functions_8c.html#abb669e8e5d7c37a8c18aa644d901dae3',1,'now_ms:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#abb669e8e5d7c37a8c18aa644d901dae3',1,'now_ms:&#160;i2cFunctions.c']]],
+  ['ntc_20thermistor_10',['NTC Thermistor',['../index.html#autotoc_md18',1,'Oil Temperature (NTC Thermistor)'],['../index.html#autotoc_md20',1,'Outdoor Temperature (NTC Thermistor)']]],
+  ['number_5fof_5fdisplays_11',['NUMBER_OF_DISPLAYS',['../individual__config_8h.html#ae1ce1bb8c096cd612d6183eea4df8de9',1,'individual_config.h']]],
+  ['number_5fof_5fspi_12',['NUMBER_OF_SPI',['../individual__config_8h.html#a7a80df8b2fd93814ce229e8b2a1c04ad',1,'individual_config.h']]]
 ];

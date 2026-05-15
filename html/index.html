@@ -121,7 +121,7 @@ Hardware</h2>
 - &lt;strong&gt;Oil sensors&lt;/strong&gt;: BMW Hella 6PP 010 378-201 (PWM) OR VDO analog sensors (via ADC)
 - &lt;strong&gt;Temperature sensors&lt;/strong&gt;: NTC thermistors for oil and ambient temperature
 - &lt;strong&gt;RTC&lt;/strong&gt;: DS3231 real-time clock (I2C)
-- &lt;strong&gt;ADC&lt;/strong&gt;: 2× ADS1115 (16-bit, I2C) for sensor conditioning
+- &lt;strong&gt;ADC&lt;/strong&gt;: interne ADCs for sensor measuring
 - &lt;strong&gt;Power&lt;/strong&gt;: 12V to 5V converter
 - &lt;strong&gt;Audio&lt;/strong&gt;: 5V buzzer with PWM control (optional, compile-time selectable)
 - &lt;strong&gt;Buttons&lt;/strong&gt;: 2× GPIO buttons for manual time adjustment
@@ -256,7 +256,7 @@ On success, serial log shows:
 "Test mode ACTIVATED!" </li>
 </ul>
 <p><b>Configuration</b> (in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>):</p><ul>
-<li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> – Window for button sequence (default: 10000 ms)</li>
+<li><span class="tt"><a class="el" href="individual__config_8h.html#afb49e31aecc553b20cf07b22e55a9bd7" title="Test mode button activation sequence parameters.">TESTMODE_ACTIVATE_TIMEOUT_MS</a></span> – Window for button sequence (default: 10000 ms)</li>
 <li><span class="tt">TESTMODE_ACTIVATE_BUTTON_*_COUNT</span> – Button press counts for each step</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
@@ -290,7 +290,7 @@ Outdoor Temperature (NTC Thermistor)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
 Voltage</h3>
 <ul>
-<li>Battery voltage with voltage divider: <span class="tt">(<a class="el" href="individual__config_8h.html#ad7feacb850cd11f0dfc20cd2e3ff30bf">ADC_VOLT_PULLUP</a> + <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7">ADC_VOLT_PULLDOWN</a>) / <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7">ADC_VOLT_PULLDOWN</a></span></li>
+<li>Battery voltage with voltage divider: <span class="tt">(<a class="el" href="individual__config_8h.html#ad7feacb850cd11f0dfc20cd2e3ff30bf" title="Voltage divider pull-up and pull-down resistor values.">ADC_VOLT_PULLUP</a> + <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7" title="Ohms - main voltage divider pull-down.">ADC_VOLT_PULLDOWN</a>) / <a class="el" href="individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7" title="Ohms - main voltage divider pull-down.">ADC_VOLT_PULLDOWN</a></span></li>
 <li>Brightness sensor with 10k/2.2k divider</li>
 </ul>
 <p>All calibration values are configurable in <span class="tt"><a class="el" href="individual__config_8h.html">main/individual_config.h</a></span>.</p>

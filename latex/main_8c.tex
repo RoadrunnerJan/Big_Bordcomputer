@@ -21,21 +21,15 @@ Main application entry point for E36 Board Computer.
 \item 
 void \doxymbox{\hyperlink{main_8c_afceb890a6ab9be73cc5481369538c705}{init\+\_\+system}} ()
 \begin{DoxyCompactList}\small\item\em Initialize all hardware and system components. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}This function is automatically called by ESP IDF runtime \texorpdfstring{$\ast$}{*}void \doxymbox{\hyperlink{main_8c_ade50b2bd3447bef8ae7339935bbca940}{app\+\_\+main}} (void)
 \begin{DoxyCompactList}\small\item\em ESP-\/\+IDF application main entry point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-struct timeval \doxymbox{\hyperlink{main_8c_af79698230cc91220f161709d9a7203f8}{Start\+Up\+Time}}
-\item 
-struct timeval \doxymbox{\hyperlink{main_8c_a556487bb4a127c111ded5f79f9de97fe}{check\+Time}}
-\item 
 int \doxymbox{\hyperlink{main_8c_ac8e5c5d7af5d734614837b48dc709d91}{testmode\+Activated}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Testmode activation flag -\/ tracks whether test mode is currently active. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{main_8c_a9415d6967ea31a1d71a6364878d31189}{night\+\_\+mode}} = false
-\item 
-bool \doxymbox{\hyperlink{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}{time\+\_\+checked}} \+[2]\+ = \{false, false\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Night mode indicator -\/ controls display brightness and screen variants. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -63,11 +57,11 @@ CHANGELOG v1.\+0 (01.\+04.\+2026) -\/ Initial implementation
 \label{doc-func-members}
 \Hypertarget{main_8c_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70}\index{main.c@{main.c}!app\_main@{app\_main}}
+\Hypertarget{main_8c_ade50b2bd3447bef8ae7339935bbca940}\index{main.c@{main.c}!app\_main@{app\_main}}
 \index{app\_main@{app\_main}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
-{\footnotesize\ttfamily \label{main_8c_a630544a7f0a2cc40d8a7fefab7e2fe70} 
-void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{main_8c_ade50b2bd3447bef8ae7339935bbca940} 
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}This function is automatically called by ESP IDF runtime \texorpdfstring{$\ast$}{*}void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
 
 
@@ -75,7 +69,10 @@ ESP-\/\+IDF application main entry point.
 
 Initializes all system resources and creates the main LVGL tick task for periodic display updates. After task creation, enters idle mode while background tasks handle application logic.
 
-This function is automatically called by ESP-\/\+IDF runtime. \Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
+\begin{DoxyReturn}{Returns}
+ESP\+\_\+\+OK on successful initialization, error code on failure 
+\end{DoxyReturn}
+\Hypertarget{main_8c_afceb890a6ab9be73cc5481369538c705}\index{main.c@{main.c}!init\_system@{init\_system}}
 \index{init\_system@{init\_system}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{init\_system()}{init\_system()}}
 {\footnotesize\ttfamily \label{main_8c_afceb890a6ab9be73cc5481369538c705} 
@@ -101,33 +98,24 @@ Must be called once during application startup before creating tasks.
 \label{doc-var-members}
 \Hypertarget{main_8c_doc-var-members}
 \doxysubsection{Variable Documentation}
-\Hypertarget{main_8c_a556487bb4a127c111ded5f79f9de97fe}\index{main.c@{main.c}!checkTime@{checkTime}}
-\index{checkTime@{checkTime}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{checkTime}{checkTime}}
-{\footnotesize\ttfamily \label{main_8c_a556487bb4a127c111ded5f79f9de97fe} 
-struct timeval check\+Time}
-
 \Hypertarget{main_8c_a9415d6967ea31a1d71a6364878d31189}\index{main.c@{main.c}!night\_mode@{night\_mode}}
 \index{night\_mode@{night\_mode}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{night\_mode}{night\_mode}}
 {\footnotesize\ttfamily \label{main_8c_a9415d6967ea31a1d71a6364878d31189} 
 bool night\+\_\+mode = false}
 
-\Hypertarget{main_8c_af79698230cc91220f161709d9a7203f8}\index{main.c@{main.c}!StartUpTime@{StartUpTime}}
-\index{StartUpTime@{StartUpTime}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{StartUpTime}{StartUpTime}}
-{\footnotesize\ttfamily \label{main_8c_af79698230cc91220f161709d9a7203f8} 
-struct timeval Start\+Up\+Time}
 
-\Hypertarget{main_8c_ac8e5c5d7af5d734614837b48dc709d91}\index{main.c@{main.c}!testmodeActivated@{testmodeActivated}}
+
+Night mode indicator -\/ controls display brightness and screen variants. 
+
+When true, uses darker color schemes and reduced brightness for night driving. Automatically switched based on ambient light or brightness thresholds. \Hypertarget{main_8c_ac8e5c5d7af5d734614837b48dc709d91}\index{main.c@{main.c}!testmodeActivated@{testmodeActivated}}
 \index{testmodeActivated@{testmodeActivated}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{testmodeActivated}{testmodeActivated}}
 {\footnotesize\ttfamily \label{main_8c_ac8e5c5d7af5d734614837b48dc709d91} 
 int testmode\+Activated = false}
 
-\Hypertarget{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9}\index{main.c@{main.c}!time\_checked@{time\_checked}}
-\index{time\_checked@{time\_checked}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{time\_checked}{time\_checked}}
-{\footnotesize\ttfamily \label{main_8c_a7e24ed21034aec1f2db65c49fe77dcd9} 
-bool time\+\_\+checked\+[2]\+ = \{false, false\}}
 
+
+Testmode activation flag -\/ tracks whether test mode is currently active. 
+
+When true, simulated sensor values are used instead of real hardware readings. Toggled via button sequence during runtime. 

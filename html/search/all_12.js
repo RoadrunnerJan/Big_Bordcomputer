@@ -44,13 +44,14 @@ var searchData=
   ['testmode_5factivation_5fcount_41',['testmode_activation_count',['../i2c_functions_8c.html#a6291b474d126cd2545e39479ac119bd2',1,'testmode_activation_count:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a6291b474d126cd2545e39479ac119bd2',1,'testmode_activation_count:&#160;i2cFunctions.c']]],
   ['testmode_5factivation_5fstate_42',['testmode_activation_state',['../i2c_functions_8c.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c']]],
   ['testmode_5factivation_5ftime_43',['testmode_activation_time',['../i2c_functions_8c.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c']]],
-  ['testmodeactivated_44',['testmodeActivated',['../main_8c.html#ac8e5c5d7af5d734614837b48dc709d91',1,'main.c']]],
-  ['testsimulation_2ec_45',['testSimulation.c',['../test_simulation_8c.html',1,'']]],
-  ['testsimulation_2eh_46',['testSimulation.h',['../test_simulation_8h.html',1,'']]],
-  ['thermistor_47',['Thermistor',['../index.html#autotoc_md18',1,'Oil Temperature (NTC Thermistor)'],['../index.html#autotoc_md20',1,'Outdoor Temperature (NTC Thermistor)']]],
-  ['time_5fchecked_48',['time_checked',['../main_8c.html#a7e24ed21034aec1f2db65c49fe77dcd9',1,'main.c']]],
-  ['timer_5fconfig_49',['timer_config',['../pwm_sensor_8c.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c']]],
-  ['timer_5fstart_50',['timer_start',['../spi_functions_8c.html#a161432848a326da3a1ea7765fc2bc023',1,'timer_start():&#160;spiFunctions.c'],['../spi_functions_8h.html#aeb09db6f93d0e0f5aad6e9d2345793e0',1,'timer_start(void):&#160;spiFunctions.c']]],
-  ['trans_5fqueue_5fdepth_51',['TRANS_QUEUE_DEPTH',['../individual__config_8h.html#a63c662ad3b301f2d936ca736a1cb091b',1,'individual_config.h']]],
-  ['troubleshooting_52',['Troubleshooting',['../index.html#autotoc_md32',1,'']]]
+  ['testmode_5factive_44',['TESTMODE_ACTIVE',['../individual__config_8h.html#a2bc6ed307b70b8b4bdd0729b8a053d0e',1,'individual_config.h']]],
+  ['testmodeactivated_45',['testmodeActivated',['../main_8c.html#ac8e5c5d7af5d734614837b48dc709d91',1,'main.c']]],
+  ['testsimulation_2ec_46',['testSimulation.c',['../test_simulation_8c.html',1,'']]],
+  ['testsimulation_2eh_47',['testSimulation.h',['../test_simulation_8h.html',1,'']]],
+  ['thermistor_48',['Thermistor',['../index.html#autotoc_md18',1,'Oil Temperature (NTC Thermistor)'],['../index.html#autotoc_md20',1,'Outdoor Temperature (NTC Thermistor)']]],
+  ['time_5fupdate_5fpossible_49',['time_Update_Possible',['../i2c_functions_8c.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c']]],
+  ['timer_5fconfig_50',['timer_config',['../pwm_sensor_8c.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c']]],
+  ['timer_5fstart_51',['timer_start',['../spi_functions_8c.html#a161432848a326da3a1ea7765fc2bc023',1,'timer_start():&#160;spiFunctions.c'],['../spi_functions_8h.html#aeb09db6f93d0e0f5aad6e9d2345793e0',1,'timer_start(void):&#160;spiFunctions.c']]],
+  ['trans_5fqueue_5fdepth_52',['TRANS_QUEUE_DEPTH',['../individual__config_8h.html#a63c662ad3b301f2d936ca736a1cb091b',1,'individual_config.h']]],
+  ['troubleshooting_53',['Troubleshooting',['../index.html#autotoc_md32',1,'']]]
 ];

@@ -9,5 +9,6 @@ var searchData=
   ['interpolate_5fpressure_6',['interpolate_pressure',['../adc_8c.html#a785d1fe320cf21f8bbf5b40016fbca9e',1,'adc.c']]],
   ['interpolate_5ftemp_7',['interpolate_temp',['../adc_8c.html#a588f37762af357a454b6e23e463d5b8d',1,'adc.c']]],
   ['is_5ftestmode_5factivated_8',['is_testmode_activated',['../i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0',1,'i2cFunctions.h']]],
-  ['ispwm_9',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
+  ['ischeckpossible_9',['isCheckPossible',['../i2c_functions_8h.html#a448ce9ae442185b28b9ab44347c439ee',1,'i2cFunctions.h']]],
+  ['ispwm_10',['isPWM',['../pwm_switch_8h.html#ac7cb7dd9d16fa98333f2df69e0f88487',1,'pwmSwitch.h']]]
 ];

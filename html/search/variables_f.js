@@ -20,6 +20,6 @@ var searchData=
   ['testmode_5factivation_5fstate_17',['testmode_activation_state',['../i2c_functions_8c.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#adaf37611e9f0c039d25b49384b649b5f',1,'testmode_activation_state:&#160;i2cFunctions.c']]],
   ['testmode_5factivation_5ftime_18',['testmode_activation_time',['../i2c_functions_8c.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff',1,'testmode_activation_time:&#160;i2cFunctions.c']]],
   ['testmodeactivated_19',['testmodeActivated',['../main_8c.html#ac8e5c5d7af5d734614837b48dc709d91',1,'main.c']]],
-  ['time_5fchecked_20',['time_checked',['../main_8c.html#a7e24ed21034aec1f2db65c49fe77dcd9',1,'main.c']]],
+  ['time_5fupdate_5fpossible_20',['time_Update_Possible',['../i2c_functions_8c.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#a84f043ae41e1037d7d132f6b439ef16e',1,'time_Update_Possible:&#160;i2cFunctions.c']]],
   ['timer_5fconfig_21',['timer_config',['../pwm_sensor_8c.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#a84700ebedf68f76028da8032bd3c8e6b',1,'timer_config:&#160;pwmSensor.c']]]
 ];

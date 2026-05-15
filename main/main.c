@@ -45,17 +45,31 @@
 
 
 /* ===== Global Variables ===== */
+/**
+ * @brief Current time value for display updates.
+ */
 static time_t now;
+
+/**
+ * @brief Time information structure for date/time operations.
+ */
 static struct tm timeinfo;
 
-struct timeval StartUpTime;
-struct timeval checkTime;
+/**
+ * @brief Testmode activation flag - tracks whether test mode is currently active.
+ * 
+ * When true, simulated sensor values are used instead of real hardware readings.
+ * Toggled via button sequence during runtime.
+ */
 int testmodeActivated = false;
 
+/**
+ * @brief Night mode indicator - controls display brightness and screen variants.
+ * 
+ * When true, uses darker color schemes and reduced brightness for night driving.
+ * Automatically switched based on ambient light or brightness thresholds.
+ */
 bool night_mode = false;
-bool time_checked[2] = {false, false};  // [0] = Gauge, [1] = Beeper
-long long last_executed_time[5] = {0, 0, 0, 0, 0}; // Oil Pressure, Oil Temp, Volt, Out Temp, Brightness
-
 
 /* ===== Buzzer Task (only if enabled) ===== */
 #if USE_BUZZER == true
@@ -309,9 +323,9 @@ static void tick_switch(int displayID, bool force_night_mode_update)
     }
                 
     lv_timer_handler();
-    if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[displayID]) > DISPLAYS[displayID].delay_time_screen_ms)
+    if(get_now_time_ms() - get_last_executed_time_per_screen(displayID) > DISPLAYS[displayID].delay_time_screen_ms)
     {
-        last_executed_time[displayID] = (long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000;
+        update_last_executed_time_per_screen(displayID);
     }
 }
 
@@ -329,17 +343,24 @@ static void lv_tick_task_screen(void *pv)
     (void)pv;
 
     while (1) {
-        gettimeofday(&checkTime, NULL);
+        set_now_time_ms();
         int time_test_time = is_testmode_activated() ? MEASURE_DELAY_TIME_BRIGHT_TEST_MS : MEASURE_DELAY_TIME_BRIGHT_MS;
+        
+            printf("time_test_time: %d\n", time_test_time);
+            printf("now_ms: %lld\n", get_now_time_ms());
+            printf("last_brightness_check_time: %lld\n", get_last_executed_brightness());
+            printf("div: %lld\n", (get_now_time_ms() - get_last_executed_brightness()));
+            printf("checkTime: %d\n", (get_now_time_ms() - get_last_executed_brightness()) > time_test_time);
+
         if(is_testmode_activated()){
-            if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+            if ((get_now_time_ms() - get_last_executed_brightness()) > time_test_time)
             {
                 brightness_test();
                 night_mode = getNightModeActiveTestValue();
             }
         }
         else {
-            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+            if((get_now_time_ms() - get_last_executed_brightness()) > time_test_time)
             {
                 calcBrightness(get_adc_volt_bel());
                 if(BRIGHTNESS_AUTO_ENABLE) {
@@ -351,15 +372,12 @@ static void lv_tick_task_screen(void *pv)
             }
         }
 
-        if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) > GAUGE_ON_DELAY_MS)
-        { 
-            if (!time_checked[0]) {
-                time_checked[0] = !time_checked[0];
-            }
-            
-            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[5]) > time_test_time)
+    if (get_now_time_ms() - *get_startup_time_sec() * 1000LL > GAUGE_ON_DELAY_MS)
+        {
+            if((get_now_time_ms() - get_last_executed_brightness()) > time_test_time)
             {
-                last_executed_time[5] = (long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000;
+                set_last_executed_brightness(); // Update brightness check time
+
                 if(is_testmode_activated()) {
                     set_lcd_brightness(getBrightnessTestValue());
                 }
@@ -381,7 +399,7 @@ static void lv_tick_task_screen(void *pv)
 
         // Phase 1: Update all sensor values and LVGL variables for all displays
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
-            if(((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - last_executed_time[i]) > DISPLAYS[i].delay_time_screen_ms)
+            if(get_now_time_ms() - get_last_executed_time_per_screen(i) > DISPLAYS[i].delay_time_screen_ms)
             {
                 update_values(i);
             }
@@ -393,14 +411,8 @@ static void lv_tick_task_screen(void *pv)
         }
 
         #if USE_BUZZER == true
-            if (!time_checked[1]) {
-                gettimeofday(&checkTime, NULL);
-            }
-            if (((long long)checkTime.tv_sec * 1000 + checkTime.tv_usec / 1000 - (long long)StartUpTime.tv_sec * 1000 + StartUpTime.tv_usec / 1000) >= BUZZER_ON_DELAY_MS)
+            if (get_now_time_ms() - *get_startup_time_sec() * 1000LL >= BUZZER_ON_DELAY_MS)
             {
-                if (!time_checked[1]) {
-                    time_checked[1] = !time_checked[1];
-                }
                 if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP && getOutputTemperatureSet())
                 {
                     xTaskCreatePinnedToCore(temperature_buzzering, "temperature_buzzering", BUZZER_TASK_STEPDEPTH, NULL, BUZZER_TASK_PRIORITY, NULL, BUZZER_TASK_CORE);
@@ -433,7 +445,7 @@ static void lv_tick_task_screen(void *pv)
             pwm_sensor_print();
         }
 
-        vTaskDelay(pdMS_TO_TICKS(25));
+        vTaskDelay(pdMS_TO_TICKS(MAIN_TICK_TIME_DELAY_MS));
     }
 }
 
@@ -466,9 +478,9 @@ void init_system()
     init_i2c();
     sync_rtc_to_system();
     printLog("RTC initialized and synchronized to system time.");
-    gettimeofday(&StartUpTime, NULL);
+    set_startup_time_sec();
     char log_msg[50];
-    snprintf(log_msg, sizeof(log_msg), "System started at: %s", ctime(&StartUpTime.tv_sec));
+    snprintf(log_msg, sizeof(log_msg), "System started at: %s", ctime(get_startup_time_sec()));
     printLog(log_msg);
 
     // init buttons
@@ -505,6 +517,9 @@ void init_system()
  * Initializes all system resources and creates the main LVGL tick task
  * for periodic display updates. After task creation, enters idle mode
  * while background tasks handle application logic.
+ *
+ * @return ESP_OK on successful initialization, error code on failure
+ */
  *
  * This function is automatically called by ESP-IDF runtime.
  */

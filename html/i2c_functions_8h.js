@@ -1,9 +1,19 @@
 var i2c_functions_8h =
 [
+    [ "get_last_executed_brightness", "i2c_functions_8h.html#a4c43652df6c2d2df810b1cad5bb3d5c3", null ],
+    [ "get_last_executed_time_per_screen", "i2c_functions_8h.html#a097262073e889f0bd799738c7aec7854", null ],
+    [ "get_now_time_ms", "i2c_functions_8h.html#a66402bde3d6d6f0ff0d0150410bf05f7", null ],
+    [ "get_startup_time_sec", "i2c_functions_8h.html#aa46a84a0698eea35f87ae7c3c6553f6a", null ],
     [ "init_i2c", "i2c_functions_8h.html#a44ff2fa430fff0f39b4bb6e017dc2f46", null ],
     [ "init_time_buttons", "i2c_functions_8h.html#adefb1faa97f5dcd7f89a4327b3d4a893", null ],
     [ "is_testmode_activated", "i2c_functions_8h.html#ad1e08059bfd9523c7db8c2a021dd00e0", null ],
+    [ "isCheckPossible", "i2c_functions_8h.html#a448ce9ae442185b28b9ab44347c439ee", null ],
+    [ "set_last_executed_brightness", "i2c_functions_8h.html#a427abb60b1f48ede1d65b6d22bd56a99", null ],
+    [ "set_last_executed_time_per_screen", "i2c_functions_8h.html#aeaad3d3d0e0d9dc72044b68ba28bce61", null ],
+    [ "set_now_time_ms", "i2c_functions_8h.html#a89cc99294c1880528777e05f8ae6bdb6", null ],
+    [ "set_startup_time_sec", "i2c_functions_8h.html#a75b777408fdba2537a144a6f1369e4a9", null ],
     [ "sync_rtc_to_system", "i2c_functions_8h.html#a6b780707272c87024478d0879e480195", null ],
+    [ "update_last_executed_time_per_screen", "i2c_functions_8h.html#aa607242df4b1b738f17bca2c34442085", null ],
     [ "btn_time", "i2c_functions_8h.html#ac817f20c65ad9af1ef7b4f85ab389df7", null ],
     [ "bus_cfg", "i2c_functions_8h.html#aab28d6f688b1eaba1041d583ee4ce5f6", null ],
     [ "bus_handle", "i2c_functions_8h.html#a457e9b0ccf6478fd7e45c0463abbd533", null ],
@@ -11,8 +21,13 @@ var i2c_functions_8h =
     [ "ds3231_cfg", "i2c_functions_8h.html#ab267adc45de633391260efd03afa0ad6", null ],
     [ "ds3231_handle", "i2c_functions_8h.html#a992ab7409747ebf3a31ff7643d9720f2", null ],
     [ "gpio_cfg_time", "i2c_functions_8h.html#a50b1fe2759bea9706faf3ed4eb6e815c", null ],
+    [ "last_executed_time", "i2c_functions_8h.html#a24331e06f07766b1db2fa98c9d34c22a", null ],
+    [ "last_executed_time_brightness", "i2c_functions_8h.html#ae227f2373bb2e1a4ae4d5eb0a3067c56", null ],
+    [ "now_ms", "i2c_functions_8h.html#abb669e8e5d7c37a8c18aa644d901dae3", null ],
+    [ "StartUpTime_sec", "i2c_functions_8h.html#ab1a05dc00ed464a91c8ea2a7f649bebc", null ],
     [ "testmode_activated", "i2c_functions_8h.html#afa9e8129f0495e4719121defad0fa0d6", null ],
     [ "testmode_activation_count", "i2c_functions_8h.html#a6291b474d126cd2545e39479ac119bd2", null ],
     [ "testmode_activation_state", "i2c_functions_8h.html#adaf37611e9f0c039d25b49384b649b5f", null ],
-    [ "testmode_activation_time", "i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff", null ]
+    [ "testmode_activation_time", "i2c_functions_8h.html#a63b736710f6e0f87dce37e12e89993ff", null ],
+    [ "time_Update_Possible", "i2c_functions_8h.html#a84f043ae41e1037d7d132f6b439ef16e", null ]
 ];

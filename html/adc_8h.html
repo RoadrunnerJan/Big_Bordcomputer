@@ -122,7 +122,7 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3a3b0f80060a0f8d63f46bec1e186142c8">ADC_AMBI</a> = 4
 , <a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151">ADC_3V3</a> = 5
-, <a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd">MAX_ABC_NBR</a>
+, <a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc">MAX_ADC_NBR</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a63fa6c6fb23e9ea6bda72ffd045c77f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC channel selection enumeration.  <a href="#a63fa6c6fb23e9ea6bda72ffd045c77f3">More...</a><br /></td></tr>
@@ -152,7 +152,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ab67e7b00ec2abc929c23209b55fc7496" id="r_ab67e7b00ec2abc929c23209b55fc7496"><td class="memItemLeft">adc_oneshot_unit_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ab67e7b00ec2abc929c23209b55fc7496">adc_handler</a> [<a class="el" href="individual__config_8h.html#acbaf68d847014d9eb06775dc1c082f40">ADC_UNIT_NUMBER</a>]</td></tr>
 <tr class="memitem:ad1b41a73421aef36042226d52f6db578" id="r_ad1b41a73421aef36042226d52f6db578"><td class="memItemLeft">adc_cali_curve_fitting_config_t&#160;</td><td class="memItemRight"><a class="el" href="#ad1b41a73421aef36042226d52f6db578">cali_config</a> [<a class="el" href="individual__config_8h.html#acbaf68d847014d9eb06775dc1c082f40">ADC_UNIT_NUMBER</a>]</td></tr>
 <tr class="memitem:ab4aaea083da9b672746255ebc1f67abd" id="r_ab4aaea083da9b672746255ebc1f67abd"><td class="memItemLeft">adc_cali_handle_t&#160;</td><td class="memItemRight"><a class="el" href="#ab4aaea083da9b672746255ebc1f67abd">cali_handler</a> [<a class="el" href="individual__config_8h.html#acbaf68d847014d9eb06775dc1c082f40">ADC_UNIT_NUMBER</a>]</td></tr>
-<tr class="memitem:a1b27817604a4502be2244972d0eb2ce2" id="r_a1b27817604a4502be2244972d0eb2ce2"><td class="memItemLeft"><a class="el" href="structadc__handles__t.html">adc_handles_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1b27817604a4502be2244972d0eb2ce2">adc_handles</a> [<a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd">MAX_ABC_NBR</a> - 1]</td></tr>
+<tr class="memitem:a7a702e1b0253de06d01123ba367d93d5" id="r_a7a702e1b0253de06d01123ba367d93d5"><td class="memItemLeft"><a class="el" href="structadc__handles__t.html">adc_handles_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7a702e1b0253de06d01123ba367d93d5">adc_handles</a> [<a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc">MAX_ADC_NBR</a> - 1]</td></tr>
 <tr class="memitem:a3222dc2ea3f4f877a09b77f768e098a6" id="r_a3222dc2ea3f4f877a09b77f768e098a6"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3222dc2ea3f4f877a09b77f768e098a6">oil_temp_table</a> []</td></tr>
 <tr class="memitem:a9368b27af8dd8c123596c5554a756233" id="r_a9368b27af8dd8c123596c5554a756233"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9368b27af8dd8c123596c5554a756233">outside_temperature_table</a> []</td></tr>
 <tr class="memitem:a09ac495d5458f3dd994d77827de483d8" id="r_a09ac495d5458f3dd994d77827de483d8"><td class="memItemLeft">const <a class="el" href="structlookup__values__t.html">lookup_values_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a09ac495d5458f3dd994d77827de483d8">pressure_table</a> []</td></tr>
@@ -228,7 +228,7 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151" name="a63fa6c6fb23e9ea6bda72ffd045c77f3a9324d58f827661d0f5126cf14fd1b151"></a>ADC_3V3&#160;</td><td class="fielddoc"><p>3.3V reference voltage input </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd" name="a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd"></a>MAX_ABC_NBR&#160;</td><td class="fielddoc"><p>Must ALWAYS be the last enum value </p>
+<tr><td class="fieldname"><a id="a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc" name="a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc"></a>MAX_ADC_NBR&#160;</td><td class="fielddoc"><p>Must ALWAYS be the last enum value </p>
 </td></tr>
 </table>
 
@@ -441,8 +441,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1b27817604a4502be2244972d0eb2ce2" name="a1b27817604a4502be2244972d0eb2ce2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b27817604a4502be2244972d0eb2ce2">&#9670;&#160;</a></span>adc_handles</h2>
+<a id="a7a702e1b0253de06d01123ba367d93d5" name="a7a702e1b0253de06d01123ba367d93d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a702e1b0253de06d01123ba367d93d5">&#9670;&#160;</a></span>adc_handles</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,7 +451,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structadc__handles__t.html">adc_handles_t</a> adc_handles[<a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3a9904d8ed81004675512b47d550ca3abd">MAX_ABC_NBR</a> - 1]</td>
+          <td class="memname"><a class="el" href="structadc__handles__t.html">adc_handles_t</a> adc_handles[<a class="el" href="#a63fa6c6fb23e9ea6bda72ffd045c77f3aa152a0ab900b65240caf3a8ffa83e7dc">MAX_ADC_NBR</a> - 1]</td>
         </tr>
       </table>
   </td>

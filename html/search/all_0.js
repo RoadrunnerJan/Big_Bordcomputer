@@ -20,7 +20,7 @@ var searchData=
   ['adc_5ffail_5fvalue_17',['ADC_FAIL_VALUE',['../individual__config_8h.html#a242963742b7af57917f87d0f3a95edbf',1,'individual_config.h']]],
   ['adc_5fhandle_18',['adc_handle',['../structadc__handles__t.html#adbec15e3c4637f01ad35a9a13b9159fe',1,'adc_handles_t']]],
   ['adc_5fhandler_19',['adc_handler',['../adc_8c.html#ab67e7b00ec2abc929c23209b55fc7496',1,'adc_handler:&#160;adc.c'],['../adc_8h.html#ab67e7b00ec2abc929c23209b55fc7496',1,'adc_handler:&#160;adc.c']]],
-  ['adc_5fhandles_20',['adc_handles',['../adc_8c.html#a1b27817604a4502be2244972d0eb2ce2',1,'adc_handles:&#160;adc.c'],['../adc_8h.html#a1b27817604a4502be2244972d0eb2ce2',1,'adc_handles:&#160;adc.c']]],
+  ['adc_5fhandles_20',['adc_handles',['../adc_8c.html#a7a702e1b0253de06d01123ba367d93d5',1,'adc_handles:&#160;adc.c'],['../adc_8h.html#a7a702e1b0253de06d01123ba367d93d5',1,'adc_handles:&#160;adc.c']]],
   ['adc_5fhandles_5ft_21',['adc_handles_t',['../structadc__handles__t.html',1,'']]],
   ['adc_5finit_22',['adc_init',['../adc_8c.html#a1e942fcd91f79d49e4ddb8d7e9d3ef95',1,'adc_init():&#160;adc.c'],['../adc_8h.html#a2b815e6730e8723a6d1d06d9ef8f31c0',1,'adc_init(void):&#160;adc.c']]],
   ['adc_5fmax_5fv_5fvalid_23',['ADC_MAX_V_VALID',['../individual__config_8h.html#a285914aba5f748beb371823980bcd7a7',1,'individual_config.h']]],
@@ -63,6 +63,6 @@ var searchData=
   ['adc_5fvolt_5fbel_5fpullup_60',['ADC_VOLT_BEL_PULLUP',['../individual__config_8h.html#ac2767badf99aab598b4b7d8a2b48fe97',1,'individual_config.h']]],
   ['adc_5fvolt_5fpulldown_61',['ADC_VOLT_PULLDOWN',['../individual__config_8h.html#aa0a06b6bbbc1361c162e0e0ca523f2e7',1,'individual_config.h']]],
   ['adc_5fvolt_5fpullup_62',['ADC_VOLT_PULLUP',['../individual__config_8h.html#ad7feacb850cd11f0dfc20cd2e3ff30bf',1,'individual_config.h']]],
-  ['app_5fmain_63',['app_main',['../main_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70',1,'main.c']]],
+  ['app_5fmain_63',['app_main',['../main_8c.html#ade50b2bd3447bef8ae7339935bbca940',1,'main.c']]],
   ['architecture_64',['Software Architecture',['../index.html#autotoc_md3',1,'']]]
 ];

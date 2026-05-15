@@ -11,6 +11,8 @@
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a454deab6aeff0af2de8c334bec94dfe9}{LOGGING\+\_\+\+TAG}}~"{}JRO\+\_\+\+BOARD\+\_\+\+COMPUTER\+\_\+\+LOG"{}
 \item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2bc6ed307b70b8b4bdd0729b8a053d0e}{TESTMODE\+\_\+\+ACTIVE}}~true
+\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}{NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS}}~4
 \begin{DoxyCompactList}\small\item\em Core project configuration values. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7a80df8b2fd93814ce229e8b2a1c04ad}{NUMBER\+\_\+\+OF\+\_\+\+SPI}}~2
@@ -18,39 +20,39 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21}{SPI\+\_\+\+MODE}}~3
 \begin{DoxyCompactList}\small\item\em SPI bus configuration, used for SPI LCD panels. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}{TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Number of simultaneous SPI transactions in queue. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+SCLK}}~30
-\item 
+\begin{DoxyCompactList}\small\item\em SPI 1 bus configuration (first SPI host for displays 1-\/2). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a05d95ad303c4b8aec288506682171ea7}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MOSI}}~29
-\item 
+\begin{DoxyCompactList}\small\item\em Master Out Slave In pin for SPI 1. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5a45fed2ab6bfd3a2977111330088c61}{PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MISO}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Master In Slave Out (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a168a72d3438cf86470ad7235e623105e}{SPI\+\_\+1\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ}}~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))
-\item 
+\begin{DoxyCompactList}\small\item\em Max transfer size for 240x240 display. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7}{SPI\+\_\+1\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Quad Write Protect (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb}{SPI\+\_\+1\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Quad Hold (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6}{SPI\+\_\+1\+\_\+\+INTR\+\_\+\+FLAGS}}~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)
-\item 
+\begin{DoxyCompactList}\small\item\em Interrupt flags. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a2626daf8b314d054a90f38997d8a3827}{SPI\+\_\+1\+\_\+\+DMA}}~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO
-\item 
+\begin{DoxyCompactList}\small\item\em Automatic DMA channel selection. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+SCLK}}~11
-\item 
+\begin{DoxyCompactList}\small\item\em SPI 2 bus configuration (second SPI host for displays 3-\/4, optional). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MOSI}}~12
-\item 
+\begin{DoxyCompactList}\small\item\em Master Out Slave In pin for SPI 2. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b}{PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MISO}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Master In Slave Out (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae80d06218a249684b89828193c330614}{SPI\+\_\+2\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ}}~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))
-\item 
+\begin{DoxyCompactList}\small\item\em Max transfer size for 240x240 display. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054}{SPI\+\_\+2\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Quad Write Protect (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514}{SPI\+\_\+2\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM}}~-\/1
-\item 
+\begin{DoxyCompactList}\small\item\em Quad Hold (unused, set to -\/1). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a99cb21495f82c01685873a833d719b25}{SPI\+\_\+2\+\_\+\+INTR\+\_\+\+FLAGS}}~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)
-\item 
+\begin{DoxyCompactList}\small\item\em Interrupt flags. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1}{SPI\+\_\+2\+\_\+\+DMA}}~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO
-\item 
+\begin{DoxyCompactList}\small\item\em Automatic DMA channel selection. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a8046713c766c7fc1936d9ffd641e2441}{LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ}}~(40 \texorpdfstring{$\ast$}{*} 1000 \texorpdfstring{$\ast$}{*} 1000)
 \begin{DoxyCompactList}\small\item\em Common LCD panel configuration, shared by all displays. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a970dd1ec4cf86ef299ba32369eb49ce2}{LCD\+\_\+\+CMD\+\_\+\+BITS}}~8
@@ -168,33 +170,33 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a54efd3039e7cfc00d1b648be4546cccc}{LCD\+\_\+4\+\_\+\+SCREEN\+\_\+\+ID}}~SCREEN\+\_\+\+ID\+\_\+\+GAUGE\+\_\+\+VOLTAGE
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914}{PWM\+\_\+\+SENSOR\+\_\+\+PIN}}~3
-\item 
+\begin{DoxyCompactList}\small\item\em PWM sensor input on a digital-\/capable GPIO. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7451847218b5826426548ebc4166c7c5}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PIN}}~16
-\item 
+\begin{DoxyCompactList}\small\item\em PWM/\+\+ADC sensor input selector switch configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae351184dec4c5ec451f85768e04ae331}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+MODE}}~GPIO\+\_\+\+MODE\+\_\+\+INPUT
-\item 
+\begin{DoxyCompactList}\small\item\em Configure as digital input. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+UP\+\_\+\+EN}}~GPIO\+\_\+\+PULLUP\+\_\+\+DISABLE
-\item 
+\begin{DoxyCompactList}\small\item\em No internal pull-\/up resistor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+DOWN\+\_\+\+EN}}~GPIO\+\_\+\+PULLDOWN\+\_\+\+DISABLE
-\item 
+\begin{DoxyCompactList}\small\item\em No internal pull-\/down resistor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456}{PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+INTR\+\_\+\+TYPE}}~GPIO\+\_\+\+INTR\+\_\+\+DISABLE
-\item 
+\begin{DoxyCompactList}\small\item\em No interrupt on level change. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+PIN}}~17
-\begin{DoxyCompactList}\small\item\em Time adjustment button definition and debounce timing. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Time adjustment button GPIO configurations. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a56e3524f658a913c549c9da612eb6678}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN}}~18
-\item 
+\begin{DoxyCompactList}\small\item\em GPIO pin for hour adjustment button. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+SHORT\+\_\+\+MS}}~50
-\item 
+\begin{DoxyCompactList}\small\item\em Debounce time for minute button in milliseconds. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+LONG\+\_\+\+MS}}~500
-\item 
+\begin{DoxyCompactList}\small\item\em Long press threshold for minute button. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01}{BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+ACTIVE\+\_\+\+LEVEL}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Active level:\+ 0=active low, 1=active high. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+SHORT\+\_\+\+MS}}~50
-\item 
+\begin{DoxyCompactList}\small\item\em Debounce time for hour button in milliseconds. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+LONG\+\_\+\+MS}}~500
-\item 
+\begin{DoxyCompactList}\small\item\em Long press threshold for hour button. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_adf9d11b2fd42021a61786187b6447699}{BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+ACTIVE\+\_\+\+LEVEL}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Active level:\+ 0=active low, 1=active high. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae2786de7186520fab24837b2e9fd0392}{LED\+\_\+\+SPEED}}~LEDC\+\_\+\+LOW\+\_\+\+SPEED\+\_\+\+MODE
 \begin{DoxyCompactList}\small\item\em LEDC PWM settings for display backlight brightness control. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ade3a58ca3fc05681b689884e377a37d5}{LED\+\_\+\+TIMER}}~LEDC\+\_\+\+TIMER\+\_\+0
@@ -220,139 +222,139 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a85498e1c53498101123d5d98a95f1206}{BRIGHTNESS\+\_\+\+AUTO\+\_\+\+ENABLE}}~false
 \begin{DoxyCompactList}\small\item\em Auto-\/brightness thresholds and manual defaults. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em Default daytime brightness level (0-\/100\%). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae50e856eb947d19695cf737cdd1436d8}{BRIGHTNESS\+\_\+\+DAY\+\_\+\+MAX\+\_\+V}}~0.\+05
-\item 
+\begin{DoxyCompactList}\small\item\em Battery voltage threshold for day mode (in volts). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN}}~20
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum brightness in night mode (0-\/100\%). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN\+\_\+V}}~2.\+29
-\item 
+\begin{DoxyCompactList}\small\item\em Battery voltage mapping point for minimum night brightness. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX}}~40
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum brightness in night mode (0-\/100\%). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9}{BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX\+\_\+V}}~10.\+74
-\item 
+\begin{DoxyCompactList}\small\item\em Battery voltage mapping point for maximum night brightness. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}{EEZ\+\_\+\+VALUE\+\_\+\+FACTOR}}~1000
-\item 
+\begin{DoxyCompactList}\small\item\em Display rendering and initialization timing parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf}{GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS}}~1000
-\item 
+\begin{DoxyCompactList}\small\item\em Delay before gauges become active after boot (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a40ea04e9f5c26956209bcc0a89a00fac}{BUZZER\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS}}~5000
-\item 
+\begin{DoxyCompactList}\small\item\em Delay before buzzer activation is allowed (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6d7e836e81c91b823bc4d89f3fb4ba69}{MAIN\+\_\+\+TASK\+\_\+\+FINISHED\+\_\+\+DELAY}}~5000
-\item 
+\begin{DoxyCompactList}\small\item\em Delay for main task completion (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~4096
-\item 
+\begin{DoxyCompactList}\small\item\em Display 1 Free\+RTOS task configuration parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~10
-\item 
+\begin{DoxyCompactList}\small\item\em Task priority for display 1. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267}{TASK\+\_\+1\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~200
-\item 
+\begin{DoxyCompactList}\small\item\em Update interval for display 1 (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em CPU core for display 1 task. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae12057330aeebd4ab49540af10aa2f8a}{TASK\+\_\+2\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
-\item 
+\begin{DoxyCompactList}\small\item\em Display 2 Free\+RTOS task configuration parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab1e1ace4209cf40e91bea91332665224}{TASK\+\_\+2\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad04b185b86d13a77ed9a8e9c298bce11}{TASK\+\_\+2\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em Update interval for display 2 (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164}{TASK\+\_\+2\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa68ea9ed040536567eb1a1f029c0de09}{TASK\+\_\+3\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
-\item 
+\begin{DoxyCompactList}\small\item\em Display 3 Free\+RTOS task configuration parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0fd31553a1c949532a661bb84bf8bf82}{TASK\+\_\+3\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6761c997cd501205a16b88c0f152c646}{TASK\+\_\+3\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~150
-\item 
+\begin{DoxyCompactList}\small\item\em Update interval for display 3 (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0a1c1d511d3f3f11316926b1c5f01018}{TASK\+\_\+3\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac00defb01b4b0a4dd498911178f033ab}{TASK\+\_\+4\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}
-\item 
+\begin{DoxyCompactList}\small\item\em Display 4 Free\+RTOS task configuration parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aea108020a51158de85a2558e2053b672}{TASK\+\_\+4\+\_\+\+PRIORITY\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}{TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab6b8904ea8f761781af33d049960e758}{TASK\+\_\+4\+\_\+\+DELAYTIME\+\_\+\+SCREEN}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em Update interval for display 4 (milliseconds). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a}{TASK\+\_\+4\+\_\+\+CORE\+\_\+\+SCREEN}}~\doxymbox{\hyperlink{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}{TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN}}
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689}{PWM\+\_\+\+SENSOR\+\_\+\+RESOLUTION\+\_\+\+MHZ}}~10
-\item 
+\begin{DoxyCompactList}\small\item\em Buzzer alarm and PWM output configuration (only if USE\+\_\+\+BUZZER == true). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804}{PWM\+\_\+\+SENSOR\+\_\+\+PRESCALE}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Timer prescaler. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5}{PWM\+\_\+\+SENSOR\+\_\+\+NEG\+\_\+\+EDGE}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Count negative (falling) edges. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0}{PWM\+\_\+\+SENSOR\+\_\+\+POS\+\_\+\+EDGE}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Count positive (rising) edges. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa}{PWM\+\_\+\+SENSOR\+\_\+\+PULL\+\_\+\+UP}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Enable internal pull-\/up on input pin. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PULSE\+\_\+\+ID}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Diagnostic pulse configuration for sensor health check. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MIN}}~900
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum period in clock ticks (nanoseconds/\+100). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a22849c04b94b03fff7321e9caa755582}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MAX}}~1100
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum period for valid diagnostic pulse. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a473cb738d041aec6a7867f361e43c29e}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MIN}}~150
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum pulse width threshold. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031}{PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MAX}}~800
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum pulse width for valid range. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature sensor pulse configuration from Hella datasheet. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MIN}}~3900
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum period in clock ticks. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MAX}}~4200
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum period for valid temperature pulse. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MIN}}~50
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum pulse width (0°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MAX}}~4050
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum pulse width (150°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1}}~-\/896.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature offset constant. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177}{PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2}}~19.\+2
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature slope (must not be zero). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure sensor pulse configuration from Hella datasheet. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MIN}}~3900
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum period in clock ticks. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MAX}}~4200
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum period for valid pressure pulse. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_abac0ce5b828908a277b01535226e4a80}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MIN}}~50
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum pulse width (0 bar). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afa703f909b055df7fc07f2241e708db9}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MAX}}~4050
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum pulse width (6 bar). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1}}~64.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure offset constant. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d}{PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2}}~384
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure slope (must not be zero). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36}{PWM\+\_\+\+SENSOR\+\_\+\+MAX\+\_\+\+SENSOR\+\_\+\+COUNT}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum number of sensors on PWM bus. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aaea767524059ac76b32479e382c20381}{PWM\+\_\+\+ADC\+\_\+\+SWTICH\+\_\+\+VALUE\+\_\+\+PWM}}~true
-\item 
+\begin{DoxyCompactList}\small\item\em PWM/\+\+ADC selector for sensor input mode. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f}{I2\+C\+\_\+\+SDA\+\_\+\+PIN}}~9
-\item 
+\begin{DoxyCompactList}\small\item\em I2C bus GPIO pins and clock configuration for RTC communication. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c}{I2\+C\+\_\+\+SCL\+\_\+\+PIN}}~6
-\item 
+\begin{DoxyCompactList}\small\item\em Serial Clock pin for I2C bus. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9}{I2\+C\+\_\+\+CLK\+\_\+\+SRC}}~I2\+C\+\_\+\+CLK\+\_\+\+SRC\+\_\+\+DEFAULT
-\item 
+\begin{DoxyCompactList}\small\item\em Default clock source. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f}{I2\+C\+\_\+\+PORT}}~I2\+C\+\_\+\+NUM\+\_\+0
-\item 
+\begin{DoxyCompactList}\small\item\em I2C controller number. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba}{I2\+C\+\_\+\+GLITCH\+\_\+\+IGNORE}}~7
-\item 
+\begin{DoxyCompactList}\small\item\em Glitch filter threshold (clock cycles). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50}{I2\+C\+\_\+\+INT\+\_\+\+PULLUP\+\_\+\+ENB}}~false
-\item 
+\begin{DoxyCompactList}\small\item\em Use external pull-\/ups (not internal). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}{RTC\+\_\+\+ADDR\+\_\+\+LENGTH}}~I2\+C\+\_\+\+ADDR\+\_\+\+BIT\+\_\+\+LEN\+\_\+7
-\item 
+\begin{DoxyCompactList}\small\item\em 7-\/bit I2C addressing \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a39b3f976a18466171902d0705c9a87f8}{RTC\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ}}~100000
-\item 
+\begin{DoxyCompactList}\small\item\em I2C clock speed (100 k\+Hz standard mode). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee}{RTC\+\_\+\+DS3231\+\_\+\+ADDR}}~0x68
-\item 
+\begin{DoxyCompactList}\small\item\em I2C device addresses for connected sensors. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}{ADC\+\_\+\+UNIT\+\_\+\+NUMBER}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em ADC unit setup and hardware configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0b8305ed6e3e4f159323b92cd8f6841f}{ADC\+\_\+\+UNIT\+\_\+1\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
-\item 
+\begin{DoxyCompactList}\small\item\em ADC1 resolution (default = 12-\/bit). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a83d11d63ce9a953633174fde69127d81}{ADC\+\_\+\+UNIT\+\_\+2\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
-\item 
+\begin{DoxyCompactList}\small\item\em ADC2 resolution (default = 12-\/bit). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac9df11e98fcd52b19ed0571616710ac7}{ADC\+\_\+\+UNIT\+\_\+1\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
-\item 
+\begin{DoxyCompactList}\small\item\em ADC1 attenuation (±3.3V range). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aafb2cac68cdf6dabcccd98b6aca9fa25}{ADC\+\_\+\+UNIT\+\_\+2\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
-\item 
+\begin{DoxyCompactList}\small\item\em ADC2 attenuation (±3.3V range). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a46936bf47259b803d429e6af362abe3e}{ADC\+\_\+\+OIL\+\_\+\+PRESSURE\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+1
-\item 
+\begin{DoxyCompactList}\small\item\em Oil pressure sensor ADC configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_acf5f8ac35417730c96f7ab0196b70879}{ADC\+\_\+\+OIL\+\_\+\+PRESSURE\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a17fb5aea8fdf48bbb414ee58ca1b0f68}{ADC\+\_\+\+OIL\+\_\+\+PRESSURE\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -360,7 +362,7 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aee7ad521dd601be729f927aa9c8b14a2}{ADC\+\_\+\+OIL\+\_\+\+PRESSURE\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+3
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a84103ab723ce6ce397117368e3d0569b}{ADC\+\_\+\+OIL\+\_\+\+TEMPERATURE\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+1
-\item 
+\begin{DoxyCompactList}\small\item\em Oil temperature sensor ADC configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4a397c9a1cc3d2f0f36a21a99b9e2f36}{ADC\+\_\+\+OIL\+\_\+\+TEMPERATURE\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac018ccf6f9d50cafd4c8d9f413629f97}{ADC\+\_\+\+OIL\+\_\+\+TEMPERATURE\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -368,7 +370,7 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa9780dbdaba7eac4afc7e4db35a5494b}{ADC\+\_\+\+OIL\+\_\+\+TEMPERATURE\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+6
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a81a58e3ffd1e321af06e0625393288ca}{ADC\+\_\+\+OUT\+\_\+\+TEMPERATURE\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+1
-\item 
+\begin{DoxyCompactList}\small\item\em Outdoor temperature sensor ADC configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_abfab26e093f2e08d4dd7d77b19bc6206}{ADC\+\_\+\+OUT\+\_\+\+TEMPERATURE\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a61201f09e7d2f1e4c963cf6993309264}{ADC\+\_\+\+OUT\+\_\+\+TEMPERATURE\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -376,7 +378,7 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a281396c3e7dae72c804676c28cb303e2}{ADC\+\_\+\+OUT\+\_\+\+TEMPERATURE\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+7
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a025b8e9d5b2e9b4d4b0478c76bf17c55}{ADC\+\_\+\+OIL\+\_\+12\+V\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+2
-\item 
+\begin{DoxyCompactList}\small\item\em Battery 12V voltage divider ADC configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae2f7764e156fd652375ca1fc0f8a6b5f}{ADC\+\_\+\+OIL\+\_\+12\+V\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac66e8592cd9d930543dcef0a4152b6a4}{ADC\+\_\+\+OIL\+\_\+12\+V\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -384,7 +386,7 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aac7e1cd64ac07968fe0c25846b01c958}{ADC\+\_\+\+OIL\+\_\+12\+V\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+4
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_af1bb07239f438e05aa43b3d81d1023c0}{ADC\+\_\+\+AMBI\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+2
-\item 
+\begin{DoxyCompactList}\small\item\em Ambient brightness sensor ADC configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a317cc682cfe7495672b88965c8f2d07f}{ADC\+\_\+\+AMBI\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0ffd40d2174aa775bc8f685489d5f6de}{ADC\+\_\+\+AMBI\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -392,7 +394,7 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a76d75e63c480eee8a318b38f55ea6c51}{ADC\+\_\+\+AMBI\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+5
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a11254fe7a2f78062a87865e76896384e}{ADC\+\_\+3\+V3\+\_\+\+UNIT\+\_\+\+ID}}~ADC\+\_\+\+UNIT\+\_\+2
-\item 
+\begin{DoxyCompactList}\small\item\em 3.\+3V reference voltage ADC configuration (for system diagnostics). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a1ca87fe512b3aa5f3a8a28817c19a640}{ADC\+\_\+3\+V3\+\_\+\+BITWIDTH}}~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a31ee758532a6da1e5f0e67c8aaa42d2f}{ADC\+\_\+3\+V3\+\_\+\+ATTEN}}~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12
@@ -400,101 +402,115 @@
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa3491561c5517c4417cbad35b1620a5f}{ADC\+\_\+3\+V3\+\_\+\+CHANNEL}}~ADC\+\_\+\+CHANNEL\+\_\+3
 \item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a285914aba5f748beb371823980bcd7a7}{ADC\+\_\+\+MAX\+\_\+\+V\+\_\+\+VALID}}~3.\+25f
-\item 
+\begin{DoxyCompactList}\small\item\em ADC reference voltage and measurement configuration. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}{ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V}}~3.\+3f
-\item 
+\begin{DoxyCompactList}\small\item\em ADC reference voltage (typically 3.\+3V). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a242963742b7af57917f87d0f3a95edbf}{ADC\+\_\+\+FAIL\+\_\+\+VALUE}}~-\/99.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Error return value for failed readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ad7feacb850cd11f0dfc20cd2e3ff30bf}{ADC\+\_\+\+VOLT\+\_\+\+PULLUP}}~10000.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Voltage divider pull-\/up and pull-\/down resistor values. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa0a06b6bbbc1361c162e0e0ca523f2e7}{ADC\+\_\+\+VOLT\+\_\+\+PULLDOWN}}~1500.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ main voltage divider pull-\/down. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac2767badf99aab598b4b7d8a2b48fe97}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+PULLUP}}~10000.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ brightness feedback pull-\/up. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a1df3d4652f5f8312fca8b9c9bab5f1ae}{ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+PULLDOWN}}~2200.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ brightness feedback pull-\/down. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ae84b19ecf92a32b87ca34a861e47756e}{ADC\+\_\+\+TEMP\+\_\+\+PULLUP}}~680.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ temperature sensor pull-\/up. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5e1d2a9419088b70af1fdba4fd863189}{ADC\+\_\+\+PRES\+\_\+\+PULLUP}}~680.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ pressure sensor pull-\/up. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab8a9955d48f5824dc64f4ef66e815a79}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+PULLUP}}~4700.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ outdoor temperature pull-\/up. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a2f298169d225ab92b89d9c2030904a1e}{ADC\+\_\+3\+V3\+\_\+\+PULLUP}}~1000.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ 3.\+3V reference pull-\/up. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac717e1ca05e769f46b9fa4a7bd6e3e07}{ADC\+\_\+3\+V3\+\_\+\+PULLDOWN}}~1000.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ 3.\+3V reference pull-\/down. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5a3a241109b126b47e0550a573ec580d}{ADC\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~-\/50
-\item 
+\begin{DoxyCompactList}\small\item\em Sensor failure detection thresholds. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a05a65fe7ba40c892ef5ebf69c0df5476}{ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid oil pressure (bar). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a35321ea1e43a0ffeb1ac4182e08b7fe9}{ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~250.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid oil pressure (bar). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aed220111a2dc764c69ba0319ecfd88ce}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid outdoor temperature range. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a112c2029c51c7e5bb29d43717322d72a}{ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX}}~150000.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid outdoor temperature range. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4cf7cd1aa28b62c773ee780a48a1155b}{ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+MIN\+\_\+R}}~10.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Pressure sensor resistance range mapping. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a10f236472302f776e5f59a2ba162fc59}{ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+MAX\+\_\+R}}~184.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em Ohms -\/ maximum sensor resistance (6 bar). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}~0.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Default and range limit values for sensor readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Default oil temperature on startup (°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}~8.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Default battery voltage on startup (volts). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}{VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Default outdoor temperature on startup (°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531}{VALUE\+\_\+\+DEFAULT\+\_\+\+BRIGHT}}~\doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}
-\item 
+\begin{DoxyCompactList}\small\item\em Default brightness (day mode). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713}{VALUE\+\_\+\+DEFAULT\+\_\+\+NIGHT\+\_\+\+MODE}}~false
-\item 
+\begin{DoxyCompactList}\small\item\em Night mode off by default. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a371c597eddcd4c669475093d169c082a}{VALUE\+\_\+\+MIN\+\_\+\+PRES}}~\doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid sensor values (below indicates error or disconnection). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8}{VALUE\+\_\+\+MIN\+\_\+\+TEMP}}~\doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid temperature (0°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c}{VALUE\+\_\+\+MIN\+\_\+\+VOLT}}~\doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid voltage (8V -\/ automotive minimum). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}{VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP}}~-\/30
-\item 
+\begin{DoxyCompactList}\small\item\em Minimum valid outdoor temperature (-\/30°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc}{VALUE\+\_\+\+MAX\+\_\+\+PRES}}~6.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid sensor values (above indicates error or over-\/range). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d}{VALUE\+\_\+\+MAX\+\_\+\+TEMP}}~150
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid temperature (150°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b}{VALUE\+\_\+\+MAX\+\_\+\+VOLT}}~16.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid voltage (16V -\/ charging system max). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}{VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP}}~70
-\item 
+\begin{DoxyCompactList}\small\item\em Maximum valid outdoor temperature (70°C). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a91a055e359a2f748c8ed6c82f9de4342}{VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OIL\+\_\+\+PRES}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em Sensor value oversampling counts and exponential filter coefficients. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa604e599ee1ccecf3ff34c1ca823f79f}{VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OIL\+\_\+\+TEMP}}~5
-\item 
+\begin{DoxyCompactList}\small\item\em Average 5 temperature readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a3de208e79149e57e550f44426a24534a}{VALUE\+\_\+\+OVERSAMPLING\+\_\+\+VOLT}}~4
-\item 
+\begin{DoxyCompactList}\small\item\em Average 4 voltage readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a6f65cd3aaeb74764610aa254f44be66f}{VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OUT\+\_\+\+TEMP}}~5
-\item 
+\begin{DoxyCompactList}\small\item\em Average 5 outdoor temperature readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a9bf78b4133604c1271bfb43ac4f4ee2d}{VALUE\+\_\+\+OVERSAMPLING\+\_\+\+BRIGHT}}~10
-\item 
+\begin{DoxyCompactList}\small\item\em Average 10 brightness readings. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a9b28c36c5d3b751e4ca37f480db0ee1b}{FILTER\+\_\+\+ALPHA\+\_\+\+OIL\+\_\+\+PRES}}~0.\+1f
-\item 
+\begin{DoxyCompactList}\small\item\em Exponential moving average filter coefficients for noise reduction. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a321a601bd06f44a3acf6078e17691c3f}{FILTER\+\_\+\+ALPHA\+\_\+\+OIL\+\_\+\+TEMP}}~0.\+1f
-\item 
+\begin{DoxyCompactList}\small\item\em Temperature smoothing factor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7e8f64192a152596917ed3f32f26f1a1}{FILTER\+\_\+\+ALPHA\+\_\+\+VOLT}}~0.\+1f
-\item 
+\begin{DoxyCompactList}\small\item\em Voltage smoothing factor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ac0160d591fd8a0b2995edaa0ed3277ec}{FILTER\+\_\+\+ALPHA\+\_\+\+OUT\+\_\+\+TEMP}}~0.\+1f
-\item 
+\begin{DoxyCompactList}\small\item\em Outdoor temperature smoothing factor. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}{FILTER\+\_\+\+ALPHA\+\_\+\+BEL}}~0.\+1f
-\item 
+\begin{DoxyCompactList}\small\item\em Brightness smoothing factor. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}~25
+\begin{DoxyCompactList}\small\item\em Sensor measurement timing configuration. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a0d806d9e4d224c3d843596a118502cda}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}
+\begin{DoxyCompactList}\small\item\em Display 1 update interval (25ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
+\begin{DoxyCompactList}\small\item\em Display 2 update interval (125ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 2
+\begin{DoxyCompactList}\small\item\em Display 3 update interval (50ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a2e38659375d30ce125ce55521de0da5a}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
+\begin{DoxyCompactList}\small\item\em Display 4 update interval (125ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a3494bcac8e0b3ef66592697416092de3}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5
+\begin{DoxyCompactList}\small\item\em Brightness update interval (125ms). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc}{MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS}}~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10
+\begin{DoxyCompactList}\small\item\em Test mode brightness interval (250ms). \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS}}~10000
-\item 
+\begin{DoxyCompactList}\small\item\em Test mode button activation sequence parameters. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em Button press counts required for each state transition in test mode activation. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Press hour button 1 time to reach state 2. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em Press minute button 2 times to reach state 3. \end{DoxyCompactList}\item 
 \+\#define \doxymbox{\hyperlink{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}{TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT}}~1
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Press hour button 1 time to toggle test mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \label{doc-define-members}
@@ -524,11 +540,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_ac717e1ca05e769f46b9fa4a7bd6e3e07} 
 \+\#define ADC\+\_\+3\+V3\+\_\+\+PULLDOWN~1000.\+0f}
 
+
+
+Ohms -\/ 3.\+3V reference pull-\/down. 
+
 \Hypertarget{individual__config_8h_a2f298169d225ab92b89d9c2030904a1e}\index{individual\_config.h@{individual\_config.h}!ADC\_3V3\_PULLUP@{ADC\_3V3\_PULLUP}}
 \index{ADC\_3V3\_PULLUP@{ADC\_3V3\_PULLUP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_3V3\_PULLUP}{ADC\_3V3\_PULLUP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a2f298169d225ab92b89d9c2030904a1e} 
 \+\#define ADC\+\_\+3\+V3\+\_\+\+PULLUP~1000.\+0f}
+
+
+
+Ohms -\/ 3.\+3V reference pull-\/up. 
 
 \Hypertarget{individual__config_8h_a11254fe7a2f78062a87865e76896384e}\index{individual\_config.h@{individual\_config.h}!ADC\_3V3\_UNIT\_ID@{ADC\_3V3\_UNIT\_ID}}
 \index{ADC\_3V3\_UNIT\_ID@{ADC\_3V3\_UNIT\_ID}!individual\_config.h@{individual\_config.h}}
@@ -536,11 +560,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a11254fe7a2f78062a87865e76896384e} 
 \+\#define ADC\+\_\+3\+V3\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+2}
 
+
+
+3.\+3V reference voltage ADC configuration (for system diagnostics). 
+
 \Hypertarget{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d}\index{individual\_config.h@{individual\_config.h}!ADC\_ADS\_REF\_V@{ADC\_ADS\_REF\_V}}
 \index{ADC\_ADS\_REF\_V@{ADC\_ADS\_REF\_V}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_ADS\_REF\_V}{ADC\_ADS\_REF\_V}}
 {\footnotesize\ttfamily \label{individual__config_8h_a8b0ba4b1769c2968e594c5a5642dac0d} 
 \+\#define ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V~3.\+3f}
+
+
+
+ADC reference voltage (typically 3.\+3V). 
 
 \Hypertarget{individual__config_8h_a0ffd40d2174aa775bc8f685489d5f6de}\index{individual\_config.h@{individual\_config.h}!ADC\_AMBI\_ATTEN@{ADC\_AMBI\_ATTEN}}
 \index{ADC\_AMBI\_ATTEN@{ADC\_AMBI\_ATTEN}!individual\_config.h@{individual\_config.h}}
@@ -566,11 +598,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_af1bb07239f438e05aa43b3d81d1023c0} 
 \+\#define ADC\+\_\+\+AMBI\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+2}
 
+
+
+Ambient brightness sensor ADC configuration. 
+
 \Hypertarget{individual__config_8h_a242963742b7af57917f87d0f3a95edbf}\index{individual\_config.h@{individual\_config.h}!ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}}
 \index{ADC\_FAIL\_VALUE@{ADC\_FAIL\_VALUE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_FAIL\_VALUE}{ADC\_FAIL\_VALUE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a242963742b7af57917f87d0f3a95edbf} 
 \+\#define ADC\+\_\+\+FAIL\+\_\+\+VALUE~-\/99.\+0f}
+
+
+
+Error return value for failed readings. 
 
 \Hypertarget{individual__config_8h_a285914aba5f748beb371823980bcd7a7}\index{individual\_config.h@{individual\_config.h}!ADC\_MAX\_V\_VALID@{ADC\_MAX\_V\_VALID}}
 \index{ADC\_MAX\_V\_VALID@{ADC\_MAX\_V\_VALID}!individual\_config.h@{individual\_config.h}}
@@ -578,7 +618,11 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a285914aba5f748beb371823980bcd7a7} 
 \+\#define ADC\+\_\+\+MAX\+\_\+\+V\+\_\+\+VALID~3.\+25f}
 
-\Hypertarget{individual__config_8h_ac66e8592cd9d930543dcef0a4152b6a4}\index{individual\_config.h@{individual\_config.h}!ADC\_OIL\_12V\_ATTEN@{ADC\_OIL\_12V\_ATTEN}}
+
+
+ADC reference voltage and measurement configuration. 
+
+ADC\+\_\+\+MAX\+\_\+\+V\+\_\+\+VALID:\+ Maximum valid voltage reading (anything above indicates error) ADC\+\_\+\+ADS\+\_\+\+REF\+\_\+V:\+ Reference voltage for ADC calculations (typical 3.\+3V) ADC\+\_\+\+FAIL\+\_\+\+VALUE:\+ Default value returned on sensor failures Maximum valid ADC voltage (3.\+25V = overcurrent) \Hypertarget{individual__config_8h_ac66e8592cd9d930543dcef0a4152b6a4}\index{individual\_config.h@{individual\_config.h}!ADC\_OIL\_12V\_ATTEN@{ADC\_OIL\_12V\_ATTEN}}
 \index{ADC\_OIL\_12V\_ATTEN@{ADC\_OIL\_12V\_ATTEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_OIL\_12V\_ATTEN}{ADC\_OIL\_12V\_ATTEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac66e8592cd9d930543dcef0a4152b6a4} 
@@ -601,6 +645,10 @@
 \doxysubsubsection{\texorpdfstring{ADC\_OIL\_12V\_UNIT\_ID}{ADC\_OIL\_12V\_UNIT\_ID}}
 {\footnotesize\ttfamily \label{individual__config_8h_a025b8e9d5b2e9b4d4b0478c76bf17c55} 
 \+\#define ADC\+\_\+\+OIL\+\_\+12\+V\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+2}
+
+
+
+Battery 12V voltage divider ADC configuration. 
 
 \Hypertarget{individual__config_8h_a17fb5aea8fdf48bbb414ee58ca1b0f68}\index{individual\_config.h@{individual\_config.h}!ADC\_OIL\_PRESSURE\_ATTEN@{ADC\_OIL\_PRESSURE\_ATTEN}}
 \index{ADC\_OIL\_PRESSURE\_ATTEN@{ADC\_OIL\_PRESSURE\_ATTEN}!individual\_config.h@{individual\_config.h}}
@@ -626,6 +674,10 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a46936bf47259b803d429e6af362abe3e} 
 \+\#define ADC\+\_\+\+OIL\+\_\+\+PRESSURE\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+1}
 
+
+
+Oil pressure sensor ADC configuration. 
+
 \Hypertarget{individual__config_8h_ac018ccf6f9d50cafd4c8d9f413629f97}\index{individual\_config.h@{individual\_config.h}!ADC\_OIL\_TEMPERATURE\_ATTEN@{ADC\_OIL\_TEMPERATURE\_ATTEN}}
 \index{ADC\_OIL\_TEMPERATURE\_ATTEN@{ADC\_OIL\_TEMPERATURE\_ATTEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_OIL\_TEMPERATURE\_ATTEN}{ADC\_OIL\_TEMPERATURE\_ATTEN}}
@@ -650,11 +702,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a84103ab723ce6ce397117368e3d0569b} 
 \+\#define ADC\+\_\+\+OIL\+\_\+\+TEMPERATURE\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+1}
 
+
+
+Oil temperature sensor ADC configuration. 
+
 \Hypertarget{individual__config_8h_ab8a9955d48f5824dc64f4ef66e815a79}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_PULLUP@{ADC\_OUT\_TEMP\_PULLUP}}
 \index{ADC\_OUT\_TEMP\_PULLUP@{ADC\_OUT\_TEMP\_PULLUP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_PULLUP}{ADC\_OUT\_TEMP\_PULLUP}}
 {\footnotesize\ttfamily \label{individual__config_8h_ab8a9955d48f5824dc64f4ef66e815a79} 
 \+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+PULLUP~4700.\+0f}
+
+
+
+Ohms -\/ outdoor temperature pull-\/up. 
 
 \Hypertarget{individual__config_8h_a112c2029c51c7e5bb29d43717322d72a}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX@{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX}}
 \index{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX@{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MAX}!individual\_config.h@{individual\_config.h}}
@@ -662,11 +722,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a112c2029c51c7e5bb29d43717322d72a} 
 \+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX~150000.\+0f}
 
+
+
+Maximum valid outdoor temperature range. 
+
 \Hypertarget{individual__config_8h_aed220111a2dc764c69ba0319ecfd88ce}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN@{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN}}
 \index{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN@{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN}{ADC\_OUT\_TEMP\_VAL\_TO\_FAIL\_MIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_aed220111a2dc764c69ba0319ecfd88ce} 
 \+\#define ADC\+\_\+\+OUT\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~0}
+
+
+
+Minimum valid outdoor temperature range. 
 
 \Hypertarget{individual__config_8h_a61201f09e7d2f1e4c963cf6993309264}\index{individual\_config.h@{individual\_config.h}!ADC\_OUT\_TEMPERATURE\_ATTEN@{ADC\_OUT\_TEMPERATURE\_ATTEN}}
 \index{ADC\_OUT\_TEMPERATURE\_ATTEN@{ADC\_OUT\_TEMPERATURE\_ATTEN}!individual\_config.h@{individual\_config.h}}
@@ -692,11 +760,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a81a58e3ffd1e321af06e0625393288ca} 
 \+\#define ADC\+\_\+\+OUT\+\_\+\+TEMPERATURE\+\_\+\+UNIT\+\_\+\+ID~ADC\+\_\+\+UNIT\+\_\+1}
 
+
+
+Outdoor temperature sensor ADC configuration. 
+
 \Hypertarget{individual__config_8h_a5e1d2a9419088b70af1fdba4fd863189}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_PULLUP@{ADC\_PRES\_PULLUP}}
 \index{ADC\_PRES\_PULLUP@{ADC\_PRES\_PULLUP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_PRES\_PULLUP}{ADC\_PRES\_PULLUP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a5e1d2a9419088b70af1fdba4fd863189} 
 \+\#define ADC\+\_\+\+PRES\+\_\+\+PULLUP~680.\+0f}
+
+
+
+Ohms -\/ pressure sensor pull-\/up. 
 
 \Hypertarget{individual__config_8h_a10f236472302f776e5f59a2ba162fc59}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_VAL\_MAX\_R@{ADC\_PRES\_VAL\_MAX\_R}}
 \index{ADC\_PRES\_VAL\_MAX\_R@{ADC\_PRES\_VAL\_MAX\_R}!individual\_config.h@{individual\_config.h}}
@@ -704,17 +780,29 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a10f236472302f776e5f59a2ba162fc59} 
 \+\#define ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+MAX\+\_\+R~184.\+0f}
 
+
+
+Ohms -\/ maximum sensor resistance (6 bar). 
+
 \Hypertarget{individual__config_8h_a4cf7cd1aa28b62c773ee780a48a1155b}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_VAL\_MIN\_R@{ADC\_PRES\_VAL\_MIN\_R}}
 \index{ADC\_PRES\_VAL\_MIN\_R@{ADC\_PRES\_VAL\_MIN\_R}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_PRES\_VAL\_MIN\_R}{ADC\_PRES\_VAL\_MIN\_R}}
 {\footnotesize\ttfamily \label{individual__config_8h_a4cf7cd1aa28b62c773ee780a48a1155b} 
 \+\#define ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+MIN\+\_\+R~10.\+0f}
 
-\Hypertarget{individual__config_8h_a35321ea1e43a0ffeb1ac4182e08b7fe9}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_VAL\_TO\_FAIL\_MAX@{ADC\_PRES\_VAL\_TO\_FAIL\_MAX}}
+
+
+Pressure sensor resistance range mapping. 
+
+DS3231-\/compatible resistance values for pressure calculation. Ohms -\/ minimum sensor resistance (0 bar) \Hypertarget{individual__config_8h_a35321ea1e43a0ffeb1ac4182e08b7fe9}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_VAL\_TO\_FAIL\_MAX@{ADC\_PRES\_VAL\_TO\_FAIL\_MAX}}
 \index{ADC\_PRES\_VAL\_TO\_FAIL\_MAX@{ADC\_PRES\_VAL\_TO\_FAIL\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_PRES\_VAL\_TO\_FAIL\_MAX}{ADC\_PRES\_VAL\_TO\_FAIL\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_a35321ea1e43a0ffeb1ac4182e08b7fe9} 
 \+\#define ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MAX~250.\+0f}
+
+
+
+Maximum valid oil pressure (bar). 
 
 \Hypertarget{individual__config_8h_a05a65fe7ba40c892ef5ebf69c0df5476}\index{individual\_config.h@{individual\_config.h}!ADC\_PRES\_VAL\_TO\_FAIL\_MIN@{ADC\_PRES\_VAL\_TO\_FAIL\_MIN}}
 \index{ADC\_PRES\_VAL\_TO\_FAIL\_MIN@{ADC\_PRES\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -722,11 +810,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a05a65fe7ba40c892ef5ebf69c0df5476} 
 \+\#define ADC\+\_\+\+PRES\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~0}
 
+
+
+Minimum valid oil pressure (bar). 
+
 \Hypertarget{individual__config_8h_ae84b19ecf92a32b87ca34a861e47756e}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_PULLUP@{ADC\_TEMP\_PULLUP}}
 \index{ADC\_TEMP\_PULLUP@{ADC\_TEMP\_PULLUP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_TEMP\_PULLUP}{ADC\_TEMP\_PULLUP}}
 {\footnotesize\ttfamily \label{individual__config_8h_ae84b19ecf92a32b87ca34a861e47756e} 
 \+\#define ADC\+\_\+\+TEMP\+\_\+\+PULLUP~680.\+0f}
+
+
+
+Ohms -\/ temperature sensor pull-\/up. 
 
 \Hypertarget{individual__config_8h_a5a3a241109b126b47e0550a573ec580d}\index{individual\_config.h@{individual\_config.h}!ADC\_TEMP\_VAL\_TO\_FAIL\_MIN@{ADC\_TEMP\_VAL\_TO\_FAIL\_MIN}}
 \index{ADC\_TEMP\_VAL\_TO\_FAIL\_MIN@{ADC\_TEMP\_VAL\_TO\_FAIL\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -734,11 +830,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a5a3a241109b126b47e0550a573ec580d} 
 \+\#define ADC\+\_\+\+TEMP\+\_\+\+VAL\+\_\+\+TO\+\_\+\+FAIL\+\_\+\+MIN~-\/50}
 
-\Hypertarget{individual__config_8h_ac9df11e98fcd52b19ed0571616710ac7}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_1\_ATTEN@{ADC\_UNIT\_1\_ATTEN}}
+
+
+Sensor failure detection thresholds. 
+
+Readings outside these ranges indicate sensor malfunction or disconnection. Minimum valid oil temperature (°C) \Hypertarget{individual__config_8h_ac9df11e98fcd52b19ed0571616710ac7}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_1\_ATTEN@{ADC\_UNIT\_1\_ATTEN}}
 \index{ADC\_UNIT\_1\_ATTEN@{ADC\_UNIT\_1\_ATTEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_UNIT\_1\_ATTEN}{ADC\_UNIT\_1\_ATTEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac9df11e98fcd52b19ed0571616710ac7} 
 \+\#define ADC\+\_\+\+UNIT\+\_\+1\+\_\+\+ATTEN~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12}
+
+
+
+ADC1 attenuation (±3.3V range). 
 
 \Hypertarget{individual__config_8h_a0b8305ed6e3e4f159323b92cd8f6841f}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_1\_BITWIDTH@{ADC\_UNIT\_1\_BITWIDTH}}
 \index{ADC\_UNIT\_1\_BITWIDTH@{ADC\_UNIT\_1\_BITWIDTH}!individual\_config.h@{individual\_config.h}}
@@ -746,11 +850,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a0b8305ed6e3e4f159323b92cd8f6841f} 
 \+\#define ADC\+\_\+\+UNIT\+\_\+1\+\_\+\+BITWIDTH~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT}
 
+
+
+ADC1 resolution (default = 12-\/bit). 
+
 \Hypertarget{individual__config_8h_aafb2cac68cdf6dabcccd98b6aca9fa25}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_2\_ATTEN@{ADC\_UNIT\_2\_ATTEN}}
 \index{ADC\_UNIT\_2\_ATTEN@{ADC\_UNIT\_2\_ATTEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_UNIT\_2\_ATTEN}{ADC\_UNIT\_2\_ATTEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_aafb2cac68cdf6dabcccd98b6aca9fa25} 
 \+\#define ADC\+\_\+\+UNIT\+\_\+2\+\_\+\+ATTEN~ADC\+\_\+\+ATTEN\+\_\+\+DB\+\_\+12}
+
+
+
+ADC2 attenuation (±3.3V range). 
 
 \Hypertarget{individual__config_8h_a83d11d63ce9a953633174fde69127d81}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_2\_BITWIDTH@{ADC\_UNIT\_2\_BITWIDTH}}
 \index{ADC\_UNIT\_2\_BITWIDTH@{ADC\_UNIT\_2\_BITWIDTH}!individual\_config.h@{individual\_config.h}}
@@ -758,17 +870,29 @@
 {\footnotesize\ttfamily \label{individual__config_8h_a83d11d63ce9a953633174fde69127d81} 
 \+\#define ADC\+\_\+\+UNIT\+\_\+2\+\_\+\+BITWIDTH~ADC\+\_\+\+BITWIDTH\+\_\+\+DEFAULT}
 
+
+
+ADC2 resolution (default = 12-\/bit). 
+
 \Hypertarget{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40}\index{individual\_config.h@{individual\_config.h}!ADC\_UNIT\_NUMBER@{ADC\_UNIT\_NUMBER}}
 \index{ADC\_UNIT\_NUMBER@{ADC\_UNIT\_NUMBER}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_UNIT\_NUMBER}{ADC\_UNIT\_NUMBER}}
 {\footnotesize\ttfamily \label{individual__config_8h_acbaf68d847014d9eb06775dc1c082f40} 
 \+\#define ADC\+\_\+\+UNIT\+\_\+\+NUMBER~2}
 
-\Hypertarget{individual__config_8h_a1df3d4652f5f8312fca8b9c9bab5f1ae}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_PULLDOWN@{ADC\_VOLT\_BEL\_PULLDOWN}}
+
+
+ADC unit setup and hardware configuration. 
+
+Two ADC units (ADC1, ADC2) with independent channels for different sensors. Bit width and attenuation settings apply to all channels on each unit. Number of ADC units used (1 or 2) \Hypertarget{individual__config_8h_a1df3d4652f5f8312fca8b9c9bab5f1ae}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_PULLDOWN@{ADC\_VOLT\_BEL\_PULLDOWN}}
 \index{ADC\_VOLT\_BEL\_PULLDOWN@{ADC\_VOLT\_BEL\_PULLDOWN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_VOLT\_BEL\_PULLDOWN}{ADC\_VOLT\_BEL\_PULLDOWN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a1df3d4652f5f8312fca8b9c9bab5f1ae} 
 \+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+PULLDOWN~2200.\+0f}
+
+
+
+Ohms -\/ brightness feedback pull-\/down. 
 
 \Hypertarget{individual__config_8h_ac2767badf99aab598b4b7d8a2b48fe97}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_BEL\_PULLUP@{ADC\_VOLT\_BEL\_PULLUP}}
 \index{ADC\_VOLT\_BEL\_PULLUP@{ADC\_VOLT\_BEL\_PULLUP}!individual\_config.h@{individual\_config.h}}
@@ -776,11 +900,19 @@
 {\footnotesize\ttfamily \label{individual__config_8h_ac2767badf99aab598b4b7d8a2b48fe97} 
 \+\#define ADC\+\_\+\+VOLT\+\_\+\+BEL\+\_\+\+PULLUP~10000.\+0f}
 
+
+
+Ohms -\/ brightness feedback pull-\/up. 
+
 \Hypertarget{individual__config_8h_aa0a06b6bbbc1361c162e0e0ca523f2e7}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_PULLDOWN@{ADC\_VOLT\_PULLDOWN}}
 \index{ADC\_VOLT\_PULLDOWN@{ADC\_VOLT\_PULLDOWN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{ADC\_VOLT\_PULLDOWN}{ADC\_VOLT\_PULLDOWN}}
 {\footnotesize\ttfamily \label{individual__config_8h_aa0a06b6bbbc1361c162e0e0ca523f2e7} 
 \+\#define ADC\+\_\+\+VOLT\+\_\+\+PULLDOWN~1500.\+0f}
+
+
+
+Ohms -\/ main voltage divider pull-\/down. 
 
 \Hypertarget{individual__config_8h_ad7feacb850cd11f0dfc20cd2e3ff30bf}\index{individual\_config.h@{individual\_config.h}!ADC\_VOLT\_PULLUP@{ADC\_VOLT\_PULLUP}}
 \index{ADC\_VOLT\_PULLUP@{ADC\_VOLT\_PULLUP}!individual\_config.h@{individual\_config.h}}
@@ -788,7 +920,11 @@
 {\footnotesize\ttfamily \label{individual__config_8h_ad7feacb850cd11f0dfc20cd2e3ff30bf} 
 \+\#define ADC\+\_\+\+VOLT\+\_\+\+PULLUP~10000.\+0f}
 
-\Hypertarget{individual__config_8h_a85498e1c53498101123d5d98a95f1206}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_AUTO\_ENABLE@{BRIGHTNESS\_AUTO\_ENABLE}}
+
+
+Voltage divider pull-\/up and pull-\/down resistor values. 
+
+Used for calculating actual voltage from ADC readings. Formula:\+ V\+\_\+actual = V\+\_\+adc \texorpdfstring{$\ast$}{*} (R\+\_\+up + R\+\_\+down) /\+ R\+\_\+down Ohms -\/ main voltage divider pull-\/up \Hypertarget{individual__config_8h_a85498e1c53498101123d5d98a95f1206}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_AUTO\_ENABLE@{BRIGHTNESS\_AUTO\_ENABLE}}
 \index{BRIGHTNESS\_AUTO\_ENABLE@{BRIGHTNESS\_AUTO\_ENABLE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_AUTO\_ENABLE}{BRIGHTNESS\_AUTO\_ENABLE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a85498e1c53498101123d5d98a95f1206} 
@@ -798,11 +934,15 @@
 
 Auto-\/brightness thresholds and manual defaults. 
 
-BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+DAY\+\_\+\+MAX\+\_\+V:\+ min battery voltage to treat as day mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX:\+ brightness range in night mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX\+\_\+V:\+ battery voltage range mapping for night mode. \Hypertarget{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}}
+BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+DAY\+\_\+\+MAX\+\_\+V:\+ min battery voltage to treat as day mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX:\+ brightness range in night mode. BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN/\+\+MAX\+\_\+V:\+ battery voltage range mapping for night mode. Enable automatic brightness adjustment based on ambient light \Hypertarget{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}}
 \index{BRIGHTNESS\_DAY@{BRIGHTNESS\_DAY}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_DAY}{BRIGHTNESS\_DAY}}
 {\footnotesize\ttfamily \label{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3} 
 \+\#define BRIGHTNESS\+\_\+\+DAY~100}
+
+
+
+Default daytime brightness level (0-\/100\%). 
 
 \Hypertarget{individual__config_8h_ae50e856eb947d19695cf737cdd1436d8}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_DAY\_MAX\_V@{BRIGHTNESS\_DAY\_MAX\_V}}
 \index{BRIGHTNESS\_DAY\_MAX\_V@{BRIGHTNESS\_DAY\_MAX\_V}!individual\_config.h@{individual\_config.h}}
@@ -810,11 +950,19 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 {\footnotesize\ttfamily \label{individual__config_8h_ae50e856eb947d19695cf737cdd1436d8} 
 \+\#define BRIGHTNESS\+\_\+\+DAY\+\_\+\+MAX\+\_\+V~0.\+05}
 
+
+
+Battery voltage threshold for day mode (in volts). 
+
 \Hypertarget{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}}
 \index{BRIGHTNESS\_NIGHT\_MAX@{BRIGHTNESS\_NIGHT\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MAX}{BRIGHTNESS\_NIGHT\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_add3c629e9878a9bbd7bfed7baf2d0781} 
 \+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX~40}
+
+
+
+Maximum brightness in night mode (0-\/100\%). 
 
 \Hypertarget{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MAX\_V@{BRIGHTNESS\_NIGHT\_MAX\_V}}
 \index{BRIGHTNESS\_NIGHT\_MAX\_V@{BRIGHTNESS\_NIGHT\_MAX\_V}!individual\_config.h@{individual\_config.h}}
@@ -822,11 +970,19 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 {\footnotesize\ttfamily \label{individual__config_8h_a5cf58e6540f125d0a004a94f7c7b97b9} 
 \+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MAX\+\_\+V~10.\+74}
 
+
+
+Battery voltage mapping point for maximum night brightness. 
+
 \Hypertarget{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MIN@{BRIGHTNESS\_NIGHT\_MIN}}
 \index{BRIGHTNESS\_NIGHT\_MIN@{BRIGHTNESS\_NIGHT\_MIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BRIGHTNESS\_NIGHT\_MIN}{BRIGHTNESS\_NIGHT\_MIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a63a82ef9298c0a838ef68d9ecfa061e2} 
 \+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN~20}
+
+
+
+Minimum brightness in night mode (0-\/100\%). 
 
 \Hypertarget{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668}\index{individual\_config.h@{individual\_config.h}!BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}}
 \index{BRIGHTNESS\_NIGHT\_MIN\_V@{BRIGHTNESS\_NIGHT\_MIN\_V}!individual\_config.h@{individual\_config.h}}
@@ -834,11 +990,19 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 {\footnotesize\ttfamily \label{individual__config_8h_aa322bf5f0bf2bbe87f22f3ec7f7cd668} 
 \+\#define BRIGHTNESS\+\_\+\+NIGHT\+\_\+\+MIN\+\_\+V~2.\+29}
 
+
+
+Battery voltage mapping point for minimum night brightness. 
+
 \Hypertarget{individual__config_8h_adf9d11b2fd42021a61786187b6447699}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}}
 \index{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}{BUTTON\_CLOCK\_HOUR\_ACTIVE\_LEVEL}}
 {\footnotesize\ttfamily \label{individual__config_8h_adf9d11b2fd42021a61786187b6447699} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+ACTIVE\+\_\+\+LEVEL~0}
+
+
+
+Active level:\+ 0=active low, 1=active high. 
 
 \Hypertarget{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_LONG\_MS@{BUTTON\_CLOCK\_HOUR\_LONG\_MS}}
 \index{BUTTON\_CLOCK\_HOUR\_LONG\_MS@{BUTTON\_CLOCK\_HOUR\_LONG\_MS}!individual\_config.h@{individual\_config.h}}
@@ -846,11 +1010,19 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 {\footnotesize\ttfamily \label{individual__config_8h_a4cec07593b05ca2bd8449b4138158deb} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+LONG\+\_\+\+MS~500}
 
+
+
+Long press threshold for hour button. 
+
 \Hypertarget{individual__config_8h_a56e3524f658a913c549c9da612eb6678}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_PIN@{BUTTON\_CLOCK\_HOUR\_PIN}}
 \index{BUTTON\_CLOCK\_HOUR\_PIN@{BUTTON\_CLOCK\_HOUR\_PIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_HOUR\_PIN}{BUTTON\_CLOCK\_HOUR\_PIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a56e3524f658a913c549c9da612eb6678} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+PIN~18}
+
+
+
+GPIO pin for hour adjustment button. 
 
 \Hypertarget{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_HOUR\_SHORT\_MS@{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}}
 \index{BUTTON\_CLOCK\_HOUR\_SHORT\_MS@{BUTTON\_CLOCK\_HOUR\_SHORT\_MS}!individual\_config.h@{individual\_config.h}}
@@ -858,17 +1030,29 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 {\footnotesize\ttfamily \label{individual__config_8h_acdfbd0f472cd1f7673106d7bcb47e54c} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+HOUR\+\_\+\+SHORT\+\_\+\+MS~50}
 
+
+
+Debounce time for hour button in milliseconds. 
+
 \Hypertarget{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}}
 \index{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL@{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}{BUTTON\_CLOCK\_MINUTE\_ACTIVE\_LEVEL}}
 {\footnotesize\ttfamily \label{individual__config_8h_a672a15c4a105e2f9388ac1455b5a5c01} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+ACTIVE\+\_\+\+LEVEL~0}
 
+
+
+Active level:\+ 0=active low, 1=active high. 
+
 \Hypertarget{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_LONG\_MS@{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}}
 \index{BUTTON\_CLOCK\_MINUTE\_LONG\_MS@{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}{BUTTON\_CLOCK\_MINUTE\_LONG\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a88c22a4732d4960ef87a20c48ccaa99d} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+LONG\+\_\+\+MS~500}
+
+
+
+Long press threshold for minute button. 
 
 \Hypertarget{individual__config_8h_a0b715214e1a19ea5ebd45950f3c65811}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_PIN@{BUTTON\_CLOCK\_MINUTE\_PIN}}
 \index{BUTTON\_CLOCK\_MINUTE\_PIN@{BUTTON\_CLOCK\_MINUTE\_PIN}!individual\_config.h@{individual\_config.h}}
@@ -878,19 +1062,27 @@ BRIGHTNESS\+\_\+\+DAY:\+ default daytime brightness percent. BRIGHTNESS\+\_\+\+D
 
 
 
-Time adjustment button definition and debounce timing. 
+Time adjustment button GPIO configurations. 
 
-BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+PIN:\+ GPIO pin for short/\+long press clock adjust. BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+MS:\+ Short/\+long press thresholds in milliseconds. BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+ACTIVE\+\_\+\+LEVEL:\+ GPIO active level (0 = active low). \Hypertarget{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_SHORT\_MS@{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}}
+GPIO pin for minute adjustment button \Hypertarget{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78}\index{individual\_config.h@{individual\_config.h}!BUTTON\_CLOCK\_MINUTE\_SHORT\_MS@{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}}
 \index{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS@{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}{BUTTON\_CLOCK\_MINUTE\_SHORT\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_aaa0000adfde20212f9d61620e40f2d78} 
 \+\#define BUTTON\+\_\+\+CLOCK\+\_\+\+MINUTE\+\_\+\+SHORT\+\_\+\+MS~50}
+
+
+
+Debounce time for minute button in milliseconds. 
 
 \Hypertarget{individual__config_8h_a40ea04e9f5c26956209bcc0a89a00fac}\index{individual\_config.h@{individual\_config.h}!BUZZER\_ON\_DELAY\_MS@{BUZZER\_ON\_DELAY\_MS}}
 \index{BUZZER\_ON\_DELAY\_MS@{BUZZER\_ON\_DELAY\_MS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{BUZZER\_ON\_DELAY\_MS}{BUZZER\_ON\_DELAY\_MS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a40ea04e9f5c26956209bcc0a89a00fac} 
 \+\#define BUZZER\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS~5000}
+
+
+
+Delay before buzzer activation is allowed (milliseconds). 
 
 \Hypertarget{individual__config_8h_abc5772bb8f4980f3c762ed695dde4c21}\index{individual\_config.h@{individual\_config.h}!CHIP\_USED@{CHIP\_USED}}
 \index{CHIP\_USED@{CHIP\_USED}!individual\_config.h@{individual\_config.h}}
@@ -902,17 +1094,25 @@ BUTTON\+\_\+\+CLOCK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+PIN:\+ GPIO pin for s
 
 Core project configuration values. 
 
-CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please add a new section after \+\#if CHIP\+\_\+\+USED == ESP32\+P4 for this new chip and add its corresponding pins and settings \Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
+CHIP\+\_\+\+USED:\+ Target ESP32 chip variant. When changing chip types, add a new conditional section (\+\#if CHIP\+\_\+\+USED == $<$new\+\_\+chip$>$) after the existing section and define all required pins and settings for that chip. ESP32 variants:\+ ESP32, ESP32\+S2, ESP32\+S3, ESP32\+C3, ESP32\+C6, ESP32\+P4 \Hypertarget{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2}\index{individual\_config.h@{individual\_config.h}!EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}}
 \index{EEZ\_VALUE\_FACTOR@{EEZ\_VALUE\_FACTOR}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{EEZ\_VALUE\_FACTOR}{EEZ\_VALUE\_FACTOR}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac2f4bb90d6c2451310a80f949a777bc2} 
 \+\#define EEZ\+\_\+\+VALUE\+\_\+\+FACTOR~1000}
 
-\Hypertarget{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}}
+
+
+Display rendering and initialization timing parameters. 
+
+Scaling factor for float-\/to-\/integer conversion in LVGL \Hypertarget{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}}
 \index{FILTER\_ALPHA\_BEL@{FILTER\_ALPHA\_BEL}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{FILTER\_ALPHA\_BEL}{FILTER\_ALPHA\_BEL}}
 {\footnotesize\ttfamily \label{individual__config_8h_a0aba378a08cd6b071ab97d7ec085020b} 
 \+\#define FILTER\+\_\+\+ALPHA\+\_\+\+BEL~0.\+1f}
+
+
+
+Brightness smoothing factor. 
 
 \Hypertarget{individual__config_8h_a9b28c36c5d3b751e4ca37f480db0ee1b}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_OIL\_PRES@{FILTER\_ALPHA\_OIL\_PRES}}
 \index{FILTER\_ALPHA\_OIL\_PRES@{FILTER\_ALPHA\_OIL\_PRES}!individual\_config.h@{individual\_config.h}}
@@ -920,11 +1120,19 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_a9b28c36c5d3b751e4ca37f480db0ee1b} 
 \+\#define FILTER\+\_\+\+ALPHA\+\_\+\+OIL\+\_\+\+PRES~0.\+1f}
 
-\Hypertarget{individual__config_8h_a321a601bd06f44a3acf6078e17691c3f}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_OIL\_TEMP@{FILTER\_ALPHA\_OIL\_TEMP}}
+
+
+Exponential moving average filter coefficients for noise reduction. 
+
+Lower values provide more smoothing but slower response to changes. Range:\+ 0.\+0 (very smooth, very slow) to 1.\+0 (no filtering, responsive). Pressure smoothing factor \Hypertarget{individual__config_8h_a321a601bd06f44a3acf6078e17691c3f}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_OIL\_TEMP@{FILTER\_ALPHA\_OIL\_TEMP}}
 \index{FILTER\_ALPHA\_OIL\_TEMP@{FILTER\_ALPHA\_OIL\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{FILTER\_ALPHA\_OIL\_TEMP}{FILTER\_ALPHA\_OIL\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a321a601bd06f44a3acf6078e17691c3f} 
 \+\#define FILTER\+\_\+\+ALPHA\+\_\+\+OIL\+\_\+\+TEMP~0.\+1f}
+
+
+
+Temperature smoothing factor. 
 
 \Hypertarget{individual__config_8h_ac0160d591fd8a0b2995edaa0ed3277ec}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_OUT\_TEMP@{FILTER\_ALPHA\_OUT\_TEMP}}
 \index{FILTER\_ALPHA\_OUT\_TEMP@{FILTER\_ALPHA\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
@@ -932,11 +1140,19 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_ac0160d591fd8a0b2995edaa0ed3277ec} 
 \+\#define FILTER\+\_\+\+ALPHA\+\_\+\+OUT\+\_\+\+TEMP~0.\+1f}
 
+
+
+Outdoor temperature smoothing factor. 
+
 \Hypertarget{individual__config_8h_a7e8f64192a152596917ed3f32f26f1a1}\index{individual\_config.h@{individual\_config.h}!FILTER\_ALPHA\_VOLT@{FILTER\_ALPHA\_VOLT}}
 \index{FILTER\_ALPHA\_VOLT@{FILTER\_ALPHA\_VOLT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{FILTER\_ALPHA\_VOLT}{FILTER\_ALPHA\_VOLT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7e8f64192a152596917ed3f32f26f1a1} 
 \+\#define FILTER\+\_\+\+ALPHA\+\_\+\+VOLT~0.\+1f}
+
+
+
+Voltage smoothing factor. 
 
 \Hypertarget{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf}\index{individual\_config.h@{individual\_config.h}!GAUGE\_ON\_DELAY\_MS@{GAUGE\_ON\_DELAY\_MS}}
 \index{GAUGE\_ON\_DELAY\_MS@{GAUGE\_ON\_DELAY\_MS}!individual\_config.h@{individual\_config.h}}
@@ -944,11 +1160,19 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_af7d5b688d597247e5d46d3c12ca1d6cf} 
 \+\#define GAUGE\+\_\+\+ON\+\_\+\+DELAY\+\_\+\+MS~1000}
 
+
+
+Delay before gauges become active after boot (milliseconds). 
+
 \Hypertarget{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9}\index{individual\_config.h@{individual\_config.h}!I2C\_CLK\_SRC@{I2C\_CLK\_SRC}}
 \index{I2C\_CLK\_SRC@{I2C\_CLK\_SRC}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{I2C\_CLK\_SRC}{I2C\_CLK\_SRC}}
 {\footnotesize\ttfamily \label{individual__config_8h_aeed45b5fe842c931fe0732bad3dd29f9} 
 \+\#define I2\+C\+\_\+\+CLK\+\_\+\+SRC~I2\+C\+\_\+\+CLK\+\_\+\+SRC\+\_\+\+DEFAULT}
+
+
+
+Default clock source. 
 
 \Hypertarget{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba}\index{individual\_config.h@{individual\_config.h}!I2C\_GLITCH\_IGNORE@{I2C\_GLITCH\_IGNORE}}
 \index{I2C\_GLITCH\_IGNORE@{I2C\_GLITCH\_IGNORE}!individual\_config.h@{individual\_config.h}}
@@ -956,11 +1180,19 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_a70862c98ff5bb54336cd13a6c5781eba} 
 \+\#define I2\+C\+\_\+\+GLITCH\+\_\+\+IGNORE~7}
 
+
+
+Glitch filter threshold (clock cycles). 
+
 \Hypertarget{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50}\index{individual\_config.h@{individual\_config.h}!I2C\_INT\_PULLUP\_ENB@{I2C\_INT\_PULLUP\_ENB}}
 \index{I2C\_INT\_PULLUP\_ENB@{I2C\_INT\_PULLUP\_ENB}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{I2C\_INT\_PULLUP\_ENB}{I2C\_INT\_PULLUP\_ENB}}
 {\footnotesize\ttfamily \label{individual__config_8h_a4ecb1067d3291cdb412f8884267f6f50} 
 \+\#define I2\+C\+\_\+\+INT\+\_\+\+PULLUP\+\_\+\+ENB~false}
+
+
+
+Use external pull-\/ups (not internal). 
 
 \Hypertarget{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f}\index{individual\_config.h@{individual\_config.h}!I2C\_PORT@{I2C\_PORT}}
 \index{I2C\_PORT@{I2C\_PORT}!individual\_config.h@{individual\_config.h}}
@@ -968,11 +1200,19 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_ad9ecf80e1eac083d16ec47f9d3aeb39f} 
 \+\#define I2\+C\+\_\+\+PORT~I2\+C\+\_\+\+NUM\+\_\+0}
 
+
+
+I2C controller number. 
+
 \Hypertarget{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c}\index{individual\_config.h@{individual\_config.h}!I2C\_SCL\_PIN@{I2C\_SCL\_PIN}}
 \index{I2C\_SCL\_PIN@{I2C\_SCL\_PIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{I2C\_SCL\_PIN}{I2C\_SCL\_PIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a0e4e08bab2fb484136d18b067bef372c} 
 \+\#define I2\+C\+\_\+\+SCL\+\_\+\+PIN~6}
+
+
+
+Serial Clock pin for I2C bus. 
 
 \Hypertarget{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f}\index{individual\_config.h@{individual\_config.h}!I2C\_SDA\_PIN@{I2C\_SDA\_PIN}}
 \index{I2C\_SDA\_PIN@{I2C\_SDA\_PIN}!individual\_config.h@{individual\_config.h}}
@@ -980,7 +1220,11 @@ CHIP\+\_\+\+USED:\+ Target ESP32 chip variant switch. By changing this please ad
 {\footnotesize\ttfamily \label{individual__config_8h_a2cade698267beb86ccaa38c14d35ab0f} 
 \+\#define I2\+C\+\_\+\+SDA\+\_\+\+PIN~9}
 
-\Hypertarget{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_BUFFER\_FACTOR@{LCD\_1\_BUFFER\_FACTOR}}
+
+
+I2C bus GPIO pins and clock configuration for RTC communication. 
+
+Serial Data pin for I2C bus \Hypertarget{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b}\index{individual\_config.h@{individual\_config.h}!LCD\_1\_BUFFER\_FACTOR@{LCD\_1\_BUFFER\_FACTOR}}
 \index{LCD\_1\_BUFFER\_FACTOR@{LCD\_1\_BUFFER\_FACTOR}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{LCD\_1\_BUFFER\_FACTOR}{LCD\_1\_BUFFER\_FACTOR}}
 {\footnotesize\ttfamily \label{individual__config_8h_aa846ad4504a4e8f0a616f1f3a87abf0b} 
@@ -1312,7 +1556,7 @@ LCD\+\_\+\+PIXEL\+\_\+\+CLOCK\+\_\+\+HZ:\+ SPI clock for display pixel writes. L
 
 LEDC PWM settings for display backlight brightness control. 
 
-LED\+\_\+\+SPEED:\+ LEDC speed mode (low or high) for timer/\+channel. LED\+\_\+\+TIMER:\+ LEDC timer index. LED\+\_\+\+DUTY\+\_\+\+RESOLUTION:\+ PWM duty resolution (e.\+g., 8-\/bit gives 0-\/255 range). LED\+\_\+\+DUTY\+\_\+\+RES\+\_\+\+VALUE:\+ Duty scaling value. LED\+\_\+\+FREQ:\+ PWM frequency for LED backlight (flicker-\/free constant lighting). LED\+\_\+\+GPIO:\+ Neupin for PWM output to backlight. \Hypertarget{individual__config_8h_a19388170f732e4edf122aceab67fd83c}\index{individual\_config.h@{individual\_config.h}!LED\_START\_BRIGHT@{LED\_START\_BRIGHT}}
+LED\+\_\+\+SPEED:\+ LEDC speed mode (low=slower/\+lower noise, high=faster/\+more power) LED\+\_\+\+TIMER:\+ LEDC timer index (supports multiple independent timers) LED\+\_\+\+DUTY\+\_\+\+RESOLUTION:\+ PWM duty cycle resolution in bits (8-\/bit = 256 levels) LED\+\_\+\+FREQ:\+ PWM frequency for LED (25 k\+Hz prevents visible flicker) \Hypertarget{individual__config_8h_a19388170f732e4edf122aceab67fd83c}\index{individual\_config.h@{individual\_config.h}!LED\_START\_BRIGHT@{LED\_START\_BRIGHT}}
 \index{LED\_START\_BRIGHT@{LED\_START\_BRIGHT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{LED\_START\_BRIGHT}{LED\_START\_BRIGHT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a19388170f732e4edf122aceab67fd83c} 
@@ -1341,6 +1585,80 @@ LED\+\_\+\+SPEED:\+ LEDC speed mode (low or high) for timer/\+channel. LED\+\_\+
 \doxysubsubsection{\texorpdfstring{MAIN\_TASK\_FINISHED\_DELAY}{MAIN\_TASK\_FINISHED\_DELAY}}
 {\footnotesize\ttfamily \label{individual__config_8h_a6d7e836e81c91b823bc4d89f3fb4ba69} 
 \+\#define MAIN\+\_\+\+TASK\+\_\+\+FINISHED\+\_\+\+DELAY~5000}
+
+
+
+Delay for main task completion (milliseconds). 
+
+\Hypertarget{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}\index{individual\_config.h@{individual\_config.h}!MAIN\_TICK\_TIME\_DELAY\_MS@{MAIN\_TICK\_TIME\_DELAY\_MS}}
+\index{MAIN\_TICK\_TIME\_DELAY\_MS@{MAIN\_TICK\_TIME\_DELAY\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MAIN\_TICK\_TIME\_DELAY\_MS}{MAIN\_TICK\_TIME\_DELAY\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231} 
+\+\#define MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS~25}
+
+
+
+Sensor measurement timing configuration. 
+
+Defines how often sensor values are read and processed for each display/\+subsystem. Main loop tick interval (milliseconds) \Hypertarget{individual__config_8h_a0d806d9e4d224c3d843596a118502cda}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_1\_MS@{MEASURE\_DELAY\_TIME\_1\_MS}}
+\index{MEASURE\_DELAY\_TIME\_1\_MS@{MEASURE\_DELAY\_TIME\_1\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_1\_MS}{MEASURE\_DELAY\_TIME\_1\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a0d806d9e4d224c3d843596a118502cda} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+1\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}}}
+
+
+
+Display 1 update interval (25ms). 
+
+\Hypertarget{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_2\_MS@{MEASURE\_DELAY\_TIME\_2\_MS}}
+\index{MEASURE\_DELAY\_TIME\_2\_MS@{MEASURE\_DELAY\_TIME\_2\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_2\_MS}{MEASURE\_DELAY\_TIME\_2\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_abbb18ebcc6f9d6e12561d0d093bdc429} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+2\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+
+
+
+Display 2 update interval (125ms). 
+
+\Hypertarget{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_3\_MS@{MEASURE\_DELAY\_TIME\_3\_MS}}
+\index{MEASURE\_DELAY\_TIME\_3\_MS@{MEASURE\_DELAY\_TIME\_3\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_3\_MS}{MEASURE\_DELAY\_TIME\_3\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a77a3118ca39eea76bd706c60b8cd39e6} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+3\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 2}
+
+
+
+Display 3 update interval (50ms). 
+
+\Hypertarget{individual__config_8h_a2e38659375d30ce125ce55521de0da5a}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_4\_MS@{MEASURE\_DELAY\_TIME\_4\_MS}}
+\index{MEASURE\_DELAY\_TIME\_4\_MS@{MEASURE\_DELAY\_TIME\_4\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_4\_MS}{MEASURE\_DELAY\_TIME\_4\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2e38659375d30ce125ce55521de0da5a} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+4\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+
+
+
+Display 4 update interval (125ms). 
+
+\Hypertarget{individual__config_8h_a3494bcac8e0b3ef66592697416092de3}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_BRIGHT\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}}
+\index{MEASURE\_DELAY\_TIME\_BRIGHT\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}{MEASURE\_DELAY\_TIME\_BRIGHT\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a3494bcac8e0b3ef66592697416092de3} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 5}
+
+
+
+Brightness update interval (125ms). 
+
+\Hypertarget{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc}\index{individual\_config.h@{individual\_config.h}!MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}}
+\index{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS@{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}{MEASURE\_DELAY\_TIME\_BRIGHT\_TEST\_MS}}
+{\footnotesize\ttfamily \label{individual__config_8h_a7be6bba1f17d8e74cd742a5d8ad83cfc} 
+\+\#define MEASURE\+\_\+\+DELAY\+\_\+\+TIME\+\_\+\+BRIGHT\+\_\+\+TEST\+\_\+\+MS~\doxymbox{\hyperlink{individual__config_8h_a6035b876ba62c9deb3694d0baa08e231}{MAIN\+\_\+\+TICK\+\_\+\+TIME\+\_\+\+DELAY\+\_\+\+MS}} \texorpdfstring{$\ast$}{*} 10}
+
+
+
+Test mode brightness interval (250ms). 
 
 \Hypertarget{individual__config_8h_ae1ce1bb8c096cd612d6183eea4df8de9}\index{individual\_config.h@{individual\_config.h}!NUMBER\_OF\_DISPLAYS@{NUMBER\_OF\_DISPLAYS}}
 \index{NUMBER\_OF\_DISPLAYS@{NUMBER\_OF\_DISPLAYS}!individual\_config.h@{individual\_config.h}}
@@ -1442,11 +1760,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a5a45fed2ab6bfd3a2977111330088c61} 
 \+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MISO~-\/1}
 
+
+
+Master In Slave Out (unused, set to -\/1). 
+
 \Hypertarget{individual__config_8h_a05d95ad303c4b8aec288506682171ea7}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_1\_MOSI@{PIN\_SPI\_1\_MOSI}}
 \index{PIN\_SPI\_1\_MOSI@{PIN\_SPI\_1\_MOSI}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_SPI\_1\_MOSI}{PIN\_SPI\_1\_MOSI}}
 {\footnotesize\ttfamily \label{individual__config_8h_a05d95ad303c4b8aec288506682171ea7} 
 \+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+MOSI~29}
+
+
+
+Master Out Slave In pin for SPI 1. 
 
 \Hypertarget{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_1\_SCLK@{PIN\_SPI\_1\_SCLK}}
 \index{PIN\_SPI\_1\_SCLK@{PIN\_SPI\_1\_SCLK}!individual\_config.h@{individual\_config.h}}
@@ -1454,11 +1780,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_aad582018b6bc03db7ae468eb3fdf3eb3} 
 \+\#define PIN\+\_\+\+SPI\+\_\+1\+\_\+\+SCLK~30}
 
-\Hypertarget{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_MISO@{PIN\_SPI\_2\_MISO}}
+
+
+SPI 1 bus configuration (first SPI host for displays 1-\/2). 
+
+Serial Clock pin for SPI 1 \Hypertarget{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_MISO@{PIN\_SPI\_2\_MISO}}
 \index{PIN\_SPI\_2\_MISO@{PIN\_SPI\_2\_MISO}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_SPI\_2\_MISO}{PIN\_SPI\_2\_MISO}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7c1044c21532cf4285895d10a6b4968b} 
 \+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MISO~-\/1}
+
+
+
+Master In Slave Out (unused, set to -\/1). 
 
 \Hypertarget{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_MOSI@{PIN\_SPI\_2\_MOSI}}
 \index{PIN\_SPI\_2\_MOSI@{PIN\_SPI\_2\_MOSI}!individual\_config.h@{individual\_config.h}}
@@ -1466,17 +1800,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a833575c09bd81118700ae61d04a6ec4d} 
 \+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+MOSI~12}
 
+
+
+Master Out Slave In pin for SPI 2. 
+
 \Hypertarget{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e}\index{individual\_config.h@{individual\_config.h}!PIN\_SPI\_2\_SCLK@{PIN\_SPI\_2\_SCLK}}
 \index{PIN\_SPI\_2\_SCLK@{PIN\_SPI\_2\_SCLK}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PIN\_SPI\_2\_SCLK}{PIN\_SPI\_2\_SCLK}}
 {\footnotesize\ttfamily \label{individual__config_8h_a857c7003e437cd368b6e75c1f9b6fd8e} 
 \+\#define PIN\+\_\+\+SPI\+\_\+2\+\_\+\+SCLK~11}
 
-\Hypertarget{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_INTR\_TYPE@{PWM\_ADC\_SWITCH\_INTR\_TYPE}}
+
+
+SPI 2 bus configuration (second SPI host for displays 3-\/4, optional). 
+
+Serial Clock pin for SPI 2 \Hypertarget{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_INTR\_TYPE@{PWM\_ADC\_SWITCH\_INTR\_TYPE}}
 \index{PWM\_ADC\_SWITCH\_INTR\_TYPE@{PWM\_ADC\_SWITCH\_INTR\_TYPE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_INTR\_TYPE}{PWM\_ADC\_SWITCH\_INTR\_TYPE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a47109b819e9b566e0f7e02f5b9790456} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+INTR\+\_\+\+TYPE~GPIO\+\_\+\+INTR\+\_\+\+DISABLE}
+
+
+
+No interrupt on level change. 
 
 \Hypertarget{individual__config_8h_ae351184dec4c5ec451f85768e04ae331}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_MODE@{PWM\_ADC\_SWITCH\_MODE}}
 \index{PWM\_ADC\_SWITCH\_MODE@{PWM\_ADC\_SWITCH\_MODE}!individual\_config.h@{individual\_config.h}}
@@ -1484,17 +1830,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_ae351184dec4c5ec451f85768e04ae331} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+MODE~GPIO\+\_\+\+MODE\+\_\+\+INPUT}
 
+
+
+Configure as digital input. 
+
 \Hypertarget{individual__config_8h_a7451847218b5826426548ebc4166c7c5}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PIN@{PWM\_ADC\_SWITCH\_PIN}}
 \index{PWM\_ADC\_SWITCH\_PIN@{PWM\_ADC\_SWITCH\_PIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_PIN}{PWM\_ADC\_SWITCH\_PIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7451847218b5826426548ebc4166c7c5} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PIN~16}
 
-\Hypertarget{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN@{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}}
+
+
+PWM/\+\+ADC sensor input selector switch configuration. 
+
+GPIO pin for PWM/\+\+ADC mode selection (high=PWM, low=ADC) \Hypertarget{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN@{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}}
 \index{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN@{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}{PWM\_ADC\_SWITCH\_PULL\_DOWN\_EN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a687cf98650b4953c06392d5959f9f4d4} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+DOWN\+\_\+\+EN~GPIO\+\_\+\+PULLDOWN\+\_\+\+DISABLE}
+
+
+
+No internal pull-\/down resistor. 
 
 \Hypertarget{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWITCH\_PULL\_UP\_EN@{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}}
 \index{PWM\_ADC\_SWITCH\_PULL\_UP\_EN@{PWM\_ADC\_SWITCH\_PULL\_UP\_EN}!individual\_config.h@{individual\_config.h}}
@@ -1502,17 +1860,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a84cf8438cc8e572ae6aad61c63747d94} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWITCH\+\_\+\+PULL\+\_\+\+UP\+\_\+\+EN~GPIO\+\_\+\+PULLUP\+\_\+\+DISABLE}
 
+
+
+No internal pull-\/up resistor. 
+
 \Hypertarget{individual__config_8h_aaea767524059ac76b32479e382c20381}\index{individual\_config.h@{individual\_config.h}!PWM\_ADC\_SWTICH\_VALUE\_PWM@{PWM\_ADC\_SWTICH\_VALUE\_PWM}}
 \index{PWM\_ADC\_SWTICH\_VALUE\_PWM@{PWM\_ADC\_SWTICH\_VALUE\_PWM}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_ADC\_SWTICH\_VALUE\_PWM}{PWM\_ADC\_SWTICH\_VALUE\_PWM}}
 {\footnotesize\ttfamily \label{individual__config_8h_aaea767524059ac76b32479e382c20381} 
 \+\#define PWM\+\_\+\+ADC\+\_\+\+SWTICH\+\_\+\+VALUE\+\_\+\+PWM~true}
 
-\Hypertarget{individual__config_8h_a22849c04b94b03fff7321e9caa755582}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PERIOD\_MAX@{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}}
+
+
+PWM/\+\+ADC selector for sensor input mode. 
+
+true=use PWM sensor mode, false=use ADC sensor mode \Hypertarget{individual__config_8h_a22849c04b94b03fff7321e9caa755582}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PERIOD\_MAX@{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}}
 \index{PWM\_SENSOR\_DIAG\_PERIOD\_MAX@{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}{PWM\_SENSOR\_DIAG\_PERIOD\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_a22849c04b94b03fff7321e9caa755582} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MAX~1100}
+
+
+
+Maximum period for valid diagnostic pulse. 
 
 \Hypertarget{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PERIOD\_MIN@{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}}
 \index{PWM\_SENSOR\_DIAG\_PERIOD\_MIN@{PWM\_SENSOR\_DIAG\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -1520,17 +1890,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a46b7a015bfc83534f3a2c0ac373bbd51} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PERIOD\+\_\+\+MIN~900}
 
+
+
+Minimum period in clock ticks (nanoseconds/\+100). 
+
 \Hypertarget{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_PULSE\_ID@{PWM\_SENSOR\_DIAG\_PULSE\_ID}}
 \index{PWM\_SENSOR\_DIAG\_PULSE\_ID@{PWM\_SENSOR\_DIAG\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_PULSE\_ID}{PWM\_SENSOR\_DIAG\_PULSE\_ID}}
 {\footnotesize\ttfamily \label{individual__config_8h_a82018e3c9e15336c27b135bdc4ea630e} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+PULSE\+\_\+\+ID~0}
 
-\Hypertarget{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_VALUE\_MAX@{PWM\_SENSOR\_DIAG\_VALUE\_MAX}}
+
+
+Diagnostic pulse configuration for sensor health check. 
+
+Pulse ID for diagnostic signal \Hypertarget{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_VALUE\_MAX@{PWM\_SENSOR\_DIAG\_VALUE\_MAX}}
 \index{PWM\_SENSOR\_DIAG\_VALUE\_MAX@{PWM\_SENSOR\_DIAG\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_DIAG\_VALUE\_MAX}{PWM\_SENSOR\_DIAG\_VALUE\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_afe2c77ea8438ec2777e3ac20987e2031} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MAX~800}
+
+
+
+Maximum pulse width for valid range. 
 
 \Hypertarget{individual__config_8h_a473cb738d041aec6a7867f361e43c29e}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_DIAG\_VALUE\_MIN@{PWM\_SENSOR\_DIAG\_VALUE\_MIN}}
 \index{PWM\_SENSOR\_DIAG\_VALUE\_MIN@{PWM\_SENSOR\_DIAG\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -1538,11 +1920,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a473cb738d041aec6a7867f361e43c29e} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+DIAG\+\_\+\+VALUE\+\_\+\+MIN~150}
 
+
+
+Minimum pulse width threshold. 
+
 \Hypertarget{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_MAX\_SENSOR\_COUNT@{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}}
 \index{PWM\_SENSOR\_MAX\_SENSOR\_COUNT@{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}{PWM\_SENSOR\_MAX\_SENSOR\_COUNT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a9ddd92aca8612c0d09957aa7cc5a9f36} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+MAX\+\_\+\+SENSOR\+\_\+\+COUNT~100}
+
+
+
+Maximum number of sensors on PWM bus. 
 
 \Hypertarget{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_NEG\_EDGE@{PWM\_SENSOR\_NEG\_EDGE}}
 \index{PWM\_SENSOR\_NEG\_EDGE@{PWM\_SENSOR\_NEG\_EDGE}!individual\_config.h@{individual\_config.h}}
@@ -1550,17 +1940,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a3aa72444e4e467d27b85838a441d35f5} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+NEG\+\_\+\+EDGE~1}
 
+
+
+Count negative (falling) edges. 
+
 \Hypertarget{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PIN@{PWM\_SENSOR\_PIN}}
 \index{PWM\_SENSOR\_PIN@{PWM\_SENSOR\_PIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PIN}{PWM\_SENSOR\_PIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ab826226f0ccdaac0d5c02cf950219914} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PIN~3}
 
-\Hypertarget{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_POS\_EDGE@{PWM\_SENSOR\_POS\_EDGE}}
+
+
+PWM sensor input on a digital-\/capable GPIO. 
+
+GPIO pin receiving PWM pulses from Hella sensor \Hypertarget{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_POS\_EDGE@{PWM\_SENSOR\_POS\_EDGE}}
 \index{PWM\_SENSOR\_POS\_EDGE@{PWM\_SENSOR\_POS\_EDGE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_POS\_EDGE}{PWM\_SENSOR\_POS\_EDGE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a08c77bc627ff4aa929c409f1d63168e0} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+POS\+\_\+\+EDGE~1}
+
+
+
+Count positive (rising) edges. 
 
 \Hypertarget{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_CALC\_VALUE\_1@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}}
 \index{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_1}!individual\_config.h@{individual\_config.h}}
@@ -1568,11 +1970,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_af0cc7d1ac9ce1cbec113f76aa53300f1} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1~64.\+0}
 
+
+
+Pressure offset constant. 
+
 \Hypertarget{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_CALC\_VALUE\_2@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}}
 \index{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2@{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}{PWM\_SENSOR\_PRES\_CALC\_VALUE\_2}}
 {\footnotesize\ttfamily \label{individual__config_8h_a34b83d85fa8c5a17bb19a953beac266d} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2~384}
+
+
+
+Pressure slope (must not be zero). 
 
 \Hypertarget{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PERIOD\_MAX@{PWM\_SENSOR\_PRES\_PERIOD\_MAX}}
 \index{PWM\_SENSOR\_PRES\_PERIOD\_MAX@{PWM\_SENSOR\_PRES\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
@@ -1580,11 +1990,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a363b8125f33a44f49beb9b675a50f34d} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MAX~4200}
 
+
+
+Maximum period for valid pressure pulse. 
+
 \Hypertarget{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PERIOD\_MIN@{PWM\_SENSOR\_PRES\_PERIOD\_MIN}}
 \index{PWM\_SENSOR\_PRES\_PERIOD\_MIN@{PWM\_SENSOR\_PRES\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_PERIOD\_MIN}{PWM\_SENSOR\_PRES\_PERIOD\_MIN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a9d6e0e2c6932590f60dd49a3f2e396bf} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PERIOD\+\_\+\+MIN~3900}
+
+
+
+Minimum period in clock ticks. 
 
 \Hypertarget{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_PULSE\_ID@{PWM\_SENSOR\_PRES\_PULSE\_ID}}
 \index{PWM\_SENSOR\_PRES\_PULSE\_ID@{PWM\_SENSOR\_PRES\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
@@ -1592,11 +2010,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a8676d54ad404b8bfcae3dfaec81ca603} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+PULSE\+\_\+\+ID~2}
 
-\Hypertarget{individual__config_8h_afa703f909b055df7fc07f2241e708db9}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_VALUE\_MAX@{PWM\_SENSOR\_PRES\_VALUE\_MAX}}
+
+
+Pressure sensor pulse configuration from Hella datasheet. 
+
+Equation:\+ Pressure = (PWM\+\_\+\+VALUE -\/ 50) /\+ 4050 \texorpdfstring{$\ast$}{*} PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2 + PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1 Pulse ID for pressure signal \Hypertarget{individual__config_8h_afa703f909b055df7fc07f2241e708db9}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_VALUE\_MAX@{PWM\_SENSOR\_PRES\_VALUE\_MAX}}
 \index{PWM\_SENSOR\_PRES\_VALUE\_MAX@{PWM\_SENSOR\_PRES\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRES\_VALUE\_MAX}{PWM\_SENSOR\_PRES\_VALUE\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_afa703f909b055df7fc07f2241e708db9} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MAX~4050}
+
+
+
+Maximum pulse width (6 bar). 
 
 \Hypertarget{individual__config_8h_abac0ce5b828908a277b01535226e4a80}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRES\_VALUE\_MIN@{PWM\_SENSOR\_PRES\_VALUE\_MIN}}
 \index{PWM\_SENSOR\_PRES\_VALUE\_MIN@{PWM\_SENSOR\_PRES\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -1604,11 +2030,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_abac0ce5b828908a277b01535226e4a80} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRES\+\_\+\+VALUE\+\_\+\+MIN~50}
 
+
+
+Minimum pulse width (0 bar). 
+
 \Hypertarget{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PRESCALE@{PWM\_SENSOR\_PRESCALE}}
 \index{PWM\_SENSOR\_PRESCALE@{PWM\_SENSOR\_PRESCALE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_PRESCALE}{PWM\_SENSOR\_PRESCALE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a07034a3b8648a31ed4e9ab4c257bc804} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PRESCALE~1}
+
+
+
+Timer prescaler. 
 
 \Hypertarget{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_PULL\_UP@{PWM\_SENSOR\_PULL\_UP}}
 \index{PWM\_SENSOR\_PULL\_UP@{PWM\_SENSOR\_PULL\_UP}!individual\_config.h@{individual\_config.h}}
@@ -1616,17 +2050,38 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a85bde9c3f48ecef5c8c9ab6d6829bfaa} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+PULL\+\_\+\+UP~1}
 
+
+
+Enable internal pull-\/up on input pin. 
+
 \Hypertarget{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_RESOLUTION\_MHZ@{PWM\_SENSOR\_RESOLUTION\_MHZ}}
 \index{PWM\_SENSOR\_RESOLUTION\_MHZ@{PWM\_SENSOR\_RESOLUTION\_MHZ}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_RESOLUTION\_MHZ}{PWM\_SENSOR\_RESOLUTION\_MHZ}}
 {\footnotesize\ttfamily \label{individual__config_8h_a710942d71c4e9bc34e4ccdeefad07689} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+RESOLUTION\+\_\+\+MHZ~10}
 
-\Hypertarget{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}}
+
+
+Buzzer alarm and PWM output configuration (only if USE\+\_\+\+BUZZER == true). 
+
+Defines temperature thresholds for buzzer activation, PWM parameters, and Free\+RTOS task settings for the buzzer alert system.
+
+PWM sensor general settings and pulse configuration.
+
+Hella 6PP sensor transmits three multiplex PWM signals:\+
+\begin{DoxyItemize}
+\item Diagnostic pulse (ID 0):\+ sensor health status
+\item Temperature pulse (ID 1):\+ oil temperature reading
+\item Pressure pulse (ID 2):\+ oil pressure reading Timer resolution (10 MHz = 100ns per tick) 
+\end{DoxyItemize}\Hypertarget{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}}
 \index{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_1}}
 {\footnotesize\ttfamily \label{individual__config_8h_a62129ed73707ffaf613d6c32ff03e046} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1~-\/896.\+0}
+
+
+
+Temperature offset constant. 
 
 \Hypertarget{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}}
 \index{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2@{PWM\_SENSOR\_TEMP\_CALC\_VALUE\_2}!individual\_config.h@{individual\_config.h}}
@@ -1634,11 +2089,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_af0a868f1ccd5354d5478d9bf35f69177} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2~19.\+2}
 
+
+
+Temperature slope (must not be zero). 
+
 \Hypertarget{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PERIOD\_MAX@{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}}
 \index{PWM\_SENSOR\_TEMP\_PERIOD\_MAX@{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}{PWM\_SENSOR\_TEMP\_PERIOD\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_afab3b81df73dbaa673b2eeaa887b6d70} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MAX~4200}
+
+
+
+Maximum period for valid temperature pulse. 
 
 \Hypertarget{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PERIOD\_MIN@{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}}
 \index{PWM\_SENSOR\_TEMP\_PERIOD\_MIN@{PWM\_SENSOR\_TEMP\_PERIOD\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -1646,17 +2109,29 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a55f0c32bd2a58c0497e62501dd7e4d6c} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PERIOD\+\_\+\+MIN~3900}
 
+
+
+Minimum period in clock ticks. 
+
 \Hypertarget{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_PULSE\_ID@{PWM\_SENSOR\_TEMP\_PULSE\_ID}}
 \index{PWM\_SENSOR\_TEMP\_PULSE\_ID@{PWM\_SENSOR\_TEMP\_PULSE\_ID}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_PULSE\_ID}{PWM\_SENSOR\_TEMP\_PULSE\_ID}}
 {\footnotesize\ttfamily \label{individual__config_8h_a812372ba9ac74e0ab9511cf8263be624} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+PULSE\+\_\+\+ID~1}
 
-\Hypertarget{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_VALUE\_MAX@{PWM\_SENSOR\_TEMP\_VALUE\_MAX}}
+
+
+Temperature sensor pulse configuration from Hella datasheet. 
+
+Equation:\+ Temperature = (PWM\+\_\+\+VALUE -\/ 50) /\+ 4050 \texorpdfstring{$\ast$}{*} PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+2 + PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+CALC\+\_\+\+VALUE\+\_\+1 Pulse ID for temperature signal \Hypertarget{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_VALUE\_MAX@{PWM\_SENSOR\_TEMP\_VALUE\_MAX}}
 \index{PWM\_SENSOR\_TEMP\_VALUE\_MAX@{PWM\_SENSOR\_TEMP\_VALUE\_MAX}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{PWM\_SENSOR\_TEMP\_VALUE\_MAX}{PWM\_SENSOR\_TEMP\_VALUE\_MAX}}
 {\footnotesize\ttfamily \label{individual__config_8h_a8cbce33da1267d8f49659f57b8d529ca} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MAX~4050}
+
+
+
+Maximum pulse width (150°C). 
 
 \Hypertarget{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c}\index{individual\_config.h@{individual\_config.h}!PWM\_SENSOR\_TEMP\_VALUE\_MIN@{PWM\_SENSOR\_TEMP\_VALUE\_MIN}}
 \index{PWM\_SENSOR\_TEMP\_VALUE\_MIN@{PWM\_SENSOR\_TEMP\_VALUE\_MIN}!individual\_config.h@{individual\_config.h}}
@@ -1664,11 +2139,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a58cd29a5e3b8d67cdf9632c9d04d806c} 
 \+\#define PWM\+\_\+\+SENSOR\+\_\+\+TEMP\+\_\+\+VALUE\+\_\+\+MIN~50}
 
+
+
+Minimum pulse width (0°C). 
+
 \Hypertarget{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c}\index{individual\_config.h@{individual\_config.h}!RTC\_ADDR\_LENGTH@{RTC\_ADDR\_LENGTH}}
 \index{RTC\_ADDR\_LENGTH@{RTC\_ADDR\_LENGTH}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{RTC\_ADDR\_LENGTH}{RTC\_ADDR\_LENGTH}}
 {\footnotesize\ttfamily \label{individual__config_8h_a2bce6a195f2fde9c275b9cb21e5d574c} 
 \+\#define RTC\+\_\+\+ADDR\+\_\+\+LENGTH~I2\+C\+\_\+\+ADDR\+\_\+\+BIT\+\_\+\+LEN\+\_\+7}
+
+
+
+7-\/bit I2C addressing 
 
 \Hypertarget{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee}\index{individual\_config.h@{individual\_config.h}!RTC\_DS3231\_ADDR@{RTC\_DS3231\_ADDR}}
 \index{RTC\_DS3231\_ADDR@{RTC\_DS3231\_ADDR}!individual\_config.h@{individual\_config.h}}
@@ -1676,11 +2159,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a7b029584460e6c5f08309544cbfc3eee} 
 \+\#define RTC\+\_\+\+DS3231\+\_\+\+ADDR~0x68}
 
-\Hypertarget{individual__config_8h_a39b3f976a18466171902d0705c9a87f8}\index{individual\_config.h@{individual\_config.h}!RTC\_SCL\_SPEED\_HZ@{RTC\_SCL\_SPEED\_HZ}}
+
+
+I2C device addresses for connected sensors. 
+
+DS3231 RTC I2C address (0x68 = default) \Hypertarget{individual__config_8h_a39b3f976a18466171902d0705c9a87f8}\index{individual\_config.h@{individual\_config.h}!RTC\_SCL\_SPEED\_HZ@{RTC\_SCL\_SPEED\_HZ}}
 \index{RTC\_SCL\_SPEED\_HZ@{RTC\_SCL\_SPEED\_HZ}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{RTC\_SCL\_SPEED\_HZ}{RTC\_SCL\_SPEED\_HZ}}
 {\footnotesize\ttfamily \label{individual__config_8h_a39b3f976a18466171902d0705c9a87f8} 
 \+\#define RTC\+\_\+\+SCL\+\_\+\+SPEED\+\_\+\+HZ~100000}
+
+
+
+I2C clock speed (100 k\+Hz standard mode). 
 
 \Hypertarget{individual__config_8h_a2626daf8b314d054a90f38997d8a3827}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_DMA@{SPI\_1\_DMA}}
 \index{SPI\_1\_DMA@{SPI\_1\_DMA}!individual\_config.h@{individual\_config.h}}
@@ -1688,11 +2179,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a2626daf8b314d054a90f38997d8a3827} 
 \+\#define SPI\+\_\+1\+\_\+\+DMA~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO}
 
+
+
+Automatic DMA channel selection. 
+
 \Hypertarget{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_INTR\_FLAGS@{SPI\_1\_INTR\_FLAGS}}
 \index{SPI\_1\_INTR\_FLAGS@{SPI\_1\_INTR\_FLAGS}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{SPI\_1\_INTR\_FLAGS}{SPI\_1\_INTR\_FLAGS}}
 {\footnotesize\ttfamily \label{individual__config_8h_a77e54bd03bf00f0ce07ae8bbbd745ea6} 
 \+\#define SPI\+\_\+1\+\_\+\+INTR\+\_\+\+FLAGS~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)}
+
+
+
+Interrupt flags. 
 
 \Hypertarget{individual__config_8h_a168a72d3438cf86470ad7235e623105e}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_MAX\_TRANSFER\_SZ@{SPI\_1\_MAX\_TRANSFER\_SZ}}
 \index{SPI\_1\_MAX\_TRANSFER\_SZ@{SPI\_1\_MAX\_TRANSFER\_SZ}!individual\_config.h@{individual\_config.h}}
@@ -1700,11 +2199,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a168a72d3438cf86470ad7235e623105e} 
 \+\#define SPI\+\_\+1\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))}
 
+
+
+Max transfer size for 240x240 display. 
+
 \Hypertarget{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_QUADHD\_IO\_NUM@{SPI\_1\_QUADHD\_IO\_NUM}}
 \index{SPI\_1\_QUADHD\_IO\_NUM@{SPI\_1\_QUADHD\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{SPI\_1\_QUADHD\_IO\_NUM}{SPI\_1\_QUADHD\_IO\_NUM}}
 {\footnotesize\ttfamily \label{individual__config_8h_afbe40439029b51b01c0ca83a6f2b2cbb} 
 \+\#define SPI\+\_\+1\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+
+
+Quad Hold (unused, set to -\/1). 
 
 \Hypertarget{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7}\index{individual\_config.h@{individual\_config.h}!SPI\_1\_QUADWP\_IO\_NUM@{SPI\_1\_QUADWP\_IO\_NUM}}
 \index{SPI\_1\_QUADWP\_IO\_NUM@{SPI\_1\_QUADWP\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
@@ -1712,11 +2219,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a59d0f4a852c4d0659d8cb039ed480dd7} 
 \+\#define SPI\+\_\+1\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM~-\/1}
 
+
+
+Quad Write Protect (unused, set to -\/1). 
+
 \Hypertarget{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_DMA@{SPI\_2\_DMA}}
 \index{SPI\_2\_DMA@{SPI\_2\_DMA}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{SPI\_2\_DMA}{SPI\_2\_DMA}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac5d737be57afbfcb2943acb6f3c337c1} 
 \+\#define SPI\+\_\+2\+\_\+\+DMA~SPI\+\_\+\+DMA\+\_\+\+CH\+\_\+\+AUTO}
+
+
+
+Automatic DMA channel selection. 
 
 \Hypertarget{individual__config_8h_a99cb21495f82c01685873a833d719b25}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_INTR\_FLAGS@{SPI\_2\_INTR\_FLAGS}}
 \index{SPI\_2\_INTR\_FLAGS@{SPI\_2\_INTR\_FLAGS}!individual\_config.h@{individual\_config.h}}
@@ -1724,11 +2239,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_a99cb21495f82c01685873a833d719b25} 
 \+\#define SPI\+\_\+2\+\_\+\+INTR\+\_\+\+FLAGS~(ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+IRAM \texorpdfstring{$\vert$}{|} ESP\+\_\+\+INTR\+\_\+\+FLAG\+\_\+\+LEVEL3)}
 
+
+
+Interrupt flags. 
+
 \Hypertarget{individual__config_8h_ae80d06218a249684b89828193c330614}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_MAX\_TRANSFER\_SZ@{SPI\_2\_MAX\_TRANSFER\_SZ}}
 \index{SPI\_2\_MAX\_TRANSFER\_SZ@{SPI\_2\_MAX\_TRANSFER\_SZ}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{SPI\_2\_MAX\_TRANSFER\_SZ}{SPI\_2\_MAX\_TRANSFER\_SZ}}
 {\footnotesize\ttfamily \label{individual__config_8h_ae80d06218a249684b89828193c330614} 
 \+\#define SPI\+\_\+2\+\_\+\+MAX\+\_\+\+TRANSFER\+\_\+\+SZ~(240 \texorpdfstring{$\ast$}{*} 240 \texorpdfstring{$\ast$}{*} sizeof(uint16\+\_\+t))}
+
+
+
+Max transfer size for 240x240 display. 
 
 \Hypertarget{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_QUADHD\_IO\_NUM@{SPI\_2\_QUADHD\_IO\_NUM}}
 \index{SPI\_2\_QUADHD\_IO\_NUM@{SPI\_2\_QUADHD\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
@@ -1736,11 +2259,19 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 {\footnotesize\ttfamily \label{individual__config_8h_ac573af73a4bec4d8a5bfa72d74fb6514} 
 \+\#define SPI\+\_\+2\+\_\+\+QUADHD\+\_\+\+IO\+\_\+\+NUM~-\/1}
 
+
+
+Quad Hold (unused, set to -\/1). 
+
 \Hypertarget{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054}\index{individual\_config.h@{individual\_config.h}!SPI\_2\_QUADWP\_IO\_NUM@{SPI\_2\_QUADWP\_IO\_NUM}}
 \index{SPI\_2\_QUADWP\_IO\_NUM@{SPI\_2\_QUADWP\_IO\_NUM}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{SPI\_2\_QUADWP\_IO\_NUM}{SPI\_2\_QUADWP\_IO\_NUM}}
 {\footnotesize\ttfamily \label{individual__config_8h_a6430d4f4991ede43e03d0104fc11c054} 
 \+\#define SPI\+\_\+2\+\_\+\+QUADWP\+\_\+\+IO\+\_\+\+NUM~-\/1}
+
+
+
+Quad Write Protect (unused, set to -\/1). 
 
 \Hypertarget{individual__config_8h_ab1dcc9464e3fcb94922386e8a7f53f21}\index{individual\_config.h@{individual\_config.h}!SPI\_MODE@{SPI\_MODE}}
 \index{SPI\_MODE@{SPI\_MODE}!individual\_config.h@{individual\_config.h}}
@@ -1752,11 +2283,17 @@ NUMBER\+\_\+\+OF\+\_\+\+DISPLAYS:\+ Number of independent LCD panels attached. N
 
 SPI bus configuration, used for SPI LCD panels. 
 
-SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH:\+ transaction queue depth for spi bus commands. \Hypertarget{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_CORE\_SCREEN@{TASK\_1\_CORE\_SCREEN}}
+SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH:\+ transaction queue depth for spi bus commands.
+
+SPI communication parameters for LCD display panels. Clock polarity/\+phase (mode 3 for GC9\+A01 displays) \Hypertarget{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_CORE\_SCREEN@{TASK\_1\_CORE\_SCREEN}}
 \index{TASK\_1\_CORE\_SCREEN@{TASK\_1\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TASK\_1\_CORE\_SCREEN}{TASK\_1\_CORE\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a98df6ff3e166bc8d8a5ae25dbafceef3} 
 \+\#define TASK\+\_\+1\+\_\+\+CORE\+\_\+\+SCREEN~0}
+
+
+
+CPU core for display 1 task. 
 
 \Hypertarget{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_DELAYTIME\_SCREEN@{TASK\_1\_DELAYTIME\_SCREEN}}
 \index{TASK\_1\_DELAYTIME\_SCREEN@{TASK\_1\_DELAYTIME\_SCREEN}!individual\_config.h@{individual\_config.h}}
@@ -1764,11 +2301,19 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_ad502cac9f321d3d937aa08ab8af32267} 
 \+\#define TASK\+\_\+1\+\_\+\+DELAYTIME\+\_\+\+SCREEN~200}
 
+
+
+Update interval for display 1 (milliseconds). 
+
 \Hypertarget{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_PRIORITY\_SCREEN@{TASK\_1\_PRIORITY\_SCREEN}}
 \index{TASK\_1\_PRIORITY\_SCREEN@{TASK\_1\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TASK\_1\_PRIORITY\_SCREEN}{TASK\_1\_PRIORITY\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a6ea9fe31d435e0fa899888cd24f8c3c9} 
 \+\#define TASK\+\_\+1\+\_\+\+PRIORITY\+\_\+\+SCREEN~10}
+
+
+
+Task priority for display 1. 
 
 \Hypertarget{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}\index{individual\_config.h@{individual\_config.h}!TASK\_1\_STEPDEPTH\_SCREEN@{TASK\_1\_STEPDEPTH\_SCREEN}}
 \index{TASK\_1\_STEPDEPTH\_SCREEN@{TASK\_1\_STEPDEPTH\_SCREEN}!individual\_config.h@{individual\_config.h}}
@@ -1776,7 +2321,11 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c} 
 \+\#define TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~4096}
 
-\Hypertarget{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_CORE\_SCREEN@{TASK\_2\_CORE\_SCREEN}}
+
+
+Display 1 Free\+RTOS task configuration parameters. 
+
+TASK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+STEPDEPTH\+\_\+\+SCREEN:\+ Stack size in bytes TASK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+PRIORITY\+\_\+\+SCREEN:\+ Task priority (higher = more important) TASK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+DELAYTIME\+\_\+\+SCREEN:\+ Delay between screen updates in milliseconds TASK\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+\+CORE\+\_\+\+SCREEN:\+ CPU core assignment (0 or 1 on dual-\/core ESP32) Stack depth for display 1 task \Hypertarget{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_CORE\_SCREEN@{TASK\_2\_CORE\_SCREEN}}
 \index{TASK\_2\_CORE\_SCREEN@{TASK\_2\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TASK\_2\_CORE\_SCREEN}{TASK\_2\_CORE\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ad0ad69a7f17c76c3ec61c6f6e0513164} 
@@ -1787,6 +2336,10 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 \doxysubsubsection{\texorpdfstring{TASK\_2\_DELAYTIME\_SCREEN}{TASK\_2\_DELAYTIME\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ad04b185b86d13a77ed9a8e9c298bce11} 
 \+\#define TASK\+\_\+2\+\_\+\+DELAYTIME\+\_\+\+SCREEN~100}
+
+
+
+Update interval for display 2 (milliseconds). 
 
 \Hypertarget{individual__config_8h_ab1e1ace4209cf40e91bea91332665224}\index{individual\_config.h@{individual\_config.h}!TASK\_2\_PRIORITY\_SCREEN@{TASK\_2\_PRIORITY\_SCREEN}}
 \index{TASK\_2\_PRIORITY\_SCREEN@{TASK\_2\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
@@ -1800,6 +2353,10 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_ae12057330aeebd4ab49540af10aa2f8a} 
 \+\#define TASK\+\_\+2\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
 
+
+
+Display 2 Free\+RTOS task configuration parameters. 
+
 \Hypertarget{individual__config_8h_a0a1c1d511d3f3f11316926b1c5f01018}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_CORE\_SCREEN@{TASK\_3\_CORE\_SCREEN}}
 \index{TASK\_3\_CORE\_SCREEN@{TASK\_3\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TASK\_3\_CORE\_SCREEN}{TASK\_3\_CORE\_SCREEN}}
@@ -1811,6 +2368,10 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 \doxysubsubsection{\texorpdfstring{TASK\_3\_DELAYTIME\_SCREEN}{TASK\_3\_DELAYTIME\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_a6761c997cd501205a16b88c0f152c646} 
 \+\#define TASK\+\_\+3\+\_\+\+DELAYTIME\+\_\+\+SCREEN~150}
+
+
+
+Update interval for display 3 (milliseconds). 
 
 \Hypertarget{individual__config_8h_a0fd31553a1c949532a661bb84bf8bf82}\index{individual\_config.h@{individual\_config.h}!TASK\_3\_PRIORITY\_SCREEN@{TASK\_3\_PRIORITY\_SCREEN}}
 \index{TASK\_3\_PRIORITY\_SCREEN@{TASK\_3\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
@@ -1824,6 +2385,10 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_aa68ea9ed040536567eb1a1f029c0de09} 
 \+\#define TASK\+\_\+3\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
 
+
+
+Display 3 Free\+RTOS task configuration parameters. 
+
 \Hypertarget{individual__config_8h_a85b2c7fecc9c02092aae6acc0775a70a}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_CORE\_SCREEN@{TASK\_4\_CORE\_SCREEN}}
 \index{TASK\_4\_CORE\_SCREEN@{TASK\_4\_CORE\_SCREEN}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TASK\_4\_CORE\_SCREEN}{TASK\_4\_CORE\_SCREEN}}
@@ -1835,6 +2400,10 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 \doxysubsubsection{\texorpdfstring{TASK\_4\_DELAYTIME\_SCREEN}{TASK\_4\_DELAYTIME\_SCREEN}}
 {\footnotesize\ttfamily \label{individual__config_8h_ab6b8904ea8f761781af33d049960e758} 
 \+\#define TASK\+\_\+4\+\_\+\+DELAYTIME\+\_\+\+SCREEN~100}
+
+
+
+Update interval for display 4 (milliseconds). 
 
 \Hypertarget{individual__config_8h_aea108020a51158de85a2558e2053b672}\index{individual\_config.h@{individual\_config.h}!TASK\_4\_PRIORITY\_SCREEN@{TASK\_4\_PRIORITY\_SCREEN}}
 \index{TASK\_4\_PRIORITY\_SCREEN@{TASK\_4\_PRIORITY\_SCREEN}!individual\_config.h@{individual\_config.h}}
@@ -1848,17 +2417,36 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_ac00defb01b4b0a4dd498911178f033ab} 
 \+\#define TASK\+\_\+4\+\_\+\+STEPDEPTH\+\_\+\+SCREEN~\doxymbox{\hyperlink{individual__config_8h_a5e0a58afd80911ea8df9eaedd268672c}{TASK\+\_\+1\+\_\+\+STEPDEPTH\+\_\+\+SCREEN}}}
 
+
+
+Display 4 Free\+RTOS task configuration parameters. 
+
 \Hypertarget{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}}
 \index{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_1\_COUNT}}
 {\footnotesize\ttfamily \label{individual__config_8h_aa62bc4c38f6dc5dafe8b054c52a598bc} 
 \+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+1\+\_\+\+COUNT~2}
 
-\Hypertarget{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}}
+
+
+Button press counts required for each state transition in test mode activation. 
+
+Sequence state transitions:\+
+\begin{DoxyItemize}
+\item State 0:\+ First minute button press (decrease)
+\item State 0-\/\texorpdfstring{$>$}{>}1:\+ After 2 total presses of minute button
+\item State 1-\/\texorpdfstring{$>$}{>}2:\+ After 1 press of hour button (decrease)
+\item State 2-\/\texorpdfstring{$>$}{>}3:\+ After 2 more presses of minute button (increase)
+\item State 3-\/\texorpdfstring{$>$}{>}4:\+ After 1 press of hour button (increase) -\/\texorpdfstring{$>$}{>} test mode toggles Press minute button 2 times to reach state 1 
+\end{DoxyItemize}\Hypertarget{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}}
 \index{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_2\_COUNT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a27cc0d7ece37bb64ea7c541981677807} 
 \+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+2\+\_\+\+COUNT~1}
+
+
+
+Press hour button 1 time to reach state 2. 
 
 \Hypertarget{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}}
 \index{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_3\_COUNT}!individual\_config.h@{individual\_config.h}}
@@ -1866,11 +2454,19 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_ab95db9b37e9121be348e6ea15f86c5a9} 
 \+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+3\+\_\+\+COUNT~2}
 
+
+
+Press minute button 2 times to reach state 3. 
+
 \Hypertarget{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}}
 \index{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT@{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}{TESTMODE\_ACTIVATE\_BUTTON\_4\_COUNT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a7df5799ea0565ee0f7371b27d5c723b9} 
 \+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+BUTTON\+\_\+4\+\_\+\+COUNT~1}
+
+
+
+Press hour button 1 time to toggle test mode. 
 
 \Hypertarget{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVATE\_TIMEOUT\_MS@{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}}
 \index{TESTMODE\_ACTIVATE\_TIMEOUT\_MS@{TESTMODE\_ACTIVATE\_TIMEOUT\_MS}!individual\_config.h@{individual\_config.h}}
@@ -1878,11 +2474,25 @@ SPI\+\_\+\+MODE:\+ clock polarity/\+phase mode (mode 3 for GC9\+A01 displays). T
 {\footnotesize\ttfamily \label{individual__config_8h_afb49e31aecc553b20cf07b22e55a9bd7} 
 \+\#define TESTMODE\+\_\+\+ACTIVATE\+\_\+\+TIMEOUT\+\_\+\+MS~10000}
 
+
+
+Test mode button activation sequence parameters. 
+
+Test mode is activated via a specific sequence of button presses within a timeout window. This prevents accidental activation while maintaining flexibility for deliberate use. Time window for completing button sequence (10 seconds) \Hypertarget{individual__config_8h_a2bc6ed307b70b8b4bdd0729b8a053d0e}\index{individual\_config.h@{individual\_config.h}!TESTMODE\_ACTIVE@{TESTMODE\_ACTIVE}}
+\index{TESTMODE\_ACTIVE@{TESTMODE\_ACTIVE}!individual\_config.h@{individual\_config.h}}
+\doxysubsubsection{\texorpdfstring{TESTMODE\_ACTIVE}{TESTMODE\_ACTIVE}}
+{\footnotesize\ttfamily \label{individual__config_8h_a2bc6ed307b70b8b4bdd0729b8a053d0e} 
+\+\#define TESTMODE\+\_\+\+ACTIVE~true}
+
 \Hypertarget{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b}\index{individual\_config.h@{individual\_config.h}!TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}}
 \index{TRANS\_QUEUE\_DEPTH@{TRANS\_QUEUE\_DEPTH}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{TRANS\_QUEUE\_DEPTH}{TRANS\_QUEUE\_DEPTH}}
 {\footnotesize\ttfamily \label{individual__config_8h_a63c662ad3b301f2d936ca736a1cb091b} 
 \+\#define TRANS\+\_\+\+QUEUE\+\_\+\+DEPTH~1}
+
+
+
+Number of simultaneous SPI transactions in queue. 
 
 \Hypertarget{individual__config_8h_a90ba4699a88b95a3609bc117dd06c445}\index{individual\_config.h@{individual\_config.h}!USE\_BUZZER@{USE\_BUZZER}}
 \index{USE\_BUZZER@{USE\_BUZZER}!individual\_config.h@{individual\_config.h}}
@@ -1900,11 +2510,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a7bb8dd7de2daf1cdafcee3fe8cefb531} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+BRIGHT~\doxymbox{\hyperlink{individual__config_8h_a5755272baaeeb1a610b6f88e7afeb2d3}{BRIGHTNESS\+\_\+\+DAY}}}
 
+
+
+Default brightness (day mode). 
+
 \Hypertarget{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_NIGHT\_MODE@{VALUE\_DEFAULT\_NIGHT\_MODE}}
 \index{VALUE\_DEFAULT\_NIGHT\_MODE@{VALUE\_DEFAULT\_NIGHT\_MODE}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_NIGHT\_MODE}{VALUE\_DEFAULT\_NIGHT\_MODE}}
 {\footnotesize\ttfamily \label{individual__config_8h_a14638646c96162fc5ef0bcdcdff09713} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+NIGHT\+\_\+\+MODE~false}
+
+
+
+Night mode off by default. 
 
 \Hypertarget{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_OUT\_TEMP@{VALUE\_DEFAULT\_OUT\_TEMP}}
 \index{VALUE\_DEFAULT\_OUT\_TEMP@{VALUE\_DEFAULT\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
@@ -1912,17 +2530,29 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a5e4d45725c6067172c1a6f0700b75680} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+OUT\+\_\+\+TEMP~0}
 
+
+
+Default outdoor temperature on startup (°C). 
+
 \Hypertarget{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}}
 \index{VALUE\_DEFAULT\_PRES@{VALUE\_DEFAULT\_PRES}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_PRES}{VALUE\_DEFAULT\_PRES}}
 {\footnotesize\ttfamily \label{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+PRES~0.\+0}
 
-\Hypertarget{individual__config_8h_a51292f041e82c58f1768774ded54d178}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_TEMP@{VALUE\_DEFAULT\_TEMP}}
+
+
+Default and range limit values for sensor readings. 
+
+These values define the operating range and default initialization for all sensor measurements in the system. Default oil pressure on startup (bar) \Hypertarget{individual__config_8h_a51292f041e82c58f1768774ded54d178}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_TEMP@{VALUE\_DEFAULT\_TEMP}}
 \index{VALUE\_DEFAULT\_TEMP@{VALUE\_DEFAULT\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_DEFAULT\_TEMP}{VALUE\_DEFAULT\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a51292f041e82c58f1768774ded54d178} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP~0}
+
+
+
+Default oil temperature on startup (°C). 
 
 \Hypertarget{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}\index{individual\_config.h@{individual\_config.h}!VALUE\_DEFAULT\_VOLT@{VALUE\_DEFAULT\_VOLT}}
 \index{VALUE\_DEFAULT\_VOLT@{VALUE\_DEFAULT\_VOLT}!individual\_config.h@{individual\_config.h}}
@@ -1930,11 +2560,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c} 
 \+\#define VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT~8.\+0}
 
+
+
+Default battery voltage on startup (volts). 
+
 \Hypertarget{individual__config_8h_ab83d8677103a7081d5a8496188025b0b}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_OUT\_TEMP@{VALUE\_MAX\_OUT\_TEMP}}
 \index{VALUE\_MAX\_OUT\_TEMP@{VALUE\_MAX\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_MAX\_OUT\_TEMP}{VALUE\_MAX\_OUT\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_ab83d8677103a7081d5a8496188025b0b} 
 \+\#define VALUE\+\_\+\+MAX\+\_\+\+OUT\+\_\+\+TEMP~70}
+
+
+
+Maximum valid outdoor temperature (70°C). 
 
 \Hypertarget{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_PRES@{VALUE\_MAX\_PRES}}
 \index{VALUE\_MAX\_PRES@{VALUE\_MAX\_PRES}!individual\_config.h@{individual\_config.h}}
@@ -1942,11 +2580,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a0b6330ab63e0a8f7ee9dcd19d42faedc} 
 \+\#define VALUE\+\_\+\+MAX\+\_\+\+PRES~6.\+0}
 
-\Hypertarget{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_TEMP@{VALUE\_MAX\_TEMP}}
+
+
+Maximum valid sensor values (above indicates error or over-\/range). 
+
+Maximum valid pressure (6 bar) \Hypertarget{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_TEMP@{VALUE\_MAX\_TEMP}}
 \index{VALUE\_MAX\_TEMP@{VALUE\_MAX\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_MAX\_TEMP}{VALUE\_MAX\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_ac1ba699ae485cacc498a67a54b952f4d} 
 \+\#define VALUE\+\_\+\+MAX\+\_\+\+TEMP~150}
+
+
+
+Maximum valid temperature (150°C). 
 
 \Hypertarget{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b}\index{individual\_config.h@{individual\_config.h}!VALUE\_MAX\_VOLT@{VALUE\_MAX\_VOLT}}
 \index{VALUE\_MAX\_VOLT@{VALUE\_MAX\_VOLT}!individual\_config.h@{individual\_config.h}}
@@ -1954,11 +2600,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a962b50e1e4c01928d2326ebe463ceb5b} 
 \+\#define VALUE\+\_\+\+MAX\+\_\+\+VOLT~16.\+0}
 
+
+
+Maximum valid voltage (16V -\/ charging system max). 
+
 \Hypertarget{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_OUT\_TEMP@{VALUE\_MIN\_OUT\_TEMP}}
 \index{VALUE\_MIN\_OUT\_TEMP@{VALUE\_MIN\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_MIN\_OUT\_TEMP}{VALUE\_MIN\_OUT\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a230b35e74f5f229ad706ad5c127bf342} 
 \+\#define VALUE\+\_\+\+MIN\+\_\+\+OUT\+\_\+\+TEMP~-\/30}
+
+
+
+Minimum valid outdoor temperature (-\/30°C). 
 
 \Hypertarget{individual__config_8h_a371c597eddcd4c669475093d169c082a}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}}
 \index{VALUE\_MIN\_PRES@{VALUE\_MIN\_PRES}!individual\_config.h@{individual\_config.h}}
@@ -1966,11 +2620,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a371c597eddcd4c669475093d169c082a} 
 \+\#define VALUE\+\_\+\+MIN\+\_\+\+PRES~\doxymbox{\hyperlink{individual__config_8h_a39a22552383ce496715a4fe01d75f5d4}{VALUE\+\_\+\+DEFAULT\+\_\+\+PRES}}}
 
-\Hypertarget{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_TEMP@{VALUE\_MIN\_TEMP}}
+
+
+Minimum valid sensor values (below indicates error or disconnection). 
+
+Minimum valid pressure (0 bar) \Hypertarget{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_TEMP@{VALUE\_MIN\_TEMP}}
 \index{VALUE\_MIN\_TEMP@{VALUE\_MIN\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_MIN\_TEMP}{VALUE\_MIN\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_a524c7577eb39a5a60010cb5af17a34c8} 
 \+\#define VALUE\+\_\+\+MIN\+\_\+\+TEMP~\doxymbox{\hyperlink{individual__config_8h_a51292f041e82c58f1768774ded54d178}{VALUE\+\_\+\+DEFAULT\+\_\+\+TEMP}}}
+
+
+
+Minimum valid temperature (0°C). 
 
 \Hypertarget{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c}\index{individual\_config.h@{individual\_config.h}!VALUE\_MIN\_VOLT@{VALUE\_MIN\_VOLT}}
 \index{VALUE\_MIN\_VOLT@{VALUE\_MIN\_VOLT}!individual\_config.h@{individual\_config.h}}
@@ -1978,11 +2640,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_adb5acc4553fc99bba16ddf670569e93c} 
 \+\#define VALUE\+\_\+\+MIN\+\_\+\+VOLT~\doxymbox{\hyperlink{individual__config_8h_a4ed78a05f48a46cc6d56abe257b6169c}{VALUE\+\_\+\+DEFAULT\+\_\+\+VOLT}}}
 
+
+
+Minimum valid voltage (8V -\/ automotive minimum). 
+
 \Hypertarget{individual__config_8h_a9bf78b4133604c1271bfb43ac4f4ee2d}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_BRIGHT@{VALUE\_OVERSAMPLING\_BRIGHT}}
 \index{VALUE\_OVERSAMPLING\_BRIGHT@{VALUE\_OVERSAMPLING\_BRIGHT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_OVERSAMPLING\_BRIGHT}{VALUE\_OVERSAMPLING\_BRIGHT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a9bf78b4133604c1271bfb43ac4f4ee2d} 
 \+\#define VALUE\+\_\+\+OVERSAMPLING\+\_\+\+BRIGHT~10}
+
+
+
+Average 10 brightness readings. 
 
 \Hypertarget{individual__config_8h_a91a055e359a2f748c8ed6c82f9de4342}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_OIL\_PRES@{VALUE\_OVERSAMPLING\_OIL\_PRES}}
 \index{VALUE\_OVERSAMPLING\_OIL\_PRES@{VALUE\_OVERSAMPLING\_OIL\_PRES}!individual\_config.h@{individual\_config.h}}
@@ -1990,11 +2660,19 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a91a055e359a2f748c8ed6c82f9de4342} 
 \+\#define VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OIL\+\_\+\+PRES~2}
 
-\Hypertarget{individual__config_8h_aa604e599ee1ccecf3ff34c1ca823f79f}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_OIL\_TEMP@{VALUE\_OVERSAMPLING\_OIL\_TEMP}}
+
+
+Sensor value oversampling counts and exponential filter coefficients. 
+
+Oversampling:\+ number of readings to average per update cycle. Filter (alpha):\+ exponential moving average coefficient (0-\/1, lower = more smoothing). New\+\_\+value = alpha \texorpdfstring{$\ast$}{*} current + (1-\/alpha) \texorpdfstring{$\ast$}{*} previous Average 2 pressure readings \Hypertarget{individual__config_8h_aa604e599ee1ccecf3ff34c1ca823f79f}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_OIL\_TEMP@{VALUE\_OVERSAMPLING\_OIL\_TEMP}}
 \index{VALUE\_OVERSAMPLING\_OIL\_TEMP@{VALUE\_OVERSAMPLING\_OIL\_TEMP}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_OVERSAMPLING\_OIL\_TEMP}{VALUE\_OVERSAMPLING\_OIL\_TEMP}}
 {\footnotesize\ttfamily \label{individual__config_8h_aa604e599ee1ccecf3ff34c1ca823f79f} 
 \+\#define VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OIL\+\_\+\+TEMP~5}
+
+
+
+Average 5 temperature readings. 
 
 \Hypertarget{individual__config_8h_a6f65cd3aaeb74764610aa254f44be66f}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_OUT\_TEMP@{VALUE\_OVERSAMPLING\_OUT\_TEMP}}
 \index{VALUE\_OVERSAMPLING\_OUT\_TEMP@{VALUE\_OVERSAMPLING\_OUT\_TEMP}!individual\_config.h@{individual\_config.h}}
@@ -2002,9 +2680,17 @@ Feature flags -\/ enable/\+disable optional modules.
 {\footnotesize\ttfamily \label{individual__config_8h_a6f65cd3aaeb74764610aa254f44be66f} 
 \+\#define VALUE\+\_\+\+OVERSAMPLING\+\_\+\+OUT\+\_\+\+TEMP~5}
 
+
+
+Average 5 outdoor temperature readings. 
+
 \Hypertarget{individual__config_8h_a3de208e79149e57e550f44426a24534a}\index{individual\_config.h@{individual\_config.h}!VALUE\_OVERSAMPLING\_VOLT@{VALUE\_OVERSAMPLING\_VOLT}}
 \index{VALUE\_OVERSAMPLING\_VOLT@{VALUE\_OVERSAMPLING\_VOLT}!individual\_config.h@{individual\_config.h}}
 \doxysubsubsection{\texorpdfstring{VALUE\_OVERSAMPLING\_VOLT}{VALUE\_OVERSAMPLING\_VOLT}}
 {\footnotesize\ttfamily \label{individual__config_8h_a3de208e79149e57e550f44426a24534a} 
 \+\#define VALUE\+\_\+\+OVERSAMPLING\+\_\+\+VOLT~4}
+
+
+
+Average 4 voltage readings. 
 

@@ -15,12 +15,11 @@ var searchData=
   ['cfg_5ftime_12',['cfg_time',['../i2c_functions_8c.html#ad58bf4c44b9439565e32297d332f0b49',1,'cfg_time:&#160;i2cFunctions.c'],['../i2c_functions_8h.html#ad58bf4c44b9439565e32297d332f0b49',1,'cfg_time:&#160;i2cFunctions.c']]],
   ['chan_5fconfig_13',['chan_config',['../structadc__handles__t.html#adb209b21039d7dcb83163c31d679d20f',1,'adc_handles_t::chan_config'],['../pwm_sensor_8c.html#ae90bc56e5dac79721704756ffd8d3e68',1,'chan_config:&#160;pwmSensor.c'],['../pwm_sensor_8h.html#ae90bc56e5dac79721704756ffd8d3e68',1,'chan_config:&#160;pwmSensor.c']]],
   ['channel_14',['channel',['../structadc__handles__t.html#a5aa42351d8169729b1c95b1a0e97374e',1,'adc_handles_t']]],
-  ['checktime_15',['checkTime',['../main_8c.html#a556487bb4a127c111ded5f79f9de97fe',1,'main.c']]],
-  ['chip_5fused_16',['CHIP_USED',['../individual__config_8h.html#abc5772bb8f4980f3c762ed695dde4c21',1,'individual_config.h']]],
-  ['classic_20vehicle_20board_20computer_20e36_17',['ESP32-P4 Classic Vehicle Board Computer (E36)',['../index.html#autotoc_md0',1,'']]],
-  ['clocktemp_5ftest_5fswitch_18',['Clocktemp_test_switch',['../test_simulation_8c.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c']]],
-  ['computer_20e36_19',['ESP32-P4 Classic Vehicle Board Computer (E36)',['../index.html#autotoc_md0',1,'']]],
-  ['configuration_20',['Configuration',['../index.html#autotoc_md22',1,'']]],
-  ['contact_21',['Contact',['../index.html#autotoc_md29',1,'']]],
-  ['contributing_22',['Contributing',['../index.html#autotoc_md27',1,'']]]
+  ['chip_5fused_15',['CHIP_USED',['../individual__config_8h.html#abc5772bb8f4980f3c762ed695dde4c21',1,'individual_config.h']]],
+  ['classic_20vehicle_20board_20computer_20e36_16',['ESP32-P4 Classic Vehicle Board Computer (E36)',['../index.html#autotoc_md0',1,'']]],
+  ['clocktemp_5ftest_5fswitch_17',['Clocktemp_test_switch',['../test_simulation_8c.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c'],['../test_simulation_8h.html#a781e0aae99d7dfe899c7ab1b2cb9e590',1,'Clocktemp_test_switch:&#160;testSimulation.c']]],
+  ['computer_20e36_18',['ESP32-P4 Classic Vehicle Board Computer (E36)',['../index.html#autotoc_md0',1,'']]],
+  ['configuration_19',['Configuration',['../index.html#autotoc_md22',1,'']]],
+  ['contact_20',['Contact',['../index.html#autotoc_md29',1,'']]],
+  ['contributing_21',['Contributing',['../index.html#autotoc_md27',1,'']]]
 ];
