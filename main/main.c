@@ -211,13 +211,13 @@ static void update_values(int displayID)
  */
 static void tick_switch(int displayID, bool force_night_mode_update)
 {
-    lv_disp_set_default(DISPLAYS[displayID].lv_displays);
-    switch (DISPLAYS[displayID].screen_selection)
+    if((get_now_time_ms() - get_last_executed_time_per_screen(displayID) > DISPLAYS[displayID].delay_time_screen_ms && updateLVGLScreen(DISPLAYS[displayID].screen_selection)) || force_night_mode_update)
     {
-        case SCREEN_ID_GAUGE_OIL_PRESSURE:
-        
-            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
-            {
+        lv_disp_set_default(DISPLAYS[displayID].lv_displays);
+        switch (DISPLAYS[displayID].screen_selection)
+        {
+            case SCREEN_ID_GAUGE_OIL_PRESSURE:
+            
                 if(!night_mode)
                 {
                     if (lv_scr_act() != objects.gauge_oil_pressure) 
@@ -234,11 +234,10 @@ static void tick_switch(int displayID, bool force_night_mode_update)
                     }
                     tick_screen_gauge_oil_pressure_night();
                 }
-            }
-        break;
-        case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
-            {
+                
+            break;
+            case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
+        
                 if(!night_mode)
                 {
                     if (lv_scr_act() != objects.gauge_oil_temperature) 
@@ -255,11 +254,10 @@ static void tick_switch(int displayID, bool force_night_mode_update)
                     }
                     tick_screen_gauge_oil_temperature_night();
                 }
-            }
-        break;
-        case SCREEN_ID_GAUGE_VOLTAGE:
-            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
-            {
+                
+            break;
+            case SCREEN_ID_GAUGE_VOLTAGE:
+
                 if(!night_mode)
                 {
                     if (lv_scr_act() != objects.gauge_voltage) 
@@ -276,11 +274,10 @@ static void tick_switch(int displayID, bool force_night_mode_update)
                     }
                     tick_screen_gauge_voltage_night();
                 }
-            }
-        break;
-        case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
-            {
+            
+            break;
+            case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
+            
                 if(!night_mode)
                 {
                     if (lv_scr_act() != objects.gauge_temperature_clock) 
@@ -297,11 +294,9 @@ static void tick_switch(int displayID, bool force_night_mode_update)
                     }
                     tick_screen_gauge_temperature_clock_night();
                 }
-            }
-        break;
-        case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-            if (force_night_mode_update || is_testmode_activated() || updateLVGLScreen(DISPLAYS[displayID].screen_selection) )
-            {
+                
+            break;
+            case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
                 if(!night_mode)
                 {
                     if (lv_scr_act() != objects.gauge_clock_temperature) 
@@ -318,14 +313,13 @@ static void tick_switch(int displayID, bool force_night_mode_update)
                     }
                     tick_screen_gauge_clock_temperature_night();
                 }
-            }
-        break;
-    }
                 
-    lv_timer_handler();
-    if(get_now_time_ms() - get_last_executed_time_per_screen(displayID) > DISPLAYS[displayID].delay_time_screen_ms)
-    {
+            break;
+        }
+                
+        lv_timer_handler();
         update_last_executed_time_per_screen(displayID);
+        set_new_value_should_get_measured(displayID, false);
     }
 }
 
@@ -393,19 +387,26 @@ static void lv_tick_task_screen(void *pv)
 
         // Phase 1: Update all sensor values and LVGL variables for all displays
         for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
+
             if(get_now_time_ms() - get_last_executed_time_per_screen(i) > DISPLAYS[i].delay_time_screen_ms)
+            {
+                set_new_value_should_get_measured(i, true);
+            }
+            if (get_new_value_should_get_measured(i))
             {
                 update_values(i);
             }
+
         }
         // Phase 2: Update and render screen displays with current values
         bool force_night_mode_update = getNightModechanged() ? true : false; // Force screen update if night mode state changed
-        for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){
+        for (int i = 0; i < NUMBER_OF_DISPLAYS; i++){ 
             tick_switch(i, force_night_mode_update);
         }
 
         #if USE_BUZZER == true
-            if (get_now_time_ms() - *get_startup_time_sec() * 1000LL >= BUZZER_ON_DELAY_MS && get_adc_outside_temp() != ADC_FAIL_VALUE)
+            bool buzzer_check = is_testmode_activated() ? get_adc_outside_temp() != ADC_FAIL_VALUE : true; // In test mode, only check buzzer condition if outside temp reading is valid
+            if (get_now_time_ms() - *get_startup_time_sec() * 1000LL >= BUZZER_ON_DELAY_MS && buzzer_check)
             {
                 if (buzzed == false && value_outside_temperature < BUZZER_TEMP_MIN && value_outside_temperature > VALUE_MIN_OUT_TEMP && getOutputTemperatureSet())
                 {

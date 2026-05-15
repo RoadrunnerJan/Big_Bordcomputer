@@ -17,7 +17,7 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         true  // true: enable buzzer alert functionality
+#define USE_BUZZER                         true   // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 #define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
@@ -581,7 +581,7 @@
 #define VALUE_MAX_PRES                     6.0       ///< Maximum valid pressure (6 bar)
 #define VALUE_MAX_TEMP                     150       ///< Maximum valid temperature (150°C)
 #define VALUE_MAX_VOLT                     16.0      ///< Maximum valid voltage (16V - charging system max)
-#define VALUE_MAX_OUT_TEMP                 70        ///< Maximum valid outdoor temperature (70°C)
+#define VALUE_MAX_OUT_TEMP                 50        ///< Maximum valid outdoor temperature (50°C)
 
 /*
 #################################################################################
@@ -619,12 +619,12 @@
  * Defines how often sensor values are read and processed for each display/subsystem.
  */
 #define MAIN_TICK_TIME_DELAY_MS            10                              ///< Main loop tick interval (milliseconds)
-#define MEASURE_DELAY_TIME_1_MS            (MAIN_TICK_TIME_DELAY_MS * 50)  ///< Display 1 update interval (500ms)
+#define MEASURE_DELAY_TIME_1_MS            (MAIN_TICK_TIME_DELAY_MS * 25)  ///< Display 1 update interval (250ms)
 #define MEASURE_DELAY_TIME_2_MS            (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Display 2 update interval (200ms)
 #define MEASURE_DELAY_TIME_3_MS            (MAIN_TICK_TIME_DELAY_MS *  2)  ///< Display 3 update interval (20ms)
 #define MEASURE_DELAY_TIME_4_MS            (MAIN_TICK_TIME_DELAY_MS *  5)  ///< Display 4 update interval (50ms)
 #define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 10)  ///< Brightness update interval (100ms)
-#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 25)  ///< Test mode brightness interval (250ms)
+#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 100) ///< Test mode brightness interval (1000ms)
 
 /*
 #################################################################################
@@ -637,7 +637,7 @@
  * Test mode is activated via a specific sequence of button presses within a timeout window.
  * This prevents accidental activation while maintaining flexibility for deliberate use.
  */
-#define TESTMODE_ACTIVATE_TIMEOUT_MS      10000     ///< Time window for completing button sequence (10 seconds)
+#define TESTMODE_ACTIVATE_TIMEOUT_MS      15000     ///< Time window for completing button sequence (15 seconds)
 /**
  * @brief Button press counts required for each state transition in test mode activation.
  *

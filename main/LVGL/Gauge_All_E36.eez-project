@@ -4810,7 +4810,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 141,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 244,
+              "bgEndAngle": 230,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"
@@ -4935,7 +4935,7 @@
                 {
                   "indicators": [],
                   "objID": "5e6cdb27-3e6d-44b8-e618-dc4a98ae7fba",
-                  "minorTickCount": 31,
+                  "minorTickCount": 36,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
@@ -4945,7 +4945,7 @@
                   "majorTickColor": "#ffffff",
                   "labelGap": 17,
                   "scaleMin": -20,
-                  "scaleMax": 40,
+                  "scaleMax": 50,
                   "scaleAngleRange": 260,
                   "scaleRotation": 140
                 }
@@ -5143,7 +5143,7 @@
                     }
                   ],
                   "objID": "3c7fd9db-05e7-424a-f0b5-6a949e650d47",
-                  "minorTickCount": 31,
+                  "minorTickCount": 36,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ffffff",
@@ -5153,7 +5153,7 @@
                   "majorTickColor": "#ffffff",
                   "labelGap": 17,
                   "scaleMin": -20000,
-                  "scaleMax": 40000,
+                  "scaleMax": 50000,
                   "scaleAngleRange": 260,
                   "scaleRotation": 140
                 }
@@ -5457,7 +5457,7 @@
               "mode": "NORMAL",
               "bgStartAngle": 141,
               "bgStartAngleType": "literal",
-              "bgEndAngle": 244,
+              "bgEndAngle": 230,
               "bgEndAngleType": "literal",
               "rotation": 0,
               "rotationType": "literal"
@@ -5582,7 +5582,7 @@
                 {
                   "indicators": [],
                   "objID": "02258c04-e2be-4660-8386-fd47d8b7bcbb",
-                  "minorTickCount": 31,
+                  "minorTickCount": 36,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff3c00",
@@ -5592,7 +5592,7 @@
                   "majorTickColor": "#ff3c00",
                   "labelGap": 17,
                   "scaleMin": -20,
-                  "scaleMax": 40,
+                  "scaleMax": 50,
                   "scaleAngleRange": 260,
                   "scaleRotation": 140
                 }
@@ -5790,7 +5790,7 @@
                     }
                   ],
                   "objID": "c7934fc6-1434-4b91-b125-90dcfe6fceea",
-                  "minorTickCount": 31,
+                  "minorTickCount": 36,
                   "minorTickLineWidth": 2,
                   "minorTickLength": 10,
                   "minorTickColor": "#ff3c00",
@@ -5800,7 +5800,7 @@
                   "majorTickColor": "#ff3c00",
                   "labelGap": 17,
                   "scaleMin": -20000,
-                  "scaleMax": 40000,
+                  "scaleMax": 50000,
                   "scaleAngleRange": 260,
                   "scaleRotation": 140
                 }

@@ -61,6 +61,8 @@ extern bool new_value_available_volt;
 extern bool new_value_available_out_temp;
 extern bool new_value_available_bright;
 
+extern bool measure_new_value[NUMBER_OF_DISPLAYS]; // Flags to indicate if new value should get measured
+
 /* ===== Display Output ===== */
 extern char output_string_outside_temperature[20]; // Formatted value string for LVGL display
 extern char output_string_oil_pressure[20];        // Formatted value string for LVGL display
@@ -152,3 +154,7 @@ bool getOutputTemperatureSet();
  * @return true if value got calculated
  */
 bool updateLVGLScreen(int screenSelection);
+
+bool get_new_value_should_get_measured(int screenSelection);
+
+bool set_new_value_should_get_measured(int screenSelection, bool measured);

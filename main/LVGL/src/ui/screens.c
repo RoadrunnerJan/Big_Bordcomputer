@@ -1531,7 +1531,7 @@ void create_screen_gauge_temperature_clock() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 141);
-            lv_arc_set_bg_end_angle(obj, 244);
+            lv_arc_set_bg_end_angle(obj, 230);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1569,9 +1569,9 @@ void create_screen_gauge_temperature_clock() {
             {
                 lv_meter_scale_t *scale = lv_meter_add_scale(obj);
                 state->scale = scale;
-                lv_meter_set_scale_ticks(obj, scale, 31, 2, 10, lv_color_hex(0xffffff));
+                lv_meter_set_scale_ticks(obj, scale, 36, 2, 10, lv_color_hex(0xffffff));
                 lv_meter_set_scale_major_ticks(obj, scale, 5, 5, 18, lv_color_hex(0xffffff), 17);
-                lv_meter_set_scale_range(obj, scale, -20, 40, 260, 140);
+                lv_meter_set_scale_range(obj, scale, -20, 50, 260, 140);
             }
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
@@ -1624,9 +1624,9 @@ void create_screen_gauge_temperature_clock() {
             {
                 lv_meter_scale_t *scale = lv_meter_add_scale(obj);
                 state->scale1 = scale;
-                lv_meter_set_scale_ticks(obj, scale, 31, 2, 10, lv_color_hex(0xffffff));
+                lv_meter_set_scale_ticks(obj, scale, 36, 2, 10, lv_color_hex(0xffffff));
                 lv_meter_set_scale_major_ticks(obj, scale, 5, 5, 18, lv_color_hex(0xffffff), 17);
-                lv_meter_set_scale_range(obj, scale, -20000, 40000, 260, 140);
+                lv_meter_set_scale_range(obj, scale, -20000, 50000, 260, 140);
                 {
                     lv_meter_indicator_t *indicator = lv_meter_add_needle_line(obj, scale, 5, lv_color_hex(0xffffff), -15);
                     state->indicator = indicator;
@@ -1746,7 +1746,7 @@ void create_screen_gauge_temperature_clock_night() {
             lv_obj_set_size(obj, 240, 240);
             lv_arc_set_value(obj, 25);
             lv_arc_set_bg_start_angle(obj, 141);
-            lv_arc_set_bg_end_angle(obj, 244);
+            lv_arc_set_bg_end_angle(obj, 230);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_rounded(obj, false, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_arc_opa(obj, 0, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1784,9 +1784,9 @@ void create_screen_gauge_temperature_clock_night() {
             {
                 lv_meter_scale_t *scale = lv_meter_add_scale(obj);
                 state->scale = scale;
-                lv_meter_set_scale_ticks(obj, scale, 31, 2, 10, lv_color_hex(0xff3c00));
+                lv_meter_set_scale_ticks(obj, scale, 36, 2, 10, lv_color_hex(0xff3c00));
                 lv_meter_set_scale_major_ticks(obj, scale, 5, 5, 18, lv_color_hex(0xff3c00), 17);
-                lv_meter_set_scale_range(obj, scale, -20, 40, 260, 140);
+                lv_meter_set_scale_range(obj, scale, -20, 50, 260, 140);
             }
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
@@ -1839,9 +1839,9 @@ void create_screen_gauge_temperature_clock_night() {
             {
                 lv_meter_scale_t *scale = lv_meter_add_scale(obj);
                 state->scale1 = scale;
-                lv_meter_set_scale_ticks(obj, scale, 31, 2, 10, lv_color_hex(0xff3c00));
+                lv_meter_set_scale_ticks(obj, scale, 36, 2, 10, lv_color_hex(0xff3c00));
                 lv_meter_set_scale_major_ticks(obj, scale, 5, 5, 18, lv_color_hex(0xff3c00), 17);
-                lv_meter_set_scale_range(obj, scale, -20000, 40000, 260, 140);
+                lv_meter_set_scale_range(obj, scale, -20000, 50000, 260, 140);
                 {
                     lv_meter_indicator_t *indicator = lv_meter_add_needle_line(obj, scale, 5, lv_color_hex(0xff3c00), -15);
                     state->indicator = indicator;
