@@ -40,9 +40,9 @@ int brightness_test_switch  = 0;
  */
 double test_steps[5][4] = {
     /* oil pressure      */ {+0.10, -0.02, +0.35, -0.25},
-    /* volt              */ {+0.04, -0.01, +0.01, -0.02},
-    /* oil temperature   */ {+0.20, -0.20, +0.20, -0.20},
-    /* clock temperature */ {+0.20, -0.20, +0.20, -0.20},
+    /* volt              */ {+0.02, -0.005, +0.005, -0.03},
+    /* oil temperature   */ {+0.25, -0.25, +0.25, -0.25},
+    /* clock temperature */ {+1.00, -1.50, +1.20, -1.00},
     /* brightness        */ {-1.00, +1.00, -1.00, +1.00}
 };
 
