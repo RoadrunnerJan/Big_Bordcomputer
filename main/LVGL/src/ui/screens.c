@@ -180,8 +180,8 @@ void create_screen_gauge_oil_pressure() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -367,8 +367,8 @@ void create_screen_gauge_oil_pressure_night() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -550,8 +550,8 @@ void create_screen_gauge_oil_temperature() {
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_ITEMS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -731,8 +731,8 @@ void create_screen_gauge_oil_temperature_night() {
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_ITEMS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -911,8 +911,8 @@ void create_screen_gauge_voltage() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1092,8 +1092,8 @@ void create_screen_gauge_voltage_night() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1267,8 +1267,8 @@ void create_screen_gauge_temperature_clock() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1442,8 +1442,8 @@ void create_screen_gauge_temperature_clock_night() {
             lv_obj_set_style_text_font(obj, &ui_font_oswald_22, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1602,7 +1602,7 @@ void create_screen_gauge_clock_temperature() {
                     state->indicator = indicator;
                 }
                 {
-                    lv_meter_indicator_t *indicator = lv_meter_add_arc(obj, scale, 50, lv_color_hex(0x000000), 0);
+                    lv_meter_indicator_t *indicator = lv_meter_add_arc(obj, scale, 51, lv_color_hex(0x000000), 1);
                     state->indicator1 = indicator;
                     lv_meter_set_indicator_start_value(obj, indicator, 259);
                     lv_meter_set_indicator_end_value(obj, indicator, 342);
@@ -1637,8 +1637,8 @@ void create_screen_gauge_clock_temperature() {
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_line_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);
@@ -1825,7 +1825,7 @@ void create_screen_gauge_clock_temperature_night() {
                     state->indicator = indicator;
                 }
                 {
-                    lv_meter_indicator_t *indicator = lv_meter_add_arc(obj, scale, 50, lv_color_hex(0x1e0700), 0);
+                    lv_meter_indicator_t *indicator = lv_meter_add_arc(obj, scale, 51, lv_color_hex(0x1e0700), 1);
                     state->indicator1 = indicator;
                     lv_meter_set_indicator_start_value(obj, indicator, 259);
                     lv_meter_set_indicator_end_value(obj, indicator, 342);
@@ -1860,8 +1860,8 @@ void create_screen_gauge_clock_temperature_night() {
             lv_obj_set_style_text_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_line_opa(obj, 0, LV_PART_TICKS | LV_STATE_DEFAULT);
             lv_obj_set_style_anim_time(obj, 600, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_width(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-            lv_obj_set_style_height(obj, 32, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_width(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_height(obj, 34, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_INDICATOR | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_INDICATOR | LV_STATE_DEFAULT);

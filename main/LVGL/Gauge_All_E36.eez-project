@@ -601,8 +601,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_color": "#151515",
                       "bg_grad_dir": "HOR",
@@ -1092,8 +1092,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_color": "#151515",
                       "bg_grad_dir": "HOR",
@@ -1582,8 +1582,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -2067,8 +2067,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -2544,8 +2544,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -3026,8 +3026,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_color": "#151515",
                       "bg_grad_dir": "HOR",
@@ -3508,8 +3508,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_color": "#151515",
                       "bg_grad_dir": "HOR",
@@ -3979,8 +3979,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -4477,8 +4477,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -4511,9 +4511,9 @@
                     {
                       "objID": "9bbfa510-8dfe-40bb-f045-cb2597eb7f69",
                       "type": "ARC",
-                      "width": 50,
+                      "width": 51,
                       "color": "#000000",
-                      "radiusModifier": 0,
+                      "radiusModifier": 1,
                       "startValue": 259,
                       "startValueType": "literal",
                       "endValue": 342,
@@ -5059,8 +5059,8 @@
                   "INDICATOR": {
                     "DEFAULT": {
                       "anim_time": 600,
-                      "width": 32,
-                      "height": 32,
+                      "width": 34,
+                      "height": 34,
                       "bg_color": "#222121",
                       "bg_grad_dir": "HOR",
                       "bg_grad_color": "#151515",
@@ -5093,9 +5093,9 @@
                     {
                       "objID": "fb4413dc-cd42-4f94-8bc1-65899b34944e",
                       "type": "ARC",
-                      "width": 50,
+                      "width": 51,
                       "color": "#1E0700",
-                      "radiusModifier": 0,
+                      "radiusModifier": 1,
                       "startValue": 259,
                       "startValueType": "literal",
                       "endValue": 342,
