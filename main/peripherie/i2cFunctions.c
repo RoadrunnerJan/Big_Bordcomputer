@@ -30,7 +30,7 @@ button_handle_t btn_time[2] = {0};
 bool testmode_activated = false;
 TickType_t testmode_activation_time = 0;
 int testmode_activation_count = 0;
-int testmode_activation_state = 0;
+int testmode_activation_state = -1;
 
 int64_t StartUpTime_sec = 0;
 int64_t last_executed_time[NUMBER_OF_DISPLAYS + 1] = {0}; // Display 1-4 last executed time for value updates

@@ -1,6 +1,7 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/6",
+    "selectedUserPageObject": "[Gauge_All_E36.eez-project]:/userPages/9",
+    "selectedBitmapObject": "[Gauge_All_E36.eez-project]:/bitmaps/6",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -23,7 +24,6 @@
           },
           {
             "type": "border",
-            "selected": 0,
             "size": 240,
             "location": "right",
             "children": [
@@ -119,7 +119,7 @@
             {
               "type": "row",
               "id": "#72ebb9ab-f8b8-4b5f-b092-1c71ecb72a7a",
-              "weight": 25.14232943166812,
+              "weight": 22.878099143606335,
               "children": [
                 {
                   "type": "tabset",
@@ -190,17 +190,17 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 45.24007047390491,
+              "weight": 50.16888803301211,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#a9a9baa1-5ea2-411d-a5ac-d93c6f733ea6",
-                  "name": "Gauge_Temperature_Clock",
+                  "name": "Gauge_Clock_Temperature_Night",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/6",
+                    "objectPath": "[Gauge_All_E36.eez-project]:/userPages/9",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -255,7 +255,7 @@
             {
               "type": "row",
               "id": "#5cbeeee2-d01b-4d9d-9de8-85eb1ca9f79c",
-              "weight": 29.61760009442695,
+              "weight": 26.953012823381535,
               "children": [
                 {
                   "type": "tabset",
@@ -1552,8 +1552,8 @@
       },
       "transform": {
         "translate": {
-          "x": -233,
-          "y": -267
+          "x": -241.7689393939396,
+          "y": -238.09659090909213
         },
         "scale": 2
       },
@@ -1566,9 +1566,8 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "8": {
-            "$selected": true
-          }
+          "3": {},
+          "5": {}
         }
       }
     },
@@ -1582,8 +1581,8 @@
       },
       "transform": {
         "translate": {
-          "x": -199,
-          "y": -245
+          "x": -344.52380952380963,
+          "y": -350.25892857142867
         },
         "scale": 2
       },
@@ -1596,7 +1595,7 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "8": {
+          "5": {
             "$selected": true
           }
         }
@@ -1606,28 +1605,8 @@
       "selection": {},
       "transform": {
         "translate": {
-          "x": -181,
-          "y": -189
-        },
-        "scale": 2
-      },
-      "timeline": {
-        "isEditorActive": false,
-        "position": 0,
-        "secondToPx": 200,
-        "scrollLeft": 0
-      },
-      "selectionFront": {},
-      "selectionBack": {
-        "0": {}
-      }
-    },
-    "[Gauge_All_E36.eez-project]:/userPages/4[flow-state]": {
-      "selection": {},
-      "transform": {
-        "translate": {
-          "x": -120,
-          "y": -120
+          "x": -218.06666666666717,
+          "y": -289.2166666666671
         },
         "scale": 2
       },
@@ -1640,7 +1619,31 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "8": {
+          "5": {
+            "$selected": true
+          }
+        }
+      }
+    },
+    "[Gauge_All_E36.eez-project]:/userPages/4[flow-state]": {
+      "selection": {},
+      "transform": {
+        "translate": {
+          "x": -191,
+          "y": -268
+        },
+        "scale": 2
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "5": {
             "$selected": true
           }
         }
@@ -1664,8 +1667,7 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "2": {},
-          "7": {
+          "5": {
             "$selected": true
           }
         }
@@ -1681,8 +1683,8 @@
       },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -222.66666666666666,
+          "y": -263
         },
         "scale": 2
       },
@@ -1693,7 +1695,14 @@
         "scrollLeft": 0
       },
       "selectionFront": {},
-      "selectionBack": {}
+      "selectionBack": {
+        "0": {
+          "1": {},
+          "2": {
+            "$selected": true
+          }
+        }
+      }
     },
     "[Gauge_All_E36.eez-project]:/userPages/6[flow-state]": {
       "selection": {},
@@ -1712,11 +1721,7 @@
       },
       "selectionFront": {},
       "selectionBack": {
-        "0": {
-          "2": {
-            "$selected": true
-          }
-        }
+        "0": {}
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/3[flow-state]": {
@@ -1729,8 +1734,8 @@
       },
       "transform": {
         "translate": {
-          "x": -228.00000000000006,
-          "y": -252.75000000000003
+          "x": -167.00000000000006,
+          "y": -269.75
         },
         "scale": 2
       },
@@ -1743,10 +1748,9 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "3": {
+          "5": {
             "$selected": true
-          },
-          "8": {}
+          }
         }
       }
     },
@@ -1756,8 +1760,8 @@
       },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -231,
+          "y": -223
         },
         "scale": 2
       },
@@ -1766,21 +1770,25 @@
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "2": {}
+        }
       }
     },
     "[Gauge_All_E36.eez-project]:/userPages/5[flow-state]": {
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "8": {
-            "$selected": true
-          }
+          "5": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -120,
-          "y": -120
+          "x": -190,
+          "y": -288
         },
         "scale": 2
       },
@@ -1803,7 +1811,7 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "MAIN",
+  "lvglPart": "TICKS",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "ARC",
@@ -1812,15 +1820,16 @@
     "OUTLINE",
     "LINE",
     "PADDING",
-    "SHADOW",
     "LAYOUT",
     "POSITION AND SIZE",
-    "BACKGROUND",
     "BORDER",
-    "IMAGE"
+    "IMAGE",
+    "BACKGROUND",
+    "SHADOW"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
   "flowZoom": 2,
-  "implementationLanguage": "C"
+  "implementationLanguage": "C",
+  "openDialogDefaultPath": "/Users/jan/Documents/esp/projects/BC_Big_E36/png/knob_small.png"
 }

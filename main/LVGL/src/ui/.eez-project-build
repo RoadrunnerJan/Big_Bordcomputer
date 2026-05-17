@@ -16,7 +16,6 @@
     "ui_font_oswald_22.c",
     "ui_font_oswald_36.c",
     "ui_image_clock.c",
-    "ui_image_knob.c",
     "ui_image_oil_can.c",
     "ui_image_oil_can_temp.c",
     "ui_image_temperature.c",

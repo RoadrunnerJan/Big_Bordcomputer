@@ -36,105 +36,67 @@ typedef struct _objects_t {
     lv_obj_t *gauge_clock_temperature;
     lv_obj_t *gauge_clock_temperature_night;
     lv_obj_t *pressure_black_background_opa;
-    lv_obj_t *pressure_needle_knop_light_shadow;
-    lv_obj_t *pressure_max_indicator;
-    lv_obj_t *pressure_min_indicator;
     lv_obj_t *pressure_gauge_image;
-    lv_obj_t *pressure_gauge_scale_labels;
     lv_obj_t *pressure_gauge_value;
     lv_obj_t *pressure_gauge_unit;
+    lv_obj_t *pressure_gauge_scale_labels;
     lv_obj_t *pressure_gauge_scale;
-    lv_obj_t *pressure_needle_knob;
     lv_obj_t *pressure_black_background_opa_night;
-    lv_obj_t *pressure_needle_knop_light_shadow_night;
-    lv_obj_t *pressure_max_indicator_night;
-    lv_obj_t *pressure_min_indicator_night;
     lv_obj_t *pressure_gauge_image_night;
-    lv_obj_t *pressure_gauge_scale_labels_night;
     lv_obj_t *pressure_gauge_value_night;
     lv_obj_t *pressure_gauge_unit_night;
+    lv_obj_t *pressure_gauge_scale_labels_night;
     lv_obj_t *pressure_gauge_scale_night;
-    lv_obj_t *pressure_needle_knob_night;
     lv_obj_t *temperature_black_background_opa;
-    lv_obj_t *temperature_needle_knop_light_shadow;
-    lv_obj_t *temperature_max_indicator;
-    lv_obj_t *temperature_min_indicator;
     lv_obj_t *temperature_gauge_image;
-    lv_obj_t *temperature_gauge_scale_labels;
     lv_obj_t *temperature_gauge_value;
     lv_obj_t *temperature_gauge_unit;
+    lv_obj_t *temperature_gauge_scale_labels;
     lv_obj_t *temperature_gauge_scale;
-    lv_obj_t *temperature_needle_knob;
     lv_obj_t *temperature_black_background_opa_night;
-    lv_obj_t *temperature_needle_knop_light_shadow_night;
-    lv_obj_t *temperature_max_indicator_night;
-    lv_obj_t *temperature_min_indicator_night;
     lv_obj_t *temperature_gauge_image_night;
-    lv_obj_t *temperature_gauge_scale_labels_night;
     lv_obj_t *temperature_gauge_value_night;
     lv_obj_t *temperature_gauge_unit_night;
+    lv_obj_t *temperature_gauge_scale_labels_night;
     lv_obj_t *temperature_gauge_scale_night;
-    lv_obj_t *temperature_needle_knob_night;
     lv_obj_t *volt_black_background_opa;
-    lv_obj_t *volt_needle_knop_light_shadow;
-    lv_obj_t *volt_max_indicator;
-    lv_obj_t *volt_min_indicator;
     lv_obj_t *volt_gauge_image;
-    lv_obj_t *volt_gauge_scale_labels;
     lv_obj_t *volt_gauge_value;
     lv_obj_t *volt_gauge_unit;
+    lv_obj_t *volt_gauge_scale_labels;
     lv_obj_t *volt_gauge_scale;
-    lv_obj_t *volt_needle_knob;
     lv_obj_t *volt_black_background_opa_night;
-    lv_obj_t *volt_needle_knop_light_shadow_night;
-    lv_obj_t *volt_max_indicator_night;
-    lv_obj_t *volt_min_indicator_night;
     lv_obj_t *volt_gauge_image_night;
-    lv_obj_t *volt_gauge_scale_labels_night;
     lv_obj_t *volt_gauge_value_night;
     lv_obj_t *volt_gauge_unit_night;
+    lv_obj_t *volt_gauge_scale_labels_night;
     lv_obj_t *volt_gauge_scale_night;
-    lv_obj_t *volt_needle_knob_night;
     lv_obj_t *temp_clock_black_background_opa;
-    lv_obj_t *temp_clock_needle_knop_light_shadow;
-    lv_obj_t *temp_clock_min_indicator;
     lv_obj_t *temp_clock_gauge_image;
-    lv_obj_t *temp_clock_gauge_scale_labels;
     lv_obj_t *temp_clock_gauge_value;
     lv_obj_t *temp_clock_gauge_unit;
+    lv_obj_t *temp_clock_gauge_scale_labels;
     lv_obj_t *temp_clock_gauge_scale;
-    lv_obj_t *temp_clock_needle_knob;
     lv_obj_t *temp_clock_black_background_opa_night;
-    lv_obj_t *temp_clock_needle_knop_light_shadow_night;
-    lv_obj_t *temp_clock_min_indicator_night;
     lv_obj_t *temp_clock_gauge_image_night;
-    lv_obj_t *temp_clock_gauge_scale_labels_night;
     lv_obj_t *temp_clock_gauge_value_night;
     lv_obj_t *temp_clock_gauge_unit_night;
+    lv_obj_t *temp_clock_gauge_scale_labels_night;
     lv_obj_t *temp_clock_gauge_scale_night;
-    lv_obj_t *temp_clock_needle_knob_night;
     lv_obj_t *clock_temp_black_background_opa;
     lv_obj_t *clock_temp_gauge_scale_hour_labels;
     lv_obj_t *clock_temp_gauge_12;
     lv_obj_t *clock_temp_gauge_image;
-    lv_obj_t *clock_temp_six_blacking;
-    lv_obj_t *clock_temp_gauge_value;
     lv_obj_t *clock_temp_gauge_unit;
-    lv_obj_t *clock_temp_needle_knop_light_shadow;
-    lv_obj_t *clock_temp_gauge_scale_hour;
-    lv_obj_t *clock_temp_gauge_scale_minute;
-    lv_obj_t *clock_temp_needle_knob;
+    lv_obj_t *clock_temp_gauge_scale;
+    lv_obj_t *clock_temp_gauge_value;
+    lv_obj_t *clock_temp_black_background_opa_night;
     lv_obj_t *clock_temp_gauge_scale_hour_labels_night;
     lv_obj_t *clock_temp_gauge_12_night;
     lv_obj_t *clock_temp_gauge_image_night;
-    lv_obj_t *clock_temp_six_blacking_night;
-    lv_obj_t *clock_temp_gauge_value_night;
-    lv_obj_t *clock_temp_black_background_opa_night;
     lv_obj_t *clock_temp_gauge_unit_night;
-    lv_obj_t *clock_temp_needle_knop_light_shadow_night;
-    lv_obj_t *clock_temp_gauge_scale_hour_night;
-    lv_obj_t *clock_temp_gauge_scale_minute_night;
-    lv_obj_t *clock_temp_needle_knob_night;
+    lv_obj_t *clock_temp_gauge_scale_night;
+    lv_obj_t *clock_temp_gauge_value_night;
 } objects_t;
 
 extern objects_t objects;
@@ -143,64 +105,80 @@ typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_oil_pressure_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_oil_pressure_night_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_oil_temperature_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_oil_temperature_night_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_voltage_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_voltage_night_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
 } screen_gauge_temperature_clock_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
     lv_meter_scale_t *scale1;
     lv_meter_indicator_t *indicator;
+    lv_meter_indicator_t *indicator1;
 } screen_gauge_temperature_clock_night_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
-    lv_meter_scale_t *scale1;
+    lv_meter_scale_t *hour;
     lv_meter_indicator_t *indicator;
-    lv_meter_scale_t *scale2;
     lv_meter_indicator_t *indicator1;
+    lv_meter_scale_t *minute;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_clock_temperature_state_t;
 
 typedef struct {
     lv_meter_scale_t *scale;
-    lv_meter_scale_t *scale1;
+    lv_meter_scale_t *hour;
     lv_meter_indicator_t *indicator;
-    lv_meter_scale_t *scale2;
     lv_meter_indicator_t *indicator1;
+    lv_meter_scale_t *minute;
+    lv_meter_indicator_t *indicator2;
 } screen_gauge_clock_temperature_night_state_t;
 
 extern screen_gauge_oil_pressure_state_t screen_gauge_oil_pressure_state;
