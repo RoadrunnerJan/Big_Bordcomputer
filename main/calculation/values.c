@@ -177,8 +177,10 @@ void reset_brightness(void) {
  *
  * @param screenSelection Screen ID identifying the sensor type to process
  * @param value Raw sensor value to process
+ * @return true if the value was updated, false otherwise
  */
-void calculate_value(int screenSelection, double value) {
+bool calculate_value(int screenSelection, double value) {
+    bool value_changed = false;
     switch (screenSelection) {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
             if (value == ADC_FAIL_VALUE) {
@@ -211,6 +213,7 @@ void calculate_value(int screenSelection, double value) {
                         if (value != value_oil_pressure){
                             value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA_OIL_PRES);
                             new_value_available_oil_pres = true;
+                            value_changed = true;
                         }
                     }
                     else {
@@ -251,6 +254,7 @@ void calculate_value(int screenSelection, double value) {
                         if (value != value_oil_temperature){
                             value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA_OIL_TEMP);
                             new_value_available_oil_temp = true;
+                            value_changed = true;
                         }
                     }
                     else {
@@ -290,6 +294,7 @@ void calculate_value(int screenSelection, double value) {
                         if (value != value_volt){
                             value_volt = calc_filter(value, value_volt, FILTER_ALPHA_VOLT);
                             new_value_available_volt = true;
+                            value_changed = true;
                         }
                     }
                     else {
@@ -337,6 +342,7 @@ void calculate_value(int screenSelection, double value) {
                         if (value != value_outside_temperature){
                             value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA_OUT_TEMP);
                             new_value_available_out_temp = true;
+                            value_changed = true;
                         }
                     }
                     else {
@@ -349,6 +355,7 @@ void calculate_value(int screenSelection, double value) {
         default:
             break;
     }
+    return value_changed;
 }
 
 /**

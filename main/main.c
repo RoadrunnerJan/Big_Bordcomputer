@@ -121,6 +121,7 @@ bool night_mode = false;
 static void update_values(int displayID)
 {
     double value = 0.0;
+    bool value_changed = false;
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
@@ -134,12 +135,14 @@ static void update_values(int displayID)
                     if (isPWM()) value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
                     else value = get_adc_oil_press();
                 }
-                calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
+                value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
 
-                lvgl_lock();
-                set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * DISPLAYS[displayID].eez_factor);
-                set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
-                lvgl_unlock();
+                if (value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
+                    lvgl_unlock();
+                }
             }
             
         break;
@@ -153,12 +156,14 @@ static void update_values(int displayID)
                     if (isPWM()) value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
                     else value = get_adc_oil_temp();
                 }
-                calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
+                value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
 
-                lvgl_lock();
-                set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * DISPLAYS[displayID].eez_factor);
-                set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
-                lvgl_unlock();
+                if (value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
+                    lvgl_unlock();
+                }
             }
             
         break;
@@ -172,12 +177,14 @@ static void update_values(int displayID)
                 else {
                     value = get_adc_volt();
                 }
-                calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
+                value_changed = calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
                 
-                lvgl_lock();
-                set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * DISPLAYS[displayID].eez_factor);
-                set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
-                lvgl_unlock();
+                if (value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
+                    lvgl_unlock();
+                }
             }
             
         break;
@@ -220,11 +227,11 @@ static void update_values(int displayID)
                 time(&now);
                 localtime_r(&now, &timeinfo);
                 int hour = timeinfo.tm_hour >= 12 ? timeinfo.tm_hour - 12 : timeinfo.tm_hour;
-                lvgl_lock();
 
-                set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
+                lvgl_lock();
                 set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
                 set_var_lvgl_value_clock_minute(timeinfo.tm_min*10);
+                set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
                 lvgl_unlock();
             }
 

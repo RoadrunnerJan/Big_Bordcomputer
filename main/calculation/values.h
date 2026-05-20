@@ -98,8 +98,9 @@ void reset_brightness(void);
  * Updates global sensor value variable and output_string
  * @param screenSelection Screen ID corresponding to sensor type
  * @param new_value Raw sensor value to process
+ * @return true if the value was updated, false otherwise
  */
-void calculate_value(int screenSelection, double new_value);
+bool calculate_value(int screenSelection, double new_value);
 
 /**
  * Get current sensor value by screen type
