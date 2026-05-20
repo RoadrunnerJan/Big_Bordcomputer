@@ -36,37 +36,32 @@ int reset_is_set = false;
  */
 void set_Displays() {
 
-    lv_disp_set_default(DISPLAYS[0].lv_displays);
+    lv_display_set_default(DISPLAYS[0].lv_displays);
     ui_init();
     for (int i = 0; i < NUMBER_OF_DISPLAYS; i++)
     {
-        lv_disp_set_default(DISPLAYS[i].lv_displays);
+        lv_display_set_default(DISPLAYS[i].lv_displays);
         switch(DISPLAYS[i].screen_selection)
         {
             case SCREEN_ID_GAUGE_OIL_PRESSURE:
-                create_screen_gauge_oil_pressure_night();
                 create_screen_gauge_oil_pressure();
-                lv_scr_load(objects.gauge_oil_pressure);
+                lv_screen_load(objects.gauge_oil_pressure);
                 break;
             case SCREEN_ID_GAUGE_OIL_TEMPERATURE:
-                create_screen_gauge_oil_temperature_night();
                 create_screen_gauge_oil_temperature();
-                lv_scr_load(objects.gauge_oil_temperature);
+                lv_screen_load(objects.gauge_oil_temperature);
                 break;
             case SCREEN_ID_GAUGE_VOLTAGE:
-                create_screen_gauge_voltage_night();
                 create_screen_gauge_voltage();
-                lv_scr_load(objects.gauge_voltage);
+                lv_screen_load(objects.gauge_voltage);
                 break;
             case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
-                create_screen_gauge_temperature_clock_night();
                 create_screen_gauge_temperature_clock();
-                lv_scr_load(objects.gauge_temperature_clock);
+                lv_screen_load(objects.gauge_temperature_clock);
                 break;
             case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-                create_screen_gauge_clock_temperature_night();
                 create_screen_gauge_clock_temperature();
-                lv_scr_load(objects.gauge_clock_temperature);
+                lv_screen_load(objects.gauge_clock_temperature);
                 break;
         }
         vTaskDelay(pdMS_TO_TICKS(10));
@@ -80,22 +75,28 @@ void set_Displays() {
  * @param area Area to flush
  * @param color_map Color data buffer
  */
-static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_map) {
-    esp_lcd_panel_handle_t panel = (esp_lcd_panel_handle_t)disp_drv->user_data;
+static void lvgl_flush_cb(lv_display_t * disp, const lv_area_t * area, uint8_t * px_map){
+        struct display_settings * display =
+        (struct display_settings *)lv_display_get_user_data(disp);
 
-    // Try to send. If queue is full, wait briefly instead of crashing.
-    esp_err_t ret;
-    int retry = 5;
-    do {
-        ret = esp_lcd_panel_draw_bitmap(panel, area->x1, area->y1, area->x2 + 1, area->y2 + 1, color_map);
-        if (ret != ESP_OK) {
-            vTaskDelay(pdMS_TO_TICKS(1)); // 1ms pause for the bus
-            retry--;
-        }
-    } while (ret != ESP_OK && retry > 0);
+    if (display == NULL || display->panel_handle == NULL) {
+        lv_display_flush_ready(disp);
+        return;
+    }
+
+    uint32_t px_count = lv_area_get_size(area);
+
+    esp_err_t ret = esp_lcd_panel_draw_bitmap(
+        display->panel_handle,
+        area->x1,
+        area->y1,
+        area->x2 + 1,
+        area->y2 + 1,
+        (uint16_t *)px_map
+    );
 
     if (ret != ESP_OK) {
-        ESP_LOGE("LCD", "SPI Bus Timeout on Display %p", panel);
+        lv_display_flush_ready(disp);
     }
 }
 
@@ -107,10 +108,16 @@ static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
  * @return false (continue processing)
  */
 static bool notify_lvgl_flush_ready(esp_lcd_panel_io_handle_t io, esp_lcd_panel_io_event_data_t *edata, void *user_ctx)
-{
-    lv_disp_drv_t *disp_driver = (lv_disp_drv_t *)user_ctx;
-    lv_disp_flush_ready(disp_driver);
+{        
+    struct display_settings * display = (struct display_settings *)user_ctx;
+
+    if (display == NULL || display->lv_displays == NULL) {
+        return false;
+    }
+
+    lv_display_flush_ready(display->lv_displays);
     return false;
+
 }
 
 /**
@@ -187,6 +194,7 @@ void display_init(void)
     DISPLAYS[0].tast_core =              TASK_1_CORE_SCREEN;
     DISPLAYS[0].delay_time_screen_ms =   MEASURE_DELAY_TIME_1_MS;
     DISPLAYS[0].eez_factor =             EEZ_VALUE_FACTOR_1;
+    DISPLAYS[0].color_format =           LCD_1_COLOR_FORMAT;
 
     #if NUMBER_OF_DISPLAYS > 1
         DISPLAYS[1].screen_selection =     LCD_2_SCREEN_ID;
@@ -208,6 +216,7 @@ void display_init(void)
         DISPLAYS[1].tast_core =            TASK_2_CORE_SCREEN;
         DISPLAYS[1].delay_time_screen_ms = MEASURE_DELAY_TIME_2_MS;
         DISPLAYS[1].eez_factor =           EEZ_VALUE_FACTOR_2;
+        DISPLAYS[1].color_format =         LCD_2_COLOR_FORMAT;
     #endif
     #if NUMBER_OF_DISPLAYS > 2
         DISPLAYS[2].screen_selection =     LCD_3_SCREEN_ID;
@@ -229,6 +238,7 @@ void display_init(void)
         DISPLAYS[2].tast_core =            TASK_3_CORE_SCREEN;
         DISPLAYS[2].delay_time_screen_ms = MEASURE_DELAY_TIME_3_MS;
         DISPLAYS[2].eez_factor =           EEZ_VALUE_FACTOR_3;
+        DISPLAYS[2].color_format =         LCD_3_COLOR_FORMAT;
     #endif
     #if NUMBER_OF_DISPLAYS > 3
         DISPLAYS[3].screen_selection =     LCD_4_SCREEN_ID;
@@ -250,6 +260,7 @@ void display_init(void)
         DISPLAYS[3].tast_core =            TASK_4_CORE_SCREEN;
         DISPLAYS[3].delay_time_screen_ms = MEASURE_DELAY_TIME_4_MS;
         DISPLAYS[3].eez_factor =           EEZ_VALUE_FACTOR_4;
+        DISPLAYS[3].color_format =         LCD_4_COLOR_FORMAT;
     #endif
 
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
@@ -262,8 +273,8 @@ void display_init(void)
         DISPLAYS[i].io_config.lcd_param_bits =      LCD_PARAM_BITS; // must be adjusted
         DISPLAYS[i].io_config.spi_mode =            SPI_MODE; //0
         DISPLAYS[i].io_config.trans_queue_depth =   TRANS_QUEUE_DEPTH; //10
+        DISPLAYS[i].io_config.user_ctx =            &DISPLAYS[i];
         DISPLAYS[i].io_config.on_color_trans_done = notify_lvgl_flush_ready; // Callback for LVGL
-        DISPLAYS[i].io_config.user_ctx =            &(DISPLAYS[i].disp_drv);      // LVGL Display driver context
 
         // Attach the LCD to the SPI bus
         ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t)(DISPLAYS[i].spi_host), &(DISPLAYS[i].io_config), &(DISPLAYS[i].io_handle)));
@@ -307,20 +318,44 @@ void buffer_and_driver_init()
 {
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
     {
-        // buffer init
-        DISPLAYS[i].buf = heap_caps_malloc(DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor) * sizeof(lv_color_t), DISPLAYS[i].malloc_cap);
-        memset(DISPLAYS[i].buf, 0, DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor) * sizeof(lv_color_t));
-        lv_disp_draw_buf_init(&(DISPLAYS[i].draw_buf), DISPLAYS[i].buf, NULL, DISPLAYS[i].lcd_res_h * (DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor));
+        uint32_t buf_height = DISPLAYS[i].lcd_res_v / DISPLAYS[i].buffer_factor;
+        lv_color_format_t cf = (lv_color_format_t)DISPLAYS[i].color_format;
+        uint32_t stride = lv_draw_buf_width_to_stride(DISPLAYS[i].lcd_res_h, cf);
+        uint32_t buffer_size_bytes = stride * buf_height;
 
-        // driver_init
-        lv_disp_drv_init(&(DISPLAYS[i].disp_drv));
-        DISPLAYS[i].disp_drv.hor_res =      DISPLAYS[i].lcd_res_h;
-        DISPLAYS[i].disp_drv.ver_res =      DISPLAYS[i].lcd_res_v;
-        DISPLAYS[i].disp_drv.flush_cb =     lvgl_flush_cb;
-        DISPLAYS[i].disp_drv.draw_buf =     &(DISPLAYS[i].draw_buf);
-        DISPLAYS[i].disp_drv.user_data =    DISPLAYS[i].panel_handle;
-        DISPLAYS[i].disp_drv.full_refresh = 1;
-        DISPLAYS[i].lv_displays =           lv_disp_drv_register(&(DISPLAYS[i].disp_drv));
+        DISPLAYS[i].buf = heap_caps_aligned_alloc(64, buffer_size_bytes, DISPLAYS[i].malloc_cap);
+
+        if (DISPLAYS[i].buf == NULL) {
+            ESP_LOGE("LCD",
+                "LVGL buffer allocation failed display=%d height=%lu stride=%lu size=%lu buf=%p",
+                i,
+                (unsigned long)buf_height,
+                (unsigned long)stride,
+                (unsigned long)buffer_size_bytes,
+                DISPLAYS[i].buf);
+            abort();
+        }
+
+        DISPLAYS[i].lv_displays = lv_display_create(DISPLAYS[i].lcd_res_h, DISPLAYS[i].lcd_res_v);
+
+        if (DISPLAYS[i].lv_displays == NULL) {
+            ESP_LOGE("LCD", "lv_display_create failed display=%d", i);
+            abort();
+        }
+
+        lv_display_set_color_format(DISPLAYS[i].lv_displays, DISPLAYS[i].color_format);
+        lv_display_set_buffers(DISPLAYS[i].lv_displays, DISPLAYS[i].buf, NULL, buffer_size_bytes, LV_DISPLAY_RENDER_MODE_PARTIAL);
+        lv_display_set_flush_cb(DISPLAYS[i].lv_displays, lvgl_flush_cb);
+        lv_display_set_user_data(DISPLAYS[i].lv_displays, &DISPLAYS[i]); 
+
+        ESP_LOGI("LCD",
+            "display=%d buf_height=%lu stride=%lu size=%lu",
+            i,
+            (unsigned long)buf_height,
+            (unsigned long)stride,
+            (unsigned long)buffer_size_bytes
+        );
+                
     }
 }
 

@@ -17,8 +17,8 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         true   // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
+#define USE_BUZZER                         false   // true: enable buzzer alert functionality
+#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 #define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
 
@@ -84,7 +84,7 @@
      * PIN_LCD_BL: common backlight GPIO for all panels.
      */
     /* ===== LCD COMMON CONFIGURATION ===== */
-    #define LCD_PIXEL_CLOCK_HZ             (40 * 1000 * 1000)  // 40 MHz
+    #define LCD_PIXEL_CLOCK_HZ             (70 * 1000 * 1000)  // 60 MHz
     #define LCD_CMD_BITS                   8
     #define LCD_PARAM_BITS                 8
     #define LCD_HOST_1                     SPI2_HOST
@@ -102,9 +102,10 @@
     #define LCD_1_MIRROR_X                 false
     #define LCD_1_MIRROR_Y                 true
     #define LCD_1_INVERT_COLOR             true
-    #define LCD_1_MALLOC_CAP                MALLOC_CAP_SPIRAM
-    #define LCD_1_BUFFER_FACTOR             2
+    #define LCD_1_MALLOC_CAP               (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
+    #define LCD_1_BUFFER_FACTOR            10
     #define LCD_1_SCREEN_ID                SCREEN_ID_GAUGE_CLOCK_TEMPERATURE // SCREEN_ID_GAUGE_TEMPERATURE_CLOCK
+    #define LCD_1_COLOR_FORMAT              LV_COLOR_FORMAT_RGB565_SWAPPED
 
     /* ===== LCD 2 PINS ===== */
     #if NUMBER_OF_DISPLAYS > 1
@@ -118,9 +119,10 @@
         #define LCD_2_MIRROR_X             false
         #define LCD_2_MIRROR_Y             true
         #define LCD_2_INVERT_COLOR         true
-        #define LCD_2_MALLOC_CAP            MALLOC_CAP_DMA
-        #define LCD_2_BUFFER_FACTOR         2
+        #define LCD_2_MALLOC_CAP           (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
+        #define LCD_2_BUFFER_FACTOR        10
         #define LCD_2_SCREEN_ID            SCREEN_ID_GAUGE_OIL_TEMPERATURE
+        #define LCD_2_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
     #endif
 
     /* ===== LCD 3 PINS ===== */
@@ -134,14 +136,15 @@
         #define LCD_3_MIRROR_X             false
         #define LCD_3_MIRROR_Y             true
         #define LCD_3_INVERT_COLOR         true
-        #define LCD_3_MALLOC_CAP            MALLOC_CAP_DMA
-        #define LCD_3_BUFFER_FACTOR         2
+        #define LCD_3_MALLOC_CAP           (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
+        #define LCD_3_BUFFER_FACTOR         1
         #if NUMBER_OF_SPI > 1
             #define LCD_3_SPI_HOST         LCD_HOST_2
         #else
             #define LCD_3_SPI_HOST         LCD_HOST_1
         #endif
         #define LCD_3_SCREEN_ID            SCREEN_ID_GAUGE_OIL_PRESSURE
+        #define LCD_3_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
     #endif
 
     /* ===== LCD 4 PINS ===== */
@@ -155,14 +158,15 @@
         #define LCD_4_MIRROR_X             false
         #define LCD_4_MIRROR_Y             true
         #define LCD_4_INVERT_COLOR         true
-        #define LCD_4_MALLOC_CAP            MALLOC_CAP_DMA
-        #define LCD_4_BUFFER_FACTOR         2
+        #define LCD_4_MALLOC_CAP           (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
+        #define LCD_4_BUFFER_FACTOR         8
         #if NUMBER_OF_SPI > 1
             #define LCD_4_SPI_HOST         LCD_HOST_2
         #else
             #define LCD_4_SPI_HOST         LCD_HOST_1
         #endif
         #define LCD_4_SCREEN_ID            SCREEN_ID_GAUGE_VOLTAGE
+        #define LCD_4_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
     #endif
 
     /**
@@ -238,7 +242,7 @@
  * BRIGHTNESS_NIGHT_MIN/MAX: brightness range in night mode.
  * BRIGHTNESS_NIGHT_MIN/MAX_V: battery voltage range mapping for night mode.
  */
-#define BRIGHTNESS_AUTO_ENABLE             false    ///< Enable automatic brightness adjustment based on ambient light
+#define BRIGHTNESS_AUTO_ENABLE             true    ///< Enable automatic brightness adjustment based on ambient light
 #define BRIGHTNESS_DAY                     100       ///< Default daytime brightness level (0-100%)
 #define BRIGHTNESS_DAY_MAX_V               0.05      ///< Battery voltage threshold for day mode (in volts)
 #define BRIGHTNESS_NIGHT_MIN               20        ///< Minimum brightness in night mode (0-100%)
@@ -595,7 +599,7 @@
  * Filter (alpha): exponential moving average coefficient (0-1, lower = more smoothing).
  *  New_value = alpha * current + (1-alpha) * previous
  */
-#define VALUE_OVERSAMPLING_OIL_PRES        2         ///< Average 2 pressure readings
+#define VALUE_OVERSAMPLING_OIL_PRES        4         ///< Average 4 pressure readings
 #define VALUE_OVERSAMPLING_OIL_TEMP        5         ///< Average 5 temperature readings
 #define VALUE_OVERSAMPLING_VOLT            4         ///< Average 4 voltage readings
 #define VALUE_OVERSAMPLING_OUT_TEMP        5         ///< Average 5 outdoor temperature readings
@@ -618,13 +622,13 @@
  *
  * Defines how often sensor values are read and processed for each display/subsystem.
  */
-#define MAIN_TICK_TIME_DELAY_MS            10                              ///< Main loop tick interval (milliseconds)
-#define MEASURE_DELAY_TIME_1_MS            (MAIN_TICK_TIME_DELAY_MS * 25)  ///< Display 1 update interval (250ms)
-#define MEASURE_DELAY_TIME_2_MS            (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Display 2 update interval (200ms)
-#define MEASURE_DELAY_TIME_3_MS            (MAIN_TICK_TIME_DELAY_MS *  2)  ///< Display 3 update interval (20ms)
-#define MEASURE_DELAY_TIME_4_MS            (MAIN_TICK_TIME_DELAY_MS *  5)  ///< Display 4 update interval (50ms)
-#define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 10)  ///< Brightness update interval (100ms)
-#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 100) ///< Test mode brightness interval (1000ms)
+#define MAIN_TICK_TIME_DELAY_MS            5                              ///< Main loop tick interval (milliseconds)
+#define MEASURE_DELAY_TIME_1_MS            (MAIN_TICK_TIME_DELAY_MS * 50)  ///< Display 1 update interval (250ms)
+#define MEASURE_DELAY_TIME_2_MS            (MAIN_TICK_TIME_DELAY_MS * 40)  ///< Display 2 update interval (200ms)
+#define MEASURE_DELAY_TIME_3_MS            (MAIN_TICK_TIME_DELAY_MS *  4)  ///< Display 3 update interval (20ms)
+#define MEASURE_DELAY_TIME_4_MS            (MAIN_TICK_TIME_DELAY_MS *  15)  ///< Display 4 update interval (75ms)
+#define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Brightness update interval (100ms)
+#define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 200) ///< Test mode brightness interval (1000ms)
 
 /*
 #################################################################################

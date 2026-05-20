@@ -7,6 +7,9 @@
 extern "C" {
 #endif
 
+extern const lv_img_dsc_t img_bmw_needle_white;
+extern const lv_img_dsc_t img_needle;
+extern const lv_img_dsc_t img_knob;
 extern const lv_img_dsc_t img_oil_can;
 extern const lv_img_dsc_t img_oil_can_temp;
 extern const lv_img_dsc_t img_volt;
@@ -21,7 +24,7 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[5];
+extern const ext_img_desc_t images[8];
 
 #ifdef __cplusplus
 }

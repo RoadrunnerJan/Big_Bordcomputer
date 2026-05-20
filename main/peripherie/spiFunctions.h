@@ -36,7 +36,6 @@
 #include "../lvgl/src/ui/ui.h"
 #include "../lvgl/src/ui/screens.h"
 #include "../lvgl/src/ui/vars.h"
-#include "../managed_components/lvgl__lvgl/src/extra/widgets/meter/lv_meter.h"
 
 /* ===== RTOS & System ===== */
 #include "freertos/FreeRTOS.h"
@@ -78,6 +77,7 @@ struct display_settings
     bool lcd_invert_color;
     bool lcd_mirror_x;
     bool lcd_mirror_y;
+    int color_format;
     
     // Memory & Buffering
     int malloc_cap;
@@ -94,10 +94,8 @@ struct display_settings
     esp_lcd_panel_handle_t panel_handle;
     
     // LVGL Configuration
-    lv_disp_t *lv_displays;
+    lv_display_t *lv_displays;
     lv_color_t *buf;
-    lv_disp_drv_t disp_drv;
-    lv_disp_draw_buf_t draw_buf;
     
     // Configuration Structures
     esp_lcd_panel_io_spi_config_t io_config;

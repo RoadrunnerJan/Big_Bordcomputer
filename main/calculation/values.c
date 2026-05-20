@@ -210,8 +210,10 @@ void calculate_value(int screenSelection, double value) {
                             sum += value_oil_pressure_array[i];
                         }
                         value = sum / (float)VALUE_OVERSAMPLING_OIL_PRES;
-                        value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA_OIL_PRES);
-                        new_value_available_oil_pres = true;
+                        if (value != value_oil_pressure){
+                            value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA_OIL_PRES);
+                            new_value_available_oil_pres = true;
+                        }
                     }
                     else {
                         value_oil_pressure_array[value_oil_pressure_array_idx] = value;
@@ -248,8 +250,10 @@ void calculate_value(int screenSelection, double value) {
                             sum += value_oil_temperature_array[i];
                         }
                         value = sum / (float)VALUE_OVERSAMPLING_OIL_TEMP;
-                        value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA_OIL_TEMP);
-                        new_value_available_oil_temp = true;
+                        if (value != value_oil_temperature){
+                            value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA_OIL_TEMP);
+                            new_value_available_oil_temp = true;
+                        }
                     }
                     else {
                         value_oil_temperature_array[value_oil_temperature_array_idx] = value;
@@ -285,8 +289,10 @@ void calculate_value(int screenSelection, double value) {
                             sum += value_volt_array[i];
                         }
                         value = sum / (float)VALUE_OVERSAMPLING_VOLT;
-                        value_volt = calc_filter(value, value_volt, FILTER_ALPHA_VOLT);
-                        new_value_available_volt = true;
+                        if (value != value_volt){
+                            value_volt = calc_filter(value, value_volt, FILTER_ALPHA_VOLT);
+                            new_value_available_volt = true;
+                        }
                     }
                     else {
                         value_volt_array[value_volt_array_idx] = value;
@@ -330,8 +336,10 @@ void calculate_value(int screenSelection, double value) {
                             sum += value_outside_temperature_array[i];
                         }
                         value = sum / (float)VALUE_OVERSAMPLING_OUT_TEMP;
-                        value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA_OUT_TEMP);
-                        new_value_available_out_temp = true;
+                        if (value != value_outside_temperature){
+                            value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA_OUT_TEMP);
+                            new_value_available_out_temp = true;
+                        }
                     }
                     else {
                         value_outside_temperature_array[value_outside_temperature_array_idx] = value;
