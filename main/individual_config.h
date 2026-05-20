@@ -18,9 +18,9 @@
  * @brief Feature flags - enable/disable optional modules.
  */
 #define USE_BUZZER                         false   // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
+#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-#define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
+#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
 
 /*
 #################################################################################
@@ -618,11 +618,11 @@
  *
  * Defines how often sensor values are read and processed for each display/subsystem.
  */
-#define MAIN_TICK_TIME_DELAY_MS            5                              ///< Main loop tick interval (milliseconds)
-#define MEASURE_DELAY_TIME_1_MS            (MAIN_TICK_TIME_DELAY_MS * 50)  ///< Display 1 update interval (250ms)
-#define MEASURE_DELAY_TIME_2_MS            (MAIN_TICK_TIME_DELAY_MS * 40)  ///< Display 2 update interval (200ms)
-#define MEASURE_DELAY_TIME_3_MS            (MAIN_TICK_TIME_DELAY_MS *  4)  ///< Display 3 update interval (20ms)
-#define MEASURE_DELAY_TIME_4_MS            (MAIN_TICK_TIME_DELAY_MS *  15)  ///< Display 4 update interval (75ms)
+#define MAIN_TICK_TIME_DELAY_MS            10                              ///< Main loop tick interval (milliseconds)
+#define MEASURE_DELAY_TIME_OUT_TEMP_MS     (MAIN_TICK_TIME_DELAY_MS * 25)  ///< Display 1 update interval (250ms)
+#define MEASURE_DELAY_TIME_OIL_TEMP_MS     (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Display 2 update interval (200ms)
+#define MEASURE_DELAY_TIME_OIL_PRES_MS     (MAIN_TICK_TIME_DELAY_MS *  2)  ///< Display 3 update interval (20ms)
+#define MEASURE_DELAY_TIME_VOLT_MS         (MAIN_TICK_TIME_DELAY_MS * 10)  ///< Display 4 update interval (100ms)
 #define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Brightness update interval (100ms)
 #define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 200) ///< Test mode brightness interval (1000ms)
 

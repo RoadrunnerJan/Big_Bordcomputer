@@ -56,8 +56,6 @@ bool new_value_available_volt     = false;
 bool new_value_available_out_temp = false;
 bool new_value_available_bright   = false;
 
-bool measure_new_value[NUMBER_OF_DISPLAYS] = {true}; 
-
 /* ===== Display Output ===== */
 char output_string_outside_temperature[20]; // Formatted value string for LVGL display
 char output_string_oil_pressure[20];        // Formatted value string for LVGL display
@@ -542,21 +540,6 @@ bool updateLVGLScreen(int screenSelection)
                 return true;
             }
         break;
-    }
-    return false;
-}
-
-bool get_new_value_should_get_measured(int screenSelection) {
-    if (screenSelection < NUMBER_OF_DISPLAYS) {
-        return measure_new_value[screenSelection];
-    }
-    return false;
-}
-
-bool set_new_value_should_get_measured(int screenSelection, bool measured) {
-    if (screenSelection < NUMBER_OF_DISPLAYS) {
-        measure_new_value[screenSelection] = measured;
-        return true;
     }
     return false;
 }

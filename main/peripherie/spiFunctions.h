@@ -40,6 +40,7 @@
 /* ===== RTOS & System ===== */
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/semphr.h"
 #include "esp_log.h"
 
 
@@ -102,8 +103,6 @@ struct display_settings
     esp_lcd_panel_io_spi_config_t io_config;
     esp_lcd_panel_dev_config_t panel_config;
 
-    // Display delay time
-    int delay_time_screen_ms;
     int eez_factor;
 };
 
@@ -113,6 +112,7 @@ extern struct spi_settings SPI_SETUP[NUMBER_OF_SPI];
 extern struct display_settings DISPLAYS[NUMBER_OF_DISPLAYS];
 extern esp_timer_handle_t periodic_timer;
 
+extern SemaphoreHandle_t lvgl_mutex;
 
 /* ===== Function Declarations ===== */
 
@@ -123,6 +123,9 @@ void buffer_and_driver_init(void);
 void timer_start(void);
 void set_Displays(void);
 
+void lvgl_lock(void);
+
+void lvgl_unlock(void);
 
 
 

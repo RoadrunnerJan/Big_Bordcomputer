@@ -26,6 +26,8 @@ struct display_settings DISPLAYS[NUMBER_OF_DISPLAYS];
 esp_timer_handle_t periodic_timer;
 int reset_is_set = false;
 
+SemaphoreHandle_t lvgl_mutex = NULL;
+
 /* ===== Function Implementations ===== */
 
 /**
@@ -192,7 +194,6 @@ void display_init(void)
     DISPLAYS[0].task_priority =          TASK_1_PRIORITY_SCREEN;
     DISPLAYS[0].task_delay_time_ms =     TASK_1_DELAYTIME_SCREEN;
     DISPLAYS[0].tast_core =              TASK_1_CORE_SCREEN;
-    DISPLAYS[0].delay_time_screen_ms =   MEASURE_DELAY_TIME_1_MS;
     DISPLAYS[0].eez_factor =             EEZ_VALUE_FACTOR_1;
     DISPLAYS[0].color_format =           LCD_1_COLOR_FORMAT;
     DISPLAYS[0].render_mode =            LCD_1_RENDER_MODE;
@@ -215,7 +216,6 @@ void display_init(void)
         DISPLAYS[1].task_priority =        TASK_2_PRIORITY_SCREEN;
         DISPLAYS[1].task_delay_time_ms =   TASK_2_DELAYTIME_SCREEN;
         DISPLAYS[1].tast_core =            TASK_2_CORE_SCREEN;
-        DISPLAYS[1].delay_time_screen_ms = MEASURE_DELAY_TIME_2_MS;
         DISPLAYS[1].eez_factor =           EEZ_VALUE_FACTOR_2;
         DISPLAYS[1].color_format =         LCD_2_COLOR_FORMAT;
         DISPLAYS[1].render_mode =          LCD_2_RENDER_MODE;
@@ -238,7 +238,6 @@ void display_init(void)
         DISPLAYS[2].task_priority =        TASK_3_PRIORITY_SCREEN;
         DISPLAYS[2].task_delay_time_ms =   TASK_3_DELAYTIME_SCREEN;
         DISPLAYS[2].tast_core =            TASK_3_CORE_SCREEN;
-        DISPLAYS[2].delay_time_screen_ms = MEASURE_DELAY_TIME_3_MS;
         DISPLAYS[2].eez_factor =           EEZ_VALUE_FACTOR_3;
         DISPLAYS[2].color_format =         LCD_3_COLOR_FORMAT;
         DISPLAYS[2].render_mode =          LCD_3_RENDER_MODE;
@@ -261,7 +260,6 @@ void display_init(void)
         DISPLAYS[3].task_priority =        TASK_4_PRIORITY_SCREEN;
         DISPLAYS[3].task_delay_time_ms =   TASK_4_DELAYTIME_SCREEN;
         DISPLAYS[3].tast_core =            TASK_4_CORE_SCREEN;
-        DISPLAYS[3].delay_time_screen_ms = MEASURE_DELAY_TIME_4_MS;
         DISPLAYS[3].eez_factor =           EEZ_VALUE_FACTOR_4;
         DISPLAYS[3].color_format =         LCD_4_COLOR_FORMAT;
         DISPLAYS[3].render_mode =          LCD_4_RENDER_MODE;
@@ -371,3 +369,18 @@ void timer_start() {
 }
 
 
+
+
+void lvgl_lock(void)
+{
+    if (lvgl_mutex) {
+        xSemaphoreTakeRecursive(lvgl_mutex, portMAX_DELAY);
+    }
+}
+
+void lvgl_unlock(void)
+{
+    if (lvgl_mutex) {
+        xSemaphoreGiveRecursive(lvgl_mutex);
+    }
+}
