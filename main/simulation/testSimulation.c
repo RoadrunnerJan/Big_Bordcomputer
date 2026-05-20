@@ -43,9 +43,9 @@ int test_direction[5] = {1, 1, 1, 1, 1};
  * 
  * Controls rate of value change for each sensor.
  * Array indices: [0]=oil pressure (0.015 bar/cycle), [1]=voltage (0.01 V/cycle), 
- * [2]=oil temp (0.5°C/cycle), [3]=outdoor temp (0.5°C/cycle), [4]=brightness (1%/cycle).
+ * [2]=oil temp (0.1°C/cycle), [3]=outdoor temp (0.5°C/cycle), [4]=brightness (1%/cycle).
  */
-double test_step[5] = {0.025, 0.01, 0.10, 0.05, 1};
+double test_step[5] = {0.015, 0.01, 0.10, 0.05, 1};
 
 /* ===== Function Implementations ===== */
 

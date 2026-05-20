@@ -106,6 +106,7 @@
     #define LCD_1_BUFFER_FACTOR            10
     #define LCD_1_SCREEN_ID                SCREEN_ID_GAUGE_CLOCK_TEMPERATURE // SCREEN_ID_GAUGE_TEMPERATURE_CLOCK
     #define LCD_1_COLOR_FORMAT              LV_COLOR_FORMAT_RGB565_SWAPPED
+    #define LCD_1_RENDER_MODE              LV_DISPLAY_RENDER_MODE_PARTIAL
 
     /* ===== LCD 2 PINS ===== */
     #if NUMBER_OF_DISPLAYS > 1
@@ -123,6 +124,7 @@
         #define LCD_2_BUFFER_FACTOR        10
         #define LCD_2_SCREEN_ID            SCREEN_ID_GAUGE_OIL_TEMPERATURE
         #define LCD_2_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
+        #define LCD_2_RENDER_MODE          LV_DISPLAY_RENDER_MODE_PARTIAL
     #endif
 
     /* ===== LCD 3 PINS ===== */
@@ -138,13 +140,10 @@
         #define LCD_3_INVERT_COLOR         true
         #define LCD_3_MALLOC_CAP           (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
         #define LCD_3_BUFFER_FACTOR         1
-        #if NUMBER_OF_SPI > 1
-            #define LCD_3_SPI_HOST         LCD_HOST_2
-        #else
-            #define LCD_3_SPI_HOST         LCD_HOST_1
-        #endif
+        #define LCD_3_SPI_HOST              LCD_HOST_2
         #define LCD_3_SCREEN_ID            SCREEN_ID_GAUGE_OIL_PRESSURE
         #define LCD_3_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
+        #define LCD_3_RENDER_MODE          LV_DISPLAY_RENDER_MODE_FULL
     #endif
 
     /* ===== LCD 4 PINS ===== */
@@ -160,13 +159,10 @@
         #define LCD_4_INVERT_COLOR         true
         #define LCD_4_MALLOC_CAP           (MALLOC_CAP_DMA | MALLOC_CAP_INTERNAL ) // MALLOC_CAP_SPIRAM
         #define LCD_4_BUFFER_FACTOR         8
-        #if NUMBER_OF_SPI > 1
-            #define LCD_4_SPI_HOST         LCD_HOST_2
-        #else
-            #define LCD_4_SPI_HOST         LCD_HOST_1
-        #endif
+        #define LCD_4_SPI_HOST              LCD_HOST_2
         #define LCD_4_SCREEN_ID            SCREEN_ID_GAUGE_VOLTAGE
         #define LCD_4_COLOR_FORMAT          LV_COLOR_FORMAT_RGB565_SWAPPED
+        #define LCD_4_RENDER_MODE          LV_DISPLAY_RENDER_MODE_PARTIAL
     #endif
 
     /**
@@ -258,8 +254,8 @@
 /**
  * @brief Display rendering and initialization timing parameters.
  */
-#define EEZ_VALUE_FACTOR_1                 1000     ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_2                 1000     ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_1                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_2                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_3                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_4                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
 #define GAUGE_ON_DELAY_MS                  1200      ///< Delay before gauges become active after boot (milliseconds)

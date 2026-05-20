@@ -195,6 +195,7 @@ void display_init(void)
     DISPLAYS[0].delay_time_screen_ms =   MEASURE_DELAY_TIME_1_MS;
     DISPLAYS[0].eez_factor =             EEZ_VALUE_FACTOR_1;
     DISPLAYS[0].color_format =           LCD_1_COLOR_FORMAT;
+    DISPLAYS[0].render_mode =            LCD_1_RENDER_MODE;
 
     #if NUMBER_OF_DISPLAYS > 1
         DISPLAYS[1].screen_selection =     LCD_2_SCREEN_ID;
@@ -217,6 +218,7 @@ void display_init(void)
         DISPLAYS[1].delay_time_screen_ms = MEASURE_DELAY_TIME_2_MS;
         DISPLAYS[1].eez_factor =           EEZ_VALUE_FACTOR_2;
         DISPLAYS[1].color_format =         LCD_2_COLOR_FORMAT;
+        DISPLAYS[1].render_mode =          LCD_2_RENDER_MODE;
     #endif
     #if NUMBER_OF_DISPLAYS > 2
         DISPLAYS[2].screen_selection =     LCD_3_SCREEN_ID;
@@ -239,6 +241,7 @@ void display_init(void)
         DISPLAYS[2].delay_time_screen_ms = MEASURE_DELAY_TIME_3_MS;
         DISPLAYS[2].eez_factor =           EEZ_VALUE_FACTOR_3;
         DISPLAYS[2].color_format =         LCD_3_COLOR_FORMAT;
+        DISPLAYS[2].render_mode =          LCD_3_RENDER_MODE;
     #endif
     #if NUMBER_OF_DISPLAYS > 3
         DISPLAYS[3].screen_selection =     LCD_4_SCREEN_ID;
@@ -261,6 +264,7 @@ void display_init(void)
         DISPLAYS[3].delay_time_screen_ms = MEASURE_DELAY_TIME_4_MS;
         DISPLAYS[3].eez_factor =           EEZ_VALUE_FACTOR_4;
         DISPLAYS[3].color_format =         LCD_4_COLOR_FORMAT;
+        DISPLAYS[3].render_mode =          LCD_4_RENDER_MODE;
     #endif
 
     for(int i = 0; i < NUMBER_OF_DISPLAYS; i++)
@@ -344,7 +348,7 @@ void buffer_and_driver_init()
         }
 
         lv_display_set_color_format(DISPLAYS[i].lv_displays, DISPLAYS[i].color_format);
-        lv_display_set_buffers(DISPLAYS[i].lv_displays, DISPLAYS[i].buf, NULL, buffer_size_bytes, LV_DISPLAY_RENDER_MODE_PARTIAL);
+        lv_display_set_buffers(DISPLAYS[i].lv_displays, DISPLAYS[i].buf, NULL, buffer_size_bytes, DISPLAYS[i].render_mode);
         lv_display_set_flush_cb(DISPLAYS[i].lv_displays, lvgl_flush_cb);
         lv_display_set_user_data(DISPLAYS[i].lv_displays, &DISPLAYS[i]); 
 

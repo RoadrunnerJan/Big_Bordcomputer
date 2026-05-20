@@ -78,6 +78,7 @@ struct display_settings
     bool lcd_mirror_x;
     bool lcd_mirror_y;
     int color_format;
+    int render_mode;
     
     // Memory & Buffering
     int malloc_cap;
