@@ -17,8 +17,8 @@
 /**
  * @brief Feature flags - enable/disable optional modules.
  */
-#define USE_BUZZER                         false   // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
+#define USE_BUZZER                         true   // true: enable buzzer alert functionality
+#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 #define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
 

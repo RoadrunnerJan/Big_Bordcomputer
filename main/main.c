@@ -43,6 +43,10 @@
     #include "peripherie/buzzer.h"
 #endif
 
+// TODO check connected number of displays; save config in preferences
+//#include <preferences.h>
+//Preferences preferences;
+
 
 /* ===== Global Variables ===== */
 /**

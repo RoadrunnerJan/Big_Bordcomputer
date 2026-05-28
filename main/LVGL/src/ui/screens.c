@@ -198,8 +198,8 @@ void create_screen_gauge_oil_pressure() {
                     objects.pressure_gauge_knob = obj;
                     lv_obj_set_pos(obj, 97, 97);
                     lv_obj_set_size(obj, 34, 34);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_width(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -376,8 +376,8 @@ void create_screen_gauge_oil_temperature() {
                     objects.temperature_gauge_knob = obj;
                     lv_obj_set_pos(obj, 97, 97);
                     lv_obj_set_size(obj, 34, 34);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_width(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -553,8 +553,8 @@ void create_screen_gauge_voltage() {
                     objects.voltage_gauge_knob = obj;
                     lv_obj_set_pos(obj, 97, 97);
                     lv_obj_set_size(obj, 34, 34);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_width(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -721,8 +721,8 @@ void create_screen_gauge_temperature_clock() {
                     objects.temp_clock_gauge_knob = obj;
                     lv_obj_set_pos(obj, 97, 97);
                     lv_obj_set_size(obj, 34, 34);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_width(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -899,8 +899,8 @@ void create_screen_gauge_clock_temperature() {
                     objects.clock_temp_gauge_knob = obj;
                     lv_obj_set_pos(obj, 97, 97);
                     lv_obj_set_size(obj, 34, 34);
-                    lv_obj_set_style_bg_color(obj, lv_color_hex(0x222121), LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0x151515), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_HOR, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_width(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -937,6 +937,180 @@ void tick_screen_gauge_clock_temperature() {
     }
 }
 
+void create_screen_gauge_g_force() {
+    lv_obj_t *obj = lv_obj_create(0);
+    objects.gauge_g_force = obj;
+    lv_obj_set_pos(obj, 0, 0);
+    lv_obj_set_size(obj, 240, 240);
+    lv_obj_set_style_bg_color(obj, lv_color_hex(0x000000), LV_PART_MAIN | LV_STATE_DEFAULT);
+    {
+        lv_obj_t *parent_obj = obj;
+        {
+            // gforce_black_background
+            lv_obj_t *obj = lv_obj_create(parent_obj);
+            objects.gforce_black_background = obj;
+            lv_obj_set_pos(obj, 0, 0);
+            lv_obj_set_size(obj, 240, 240);
+            lv_obj_remove_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+            lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
+            lv_obj_set_scroll_dir(obj, LV_DIR_NONE);
+            lv_obj_set_scroll_snap_x(obj, LV_SCROLL_SNAP_NONE);
+            lv_obj_set_scroll_snap_y(obj, LV_SCROLL_SNAP_NONE);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    // gforce_ring_0.2g
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.gforce_ring_0_2g = obj;
+                    lv_obj_set_pos(obj, 80, 80);
+                    lv_obj_set_size(obj, 50, 50);
+                    lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_radius(obj, 25, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_color(obj, lv_color_hex(theme_colors[active_theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_ring_0.4g
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.gforce_ring_0_4g = obj;
+                    lv_obj_set_pos(obj, 55, 55);
+                    lv_obj_set_size(obj, 100, 100);
+                    lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_radius(obj, 50, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_color(obj, lv_color_hex(theme_colors[active_theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_ring_0.6g
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.gforce_ring_0_6g = obj;
+                    lv_obj_set_pos(obj, 30, 30);
+                    lv_obj_set_size(obj, 150, 150);
+                    lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_radius(obj, 75, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_color(obj, lv_color_hex(theme_colors[active_theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_ring_0.8g
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.gforce_ring_0_8g = obj;
+                    lv_obj_set_pos(obj, 5, 5);
+                    lv_obj_set_size(obj, 200, 200);
+                    lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_radius(obj, 100, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_color(obj, lv_color_hex(theme_colors[active_theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_line_vertical
+                    lv_obj_t *obj = lv_line_create(parent_obj);
+                    objects.gforce_line_vertical = obj;
+                    lv_obj_set_pos(obj, 0, 105);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    static lv_point_precise_t line_points[] = {
+                        { 0, 0 },
+                        { 210, 0 }
+                    };
+                    lv_line_set_points(obj, line_points, 2);
+                    lv_obj_set_style_outline_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_outline_color(obj, lv_color_hex(theme_colors[active_theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_line_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_line_color(obj, lv_color_hex(theme_colors[active_theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_width(obj, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_line_horizontal
+                    lv_obj_t *obj = lv_line_create(parent_obj);
+                    objects.gforce_line_horizontal = obj;
+                    lv_obj_set_pos(obj, 105, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    static lv_point_precise_t line_points[] = {
+                        { 0, 0 },
+                        { 0, 210 }
+                    };
+                    lv_line_set_points(obj, line_points, 2);
+                    lv_obj_set_style_outline_width(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_outline_color(obj, lv_color_hex(theme_colors[active_theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_line_width(obj, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_line_color(obj, lv_color_hex(theme_colors[active_theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_width(obj, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_spread(obj, 3, LV_PART_MAIN | LV_STATE_DEFAULT);
+                }
+                {
+                    // gforce_label_.2g
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.gforce_label__2g = obj;
+                    lv_obj_set_pos(obj, 92, 72);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_text_font(obj, &ui_font_oswald_16, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(theme_colors[active_theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text_static(obj, "0.2g");
+                }
+                {
+                    // gforce_label_.4g
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.gforce_label__4g = obj;
+                    lv_obj_set_pos(obj, 91, 46);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_text_font(obj, &ui_font_oswald_16, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(theme_colors[active_theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text_static(obj, "0.4g");
+                }
+                {
+                    // gforce_label_.6g
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.gforce_label__6g = obj;
+                    lv_obj_set_pos(obj, 92, 20);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_text_font(obj, &ui_font_oswald_16, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(theme_colors[active_theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text_static(obj, "0.6g");
+                }
+                {
+                    // gforce_label_.8g
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    objects.gforce_label__8g = obj;
+                    lv_obj_set_pos(obj, 92, -5);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_text_font(obj, &ui_font_oswald_16, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_text_color(obj, lv_color_hex(theme_colors[active_theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text_static(obj, "0.8g");
+                }
+                {
+                    // gforce_knob
+                    lv_obj_t *obj = lv_obj_create(parent_obj);
+                    objects.gforce_knob = obj;
+                    lv_obj_set_pos(obj, 100, 100);
+                    lv_obj_set_size(obj, 10, 10);
+                    lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][9]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_width(obj, 5, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_spread(obj, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_shadow_color(obj, lv_color_hex(theme_colors[active_theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_set_style_bg_opa(obj, 0, LV_PART_SCROLLBAR | LV_STATE_DEFAULT);
+                }
+            }
+        }
+    }
+    
+    tick_screen_gauge_g_force();
+}
+
+void tick_screen_gauge_g_force() {
+}
+
 typedef void (*tick_screen_func_t)();
 tick_screen_func_t tick_screen_funcs[] = {
     tick_screen_gauge_oil_pressure,
@@ -944,9 +1118,10 @@ tick_screen_func_t tick_screen_funcs[] = {
     tick_screen_gauge_voltage,
     tick_screen_gauge_temperature_clock,
     tick_screen_gauge_clock_temperature,
+    tick_screen_gauge_g_force,
 };
 void tick_screen(int screen_index) {
-    if (screen_index >= 0 && screen_index < 5) {
+    if (screen_index >= 0 && screen_index < 6) {
         tick_screen_funcs[screen_index]();
     }
 }
@@ -961,6 +1136,7 @@ void tick_screen_by_id(enum ScreensEnum screenId) {
 ext_font_desc_t fonts[] = {
     { "oswald_22", &ui_font_oswald_22 },
     { "oswald_36", &ui_font_oswald_36 },
+    { "oswald_16", &ui_font_oswald_16 },
 #if LV_FONT_MONTSERRAT_8
     { "MONTSERRAT_8", &lv_font_montserrat_8 },
 #endif
@@ -1043,6 +1219,8 @@ void change_color_theme(uint32_t theme_index) {
         lv_obj_set_style_line_color(objects.pressure_gauge_scale, lv_color_hex(theme_colors[theme_index][4]), LV_PART_INDICATOR);
         lv_obj_set_style_text_color(objects.pressure_gauge_scale, lv_color_hex(theme_colors[theme_index][5]), LV_PART_INDICATOR);
         lv_obj_set_style_line_color(objects.pressure_gauge_needle, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.pressure_gauge_knob, lv_color_hex(theme_colors[theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_grad_color(objects.pressure_gauge_knob, lv_color_hex(theme_colors[theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_shadow_color(objects.pressure_gauge_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
     }
     {
@@ -1054,6 +1232,8 @@ void change_color_theme(uint32_t theme_index) {
         lv_obj_set_style_line_color(objects.temperature_gauge_scale, lv_color_hex(theme_colors[theme_index][4]), LV_PART_INDICATOR);
         lv_obj_set_style_text_color(objects.temperature_gauge_scale, lv_color_hex(theme_colors[theme_index][5]), LV_PART_INDICATOR);
         lv_obj_set_style_line_color(objects.temperature_gauge_needle, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.temperature_gauge_knob, lv_color_hex(theme_colors[theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_grad_color(objects.temperature_gauge_knob, lv_color_hex(theme_colors[theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_shadow_color(objects.temperature_gauge_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
     }
     {
@@ -1065,6 +1245,8 @@ void change_color_theme(uint32_t theme_index) {
         lv_obj_set_style_line_color(objects.voltage_gauge_scale, lv_color_hex(theme_colors[theme_index][4]), LV_PART_INDICATOR);
         lv_obj_set_style_text_color(objects.voltage_gauge_scale, lv_color_hex(theme_colors[theme_index][5]), LV_PART_INDICATOR);
         lv_obj_set_style_line_color(objects.voltage_gauge_needle, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.voltage_gauge_knob, lv_color_hex(theme_colors[theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_grad_color(objects.voltage_gauge_knob, lv_color_hex(theme_colors[theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_shadow_color(objects.voltage_gauge_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
     }
     {
@@ -1076,6 +1258,8 @@ void change_color_theme(uint32_t theme_index) {
         lv_obj_set_style_line_color(objects.temp_clock_gauge_scale, lv_color_hex(theme_colors[theme_index][4]), LV_PART_INDICATOR);
         lv_obj_set_style_text_color(objects.temp_clock_gauge_scale, lv_color_hex(theme_colors[theme_index][5]), LV_PART_INDICATOR);
         lv_obj_set_style_line_color(objects.temp_clock_gauge_needle, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.temp_clock_gauge_knob, lv_color_hex(theme_colors[theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_grad_color(objects.temp_clock_gauge_knob, lv_color_hex(theme_colors[theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_shadow_color(objects.temp_clock_gauge_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
     }
     {
@@ -1089,17 +1273,41 @@ void change_color_theme(uint32_t theme_index) {
         lv_obj_set_style_text_color(objects.clock_temp_gauge_scale, lv_color_hex(theme_colors[theme_index][5]), LV_PART_INDICATOR);
         lv_obj_set_style_line_color(objects.clock_temp_gauge_needle_minute, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_line_color(objects.clock_temp_gauge_needle_hour, lv_color_hex(theme_colors[theme_index][0]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.clock_temp_gauge_knob, lv_color_hex(theme_colors[theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_grad_color(objects.clock_temp_gauge_knob, lv_color_hex(theme_colors[theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_obj_set_style_shadow_color(objects.clock_temp_gauge_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
+    }
+    {
+        lv_obj_set_style_bg_color(objects.gforce_black_background, lv_color_hex(theme_colors[theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_color(objects.gforce_ring_0_2g, lv_color_hex(theme_colors[theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_color(objects.gforce_ring_0_4g, lv_color_hex(theme_colors[theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_color(objects.gforce_ring_0_6g, lv_color_hex(theme_colors[theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_color(objects.gforce_ring_0_8g, lv_color_hex(theme_colors[theme_index][3]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_outline_color(objects.gforce_line_vertical, lv_color_hex(theme_colors[theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_line_color(objects.gforce_line_vertical, lv_color_hex(theme_colors[theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_outline_color(objects.gforce_line_horizontal, lv_color_hex(theme_colors[theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_line_color(objects.gforce_line_horizontal, lv_color_hex(theme_colors[theme_index][4]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(objects.gforce_label__2g, lv_color_hex(theme_colors[theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.gforce_label__2g, lv_color_hex(theme_colors[theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(objects.gforce_label__4g, lv_color_hex(theme_colors[theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.gforce_label__4g, lv_color_hex(theme_colors[theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(objects.gforce_label__6g, lv_color_hex(theme_colors[theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.gforce_label__6g, lv_color_hex(theme_colors[theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(objects.gforce_label__8g, lv_color_hex(theme_colors[theme_index][5]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.gforce_label__8g, lv_color_hex(theme_colors[theme_index][2]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_bg_color(objects.gforce_knob, lv_color_hex(theme_colors[theme_index][9]), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_shadow_color(objects.gforce_knob, lv_color_hex(theme_colors[theme_index][1]), LV_PART_MAIN | LV_STATE_DEFAULT);
     }
     lv_obj_invalidate(objects.gauge_oil_pressure);
     lv_obj_invalidate(objects.gauge_oil_temperature);
     lv_obj_invalidate(objects.gauge_voltage);
     lv_obj_invalidate(objects.gauge_temperature_clock);
     lv_obj_invalidate(objects.gauge_clock_temperature);
+    lv_obj_invalidate(objects.gauge_g_force);
 }
-uint32_t theme_colors[2][7] = {
-    { 0xffffffff, 0xff000000, 0xff000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff },
-    { 0xffff3c00, 0xffff3c00, 0xff1e0700, 0xffff3c00, 0xffff3c00, 0xffff3c00, 0xffff3c00 },
+uint32_t theme_colors[2][11] = {
+    { 0xffffffff, 0xff000000, 0xff000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xff2f2f2f, 0xff1a1a1a, 0xffff3c00, 0xffff3c00 },
+    { 0xffff3c00, 0xffff3c00, 0xff1e0700, 0xffff3c00, 0xffff3c00, 0xffff3c00, 0xffff3c00, 0xff222121, 0xff151515, 0xffffffff, 0xffffffff },
 };
 
 //
@@ -1120,4 +1328,5 @@ void create_screens() {
     create_screen_gauge_voltage();
     create_screen_gauge_temperature_clock();
     create_screen_gauge_clock_temperature();
+    create_screen_gauge_g_force();
 }

@@ -1,8 +1,10 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36_V9.eez-project]:/userPages/3",
+    "selectedUserPageObject": "[Gauge_All_E36_V9.eez-project]:/userPages/5",
     "selectedGlobalVariableObject": "[Gauge_All_E36_V9.eez-project]:/variables/globalVariables/4",
     "selectedThemeObject": "[Gauge_All_E36_V9.eez-project]:/themes/0",
+    "selectedThemeColorObject": "[Gauge_All_E36_V9.eez-project]:/colors/10",
+    "selectedFontObject": "[Gauge_All_E36_V9.eez-project]:/fonts/2",
     "selectedBitmapObject": "[Gauge_All_E36_V9.eez-project]:/bitmaps/7",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -26,7 +28,7 @@
           },
           {
             "type": "border",
-            "selected": 0,
+            "selected": 3,
             "size": 170.5,
             "location": "right",
             "children": [
@@ -191,18 +193,29 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 45.42372881355932,
+              "weight": 36.386311193744916,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#b32bbfa3-23c5-475d-8648-58d771c70759",
-                  "name": "Gauge_Temperature_Clock",
+                  "id": "#09c1f1d2-653c-4fb4-b253-c7173d2670f7",
+                  "name": "Gauge_G_Force",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[Gauge_All_E36_V9.eez-project]:/userPages/3",
+                    "objectPath": "[Gauge_All_E36_V9.eez-project]:/userPages/5",
                     "permanent": false
+                  },
+                  "icon": "svg:page"
+                },
+                {
+                  "type": "tab",
+                  "id": "#b32bbfa3-23c5-475d-8648-58d771c70759",
+                  "name": "Gauge_Oil_Pressure",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[Gauge_All_E36_V9.eez-project]:/userPages/0",
+                    "permanent": true
                   },
                   "icon": "svg:page"
                 }
@@ -212,7 +225,7 @@
             {
               "type": "row",
               "id": "#7ca681ba-ddae-4115-80c5-ffc46a7bbfc3",
-              "weight": 25.338983050847457,
+              "weight": 34.376400670661866,
               "children": [
                 {
                   "type": "tabset",
@@ -846,7 +859,8 @@
                       "component": "styles",
                       "enableClose": false
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -1064,16 +1078,17 @@
           "2": {},
           "3": {},
           "4": {
-            "$selected": true
+            "0": {},
+            "1": {}
           }
         }
       },
       "transform": {
         "translate": {
-          "x": -186.80416666666673,
-          "y": -201.14583333333326
+          "x": -167.4970029970035,
+          "y": -284.4607434232434
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1097,18 +1112,21 @@
       "selectionBack": {
         "0": {
           "1": {},
-          "2": {},
+          "3": {},
           "4": {
-            "$selected": true
+            "0": {},
+            "1": {
+              "$selected": true
+            }
           }
         }
       },
       "transform": {
         "translate": {
-          "x": -226,
-          "y": -228
+          "x": -216.04545454545428,
+          "y": -258.76515151515144
         },
-        "scale": 1.75
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1121,20 +1139,21 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "2": {
-            "0": {}
-          },
+          "3": {},
           "4": {
-            "$selected": true
+            "0": {},
+            "1": {
+              "$selected": true
+            }
           }
         }
       },
       "transform": {
         "translate": {
-          "x": -200,
-          "y": -223
+          "x": -219.34722222222214,
+          "y": -278.8055555555556
         },
-        "scale": 1.75
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1147,21 +1166,22 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "1": {
-            "$selected": true
-          },
-          "2": {
-            "0": {}
-          },
-          "4": {}
+          "1": {},
+          "3": {},
+          "4": {
+            "0": {},
+            "1": {
+              "$selected": true
+            }
+          }
         }
       },
       "transform": {
         "translate": {
-          "x": -238,
-          "y": -204
+          "x": -228.43186813186819,
+          "y": -226.5032967032967
         },
-        "scale": 1.75
+        "scale": 1.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1175,18 +1195,19 @@
       "selectionBack": {
         "0": {
           "0": {},
-          "2": {},
+          "3": {},
           "4": {
+            "1": {},
             "$selected": true
           }
         }
       },
       "transform": {
         "translate": {
-          "x": -198,
-          "y": -295
+          "x": -161.75,
+          "y": -303.75
         },
-        "scale": 1.75
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1259,6 +1280,31 @@
         "secondToPx": 200,
         "scrollLeft": 0
       }
+    },
+    "[Gauge_All_E36_V9.eez-project]:/userPages/5[flow-state]": {
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "0": {
+            "0": {},
+            "1": {},
+            "3": {}
+          }
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -236.75476190476178,
+          "y": -210.96071428571418
+        },
+        "scale": 2
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
     }
   },
   "activeOutputSection": 0,
@@ -1273,25 +1319,26 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "INDICATOR",
+  "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "POSITION AND SIZE",
     "MISCELLANEOUS",
     "MARGIN",
     "LAYOUT",
-    "BORDER",
     "OUTLINE",
     "SHADOW",
-    "LINE",
     "BACKGROUND",
     "PADDING",
     "TEXT",
-    "ARC"
+    "ARC",
+    "BORDER",
+    "LINE",
+    "IMAGE"
   ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 1.75,
+  "flowZoom": 2,
   "implementationLanguage": "C",
   "openDialogDefaultPath": "/Users/jan/Documents/esp/projects/BC_Big_E36/fonts/oswald/Oswald-Regular.ttf"
 }

@@ -16,7 +16,8 @@ enum ScreensEnum {
     SCREEN_ID_GAUGE_VOLTAGE = 3,
     SCREEN_ID_GAUGE_TEMPERATURE_CLOCK = 4,
     SCREEN_ID_GAUGE_CLOCK_TEMPERATURE = 5,
-    _SCREEN_ID_LAST = 5
+    SCREEN_ID_GAUGE_G_FORCE = 6,
+    _SCREEN_ID_LAST = 6
 };
 
 typedef struct _objects_t {
@@ -25,6 +26,7 @@ typedef struct _objects_t {
     lv_obj_t *gauge_voltage;
     lv_obj_t *gauge_temperature_clock;
     lv_obj_t *gauge_clock_temperature;
+    lv_obj_t *gauge_g_force;
     lv_obj_t *pressure_black_background;
     lv_obj_t *pressure_gauge_image;
     lv_obj_t *pressure_gauge_value;
@@ -61,6 +63,18 @@ typedef struct _objects_t {
     lv_obj_t *clock_temp_gauge_needle_minute;
     lv_obj_t *clock_temp_gauge_needle_hour;
     lv_obj_t *clock_temp_gauge_knob;
+    lv_obj_t *gforce_black_background;
+    lv_obj_t *gforce_ring_0_2g;
+    lv_obj_t *gforce_ring_0_4g;
+    lv_obj_t *gforce_ring_0_6g;
+    lv_obj_t *gforce_ring_0_8g;
+    lv_obj_t *gforce_line_vertical;
+    lv_obj_t *gforce_line_horizontal;
+    lv_obj_t *gforce_label__2g;
+    lv_obj_t *gforce_label__4g;
+    lv_obj_t *gforce_label__6g;
+    lv_obj_t *gforce_label__8g;
+    lv_obj_t *gforce_knob;
 } objects_t;
 
 extern objects_t objects;
@@ -109,6 +123,9 @@ void tick_screen_gauge_temperature_clock();
 void create_screen_gauge_clock_temperature();
 void tick_screen_gauge_clock_temperature();
 
+void create_screen_gauge_g_force();
+void tick_screen_gauge_g_force();
+
 void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
 
@@ -128,9 +145,13 @@ enum Colors {
     COLOR_ID_MAJOR_TICKS,
     COLOR_ID_LABELS,
     COLOR_ID_UNIT,
+    COLOR_ID_KNOB_LIGHT,
+    COLOR_ID_KNOB_DARK,
+    COLOR_ID_GFORCE_KNOB,
+    COLOR_ID_TRAIL_LINE,
 };
 void change_color_theme(uint32_t themeIndex);
-extern uint32_t theme_colors[2][7];
+extern uint32_t theme_colors[2][11];
 extern uint32_t active_theme_index;
 
 // Global state variables
