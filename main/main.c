@@ -128,6 +128,7 @@ bool night_mode = false;
 static void update_values(int displayID)
 {
     double value = 0.0;
+    bool time_to_update_outdoor_temp = false;
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
@@ -174,40 +175,52 @@ static void update_values(int displayID)
             
         break;
         case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK:
+            time_to_update_outdoor_temp = get_now_time_ms() - get_last_executed_time_per_screen(displayID) > MEASURE_DELAY_TIME_OUT_TEMP_MS ? true : false;
 
-            if(get_now_time_ms() - get_last_executed_time_per_screen(displayID) > MEASURE_DELAY_TIME_OUT_TEMP_MS)
+            if(time_to_update_outdoor_temp || getTimeIsUpdated())
             {
-                if(is_testmode_activated()) {
-                    value = lv_Clocktemp_test();
-                }
-                else {
-                    value = get_adc_outside_temp();
+                if (time_to_update_outdoor_temp ) {
+                    if(is_testmode_activated()) {
+                        value = lv_Clocktemp_test();
+                    }
+                    else {
+                        value = get_adc_outside_temp();
+                    }
+                    calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
+                    lvgl_lock();
+                    set_var_lvgl_value_temperature( round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK), 2) * DISPLAYS[displayID].eez_factor);
+                    lvgl_unlock();
                 }
 
                 time(&now);
                 localtime_r(&now, &timeinfo);
                 char output_string[20];
                 snprintf(output_string, sizeof(output_string), "%02d:%02d", timeinfo.tm_hour, timeinfo.tm_min);
-                calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
 
                 lvgl_lock();
                 set_var_lvgl_value_clock(output_string); 
-                set_var_lvgl_value_temperature( round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK), 2) * DISPLAYS[displayID].eez_factor);
                 lvgl_unlock();
+                setTimeIsUpdated(false);
             }
 
         break;
         case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE:
-
-            if(get_now_time_ms() - get_last_executed_time_per_screen(displayID) > MEASURE_DELAY_TIME_OUT_TEMP_MS)
+            time_to_update_outdoor_temp = get_now_time_ms() - get_last_executed_time_per_screen(displayID) > MEASURE_DELAY_TIME_OUT_TEMP_MS ? true : false;
+            if(time_to_update_outdoor_temp || getTimeIsUpdated())
             {
-                if(is_testmode_activated()) {
-                    value = lv_Clocktemp_test();
+                if (time_to_update_outdoor_temp ) {
+
+                    if(is_testmode_activated()) {
+                        value = lv_Clocktemp_test();
+                    }
+                    else {
+                        value = get_adc_outside_temp();
+                    }
+                    calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
+                    lvgl_lock();
+                    set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
+                    lvgl_unlock();
                 }
-                else {
-                    value = get_adc_outside_temp();
-                }
-                calculate_value(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE, value);
 
                 time(&now);
                 localtime_r(&now, &timeinfo);
@@ -216,8 +229,8 @@ static void update_values(int displayID)
                 lvgl_lock();
                 set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
                 set_var_lvgl_value_clock_minute(timeinfo.tm_min*10);
-                set_var_lvgl_value_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_CLOCK_TEMPERATURE));
                 lvgl_unlock();
+                setTimeIsUpdated(false);
             }
 
         break;
@@ -236,7 +249,7 @@ static void update_values(int displayID)
  */
 static void tick_switch(int displayID)
 {
-    if(updateLVGLScreen(DISPLAYS[displayID].screen_selection))
+    if(updateLVGLScreen(DISPLAYS[displayID].screen_selection) || (getTimeIsUpdated() && (DISPLAYS[displayID].screen_selection == SCREEN_ID_GAUGE_TEMPERATURE_CLOCK || DISPLAYS[displayID].screen_selection == SCREEN_ID_GAUGE_CLOCK_TEMPERATURE)))
     {
         lv_display_set_default(DISPLAYS[displayID].lv_displays);
         switch (DISPLAYS[displayID].screen_selection)
@@ -274,7 +287,8 @@ static void tick_switch(int displayID)
             case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK: 
                 tick_screen_gauge_temperature_clock(); break;
 
-            case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE: tick_screen_gauge_clock_temperature(); break;
+            case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE: 
+                tick_screen_gauge_clock_temperature(); break;
         }
 
         update_last_executed_time_per_screen(displayID);
@@ -388,6 +402,7 @@ static void lv_tick_task_screen(void *pv)
             testmodeActivated = true;
             reset_test_values();
             reset_values(-1);
+            reset_brightness();
         }
         else if (!is_testmode_activated() && testmodeActivated)
         {
@@ -398,9 +413,9 @@ static void lv_tick_task_screen(void *pv)
         if (isPWM() && is_testmode_activated()){
             pwm_sensor_print();
         }
-    lvgl_lock();
-    lv_timer_handler();
-    lvgl_unlock();
+        lvgl_lock();
+        lv_timer_handler();
+        lvgl_unlock();
 
         vTaskDelay(pdMS_TO_TICKS(MAIN_TICK_TIME_DELAY_MS));
     }

@@ -192,3 +192,7 @@ void rtc_set_last_executionTime(struct timeval* tv );
 inline bool isCheckPossible() { return time_Update_Possible; }
 
 void setIsCheckPossible(bool isPossible);
+
+void setTimeIsUpdated(bool isUpdated);
+
+bool getTimeIsUpdated();

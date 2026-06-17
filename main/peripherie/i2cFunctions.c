@@ -29,6 +29,7 @@ int64_t last_brightness_check_time = 0;
 int64_t now_ms = 0;
 
 bool time_Update_Possible = true;
+bool time_is_updated = true;
 
 
 /**
@@ -213,3 +214,7 @@ void rtc_set_last_executionTime(struct timeval* tv ){
 }
 
 void setIsCheckPossible(bool isPossible) { time_Update_Possible = isPossible; }
+
+void setTimeIsUpdated(bool isUpdated) { time_is_updated = isUpdated; }
+
+bool getTimeIsUpdated() { return time_is_updated; }

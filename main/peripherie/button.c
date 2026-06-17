@@ -113,6 +113,7 @@ static void button_event_cb(void *btn_handle, void *usr_data) {
     // Update last execution time for hours
     rtc_set_last_executionTime(&tv);
     setIsCheckPossible(true);
+    setTimeIsUpdated(true);
 }
 
 /**
@@ -220,6 +221,7 @@ static void button_event_cb_back(void *btn_handle, void *usr_data) {
     // Update last execution time for hours
     rtc_set_last_executionTime(&tv);
     setIsCheckPossible(true);
+    setTimeIsUpdated(true);
 }
 
 /**
