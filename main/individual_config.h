@@ -18,7 +18,7 @@
  * @brief Feature flags - enable/disable optional modules.
  */
 #define USE_BUZZER                         true   // true: enable buzzer alert functionality
-#define LOGGING_ENABLED                    false   // true: send debug output via serial logger
+#define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 #define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
 #define THIRD_BUTTON                       true     // true: enable the third button to switch the last displays
@@ -515,6 +515,7 @@
  */
 // LSB (Least Significant Bit) values for different ranges
 #define ADC_MAX_V_VALID                    3.25f     ///< Maximum valid ADC voltage (3.25V = overcurrent)
+#define ADC_ADS_REF_V_MIN_VALID            1.3f      ///< min ADC reference voltage for valid readings (below this, readings are unreliable)
 #define ADC_ADS_REF_V                      3.3f      ///< ADC reference voltage (typically 3.3V)
 #define ADC_FAIL_VALUE                     -99.0f    ///< Error return value for failed readings
 
