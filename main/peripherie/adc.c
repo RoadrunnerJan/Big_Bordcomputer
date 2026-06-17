@@ -251,7 +251,7 @@ float get_adc_volt() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V | ADC value: %.2f V", v_board, raw / 1000.0f);
         printLog(log_msg);
     #endif
-    return v_board;
+    return round_Values(v_board, 2);
 }
 
 float get_adc_volt_bel() {
@@ -264,7 +264,7 @@ float get_adc_volt_bel() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V | ADC value: %.2f V", v_bel, raw / 1000.0f);
         printLog(log_msg);
     #endif
-    return v_bel;
+    return round_Values(v_bel, 2); // Round to 2 decimal places
 }
 
 float get_adc_oil_temp() {
@@ -273,12 +273,12 @@ float get_adc_oil_temp() {
     float oil_t = raw_to_res_safe(raw, ADC_TEMP_PULLUP);
     if (oil_t < ADC_TEMP_VAL_TO_FAIL_MIN) oil_t = ADC_FAIL_VALUE; // Error (open circuit)
     else oil_t = interpolate_temp(oil_t);
-    char log_msg[100];
     #if LOGGING_ENABLED == true
+        char log_msg[100];
         snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C | resistor value: %.2f", oil_t, raw_to_res_safe(raw, ADC_TEMP_PULLUP));
         printLog(log_msg);
     #endif
-    return oil_t;
+    return round_Values(oil_t, 2); // Round to 2 decimal places
 }
 
 float get_adc_oil_press() {
@@ -287,12 +287,12 @@ float get_adc_oil_press() {
     float oil_p = raw_to_res_safe(raw, ADC_PRES_PULLUP);
     if (oil_p < ADC_PRES_VAL_TO_FAIL_MIN || oil_p > ADC_PRES_VAL_TO_FAIL_MAX) oil_p = ADC_FAIL_VALUE; // Error or implausible reading
     else oil_p = interpolate_pressure(oil_p);
-    char log_msg[100];
     #if LOGGING_ENABLED == true
+        char log_msg[100];
         snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar | resistor value: %.2f", oil_p, raw_to_res_safe(raw, ADC_PRES_PULLUP));
         printLog(log_msg);
     #endif
-    return oil_p;
+    return round_Values(oil_p, 2); // Round to 2 decimal places
 }
 
 float get_adc_outside_temp() {
@@ -302,12 +302,12 @@ float get_adc_outside_temp() {
     if (outside_t < ADC_OUT_TEMP_VAL_TO_FAIL_MIN || outside_t > ADC_OUT_TEMP_VAL_TO_FAIL_MAX) outside_t = ADC_FAIL_VALUE; // Error or implausible reading
     else outside_t = interpolate_outside_temp(outside_t);
     if (outside_t > VALUE_MAX_OUT_TEMP *1.5f) outside_t = ADC_FAIL_VALUE; // Error or implausible reading
-    char log_msg[100];
     #if LOGGING_ENABLED == true
+        char log_msg[100];
         snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, raw_to_res_safe(raw, ADC_OUT_TEMP_PULLUP));
         printLog(log_msg);
     #endif
-    return outside_t;
+    return round_Values(outside_t, 2); // Round to 2 decimal places
 }
 
 /**
@@ -317,12 +317,17 @@ float get_adc_outside_temp() {
  * and updates the global reference_voltage variable for use in raw_to_res_safe().
  */
 float get_adc_reference_voltage(void) {
-    char log_msg[50];
     float reference_voltage = ((float) read_adc_value_raw(ADC_3V3)) / 1000.0f;
     float volate_divider = (ADC_3V3_PULLUP + ADC_3V3_PULLDOWN) / ADC_3V3_PULLDOWN; // Teiler 1k/1k
     #if LOGGING_ENABLED == true
+        char log_msg[50];
         snprintf(log_msg, sizeof(log_msg), "Measured ADC reference voltage: %.2f V", reference_voltage*volate_divider);    
         printLog(log_msg);
     #endif
     return reference_voltage*volate_divider; // Multiply by voltage divider because of voltage divider on the reference measurement
+}
+
+float round_Values(float value, int decimals) {
+    float multiplier = powf(10.0f, decimals);
+    return roundf(value * multiplier) / multiplier;
 }

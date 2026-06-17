@@ -302,6 +302,7 @@ void display_init(void)
         ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(DISPLAYS[i].panel_handle, true));
         ESP_ERROR_CHECK(esp_lcd_panel_mirror(DISPLAYS[i].panel_handle, DISPLAYS[i].lcd_mirror_x, DISPLAYS[i].lcd_mirror_y)); // Optional: Mirror display horizontally
 
+        DISPLAYS[i].value_changed = false;
     }
 
     const esp_timer_create_args_t periodic_timer_args = {

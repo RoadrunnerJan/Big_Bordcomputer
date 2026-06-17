@@ -32,6 +32,7 @@
 #include "peripherie/pwmSensor.h"
 #include "peripherie/pwmSwitch.h"
 #include "peripherie/adc.h"
+#include "peripherie/button.h"
 
 /* ===== Utilities ===== */
 #include "logging/logging.h"
@@ -42,6 +43,8 @@
 #if USE_BUZZER == true
     #include "peripherie/buzzer.h"
 #endif
+
+#include "math.h"
 
 // TODO check connected number of displays; save config in preferences
 //#include <preferences.h>
@@ -125,7 +128,6 @@ bool night_mode = false;
 static void update_values(int displayID)
 {
     double value = 0.0;
-    bool value_changed = false;
     switch (DISPLAYS[displayID].screen_selection)
     {
         case SCREEN_ID_GAUGE_OIL_PRESSURE:
@@ -139,14 +141,7 @@ static void update_values(int displayID)
                     if (isPWM()) value = get_pwm_value(PWM_SENSOR_PRES_PULSE_ID);
                     else value = get_adc_oil_press();
                 }
-                value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
-
-                if (value_changed) {
-                    lvgl_lock();
-                    set_var_lvgl_value_oil_pressure(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE) * DISPLAYS[displayID].eez_factor);
-                    set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
-                    lvgl_unlock();
-                }
+                DISPLAYS[displayID].value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_PRESSURE, value);
             }
             
         break;
@@ -160,14 +155,7 @@ static void update_values(int displayID)
                     if (isPWM()) value = get_pwm_value(PWM_SENSOR_TEMP_PULSE_ID);
                     else value = get_adc_oil_temp();
                 }
-                value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
-
-                if (value_changed) {
-                    lvgl_lock();
-                    set_var_lvgl_value_oil_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE) * DISPLAYS[displayID].eez_factor);
-                    set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
-                    lvgl_unlock();
-                }
+                DISPLAYS[displayID].value_changed = calculate_value(SCREEN_ID_GAUGE_OIL_TEMPERATURE, value);
             }
             
         break;
@@ -181,14 +169,7 @@ static void update_values(int displayID)
                 else {
                     value = get_adc_volt();
                 }
-                value_changed = calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
-                
-                if (value_changed) {
-                    lvgl_lock();
-                    set_var_lvgl_value_voltage(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE) * DISPLAYS[displayID].eez_factor);
-                    set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
-                    lvgl_unlock();
-                }
+                DISPLAYS[displayID].value_changed = calculate_value(SCREEN_ID_GAUGE_VOLTAGE, value);
             }
             
         break;
@@ -211,7 +192,7 @@ static void update_values(int displayID)
 
                 lvgl_lock();
                 set_var_lvgl_value_clock(output_string); 
-                set_var_lvgl_value_temperature(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK) * DISPLAYS[displayID].eez_factor);
+                set_var_lvgl_value_temperature( round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK), 2) * DISPLAYS[displayID].eez_factor);
                 lvgl_unlock();
             }
 
@@ -261,10 +242,38 @@ static void tick_switch(int displayID)
         switch (DISPLAYS[displayID].screen_selection)
         {
             case SCREEN_ID_GAUGE_OIL_PRESSURE: 
-                tick_screen_gauge_oil_pressure(); break;
-            case SCREEN_ID_GAUGE_OIL_TEMPERATURE: tick_screen_gauge_oil_temperature(); break;
-            case SCREEN_ID_GAUGE_VOLTAGE: tick_screen_gauge_voltage(); break;
-            case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK: tick_screen_gauge_temperature_clock(); break;
+                if (DISPLAYS[displayID].value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_oil_pressure(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
+                    tick_screen_gauge_oil_pressure();
+                    lvgl_unlock();
+                    DISPLAYS[displayID].value_changed = false;
+                }
+                break;
+            case SCREEN_ID_GAUGE_OIL_TEMPERATURE: 
+                if (DISPLAYS[displayID].value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_oil_temperature(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
+                    tick_screen_gauge_oil_temperature();
+                    lvgl_unlock();
+                    DISPLAYS[displayID].value_changed = false;
+                }
+                break;
+            case SCREEN_ID_GAUGE_VOLTAGE: 
+                if (DISPLAYS[displayID].value_changed) {
+                    lvgl_lock();
+                    set_var_lvgl_value_voltage(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
+                    tick_screen_gauge_voltage();
+                    lvgl_unlock();
+                    DISPLAYS[displayID].value_changed = false;
+                }
+                break;
+            case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK: 
+                tick_screen_gauge_temperature_clock(); break;
+
             case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE: tick_screen_gauge_clock_temperature(); break;
         }
 

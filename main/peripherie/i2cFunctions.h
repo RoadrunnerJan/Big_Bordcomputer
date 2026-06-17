@@ -24,10 +24,6 @@
 /* ===== ESP-IDF I2C Driver ===== */
 #include "driver/i2c_master.h"
 
-/* ===== Button Library ===== */
-#include "iot_button.h"
-#include "button_gpio.h"
-
 /* ===== RTOS & System ===== */
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -58,49 +54,6 @@ extern i2c_device_config_t ds3231_cfg;
  * @brief DS3231 RTC device handle for read/write operations.
  */
 extern i2c_master_dev_handle_t ds3231_handle;
-
-/* ===== Time Adjustment Buttons ===== */
-/**
- * @brief Button configuration for hour and minute adjustment buttons.
- *
- * Index: [0] = Hour button, [1] = Minute button
- */
-extern button_config_t cfg_time[2];
-
-/**
- * @brief GPIO configuration for hour and minute adjustment buttons.
- *
- * Index: [0] = Hour button, [1] = Minute button
- */
-extern button_gpio_config_t gpio_cfg_time[2];
-
-/**
- * @brief Button handles for hour and minute adjustment buttons.
- *
- * Index: [0] = Hour button, [1] = Minute button
- */
-extern button_handle_t btn_time[2];
-
-/* ===== Testmode Activation Values ===== */
-/**
- * @brief Global test mode activation flag.
- */
-extern bool testmode_activated;
-
-/**
- * @brief Timestamp of last testmode activation sequence start.
- */
-extern TickType_t testmode_activation_time;
-
-/**
- * @brief Counter for consecutive button presses in activation sequence.
- */
-extern int testmode_activation_count;
-
-/**
- * @brief Current state in testmode activation sequence.
- */
-extern int testmode_activation_state;
 
 /**
  * @brief System startup time in seconds since Unix epoch.
@@ -148,26 +101,6 @@ void init_i2c(void);
  * Reads current time from the DS3231 and updates ESP32 system time.
  */
 void sync_rtc_to_system(void);
-
-/**
- * @brief Initialize the time adjustment buttons and callbacks.
- *
- * Configures GPIO buttons for hour and minute adjustment with interrupt handlers.
- */
-void init_time_buttons(void);
-
-/**
- * @brief Get the state of testmode activation.
- *
- * @return true if test mode is currently active, false otherwise
- */
-inline bool is_testmode_activated(void) {
-    #if TESTMODE_ACTIVE == true
-        return true;
-    #else
-        return testmode_activated;
-    #endif
-}
 
 /**
  * @brief Get the system startup time in seconds.
@@ -241,7 +174,12 @@ void update_last_executed_time_per_screen(int displayID);
  * Records when brightness calculations were last performed.
  * Separates brightness update frequency from display update frequency.
  */
+
 void set_last_executed_brightness();
+
+void rtc_set_time(struct tm* timeinfo);
+
+void rtc_set_last_executionTime(struct timeval* tv );
 
 /**
  * @brief Check if time value updates are currently permitted.
@@ -252,3 +190,5 @@ void set_last_executed_brightness();
  * @return true if time updates are allowed, false if blocked
  */
 inline bool isCheckPossible() { return time_Update_Possible; }
+
+void setIsCheckPossible(bool isPossible);

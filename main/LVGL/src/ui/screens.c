@@ -124,8 +124,8 @@ void create_screen_gauge_oil_pressure() {
             // pressure_gauge_scale
             lv_obj_t *obj = lv_scale_create(parent_obj);
             objects.pressure_gauge_scale = obj;
-            lv_obj_set_pos(obj, 6, 6);
-            lv_obj_set_size(obj, 228, 228);
+            lv_obj_set_pos(obj, 7, 7);
+            lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
             lv_scale_set_range(obj, 0, 6000);
             lv_scale_set_angle_range(obj, 270);
@@ -196,7 +196,7 @@ void create_screen_gauge_oil_pressure() {
                     // pressure_gauge_knob
                     lv_obj_t *obj = lv_obj_create(parent_obj);
                     objects.pressure_gauge_knob = obj;
-                    lv_obj_set_pos(obj, 97, 97);
+                    lv_obj_set_pos(obj, 96, 96);
                     lv_obj_set_size(obj, 34, 34);
                     lv_obj_set_style_bg_color(obj, lv_color_hex(theme_colors[active_theme_index][7]), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_grad_color(obj, lv_color_hex(theme_colors[active_theme_index][8]), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -303,8 +303,8 @@ void create_screen_gauge_oil_temperature() {
             // temperature_gauge_scale
             lv_obj_t *obj = lv_scale_create(parent_obj);
             objects.temperature_gauge_scale = obj;
-            lv_obj_set_pos(obj, 6, 6);
-            lv_obj_set_size(obj, 228, 228);
+            lv_obj_set_pos(obj, 7, 7);
+            lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
             lv_scale_set_range(obj, 0, 150000);
             lv_scale_set_angle_range(obj, 270);
@@ -481,8 +481,8 @@ void create_screen_gauge_voltage() {
             // voltage_gauge_scale
             lv_obj_t *obj = lv_scale_create(parent_obj);
             objects.voltage_gauge_scale = obj;
-            lv_obj_set_pos(obj, 6, 6);
-            lv_obj_set_size(obj, 228, 228);
+            lv_obj_set_pos(obj, 7, 7);
+            lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
             lv_scale_set_range(obj, 8000, 16000);
             lv_scale_set_angle_range(obj, 270);
@@ -658,8 +658,8 @@ void create_screen_gauge_temperature_clock() {
             // TempClock_gauge_scale
             lv_obj_t *obj = lv_scale_create(parent_obj);
             objects.temp_clock_gauge_scale = obj;
-            lv_obj_set_pos(obj, 6, 6);
-            lv_obj_set_size(obj, 228, 228);
+            lv_obj_set_pos(obj, 7, 7);
+            lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
             lv_scale_set_range(obj, -30000, 50000);
             lv_scale_set_angle_range(obj, 270);
@@ -827,8 +827,8 @@ void create_screen_gauge_clock_temperature() {
             // ClockTemp_gauge_scale
             lv_obj_t *obj = lv_scale_create(parent_obj);
             objects.clock_temp_gauge_scale = obj;
-            lv_obj_set_pos(obj, 6, 6);
-            lv_obj_set_size(obj, 228, 228);
+            lv_obj_set_pos(obj, 7, 7);
+            lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
             lv_scale_set_range(obj, 0, 600);
             lv_scale_set_angle_range(obj, 360);

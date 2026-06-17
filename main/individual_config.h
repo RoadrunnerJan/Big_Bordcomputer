@@ -21,6 +21,7 @@
 #define LOGGING_ENABLED                    false   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
 #define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
+#define THIRD_BUTTON                       true     // true: enable the third button to switch the last displays
 
 /*
 #################################################################################
@@ -191,6 +192,12 @@
     #define BUTTON_CLOCK_HOUR_LONG_MS      500        ///< Long press threshold for hour button
     #define BUTTON_CLOCK_HOUR_ACTIVE_LEVEL 0          ///< Active level: 0=active low, 1=active high
 
+    // if defined - this is a menu button to switch the displays and the designs
+    #define BUTTON_THIRD_PIN               33         ///< GPIO pin for third button (optional, used for switching displays)
+    #define BUTTON_THIRD_SHORT_MS          50         ///< Debounce time for third button in milliseconds
+    #define BUTTON_THIRD_LONG_MS           500        ///< Long press threshold for third button
+    #define BUTTON_THIRD_ACTIVE_LEVEL      0          ///< Active level: 0=active low, 1=active high
+
     #if USE_BUZZER == true
         /**
          * @brief Buzzer output GPIO pin configuration.
@@ -254,10 +261,10 @@
 /**
  * @brief Display rendering and initialization timing parameters.
  */
-#define EEZ_VALUE_FACTOR_1                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_2                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_3                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_4                 1000      ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_1                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_2                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_3                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_4                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
 #define GAUGE_ON_DELAY_MS                  1200      ///< Delay before gauges become active after boot (milliseconds)
 #define BUZZER_ON_DELAY_MS                 5000      ///< Delay before buzzer activation is allowed (milliseconds)
 #define MAIN_TASK_FINISHED_DELAY           5000      ///< Delay for main task completion (milliseconds)
@@ -599,7 +606,7 @@
 #define VALUE_OVERSAMPLING_OIL_TEMP        5         ///< Average 5 temperature readings
 #define VALUE_OVERSAMPLING_VOLT            4         ///< Average 4 voltage readings
 #define VALUE_OVERSAMPLING_OUT_TEMP        5         ///< Average 5 outdoor temperature readings
-#define VALUE_OVERSAMPLING_BRIGHT          10        ///< Average 10 brightness readings
+#define VALUE_OVERSAMPLING_BRIGHT          8         ///< Average 8 brightness readings
 
 /**
  * @brief Exponential moving average filter coefficients for noise reduction.
@@ -607,11 +614,11 @@
  * Lower values provide more smoothing but slower response to changes.
  * Range: 0.0 (very smooth, very slow) to 1.0 (no filtering, responsive).
  */
-#define FILTER_ALPHA_OIL_PRES              0.1f      ///< Pressure smoothing factor
+#define FILTER_ALPHA_OIL_PRES              0.05f      ///< Pressure smoothing factor
 #define FILTER_ALPHA_OIL_TEMP              0.1f      ///< Temperature smoothing factor
-#define FILTER_ALPHA_VOLT                  0.1f      ///< Voltage smoothing factor
+#define FILTER_ALPHA_VOLT                  0.1f     ///< Voltage smoothing factor
 #define FILTER_ALPHA_OUT_TEMP              0.1f      ///< Outdoor temperature smoothing factor
-#define FILTER_ALPHA_BEL                   0.1f      ///< Brightness smoothing factor
+#define FILTER_ALPHA_BEL                   0.05f      ///< Brightness smoothing factor
 
 /**
  * @brief Sensor measurement timing configuration.
@@ -623,7 +630,7 @@
 #define MEASURE_DELAY_TIME_OIL_TEMP_MS     (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Display 2 update interval (200ms)
 #define MEASURE_DELAY_TIME_OIL_PRES_MS     (MAIN_TICK_TIME_DELAY_MS *  2)  ///< Display 3 update interval (20ms)
 #define MEASURE_DELAY_TIME_VOLT_MS         (MAIN_TICK_TIME_DELAY_MS * 10)  ///< Display 4 update interval (100ms)
-#define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 20)  ///< Brightness update interval (100ms)
+#define MEASURE_DELAY_TIME_BRIGHT_MS       (MAIN_TICK_TIME_DELAY_MS * 10)  ///< Brightness update interval (100ms)
 #define MEASURE_DELAY_TIME_BRIGHT_TEST_MS  (MAIN_TICK_TIME_DELAY_MS * 200) ///< Test mode brightness interval (1000ms)
 
 /*

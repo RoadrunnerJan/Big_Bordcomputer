@@ -1,8 +1,11 @@
+#pragma once
+
 #include "esp_adc/adc_oneshot.h"
 #include "../individual_config.h"
 #include "esp_adc/adc_cali.h"
 #include "esp_adc/adc_cali_scheme.h"
 #include "../logging/logging.h"
+#include "math.h"
 
 /**
  * @brief Lookup table entry for sensor calibration.
@@ -125,3 +128,5 @@ float get_adc_outside_temp(void);
  * @return Current reference voltage in volts
  */
 float get_adc_reference_voltage(void);
+
+float round_Values(float value, int decimals);

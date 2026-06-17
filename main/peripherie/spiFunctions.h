@@ -104,6 +104,7 @@ struct display_settings
     esp_lcd_panel_dev_config_t panel_config;
 
     int eez_factor;
+    bool value_changed;
 };
 
 
