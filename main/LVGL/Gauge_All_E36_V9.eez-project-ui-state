@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[Gauge_All_E36_V9.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[Gauge_All_E36_V9.eez-project]:/userPages/-1",
     "selectedGlobalVariableObject": "[Gauge_All_E36_V9.eez-project]:/variables/globalVariables/4",
     "selectedThemeObject": "[Gauge_All_E36_V9.eez-project]:/themes/0",
     "selectedThemeColorObject": "[Gauge_All_E36_V9.eez-project]:/colors/10",
@@ -154,7 +154,8 @@
                       "enableClose": false,
                       "icon": "material:code"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -194,21 +195,9 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 36.386311193744916,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
-                {
-                  "type": "tab",
-                  "id": "#09c1f1d2-653c-4fb4-b253-c7173d2670f7",
-                  "name": "Gauge_G_Force",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[Gauge_All_E36_V9.eez-project]:/userPages/5",
-                    "permanent": false
-                  },
-                  "icon": "svg:page"
-                },
                 {
                   "type": "tab",
                   "id": "#b32bbfa3-23c5-475d-8648-58d771c70759",
@@ -220,8 +209,7 @@
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",

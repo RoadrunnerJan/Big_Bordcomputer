@@ -252,7 +252,7 @@ float get_adc_volt() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC board voltage: %.2f V | ADC value: %.2f V", v_board, raw / 1000.0f);
         printLog(log_msg);
     #endif
-    return round_Values(v_board, 2);
+    return round_Values(v_board, NBR_DECIMALS_VOLT);
 }
 
 float get_adc_volt_bel() {
@@ -266,7 +266,7 @@ float get_adc_volt_bel() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC brightness: %.2f V | ADC value: %.2f V", v_bel, raw / 1000.0f);
         printLog(log_msg);
     #endif
-    return round_Values(v_bel, 2); // Round to 2 decimal places
+    return round_Values(v_bel, NBR_DECIMALS_BEL_VOLT); // Round to 2 decimal places
 }
 
 float get_adc_oil_temp() {
@@ -282,7 +282,7 @@ float get_adc_oil_temp() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC oil temperature: %.1f °C | resistor value: %.2f", oil_t, oil_t_res);
         printLog(log_msg);
     #endif
-    return round_Values(oil_t, 2); // Round to 2 decimal places
+    return round_Values(oil_t, NBR_DECIMALS_OIL_TEMP); // Round to 2 decimal places
 }
 
 float get_adc_oil_press() {
@@ -298,7 +298,7 @@ float get_adc_oil_press() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC oil pressure: %.1f bar | resistor value: %.2f", oil_p, oil_p_res);
         printLog(log_msg);
     #endif
-    return round_Values(oil_p, 2); // Round to 2 decimal places
+    return round_Values(oil_p, NBR_DECIMALS_OIL_PRES); // Round to 2 decimal places
 }
 
 float get_adc_outside_temp() {
@@ -315,7 +315,7 @@ float get_adc_outside_temp() {
         snprintf(log_msg, sizeof(log_msg), "Measured ADC outside temperature: %.1f °C | resistor value: %.2f", outside_t, outside_t_res);
         printLog(log_msg);
     #endif
-    return round_Values(outside_t, 2); // Round to 2 decimal places
+    return round_Values(outside_t, NBR_DECIMALS_OUT_TEMP); // Round to 2 decimal places
 }
 
 /**

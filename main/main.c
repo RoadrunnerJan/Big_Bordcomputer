@@ -188,7 +188,7 @@ static void update_values(int displayID)
                     }
                     calculate_value(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK, value);
                     lvgl_lock();
-                    set_var_lvgl_value_temperature( round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_temperature( round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_TEMPERATURE_CLOCK), NBR_DECIMALS_OUT_TEMP) * DISPLAYS[displayID].eez_factor);
                     lvgl_unlock();
                 }
 
@@ -257,7 +257,7 @@ static void tick_switch(int displayID)
             case SCREEN_ID_GAUGE_OIL_PRESSURE: 
                 if (DISPLAYS[displayID].value_changed) {
                     lvgl_lock();
-                    set_var_lvgl_value_oil_pressure(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_pressure(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE), NBR_DECIMALS_OIL_PRES) * DISPLAYS[displayID].eez_factor);
                     set_var_lvgl_value_oil_pressure_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_PRESSURE));
                     tick_screen_gauge_oil_pressure();
                     lvgl_unlock();
@@ -267,7 +267,7 @@ static void tick_switch(int displayID)
             case SCREEN_ID_GAUGE_OIL_TEMPERATURE: 
                 if (DISPLAYS[displayID].value_changed) {
                     lvgl_lock();
-                    set_var_lvgl_value_oil_temperature(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_oil_temperature(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE), NBR_DECIMALS_OIL_TEMP) * DISPLAYS[displayID].eez_factor);
                     set_var_lvgl_value_oil_temperature_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_OIL_TEMPERATURE));
                     tick_screen_gauge_oil_temperature();
                     lvgl_unlock();
@@ -277,7 +277,7 @@ static void tick_switch(int displayID)
             case SCREEN_ID_GAUGE_VOLTAGE: 
                 if (DISPLAYS[displayID].value_changed) {
                     lvgl_lock();
-                    set_var_lvgl_value_voltage(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE), 2) * DISPLAYS[displayID].eez_factor);
+                    set_var_lvgl_value_voltage(round_Values(get_value_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE), NBR_DECIMALS_VOLT) * DISPLAYS[displayID].eez_factor);
                     set_var_lvgl_value_voltage_string(get_output_string_by_screen_id(SCREEN_ID_GAUGE_VOLTAGE));
                     tick_screen_gauge_voltage();
                     lvgl_unlock();

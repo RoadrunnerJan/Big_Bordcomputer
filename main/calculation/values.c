@@ -206,10 +206,12 @@ bool calculate_value(int screenSelection, double value) {
                     if (value_oil_pressure_array_idx >= VALUE_OVERSAMPLING_OIL_PRES) { // VALUE_OVERSAMPLING_OIL_PRES = 5
                         value_oil_pressure_array_idx = 0;
                         float sum = 0.0f;
+
                         for (int i = 0; i < VALUE_OVERSAMPLING_OIL_PRES; i++) {
                             sum += value_oil_pressure_array[i];
                         }
                         value = sum / (float)VALUE_OVERSAMPLING_OIL_PRES;
+                        //value = calculate_median(value_oil_pressure_array, VALUE_OVERSAMPLING_OIL_PRES);
                         if (value != value_oil_pressure){
                             value_oil_pressure = calc_filter(value, value_oil_pressure, FILTER_ALPHA_OIL_PRES);
                             new_value_available_oil_pres = true;
@@ -246,11 +248,12 @@ bool calculate_value(int screenSelection, double value) {
                     
                     if (value_oil_temperature_array_idx >= VALUE_OVERSAMPLING_OIL_TEMP) { // VALUE_OVERSAMPLING_OIL_TEMP = 5
                         value_oil_temperature_array_idx = 0;
-                        float sum = 0.0f;
-                        for (int i = 0; i < VALUE_OVERSAMPLING_OIL_TEMP; i++) {
-                            sum += value_oil_temperature_array[i];
-                        }
-                        value = sum / (float)VALUE_OVERSAMPLING_OIL_TEMP;
+                        //float sum = 0.0f;
+                        //for (int i = 0; i < VALUE_OVERSAMPLING_OIL_TEMP; i++) {
+                        //    sum += value_oil_temperature_array[i];
+                        //}
+                        value = calculate_median(value_oil_temperature_array, VALUE_OVERSAMPLING_OIL_TEMP);
+                        //value = sum / (float)VALUE_OVERSAMPLING_OIL_TEMP;
                         if (value != value_oil_temperature){
                             value_oil_temperature = calc_filter(value, value_oil_temperature, FILTER_ALPHA_OIL_TEMP);
                             new_value_available_oil_temp = true;
@@ -286,11 +289,11 @@ bool calculate_value(int screenSelection, double value) {
                     }
                     if (value_volt_array_idx >= VALUE_OVERSAMPLING_VOLT) { // VALUE_OVERSAMPLING_VOLT = 5
                         value_volt_array_idx = 0;
-                        float sum = 0.0f;
-                        for (int i = 0; i < VALUE_OVERSAMPLING_VOLT; i++) {
-                            sum += value_volt_array[i];
-                        }
-                        value = sum / (float)VALUE_OVERSAMPLING_VOLT;
+                        //float sum = 0.0f;
+                        //for (int i = 0; i < VALUE_OVERSAMPLING_VOLT; i++) {
+                        //    sum += value_volt_array[i];
+                        //}
+                        value = calculate_median(value_volt_array, VALUE_OVERSAMPLING_VOLT);
                         if (value != value_volt){
                             value_volt = calc_filter(value, value_volt, FILTER_ALPHA_VOLT);
                             new_value_available_volt = true;
@@ -334,11 +337,12 @@ bool calculate_value(int screenSelection, double value) {
                     }
                     if (value_outside_temperature_array_idx >= VALUE_OVERSAMPLING_OUT_TEMP) { // VALUE_OVERSAMPLING_OUT_TEMP = 5
                         value_outside_temperature_array_idx = 0;
-                        float sum = 0.0f;
-                        for (int i = 0; i < VALUE_OVERSAMPLING_OUT_TEMP; i++) {
-                            sum += value_outside_temperature_array[i];
-                        }
-                        value = sum / (float)VALUE_OVERSAMPLING_OUT_TEMP;
+                        //float sum = 0.0f;
+                        //for (int i = 0; i < VALUE_OVERSAMPLING_OUT_TEMP; i++) {
+                        //    sum += value_outside_temperature_array[i];
+                        //}
+                        //value = sum / (float)VALUE_OVERSAMPLING_OUT_TEMP;
+                        value = calculate_median(value_outside_temperature_array, VALUE_OVERSAMPLING_OUT_TEMP);
                         if (value != value_outside_temperature){
                             value_outside_temperature = calc_filter(value, value_outside_temperature, FILTER_ALPHA_OUT_TEMP);
                             new_value_available_out_temp = true;
@@ -549,4 +553,28 @@ bool updateLVGLScreen(int screenSelection)
         break;
     }
     return false;
+}
+
+// Comparison function for qsort
+int compare_floats(const void *a, const void *b) {
+    float fa = *(const float*)a;
+    float fb = *(const float*)b;
+    if (fa < fb) return -1;
+    if (fa > fb) return 1;
+    return 0;
+}
+
+// Function to calculate the median
+float calculate_median(float arr[], int n) {
+    if (n <= 0) return 0.0f;
+
+    // Sort the array in ascending order
+    qsort(arr, n, sizeof(float), compare_floats);
+
+    // If the number of elements is odd, return the middle element
+    if (n % 2 != 0) {
+        return arr[n / 2];
+    }
+    // If even, return the average of the two middle elements
+    return (arr[(n / 2) - 1] + arr[n / 2]) / 2.0f;
 }

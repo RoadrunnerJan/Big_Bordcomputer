@@ -20,7 +20,7 @@
 #define USE_BUZZER                         true   // true: enable buzzer alert functionality
 #define LOGGING_ENABLED                    true   // true: send debug output via serial logger
 #define LOGGING_TAG                        "JRO_BOARD_COMPUTER_LOG" // default ESP_LOG tag
-#define TESTMODE_ACTIVE                    false  // true: enable test mode for simulating sensor values and brightness
+#define TESTMODE_ACTIVE                    true  // true: enable test mode for simulating sensor values and brightness
 #define THIRD_BUTTON                       true     // true: enable the third button to switch the last displays
 
 /*
@@ -264,7 +264,7 @@
 #define EEZ_VALUE_FACTOR_1                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_2                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_3                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_4                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_4                 100       ///< Scaling factor for float-to-integer conversion in LVGL
 #define GAUGE_ON_DELAY_MS                  1200      ///< Delay before gauges become active after boot (milliseconds)
 #define BUZZER_ON_DELAY_MS                 5000      ///< Delay before buzzer activation is allowed (milliseconds)
 #define MAIN_TASK_FINISHED_DELAY           5000      ///< Delay for main task completion (milliseconds)
@@ -603,9 +603,9 @@
  * Filter (alpha): exponential moving average coefficient (0-1, lower = more smoothing).
  *  New_value = alpha * current + (1-alpha) * previous
  */
-#define VALUE_OVERSAMPLING_OIL_PRES        4         ///< Average 4 pressure readings
+#define VALUE_OVERSAMPLING_OIL_PRES        3         ///< Average 3 pressure readings
 #define VALUE_OVERSAMPLING_OIL_TEMP        5         ///< Average 5 temperature readings
-#define VALUE_OVERSAMPLING_VOLT            4         ///< Average 4 voltage readings
+#define VALUE_OVERSAMPLING_VOLT            5         ///< Average 5 voltage readings
 #define VALUE_OVERSAMPLING_OUT_TEMP        5         ///< Average 5 outdoor temperature readings
 #define VALUE_OVERSAMPLING_BRIGHT          8         ///< Average 8 brightness readings
 
@@ -615,11 +615,17 @@
  * Lower values provide more smoothing but slower response to changes.
  * Range: 0.0 (very smooth, very slow) to 1.0 (no filtering, responsive).
  */
-#define FILTER_ALPHA_OIL_PRES              0.05f      ///< Pressure smoothing factor
-#define FILTER_ALPHA_OIL_TEMP              0.1f      ///< Temperature smoothing factor
-#define FILTER_ALPHA_VOLT                  0.1f     ///< Voltage smoothing factor
-#define FILTER_ALPHA_OUT_TEMP              0.1f      ///< Outdoor temperature smoothing factor
-#define FILTER_ALPHA_BEL                   0.05f      ///< Brightness smoothing factor
+#define FILTER_ALPHA_OIL_PRES              0.1f      ///< Pressure smoothing factor
+#define FILTER_ALPHA_OIL_TEMP              0.05f//0.1f      ///< Temperature smoothing factor
+#define FILTER_ALPHA_VOLT                  0.05f//0.1f     ///< Voltage smoothing factor
+#define FILTER_ALPHA_OUT_TEMP              0.02f//0.1f      ///< Outdoor temperature smoothing factor
+#define FILTER_ALPHA_BEL                   0.02f//0.05f      ///< Brightness smoothing factor
+
+#define NBR_DECIMALS_OIL_PRES              2
+#define NBR_DECIMALS_OIL_TEMP              2
+#define NBR_DECIMALS_VOLT                  2
+#define NBR_DECIMALS_BEL_VOLT              2
+#define NBR_DECIMALS_OUT_TEMP              2
 
 /**
  * @brief Sensor measurement timing configuration.

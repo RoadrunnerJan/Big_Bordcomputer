@@ -25,6 +25,7 @@
 #include "../lvgl/src/ui/screens.h"
 #include "esp_system.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
@@ -153,3 +154,9 @@ bool getOutputTemperatureSet();
  * @return true if value got calculated
  */
 bool updateLVGLScreen(int screenSelection);
+
+// Comparison function for qsort
+int compare_floats(const void *a, const void *b);
+
+// Function to calculate the median
+float calculate_median(float arr[], int n);
