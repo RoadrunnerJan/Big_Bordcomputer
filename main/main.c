@@ -200,7 +200,6 @@ static void update_values(int displayID)
                 lvgl_lock();
                 set_var_lvgl_value_clock(output_string); 
                 lvgl_unlock();
-                setTimeIsUpdated(false);
             }
 
         break;
@@ -230,7 +229,6 @@ static void update_values(int displayID)
                 set_var_lvgl_value_clock_hour(hour * 50 + ((timeinfo.tm_min*10)/12));
                 set_var_lvgl_value_clock_minute(timeinfo.tm_min*10);
                 lvgl_unlock();
-                setTimeIsUpdated(false);
             }
 
         break;
@@ -285,10 +283,14 @@ static void tick_switch(int displayID)
                 }
                 break;
             case SCREEN_ID_GAUGE_TEMPERATURE_CLOCK: 
-                tick_screen_gauge_temperature_clock(); break;
+                tick_screen_gauge_temperature_clock(); 
+                setTimeIsUpdated(false);
+                break;
 
             case SCREEN_ID_GAUGE_CLOCK_TEMPERATURE: 
-                tick_screen_gauge_clock_temperature(); break;
+                tick_screen_gauge_clock_temperature();
+                setTimeIsUpdated(false);
+                break;
         }
 
         update_last_executed_time_per_screen(displayID);
