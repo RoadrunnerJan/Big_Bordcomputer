@@ -127,7 +127,7 @@ void create_screen_gauge_oil_pressure() {
             lv_obj_set_pos(obj, 7, 7);
             lv_obj_set_size(obj, 226, 226);
             lv_scale_set_mode(obj, LV_SCALE_MODE_ROUND_INNER);
-            lv_scale_set_range(obj, 0, 6000);
+            lv_scale_set_range(obj, 0, 600);
             lv_scale_set_angle_range(obj, 270);
             lv_scale_set_rotation(obj, 135);
             lv_scale_set_total_tick_count(obj, 31);
@@ -147,7 +147,7 @@ void create_screen_gauge_oil_pressure() {
             lv_scale_set_text_src(obj, label_texts);
             {
                 state->max = lv_scale_add_section(obj);
-                lv_scale_section_set_range(state->max, 5400, 6000);
+                lv_scale_section_set_range(state->max, 540, 600);
                 {
                     if (!pressure_gauge_scale_max_main_style_initialized) {
                         lv_style_init(&pressure_gauge_scale_max_main_style);
@@ -160,7 +160,7 @@ void create_screen_gauge_oil_pressure() {
             }
             {
                 state->min = lv_scale_add_section(obj);
-                lv_scale_section_set_range(state->min, 0, 600);
+                lv_scale_section_set_range(state->min, 0, 60);
                 {
                     if (!pressure_gauge_scale_min_main_style_initialized) {
                         lv_style_init(&pressure_gauge_scale_min_main_style);
