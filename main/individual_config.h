@@ -263,7 +263,7 @@
  */
 #define EEZ_VALUE_FACTOR_1                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_2                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
-#define EEZ_VALUE_FACTOR_3                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
+#define EEZ_VALUE_FACTOR_3                 100       ///< Scaling factor for float-to-integer conversion in LVGL
 #define EEZ_VALUE_FACTOR_4                 1000       ///< Scaling factor for float-to-integer conversion in LVGL
 #define GAUGE_ON_DELAY_MS                  1200      ///< Delay before gauges become active after boot (milliseconds)
 #define BUZZER_ON_DELAY_MS                 5000      ///< Delay before buzzer activation is allowed (milliseconds)
